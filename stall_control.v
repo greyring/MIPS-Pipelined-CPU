@@ -22,14 +22,14 @@ module stall_control(
 	input [4:0]id_rega,
 	input [4:0]id_regb,
 	input [4:0]exe_wb_dreg,
-	input exe_mem_mem_reg,
+	input [2:0]exe_mem_mem_reg,
 	input exe_wb_we,
 	output reg _stall_en,//stall时为0
 	output reg bubble//stall时为1
     );
-	 
+//对那些类lw指令，在MEM时数据才稳定的指令进行stall
 always @* begin
-	if (exe_wb_we == 1'b1 && exe_mem_mem_reg == 1'b0 &&
+	if (exe_wb_we == 1'b1 && (exe_mem_mem_reg == 3'b000 | exe_mem_mem_reg == 3'b010 | exe_mem_mem_reg == 3'b011) &&
 			(exe_wb_dreg != 0) &&//虽然不判断0也是可以的
 			((exe_wb_dreg == id_rega) || (exe_wb_dreg == id_regb))) begin
 			_stall_en = 0;

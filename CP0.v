@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module CP0(
+module CP0(//不处理harzard
 	input clk,
 	input rst,
 	
@@ -42,12 +42,14 @@ module CP0(
 	input [31:0]id_pc,
 	input [31:0]mem_pc,
 	
-	input [5:0]int_,
+	input [5:0]int_
 	
-	input forward_status,
+	//input forward_status,
 	//将在EXE的写入status的mtc0指令forward，为1时表示forward条件成立
-	//只有eret的时候会使用forward的值？因为mtc0不会有harzards
-	input [31:0]mtc0_status
+	//只有eret与中断和异常的时候会使用forward的值？因为mtc0不会有harzards
+	//input forward_cause,
+	//input forward_epc,
+	//input [31:0]mtc0_data
     );
 	 
 	wire [31:0]STATUS_out_DUMMY;
@@ -56,7 +58,7 @@ module CP0(
 	Status  STATUS(//[22]BEV 0:normal 1:boot 12 [0]IE  [1]EXL [2]ERL [15:8]IM
 				.clk(clk), 
 				.we(status_we),
-				.forward(forward_status),
+				//.forward(forward_status),
 				.mtcd(data_in),
 				.D(STATUS_in), 
 				.rst(rst), 
@@ -115,8 +117,8 @@ module CP0(
 	//[22]BEV 0:normal 1:boot 12 [0]IE  [1]EXL [2]ERL [15:8]IM
 	STATUS_data STATUS_Data(
 	 .id_eret(id_eret),
-	 .forward_status(forward_status),
-	 .mtc0_status(mtc0_status),
+	 //.forward_status(forward_status),
+	 //.mtc0_status(mtc0_status),
 	 .id_syscall(id_syscall),
 	 .id_unknown(id_unknown),
 	 .exe_overflow(exe_overflow),

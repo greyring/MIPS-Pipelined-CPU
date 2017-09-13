@@ -38,9 +38,11 @@ always @* begin
 	temp[9:7] = cause_out[9:7];
 	temp[30:16] = cause_out[30:16];
 	temp[1:0] = 2'b0;
-	if (INT) begin
-		temp[6:2] = 5'h00;
-		temp[31] = EXL? cause_out[31]:id_bj;
+	//请注意优先级别，EXP应该大于INT，overflow的级别比id_syscall与id_unknown要高,因为它先发生,而且产生的bubble更多
+	//syscall 与 unknown级别一致，因为它们不可能同时发生
+	if (exe_overflow) begin
+		temp[6:2] = 5'h0c;
+		temp[31] = EXL? cause_out[31]: mem_bj;
 	end
 	else if (id_syscall) begin
 		temp[6:2] = 5'h08;
@@ -50,9 +52,9 @@ always @* begin
 		temp[6:2] = 5'h0a;
 		temp[31] = EXL? cause_out[31]: 1'b0;
 	end
-	else if (exe_overflow) begin
-		temp[6:2] = 5'h0c;
-		temp[31] = EXL? cause_out[31]: mem_bj;
+	else if (INT) begin
+		temp[6:2] = 5'h00;
+		temp[31] = EXL? cause_out[31]:id_bj;
 	end
 	else begin
 		temp[6:2] = cause_out[6:2];

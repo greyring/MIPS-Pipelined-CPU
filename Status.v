@@ -21,7 +21,7 @@
 module Status(input clk,
 			 input rst,
 			 input we,
-			 input forward,
+			 //input forward,
 			 input [31:0]mtcd,
 			 input [31:0]D,
 			 output [31:0]Q
@@ -38,7 +38,7 @@ end
 
 always @(posedge clk) begin
 	if (rst) status<=32'b00000000000000001111111100000001;
-	else if (forward) status<=D;//forward时信息来自于Status_Data
+	//else if (forward) status<=D;//forward时信息来自于Status_Data
 	else if (we) status<=mtcd;
 	else status<=D;
 end

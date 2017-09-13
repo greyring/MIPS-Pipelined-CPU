@@ -28,14 +28,17 @@ module forward_reg(
 	input [4:0]mem_wb_dreg,
 	input [31:0]mem_out,
 	output reg [31:0]id_exe_reg,
-	input exe_mem_mem_reg
+	input [2:0]exe_mem_mem_reg
     );
+//mem阶段的forward条件：有一条指令要向当前用到的寄存器写入,且写入的不是0寄存器
+//exe阶段的forward条件：有一条指令要向当前用到的寄存器写入,且写入的不是0寄存器，写入数据的来源在EXE的后阶段生成，并一直稳定到写入
+
+//forward的数据：优先选择EXE即将进入MEM的结果， 之后选用MEM阶段最终会WB的结果（由触发条件保证）
 always @* begin
 	id_exe_reg = id_out;
 	if (mem_wb_we & (mem_wb_dreg != 0) & (id_reg == mem_wb_dreg))//要判断目标寄存器是否为0， 一般都不会出现
 		id_exe_reg = mem_out;
-	if (exe_wb_we & (exe_wb_dreg != 0) & (id_reg == exe_wb_dreg) & (exe_mem_mem_reg == 1'b1))
-	//因为有stall的存在所以lw和运算指令如果要forward， 不会在exe内， 但还是加上以防万一
+	if (exe_wb_we & (exe_wb_dreg != 0) & (id_reg == exe_wb_dreg) & (exe_mem_mem_reg == 3'b001))//注意jalr和jal
 		id_exe_reg = exe_out;
 end
 

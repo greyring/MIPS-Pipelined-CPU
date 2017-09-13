@@ -21,7 +21,8 @@
 module mulu32(
 	input [31:0]A,
 	input [31:0]B,
-	output [63:0]C
+	output [63:0]A_t,
+	output [63:0]B_t
     );
 
 wire c1_1_1, s1_1_1;
@@ -4488,8 +4489,7 @@ wire c8_63_1, s8_63_1;
 half_adder ha8_63_1 (
 .a(s7_63_1),.b(c7_62_1),.p(s8_63_1),.g(c8_63_1)
 );
-wire [63:0]A_t;
-wire [63:0]B_t;
+
 assign A_t[0] = 1'b0;
 assign B_t[0] = A[0] & B[0];
 assign A_t[1] = 1'b0;
@@ -4618,12 +4618,5 @@ assign A_t[62] = s8_62_1;
 assign B_t[62] = c8_61_1;
 assign A_t[63] = s8_63_1;
 assign B_t[63] = c8_62_1;
-
-adder64 Adder(
-    .A(A_t), 
-    .B(B_t), 
-    .res(C), 
-    .overflow()
-    );
 
 endmodule

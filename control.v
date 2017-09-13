@@ -32,7 +32,7 @@ module control(
 	output reg id_exe_jal,
 	
 	output reg id_mem_we,
-	output reg id_mem_mem_reg,
+	output reg [2:0]id_mem_mem_reg,
 	output reg [4:0]id_wb_dreg,//目标寄存器
 	output reg id_wb_we,
 	output reg id_syscall,
@@ -40,8 +40,7 @@ module control(
 	output reg id_exe_alu_sign,//表示是无符号还是有符号，用来帮助判断overflow
 	output reg id_eret,
 	output reg id_mem_CP0_we,
-	output reg [4:0]id_mem_CP0_dreg,
-	output reg id_mem_mfc//mem出来的result选择
+	output reg [4:0]id_mem_CP0_dreg
     );
 
 wire [5:0]op;
@@ -62,7 +61,7 @@ always @* begin
 	id_exe_lui = 1'b0;
 	id_exe_jal = 1'b0;
 	id_mem_we = 1'b0;
-	id_mem_mem_reg = 1'b0;
+	id_mem_mem_reg = 3'b0;
 	id_wb_dreg = 5'b0;
 	id_wb_we = 1'b0;
 	id_syscall = 1'b0;
@@ -71,60 +70,69 @@ always @* begin
 	id_eret = 1'b0;
 	id_mem_CP0_we = 1'b0;
 	id_mem_CP0_dreg = 5'b0;
-	id_mem_mfc = 1'b0;
 	if (inst == 32'b0) begin//nop
 		id_unknown = 1'b0;
 	end
-	else if (op == 6'b0) begin//R-type
-		id_mem_mem_reg = 1'b1; 		
+	else if (op == 6'b0) begin//R-type		
 		case (fun)
 			6'h20: begin id_exe_aluop = 4'b0010;//add
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 						id_exe_alu_sign = 1'b1;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h21: begin id_exe_aluop = 4'b0010;//addu
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h22: begin id_exe_aluop = 4'b0110;//sub
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 						id_exe_alu_sign = 1'b1;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h23: begin id_exe_aluop = 4'b0110;//subu
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h2A: begin id_exe_aluop = 4'b0111;//slt with sign
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h24: begin id_exe_aluop = 4'b0000;//and
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h25: begin id_exe_aluop = 4'b0001;//or
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h26: begin id_exe_aluop = 4'b0011;//xor
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h27: begin id_exe_aluop = 4'b0100;//nor
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h02: begin id_exe_aluop = 4'b0101;//srl
 						id_wb_we = 1'b1;
 						{id_ra, id_exe_srcb} = 2'b11;
 						id_wb_dreg = rd;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h00: begin id_exe_aluop = 4'b1000;//sll
 						id_wb_we = 1'b1;
 						{id_ra, id_exe_srcb} = 2'b11;
 						id_wb_dreg = rd;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h08: begin//jr
 						id_jr = 1'b1;
@@ -133,9 +141,28 @@ always @* begin
 						id_wb_we = 1'b1; id_exe_jal = 1'b1;
 						id_jr = 1'b1;
 						id_wb_dreg = 5'b11111;
+						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h0c: begin//syscall
 						id_syscall = 1'b1;
+					 end
+			6'h10: begin//mfhi
+						id_mem_mem_reg = 3'b011;
+						id_wb_dreg = rd;
+						id_wb_we = 1'b1;
+					 end
+			6'h12: begin//mflo
+						id_mem_mem_reg = 3'b011;
+						id_wb_dreg = rd;
+						id_wb_we = 1'b1;
+					 end
+			6'h18: begin//mult
+					 end
+			6'h19: begin//multu
+					 end
+			6'h11: begin//mthi
+					 end
+			6'h13: begin//mtlo
 					 end
 			default: begin //unknown
 						id_unknown = 1'b1;
@@ -161,7 +188,7 @@ always @* begin
 		id_exe_aluop = 4'b0010;//add
 		id_exe_sign = 1'b1;//sign
 		id_exe_srcb = 1'b1;//imme
-		id_mem_mem_reg = 1'b1;//reg
+		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
 		id_exe_alu_sign = 1'b1;
@@ -170,14 +197,14 @@ always @* begin
 		id_exe_aluop = 4'b0010;//add
 		id_exe_sign = 1'b1;//sign
 		id_exe_srcb = 1'b1;//imme
-		id_mem_mem_reg = 1'b1;//reg
+		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0c) begin//andi
 		id_exe_aluop = 4'b0000;//and
 		id_exe_srcb = 1'b1;//imme
-		id_mem_mem_reg = 1'b1;//reg
+		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
 	end
@@ -185,7 +212,7 @@ always @* begin
 		id_exe_aluop = 4'b0001;//or
 		id_exe_sign = 1'b0;//unsign
 		id_exe_srcb = 1'b1;//imme
-		id_mem_mem_reg = 1'b1;//reg
+		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
 	end
@@ -193,7 +220,7 @@ always @* begin
 		id_exe_aluop = 4'b0011;//xor
 		id_exe_sign = 1'b0;//unsign
 		id_exe_srcb = 1'b1;//imme
-		id_mem_mem_reg = 1'b1;//reg
+		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
 	end
@@ -201,7 +228,7 @@ always @* begin
 		id_exe_aluop = 4'b0111;//slt
 		id_exe_sign = 1'b1;//sign
 		id_exe_srcb = 1'b1;//imme
-		id_mem_mem_reg = 1'b1;//reg
+		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
 	end
@@ -209,7 +236,7 @@ always @* begin
 		id_exe_sign = 1'b0;//unsign
 		id_exe_srcb = 1'b1;//imme
 		id_exe_lui = 1'b1;//lui
-		id_mem_mem_reg = 1'b1;//reg
+		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
 	end
@@ -225,7 +252,7 @@ always @* begin
 	else if (op == 6'h03) begin//jal
 		id_j = 1'b1;//j
 		id_exe_jal = 1'b1;//jal
-		id_mem_mem_reg = 1'b1;//reg
+		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = 5'b11111;//ra
 		id_wb_we = 1'b1;//write
 	end
@@ -234,13 +261,26 @@ always @* begin
 	end
 	else if (op == 6'b010000 && rs == 5'b00000 && inst[10:3] == 8'b0) begin//mfc0
 		id_mem_CP0_dreg = rd;
-		id_mem_mfc = 1'b1;
+		id_mem_mem_reg = 3'b010;//mfc0
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;
 	end
 	else if (op == 6'b010000 && rs == 5'b00100 && inst[10:3] == 8'b0) begin//mtc0
 		id_mem_CP0_we = 1'b1;
 		id_mem_CP0_dreg = rd;
+	end
+	else if (op == 6'b011100 && shift == 5'b0 && fun == 6'b000010) begin//mul
+		id_mem_mem_reg = 3'b011;
+		id_wb_dreg = rd;
+		id_wb_we = 1'b1;
+	end
+	else if (op == 6'b011100 && rd == 5'b0 && shift == 5'b0 && fun == 6'b000000)begin//madd
+	end
+	else if (op == 6'b011100 && rd == 5'b0 && shift == 5'b0 && fun == 6'b000001)begin//maddu
+	end
+	else if (op == 6'b011100 && rd == 5'b0 && shift == 5'b0 && fun == 6'b000100)begin//msub
+	end
+	else if (op == 6'b011100 && rd == 5'b0 && shift == 5'b0 && fun == 6'b000101)begin//msubu
 	end
 	else begin
 		id_unknown = 1'b1;

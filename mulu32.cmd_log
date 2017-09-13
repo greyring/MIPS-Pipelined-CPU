@@ -1,0 +1,2 @@
+vhdtdtfi -lib work F:/MyProgramme/0/PCPU/mulu32.v -lang verilog -prj PCPU -o mulu32.spl -module mulu32 -template D:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family kintex7 mulu32.spl F:/MyProgramme/0/PCPU/mulu32.sym 

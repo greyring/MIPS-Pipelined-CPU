@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-09-13T15:47:50</DateModified>
-  <ModuleName>mulu24</ModuleName>
-  <SummaryTimeStamp>2017-09-13T15:09:51</SummaryTimeStamp>
+  <DateModified>2017-09-14T01:51:08</DateModified>
+  <ModuleName>PCPU_v</ModuleName>
+  <SummaryTimeStamp>2017-09-14T01:44:53</SummaryTimeStamp>
   <SavedFilePath>F:/MyProgramme/0/PCPU/iseconfig/top.xreport</SavedFilePath>
   <ImplementationReportsDirectory>F:/MyProgramme/0/PCPU\</ImplementationReportsDirectory>
-  <DateInitialized>2017-09-13T15:47:50</DateInitialized>
+  <DateInitialized>2017-09-14T01:41:34</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
@@ -42,7 +42,7 @@
   </viewgroup>
   <viewgroup label="Errors and Warnings" >
    <view program="pn" WrapMessages="true" contextTags="EDK_OFF" type="MessageList" hideColumns="Filtered, New" file="_xmsgs/pn_parser.xmsgs" label="Parser Messages" />
-   <view program="xst" WrapMessages="true" contextTags="XST_ONLY,EDK_OFF" hidden="false" type="MessageList" hideColumns="Filtered" file="_xmsgs/xst.xmsgs" label="Synthesis Messages" />
+   <view program="xst" WrapMessages="true" contextTags="XST_ONLY,EDK_OFF" hidden="false" type="MessageList" hideColumns="Filtered" collate="0" file="_xmsgs/xst.xmsgs" label="Synthesis Messages" />
    <view inputState="Synthesized" program="ngdbuild" WrapMessages="true" type="MessageList" hideColumns="Filtered" file="_xmsgs/ngdbuild.xmsgs" label="Translation Messages" />
    <view inputState="Translated" program="map" WrapMessages="true" contextTags="FPGA_ONLY" type="MessageList" hideColumns="Filtered" file="_xmsgs/map.xmsgs" label="Map Messages" />
    <view inputState="Mapped" program="par" WrapMessages="true" contextTags="FPGA_ONLY" type="MessageList" hideColumns="Filtered" file="_xmsgs/par.xmsgs" label="Place and Route Messages" />

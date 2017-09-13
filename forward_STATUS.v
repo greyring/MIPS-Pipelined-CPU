@@ -18,24 +18,30 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module forward_STATUS(
+module forward_CP0(//用于forward mtc0
 	input exe_mem_CP0_we,
 	input [4:0]exe_mem_CP0_dreg,
 	input [31:0]exe_data,
 	input mem_CP0_we,
 	input [4:0]mem_CP0_dreg,
 	input [31:0]mem_data,
+	
 	output forward_status,
-	output reg [31:0]mtc0_status
+	output forward_cause,
+	output forward_epc,
+	output reg [31:0]mtc0_data
     );
-	 assign forward_status = (exe_mem_CP0_we & exe_mem_CP0_dreg == 5'd12)
+//forward成立的条件：当前需要而且
+	assign forward_status = (exe_mem_CP0_we & exe_mem_CP0_dreg == 5'd12)
 									|(mem_CP0_we & mem_CP0_dreg == 5'd12);
+	assign forward_cause = (exe_mem_CP0_we & exe_mem_CP0_dreg == 5'd13)
+									|(mem_CP0_we & mem_CP0_dreg == 5'd13);
+	assign forward_epc = (exe_mem_CP0_we & exe_mem_CP0_dreg == 5'd14)
+									|(mem_CP0_we & mem_CP0_dreg == 5'd14);
 	always @* begin
-		if (exe_mem_CP0_we & exe_mem_CP0_dreg == 5'd12)//先exe后mem
-			mtc0_status = exe_data;
+		if (exe_mem_CP0_we)//先exe后mem
+			mtc0_data = exe_data;
 		else
-			mtc0_status = mem_data;
+			mtc0_data = mem_data;
 	end
-
-
 endmodule

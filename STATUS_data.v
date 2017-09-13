@@ -24,16 +24,16 @@ module STATUS_data(
 	input id_syscall,
 	input id_unknown,
 	input exe_overflow,
-	input forward_status,
-	input [31:0]mtc0_status,
+	//input forward_status,
+	//input [31:0]mtc0_status,
 	output reg [31:0]STATUS_in,
 	input [31:0]STATUS_out
     );
 always @* begin//这种赋值方式可能会出问题
 	if (id_eret)
-		if (forward_status)
-			STATUS_in = {mtc0_status[31:2], 1'b0, mtc0_status[0]};
-		else
+		//if (forward_status)
+		//	STATUS_in = {mtc0_status[31:2], 1'b0, mtc0_status[0]};
+		//else
 			STATUS_in = {STATUS_out[31:2], 1'b0, STATUS_out[0]};//eret 清除EXL
 	else if (INT | id_syscall | id_unknown | exe_overflow)
 		STATUS_in = {STATUS_out[31:2], 1'b1, STATUS_out[0]};

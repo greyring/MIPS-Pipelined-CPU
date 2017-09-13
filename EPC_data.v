@@ -36,18 +36,18 @@ module EPC_data(
 always @* begin
 	if (EXL)
 		EPC_in = EPC_out;
-	else if (INT)
-		if (id_bj)
-			EPC_in = id_pc;
-		else
-			EPC_in = if_pc;
-	else if (id_syscall | id_unknown)
-		EPC_in = if_pc;
-	else if (exe_overflow)
+	else if (exe_overflow)//overflow优先级最高
 		if (mem_bj)
 			EPC_in = mem_pc;
 		else
 			EPC_in = id_pc;
+	else if (id_syscall | id_unknown)//然后是syscall与unknown
+		EPC_in = if_pc;
+	else if (INT)//中断最后
+		if (id_bj)
+			EPC_in = id_pc;
+		else
+			EPC_in = if_pc;
 	else
 		EPC_in = EPC_out;
 end

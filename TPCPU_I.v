@@ -102,6 +102,7 @@ module TPCPU_I;
 		//interrupt 单独测，一个interrupt后不会再有interrupt
 		*/
 		
+		/*
 		#10
 		inst_data = 32'h08000000;//jump
 		#1
@@ -122,10 +123,14 @@ module TPCPU_I;
 		#10
 		inst_data = 32'b01000000100000110110000000000000;//mtc0 $3, $12
 		#10
-		/*inst_data = 32'b0;
-		#10//CP0 harzards*///要测试有一个延时和两个延时的forward
+		//inst_data = 32'b0;
+		//#10//CP0 harzards//要测试有一个延时和两个延时的forward
 		inst_data = 32'b01000010000000000000000000011000;//eret
-		
+		*/
+		#10
+		inst_data = 32'b01000000000000110110000000000000;//mfc0 $3, $12
+		#10
+		inst_data = 32'h3463ffff;//ori $3, $3, $3//stall
 		
 		#10
 		inst_data = 32'h0;

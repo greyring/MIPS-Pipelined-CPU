@@ -1,0 +1,17 @@
+[Inputs]
+exe_wb_we
+mem_wb_we
+exe_mem_mem_reg
+exe_mem_mfc
+=id_reg[4:0]=
+=id_out[31:0]=
+=exe_wb_dreg[4:0]=
+=exe_out[31:0]=
+=mem_wb_dreg[4:0]=
+=mem_out[31:0]=
+[Outputs]
+=id_exe_reg[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel forward_reg
+

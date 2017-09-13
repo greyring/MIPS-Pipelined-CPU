@@ -1,2 +1,4 @@
 vhdtdtfi -lib work F:/MyProgramme/0/PCPU/forward_reg.v -lang verilog -prj PCPU -o forward_reg.spl -module forward_reg -template D:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
 spl2sym -intstyle ise -family kintex7 forward_reg.spl F:/MyProgramme/0/PCPU/forward_reg.sym 
+vhdtdtfi -lib work F:/MyProgramme/0/PCPU/forward_reg.v -lang verilog -prj PCPU -o forward_reg.spl -module forward_reg -template D:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family kintex7 forward_reg.spl F:/MyProgramme/0/PCPU/forward_reg.sym 

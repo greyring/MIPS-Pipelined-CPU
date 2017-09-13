@@ -1,0 +1,2 @@
+vhdtdtfi -lib work F:/MyProgramme/0/PCPU/MUL_EXE_EWB.v -lang verilog -prj PCPU -o MUL_EXE_EWB.spl -module MUL_EXE_EWB -template D:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family kintex7 MUL_EXE_EWB.spl F:/MyProgramme/0/PCPU/MUL_EXE_EWB.sym 

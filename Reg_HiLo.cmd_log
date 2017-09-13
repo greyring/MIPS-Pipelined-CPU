@@ -1,0 +1,2 @@
+vhdtdtfi -lib work F:/MyProgramme/0/PCPU/Reg_HiLo.v -lang verilog -prj PCPU -o Reg_HiLo.spl -module Reg_HiLo -template D:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family kintex7 Reg_HiLo.spl F:/MyProgramme/0/PCPU/Reg_HiLo.sym 
