@@ -166,6 +166,14 @@ always @* begin
 		id_wb_we = 1'b1;//write
 		id_exe_alu_sign = 1'b1;
 	end
+	else if (op == 6'h09) begin//addiu, Imme sign extended, no overflow
+		id_exe_aluop = 4'b0010;//add
+		id_exe_sign = 1'b1;//sign
+		id_exe_srcb = 1'b1;//imme
+		id_mem_mem_reg = 1'b1;//reg
+		id_wb_dreg = rt;
+		id_wb_we = 1'b1;//write
+	end
 	else if (op == 6'h0c) begin//andi
 		id_exe_aluop = 4'b0000;//and
 		id_exe_srcb = 1'b1;//imme
