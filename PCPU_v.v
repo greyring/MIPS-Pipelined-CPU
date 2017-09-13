@@ -27,8 +27,10 @@ module PCPU_v(	//人肉保证CP0写入后一段时间不读取CP0，避免CP0遇险
    output [31:0] inst_addr,
    output [31:0] mem_addr,
    output [31:0] mem_data,
+	output [31:0] cause_data,
    output mem_we
 	);
+	
    
 	wire [31:0]mem_addr_DUMMY;
 	wire [31:0]inst_addr_DUMMY;
@@ -101,6 +103,7 @@ forward_STATUS Forward_STATUS(//eret要修改status，会与mtc0有冲突
 	 .forward_status(forward_status),
 	 .mtc0_status(mtc0_status[31:0])
     );
+	 assign cause_data = CAUSE_out;
 ////////////////////////////////////////////////////////////////////////
 	wire id_beq;
 	wire id_ben;
@@ -170,7 +173,7 @@ forward_STATUS Forward_STATUS(//eret要修改status，会与mtc0有冲突
 						.id_pc(id_pc[31:0]));
 ///////////////////////////////////////////////////////////	
 	
-	wire [2:0]id_exe_aluop;
+	wire [3:0]id_exe_aluop;
 	wire id_exe_jal;
 	wire id_exe_lui;
 	wire id_exe_sign;
@@ -189,7 +192,7 @@ forward_STATUS Forward_STATUS(//eret要修改status，会与mtc0有冲突
                     .id_bne(id_bne), 
 						  .id_j(id_j), 
                     .id_jr(id_jr), 
-                    .id_exe_aluop(id_exe_aluop[2:0]), 
+                    .id_exe_aluop(id_exe_aluop[3:0]), 
                     .id_exe_jal(id_exe_jal), 
                     .id_exe_lui(id_exe_lui), 
                     .id_exe_sign(id_exe_sign), 
@@ -276,7 +279,7 @@ forward_STATUS Forward_STATUS(//eret要修改status，会与mtc0有冲突
 //////////////////////////////////////////////////////////////////////
 //wire ID_EXE_stall_;
 wire id_bubble;
-wire [2:0]exe_aluop;
+wire [3:0]exe_aluop;
 wire [15:0]exe_imme;
 wire exe_jal;
 wire exe_lui;
@@ -292,7 +295,7 @@ wire exe_mem_mfc;
 ID_EXE_REG  ID_EXE (.clk(clk), 
                        .EN(1'b1), 
 							  .rst(rst | id_bubble | exe_overflow),//当overflow时id阶段bubble 
-                       .id_exe_aluop(id_exe_aluop[2:0]), 
+                       .id_exe_aluop(id_exe_aluop[3:0]), 
                        .id_exe_imme(id_inst[15:0]), 
 							  .id_pc(id_pc),
                        .id_exe_jal(id_exe_jal), 
@@ -312,7 +315,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 							  .id_mem_CP0_dreg(id_mem_CP0_dreg),
 							  .id_mem_mfc(id_mem_mfc),
 							  
-                       .exe_aluop(exe_aluop[2:0]), 
+                       .exe_aluop(exe_aluop[3:0]), 
                        .exe_imme(exe_imme[15:0]), 
 							  .exe_pc(exe_pc),
                        .exe_jal(exe_jal), 
@@ -348,14 +351,13 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 						 .o(exe_b[31:0]));
 						 
 	wire [31:0]exe_alu_res;
-	wire overflow;
    alu  ALU (.A(exe_rega[31:0]), 
-               .ALU_Ctr(exe_aluop[2:0]), 
+               .ALU_Ctr(exe_aluop[3:0]), 
                .B(exe_b[31:0]), 
-               .overflow(overflow), 
+               .overflow(exe_overflow), 
+					.alu_sign(exe_alu_sign),
                .res(exe_alu_res[31:0]), 
                .zero());
-	assign exe_overflow = overflow & exe_alu_sign;
 	
 	wire [31:0]exe_lui_out;
 	MUX2T1_32  XLXI_74 (.I0(exe_alu_res[31:0]), 

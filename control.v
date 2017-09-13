@@ -25,7 +25,7 @@ module control(
 	output reg id_bne,
 	output reg id_j,
 	output reg id_jr,
-	output reg [2:0]id_exe_aluop,
+	output reg [3:0]id_exe_aluop,
 	output reg id_exe_sign,
 	output reg id_exe_srcb,//寄存器还是立即数
 	output reg id_exe_lui,
@@ -56,7 +56,7 @@ assign {op, rs, rt, rd, shift, fun} = inst;
 always @* begin
 	id_beq = 1'b0; id_bne = 1'b0; id_j = 1'b0; id_jr = 1'b0;
 	id_ra = 1'b0;
-	id_exe_aluop = 3'b000;
+	id_exe_aluop = 4'b0000;
 	id_exe_sign = 1'b0;
 	id_exe_srcb = 1'b0;
 	id_exe_lui = 1'b0;
@@ -78,45 +78,45 @@ always @* begin
 	else if (op == 6'b0) begin//R-type
 		id_mem_mem_reg = 1'b1; 		
 		case (fun)
-			6'h20: begin id_exe_aluop = 3'b010;//add
+			6'h20: begin id_exe_aluop = 4'b0010;//add
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 						id_exe_alu_sign = 1'b1;
 					 end
-			6'h21: begin id_exe_aluop = 3'b010;//uadd
+			6'h21: begin id_exe_aluop = 4'b0010;//uadd
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 					 end
-			6'h22: begin id_exe_aluop = 3'b110;//sub
+			6'h22: begin id_exe_aluop = 4'b0110;//sub
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 						id_exe_alu_sign = 1'b1;
 					 end
-			6'h23: begin id_exe_aluop = 3'b110;//usub
+			6'h23: begin id_exe_aluop = 4'b0110;//usub
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 					 end
-			6'h2A: begin id_exe_aluop = 3'b111;//slt with sign
+			6'h2A: begin id_exe_aluop = 4'b0111;//slt with sign
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 					 end
-			6'h24: begin id_exe_aluop = 3'b000;//and
+			6'h24: begin id_exe_aluop = 4'b0000;//and
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 					 end
-			6'h25: begin id_exe_aluop = 3'b001;//or
+			6'h25: begin id_exe_aluop = 4'b0001;//or
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 					 end
-			6'h26: begin id_exe_aluop = 3'b011;//xor
+			6'h26: begin id_exe_aluop = 4'b0011;//xor
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 					 end
-			6'h27: begin id_exe_aluop = 3'b100;//nor
+			6'h27: begin id_exe_aluop = 4'b0100;//nor
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 					 end
-			6'h02: begin id_exe_aluop = 3'b101;//srl
+			6'h02: begin id_exe_aluop = 4'b0101;//srl
 						id_wb_we = 1'b1;
 						{id_ra, id_exe_srcb} = 2'b11;
 						id_wb_dreg = rd;
@@ -139,7 +139,7 @@ always @* begin
 	end
 	
 	else if (op == 6'h23) begin//lw
-		id_exe_aluop = 3'b010;//add
+		id_exe_aluop = 4'b0010;//add
 		id_exe_sign = 1'b1;//sign
 		id_exe_srcb = 1'b1;//imme
 		id_wb_dreg = rt;
@@ -147,13 +147,13 @@ always @* begin
 	end
 	
 	else if (op == 6'h2B) begin//sw
-		id_exe_aluop = 3'b010;//add
+		id_exe_aluop = 4'b0010;//add
 		id_exe_sign = 1'b1;//sign
 		id_exe_srcb = 1'b1;//imme
 		id_mem_we = 1'b1;//write
 	end
 	else if (op == 6'h08) begin//addi
-		id_exe_aluop = 3'b010;//add
+		id_exe_aluop = 4'b0010;//add
 		id_exe_sign = 1'b1;//sign
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 1'b1;//reg
@@ -161,14 +161,14 @@ always @* begin
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0c) begin//andi
-		id_exe_aluop = 3'b000;//and
+		id_exe_aluop = 4'b0000;//and
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 1'b1;//reg
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0d) begin//ori
-		id_exe_aluop = 3'b001;//or
+		id_exe_aluop = 4'b0001;//or
 		id_exe_sign = 1'b0;//unsign
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 1'b1;//reg
@@ -176,7 +176,7 @@ always @* begin
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0e) begin//xori
-		id_exe_aluop = 3'b011;//xor
+		id_exe_aluop = 4'b0011;//xor
 		id_exe_sign = 1'b0;//unsign
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 1'b1;//reg
@@ -184,7 +184,7 @@ always @* begin
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0a) begin//slti
-		id_exe_aluop = 3'b111;//slt
+		id_exe_aluop = 4'b0111;//slt
 		id_exe_sign = 1'b1;//sign
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 1'b1;//reg
@@ -229,17 +229,6 @@ always @* begin
 		id_mem_CP0_dreg = rd;
 	end
 	else begin
-		id_beq = 1'b0; id_bne = 1'b0; id_j = 1'b0; id_jr = 1'b0;
-		id_ra = 1'bx;
-		id_exe_aluop = 3'bxxx;
-		id_exe_sign = 1'bx;
-		id_exe_srcb = 1'bx;
-		id_exe_lui = 1'bx;
-		id_exe_jal = 1'bx;
-		id_mem_we = 1'b0;//not write
-		id_mem_mem_reg = 1'bx;
-		id_wb_dreg = 5'b0;
-		id_wb_we = 1'b0;//not write
 		id_unknown = 1'b1;
 	end
 end

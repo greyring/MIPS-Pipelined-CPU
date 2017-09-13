@@ -107,7 +107,7 @@ wire [31:0]Data_in;
 	Multi_8CH32  multi_8ch32(
 		.clk(~Clk_CPU), 
 		.Data0(Peripheral_in), 
-		.data1({2'b0, PC[31:2]}), 
+		.data1(cause_data), 
 		.data2(inst[31:0]), 
 		.data3(Counter_out[31:0]), 
 		.data4(Addr_out[31:0]), 
@@ -237,6 +237,7 @@ GPIO gpio(
 		.mem_data(Data_out), 
 		.inst_addr(PC), 
 		.inst_data(inst), 
+		.cause_data(cause_data),
 		.mem_data_in(Data_in)
    );
 	

@@ -23,7 +23,7 @@ module ID_EXE_REG(
 	input rst,
 	input EN,
 	
-	input [2:0]id_exe_aluop,
+	input [3:0]id_exe_aluop,
 	input [31:0]id_exe_rega,
 	input [31:0]id_exe_regb,
 	input [15:0]id_exe_imme,
@@ -44,7 +44,7 @@ module ID_EXE_REG(
 	input [4:0]id_mem_CP0_dreg,
 	input id_mem_mfc,
 	
-	output [2:0]exe_aluop,
+	output [3:0]exe_aluop,
 	output [31:0]exe_rega,
 	output [31:0]exe_regb,
 	output [15:0]exe_imme,
@@ -66,10 +66,10 @@ module ID_EXE_REG(
 	output exe_mem_mfc	
     );
 
-reg [167:0]temp = 168'b0;
+reg [168:0]temp = 169'b0;
 always @(posedge clk) begin
 	if (rst)
-		temp <= 168'b0;
+		temp <= 169'b0;
 	else if (EN) 
 		temp <= {id_exe_aluop, id_exe_rega, id_exe_regb, id_exe_imme, id_pc, id_exe_npc, 
 					id_exe_sign, id_exe_srcb, id_exe_lui,
