@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0/PCPU/Display.tfi -lib work F:/MyProgramme/0/PCPU//Display_IO.v -module Display -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

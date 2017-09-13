@@ -1,0 +1,2 @@
+vhdtdtfi -lib work F:/MyProgramme/0/PCPU/IF_stall.v -lang verilog -prj PCPU -o IF_stall.spl -module IF_stall -template D:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family kintex7 IF_stall.spl F:/MyProgramme/0/PCPU/IF_stall.sym 

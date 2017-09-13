@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0/PCPU/res_adder.tfi -lib work F:/MyProgramme/0/PCPU//res_adder.v -module res_adder -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

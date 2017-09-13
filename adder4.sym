@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="adder4">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2017-4-11T11:50:51</timestamp>
+    <attr value="adder4" name="VeriModel" />
+    <pin polarity="Input" x="0" y="-128" name="pc(31:0)" />
+    <pin polarity="Output" x="192" y="-112" name="nextPc(31:0)" />
+    <graph>
+        <rect width="80" x="64" y="-164" height="164" />
+        <attrtext style="fontsize:12;fontname:Arial" attrname="PinName" x="72" y="-128" type="pin pc(31:0)" />
+        <line x2="0" y1="-128" y2="-128" x1="64" />
+        <attrtext style="alignment:VCENTER;fontsize:28;fontname:Arial" attrname="SymbolName" x="96" y="-64" type="symbol" />
+        <attrtext style="alignment:RIGHT;fontsize:12;fontname:Arial" attrname="PinName" x="140" y="-112" type="pin nextPc(31:0)" />
+        <line x2="144" y1="-112" y2="-112" x1="192" />
+    </graph>
+</symbol>

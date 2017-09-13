@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0/PCPU/adder8.tfi -lib work F:/MyProgramme/0/PCPU//adder8.v -module adder8 -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

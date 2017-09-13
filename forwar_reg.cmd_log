@@ -1,0 +1,2 @@
+vhdtdtfi -lib work F:/MyProgramme/0/PCPU/forwar_reg.v -lang verilog -prj PCPU -o forwar_reg.spl -module forwar_reg -template D:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family kintex7 forwar_reg.spl F:/MyProgramme/0/PCPU/forwar_reg.sym 

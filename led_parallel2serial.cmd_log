@@ -1,0 +1,2 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0/PCPU/led_parallel2serial.tfi -lib work F:/MyProgramme/0/PCPU//led_parallel2serial_io.v -module led_parallel2serial -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0/PCPU/led_parallel2serial.tfi -lib work F:/MyProgramme/0/PCPU//led_parallel2serial_io.v -module led_parallel2serial -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

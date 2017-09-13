@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="PCPU" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/CP0 F:|MyProgramme|0|PCPU|CP0.v</ClosedNode>
+         <ClosedNode>/GPIO F:|MyProgramme|0|PCPU|GPIO.v</ClosedNode>
+         <ClosedNode>/PCPU F:|MyProgramme|0|PCPU|PCPU.sch</ClosedNode>
+         <ClosedNode>/PCPU F:|MyProgramme|0|PCPU|PCPU.sch/XLXI_1 - alu/adder32 - adder32_Sklansky</ClosedNode>
+         <ClosedNode>/PCPU_v F:|MyProgramme|0|PCPU|PCPU_v.v</ClosedNode>
+         <ClosedNode>/adder32_Sklansky F:|MyProgramme|0|PCPU|adder32_Sklansky.v</ClosedNode>
+         <ClosedNode>/input_switch_btn F:|MyProgramme|0|PCPU|input_switch_btn.v</ClosedNode>
+         <ClosedNode>/output_led F:|MyProgramme|0|PCPU|output_led.v</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Gpio - GPIO</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Input_switch_btn - input_switch_btn</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Input_switch_btn - input_switch_btn/Santi_jitter - santi_jitter</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/ALU - alu</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/ALU - alu/adder32 - adder32_Sklansky</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/CP0_ - CP0</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/add_branch_addr - adder32_Sklansky</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU_ - PCPU</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU_v - PCPU</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Vga_controller - vga_controller/Graph_vga - vga_graph</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Vga_controller - vga_controller/Text_vga - vga_text</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/gpio - GPIO</ClosedNode>
+         <ClosedNode>/vga_controller F:|MyProgramme|0|PCPU|vga_controller.v</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Cursor_vga - vga_cursor (F:/MyProgramme/0/PCPU/vga_cursor.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >12</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000192000000020000000000000000000000000200000064ffffffff000000810000000300000002000001920000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>Cursor_vga - vga_cursor (F:/MyProgramme/0/PCPU/vga_cursor.v)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Implement Design/Map</ClosedNode>
+         <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
+         <ClosedNode>Implement Design/Translate</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>clk_gen_sword.v</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >18</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000027d000000040101000100000000000000000000000064ffffffff000000810000000000000004000000ac0000000100000000000000c00000000100000000000000780000000100000000000000990000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>jump_control.v</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000121000000010001000100000000000000000000000064ffffffff000000810000000000000001000001210000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff00000000000000020000012d0000011b01000000050100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/PCPU F:|MyProgramme|0|PCPU|PCPU.sch</ClosedNode>
+         <ClosedNode>/PCPU_PCPU_sch_tb F:|MyProgramme|0|PCPU|TPCPU.v</ClosedNode>
+         <ClosedNode>/PCPU_PCPU_sch_tb F:|MyProgramme|0|PCPU|TPCUP.v</ClosedNode>
+         <ClosedNode>/TPCPU_I F:|MyProgramme|0|PCPU|TPCPU_I.v</ClosedNode>
+         <ClosedNode>/TPCPU_I F:|MyProgramme|0|PCPU|TPCPU_I.v/uut - PCPU_v/ALU - alu</ClosedNode>
+         <ClosedNode>/TPCPU_I F:|MyProgramme|0|PCPU|TPCPU_I.v/uut - PCPU_v/add_branch_addr - adder32_Sklansky</ClosedNode>
+         <ClosedNode>/Tadder32_Sklansky F:|MyProgramme|0|PCPU|Tadder32_Sklansky.v</ClosedNode>
+         <ClosedNode>/Tkey_board F:|MyProgramme|0|PCPU|Tkey_board.v</ClosedNode>
+         <ClosedNode>/Tmio F:|MyProgramme|0|PCPU|Tmio.v</ClosedNode>
+         <ClosedNode>/Ttimer F:|MyProgramme|0|PCPU|Ttimer.v</ClosedNode>
+         <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/Input_switch_btn - input_switch_btn</ClosedNode>
+         <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/PCPU - PCPU_v</ClosedNode>
+         <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/PCPU_ - PCPU</ClosedNode>
+         <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/Vga_controller - vga_controller</ClosedNode>
+         <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/Vga_controller - vga_controller/Graph_vga - vga_graph</ClosedNode>
+         <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/gpio - GPIO</ClosedNode>
+         <ClosedNode>/Tvga_cusor F:|MyProgramme|0|PCPU|Tvga_cusor.v</ClosedNode>
+         <ClosedNode>/output_led F:|MyProgramme|0|PCPU|output_led.v</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>uut - top (F:/MyProgramme/0/PCPU/top.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >10</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001a6000000020000000000000000000000000200000064ffffffff000000810000000300000002000001a60000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>uut - top (F:/MyProgramme/0/PCPU/top.v)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>ISim Simulator</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="ManualCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>clk_gen_sword.v (F:/MyProgramme/0/PCPU/clk_gen_sword.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000157000000020000000000000000000000000000000064ffffffff000000810000000000000002000000da00000001000000000000007d0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>clk_gen_sword.v (F:/MyProgramme/0/PCPU/clk_gen_sword.v)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_XCO" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_NGC" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_XCO" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+</Project>

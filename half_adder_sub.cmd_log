@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0/PCPU/half_adder_sub.tfi -lib work F:/MyProgramme/0/PCPU//half_adder_sub.v -module half_adder_sub -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

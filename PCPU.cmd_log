@@ -1,0 +1,1 @@
+sch2hdl -sympath F:/MyProgramme/0/PCPU/ipcore_dir -intstyle ise -family kintex7 -verilog PCPU.vf -w F:/MyProgramme/0/PCPU/PCPU.sch 
