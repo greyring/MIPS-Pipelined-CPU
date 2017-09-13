@@ -32,7 +32,7 @@ module Tmul24;
 	wire [47:0] C;
 
 	// Instantiate the Unit Under Test (UUT)
-	mul24 uut (
+	mulu24 uut (
 		.A(A), 
 		.B(B), 
 		.C(C)

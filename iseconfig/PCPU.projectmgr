@@ -12,32 +12,43 @@
          <ClosedNode>/PCPU F:|MyProgramme|0|PCPU|PCPU.sch</ClosedNode>
          <ClosedNode>/PCPU F:|MyProgramme|0|PCPU|PCPU.sch/XLXI_1 - alu/adder32 - adder32_Sklansky</ClosedNode>
          <ClosedNode>/PCPU_v F:|MyProgramme|0|PCPU|PCPU_v.v</ClosedNode>
+         <ClosedNode>/adder16 F:|MyProgramme|0|PCPU|adder16.v</ClosedNode>
          <ClosedNode>/adder32_Sklansky F:|MyProgramme|0|PCPU|adder32_Sklansky.v</ClosedNode>
+         <ClosedNode>/adder64 F:|MyProgramme|0|PCPU|adder64.v</ClosedNode>
+         <ClosedNode>/adder8 F:|MyProgramme|0|PCPU|adder8.v</ClosedNode>
          <ClosedNode>/input_switch_btn F:|MyProgramme|0|PCPU|input_switch_btn.v</ClosedNode>
+         <ClosedNode>/mul24 F:|MyProgramme|0|PCPU|mul24.v</ClosedNode>
+         <ClosedNode>/mul32 F:|MyProgramme|0|PCPU|mul32.v</ClosedNode>
+         <ClosedNode>/mul8 F:|MyProgramme|0|PCPU|mul8.v</ClosedNode>
+         <ClosedNode>/mulu24 F:|MyProgramme|0|PCPU|mul24.v</ClosedNode>
+         <ClosedNode>/mulu24 F:|MyProgramme|0|PCPU|mulu24.v</ClosedNode>
+         <ClosedNode>/mulu32 F:|MyProgramme|0|PCPU|mul32.v</ClosedNode>
+         <ClosedNode>/mulu32 F:|MyProgramme|0|PCPU|mulu32.v</ClosedNode>
          <ClosedNode>/output_led F:|MyProgramme|0|PCPU|output_led.v</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Gpio - GPIO</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Input_switch_btn - input_switch_btn</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Input_switch_btn - input_switch_btn/Santi_jitter - santi_jitter</ClosedNode>
-         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/ALU - alu</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/ALU - alu/adder32 - adder32_Sklansky</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/CP0_ - CP0</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/add_branch_addr - adder32_Sklansky</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU_ - PCPU</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU_v - PCPU</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Vga_controller - vga_controller</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Vga_controller - vga_controller/Graph_vga - vga_graph</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Vga_controller - vga_controller/Text_vga - vga_text</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/gpio - GPIO</ClosedNode>
          <ClosedNode>/vga_controller F:|MyProgramme|0|PCPU|vga_controller.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Cursor_vga - vga_cursor (F:/MyProgramme/0/PCPU/vga_cursor.v)</SelectedItem>
+         <SelectedItem>PCPU - PCPU_v (F:/MyProgramme/0/PCPU/PCPU_v.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >12</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >5</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000192000000020000000000000000000000000200000064ffffffff000000810000000300000002000001920000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000141000000020000000000000000000000000200000064ffffffff000000810000000300000002000001410000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Cursor_vga - vga_cursor (F:/MyProgramme/0/PCPU/vga_cursor.v)</CurrentItem>
+      <CurrentItem>PCPU - PCPU_v (F:/MyProgramme/0/PCPU/PCPU_v.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -62,13 +73,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>clk_gen_sword.v</SelectedItem>
+         <SelectedItem>mulu32.v</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >18</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >31</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000027d000000040101000100000000000000000000000064ffffffff000000810000000000000004000000ac0000000100000000000000c00000000100000000000000780000000100000000000000990000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>jump_control.v</CurrentItem>
+      <CurrentItem>mulu32.v</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -109,7 +120,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000147000000010000000100000000000000000000000064ffffffff000000810000000000000001000001470000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
@@ -134,14 +145,24 @@
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/PCPU F:|MyProgramme|0|PCPU|PCPU.sch</ClosedNode>
          <ClosedNode>/PCPU_PCPU_sch_tb F:|MyProgramme|0|PCPU|TPCPU.v</ClosedNode>
+         <ClosedNode>/PCPU_PCPU_sch_tb F:|MyProgramme|0|PCPU|TPCPU.v/UUT - PCPU</ClosedNode>
          <ClosedNode>/PCPU_PCPU_sch_tb F:|MyProgramme|0|PCPU|TPCUP.v</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0|PCPU|TPCPU_I.v</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0|PCPU|TPCPU_I.v/uut - PCPU_v/ALU - alu</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0|PCPU|TPCPU_I.v/uut - PCPU_v/add_branch_addr - adder32_Sklansky</ClosedNode>
          <ClosedNode>/Tadder32_Sklansky F:|MyProgramme|0|PCPU|Tadder32_Sklansky.v</ClosedNode>
+         <ClosedNode>/Tadder64 F:|MyProgramme|0|PCPU|Tadder64.v</ClosedNode>
          <ClosedNode>/Tkey_board F:|MyProgramme|0|PCPU|Tkey_board.v</ClosedNode>
          <ClosedNode>/Tmio F:|MyProgramme|0|PCPU|Tmio.v</ClosedNode>
+         <ClosedNode>/Tmul16 F:|MyProgramme|0|PCPU|Tmul16.v</ClosedNode>
+         <ClosedNode>/Tmul24 F:|MyProgramme|0|PCPU|Tmul24.v</ClosedNode>
+         <ClosedNode>/Tmul32 F:|MyProgramme|0|PCPU|Tmul16.v/uut - mul32</ClosedNode>
+         <ClosedNode>/Tmul32 F:|MyProgramme|0|PCPU|Tmul32.v</ClosedNode>
+         <ClosedNode>/Tmul32 F:|MyProgramme|0|PCPU|Tmul32.v/uut - mul32</ClosedNode>
+         <ClosedNode>/Tmul8 F:|MyProgramme|0|PCPU|Tmul8.v</ClosedNode>
+         <ClosedNode>/Tmul8 F:|MyProgramme|0|PCPU|Tmul8.v/uut - mul8/Adder - adder16</ClosedNode>
          <ClosedNode>/Ttimer F:|MyProgramme|0|PCPU|Ttimer.v</ClosedNode>
+         <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/Input_switch_btn - input_switch_btn</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/PCPU - PCPU_v</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/PCPU_ - PCPU</ClosedNode>
@@ -149,35 +170,24 @@
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/Vga_controller - vga_controller/Graph_vga - vga_graph</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/gpio - GPIO</ClosedNode>
          <ClosedNode>/Tvga_cusor F:|MyProgramme|0|PCPU|Tvga_cusor.v</ClosedNode>
+         <ClosedNode>/adder8 F:|MyProgramme|0|PCPU|adder8.v</ClosedNode>
+         <ClosedNode>/mul32 F:|MyProgramme|0|PCPU|mul32.v</ClosedNode>
          <ClosedNode>/output_led F:|MyProgramme|0|PCPU|output_led.v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>uut - top (F:/MyProgramme/0/PCPU/top.v)</SelectedItem>
+         <SelectedItem>Tmul32 (F:/MyProgramme/0/PCPU/Tmul32.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >10</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001a6000000020000000000000000000000000200000064ffffffff000000810000000300000002000001a60000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000141000000020000000000000000000000000200000064ffffffff000000810000000300000002000001410000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>uut - top (F:/MyProgramme/0/PCPU/top.v)</CurrentItem>
+      <CurrentItem>Tmul32 (F:/MyProgramme/0/PCPU/Tmul32.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Design Utilities</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem/>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
-   </ItemView>
-   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
          <SelectedItem></SelectedItem>
@@ -187,6 +197,19 @@
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
       <ClosedNodes>
@@ -220,13 +243,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_NGC" guiview="Process" >
       <ClosedNodes>
