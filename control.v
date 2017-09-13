@@ -83,7 +83,7 @@ always @* begin
 						id_wb_dreg = rd;
 						id_exe_alu_sign = 1'b1;
 					 end
-			6'h21: begin id_exe_aluop = 4'b0010;//uadd
+			6'h21: begin id_exe_aluop = 4'b0010;//addu
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 					 end
@@ -92,7 +92,7 @@ always @* begin
 						id_wb_dreg = rd;
 						id_exe_alu_sign = 1'b1;
 					 end
-			6'h23: begin id_exe_aluop = 4'b0110;//usub
+			6'h23: begin id_exe_aluop = 4'b0110;//subu
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
 					 end
@@ -117,6 +117,11 @@ always @* begin
 						id_wb_dreg = rd;
 					 end
 			6'h02: begin id_exe_aluop = 4'b0101;//srl
+						id_wb_we = 1'b1;
+						{id_ra, id_exe_srcb} = 2'b11;
+						id_wb_dreg = rd;
+					 end
+			6'h00: begin id_exe_aluop = 4'b1000;//sll
 						id_wb_we = 1'b1;
 						{id_ra, id_exe_srcb} = 2'b11;
 						id_wb_dreg = rd;
@@ -159,6 +164,7 @@ always @* begin
 		id_mem_mem_reg = 1'b1;//reg
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
+		id_exe_alu_sign = 1'b1;
 	end
 	else if (op == 6'h0c) begin//andi
 		id_exe_aluop = 4'b0000;//and

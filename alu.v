@@ -43,6 +43,7 @@ assign overflow = overflow_ & alu_sign;
 	assign res_slt = ($signed(A)<$signed(B))?one:zero_0;
 	assign res_srl = A>>B[10:6];
 	assign res_xor = A^B;
+	assign res_sll = A<<B[10:6];
 	always@*
 		case(ALU_Ctr)
 			4'b0000:begin
@@ -68,6 +69,9 @@ assign overflow = overflow_ & alu_sign;
 					 end
 			4'b0011:begin
 					 res = res_xor;
+					 end
+			4'b1000:begin
+					 res = res_sll;
 					 end
 			default:res = 32'hx;
 		endcase
