@@ -104,7 +104,7 @@ casex(addr_bus[31:0]) //开始译码
 	
 	32'haxxxxxxx: begin//graph 显示段
 	vga_we_g = mem_w;//graph显示段写入
-	vga_taddr = addr_bus[20:2];
+	vga_gaddr = addr_bus[20:2];
 	vga_data = Cpu_data2bus;
 	end
 	
