@@ -58,7 +58,6 @@ module CP0(//不处理harzard
 	Status  STATUS(//[22]BEV 0:normal 1:boot 12 [0]IE  [1]EXL [2]ERL [15:8]IM
 				.clk(clk), 
 				.we(status_we),
-				//.forward(forward_status),
 				.mtcd(data_in),
 				.D(STATUS_in), 
 				.rst(rst), 
@@ -117,8 +116,6 @@ module CP0(//不处理harzard
 	//[22]BEV 0:normal 1:boot 12 [0]IE  [1]EXL [2]ERL [15:8]IM
 	STATUS_data STATUS_Data(
 	 .id_eret(id_eret),
-	 //.forward_status(forward_status),
-	 //.mtc0_status(mtc0_status),
 	 .id_syscall(id_syscall),
 	 .id_unknown(id_unknown),
 	 .exe_overflow(exe_overflow),

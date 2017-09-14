@@ -30,25 +30,27 @@ module EPC_data(
 	input [31:0]if_pc,
 	input [31:0]mem_pc,
 	input [31:0]EPC_out,
-	output reg [31:0]EPC_in
+	output [31:0]EPC_in
     );
-
+	 
+reg [31:0]temp;
+assign EPC_in = temp;
 always @* begin
 	if (EXL)
-		EPC_in = EPC_out;
+		temp = EPC_out;
 	else if (exe_overflow)//overflow优先级最高
 		if (mem_bj)
-			EPC_in = mem_pc;
+			temp = mem_pc;
 		else
-			EPC_in = id_pc;
+			temp = id_pc;
 	else if (id_syscall | id_unknown)//然后是syscall与unknown
-		EPC_in = if_pc;
+		temp = if_pc;
 	else if (INT)//中断最后
 		if (id_bj)
-			EPC_in = id_pc;
+			temp = id_pc;
 		else
-			EPC_in = if_pc;
+			temp = if_pc;
 	else
-		EPC_in = EPC_out;
+		temp = EPC_out;
 end
 endmodule

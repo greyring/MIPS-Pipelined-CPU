@@ -27,18 +27,10 @@ module Epc(input clk,
     );
 reg [31:0] epc = 32'h00000000;
 
-/*always @(negedge clk) begin
-	if (we)
-		epc <= mtcd;
-	else
-		epc <= epc;
-end
-*/
-
 always @(posedge clk ) begin
 	if (rst) epc<=32'h00000000;
 	else if (we) epc<=mtcd;
-  else epc<=D;
+	else epc<=D;
 end
 
 assign Q = epc;
