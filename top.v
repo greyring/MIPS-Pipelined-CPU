@@ -104,10 +104,11 @@ wire [31:0]Counter_out;
 wire [31:0]Addr_out;
 wire [31:0]Data_out;
 wire [31:0]Data_in;
+wire [31:0]cause_data;
 	Multi_8CH32  multi_8ch32(
 		.clk(~Clk_CPU), 
 		.Data0(Peripheral_in), 
-		.data1(cause_data), 
+		.data1(cause_data[31:0]), 
 		.data2(inst[31:0]), 
 		.data3(Counter_out[31:0]), 
 		.data4(Addr_out[31:0]), 

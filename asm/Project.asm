@@ -18,7 +18,7 @@ SECOND_BOOM 	EQU 0x2faf08;//3.125M
 
 BaseAddre: 0;
 la $sp, STACK;
-lui $t0, 0xd000;
+lui $t0, VRAM;
 //先将背景刷黑
 addi $s0, $t0, 300;
 INI_LOOP0:
@@ -27,7 +27,7 @@ addi $t0, $t0, 1;
 bne $t0, $s0, INI_LOOP0;
 
 //上下边界,t0为绘制地址
-lui $t0, 0xd000;
+lui $t0, VRAM;
 addi $t1, $t0, 20;
 addi $t2, $zero, 0xf00;//颜色
 INI_LOOP1:
@@ -48,7 +48,7 @@ bne $t0, $t1, INI_LOOP2;
 //初始化
 li $t0, SEG;
 li $t1, 0xAA5555AA;
-sw $t1,0($t0);
+sw $t1, 0($t0);
 la $s0, SNAKE1; 
 la $s1, SNAKE2; 
 la $s2, FRUIT; 

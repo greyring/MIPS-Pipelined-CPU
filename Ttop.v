@@ -80,6 +80,8 @@ module Ttop;
 		// Wait 100 ns for global reset to finish
 		#100;
 		RSTN = 0;
+		//#10000
+		//RSTN = 1;
         
 		// Add stimulus here
 

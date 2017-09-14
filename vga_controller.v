@@ -43,7 +43,7 @@ module vga_controller(
 wire [9:0]vga_column;
 wire [8:0]vga_row;
 	 
-reg [31:0]conf = 32'b0;//[1:0]1 graph 0 text, 2'b10 8*16text[2]busy
+reg [31:0]conf = 32'b0;//[1:0]01 graph 00 text, 10 8*16text 11graph 32*32 [2]busy
 assign vga_status = {conf[31:3], busy, conf[1:0]};
 always @(posedge clk) begin
 	if (rst)
@@ -88,6 +88,7 @@ vga_graph Graph_vga(
     .clk(clk), 
     .rst(rst), 
     .we(we_graph), 
+	 .conf(conf),
     .addr(graph_addr), 
     .data(data_in[11:0]), 
     .vga_column(vga_column), 
@@ -96,8 +97,8 @@ vga_graph Graph_vga(
     );
 
 wire [11:0]color_out;
-assign color_out = (conf[1:0] == 2'b01)? color_graph : ((|color_cursor)? color_cursor : color_text);
-// if conf[0] graph
+assign color_out = (conf[1:0] == 2'b01 | conf[1:0] == 2'b11)? color_graph : ((|color_cursor)? color_cursor : color_text);
+
 // else cursor on the text
 wire busy;
 vga_port Vga_port(

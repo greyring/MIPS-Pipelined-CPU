@@ -40,7 +40,8 @@ always @* begin
 	temp[1:0] = 2'b0;
 	//请注意优先级别，EXP应该大于INT，overflow的级别比id_syscall与id_unknown要高,因为它先发生,而且产生的bubble更多
 	//syscall 与 unknown级别一致，因为它们不可能同时发生
-	if (exe_overflow) begin
+	
+	if (exe_overflow == 1'b1) begin
 		temp[6:2] = 5'h0c;
 		temp[31] = EXL? cause_out[31]: mem_bj;
 	end

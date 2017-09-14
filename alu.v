@@ -36,7 +36,8 @@ adder32_Sklansky adder32(
     .res(res_add_sub), 
     .overflow(overflow_)
     );
-assign overflow = overflow_ & alu_sign;
+//assign overflow = alu_sign?overflow_:1'b0;
+assign overflow = 1'b0;//ÔÝÊ±²»×öoverflow
 
 	assign res_and = A&B;
 	assign res_or = A|B;

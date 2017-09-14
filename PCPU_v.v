@@ -171,7 +171,7 @@ wire [31:0]mtc0_data;
 //////////////////////////////////////////////////////////
 	IF_ID_Reg IF_ID(.clk(clk), 
 						.EN(IF_ID_stall_), 
-						.rst(IF_ID_bubble), 
+						.rst(rst | IF_ID_bubble), 
 						.inst(inst_data[31:0]), 
 						.npc(npc[31:0]), 
 						.pc(inst_addr_DUMMY[31:0]),
@@ -393,7 +393,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                .overflow(exe_overflow), 
 					.alu_sign(exe_alu_sign),
                .res(exe_alu_res[31:0]), 
-               .zero());
+               .zero());//ÔÝÊ±²»×öoverflow
 	
 	wire [31:0]exe_lui_out;
 	MUX2T1_32  XLXI_74 (.I0(exe_alu_res[31:0]), 

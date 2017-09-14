@@ -22,15 +22,22 @@ module vga_graph(
 	input clk,
 	input rst,
 	input we,
+	input [31:0]conf,//[1:0]10 graph 1*1, 11 graph 32*32
 	input [18:0]addr,//第几个点
 	input [11:0]data,
 	input [9:0]vga_column,
 	input [8:0]vga_row,
 	output [11:0]color_out
     );
-
-wire [18:0]addr_ram;
-assign addr_ram = we? addr: vga_row * 640 + vga_column;//row * 640 + column
+reg [18:0]addr_ram;
+always @* begin
+	if (conf[1:0] == 2'b10)
+		addr_ram = we? addr: vga_row * 640 + vga_column;//row * 640 + column
+	else if (conf[1:0] == 2'b11)
+		addr_ram = we? addr: vga_row[8:5] * 20 + vga_column[9:5];//row/32 * 20 + column/32
+	else
+		addr_ram = 19'b0;
+end
 
 graph_vga_ram Graph_vga_ram(
   .clka(clk), // input clka

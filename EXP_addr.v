@@ -29,10 +29,10 @@ module Exp_Addr(
     );
 
 always @* begin
-	if (INT)
-		exp_addr = (BEV? 32'hBFC00200: 32'h80000000) + (CAUSE_IV? 32'h200:32'h180);
-	else if (id_syscall | id_unknown | exe_overflow)
+	if (id_syscall | id_unknown | exe_overflow)
 		exp_addr = (BEV? 32'hBFC00380: 32'h80000180);
+	else if (INT)
+		exp_addr = (BEV? 32'hBFC00200: 32'h80000000) + (CAUSE_IV? 32'h200:32'h180); 
 	else
 		exp_addr = (BEV? 32'hBFC00380: 32'h80000180);
 end
