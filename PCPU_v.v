@@ -152,14 +152,17 @@ wire [31:0]mtc0_data;
     );
 	
 	assign PC_data_in = id_eret? EPC_out : ((INT | id_syscall | id_unknown | exe_overflow)? Exp_addr : PC_jump);
-
+	wire PC_exp;//指示发生了异常或者id_eret
+	assign PC_exp = id_eret | INT | id_syscall | id_unknown | exe_overflow;
+	
+	
 //异常时IF阶段bubble
 	wire IF_ID_bubble;
 	assign IF_ID_bubble = rst| id_eret | ((INT | id_syscall | id_unknown | exe_overflow)?1'b1:1'b0);//异常时，当前正在IF的指令不做，免去了判断branch和jump
 	//eret后没有delayed slot ，强行清除
 	
 	wire IF_ID_stall_;
-	REG32  PC(.CE(IF_ID_stall_), 
+	REG32  PC(.CE(IF_ID_stall_ | PC_exp),//发生异常时强行写入,异常的优先级比stall高
 				  .clk(clk), 
 				  .D(PC_data_in), 
 				  .rst(rst), 

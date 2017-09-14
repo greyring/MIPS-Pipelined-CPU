@@ -27,15 +27,6 @@ module Cause(input clk,
     );
 reg [31:0] cause = 32'h00000000;
 
-/*//IP位锁存
-always @* begin
-	if (rst)
-		cause[15:8] = 8'b0;
-	else
-		cause[15:8] = D[15:8];
-end
-*/
-
 always @(posedge clk) begin//同步取样（减小时序问题）
 	if (rst) 
 		cause <= 32'h0000;

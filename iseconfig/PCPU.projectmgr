@@ -35,7 +35,6 @@
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Input_switch_btn - input_switch_btn/Santi_jitter - santi_jitter</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/ALU - alu</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/ALU - alu/adder32 - adder32_Sklansky</ClosedNode>
-         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/CP0_ - CP0</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_2 - mulu32</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_3 - mul32</ClosedNode>
@@ -50,13 +49,13 @@
          <ClosedNode>/vga_controller F:|MyProgramme|0|PCPU|vga_controller.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>mio_bus - MIO (F:/MyProgramme/0/PCPU/MIO.v)</SelectedItem>
+         <SelectedItem>PCPU - PCPU_v (F:/MyProgramme/0/PCPU/PCPU_v.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >15</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >20</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001c2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001c20000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>mio_bus - MIO (F:/MyProgramme/0/PCPU/MIO.v)</CurrentItem>
+      <CurrentItem>PCPU - PCPU_v (F:/MyProgramme/0/PCPU/PCPU_v.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>

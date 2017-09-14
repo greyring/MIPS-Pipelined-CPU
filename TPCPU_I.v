@@ -193,7 +193,7 @@ module TPCPU_I;
 		//interrupt 单独测，一个interrupt后不会再有interrupt
 		*/
 		
-		
+		/*
 		#10
 		inst_data = 32'h08000000;//jump
 		#1
@@ -225,6 +225,14 @@ module TPCPU_I;
 		inst_data = 32'h3463ffff;//ori $3, $3, 0xffff
 		#10
 		inst_data = 32'h3463ffff;//ori $3, $3, 0xffff//stall
+		*/
+		
+		#10//stall时中断
+		inst_data = 32'h8c010000;//lw $t1, 0($zero)
+		#1
+		int_ = 6'b000001;
+		inst_data = 32'h00210820;//add $t1, $t1, $t1; 
+		#9
 		
 		#10
 		inst_data = 32'h0;

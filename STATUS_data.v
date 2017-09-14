@@ -30,11 +30,17 @@ module STATUS_data(
 
 reg [31:0]temp;
 assign STATUS_in = temp;
+
+wire [31:0]dummy_1;
+assign dummy_1 = {STATUS_out[31:2], 1'b0, STATUS_out[0]};
+wire [31:0]dummy_2;
+assign dummy_2 = {STATUS_out[31:2], 1'b1, STATUS_out[0]};
+
 always @* begin
 	if (id_eret)
-		temp = {STATUS_out[31:2], 1'b0, STATUS_out[0]};//eret Çå³ýEXL
+		temp = dummy_1;//eret Çå³ýEXL
 	else if (INT | id_syscall | id_unknown | exe_overflow)
-		temp = {STATUS_out[31:2], 1'b1, STATUS_out[0]};
+		temp = dummy_2;
 	else
 		temp = STATUS_out;
 end
