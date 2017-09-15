@@ -27,8 +27,10 @@ module PCPU_v(	//人肉保证CP0写入后一段时间不读取CP0，避免CP0遇险
    output [31:0] inst_addr,
    output [31:0] mem_addr,
    output [31:0] mem_data,
-	output [31:0] cause_data,
-   output mem_we
+	output [31:0] cause_data,//
+	output [31:0] status_data,//
+   output mem_we,
+	output mem_rd
 	);
 	
    
@@ -111,6 +113,7 @@ wire [31:0]mtc0_data;
 	 //.mtc0_data(mtc0_data[31:0])
     );
 	 assign cause_data = CAUSE_out;
+	 assign status_data = STATUS_out;
 ////////////////////////////////////////////////////////////////////////
 	wire id_beq;
 	wire id_ben;
@@ -190,6 +193,7 @@ wire [31:0]mtc0_data;
 	wire id_exe_srcb;
 	wire [2:0]id_mem_mem_reg;
 	wire id_mem_we;
+	wire id_mem_rd;
 	wire id_ra;
 	wire [4:0]id_wb_dreg;
 	wire id_wb_we;
@@ -208,6 +212,7 @@ wire [31:0]mtc0_data;
                     .id_exe_srcb(id_exe_srcb), 
                     .id_mem_mem_reg(id_mem_mem_reg), 
                     .id_mem_we(id_mem_we), 
+						  .id_mem_rd(id_mem_rd),
                     .id_ra(id_ra), 
                     .id_wb_dreg(id_wb_dreg[4:0]), 
                     .id_wb_we(id_wb_we),
@@ -327,6 +332,7 @@ wire [15:0]exe_imme;
 wire exe_jal;
 wire exe_lui;
 wire exe_mem_we;
+wire exe_mem_rd;
 wire [31:0]exe_npc;
 wire [31:0]exe_rega;
 wire [31:0]exe_pc;
@@ -350,6 +356,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                        .id_exe_srcb(id_exe_srcb), 
                        .id_mem_mem_reg(id_mem_mem_reg), 
                        .id_mem_we(id_mem_we), 
+							  .id_mem_rd(id_mem_rd),
                        .id_wb_dreg(id_wb_dreg[4:0]), 
                        .id_wb_we(id_wb_we), 
 							  .id_exe_alu_sign(id_exe_alu_sign),
@@ -363,6 +370,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                        .exe_lui(exe_lui), 
                        .exe_mem_mem_reg(exe_mem_mem_reg), 
                        .exe_mem_we(exe_mem_we), 
+							  .exe_mem_rd(exe_mem_rd),
                        .exe_npc(exe_npc[31:0]), 
                        .exe_rega(exe_rega[31:0]), 
                        .exe_regb(exe_regb[31:0]), 
@@ -424,6 +432,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 								.exe_pc(exe_pc),
                         .exe_mem_mem_reg(exe_mem_mem_reg), 
                         .exe_mem_we(exe_mem_we), 
+								.exe_mem_rd(exe_mem_rd),
                         .exe_wb_dreg(exe_wb_dreg[4:0]), 
                         .exe_wb_we(exe_wb_we),  
 								.exe_bj(exe_bj),
@@ -436,6 +445,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                         .mem_wb_dreg(mem_wb_dreg[4:0]), 
                         .mem_wb_we(mem_wb_we), 
                         .mem_we(mem_we),
+								.mem_rd(mem_rd),
 								.mem_bj(mem_bj),
 								.mem_CP0_we(mem_CP0_we),
 								.mem_CP0_dreg(mem_CP0_dreg));

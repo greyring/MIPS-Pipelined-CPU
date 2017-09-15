@@ -32,6 +32,7 @@ module control(
 	output reg id_exe_jal,
 	
 	output reg id_mem_we,
+	output reg id_mem_rd,
 	output reg [2:0]id_mem_mem_reg,
 	output reg [4:0]id_wb_dreg,//Ä¿±ê¼Ä´æÆ÷
 	output reg id_wb_we,
@@ -61,6 +62,7 @@ always @* begin
 	id_exe_lui = 1'b0;
 	id_exe_jal = 1'b0;
 	id_mem_we = 1'b0;
+	id_mem_rd = 1'b0;
 	id_mem_mem_reg = 3'b0;
 	id_wb_dreg = 5'b0;
 	id_wb_we = 1'b0;
@@ -176,6 +178,7 @@ always @* begin
 		id_exe_srcb = 1'b1;//imme
 		id_wb_dreg = rt;
 		id_wb_we = 1'b1;//write
+		id_mem_rd = 1'b1;//read for reading keyboard
 	end
 	
 	else if (op == 6'h2B) begin//sw

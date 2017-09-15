@@ -24,6 +24,7 @@ input wire rst,
 input wire [3:0] BTN, 
 input wire [15:0]SW,
 input wire mem_w,
+input wire mem_rd,
 input wire [31:0] Cpu_data2bus, //data from CPU
 input wire [31:0] addr_bus, //addr from CPU
 input wire [31:0] ram_data_out,
@@ -87,7 +88,7 @@ casex(addr_bus[31:0]) //开始译码
 	data_ram_we = mem_w;
 	ram_addr = addr_bus[11:2];
 	ram_data_in = Cpu_data2bus;
-	data_ram_rd = ~mem_w;
+	data_ram_rd = mem_rd;
 	end
 	
 	32'hb8xxxxxx: begin//text 显示段
@@ -99,7 +100,7 @@ casex(addr_bus[31:0]) //开始译码
 	32'hb1000000: begin//cursor设置 [28:17]color [15:3]addr [1:0]形状
 	vga_we_c = mem_w;
 	vga_data = Cpu_data2bus;
-	vga_cur_rd = ~mem_w;
+	vga_cur_rd = mem_rd;
 	end
 	
 	32'haxxxxxxx: begin//graph 显示段
@@ -111,25 +112,25 @@ casex(addr_bus[31:0]) //开始译码
 	32'hb0000000: begin//vga_reg[1:0]模式
 	vga_we_r = mem_w;//reg写入
 	vga_data = Cpu_data2bus;
-	vga_rd = ~mem_w;
+	vga_rd = mem_rd;
 	end
 	
 	32'hexxxxxxx: begin // 七段显示器 (e0000000 - efffffff, SSeg7_Dev)
 	GPIOe0000000_we = mem_w;
 	Peripheral_in = Cpu_data2bus;
-	GPIOe0000000_rd = ~mem_w;
+	GPIOe0000000_rd = mem_rd;
 	end
 	
 	32'hfxxxxxxx: begin // PIO (f0000000 - ffffffff0, 8 LEDs& counter, f000004-fffffff4)
 		if(addr_bus[2]) begin //f0000004
 		counter_we = mem_w;
 		Peripheral_in = Cpu_data2bus; //write Counter Value
-		counter_rd = ~mem_w;
+		counter_rd = mem_rd;
 		end
 		else begin //f0000000
 		GPIOf0000000_we = mem_w;
 		Peripheral_in =Cpu_data2bus; //write Counter set & Initialization and light LED
-		GPIOf0000000_rd = ~mem_w;
+		GPIOf0000000_rd = mem_rd;
 		end
 	end
 	

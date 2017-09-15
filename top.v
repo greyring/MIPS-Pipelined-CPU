@@ -105,12 +105,13 @@ wire [31:0]Addr_out;
 wire [31:0]Data_out;
 wire [31:0]Data_in;
 wire [31:0]cause_data;
+wire [31:0]status_data;
 	Multi_8CH32  multi_8ch32(
 		.clk(~Clk_CPU), 
 		.Data0(Peripheral_in), 
 		.data1(cause_data[31:0]), 
 		.data2(inst[31:0]), 
-		.data3(Counter_out[31:0]), 
+		.data3(status_data[31:0]), 
 		.data4(Addr_out[31:0]), 
 		.data5(Data_out[31:0]), 
 		.data6(Data_in[31:0]), 
@@ -128,6 +129,7 @@ wire [31:0]cause_data;
 wire counter0_OUT,counter1_OUT,counter2_OUT;
 wire [15:0]LED_out;
 wire mem_w;
+wire mem_rd;
 wire [31:0]ram_data_in;
 wire counter_we;
 wire data_ram_we;
@@ -154,6 +156,7 @@ MIO  mio_bus(
 	  .Cpu_data2bus(Data_out[31:0]), 
 	  .led_out(LED_out), 
 	  .mem_w(mem_w), 
+	  .mem_rd(mem_rd),
 	  .ram_data_out(douta), 
 	  .rst(rst), 
 	  .SW(SW_OK), 
@@ -234,11 +237,13 @@ GPIO gpio(
 		//.rst(RSTN),
 		.int_(6'b0),
 		.mem_we(mem_w), 
+		.mem_rd(mem_rd),
 		.mem_addr(Addr_out), 
 		.mem_data(Data_out), 
 		.inst_addr(PC), 
 		.inst_data(inst), 
 		.cause_data(cause_data),
+		.status_data(status_data),
 		.mem_data_in(Data_in)
    );
 	

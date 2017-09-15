@@ -33,8 +33,10 @@
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Gpio - GPIO</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Input_switch_btn - input_switch_btn</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Input_switch_btn - input_switch_btn/Santi_jitter - santi_jitter</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/ALU - alu</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/ALU - alu/adder32 - adder32_Sklansky</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/CP0_ - CP0</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_2 - mulu32</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_3 - mul32</ClosedNode>
@@ -51,9 +53,9 @@
       <SelectedItems>
          <SelectedItem>PCPU - PCPU_v (F:/MyProgramme/0/PCPU/PCPU_v.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >20</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001c2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001c20000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000192000000020000000000000000000000000200000064ffffffff000000810000000300000002000001920000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>PCPU - PCPU_v (F:/MyProgramme/0/PCPU/PCPU_v.v)</CurrentItem>
    </ItemView>
@@ -147,7 +149,7 @@
       <CurrentItem/>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000012d0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
+   <CurrentView>Behavioral Simulation</CurrentView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
@@ -186,13 +188,13 @@
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Ttop (F:/MyProgramme/0/PCPU/Ttop.v)</SelectedItem>
+         <SelectedItem>TPCPU_I (F:/MyProgramme/0/PCPU/TPCPU_I.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >4</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001a6000000020000000000000000000000000200000064ffffffff000000810000000300000002000001a60000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Ttop (F:/MyProgramme/0/PCPU/Ttop.v)</CurrentItem>
+      <CurrentItem>TPCPU_I (F:/MyProgramme/0/PCPU/TPCPU_I.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -213,13 +215,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
       <ClosedNodes>
