@@ -1,0 +1,1 @@
+加入timer与compare两个Cp0，并将始终中断固化到IP7

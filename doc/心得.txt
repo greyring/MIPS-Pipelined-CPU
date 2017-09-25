@@ -1,0 +1,7 @@
+overflow将结果的32位与33位异或，需要在之前将两个加数符号拓展
+IPram延时10ns
+一个门1~2ns
+
+写代码的方法很有讲究，有可能会造成潜在的时序问题
+比如output如果要在always中用，不要用reg，而要在模块里建一个reg，然后assign给output
+线组就赋值给线，不要给reg  如reg = {a,b,c};
