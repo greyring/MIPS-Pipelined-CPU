@@ -23,7 +23,7 @@ module PCPU_v(	//人肉保证CP0写入后一段时间不读取CP0，避免CP0遇险
     input [31:0] inst_data,
     input [31:0] mem_data_in,
     input rst,
-	 input [5:0]int_,
+	 input [4:0]int_,//IP7 is counter interrupt
    output [31:0] inst_addr,
    output [31:0] mem_addr,
    output [31:0] mem_data,

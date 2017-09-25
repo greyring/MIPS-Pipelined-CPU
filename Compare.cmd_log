@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/2017summer/PCPU/Compare.tfi -lib work F:/MyProgramme/2017summer/PCPU//Compare.v -module Compare -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

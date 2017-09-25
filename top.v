@@ -235,7 +235,7 @@ GPIO gpio(
 		.clk(Clk_CPU & ~SW_OK[15]), 
 		.rst(rst),
 		//.rst(RSTN),
-		.int_(6'b0),
+		.int_(5'b0),
 		.mem_we(mem_w), 
 		.mem_rd(mem_rd),
 		.mem_addr(Addr_out), 

@@ -42,7 +42,7 @@ module CP0(//不处理harzard
 	input [31:0]id_pc,
 	input [31:0]mem_pc,
 	
-	input [5:0]int_
+	input [4:0]int_
 	
 	//input forward_status,
 	//将在EXE的写入status的mtc0指令forward，为1时表示forward条件成立
@@ -51,7 +51,32 @@ module CP0(//不处理harzard
 	//input forward_epc,
 	//input [31:0]mtc0_data
     );
+
+////////////////////////////////////////////////////////
+//COUNT与COMPARE
+	wire count_we;
+	wire [31:0]COUNT_out;
+	Count COUNT(
+    .clk(clk), 
+    .rst(rst), 
+    .we(count_we), 
+    .D(data_in), 
+    .Q(COUNT_out)
+    );
 	 
+	wire [31:0]COMPARE_out;
+	wire timer_int;
+	Compare COMPARE(
+    .clk(clk), 
+    .rst(rst), 
+    .count(COUNT_out), 
+    .we(compare_we), 
+    .D(data_in), 
+    .Q(COMPARE_out), 
+    .timer_int(timer_int)
+    );
+/////////////////////////////////////////////////////////////////
+//interrupt status cause epc	 
 	wire [31:0]STATUS_out_DUMMY;
 	wire [31:0]STATUS_in;
 	wire status_we;
@@ -88,12 +113,7 @@ module CP0(//不处理harzard
 	assign STATUS_out = STATUS_out_DUMMY;
 	assign CAUSE_out = CAUSE_out_DUMMY;
 	assign EPC_out = EPC_out_DUMMY;
-	
-	assign status_we = we & r_reg == 5'd12;
-	assign cause_we = we & r_reg == 5'd13;
-	assign epc_we = we & r_reg == 5'd14;
-	
-	 
+		 
 	assign INT = (|(CAUSE_out_DUMMY[15:8] & STATUS_out_DUMMY[15:8])) 
 					& ~STATUS_out_DUMMY[1] & ~STATUS_out_DUMMY[2] & STATUS_out_DUMMY[0];
 	 
@@ -126,7 +146,7 @@ module CP0(//不处理harzard
 		
 	//if id阶段的是跳转 bd = 1, if INT, exe = 0, if syscall exe = 08, if unknown exe = 0a, if overflow exe = 0c
 	CAUSE_data CAUSE_Data(
-	 .int_(int_),
+	 .int_({timer_int, int_}),//IP7 is counter interrupt
 	 .EXL(STATUS_out[1]),
 	 .INT(INT), 
     .id_syscall(id_syscall), 
@@ -137,14 +157,23 @@ module CP0(//不处理harzard
     .cause_out(CAUSE_out), 
     .cause_in(CAUSE_in)
     );
+////////////////////////////////////////////////////
 	 
 always @* begin
 	case (r_reg)
+		5'd9 : data_out = COUNT_out;
+		5'd11: data_out = COMPARE_out;
 		5'd12: data_out = STATUS_out_DUMMY;
 		5'd13: data_out = CAUSE_out_DUMMY;
 		5'd14: data_out = EPC_out_DUMMY;
 		default: data_out = 32'b0;
 	endcase
 end
+
+assign count_we = we & (r_reg == 5'd9);
+assign compare_we = we & (r_reg == 5'd11);
+assign status_we = we & (r_reg == 5'd12);
+assign cause_we = we & (r_reg == 5'd13);
+assign epc_we = we & (r_reg == 5'd14);
 
 endmodule

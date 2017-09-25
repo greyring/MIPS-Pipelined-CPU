@@ -1,0 +1,3 @@
+count为9号，可以读写，会一直累加，rst时为1
+compare为11号，可以读写，当count与compare相同时，会将时钟中断置1
+当写入compare时，中断置0
