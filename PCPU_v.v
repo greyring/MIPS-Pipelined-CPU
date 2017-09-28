@@ -194,8 +194,10 @@ wire [31:0]mtc0_data;
 	wire [2:0]id_mem_mem_reg;
 	wire id_mem_we;
 	wire id_mem_rd;
-	wire id_ra;
+	//wire id_ra;
 	wire [4:0]id_wb_dreg;
+	wire [4:0]id_rega_addr;
+	wire [4:0]id_regb_addr;
 	wire id_wb_we;
 	wire id_exe_alu_sign;
 	wire id_mem_CP0_we;
@@ -213,8 +215,10 @@ wire [31:0]mtc0_data;
                     .id_mem_mem_reg(id_mem_mem_reg), 
                     .id_mem_we(id_mem_we), 
 						  .id_mem_rd(id_mem_rd),
-                    .id_ra(id_ra), 
+                    //.id_ra(id_ra), 
                     .id_wb_dreg(id_wb_dreg[4:0]), 
+						  .id_rega_addr(id_rega_addr[4:0]),
+						  .id_regb_addr(id_regb_addr[4:0]),
                     .id_wb_we(id_wb_we),
 						  .id_syscall(id_syscall),
 						  .id_unknown(id_unknown),
@@ -225,12 +229,13 @@ wire [31:0]mtc0_data;
 	assign id_bj = id_beq | id_bne | id_j | id_jr;
 	
 	
-	
+	/*
 	wire [4:0]id_rega_addr;
 	MUX2T1_5  XLXI_71 (.I0(id_inst[25:21]), 
 						.I1(id_inst[20:16]), 
 						.s(id_ra), 
 						.o(id_rega_addr[4:0]));
+	*/
 	
 	wire wb_we;
 	wire [4:0]wb_dreg;
@@ -241,7 +246,7 @@ wire [31:0]mtc0_data;
                 .L_S(wb_we), 
                 .rst(rst), 
                 .R_addr_A(id_rega_addr), 
-                .R_addr_B(id_inst[20:16]), 
+                .R_addr_B(id_regb_addr), 
                 .Wt_addr(wb_dreg[4:0]), 
                 .Wt_data(wb_data[31:0]), 
                 .rdata_A(rdata_A[31:0]), 
@@ -271,7 +276,7 @@ wire [31:0]mtc0_data;
                          .exe_wb_dreg(exe_wb_dreg[4:0]), 
                          .exe_wb_we(exe_wb_we), 
                          .id_out(rdata_B[31:0]), 
-                         .id_reg(id_inst[20:16]), 
+                         .id_reg(id_regb_addr[4:0]), 
                          .mem_out(mem_wb_data[31:0]), 
                          .mem_wb_dreg(mem_wb_dreg[4:0]), 
                          .mem_wb_we(mem_wb_we), 
@@ -488,7 +493,7 @@ assign mem_wb_data = mem_wb_data_temp;
 								.exe_wb_dreg(exe_wb_dreg[4:0]), 
 								.exe_wb_we(exe_wb_we), 
 								.id_rega(id_rega_addr[4:0]), 
-								.id_regb(id_inst[20:16]), 
+								.id_regb(id_regb_addr[4:0]), 
 								.bubble(id_bubble), 
 								._stall_en(IF_ID_stall_));
 /////////////////////////////////////////////////////////////

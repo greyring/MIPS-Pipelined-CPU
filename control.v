@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module control(
 	input [31:0]inst,
-	output reg id_ra,//register A的选择
+	//output reg id_ra,//register A的选择
 	output reg id_beq,
 	output reg id_bne,
 	output reg id_j,
@@ -35,6 +35,8 @@ module control(
 	output reg id_mem_rd,
 	output reg [2:0]id_mem_mem_reg,
 	output reg [4:0]id_wb_dreg,//目标寄存器
+	output reg [4:0]id_rega_addr,//exe_a,未使用时会为0，exe默认运算为and，并且0不会被forward或stall
+	output reg [4:0]id_regb_addr,//exe_b,未使用时会为0，exe默认运算为and，并且0不会被forward或stall
 	output reg id_wb_we,
 	output reg id_syscall,
 	output reg id_unknown,//未知指令
@@ -55,7 +57,7 @@ assign {op, rs, rt, rd, shift, fun} = inst;
 
 always @* begin
 	id_beq = 1'b0; id_bne = 1'b0; id_j = 1'b0; id_jr = 1'b0;
-	id_ra = 1'b0;
+	//id_ra = 1'b0;
 	id_exe_aluop = 4'b0000;
 	id_exe_sign = 1'b0;
 	id_exe_srcb = 1'b0;
@@ -65,6 +67,8 @@ always @* begin
 	id_mem_rd = 1'b0;
 	id_mem_mem_reg = 3'b0;
 	id_wb_dreg = 5'b0;
+	id_rega_addr=5'b0;
+	id_regb_addr=5'b0;
 	id_wb_we = 1'b0;
 	id_syscall = 1'b0;
 	id_unknown = 1'b0;
@@ -80,60 +84,80 @@ always @* begin
 			6'h20: begin id_exe_aluop = 4'b0010;//add
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 						id_exe_alu_sign = 1'b1;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h21: begin id_exe_aluop = 4'b0010;//addu
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h22: begin id_exe_aluop = 4'b0110;//sub
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 						id_exe_alu_sign = 1'b1;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h23: begin id_exe_aluop = 4'b0110;//subu
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h2A: begin id_exe_aluop = 4'b0111;//slt with sign
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h24: begin id_exe_aluop = 4'b0000;//and
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h25: begin id_exe_aluop = 4'b0001;//or
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h26: begin id_exe_aluop = 4'b0011;//xor
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h27: begin id_exe_aluop = 4'b0100;//nor
 						id_wb_we = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h02: begin id_exe_aluop = 4'b0101;//srl
 						id_wb_we = 1'b1;
-						{id_ra, id_exe_srcb} = 2'b11;
+						id_exe_srcb = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rt;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h00: begin id_exe_aluop = 4'b1000;//sll
 						id_wb_we = 1'b1;
-						{id_ra, id_exe_srcb} = 2'b11;
+						id_exe_srcb = 1'b1;
 						id_wb_dreg = rd;
+						id_rega_addr = rt;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h08: begin//jr
@@ -159,8 +183,12 @@ always @* begin
 						id_wb_we = 1'b1;
 					 end
 			6'h18: begin//mult
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 					 end
 			6'h19: begin//multu
+						id_rega_addr = rs;
+						id_regb_addr = rt;
 					 end
 			6'h11: begin//mthi
 					 end
@@ -177,6 +205,7 @@ always @* begin
 		id_exe_sign = 1'b1;//sign
 		id_exe_srcb = 1'b1;//imme
 		id_wb_dreg = rt;
+		id_rega_addr = rs;
 		id_wb_we = 1'b1;//write
 		id_mem_rd = 1'b1;//read for reading keyboard
 	end
@@ -186,6 +215,7 @@ always @* begin
 		id_exe_sign = 1'b1;//sign
 		id_exe_srcb = 1'b1;//imme
 		id_mem_we = 1'b1;//write
+		id_rega_addr = rs;
 	end
 	else if (op == 6'h08) begin//addi
 		id_exe_aluop = 4'b0010;//add
@@ -193,6 +223,7 @@ always @* begin
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
+		id_rega_addr = rs;
 		id_wb_we = 1'b1;//write
 		id_exe_alu_sign = 1'b1;
 	end
@@ -202,6 +233,7 @@ always @* begin
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
+		id_rega_addr = rs;
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0c) begin//andi
@@ -209,6 +241,7 @@ always @* begin
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
+		id_rega_addr = rs;
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0d) begin//ori
@@ -217,6 +250,7 @@ always @* begin
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
+		id_rega_addr = rs;
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0e) begin//xori
@@ -225,6 +259,7 @@ always @* begin
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
+		id_rega_addr = rs;
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0a) begin//slti
@@ -233,6 +268,7 @@ always @* begin
 		id_exe_srcb = 1'b1;//imme
 		id_mem_mem_reg = 3'b001;//alu result
 		id_wb_dreg = rt;
+		id_rega_addr = rs;
 		id_wb_we = 1'b1;//write
 	end
 	else if (op == 6'h0f) begin//lui
@@ -245,9 +281,13 @@ always @* begin
 	end
 	else if (op == 6'h04) begin//beq
 		id_beq = 1'b1;//beq
+		id_rega_addr = rs;
+		id_regb_addr = rt;
 	end
 	else if (op == 6'h05) begin//bne
 		id_bne = 1'b1;//bne
+		id_rega_addr = rs;
+		id_regb_addr = rt;
 	end
 	else if (op == 6'h02) begin//j
 		id_j = 1'b1;//j
@@ -275,15 +315,25 @@ always @* begin
 	else if (op == 6'b011100 && shift == 5'b0 && fun == 6'b000010) begin//mul
 		id_mem_mem_reg = 3'b011;
 		id_wb_dreg = rd;
+		id_rega_addr = rs;
+		id_regb_addr = rt;
 		id_wb_we = 1'b1;
 	end
 	else if (op == 6'b011100 && rd == 5'b0 && shift == 5'b0 && fun == 6'b000000)begin//madd
+		id_rega_addr = rs;
+		id_regb_addr = rt;
 	end
 	else if (op == 6'b011100 && rd == 5'b0 && shift == 5'b0 && fun == 6'b000001)begin//maddu
+		id_rega_addr = rs;
+		id_regb_addr = rt;
 	end
 	else if (op == 6'b011100 && rd == 5'b0 && shift == 5'b0 && fun == 6'b000100)begin//msub
+		id_rega_addr = rs;
+		id_regb_addr = rt;
 	end
 	else if (op == 6'b011100 && rd == 5'b0 && shift == 5'b0 && fun == 6'b000101)begin//msubu
+		id_rega_addr = rs;
+		id_regb_addr = rt;
 	end
 	else begin
 		id_unknown = 1'b1;

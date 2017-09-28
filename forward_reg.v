@@ -36,6 +36,7 @@ module forward_reg(
 //forward的数据：优先选择EXE即将进入MEM的结果， 之后选用MEM阶段最终会WB的结果（由触发条件保证）
 always @* begin
 	id_exe_reg = id_out;
+	//当id_reg为0时是不会发生forward的
 	if (mem_wb_we & (mem_wb_dreg != 0) & (id_reg == mem_wb_dreg))//要判断目标寄存器是否为0， 一般都不会出现
 		id_exe_reg = mem_out;
 	if (exe_wb_we & (exe_wb_dreg != 0) & (id_reg == exe_wb_dreg) & (exe_mem_mem_reg == 3'b001))//注意jalr和jal

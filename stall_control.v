@@ -29,6 +29,7 @@ module stall_control(
     );
 //对那些类lw指令，在MEM时数据才稳定的指令进行stall
 always @* begin
+	//当rega与regb是0时是不会stall的
 	if (exe_wb_we == 1'b1 && (exe_mem_mem_reg == 3'b000 | exe_mem_mem_reg == 3'b010 | exe_mem_mem_reg == 3'b011) &&
 			(exe_wb_dreg != 0) &&//虽然不判断0也是可以的
 			((exe_wb_dreg == id_rega) || (exe_wb_dreg == id_regb))) begin

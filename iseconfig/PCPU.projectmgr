@@ -50,30 +50,35 @@
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/Vga_controller - vga_controller/Text_vga - vga_text</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v/gpio - GPIO</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/Input_switch_btn - input_switch_btn</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/PCPU - PCPU_v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/PCPU - PCPU_v/ALU - alu</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/PCPU - PCPU_v/CP0_ - CP0</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_2 - mulu32</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_3 - mul32</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_8 - mul_adder</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/PCPU - PCPU_v/add_branch_addr - adder32_Sklansky</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/Vga_controller - vga_controller</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|2017summer|PCPU|top.v/gpio - GPIO</ClosedNode>
          <ClosedNode>/vga_controller F:|MyProgramme|0|PCPU|vga_controller.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>PCPU - PCPU_v (F:/MyProgramme/2017summer/PCPU/PCPU_v.v)</SelectedItem>
+         <SelectedItem>top (F:/MyProgramme/2017summer/PCPU/top.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >12</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001c2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001c20000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000192000000020000000000000000000000000200000064ffffffff000000810000000300000002000001920000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>PCPU - PCPU_v (F:/MyProgramme/2017summer/PCPU/PCPU_v.v)</CurrentItem>
+      <CurrentItem>top (F:/MyProgramme/2017summer/PCPU/top.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
          <ClosedNode>Implement Design</ClosedNode>
          <ClosedNode>Implement Design/Map</ClosedNode>
          <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
          <ClosedNode>Implement Design/Translate</ClosedNode>
-         <ClosedNode>Synthesize - XST</ClosedNode>
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
@@ -128,18 +133,18 @@
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
          <ClosedNode>Implement Design</ClosedNode>
-         <ClosedNode>Synthesize - XST</ClosedNode>
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem>View RTL Schematic</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000147000000010000000100000000000000000000000064ffffffff000000810000000000000001000001470000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem>View RTL Schematic</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -156,7 +161,7 @@
       <CurrentItem/>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000012d0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
+   <CurrentView>Behavioral Simulation</CurrentView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
@@ -165,43 +170,55 @@
          <ClosedNode>/PCPU_PCPU_sch_tb F:|MyProgramme|0|PCPU|TPCPU.v</ClosedNode>
          <ClosedNode>/PCPU_PCPU_sch_tb F:|MyProgramme|0|PCPU|TPCPU.v/UUT - PCPU</ClosedNode>
          <ClosedNode>/PCPU_PCPU_sch_tb F:|MyProgramme|0|PCPU|TPCUP.v</ClosedNode>
+         <ClosedNode>/PCPU_PCPU_sch_tb F:|MyProgramme|2017summer|PCPU|TPCPU.v</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0|PCPU|TPCPU_I.v</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0|PCPU|TPCPU_I.v/uut - PCPU_v/ALU - alu</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0|PCPU|TPCPU_I.v/uut - PCPU_v/add_branch_addr - adder32_Sklansky</ClosedNode>
+         <ClosedNode>/TPCPU_I F:|MyProgramme|2017summer|PCPU|TPCPU_I.v</ClosedNode>
          <ClosedNode>/Tadder32_Sklansky F:|MyProgramme|0|PCPU|Tadder32_Sklansky.v</ClosedNode>
+         <ClosedNode>/Tadder32_Sklansky F:|MyProgramme|2017summer|PCPU|Tadder32_Sklansky.v</ClosedNode>
          <ClosedNode>/Tadder64 F:|MyProgramme|0|PCPU|Tadder64.v</ClosedNode>
+         <ClosedNode>/Tadder64 F:|MyProgramme|2017summer|PCPU|Tadder64.v</ClosedNode>
          <ClosedNode>/Tkey_board F:|MyProgramme|0|PCPU|Tkey_board.v</ClosedNode>
+         <ClosedNode>/Tkey_board F:|MyProgramme|2017summer|PCPU|Tkey_board.v</ClosedNode>
          <ClosedNode>/Tmio F:|MyProgramme|0|PCPU|Tmio.v</ClosedNode>
+         <ClosedNode>/Tmio F:|MyProgramme|2017summer|PCPU|Tmio.v</ClosedNode>
          <ClosedNode>/Tmul16 F:|MyProgramme|0|PCPU|Tmul16.v</ClosedNode>
          <ClosedNode>/Tmul24 F:|MyProgramme|0|PCPU|Tmul24.v</ClosedNode>
+         <ClosedNode>/Tmul24 F:|MyProgramme|2017summer|PCPU|Tmul24.v</ClosedNode>
          <ClosedNode>/Tmul32 F:|MyProgramme|0|PCPU|Tmul16.v/uut - mul32</ClosedNode>
          <ClosedNode>/Tmul32 F:|MyProgramme|0|PCPU|Tmul32.v</ClosedNode>
          <ClosedNode>/Tmul32 F:|MyProgramme|0|PCPU|Tmul32.v/uut - mul32</ClosedNode>
          <ClosedNode>/Tmul32 F:|MyProgramme|0|PCPU|Tmul32.v/uut - mulu32</ClosedNode>
+         <ClosedNode>/Tmul32 F:|MyProgramme|2017summer|PCPU|Tmul32.v</ClosedNode>
          <ClosedNode>/Tmul8 F:|MyProgramme|0|PCPU|Tmul8.v</ClosedNode>
          <ClosedNode>/Tmul8 F:|MyProgramme|0|PCPU|Tmul8.v/uut - mul8/Adder - adder16</ClosedNode>
          <ClosedNode>/Tmul_adder F:|MyProgramme|0|PCPU|Tmul_adder.v</ClosedNode>
+         <ClosedNode>/Tmul_adder F:|MyProgramme|2017summer|PCPU|Tmul_adder.v</ClosedNode>
          <ClosedNode>/Ttimer F:|MyProgramme|0|PCPU|Ttimer.v</ClosedNode>
+         <ClosedNode>/Ttimer F:|MyProgramme|2017summer|PCPU|Ttimer.v</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/Input_switch_btn - input_switch_btn</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/PCPU - PCPU_v</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/PCPU_ - PCPU</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/Vga_controller - vga_controller</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/Vga_controller - vga_controller/Graph_vga - vga_graph</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0|PCPU|Ttop.v/uut - top/gpio - GPIO</ClosedNode>
+         <ClosedNode>/Ttop F:|MyProgramme|2017summer|PCPU|Ttop.v</ClosedNode>
          <ClosedNode>/Tvga_cusor F:|MyProgramme|0|PCPU|Tvga_cusor.v</ClosedNode>
+         <ClosedNode>/Tvga_cusor F:|MyProgramme|2017summer|PCPU|Tvga_cusor.v</ClosedNode>
          <ClosedNode>/adder8 F:|MyProgramme|0|PCPU|adder8.v</ClosedNode>
          <ClosedNode>/mul32 F:|MyProgramme|0|PCPU|mul32.v</ClosedNode>
          <ClosedNode>/output_led F:|MyProgramme|0|PCPU|output_led.v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>TPCPU_I (F:/MyProgramme/0/PCPU/TPCPU_I.v)</SelectedItem>
+         <SelectedItem>TPCPU_I (F:/MyProgramme/2017summer/PCPU/TPCPU_I.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >16</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001a6000000020000000000000000000000000200000064ffffffff000000810000000300000002000001a60000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000141000000020000000000000000000000000200000064ffffffff000000810000000300000002000001410000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>TPCPU_I (F:/MyProgramme/0/PCPU/TPCPU_I.v)</CurrentItem>
+      <CurrentItem>TPCPU_I (F:/MyProgramme/2017summer/PCPU/TPCPU_I.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -209,26 +226,26 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
       <ClosedNodes>
@@ -262,13 +279,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_NGC" guiview="Process" >
       <ClosedNodes>
