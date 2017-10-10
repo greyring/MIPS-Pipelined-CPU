@@ -76,7 +76,7 @@ input_switch_btn Input_switch_btn(
     );
 
 wire Clk_CPU;
-assign Clk_CPU = SW_OK[2]? Div[24]:Div[0];
+assign Clk_CPU = SW_OK[2]? BTN_OK[0]:Div[0];
 
 wire [31:0]Disp_num;
 wire [7:0]point_out;
@@ -223,8 +223,8 @@ GPIO gpio(
 	  .counter_ch(counter_set), 
 	  .counter_val(Peripheral_in), 
 	  .counter_we(counter_we), 
-	  .rst(rst), 
-	  //.rst(RSTN),
+	  //.rst(rst), 
+	  .rst(RSTN),
 	  .counter_out(Counter_out), 
 	  .counter0_OUT(counter0_OUT), 
 	  .counter1_OUT(counter1_OUT), 

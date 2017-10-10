@@ -26,7 +26,7 @@ module alu(input [31:0]A,
 				output zero,
 				output overflow);
 parameter one = 32'h00000001,zero_0=32'h00000000;
-wire[31:0] res_and,res_or,res_add_sub,res_nor,res_slt,res_srl,res_xor;
+wire[31:0] res_and,res_or,res_add_sub,res_slt,res_srl,res_xor,res_sll;
 
 wire overflow_;
 adder32_Sklansky adder32(

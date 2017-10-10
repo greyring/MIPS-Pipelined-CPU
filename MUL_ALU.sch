@@ -45,7 +45,6 @@
         <signal name="XLXN_131(63:0)" />
         <signal name="XLXN_133(31:0)" />
         <signal name="XLXN_134(31:0)" />
-        <signal name="XLXN_135(31:0)" />
         <signal name="XLXN_136" />
         <port polarity="Input" name="clk" />
         <port polarity="Input" name="rst" />
@@ -178,7 +177,7 @@
             <rect width="64" x="320" y="-44" height="24" />
             <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
-        <block symbolname="MUL_EXE_EWB" name="Mul_EXE_EWB">
+        <block symbolname="MUL_EXE_EWB" name="_Mul_EXE_EWB">
             <blockpin signalname="clk" name="clk" />
             <blockpin signalname="VC" name="EN" />
             <blockpin signalname="rst" name="rst" />
@@ -199,7 +198,7 @@
             <blockpin signalname="MUL_EXE_mul" name="MUL_EXE_mul" />
             <blockpin signalname="MUL_EWB_mul" name="MUL_EWB_mul" />
         </block>
-        <block symbolname="mul_adder" name="Mul_adder">
+        <block symbolname="mul_adder" name="_Mul_adder">
             <blockpin signalname="XLXN_131(63:0)" name="A(63:0)" />
             <blockpin signalname="XLXN_130(63:0)" name="B(63:0)" />
             <blockpin signalname="Hi_Lo(63:0)" name="C_(63:0)" />
@@ -207,7 +206,7 @@
             <blockpin signalname="XLXN_38" name="en_c" />
             <blockpin signalname="XLXN_39" name="a_s" />
         </block>
-        <block symbolname="Reg_HiLo" name="REG_HiLo">
+        <block symbolname="Reg_HiLo" name="_REG_HiLo">
             <blockpin signalname="clk" name="clk" />
             <blockpin signalname="rst" name="rst" />
             <blockpin signalname="Hi_Lo(63:0)" name="Hi_Lo(63:0)" />
@@ -222,7 +221,7 @@
             <blockpin signalname="Hi_Lo(31:0)" name="I1(31:0)" />
             <blockpin signalname="XLXN_126(31:0)" name="o(31:0)" />
         </block>
-        <block symbolname="MUL_ID_EXE" name="Mul_ID_EXE">
+        <block symbolname="MUL_ID_EXE" name="_MUL_ID_EXE">
             <blockpin signalname="clk" name="clk" />
             <blockpin signalname="MUL_ID_EXE_rst" name="rst" />
             <blockpin signalname="VC" name="EN" />
@@ -254,7 +253,7 @@
             <blockpin signalname="MUL_EWB_res(31:0)" name="I1(31:0)" />
             <blockpin signalname="MUL_EWB_data_out(31:0)" name="o(31:0)" />
         </block>
-        <block symbolname="mul32_s" name="Mul32_s">
+        <block symbolname="mul32_s" name="_Mul32_s">
             <blockpin signalname="XLXN_136" name="sign" />
             <blockpin signalname="XLXN_133(31:0)" name="A_i(31:0)" />
             <blockpin signalname="XLXN_134(31:0)" name="B_i(31:0)" />
@@ -295,7 +294,7 @@
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="3024" y="1520" type="branch" />
             <wire x2="3232" y1="1520" y2="1520" x1="3024" />
         </branch>
-        <instance x="3232" y="1744" name="Mul_EXE_EWB" orien="R0">
+        <instance x="3232" y="1744" name="_Mul_EXE_EWB" orien="R0">
         </instance>
         <branch name="MUL_EXE_data(31:0)">
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="3024" y="1712" type="branch" />
@@ -307,7 +306,7 @@
             <wire x2="3936" y1="1424" y2="1424" x1="3888" />
         </branch>
         <iomarker fontsize="28" x="3024" y="1264" name="rst" orien="R180" />
-        <instance x="3936" y="1712" name="Mul_adder" orien="R0">
+        <instance x="3936" y="1712" name="_Mul_adder" orien="R0">
         </instance>
         <branch name="XLXN_39">
             <wire x2="3872" y1="1424" y2="1424" x1="3824" />
@@ -326,7 +325,7 @@
             <wire x2="4032" y1="1136" y2="1136" x1="3824" />
             <wire x2="4432" y1="1136" y2="1136" x1="4032" />
         </branch>
-        <instance x="4432" y="1360" name="REG_HiLo" orien="R0">
+        <instance x="4432" y="1360" name="_REG_HiLo" orien="R0">
         </instance>
         <branch name="XLXN_85">
             <wire x2="3888" y1="1232" y2="1232" x1="3824" />
@@ -377,7 +376,7 @@
             <attrtext style="alignment:SOFT-VLEFT;fontsize:28;fontname:Arial" attrname="Name" x="5120" y="1312" type="branch" />
             <wire x2="5120" y1="1312" y2="1376" x1="5120" />
         </branch>
-        <instance x="864" y="1808" name="Mul_ID_EXE" orien="R0">
+        <instance x="864" y="1808" name="_MUL_ID_EXE" orien="R0">
         </instance>
         <branch name="clk">
             <wire x2="864" y1="1136" y2="1136" x1="816" />
@@ -510,7 +509,7 @@
             <wire x2="1760" y1="1136" y2="1408" x1="1760" />
             <wire x2="1904" y1="1408" y2="1408" x1="1760" />
         </branch>
-        <instance x="1904" y="1568" name="Mul32_s" orien="R0">
+        <instance x="1904" y="1568" name="_Mul32_s" orien="R0">
         </instance>
     </sheet>
 </drawing>

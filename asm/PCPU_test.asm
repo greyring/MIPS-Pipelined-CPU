@@ -1,5 +1,5 @@
-.text
-.set noat
+#.text
+#.set noat
 #.set noreorder
 _start:
 j start;

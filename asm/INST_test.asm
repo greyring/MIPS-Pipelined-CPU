@@ -48,7 +48,7 @@ bne  $7, $30, print_err;
 nop;
 addi $30, $30, 1;
 
-addi $8, $8, 1;
+addiu $8, $8, 1;
 srl  $8, $8, 28;#$8 = 8 addiu
 bne  $8, $30, print_err;
 nop;
@@ -78,7 +78,7 @@ bne  $12, $30, print_err;
 nop;
 addi $30, $30, 1;
 
-addi $13, $13, 15;
+addi $13, $0, 15;
 andi $13, $13, 13;#$13 = 13 andi
 bne  $13, $30, print_err;
 nop;
@@ -257,14 +257,23 @@ addi $30, $30, 1;
 
 nor $1, $0, $0;
 multu $1, $1;
-mfhi $1;             #34 multu
-beq $1, $0, print_err;
+mfhi $1;             #33 multu hilo = fffffffe 1
+addi $1, $1, 2;
+bne $1, $0, print_err;
+nop;
+mflo $1;
+addi $1, $1, -1;
+bne $1, $0, print_err;
 nop;
 addi $30, $30, 1;
 
 nor $1, $0, $0;
 mult $1, $1;
-mfhi $1;             #35 mult  hilo = 1
+mfhi $1;             #34 mult  hilo = 1
+bne $1, $0, print_err;
+nop;
+mflo $1;
+addi $1, $1, -1;
 bne $1, $0, print_err;
 nop;
 addi $30, $30, 1;
@@ -275,41 +284,43 @@ mfhi $1;
 bne $1, $0, print_err;
 nop;
 mflo $1;
-bne $1, $0, print_err; #36 msub hilo = 0
+bne $1, $0, print_err; #35 msub hilo = 0
 nop;
 addi $30, $30, 1;
 
 nor $1, $0, $0;
 msubu $1, $1;
 mflo $1;
-addi $1, $1, 1;
+addi $1, $1, -1;
 bne $1, $0, print_err;
 nop;
 mfhi $1;
-addi $1, $1,-1;
-bne $1, $0, print_err; #37 msubu hilo=1 ffffffff
+addi $1, $1, 2;
+bne $1, $0, print_err; #36 msubu hilo=fffffffe 1
 nop;
 addi $30, $30, 1;
 
 nor $1, $0, $0;
 madd $1, $1;
 mflo $1;
+addi $1, $1, -2;
 bne $1, $0, print_err;
 nop;
 mfhi $1;
-bne $1, $0, print_err; #38 madd hilo = 0 0
+addi $1, $1, 2;
+bne $1, $0, print_err; #37 madd hilo = fffffffe 2
 nop;
 addi $30, $30, 1;
 
 nor $1, $0, $0;
 maddu $1, $1;
 mfhi $1;
-addi $1, $1, 2;
+addi $1, $1, 4;
 bne $1, $0, print_err;
 nop;
 mflo $1;
-addi $1, $1, -1;
-bne $1, $0, print_err; #39 maddu hi lo =fffffffe 1
+addi $1, $1, -3;
+bne $1, $0, print_err; #38 maddu hi lo =fffffffc 3
 nop;
 addi $30, $30, 1;
 

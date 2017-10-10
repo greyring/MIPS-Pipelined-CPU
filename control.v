@@ -162,12 +162,14 @@ always @* begin
 					 end
 			6'h08: begin//jr
 						id_jr = 1'b1;
+						id_rega_addr = rs;
 					 end
 			6'h09: begin//jalr
 						id_wb_we = 1'b1; id_exe_jal = 1'b1;
 						id_jr = 1'b1;
 						id_wb_dreg = rd;
 						id_mem_mem_reg = 3'b001;//alu result 
+						id_rega_addr = rs;
 					 end
 			6'h0c: begin//syscall
 						id_syscall = 1'b1;
@@ -191,8 +193,10 @@ always @* begin
 						id_regb_addr = rt;
 					 end
 			6'h11: begin//mthi
+						id_rega_addr = rs;
 					 end
 			6'h13: begin//mtlo
+						id_rega_addr = rs;
 					 end
 			default: begin //unknown
 						id_unknown = 1'b1;
@@ -216,6 +220,7 @@ always @* begin
 		id_exe_srcb = 1'b1;//imme
 		id_mem_we = 1'b1;//write
 		id_rega_addr = rs;
+		id_regb_addr = rt;
 	end
 	else if (op == 6'h08) begin//addi
 		id_exe_aluop = 4'b0010;//add
