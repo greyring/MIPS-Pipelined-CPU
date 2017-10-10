@@ -166,7 +166,7 @@ always @* begin
 			6'h09: begin//jalr
 						id_wb_we = 1'b1; id_exe_jal = 1'b1;
 						id_jr = 1'b1;
-						id_wb_dreg = 5'b11111;
+						id_wb_dreg = rd;
 						id_mem_mem_reg = 3'b001;//alu result 
 					 end
 			6'h0c: begin//syscall

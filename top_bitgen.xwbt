@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=F:\MyProgramme\0\PCPU\top.ncd
-OUTFILE=F:\MyProgramme\0\PCPU\top.bit
+INFILE=F:\MyProgramme\0arch\PCPU\top.ncd
+OUTFILE=F:\MyProgramme\0arch\PCPU\top.bit
 FAMILY=Kintex7
 PART=xc7k325t-2lffg676
-WORKINGDIR=F:\MyProgramme\0\PCPU
+WORKINGDIR=F:\MyProgramme\0arch\PCPU
 LICENSE=ISE
 USER_INFO=135256_15690819_173552794_661
