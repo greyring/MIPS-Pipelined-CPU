@@ -478,7 +478,7 @@ end
 assign mem_wb_data = mem_wb_data_temp;
 								
    //wire MEM_WB_stall_;
-	MEM_WB_REG  XLXI_18 (.clk(clk), 
+	MEM_WB_REG  Mem_wb_reg(.clk(clk), 
                        .rst(rst), 
                        .EN(1'b1), 
                        .mem_wb_data(mem_wb_data[31:0]), 

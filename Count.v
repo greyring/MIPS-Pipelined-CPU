@@ -21,8 +21,8 @@
 module Count(
 	input clk,
 	input rst,
-	input we,
-	input [31:0]D,
+	input compare_we,
+	//input [31:0]D,
 	output [31:0]Q
     );
 
@@ -30,8 +30,8 @@ reg [31:0]count = 32'b1;//防止一上电就中断
 always @(posedge clk) begin
 	if (rst)
 		count <= 32'b1;
-	else if (we)
-		count <= D;
+	else if (compare_we)//写入compare时计时自动清零
+		count <= 32'b0;
 	else
 		count <= count + 1'b1;
 end

@@ -36,24 +36,23 @@ Setup/Hold to clock clk200N
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-RSTN        |   -0.080(R)|      FAST  |    3.097(R)|      SLOW  |clk_100mhz        |   0.000|
-btn_y<0>    |   -1.699(R)|      FAST  |    4.992(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<0>   |   -0.335(R)|      FAST  |    3.322(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<1>   |    0.328(R)|      FAST  |    2.550(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<2>   |    0.257(R)|      FAST  |    2.560(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<3>   |   -0.224(R)|      FAST  |    3.047(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<4>   |   -0.210(R)|      FAST  |    3.097(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<5>   |   -0.065(R)|      FAST  |    2.908(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<6>   |   -0.044(R)|      FAST  |    2.909(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<7>   |    0.125(R)|      FAST  |    2.668(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<8>   |    0.032(R)|      FAST  |    2.832(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<9>   |   -0.097(R)|      FAST  |    3.010(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<10>  |    0.040(R)|      FAST  |    2.778(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<11>  |   -0.307(R)|      FAST  |    3.261(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<12>  |   -0.090(R)|      FAST  |    2.896(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<13>  |   -0.008(R)|      FAST  |    2.923(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<14>  |   -0.243(R)|      FAST  |    3.271(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<15>  |    0.088(R)|      FAST  |    2.691(R)|      SLOW  |clk_100mhz        |   0.000|
+RSTN        |   -0.315(R)|      FAST  |    3.301(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<0>   |    0.082(R)|      FAST  |    2.166(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<1>   |   -0.376(R)|      FAST  |    3.451(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<2>   |   -0.252(R)|      FAST  |    3.232(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<3>   |   -0.525(R)|      FAST  |    3.564(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<4>   |   -0.226(R)|      FAST  |    3.241(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<5>   |    0.012(R)|      FAST  |    2.901(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<6>   |    0.033(R)|      FAST  |    2.937(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<7>   |   -0.129(R)|      FAST  |    3.005(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<8>   |   -0.647(R)|      FAST  |    3.689(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<9>   |   -0.439(R)|      FAST  |    3.371(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<10>  |   -0.472(R)|      FAST  |    3.469(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<11>  |   -0.682(R)|      FAST  |    3.732(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<12>  |   -0.657(R)|      FAST  |    3.768(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<13>  |   -0.430(R)|      FAST  |    3.413(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<14>  |   -0.498(R)|      FAST  |    3.530(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<15>  |   -0.283(R)|      FAST  |    3.180(R)|      SLOW  |clk_100mhz        |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock clk200P
@@ -61,24 +60,23 @@ Setup/Hold to clock clk200P
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-RSTN        |   -0.080(R)|      FAST  |    3.097(R)|      SLOW  |clk_100mhz        |   0.000|
-btn_y<0>    |   -1.699(R)|      FAST  |    4.992(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<0>   |   -0.335(R)|      FAST  |    3.322(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<1>   |    0.328(R)|      FAST  |    2.550(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<2>   |    0.257(R)|      FAST  |    2.560(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<3>   |   -0.224(R)|      FAST  |    3.047(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<4>   |   -0.210(R)|      FAST  |    3.097(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<5>   |   -0.065(R)|      FAST  |    2.908(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<6>   |   -0.044(R)|      FAST  |    2.909(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<7>   |    0.125(R)|      FAST  |    2.668(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<8>   |    0.032(R)|      FAST  |    2.832(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<9>   |   -0.097(R)|      FAST  |    3.010(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<10>  |    0.040(R)|      FAST  |    2.778(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<11>  |   -0.307(R)|      FAST  |    3.261(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<12>  |   -0.090(R)|      FAST  |    2.896(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<13>  |   -0.008(R)|      FAST  |    2.923(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<14>  |   -0.243(R)|      FAST  |    3.271(R)|      SLOW  |clk_100mhz        |   0.000|
-switch<15>  |    0.088(R)|      FAST  |    2.691(R)|      SLOW  |clk_100mhz        |   0.000|
+RSTN        |   -0.315(R)|      FAST  |    3.301(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<0>   |    0.082(R)|      FAST  |    2.166(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<1>   |   -0.376(R)|      FAST  |    3.451(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<2>   |   -0.252(R)|      FAST  |    3.232(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<3>   |   -0.525(R)|      FAST  |    3.564(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<4>   |   -0.226(R)|      FAST  |    3.241(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<5>   |    0.012(R)|      FAST  |    2.901(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<6>   |    0.033(R)|      FAST  |    2.937(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<7>   |   -0.129(R)|      FAST  |    3.005(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<8>   |   -0.647(R)|      FAST  |    3.689(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<9>   |   -0.439(R)|      FAST  |    3.371(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<10>  |   -0.472(R)|      FAST  |    3.469(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<11>  |   -0.682(R)|      FAST  |    3.732(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<12>  |   -0.657(R)|      FAST  |    3.768(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<13>  |   -0.430(R)|      FAST  |    3.413(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<14>  |   -0.498(R)|      FAST  |    3.530(R)|      SLOW  |clk_100mhz        |   0.000|
+switch<15>  |   -0.283(R)|      FAST  |    3.180(R)|      SLOW  |clk_100mhz        |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock clk200N to Pad
@@ -86,25 +84,25 @@ Clock clk200N to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-btn_x<0>    |        10.107(R)|      SLOW  |         4.571(R)|      FAST  |clk_100mhz        |   0.000|
-btn_x<1>    |        10.119(R)|      SLOW  |         4.582(R)|      FAST  |clk_100mhz        |   0.000|
-btn_x<2>    |        10.157(R)|      SLOW  |         4.598(R)|      FAST  |clk_100mhz        |   0.000|
-btn_x<3>    |        10.125(R)|      SLOW  |         4.583(R)|      FAST  |clk_100mhz        |   0.000|
-btn_x<4>    |        10.148(R)|      SLOW  |         4.591(R)|      FAST  |clk_100mhz        |   0.000|
-seg_clk     |        13.136(R)|      SLOW  |         5.616(R)|      FAST  |clk_100mhz        |   0.000|
-seg_pen     |        13.456(R)|      SLOW  |         5.918(R)|      FAST  |clk_100mhz        |   0.000|
-vga_blue<0> |        20.529(R)|      SLOW  |         6.316(R)|      FAST  |clk_100mhz        |   0.000|
-vga_blue<1> |        20.051(R)|      SLOW  |         6.322(R)|      FAST  |clk_100mhz        |   0.000|
-vga_blue<2> |        19.816(R)|      SLOW  |         6.084(R)|      FAST  |clk_100mhz        |   0.000|
-vga_blue<3> |        21.380(R)|      SLOW  |         6.180(R)|      FAST  |clk_100mhz        |   0.000|
-vga_green<0>|        21.139(R)|      SLOW  |         5.933(R)|      FAST  |clk_100mhz        |   0.000|
-vga_green<1>|        20.974(R)|      SLOW  |         6.108(R)|      FAST  |clk_100mhz        |   0.000|
-vga_green<2>|        21.275(R)|      SLOW  |         5.920(R)|      FAST  |clk_100mhz        |   0.000|
-vga_green<3>|        21.472(R)|      SLOW  |         6.116(R)|      FAST  |clk_100mhz        |   0.000|
-vga_red<0>  |        20.866(R)|      SLOW  |         5.918(R)|      FAST  |clk_100mhz        |   0.000|
-vga_red<1>  |        21.452(R)|      SLOW  |         6.036(R)|      FAST  |clk_100mhz        |   0.000|
-vga_red<2>  |        21.626(R)|      SLOW  |         6.024(R)|      FAST  |clk_100mhz        |   0.000|
-vga_red<3>  |        21.486(R)|      SLOW  |         6.394(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<0>    |         9.939(R)|      SLOW  |         4.467(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<1>    |         9.983(R)|      SLOW  |         4.500(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<2>    |         9.977(R)|      SLOW  |         4.495(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<3>    |         9.972(R)|      SLOW  |         4.489(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<4>    |        10.061(R)|      SLOW  |         4.532(R)|      FAST  |clk_100mhz        |   0.000|
+seg_clk     |        14.314(R)|      SLOW  |         6.179(R)|      FAST  |clk_100mhz        |   0.000|
+seg_pen     |        12.348(R)|      SLOW  |         5.450(R)|      FAST  |clk_100mhz        |   0.000|
+vga_blue<0> |        18.177(R)|      SLOW  |         5.056(R)|      FAST  |clk_100mhz        |   0.000|
+vga_blue<1> |        18.169(R)|      SLOW  |         5.239(R)|      FAST  |clk_100mhz        |   0.000|
+vga_blue<2> |        18.193(R)|      SLOW  |         5.239(R)|      FAST  |clk_100mhz        |   0.000|
+vga_blue<3> |        20.366(R)|      SLOW  |         5.154(R)|      FAST  |clk_100mhz        |   0.000|
+vga_green<0>|        20.392(R)|      SLOW  |         5.151(R)|      FAST  |clk_100mhz        |   0.000|
+vga_green<1>|        21.237(R)|      SLOW  |         5.208(R)|      FAST  |clk_100mhz        |   0.000|
+vga_green<2>|        20.775(R)|      SLOW  |         5.372(R)|      FAST  |clk_100mhz        |   0.000|
+vga_green<3>|        20.649(R)|      SLOW  |         5.316(R)|      FAST  |clk_100mhz        |   0.000|
+vga_red<0>  |        21.428(R)|      SLOW  |         5.238(R)|      FAST  |clk_100mhz        |   0.000|
+vga_red<1>  |        21.447(R)|      SLOW  |         5.101(R)|      FAST  |clk_100mhz        |   0.000|
+vga_red<2>  |        20.855(R)|      SLOW  |         5.235(R)|      FAST  |clk_100mhz        |   0.000|
+vga_red<3>  |        20.888(R)|      SLOW  |         5.444(R)|      FAST  |clk_100mhz        |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock clk200P to Pad
@@ -112,25 +110,25 @@ Clock clk200P to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-btn_x<0>    |        10.107(R)|      SLOW  |         4.571(R)|      FAST  |clk_100mhz        |   0.000|
-btn_x<1>    |        10.119(R)|      SLOW  |         4.582(R)|      FAST  |clk_100mhz        |   0.000|
-btn_x<2>    |        10.157(R)|      SLOW  |         4.598(R)|      FAST  |clk_100mhz        |   0.000|
-btn_x<3>    |        10.125(R)|      SLOW  |         4.583(R)|      FAST  |clk_100mhz        |   0.000|
-btn_x<4>    |        10.148(R)|      SLOW  |         4.591(R)|      FAST  |clk_100mhz        |   0.000|
-seg_clk     |        13.136(R)|      SLOW  |         5.616(R)|      FAST  |clk_100mhz        |   0.000|
-seg_pen     |        13.456(R)|      SLOW  |         5.918(R)|      FAST  |clk_100mhz        |   0.000|
-vga_blue<0> |        20.529(R)|      SLOW  |         6.316(R)|      FAST  |clk_100mhz        |   0.000|
-vga_blue<1> |        20.051(R)|      SLOW  |         6.322(R)|      FAST  |clk_100mhz        |   0.000|
-vga_blue<2> |        19.816(R)|      SLOW  |         6.084(R)|      FAST  |clk_100mhz        |   0.000|
-vga_blue<3> |        21.380(R)|      SLOW  |         6.180(R)|      FAST  |clk_100mhz        |   0.000|
-vga_green<0>|        21.139(R)|      SLOW  |         5.933(R)|      FAST  |clk_100mhz        |   0.000|
-vga_green<1>|        20.974(R)|      SLOW  |         6.108(R)|      FAST  |clk_100mhz        |   0.000|
-vga_green<2>|        21.275(R)|      SLOW  |         5.920(R)|      FAST  |clk_100mhz        |   0.000|
-vga_green<3>|        21.472(R)|      SLOW  |         6.116(R)|      FAST  |clk_100mhz        |   0.000|
-vga_red<0>  |        20.866(R)|      SLOW  |         5.918(R)|      FAST  |clk_100mhz        |   0.000|
-vga_red<1>  |        21.452(R)|      SLOW  |         6.036(R)|      FAST  |clk_100mhz        |   0.000|
-vga_red<2>  |        21.626(R)|      SLOW  |         6.024(R)|      FAST  |clk_100mhz        |   0.000|
-vga_red<3>  |        21.486(R)|      SLOW  |         6.394(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<0>    |         9.939(R)|      SLOW  |         4.467(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<1>    |         9.983(R)|      SLOW  |         4.500(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<2>    |         9.977(R)|      SLOW  |         4.495(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<3>    |         9.972(R)|      SLOW  |         4.489(R)|      FAST  |clk_100mhz        |   0.000|
+btn_x<4>    |        10.061(R)|      SLOW  |         4.532(R)|      FAST  |clk_100mhz        |   0.000|
+seg_clk     |        14.314(R)|      SLOW  |         6.179(R)|      FAST  |clk_100mhz        |   0.000|
+seg_pen     |        12.348(R)|      SLOW  |         5.450(R)|      FAST  |clk_100mhz        |   0.000|
+vga_blue<0> |        18.177(R)|      SLOW  |         5.056(R)|      FAST  |clk_100mhz        |   0.000|
+vga_blue<1> |        18.169(R)|      SLOW  |         5.239(R)|      FAST  |clk_100mhz        |   0.000|
+vga_blue<2> |        18.193(R)|      SLOW  |         5.239(R)|      FAST  |clk_100mhz        |   0.000|
+vga_blue<3> |        20.366(R)|      SLOW  |         5.154(R)|      FAST  |clk_100mhz        |   0.000|
+vga_green<0>|        20.392(R)|      SLOW  |         5.151(R)|      FAST  |clk_100mhz        |   0.000|
+vga_green<1>|        21.237(R)|      SLOW  |         5.208(R)|      FAST  |clk_100mhz        |   0.000|
+vga_green<2>|        20.775(R)|      SLOW  |         5.372(R)|      FAST  |clk_100mhz        |   0.000|
+vga_green<3>|        20.649(R)|      SLOW  |         5.316(R)|      FAST  |clk_100mhz        |   0.000|
+vga_red<0>  |        21.428(R)|      SLOW  |         5.238(R)|      FAST  |clk_100mhz        |   0.000|
+vga_red<1>  |        21.447(R)|      SLOW  |         5.101(R)|      FAST  |clk_100mhz        |   0.000|
+vga_red<2>  |        20.855(R)|      SLOW  |         5.235(R)|      FAST  |clk_100mhz        |   0.000|
+vga_red<3>  |        20.888(R)|      SLOW  |         5.444(R)|      FAST  |clk_100mhz        |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk200N
@@ -138,8 +136,8 @@ Clock to Setup on destination clock clk200N
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk200N        |    4.284|         |         |         |
-clk200P        |    4.284|         |         |         |
+clk200N        |    4.749|         |         |         |
+clk200P        |    4.749|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk200P
@@ -147,19 +145,19 @@ Clock to Setup on destination clock clk200P
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk200N        |    4.284|         |         |         |
-clk200P        |    4.284|         |         |         |
+clk200N        |    4.749|         |         |         |
+clk200P        |    4.749|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Oct 11 00:38:50 2017 
+Analysis completed Sat Oct 14 15:24:34 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 976 MB
+Peak Memory Usage: 974 MB
 
 
 

@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: top.prj
 
@@ -1244,6 +1244,8 @@ Loading core <text_vga_ram> for timing and area information for instance <Text_v
 Loading core <font8_16> for timing and area information for instance <Font8_16>.
 Loading core <graph_vga_ram> for timing and area information for instance <Graph_vga_ram>.
 Loading core <led_parallel2serial> for timing and area information for instance <P2S>.
+WARNING:Xst:1290 - Hierarchical block <Aj_btn_0> is unconnected in block <Santi_jitter>.
+   It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <Aj_btn_1> is unconnected in block <Santi_jitter>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <Aj_btn_2> is unconnected in block <Santi_jitter>.
@@ -1322,30 +1324,6 @@ WARNING:Xst:1293 - FF/Latch <temp_106> has a constant value of 0 in block <_Mul_
 WARNING:Xst:1293 - FF/Latch <temp_107> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <temp_108> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <temp_109> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <btn_result_1> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_2> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_3> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_4> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_5> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_6> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_7> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_8> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_9> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_10> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_11> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_12> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_13> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_14> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_15> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_16> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_17> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_18> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_19> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_20> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_21> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_22> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_23> of sequential type is unconnected in block <Btn_scan>.
-WARNING:Xst:2677 - Node <btn_result_24> of sequential type is unconnected in block <Btn_scan>.
 WARNING:Xst:2677 - Node <counter_Ctrl_0> of sequential type is unconnected in block <counter>.
 WARNING:Xst:2677 - Node <counter_Ctrl_3> of sequential type is unconnected in block <counter>.
 WARNING:Xst:2677 - Node <counter_Ctrl_4> of sequential type is unconnected in block <counter>.
@@ -1757,6 +1735,38 @@ WARNING:Xst:1293 - FF/Latch <PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_104> has a constant
 WARNING:Xst:1293 - FF/Latch <PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_103> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_102> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PCPU/ID_EXE/temp_15> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_31> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_30> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_29> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_28> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_27> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_26> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_25> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_24> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_20> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_19> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_0> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_1/counter_31> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_1/counter_30> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <Input_switch_btn/Santi_jitter/Aj_btn_1/counter_29> of sequential type is unconnected in block <top>.
@@ -2549,13 +2559,8 @@ WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_4> of sequential t
 WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_3> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_2> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_0> of sequential type is unconnected in block <top>.
 WARNING:Xst:1293 - FF/Latch <PCPU/EXE_MEM_REG/temp_15> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_10/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_10/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2582,13 +2587,10 @@ WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_25> 
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_8/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2614,8 +2616,12 @@ WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_27> h
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_9/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_14/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_14/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_14/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2646,10 +2652,6 @@ WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_15/counter_20> 
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_15/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_15/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_15/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_11/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2662,36 +2664,25 @@ WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_24> 
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_12/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_13/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2711,48 +2702,48 @@ WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_2/counter_19> h
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_2/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_2/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_btn_0/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_0/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_1/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_6/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2776,22 +2767,37 @@ WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_29> h
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_7/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_3/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_31> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_30> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2799,16 +2805,6 @@ WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_5/counter_31> h
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_20> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_21> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_22> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_23> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_24> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_25> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_26> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_27> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_28> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Input_switch_btn/Santi_jitter/Aj_sw_4/counter_29> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Input_switch_btn/Santi_jitter/Aj_rst/counter_17> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Input_switch_btn/Santi_jitter/Aj_rst/counter_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Input_switch_btn/Santi_jitter/Aj_rst/counter_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2912,8 +2908,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 2377
- Flip-Flops                                            : 2377
+# Registers                                            : 2359
+ Flip-Flops                                            : 2359
 
 =========================================================================
 
@@ -2936,33 +2932,33 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 9862
+# BELS                             : 9797
 #      AND2                        : 8
 #      AND3                        : 88
 #      AND4                        : 72
 #      GND                         : 8
-#      INV                         : 136
-#      LUT1                        : 429
-#      LUT2                        : 119
+#      INV                         : 133
+#      LUT1                        : 413
+#      LUT2                        : 117
 #      LUT3                        : 2355
-#      LUT4                        : 399
-#      LUT5                        : 2201
-#      LUT6                        : 2495
-#      MUXCY                       : 716
+#      LUT4                        : 397
+#      LUT5                        : 2199
+#      LUT6                        : 2494
+#      MUXCY                       : 694
 #      MUXF7                       : 144
 #      OR2                         : 56
 #      OR3                         : 24
 #      OR4                         : 32
 #      VCC                         : 7
-#      XORCY                       : 573
-# FlipFlops/Latches                : 2576
-#      FD                          : 42
+#      XORCY                       : 556
+# FlipFlops/Latches                : 2558
+#      FD                          : 41
 #      FDC                         : 35
 #      FDCE                        : 1059
 #      FDE                         : 78
 #      FDE_1                       : 65
 #      FDR                         : 419
-#      FDRE                        : 855
+#      FDRE                        : 838
 #      FDS                         : 10
 #      LD                          : 13
 # RAMS                             : 112
@@ -2970,8 +2966,8 @@ Primitive and Black Box Usage:
 #      RAMB36E1                    : 110
 # Clock Buffers                    : 10
 #      BUFG                        : 10
-# IO Buffers                       : 44
-#      IBUF                        : 18
+# IO Buffers                       : 43
+#      IBUF                        : 17
 #      IBUFGDS                     : 1
 #      OBUF                        : 25
 # DSPs                             : 1
@@ -2986,20 +2982,20 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            2576  out of  407600     0%  
- Number of Slice LUTs:                 8134  out of  203800     3%  
-    Number used as Logic:              8134  out of  203800     3%  
+ Number of Slice Registers:            2558  out of  407600     0%  
+ Number of Slice LUTs:                 8108  out of  203800     3%  
+    Number used as Logic:              8108  out of  203800     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   8504
-   Number with an unused Flip Flop:    5928  out of   8504    69%  
-   Number with an unused LUT:           370  out of   8504     4%  
-   Number of fully used LUT-FF pairs:  2206  out of   8504    25%  
-   Number of unique control sets:        54
+ Number of LUT Flip Flop pairs used:   8478
+   Number with an unused Flip Flop:    5920  out of   8478    69%  
+   Number with an unused LUT:           370  out of   8478     4%  
+   Number of fully used LUT-FF pairs:  2188  out of   8478    25%  
+   Number of unique control sets:        53
 
 IO Utilization: 
  Number of IOs:                          49
- Number of bonded IOBs:                  45  out of    400    11%  
+ Number of bonded IOBs:                  44  out of    400    11%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:              111  out of    445    24%  
@@ -3028,7 +3024,7 @@ Clock Information:
 -----------------------------------------------------------------------------------------+---------------------------------------------+-------+
 Clock Signal                                                                             | Clock buffer(FF name)                       | Load  |
 -----------------------------------------------------------------------------------------+---------------------------------------------+-------+
-Clk_gen/clk_100m_unbuf                                                                   | BUFG                                        | 566   |
+Clk_gen/clk_100m_unbuf                                                                   | BUFG                                        | 548   |
 Clk_gen/Div_6                                                                            | BUFG                                        | 35    |
 Clk_CPU_INV_33_o(Clk_CPU_INV_33_o1:O)                                                    | BUFG(*)(counter/counter_Ctrl_2)             | 155   |
 Clk_gen/Div_1                                                                            | BUFG                                        | 20    |
@@ -3047,8 +3043,8 @@ Asynchronous Control Signals Information:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Control Signal                                                                                                                                                                                                                                                                                                                                     | Buffer(FF name)                                                                                                                                                                    | Load  |
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-Vga_controller/Graph_vga/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Graph_vga/Graph_vga_ram/XST_GND:G)                                                                                                                                                          | NONE(Vga_controller/Graph_vga/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[39].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)    | 182   |
-Vga_controller/Text_vga/Text_vga_ram/N1(Vga_controller/Text_vga/Text_vga_ram/XST_GND:G)                                                                                                                                                                                                                                                            | NONE(Vga_controller/Text_vga/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)       | 10    |
+Vga_controller/Graph_vga/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Graph_vga/Graph_vga_ram/XST_GND:G)                                                                                                                                                          | NONE(Vga_controller/Graph_vga/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)    | 182   |
+Vga_controller/Text_vga/Text_vga_ram/N1(Vga_controller/Text_vga/Text_vga_ram/XST_GND:G)                                                                                                                                                                                                                                                            | NONE(Vga_controller/Text_vga/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)       | 10    |
 Data_RAM_/N1(Data_RAM_/XST_GND:G)                                                                                                                                                                                                                                                                                                                  | NONE(Data_RAM_/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                    | 2     |
 Inst_ROM_/N1(Inst_ROM_/XST_GND:G)                                                                                                                                                                                                                                                                                                                  | NONE(Inst_ROM_/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                    | 2     |
 Vga_controller/Graph_vga/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/cascadelata_tmp(Vga_controller/Graph_vga/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B:CASCADEOUTA)  | NONE(Vga_controller/Graph_vga/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T) | 1     |
@@ -3093,7 +3089,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk_gen/clk_100m_unbuf'
   Clock period: 2.621ns (frequency: 381.506MHz)
-  Total number of paths / destination ports: 13438 / 858
+  Total number of paths / destination ports: 12922 / 806
 -------------------------------------------------------------------------
 Delay:               2.621ns (Levels of Logic = 7)
   Source:            Input_switch_btn/counter_10 (FF)
@@ -3238,21 +3234,21 @@ Delay:               7.739ns (Levels of Logic = 17)
     ----------------------------------------  ------------
      FDRE:C->Q             3   0.236   0.534  PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_45 (PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_45)
      LUT4:I0->O            3   0.043   0.625  PCPU/MUL_ALU_/_Mul_adder/s1_7_11 (PCPU/MUL_ALU_/_Mul_adder/s1_7_1)
-     LUT6:I0->O            1   0.043   0.495  PCPU/MUL_ALU_/_Mul_adder/Adder/in5_0/gi_j1_SW1 (N359)
+     LUT6:I0->O            1   0.043   0.495  PCPU/MUL_ALU_/_Mul_adder/Adder/in5_0/gi_j1_SW1 (N357)
      LUT5:I2->O            7   0.043   0.384  PCPU/MUL_ALU_/_Mul_adder/Adder/in7_0/gi_j1 (PCPU/MUL_ALU_/_Mul_adder/Adder/g7_0)
      LUT6:I5->O            6   0.043   0.378  PCPU/MUL_ALU_/_Mul_adder/Adder/in13_0/gi_j1 (PCPU/MUL_ALU_/_Mul_adder/Adder/g13_0)
      LUT6:I5->O            7   0.043   0.384  PCPU/MUL_ALU_/_Mul_adder/Adder/in23_0/gi_j2 (PCPU/MUL_ALU_/_Mul_adder/Adder/g23_0)
      LUT6:I5->O            5   0.043   0.373  PCPU/MUL_ALU_/_Mul_adder/Adder/in29_0/gi_j1 (PCPU/MUL_ALU_/_Mul_adder/Adder/g29_0)
      LUT6:I5->O            4   0.043   0.367  PCPU/MUL_ALU_/_Mul_adder/Adder/in37_0/gi_j1 (PCPU/MUL_ALU_/_Mul_adder/Adder/g37_0)
-     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in43_0/gi_j3_SW0 (N857)
+     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in43_0/gi_j3_SW0 (N855)
      LUT6:I5->O            4   0.043   0.367  PCPU/MUL_ALU_/_Mul_adder/Adder/in43_0/gi_j3 (PCPU/MUL_ALU_/_Mul_adder/Adder/g43_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in47_0/gi_j3_SW0 (N855)
+     LUT5:I4->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in47_0/gi_j3_SW0 (N853)
      LUT6:I5->O            5   0.043   0.373  PCPU/MUL_ALU_/_Mul_adder/Adder/in47_0/gi_j3 (PCPU/MUL_ALU_/_Mul_adder/Adder/g47_0)
-     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in55_0/gi_j11_SW0 (N853)
+     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in55_0/gi_j11_SW0 (N851)
      LUT6:I5->O            5   0.043   0.373  PCPU/MUL_ALU_/_Mul_adder/Adder/in55_0/gi_j11 (PCPU/MUL_ALU_/_Mul_adder/Adder/in55_0/gi_j1)
-     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in59_0/gi_j4_SW0 (N851)
+     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in59_0/gi_j4_SW0 (N849)
      LUT6:I5->O            4   0.043   0.367  PCPU/MUL_ALU_/_Mul_adder/Adder/in59_0/gi_j4 (PCPU/MUL_ALU_/_Mul_adder/Adder/g59_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/MUL_ALU_/_REG_HiLo/Mmux__n0045252_SW0 (N849)
+     LUT5:I4->O            1   0.043   0.350  PCPU/MUL_ALU_/_REG_HiLo/Mmux__n0045252_SW0 (N847)
      LUT6:I5->O            1   0.043   0.000  PCPU/MUL_ALU_/_REG_HiLo/Mmux__n0045252 (PCPU/MUL_ALU_/_REG_HiLo/_n0045<31>)
      FDRE:D                   -0.000          PCPU/MUL_ALU_/_REG_HiLo/Hi_31
     ----------------------------------------
@@ -3305,7 +3301,7 @@ Delay:               0.700ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_gen/clk_100m_unbuf'
-  Total number of paths / destination ports: 290 / 290
+  Total number of paths / destination ports: 289 / 289
 -------------------------------------------------------------------------
 Offset:              1.086ns (Levels of Logic = 2)
   Source:            switch<0> (PAD)
@@ -3337,7 +3333,7 @@ Offset:              1.282ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            89   0.000   0.635  RSTN_IBUF (Input_switch_btn/Santi_jitter/RSTN_inv)
-     LUT5:I2->O            1   0.043   0.339  counter/_n00861 (counter/_n0086)
+     LUT5:I2->O            1   0.043   0.339  counter/_n00881 (counter/_n0088)
      FDR:R                     0.264          counter/clr0
     ----------------------------------------
     Total                      1.282ns (0.307ns logic, 0.975ns route)
@@ -3357,7 +3353,7 @@ Offset:              1.390ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            89   0.000   0.743  RSTN_IBUF (Input_switch_btn/Santi_jitter/RSTN_inv)
-     LUT6:I1->O            1   0.043   0.339  counter/_n00801 (counter/_n0080)
+     LUT6:I1->O            1   0.043   0.339  counter/_n00821 (counter/_n0082)
      FDR:R                     0.264          counter/M0
     ----------------------------------------
     Total                      1.390ns (0.307ns logic, 1.083ns route)
@@ -3411,7 +3407,7 @@ Offset:              7.057ns (Levels of Logic = 15)
      XORCY:LI->O           2   0.112   0.355  Vga_controller/Cursor_vga/Maddsub_vga_row[8]_PWR_18_o_MuLt_21_OUT_Madd1_xor<4> (Vga_controller/Cursor_vga/Maddsub_vga_row[8]_PWR_18_o_MuLt_21_OUT_6)
      LUT5:I4->O            1   0.043   0.613  Vga_controller/Cursor_vga/Maddsub_vga_row[8]_PWR_18_o_MuLt_21_OUT_Madd_lut<6>1 (Vga_controller/Cursor_vga/Maddsub_vga_row[8]_PWR_18_o_MuLt_21_OUT_Madd_lut<6>)
      LUT6:I0->O            1   0.043   0.405  Vga_controller/Cursor_vga/Maddsub_vga_row[8]_PWR_18_o_MuLt_21_OUT_Madd_xor<6>11 (Vga_controller/Cursor_vga/n0058<6>)
-     LUT2:I0->O            1   0.043   0.613  Vga_controller/Cursor_vga/Mcompar_BUS_0002_stat[15]_equal_24_o_lut<2>_SW0 (N847)
+     LUT2:I0->O            1   0.043   0.613  Vga_controller/Cursor_vga/Mcompar_BUS_0002_stat[15]_equal_24_o_lut<2>_SW0 (N845)
      LUT6:I0->O            1   0.043   0.000  Vga_controller/Cursor_vga/Mcompar_BUS_0002_stat[15]_equal_24_o_lut<2> (Vga_controller/Cursor_vga/Mcompar_BUS_0002_stat[15]_equal_24_o_lut<2>)
      MUXCY:S->O            1   0.238   0.000  Vga_controller/Cursor_vga/Mcompar_BUS_0002_stat[15]_equal_24_o_cy<2> (Vga_controller/Cursor_vga/Mcompar_BUS_0002_stat[15]_equal_24_o_cy<2>)
      MUXCY:CI->O           1   0.013   0.000  Vga_controller/Cursor_vga/Mcompar_BUS_0002_stat[15]_equal_24_o_cy<3> (Vga_controller/Cursor_vga/Mcompar_BUS_0002_stat[15]_equal_24_o_cy<3>)
@@ -3577,14 +3573,14 @@ display/P7SEG/sh_clk        |         |         |    0.700|         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 117.00 secs
-Total CPU time to Xst completion: 116.74 secs
+Total REAL time to Xst completion: 135.00 secs
+Total CPU time to Xst completion: 135.13 secs
  
 --> 
 
-Total memory usage is 408184 kilobytes
+Total memory usage is 392568 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1478 (   0 filtered)
+Number of warnings : 1473 (   0 filtered)
 Number of infos    :  236 (   0 filtered)
 

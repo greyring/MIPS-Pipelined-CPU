@@ -76,7 +76,7 @@ input_switch_btn Input_switch_btn(
     );
 
 wire Clk_CPU;
-assign Clk_CPU = SW_OK[2]? BTN_OK[0]:Div[0];
+assign Clk_CPU = SW_OK[2]? Div[24]:Div[0];
 
 wire [31:0]Disp_num;
 wire [7:0]point_out;

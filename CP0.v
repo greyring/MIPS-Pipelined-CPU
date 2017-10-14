@@ -54,13 +54,13 @@ module CP0(//不处理harzard
 
 ////////////////////////////////////////////////////////
 //COUNT与COMPARE
-	wire count_we;
+	//wire count_we;
 	wire [31:0]COUNT_out;
 	Count COUNT(
     .clk(clk), 
     .rst(rst), 
-    .we(count_we), 
-    .D(data_in), 
+    .we(compare_we), 
+    //.D(data_in), 
     .Q(COUNT_out)
     );
 	 
@@ -170,7 +170,7 @@ always @* begin
 	endcase
 end
 
-assign count_we = we & (r_reg == 5'd9);
+//assign count_we = we & (r_reg == 5'd9);
 assign compare_we = we & (r_reg == 5'd11);
 assign status_we = we & (r_reg == 5'd12);
 assign cause_we = we & (r_reg == 5'd13);
