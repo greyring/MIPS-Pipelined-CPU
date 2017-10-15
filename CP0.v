@@ -59,7 +59,7 @@ module CP0(//≤ª¥¶¿Ìharzard
 	Count COUNT(
     .clk(clk), 
     .rst(rst), 
-    .we(compare_we), 
+    .compare_we(compare_we), 
     //.D(data_in), 
     .Q(COUNT_out)
     );

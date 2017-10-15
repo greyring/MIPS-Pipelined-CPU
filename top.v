@@ -21,7 +21,7 @@
 module top(
 	input clk200P,
 	input clk200N,
-	//input clk_100mhz,
+	input clk_100mhz,
 	
     output [4:0] btn_x,
 	 input [4:0] btn_y,
@@ -42,7 +42,7 @@ module top(
 	output vga_v_sync
     );
 
-wire clk_100mhz;
+/*wire clk_100mhz;
 wire [31:0]Div;
 clk_gen_sword Clk_gen(
     .clk_pad_p(clk200P), 
@@ -54,11 +54,11 @@ clk_gen_sword Clk_gen(
     .Div(Div), 
     .locked()
     );
+*/
 
-
-//reg [31:0]Div = 32'b0;
-//always @(posedge clk_100mhz)
-//	Div <= Div+1;
+reg [31:0]Div = 32'b0;
+always @(posedge clk_100mhz)
+	Div <= Div+1;
 
 wire [15:0]SW_OK;
 wire [24:0]BTN_OK;
@@ -233,8 +233,8 @@ GPIO gpio(
 
    PCPU_v PCPU(
 		.clk(Clk_CPU & ~SW_OK[15]), 
-		.rst(rst),
-		//.rst(RSTN),
+		//.rst(rst),
+		.rst(RSTN),
 		.int_(5'b0),
 		.mem_we(mem_w), 
 		.mem_rd(mem_rd),
@@ -248,7 +248,7 @@ GPIO gpio(
    );
 	
 	Data_RAM Data_RAM_(
-	  .clka(clk_100mhz), 
+	  .clka(Clk_CPU), 
 	  .wea(data_ram_we), 
 	  .addra(ram_addr[9:0]), 
 	  .dina(ram_data_in), 
@@ -256,7 +256,7 @@ GPIO gpio(
 	);
 	
 	Inst_ROM Inst_ROM_(
-	  .clka(clk_100mhz), 
+	  .clka(Clk_CPU), 
 	  .addra(PC[11:2]), // addra,要移动两位
 	  .douta(inst) 
 	);

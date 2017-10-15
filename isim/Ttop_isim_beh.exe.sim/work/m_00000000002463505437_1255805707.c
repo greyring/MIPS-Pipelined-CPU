@@ -23,6 +23,7 @@
 #endif
 static const char *ng0 = "F:/MyProgramme/0arch/PCPU/Count.v";
 static unsigned int ng1[] = {1U, 0U};
+static unsigned int ng2[] = {0U, 0U};
 
 
 
@@ -42,7 +43,7 @@ static void Always_30_0(char *t0)
     char *t11;
     char *t12;
 
-LAB0:    t1 = (t0 + 3008U);
+LAB0:    t1 = (t0 + 2848U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
@@ -50,9 +51,9 @@ LAB0:    t1 = (t0 + 3008U);
 LAB3:    goto *t2;
 
 LAB2:    xsi_set_current_line(30, ng0);
-    t2 = (t0 + 3576);
+    t2 = (t0 + 3416);
     *((int *)t2) = 1;
-    t3 = (t0 + 3040);
+    t3 = (t0 + 2880);
     *((char **)t3) = t2;
     *((char **)t1) = &&LAB4;
 
@@ -84,13 +85,13 @@ LAB7:    xsi_set_current_line(33, ng0);
         goto LAB9;
 
 LAB10:    xsi_set_current_line(36, ng0);
-    t2 = (t0 + 2088);
+    t2 = (t0 + 1928);
     t3 = (t2 + 56U);
     t4 = *((char **)t3);
     t5 = ((char*)((ng1)));
     memset(t13, 0, 8);
     xsi_vlog_unsigned_add(t13, 32, t4, 32, t5, 32);
-    t11 = (t0 + 2088);
+    t11 = (t0 + 1928);
     xsi_vlogvar_wait_assign_value(t11, t13, 0, 0, 32, 0LL);
 
 LAB11:
@@ -98,15 +99,14 @@ LAB8:    goto LAB2;
 
 LAB6:    xsi_set_current_line(32, ng0);
     t11 = ((char*)((ng1)));
-    t12 = (t0 + 2088);
+    t12 = (t0 + 1928);
     xsi_vlogvar_wait_assign_value(t12, t11, 0, 0, 32, 0LL);
     goto LAB8;
 
 LAB9:    xsi_set_current_line(34, ng0);
-    t4 = (t0 + 1528U);
-    t5 = *((char **)t4);
-    t4 = (t0 + 2088);
-    xsi_vlogvar_wait_assign_value(t4, t5, 0, 0, 32, 0LL);
+    t4 = ((char*)((ng2)));
+    t5 = (t0 + 1928);
+    xsi_vlogvar_wait_assign_value(t5, t4, 0, 0, 32, 0LL);
     goto LAB11;
 
 }
@@ -124,7 +124,7 @@ static void Cont_38_1(char *t0)
     char *t9;
     char *t10;
 
-LAB0:    t1 = (t0 + 3256U);
+LAB0:    t1 = (t0 + 3096U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
@@ -132,26 +132,26 @@ LAB0:    t1 = (t0 + 3256U);
 LAB3:    goto *t2;
 
 LAB2:    xsi_set_current_line(38, ng0);
-    t2 = (t0 + 2088);
+    t2 = (t0 + 1928);
     t3 = (t2 + 56U);
     t4 = *((char **)t3);
-    t5 = (t0 + 3672);
+    t5 = (t0 + 3512);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
     t8 = (t7 + 56U);
     t9 = *((char **)t8);
     memcpy(t9, t4, 8);
     xsi_driver_vfirst_trans(t5, 0, 31);
-    t10 = (t0 + 3592);
+    t10 = (t0 + 3432);
     *((int *)t10) = 1;
 
 LAB1:    return;
 }
 
 
-extern void work_m_00000000002067952035_1255805707_init()
+extern void work_m_00000000002463505437_1255805707_init()
 {
 	static char *pe[] = {(void *)Always_30_0,(void *)Cont_38_1};
-	xsi_register_didat("work_m_00000000002067952035_1255805707", "isim/Ttop_isim_beh.exe.sim/work/m_00000000002067952035_1255805707.didat");
+	xsi_register_didat("work_m_00000000002463505437_1255805707", "isim/Ttop_isim_beh.exe.sim/work/m_00000000002463505437_1255805707.didat");
 	xsi_register_executes(pe);
 }

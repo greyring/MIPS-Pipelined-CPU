@@ -68,7 +68,6 @@ Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/GPIO.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Display_IO.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Counter_3_IO.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/top.v" into library work
-WARNING:HDLCompiler:751 - "F:/MyProgramme/0arch/PCPU/top.v" Line 45: Redeclaration of ansi port clk_100mhz is not allowed
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Ttop.v" into library work
 Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
@@ -159,8 +158,8 @@ Compiling module top
 Compiling module Ttop
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 14 sub-compilation(s) to finish...
+Waiting for 13 sub-compilation(s) to finish...
 Compiled 84 Verilog Units
 Built simulation executable F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe
-Fuse Memory Usage: 225588 KB
-Fuse CPU Usage: 6739 ms
+Fuse Memory Usage: 225616 KB
+Fuse CPU Usage: 6332 ms
