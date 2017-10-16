@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: I_cache.prj
 
@@ -116,6 +116,8 @@ Parsing module <I_cache>.
 =========================================================================
 
 Elaborating module <I_cache>.
+WARNING:HDLCompiler:634 - "F:\MyProgramme\0arch\PCPU\I_cache.v" Line 202: Net <count0_data[1]> does not have a driver.
+WARNING:HDLCompiler:634 - "F:\MyProgramme\0arch\PCPU\I_cache.v" Line 203: Net <count0_w> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -123,58 +125,97 @@ Elaborating module <I_cache>.
 
 Synthesizing Unit <I_cache>.
     Related source file is "F:\MyProgramme\0arch\PCPU\I_cache.v".
-WARNING:Xst:647 - Input <mem_data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <op> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <Tag_Lo> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+        START = 2'b00
+        FETCH = 2'b01
+        STORE = 2'b10
+WARNING:Xst:647 - Input <op<3:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <op<6:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Tag_Lo<31:20>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <Tag_Hi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <mem_ready> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <op_en> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <v> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <tag> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-    Found 512x1-bit dual-port Read Only RAM <Mram_v> for signal <v>.
-    Found 512x20-bit dual-port Read Only RAM <Mram_tag> for signal <tag>.
-    Found 512x128-bit dual-port Read Only RAM <Mram_data> for signal <data>.
+WARNING:Xst:653 - Signal <count0_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <count1_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <count0_w> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <count1_w> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 256x2-bit dual-port RAM <Mram_count0> for signal <count0>.
+    Found 256x2-bit dual-port RAM <Mram_count1> for signal <count1>.
     Found 32-bit register for signal <data_w_0_1>.
     Found 32-bit register for signal <data_w_0_2>.
     Found 32-bit register for signal <data_w_0_3>.
     Found 1-bit register for signal <v_0>.
     Found 20-bit register for signal <tag_0>.
+    Found 2-bit register for signal <count_0>.
     Found 32-bit register for signal <data_w_1_0>.
     Found 32-bit register for signal <data_w_1_1>.
     Found 32-bit register for signal <data_w_1_2>.
     Found 32-bit register for signal <data_w_1_3>.
     Found 1-bit register for signal <v_1>.
     Found 20-bit register for signal <tag_1>.
+    Found 2-bit register for signal <count_1>.
+    Found 2-bit register for signal <cur_state>.
     Found 32-bit register for signal <data_w_0_0>.
-    Found 32-bit 4-to-1 multiplexer for signal <data_w_0_res> created at line 72.
-    Found 32-bit 4-to-1 multiplexer for signal <data_w_1_res> created at line 72.
-    Found 20-bit comparator equal for signal <tag_0[19]_tag_[19]_equal_21_o> created at line 82
-    Found 20-bit comparator equal for signal <tag_1[19]_tag_[19]_equal_22_o> created at line 83
+    Found finite state machine <FSM_0> for signal <cur_state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 512x128-bit dual-port RAM <Mram_data> for signal <data>.
+    Found 512x1-bit dual-port RAM <Mram_v> for signal <v>.
+    Found 512x20-bit dual-port RAM <Mram_tag> for signal <tag>.
+    Found 32-bit 4-to-1 multiplexer for signal <data_w_0_res> created at line 83.
+    Found 32-bit 4-to-1 multiplexer for signal <data_w_1_res> created at line 83.
+    Found 9-bit 4-to-1 multiplexer for signal <tag_addr> created at line 142.
+    Found 20-bit 4-to-1 multiplexer for signal <tag_data> created at line 142.
+    Found 9-bit 4-to-1 multiplexer for signal <v_addr> created at line 142.
+    Found 1-bit 4-to-1 multiplexer for signal <cache_err> created at line 142.
+    Found 32-bit 3-to-1 multiplexer for signal <mem_addr> created at line 142.
+    Found 20-bit comparator equal for signal <tag_0[19]_tag_[19]_equal_25_o> created at line 93
+    Found 20-bit comparator equal for signal <tag_1[19]_tag_[19]_equal_26_o> created at line 94
+    Found 2-bit comparator greater for signal <count_0[1]_count_1[1]_LessThan_55_o> created at line 186
     Summary:
-	inferred   3 RAM(s).
-	inferred 298 D-type flip-flop(s).
-	inferred   2 Comparator(s).
-	inferred   3 Multiplexer(s).
+	inferred   9 RAM(s).
+	inferred 302 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred  51 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
 Unit <I_cache> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 3
- 512x1-bit dual-port Read Only RAM                     : 1
- 512x128-bit dual-port Read Only RAM                   : 1
- 512x20-bit dual-port Read Only RAM                    : 1
-# Registers                                            : 6
+# RAMs                                                 : 9
+ 256x2-bit dual-port RAM                               : 2
+ 512x1-bit dual-port RAM                               : 2
+ 512x128-bit dual-port RAM                             : 2
+ 512x20-bit dual-port RAM                              : 3
+# Registers                                            : 8
  1-bit register                                        : 2
  128-bit register                                      : 2
+ 2-bit register                                        : 2
  20-bit register                                       : 2
-# Comparators                                          : 2
+# Comparators                                          : 3
+ 2-bit comparator greater                              : 1
  20-bit comparator equal                               : 2
-# Multiplexers                                         : 3
- 32-bit 2-to-1 multiplexer                             : 1
+# Multiplexers                                         : 51
+ 1-bit 2-to-1 multiplexer                              : 22
+ 1-bit 4-to-1 multiplexer                              : 1
+ 128-bit 2-to-1 multiplexer                            : 1
+ 20-bit 2-to-1 multiplexer                             : 3
+ 20-bit 4-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 10
+ 32-bit 3-to-1 multiplexer                             : 1
  32-bit 4-to-1 multiplexer                             : 2
+ 9-bit 2-to-1 multiplexer                              : 8
+ 9-bit 4-to-1 multiplexer                              : 2
+# FSMs                                                 : 1
 
 =========================================================================
 
@@ -184,83 +225,177 @@ Macro Statistics
 
 
 Synthesizing (advanced) Unit <I_cache>.
-INFO:Xst:3226 - The RAM <Mram_tag> will be implemented as a BLOCK RAM, absorbing the following register(s): <tag_1> <tag_0>
+INFO:Xst:3231 - The small RAM <Mram_v> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 1-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <v_w>           | high     |
+    |     addrA          | connected to signal <v_addr>        |          |
+    |     diA            | connected to signal <data_w>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 512-word x 1-bit                    |          |
+    |     addrB          | connected to signal <("0",addr<11:4>)> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_v1> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 1-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <v_w>           | high     |
+    |     addrA          | connected to signal <v_addr>        |          |
+    |     diA            | connected to signal <data_w>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 512-word x 1-bit                    |          |
+    |     addrB          | connected to signal <("1",addr<11:4>)> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <Mram_tag> will be implemented as a BLOCK RAM, absorbing the following register(s): <tag_0>
     -----------------------------------------------------------------------
     | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
     |     aspect ratio   | 512-word x 20-bit                   |          |
-    |     mode           | write-first                         |          |
+    |     mode           | read-first                          |          |
     |     clkA           | connected to signal <clk>           | rise     |
-    |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <("1",addr<11:4>)> |          |
-    |     diA            | connected to signal <GND>           |          |
-    |     doA            | connected to signal <tag_1>         |          |
+    |     weA            | connected to signal <tag_w>         | high     |
+    |     addrA          | connected to signal <tag_addr>      |          |
+    |     diA            | connected to signal <tag_data>      |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
     | Port B                                                              |
     |     aspect ratio   | 512-word x 20-bit                   |          |
-    |     mode           | write-first                         |          |
+    |     mode           | read-first                          |          |
     |     clkB           | connected to signal <clk>           | rise     |
-    |     weB            | connected to signal <GND>           | high     |
     |     addrB          | connected to signal <("0",addr<11:4>)> |          |
-    |     diB            | connected to signal <GND>           |          |
     |     doB            | connected to signal <tag_0>         |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
-INFO:Xst:3226 - The RAM <Mram_v> will be implemented as a BLOCK RAM, absorbing the following register(s): <v_1> <v_0>
+INFO:Xst:3226 - The RAM <Mram_tag1> will be implemented as a BLOCK RAM, absorbing the following register(s): <tag_1>
     -----------------------------------------------------------------------
     | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 512-word x 1-bit                    |          |
-    |     mode           | write-first                         |          |
+    |     aspect ratio   | 512-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
     |     clkA           | connected to signal <clk>           | rise     |
-    |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <("1",addr<11:4>)> |          |
-    |     diA            | connected to signal <GND>           |          |
-    |     doA            | connected to signal <v_1>           |          |
+    |     weA            | connected to signal <tag_w>         | high     |
+    |     addrA          | connected to signal <tag_addr>      |          |
+    |     diA            | connected to signal <tag_data>      |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
     | Port B                                                              |
-    |     aspect ratio   | 512-word x 1-bit                    |          |
-    |     mode           | write-first                         |          |
+    |     aspect ratio   | 512-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
     |     clkB           | connected to signal <clk>           | rise     |
-    |     weB            | connected to signal <GND>           | high     |
-    |     addrB          | connected to signal <("0",addr<11:4>)> |          |
-    |     diB            | connected to signal <GND>           |          |
-    |     doB            | connected to signal <v_0>           |          |
+    |     addrB          | connected to signal <("1",addr<11:4>)> |          |
+    |     doB            | connected to signal <tag_1>         |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
-INFO:Xst:3226 - The RAM <Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <data_w_1_0_data_w_1_1_data_w_1_2_data_w_1_3> <data_w_0_0_data_w_0_1_data_w_0_2_data_w_0_3>
+INFO:Xst:3226 - The RAM <Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <data_w_0_0_data_w_0_1_data_w_0_2_data_w_0_3>
     -----------------------------------------------------------------------
     | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
     |     aspect ratio   | 512-word x 128-bit                  |          |
-    |     mode           | write-first                         |          |
+    |     mode           | read-first                          |          |
     |     clkA           | connected to signal <clk>           | rise     |
-    |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <("1",addr<11:4>)> |          |
-    |     diA            | connected to signal <GND>           |          |
-    |     doA            | connected to internal node          |          |
+    |     weA            | connected to signal <data_w>        | high     |
+    |     addrA          | connected to signal <data_addr>     |          |
+    |     diA            | connected to signal <data_data>     |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
     | Port B                                                              |
     |     aspect ratio   | 512-word x 128-bit                  |          |
-    |     mode           | write-first                         |          |
+    |     mode           | read-first                          |          |
     |     clkB           | connected to signal <clk>           | rise     |
-    |     weB            | connected to signal <GND>           | high     |
     |     addrB          | connected to signal <("0",addr<11:4>)> |          |
-    |     diB            | connected to signal <GND>           |          |
     |     doB            | connected to internal node          |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <Mram_data1> will be implemented as a BLOCK RAM, absorbing the following register(s): <data_w_1_0_data_w_1_1_data_w_1_2_data_w_1_3>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <data_w>        | high     |
+    |     addrA          | connected to signal <data_addr>     |          |
+    |     diA            | connected to signal <data_data>     |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 512-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     addrB          | connected to signal <("1",addr<11:4>)> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_count0> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 2-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr<11:4>>    |          |
+    |     diA            | connected to signal <GND>           |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 2-bit                    |          |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_count1> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 2-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr<11:4>>    |          |
+    |     diA            | connected to signal <GND>           |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 2-bit                    |          |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_tag2> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 20-bit                   |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <tag_w>         | high     |
+    |     addrA          | connected to signal <tag_addr>      |          |
+    |     diA            | connected to signal <tag_data>      |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 512-word x 20-bit                   |          |
+    |     addrB          | connected to signal <addr<12:4>>    |          |
+    |     doB            | connected to internal node          |          |
     -----------------------------------------------------------------------
 Unit <I_cache> synthesized (advanced).
 
@@ -268,37 +403,74 @@ Unit <I_cache> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 3
- 512x1-bit dual-port block Read Only RAM               : 1
- 512x128-bit dual-port block Read Only RAM             : 1
- 512x20-bit dual-port block Read Only RAM              : 1
-# Comparators                                          : 2
+# RAMs                                                 : 9
+ 256x2-bit dual-port distributed RAM                   : 2
+ 512x1-bit dual-port distributed RAM                   : 2
+ 512x128-bit dual-port block RAM                       : 2
+ 512x20-bit dual-port block RAM                        : 2
+ 512x20-bit dual-port distributed RAM                  : 1
+# Registers                                            : 6
+ Flip-Flops                                            : 6
+# Comparators                                          : 3
+ 2-bit comparator greater                              : 1
  20-bit comparator equal                               : 2
-# Multiplexers                                         : 3
- 32-bit 2-to-1 multiplexer                             : 1
+# Multiplexers                                         : 51
+ 1-bit 2-to-1 multiplexer                              : 22
+ 1-bit 4-to-1 multiplexer                              : 1
+ 128-bit 2-to-1 multiplexer                            : 1
+ 20-bit 2-to-1 multiplexer                             : 3
+ 20-bit 4-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 10
+ 32-bit 3-to-1 multiplexer                             : 1
  32-bit 4-to-1 multiplexer                             : 2
+ 9-bit 2-to-1 multiplexer                              : 8
+ 9-bit 4-to-1 multiplexer                              : 2
+# FSMs                                                 : 1
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <cur_state[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
+WARNING:Xst:2677 - Node <Mram_v5> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Mram_v4> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Mram_v11> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Mram_v12> of sequential type is unconnected in block <I_cache>.
 
 Optimizing unit <I_cache> ...
-INFO:Xst:2399 - RAMs <Mram_tag>, <Mram_data4> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <Mram_data1>, <Mram_data2> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <Mram_data1>, <Mram_data3> are equivalent, second RAM is removed
-
+INFO:Xst:2399 - RAMs <Mram_count01>, <Mram_count02> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <Mram_count01>, <Mram_count03> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <Mram_count01>, <Mram_count04> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <Mram_count01>, <Mram_count13> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <Mram_count01>, <Mram_count11> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <Mram_count01>, <Mram_count12> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <Mram_count01>, <Mram_count14> are equivalent, second RAM is removed
+((addr<11> * N5) + (!addr<11> * N5))((addr<11> * N5) + (!addr<11> * N5))((addr<11> * N5) + (!addr<11> * N5))((addr<11> * N5) + (!addr<11> * N5))
 Mapping all equations...
 Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <count_0_0> in Unit <I_cache> is equivalent to the following 3 FFs/Latches, which will be removed : <count_0_1> <count_1_0> <count_1_1> 
 Found area constraint ratio of 100 (+ 5) on block I_cache, actual ratio is 0.
+WARNING:Xst:2677 - Node <count_0_0> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Mram_count01> of sequential type is unconnected in block <I_cache>.
 
 Final Macro Processing ...
 
 =========================================================================
 Final Register Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 4
+ Flip-Flops                                            : 4
+
 =========================================================================
 
 =========================================================================
@@ -320,23 +492,30 @@ Top Level Output File Name         : I_cache.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 129
+# BELS                             : 450
 #      GND                         : 1
-#      LUT2                        : 2
-#      LUT4                        : 2
-#      LUT5                        : 1
-#      LUT6                        : 76
-#      MUXCY                       : 14
-#      MUXF7                       : 32
+#      LUT2                        : 3
+#      LUT3                        : 181
+#      LUT4                        : 6
+#      LUT5                        : 45
+#      LUT6                        : 177
+#      MUXCY                       : 16
+#      MUXF7                       : 20
 #      VCC                         : 1
-# RAMS                             : 3
-#      RAMB18E1                    : 1
-#      RAMB36E1                    : 2
+# FlipFlops/Latches                : 4
+#      FD                          : 2
+#      FDR                         : 2
+# RAMS                             : 74
+#      RAM128X1D                   : 4
+#      RAM64M                      : 48
+#      RAM64X1D                    : 16
+#      RAMB18E1                    : 2
+#      RAMB36E1                    : 4
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 67
-#      IBUF                        : 33
-#      OBUF                        : 34
+# IO Buffers                       : 320
+#      IBUF                        : 188
+#      OBUF                        : 132
 
 Device utilization summary:
 ---------------------------
@@ -345,23 +524,26 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice LUTs:                   81  out of  203800     0%  
-    Number used as Logic:                81  out of  203800     0%  
+ Number of Slice Registers:               4  out of  407600     0%  
+ Number of Slice LUTs:                  652  out of  203800     0%  
+    Number used as Logic:               412  out of  203800     0%  
+    Number used as Memory:              240  out of  64000     0%  
+       Number used as RAM:              240
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     81
-   Number with an unused Flip Flop:      81  out of     81   100%  
-   Number with an unused LUT:             0  out of     81     0%  
-   Number of fully used LUT-FF pairs:     0  out of     81     0%  
-   Number of unique control sets:         0
+ Number of LUT Flip Flop pairs used:    652
+   Number with an unused Flip Flop:     648  out of    652    99%  
+   Number with an unused LUT:             0  out of    652     0%  
+   Number of fully used LUT-FF pairs:     4  out of    652     0%  
+   Number of unique control sets:         2
 
 IO Utilization: 
- Number of IOs:                         363
- Number of bonded IOBs:                  68  out of    400    17%  
+ Number of IOs:                         367
+ Number of bonded IOBs:                 321  out of    400    80%  
 
 Specific Feature Utilization:
- Number of Block RAM/FIFO:                3  out of    445     0%  
-    Number using Block RAM only:          3
+ Number of Block RAM/FIFO:                5  out of    445     1%  
+    Number using Block RAM only:          5
  Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
 
 ---------------------------
@@ -385,114 +567,162 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 3     |
+clk                                | BUFGP                  | 78    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
------------------------------------+------------------------+-------+
-Control Signal                     | Buffer(FF name)        | Load  |
------------------------------------+------------------------+-------+
-N1(XST_GND:G)                      | NONE(Mram_v)           | 2     |
------------------------------------+------------------------+-------+
+No asynchronous control signals found in this design
 
 Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: No path found
-   Minimum input arrival time before clock: 0.783ns
-   Maximum output required time after clock: 3.295ns
-   Maximum combinational path delay: 2.547ns
+   Minimum period: 3.928ns (Maximum Frequency: 254.556MHz)
+   Minimum input arrival time before clock: 2.807ns
+   Maximum output required time after clock: 4.961ns
+   Maximum combinational path delay: 3.317ns
 
 Timing Details:
 ---------------
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 16 / 16
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.928ns (frequency: 254.556MHz)
+  Total number of paths / destination ports: 2563 / 968
 -------------------------------------------------------------------------
-Offset:              0.783ns (Levels of Logic = 1)
-  Source:            addr<11> (PAD)
-  Destination:       Mram_v (RAM)
+Delay:               3.928ns (Levels of Logic = 9)
+  Source:            Mram_tag1 (RAM)
+  Destination:       Mram_v2 (RAM)
+  Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: addr<11> to Mram_v
+  Data Path: Mram_tag1 to Mram_v2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             6   0.000   0.367  addr_11_IBUF (addr_11_IBUF)
-     RAMB18E1:ADDRARDADDR7        0.416          Mram_v
+     RAMB18E1:CLKARDCLK->DOADO2    1   1.800   0.495  Mram_tag1 (tag_1<2>)
+     LUT6:I3->O            1   0.043   0.000  Mcompar_tag_1[19]_tag_[19]_equal_26_o_lut<0> (Mcompar_tag_1[19]_tag_[19]_equal_26_o_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<0> (Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<1> (Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<2> (Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<2>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<3> (Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<4> (Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<5> (Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<5>)
+     MUXCY:CI->O          39   0.013   0.481  Mcompar_tag_1[19]_tag_[19]_equal_26_o_cy<6> (tag_1[19]_tag_[19]_equal_26_o)
+     LUT6:I5->O            1   0.043   0.339  write_ctrl12 (write_ctrl12)
+     RAM128X1D:WE              0.408          Mram_v2
     ----------------------------------------
-    Total                      0.783ns (0.416ns logic, 0.367ns route)
-                                       (53.1% logic, 46.9% route)
+    Total                      3.928ns (2.613ns logic, 1.315ns route)
+                                       (66.5% logic, 33.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 4330 / 1080
+-------------------------------------------------------------------------
+Offset:              2.807ns (Levels of Logic = 5)
+  Source:            op<0> (PAD)
+  Destination:       Mram_v3 (RAM)
+  Destination Clock: clk rising
+
+  Data Path: op<0> to Mram_v3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            41   0.000   0.734  op_0_IBUF (op_0_IBUF)
+     LUT5:I0->O           12   0.043   0.466  Mmux_v_addr111 (Mmux_v_addr11)
+     LUT3:I1->O            2   0.043   0.355  Mmux_v_addr93_SW2 (N383)
+     LUT6:I5->O            1   0.043   0.000  write_ctrl13_lut1 (write_ctrl13_lut1)
+     MUXCY:S->O            1   0.375   0.339  write_ctrl13_cy1 (write_ctrl13)
+     RAM128X1D:WE              0.408          Mram_v3
+    ----------------------------------------
+    Total                      2.807ns (0.912ns logic, 1.895ns route)
+                                       (32.5% logic, 67.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 34 / 33
+  Total number of paths / destination ports: 2910 / 84
 -------------------------------------------------------------------------
-Offset:              3.295ns (Levels of Logic = 3)
-  Source:            Mram_v (RAM)
-  Destination:       cache_data<31> (PAD)
+Offset:              4.961ns (Levels of Logic = 12)
+  Source:            Mram_tag (RAM)
+  Destination:       mem_addr<31> (PAD)
   Source Clock:      clk rising
 
-  Data Path: Mram_v to cache_data<31>
+  Data Path: Mram_tag to mem_addr<31>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB18E1:CLKARDCLK->DOBDO0    2   1.800   0.410  Mram_v (v_0)
-     LUT2:I0->O           32   0.043   0.469  cache_hit_01 (cache_hit_0)
-     MUXF7:S->O            1   0.234   0.339  Mmux_cache_data_2_f7 (cache_data_0_OBUF)
-     OBUF:I->O                 0.000          cache_data_0_OBUF (cache_data<0>)
+     RAMB18E1:CLKARDCLK->DOADO2    1   1.800   0.495  Mram_tag (tag_0<2>)
+     LUT6:I3->O            1   0.043   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_lut<0> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<0> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<1> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<2> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<2>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<3> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<4> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<5> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<5>)
+     MUXCY:CI->O          35   0.151   0.625  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<6> (tag_0[19]_tag_[19]_equal_25_o)
+     LUT4:I1->O            4   0.043   0.539  cache_hit1 (cache_hit)
+     LUT6:I2->O           28   0.043   0.534  Mmux_mem_addr111 (Mmux_mem_addr111)
+     LUT3:I1->O            1   0.043   0.339  Mmux_mem_addr561 (mem_addr_9_OBUF)
+     OBUF:I->O                 0.000          mem_addr_9_OBUF (mem_addr<9>)
     ----------------------------------------
-    Total                      3.295ns (2.077ns logic, 1.218ns route)
-                                       (63.0% logic, 37.0% route)
+    Total                      4.961ns (2.428ns logic, 2.533ns route)
+                                       (48.9% logic, 51.1% route)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 811 / 34
+  Total number of paths / destination ports: 3102 / 84
 -------------------------------------------------------------------------
-Delay:               2.547ns (Levels of Logic = 12)
+Delay:               3.317ns (Levels of Logic = 13)
   Source:            addr<12> (PAD)
-  Destination:       cache_data<31> (PAD)
+  Destination:       mem_addr<31> (PAD)
 
-  Data Path: addr<12> to cache_data<31>
+  Data Path: addr<12> to mem_addr<31>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   0.000   0.608  addr_12_IBUF (addr_12_IBUF)
-     LUT6:I1->O            1   0.043   0.000  Mcompar_tag_0[19]_tag_[19]_equal_21_o_lut<0> (Mcompar_tag_0[19]_tag_[19]_equal_21_o_lut<0>)
-     MUXCY:S->O            1   0.238   0.000  Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<0> (Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<0>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<1> (Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<1>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<2> (Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<2>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<3> (Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<3>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<4> (Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<4>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<5> (Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<5>)
-     MUXCY:CI->O           2   0.150   0.355  Mcompar_tag_0[19]_tag_[19]_equal_21_o_cy<6> (tag_0[19]_tag_[19]_equal_21_o)
-     LUT2:I1->O           32   0.043   0.469  cache_hit_01 (cache_hit_0)
-     MUXF7:S->O            1   0.234   0.339  Mmux_cache_data_2_f7 (cache_data_0_OBUF)
-     OBUF:I->O                 0.000          cache_data_0_OBUF (cache_data<0>)
+     IBUF:I->O            29   0.000   0.651  addr_12_IBUF (addr_12_IBUF)
+     LUT6:I2->O            1   0.043   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_lut<0> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<0> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<1> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<2> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<2>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<3> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<4> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<5> (Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<5>)
+     MUXCY:CI->O          35   0.151   0.625  Mcompar_tag_0[19]_tag_[19]_equal_25_o_cy<6> (tag_0[19]_tag_[19]_equal_25_o)
+     LUT4:I1->O            4   0.043   0.539  cache_hit1 (cache_hit)
+     LUT6:I2->O           28   0.043   0.534  Mmux_mem_addr111 (Mmux_mem_addr111)
+     LUT3:I1->O            1   0.043   0.339  Mmux_mem_addr561 (mem_addr_9_OBUF)
+     OBUF:I->O                 0.000          mem_addr_9_OBUF (mem_addr<9>)
     ----------------------------------------
-    Total                      2.547ns (0.776ns logic, 1.771ns route)
-                                       (30.5% logic, 69.5% route)
+    Total                      3.317ns (0.628ns logic, 2.689ns route)
+                                       (18.9% logic, 81.1% route)
 
 =========================================================================
 
 Cross Clock Domains Report:
 --------------------------
 
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.928|         |         |         |
+---------------+---------+---------+---------+---------+
+
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 11.98 secs
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 15.61 secs
  
 --> 
 
-Total memory usage is 443768 kilobytes
+Total memory usage is 451832 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    9 (   0 filtered)
-Number of infos    :    6 (   0 filtered)
+Number of warnings :   16 (   0 filtered)
+Number of infos    :   17 (   0 filtered)
 

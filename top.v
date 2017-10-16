@@ -248,7 +248,7 @@ GPIO gpio(
    );
 	
 	Data_RAM Data_RAM_(
-	  .clka(Clk_CPU), 
+	  .clka(~Clk_CPU), 
 	  .wea(data_ram_we), 
 	  .addra(ram_addr[9:0]), 
 	  .dina(ram_data_in), 
@@ -256,7 +256,7 @@ GPIO gpio(
 	);
 	
 	Inst_ROM Inst_ROM_(
-	  .clka(Clk_CPU), 
+	  .clka(~Clk_CPU), 
 	  .addra(PC[11:2]), // addra,要移动两位
 	  .douta(inst) 
 	);
