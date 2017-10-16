@@ -1,165 +1,19 @@
-Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe -prj F:/MyProgramme/0arch/PCPU/Ttop_beh.prj work.Ttop work.glbl 
+Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o F:/MyProgramme/0arch/PCPU/TI_cache_isim_beh.exe -prj F:/MyProgramme/0arch/PCPU/TI_cache_beh.prj work.TI_cache work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/res_adder.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/inner_adder.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/half_adder.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/half_adder_sub.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/full_adder.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/adder64.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/vga_font_table.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/STATUS_data.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Status.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Reg_HiLo.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/MUX2T1_32.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/MUL_ID_EXE.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/MUL_EXE_EWB.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/mul_adder.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/mul32_s.v" into library work
-WARNING:HDLCompiler:751 - "F:/MyProgramme/0arch/PCPU/mul32_s.v" Line 6430: Redeclaration of ansi port A_t is not allowed
-WARNING:HDLCompiler:751 - "F:/MyProgramme/0arch/PCPU/mul32_s.v" Line 6431: Redeclaration of ansi port B_t is not allowed
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/text_vga_ram.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/graph_vga_ram.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/font8_16.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/EPC_data.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Epc.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Count.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Compare.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/CAUSE_data.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Cause.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/anti_jitter.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/adder32_Sklansky.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/vga_text.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/vga_port.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/vga_graph.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/vga_cursor.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/stall_control.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/santi_jitter.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/regs.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/PC.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/MUX4T1_32.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/MUL_control.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/MUL_ALU.vf" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/MEM_WB_REG.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/led_parallel2serial_io.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/jump_control.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ID_EXE_REG.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/forward_reg.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Ext_imm16.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Exp_Addr.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/EXE_MEM_REG.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/CP0.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/control.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/btn_scan.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/branch_judge.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/alu.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/adder4.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/vga_controller.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/PCPU_v.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Multi_8CH32_IO.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/MIO.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/Inst_ROM.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/Data_RAM.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/input_switch_btn.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/GPIO.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Display_IO.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Counter_3_IO.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/top.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Ttop.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/I_cache.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/TI_cache.v" into library work
 Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:189 - "F:/MyProgramme/0arch/PCPU/top.v" Line 150: Size mismatch in connection of port <BTN>. Formal port size is 4-bit while actual signal size is 25-bit.
 Completed static elaboration
-Compiling module btn_scan
-Compiling module anti_jitter
-Compiling module santi_jitter
-Compiling module input_switch_btn
-Compiling module Display
-Compiling module Multi_8CH32
-Compiling module MIO
-Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
-Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module text_vga_ram
-Compiling module font_table
-Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
-Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module font8_16
-Compiling module vga_text
-Compiling module vga_cursor
-Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
-Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module graph_vga_ram
-Compiling module vga_graph
-Compiling module vga_port
-Compiling module vga_controller
-Compiling module led_parallel2serial
-Compiling module GPIO
-Compiling module Counter
-Compiling module Count
-Compiling module Compare
-Compiling module Status
-Compiling module Cause
-Compiling module Epc
-Compiling module EPC_data
-Compiling module STATUS_data
-Compiling module CAUSE_data
-Compiling module CP0
-Compiling module jump_control
-Compiling module MUX4T1_32
-Compiling module Exp_Addr
-Compiling module REG32
-Compiling module adder4
-Compiling module IF_ID_Reg
-Compiling module control
-Compiling module Regs
-Compiling module forward_reg
-Compiling module Ext_32
-Compiling module half_adder_sub
-Compiling module half_adder
-Compiling module inner_adder
-Compiling module res_adder
-Compiling module adder32_Sklansky
-Compiling module branch_judge
-Compiling module MUL_control
-Compiling module MUX2T1_32
-Compiling module VCC
-Compiling module full_adder
-Compiling module adder64
-Compiling module mul_adder
-Compiling module MUL_EXE_EWB
-Compiling module MUL_ID_EXE
-Compiling module mul32_s
-Compiling module Reg_HiLo
-Compiling module MUL_ALU
-Compiling module ID_EXE_REG
-Compiling module alu
-Compiling module EXE_MEM_REG
-Compiling module MEM_WB_REG
-Compiling module stall_control
-Compiling module PCPU_v
-Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
-Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module Data_RAM
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module Inst_ROM
-Compiling module top
-Compiling module Ttop
+Compiling module I_cache
+Compiling module TI_cache
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 13 sub-compilation(s) to finish...
-Compiled 84 Verilog Units
-Built simulation executable F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe
-Fuse Memory Usage: 225616 KB
-Fuse CPU Usage: 6332 ms
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 3 Verilog Units
+Built simulation executable F:/MyProgramme/0arch/PCPU/TI_cache_isim_beh.exe
+Fuse Memory Usage: 29408 KB
+Fuse CPU Usage: 498 ms

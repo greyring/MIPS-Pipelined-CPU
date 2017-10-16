@@ -11,5 +11,59 @@
 <msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/MyProgramme/0arch/PCPU/I_cache.v&quot; into library work</arg>
 </msg>
 
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">225</arg>. <arg fmt="%s" index="3">Syntax error near &quot;always&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">233</arg>. <arg fmt="%s" index="3">Syntax error near &quot;&lt;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">237</arg>. <arg fmt="%s" index="3">Syntax error near &quot;&lt;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">241</arg>. <arg fmt="%s" index="3">Syntax error near &quot;&lt;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">255</arg>. <arg fmt="%s" index="3">Syntax error near &quot;}&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">260</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">264</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">265</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">266</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">267</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">271</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">275</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">276</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">277</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">278</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">283</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">287</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">F:/MyProgramme/0arch/PCPU/I_cache.v</arg>&quot; Line <arg fmt="%d" index="2">291</arg>. <arg fmt="%s" index="3">Syntax error near &quot;end&quot;.</arg>
+</msg>
+
 </messages>
 
