@@ -1,1 +1,0 @@
-vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0/PCPU/MIO.tfi -lib work F:/MyProgramme/0/PCPU//MIO.v -module MIO -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

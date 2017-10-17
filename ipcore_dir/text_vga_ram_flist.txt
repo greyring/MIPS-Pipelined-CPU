@@ -3,7 +3,6 @@ _xmsgs\pn_parser.xmsgs
 summary.log
 text_vga_ram.asy
 text_vga_ram.gise
-text_vga_ram.mif
 text_vga_ram.ngc
 text_vga_ram.sym
 text_vga_ram.v

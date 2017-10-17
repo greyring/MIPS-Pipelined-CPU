@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-10-17T19:29:29</DateModified>
-  <ModuleName>I_cache</ModuleName>
+  <DateModified>2017-10-17T19:34:48</DateModified>
+  <ModuleName>top</ModuleName>
   <SummaryTimeStamp>2017-10-17T19:29:19</SummaryTimeStamp>
-  <SavedFilePath>F:/MyProgramme/0arch/PCPU/iseconfig/I_cache.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>F:/MyProgramme/0arch/PCPU\</ImplementationReportsDirectory>
-  <DateInitialized>2017-10-17T14:17:02</DateInitialized>
+  <SavedFilePath>F:/MyProgramme/0asm_interface/PCPU/iseconfig/I_cache.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>F:/MyProgramme/0asm_interface/PCPU\</ImplementationReportsDirectory>
+  <DateInitialized>2017-10-17T19:34:48</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

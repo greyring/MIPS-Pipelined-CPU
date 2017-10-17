@@ -136,19 +136,13 @@ wire data_ram_we;
 wire GPIOf0000000_we;
 wire [9:0]ram_addr;
 wire [31:0]douta;
-wire vga_we_t;
-wire vga_we_g;
-wire vga_we_c;
-wire vga_we_r;
-wire [12:0]vga_taddr;
-wire [18:0]vga_gaddr;
+wire vga_we_t, vga_we_g, vga_we_c, vga_we_r;
+wire vga_rd_t, vga_rd_g, vga_rd_c, vga_rd_r;
+wire [31:0]vga_addr;
 wire [31:0]vga_data;
-wire [31:0]vga_status;
-wire [31:0]vga_cursor_status;
+wire [31:0]vga_data_out;
 MIO  mio_bus(
 	  .addr_bus(Addr_out[31:0]), 
-	  .BTN(BTN_OK), 
-	  .clk(clk_100mhz), 
 	  .counter_out(Counter_out), 
 	  .counter0_out(counter0_OUT), 
 	  .counter1_out(counter1_OUT), 
@@ -158,7 +152,6 @@ MIO  mio_bus(
 	  .mem_w(mem_w), 
 	  .mem_rd(mem_rd),
 	  .ram_data_out(douta), 
-	  .rst(rst), 
 	  .SW(SW_OK), 
 	  .counter_we(counter_we), 
 	  .Cpu_data4bus(Data_in), 
@@ -168,38 +161,42 @@ MIO  mio_bus(
 	  .Peripheral_in(Peripheral_in), 
 	  .ram_addr(ram_addr), 
 	  .ram_data_in(ram_data_in),
-	  .vga_status(vga_status),
-	  .vga_cursor_status(vga_cursor_status),
+	  .vga_data_out(vga_data_out),
 	  .vga_we_t(vga_we_t),
 	  .vga_we_g(vga_we_g),
 	  .vga_we_c(vga_we_c),
 	  .vga_we_r(vga_we_r),
-	  .vga_taddr(vga_taddr),
-	  .vga_gaddr(vga_gaddr),
+	  .vga_rd_t(vga_rd_t),
+	  .vga_rd_g(vga_rd_g),
+	  .vga_rd_c(vga_rd_c),
+	  .vga_rd_r(vga_rd_r),
+	  .vga_addr(vga_addr),
 	  .vga_data(vga_data)
 	  );
 
 vga_controller Vga_controller(
     .clk(clk_100mhz), 
-	 .clk_vga(Div[1]),
-	 .clk_cursor(Div[25]),
     .rst(rst), 
+    .clk_vga(Div[1]), 
+    .clk_cursor(Div[25]), 
     .we_text(vga_we_t), 
     .we_graph(vga_we_g), 
-	 .we_cursor(vga_we_c),
+    .we_cursor(vga_we_c), 
     .we_reg(vga_we_r), 
-    .text_addr(vga_taddr), 
-    .graph_addr(vga_gaddr), 
+    .rd_text(vga_rd_t), 
+    .rd_graph(vga_rd_g), 
+    .rd_cursor(vga_rd_c), 
+    .rd_reg(vga_rd_r), 
+    .addr_in(vga_addr), 
     .data_in(vga_data), 
+    .data_out(vga_data_out), 
     .r(vga_red), 
     .g(vga_green), 
     .b(vga_blue), 
     .hsync(vga_h_sync), 
-    .vsync(vga_v_sync),
-	 .vga_status(vga_status),
-	 .cursor_status(vga_cursor_status)
+    .vsync(vga_v_sync), 
+    .busy()
     );
-
 	  
 wire [1:0]counter_set;
 GPIO gpio(
