@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+cache_mem instance_name (
+    .clk(clk), 
+    .r_addr(r_addr), 
+    .r_en(r_en), 
+    .r_data(r_data), 
+    .w_addr(w_addr), 
+    .w_data(w_data), 
+    .w_en(w_en)
+    );
+
+

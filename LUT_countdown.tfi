@@ -1,0 +1,10 @@
+
+
+
+// Instantiate the module
+LUT_countdown instance_name (
+    .cur_count(cur_count), 
+    .nxt_count(nxt_count)
+    );
+
+

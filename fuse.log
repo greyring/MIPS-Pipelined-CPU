@@ -1,19 +1,28 @@
-Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o F:/MyProgramme/0arch/PCPU/TI_cache_isim_beh.exe -prj F:/MyProgramme/0arch/PCPU/TI_cache_beh.prj work.TI_cache work.glbl 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/TI_cache_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/TI_cache_beh.prj" "work.TI_cache" "work.glbl" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/LUT_countdown.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/I_cache_crl.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/cache_mem.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/I_cache.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/TI_cache.v" into library work
 Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
+Compiling module cache_mem(DATA_WIDTH=1)
+Compiling module cache_mem(DATA_WIDTH=20)
+Compiling module cache_mem
+Compiling module cache_mem(DATA_WIDTH=2)
+Compiling module I_cache_crl
+Compiling module LUT_countdown
 Compiling module I_cache
 Compiling module TI_cache
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 3 Verilog Units
+Waiting for 3 sub-compilation(s) to finish...
+Compiled 9 Verilog Units
 Built simulation executable F:/MyProgramme/0arch/PCPU/TI_cache_isim_beh.exe
-Fuse Memory Usage: 29408 KB
-Fuse CPU Usage: 498 ms
+Fuse Memory Usage: 29184 KB
+Fuse CPU Usage: 452 ms

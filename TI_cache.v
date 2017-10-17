@@ -63,7 +63,7 @@ module TI_cache;
 		.Tag_Hi(Tag_Hi), 
 		.Tag_Lo_in(Tag_Lo_in), 
 		.Tag_Hi_in(Tag_Hi_in), 
-		.cache_tag_we(cache_tag_we)
+		.cache_tag_w(cache_tag_we)
 	);
 
 	initial begin
@@ -93,10 +93,6 @@ module TI_cache;
 		op = 7'b0000100;//index load tag
 		#10
 		addr = {19'b0, 1'b1, 8'hff, 4'b0};
-		Tag_Lo = {12'b0, 20'hfffff};
-		op = 7'b0000100;//index load tag err
-		#10
-		addr = {19'b0, 1'b1, 8'hff, 4'b0};
 		Tag_Lo = {12'b0, 20'h5a5a5};
 		op = 7'b0000100;
 		#10
@@ -109,15 +105,29 @@ module TI_cache;
 		mem_data = 32'hf0000000;
 		mem_ready = 1'b1;
 		#10
-		#10
-		#10
 		mem_ready = 1'b0;
-		addr = 32'h5a5a5ff0;
-		op = 7'b0100000;//addre fill
+		addr = 32'h5a5a5ffc;//read fill
+		op = 7'b0000000;
+		cache_r = 1'b1;
 		#10
-		mem_data = 128'h00000000ffffffff<<96;
+		#10
+		mem_data = 128'h00000000ffffffff<<96;//test word select
 		mem_ready = 1'b1;
 		#10
+		mem_ready = 1'b0;
+		addr = 32'hfffffff0;//read hit
+		cache_r = 1'b1;
+		#10
+		addr = 32'h11111ff0;//read refill select_1 = 0
+		cache_r = 1'b1;
+		#10
+		mem_data = 128'h00000000ffffffff;
+		mem_ready = 1'b1;
+		#10
+		cache_r = 1'b0;
+		addr = {19'b0, 1'b0, 8'hff, 4'b0};
+		Tag_Lo = {12'b0, 20'hfffff};
+		op = 7'b0000100;//index load tag err
 		#10
 		op = 7'b0;
 		

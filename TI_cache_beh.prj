@@ -1,3 +1,6 @@
+verilog work "LUT_countdown.v"
+verilog work "I_cache_crl.v"
+verilog work "cache_mem.v"
 verilog work "I_cache.v"
 verilog work "TI_cache.v"
 verilog work "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

@@ -25,290 +25,248 @@ module I_cache(
 						  //不能同时读取以及执行指令
 	input cache_r,
 	output [31:0]cache_data,
-	output reg cache_ready,
-	output reg cache_err,
+	output cache_ready,
+	output cache_err,
 	
 	input mem_ready,
 	input [127:0]mem_data,
-	output reg [31:0]mem_addr,
-	output reg mem_r,
+	output [31:0]mem_addr,
+	output mem_r,
 	
 	input [6:0]op,//one hot
 	input [31:0]Tag_Lo,
 	input [31:0]Tag_Hi,
-	output reg [31:0]Tag_Lo_in,
-	output reg [31:0]Tag_Hi_in,
-	output reg cache_tag_we
+	output [31:0]Tag_Lo_in,
+	output [31:0]Tag_Hi_in,
+	output cache_tag_w
     );
-		
+	
+	//store inst and address
+	reg [7:0]op_;//op_[7] = cache_r
+	reg [31:0]addr_;
+	reg [31:0]Tag_Lo_, Tag_Hi_;
+	always @(posedge clk) begin
+		if (cache_ready) begin
+			op_ <= {cache_r, op};
+			addr_ <= addr;
+			Tag_Lo_ <= Tag_Lo;
+			Tag_Hi_ <= Tag_Hi;
+		end
+		else begin
+			op_ <= op_;
+			addr_ <= addr_;
+			Tag_Lo_ <= Tag_Lo_;
+			Tag_Hi_ <= Tag_Hi_;
+		end
+	end
+	
+	//decode
 	wire [19:0]tag_;
 	wire [7:0]block_;
 	wire [3:0]offset_;
-	assign {tag_, block_ , offset_} = addr;
+	assign {tag_, block_, offset_} = addr_;
 	
-	wire i_i, i_stag, i_ltag, a_i, a_fill;
-	//index invalidate  index set tag index load tag address invalidate
-	assign i_i = op[0];
-	assign i_stag = op[1];
-	assign i_ltag = op[2];
-	assign a_i = op[4];
-	assign a_fill = op[5];
-
-	reg [511:0]v;//mem
-	reg [19:0]tag[511:0];//mem
-	reg [19:0]tag0[255:0];
-	reg [19:0]tag1[255:0];
-	reg [127:0]data[511:0];//mem
-	reg [1:0]count0[255:0];//mem
-	reg [1:0]count1[255:0];//mem
+	wire v0_data, v1_data;
+	wire v0_wdata, v1_wdata;
+	wire v0_w, v1_w;
+	cache_mem #(.DATA_WIDTH(1)) v0(
+    .clk(clk), 
+    .r_addr(block_), 
+    .r_en(cache_ready), 
+    .r_data(v0_data), 
+    .w_addr(block_), 
+    .w_data(v0_wdata), 
+    .w_en(v0_w)
+   );
+	cache_mem #(.DATA_WIDTH(1)) v1(
+    .clk(clk), 
+    .r_addr(block_), 
+    .r_en(cache_ready), 
+    .r_data(v1_data), 
+    .w_addr(block_), 
+    .w_data(v1_wdata), 
+    .w_en(v1_w)
+   );
 	
-	reg [31:0]data_w_0_3, data_w_0_2, data_w_0_1, data_w_0_0, data_w_0_res;
-	reg [31:0]data_w_1_3, data_w_1_2, data_w_1_1, data_w_1_0, data_w_1_res;
-	reg [19:0]tag_0, tag_1;
-	reg [1:0]count_0, count_1;
-	reg v_0, v_1;
-	always @(posedge clk) begin
-		//the first entry write first is needed
-		{data_w_0_3, data_w_0_2, data_w_0_1, data_w_0_0} <= data[{1'b0, block_}];
-		v_0 <= v[{1'b0, block_}];
-		tag_0 <= tag0[block_];
-		count_0 <= count0[block_];
-		
-		//the second entry write first is needed
-		{data_w_1_3, data_w_1_2, data_w_1_1, data_w_1_0} <= data[{1'b1, block_}];
-		v_1 <= v[{1'b1, block_}];
-		tag_1 <= tag1[block_];
-		count_1 <= count1[block_];
-	end
+	wire [19:0]tag0_data, tag0_wdata, tag1_data, tag1_wdata;
+	wire tag0_w, tag1_w;
+	cache_mem #(.DATA_WIDTH(20)) tag0(
+    .clk(clk), 
+    .r_addr(block_), 
+    .r_en(cache_ready), 
+    .r_data(tag0_data), 
+    .w_addr(block_), 
+    .w_data(tag0_wdata), 
+    .w_en(tag0_w)
+   );
+	cache_mem #(.DATA_WIDTH(20)) tag1(
+    .clk(clk), 
+    .r_addr(block_), 
+    .r_en(cache_ready), 
+    .r_data(tag1_data), 
+    .w_addr(block_), 
+    .w_data(tag1_wdata), 
+    .w_en(tag1_w)
+   );
 	
+	wire [127:0]data0_data, data1_data;
+	wire data0_w, data1_w;
+	cache_mem #(.DATA_WIDTH(128)) data0(
+    .clk(clk), 
+    .r_addr(block_), 
+    .r_en(cache_ready), 
+    .r_data(data0_data), 
+    .w_addr(block_), 
+    .w_data(mem_data), 
+    .w_en(data0_w)
+   );
+	cache_mem #(.DATA_WIDTH(128)) data1(
+    .clk(clk), 
+    .r_addr(block_), 
+    .r_en(cache_ready), 
+    .r_data(data1_data), 
+    .w_addr(block_), 
+    .w_data(mem_data), 
+    .w_en(data1_w)
+   );
+	
+	wire [1:0]count0_data, count0_wdata, count1_data, count1_wdata;
+	wire count0_w, count1_w;
+	cache_mem #(.DATA_WIDTH(2)) count0(
+    .clk(clk), 
+    .r_addr(block_), 
+    .r_en(cache_ready), 
+    .r_data(count0_data), 
+    .w_addr(block_), 
+    .w_data(count0_wdata), 
+    .w_en(count0_w)
+   );
+	cache_mem #(.DATA_WIDTH(2)) count1(
+    .clk(clk), 
+    .r_addr(block_), 
+    .r_en(cache_ready), 
+    .r_data(count1_data), 
+    .w_addr(block_), 
+    .w_data(count1_wdata), 
+    .w_en(count1_w)
+   );
+	
+	//select data word
+	wire [31:0]data_w00, data_w01, data_w02, data_w03, data_w10, data_w11, data_w12, data_w13,
+				  mem_w0, mem_w1, mem_w2, mem_w3;
+	reg [31:0]data_w0, data_w1, mem_w;
+	assign {data_w03, data_w02, data_w01, data_w00} = data0_data;
+	assign {data_w13, data_w12, data_w11, data_w10} = data1_data;
+	assign {mem_w3, mem_w2, mem_w1, mem_w0} = mem_data;
 	always @* begin
 		case (offset_[3:2])
-			2'b00:begin data_w_0_res = data_w_0_0; data_w_1_res = data_w_1_0; end
-			2'b01:begin data_w_0_res = data_w_0_1; data_w_1_res = data_w_1_1; end
-			2'b10:begin data_w_0_res = data_w_0_2; data_w_1_res = data_w_1_2; end
-			2'b11:begin data_w_0_res = data_w_0_3; data_w_1_res = data_w_1_3; end
+			2'b11:begin
+						data_w0 = data_w03;
+						data_w1 = data_w13;
+						mem_w = mem_w3;
+					end
+			2'b10:begin
+						data_w0 = data_w02;
+						data_w1 = data_w12;
+						mem_w = mem_w2;
+					end
+			2'b01:begin
+						data_w0 = data_w01;
+						data_w1 = data_w11;
+						mem_w = mem_w1;
+					end
+			2'b00:begin
+						data_w0 = data_w00;
+						data_w1 = data_w10;
+						mem_w = mem_w0;
+			      end
 		endcase
 	end
 	
-	//hit
-	wire cache_hit_0, cache_hit_1, cache_hit;
-	assign cache_hit_0 = v_0 & (tag_0 == tag_);
-	assign cache_hit_1 = v_1 & (tag_1 == tag_);
+	//cache_hit signal
+	reg cache_hit_0, cache_hit_1;
+	wire cache_hit;
+	always @* begin
+		cache_hit_0 = 1'b0;
+		cache_hit_1 = 1'b0;
+		if (v0_data & (tag0_data == tag_))
+			cache_hit_0 = 1'b1;
+		if (v1_data & (tag1_data == tag_))
+			cache_hit_1 = 1'b1;
+	end
 	assign cache_hit = cache_hit_0 | cache_hit_1;
-	assign cache_data = cache_hit_0 ? data_w_0_res : (cache_hit_1 ? data_w_1_res : 32'b0);
 	
-	//FSM
-	parameter START = 2'b00;
-	parameter FETCH = 2'b01;
-	parameter STORE = 2'b10;
-	reg [1:0]cur_state;
-	reg [1:0]nxt_state;
-	always @(posedge clk) begin
-		if (rst)
-			cur_state <= 2'b0;
-		else
-			cur_state <= nxt_state;
-	end
-	
+	reg tag0_equ, tag1_equ;
 	always @* begin
-		if (rst)
-			nxt_state = 2'b0;
-		else
-			case (cur_state)
-				START: if ((cache_r | a_fill) & ~cache_hit) begin
-							if (mem_ready) nxt_state = STORE;
-							else nxt_state = FETCH;
-						 end
-						 else nxt_state = START;
-				FETCH: if (mem_ready) nxt_state = STORE;
-						 else nxt_state = FETCH;
-				STORE: nxt_state = START;
-				default: nxt_state = 2'b0;
-			endcase
+		tag0_equ = 1'b0;
+		tag1_equ = 1'b0;
+		if (Tag_Lo_[19:0] == tag0_data)
+			tag0_equ = 1'b1;
+		if (Tag_Lo_[19:0] == tag1_data)
+			tag1_equ = 1'b1;
 	end
 	
-	reg [8:0]v_addr, tag0_addr, tag1_addr, data_addr;
-	reg v_data;
-	reg [19:0]tag0_data, tag1_data;
-	reg [127:0]data_data;
-	reg v_w, tag0_w, tag1_w, data_w;
-	reg select_1;
-	always @* begin
-		{v_addr, v_data, v_w, tag0_addr, tag0_data, tag0_w
-		, tag1_addr, tag1_data, tag1_w
-		, data_addr, data_data, data_w
-		, Tag_Hi_in, Tag_Lo_in, cache_tag_we
-		, mem_addr, mem_r} = 0;
-		select_1 = 1'b0;
-		case (cur_state)
-			START: 
-					if (cache_r) begin
-						if (~cache_hit) begin
-							mem_addr = {addr[31:4], 4'b0};
-							mem_r = 1'b1;
-						end
-					end
-					else begin
-						if (i_i) begin
-							v_addr = addr[12:4];
-							v_data = 1'b0;
-							v_w = 1'b1;
-						end
-						else if (i_stag) begin
-							Tag_Hi_in = 32'b0;
-							if (addr[12])
-								Tag_Lo_in = tag_1;
-							else
-								Tag_Lo_in = tag_0;
-							cache_tag_we = 1'b1;
-						end
-						else if (i_ltag) begin//programmer should make sure no tag conflicts
-							if (addr[12]) begin
-								tag1_addr = addr[11:4];
-								tag1_data = Tag_Lo[19:0];
-								tag1_w = 1'b1;
-							end
-							else begin
-								tag0_addr = addr[11:4];
-								tag0_data = Tag_Lo[19:0];
-								tag0_w = 1'b1;
-							end
-						end
-						else if (a_i) begin
-							v_addr = {cache_hit_1, block_};
-							v_data = 1'b0;
-							v_w = 1'b1;
-						end
-						else if (a_fill & ~cache_hit) begin
-							mem_addr = {addr[31:4], 4'b0};
-							mem_r = 1'b1;
-							cache_err = offset_[1] | offset_[0];
-						end
-						else if (a_fill & cache_hit) begin
-							cache_err = offset_[1] | offset_[0] | (cache_hit_0 & cache_hit_1);
-							cache_ready = ~cache_err;
-						end
-						else if (op == 0) begin
-							cache_ready = 1'b1;
-						end
-					 end
-			FETCH: begin
-						mem_addr = {addr[31:4], 4'b0};
-						mem_r = 1'b1;
-						cache_err = offset_[1] | offset_[0];
-					end
-			STORE:begin
-						select_1 = ~v_1 | (v_0 & v_1 & count_0 < count_1);
-						if (select_1) begin
-							tag1_addr = block_;
-							tag1_data = tag_;
-							tag1_w = 1'b1;
-						end
-						else begin
-							tag0_addr = block_;
-							tag0_data = tag_;
-							tag0_w = 1'b1;
-						end
-						data_addr = {select_1, block_};
-						data_data = mem_data;
-						data_w = 1'b1;
-						v_addr = {select_1, block_};
-						v_data = 1'b1;
-						v_w = 1'b1;
-						cache_err = offset_[1] | offset_[0];
-					end
-		endcase
-	end
+	//LRU select
+	wire select_1;
+	assign select_1 = ~v1_data | ((v0_data & v1_data) & (count1_data < count0_data));
 	
-	assign cache_err = offset_[1] | offset_[0] | (cache_hit_0 & cac
+	//state machine
+	wire tag0_wdata_s, tag1_wdata_s;
+	wire count0_wdata_s, count1_wdata_s;
+	wire state_store;
+	I_cache_crl I_cache_crl_(
+    .clk(clk), 
+    .rst(rst), 
+    .op(op_), 
+	 .cache_err(cache_err),
+    .cache_hit(cache_hit), 
+    .cache_hit_0(cache_hit_0), 
+    .addr_12(addr_[12]), 
+    .select_1(select_1), 
+    .mem_ready(mem_ready), 
+    .cache_tag_w(cache_tag_w), 
+    .v0_w(v0_w), 
+    .v1_w(v1_w), 
+    .v0_wdata(v0_wdata), 
+    .v1_wdata(v1_wdata), 
+    .tag0_w(tag0_w), 
+    .tag1_w(tag1_w), 
+    .tag0_wdata_s(tag0_wdata_s), 
+    .tag1_wdata_s(tag1_wdata_s), 
+    .data0_w(data0_w), 
+    .data1_w(data1_w), 
+    .count0_w(count0_w), 
+    .count1_w(count1_w), 
+    .count0_wdata_s(count0_wdata_s), 
+    .count1_wdata_s(count1_wdata_s), 
+    .mem_r(mem_r), 
+    .state_store(state_store),
+	 .cache_ready(cache_ready)
+    );
 	
-	always @(posedge clk) begin
-		if (rst) begin
-			cache_err <= 1'b0;
-			cache_ready <= 1'b0;
-		end
-		else
-			case (cur_state)
-				START: if (i_i | i_stag | i_ltag | a_i) begin//programmer should make sure no tag conflicts
-							cache_err <= offset_[1] | offset_[0];
-							cache_ready <= 1'b1;
-						 end
-						 else if (a_fill | cache_r) begin	
-							cache_err <= offset_[1] | offset_[0] | (cache_hit_0 & cache_hit_1);
-							cache_ready <= ~cache_err & cache_hit;
-						 end
-						 else begin
-							cache_err <= 1'b0;
-							cache_ready <= 1'b1;
-						 end
-						 
-						 
-	end
+	//tag write
+	assign tag0_wdata = tag0_wdata_s ? Tag_Lo_[19:0] : tag_;
+	assign tag1_wdata = tag1_wdata_s ? Tag_Lo_[19:0] : tag_;
 	
-	wire [7:0]count0_addr, count1_addr;
-	reg [1:0]count0_data,count1_data;
-	reg count0_w, count1_w;
-	assign count0_addr = block_;
-	assign count1_addr = block_;
+	//count write
+	wire [1:0]count0_nxtdata, count1_nxtdata;
+	LUT_countdown count0LUT(
+    .cur_count(count0_data), 
+    .nxt_count(count0_nxtdata)
+    );
+	 LUT_countdown count1LUT(
+    .cur_count(count1_data), 
+    .nxt_count(count1_nxtdata)
+    );
+	assign count0_wdata = count0_wdata_s ? 2'b11 : count0_nxtdata;
+	assign count1_wdata = count1_wdata_s ? 2'b11 : count1_nxtdata;
 	
-	always @* begin
-		{count0_data, count1_data, count0_w, count1_w} = 22'b0;
-		//load
-		case (cur_state)
-			START: if (cache_r) begin
-						if (cache_hit) begin
-							count0_data = 2'b11;//hit
-							count0_w = 1'b1;
-							count1_w = 1'b1;
-							case (count_1)//综合后生成LUT
-								2'b11: count1_data = 2'b10;
-								2'b10: count1_data = 2'b01;
-								2'b01: count1_data = 2'b00;
-								2'b00: count1_data = 2'b00;
-							endcase
-						end
-						else begin
-							count1_data = 2'b11;
-							count1_w = 1'b1;
-							count0_w = 1'b1;
-							case (count_0)
-								2'b11: count0_data = 2'b10;
-								2'b10: count0_data = 2'b01;
-								2'b01: count0_data = 2'b00;
-								2'b00: count0_data = 2'b00;
-							endcase
-						end
-					end
-			STORE: if (select_1) begin
-						count1_data = 2'b11;
-						count1_w = 1'b1;
-					end
-					else begin
-						count0_data = 2'b11;
-						count0_w = 1'b1;
-					end
-		endcase
-	end
-	
-	//v tag data count写入
-	always @(posedge clk) begin
-		if (v_w)
-			v[v_addr] <= v_data;
-		if (tag0_w)
-			tag0[tag0_addr] <= tag0_data;
-		if (tag1_w)
-			tag1[tag1_addr] <= tag1_data;
-		if (data_w)
-			data[data_addr] <= data_data;
-		if (count0_w)
-			count0[count0_addr] <= count0_data;
-		if (count1_w)
-			count1[count1_addr] <= count1_data;
-	end
-	
-	//第一个上升沿，CPU发送read信号和地址到cache
-	//如果没有reload，第一个上升沿到第二个上升沿之间数据传送给CPU，第二个上升沿count发生变化
-	//如果有reload，第一个上升沿到第二个上升沿之间将地址传送给L2，L2将数据传送给cache，
-	//   当第二个上升沿时，数据写入cache，count发生变化
-	//   第二个上升沿到第三个上升沿之间数据传送给CPU，第三个上升沿count发生变化
+	//output
+	assign cache_err = (cache_hit_0 & cache_hit_1)
+							| offset_[1] | offset_[0]
+							| (op_[2] & (addr_[12]?(v0_data & tag0_equ) : (v1_data & tag1_equ)));
+	assign Tag_Hi_in = 32'b0;
+	assign Tag_Lo_in = {12'b0, addr_[12]? tag1_data : tag0_data};
+	assign cache_data = state_store ? mem_w : (cache_hit_0 ? data_w0 : data_w1);
+	assign mem_addr = addr_;
 endmodule

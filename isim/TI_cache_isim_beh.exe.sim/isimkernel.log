@@ -2,27 +2,27 @@ Command line:
    TI_cache_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  1738
+     -socket  56051
 
-Mon Oct 16 17:06:30 2017
+Tue Oct 17 19:07:33 2017
 
 
- Elaboration Time: 0.0936 sec
-
- Current Memory Usage: 673.305 Meg
-
- Total Signals          : 44
- Total Nets             : 436
- Total Signal Drivers   : 35
- Total Blocks           : 3
- Total Primitive Blocks : 2
- Total Processes        : 43
- Total Traceable Variables  : 79
- Total Scalar Nets and Variables : 88995
-
- Total Simulation Time: 1.01401 sec
+ Elaboration Time: 0.078 sec
 
  Current Memory Usage: 673.305 Meg
 
-Mon Oct 16 17:14:08 2017
+ Total Signals          : 143
+ Total Nets             : 1173
+ Total Signal Drivers   : 71
+ Total Blocks           : 14
+ Total Primitive Blocks : 12
+ Total Processes        : 80
+ Total Traceable Variables  : 95
+ Total Scalar Nets and Variables : 79850
+
+ Total Simulation Time: 2.05921 sec
+
+ Current Memory Usage: 673.305 Meg
+
+Tue Oct 17 19:16:05 2017
 

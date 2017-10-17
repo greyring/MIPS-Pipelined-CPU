@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/LUT_countdown.tfi -lib work F:/MyProgramme/0arch/PCPU//LUT_countdown.v -module LUT_countdown -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
