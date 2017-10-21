@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+write_data_mask instance_name (
+    .word_s(word_s), 
+    .mask(mask), 
+    .w_data(w_data), 
+    .old_data(old_data), 
+    .new_data(new_data)
+    );
+
+

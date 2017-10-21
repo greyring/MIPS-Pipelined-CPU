@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/write_data_mask.xst" -ofn "F:/MyProgramme/0arch/PCPU/write_data_mask.syr" 
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/write_data_mask.tfi -lib work F:/MyProgramme/0arch/PCPU//write_data_mask.v -module write_data_mask -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

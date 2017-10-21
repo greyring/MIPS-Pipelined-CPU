@@ -1,0 +1,4 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/D_cache.xst" -ofn "F:/MyProgramme/0arch/PCPU/D_cache.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/D_cache.xst" -ofn "F:/MyProgramme/0arch/PCPU/D_cache.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/D_cache.xst" -ofn "F:/MyProgramme/0arch/PCPU/D_cache.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/D_cache.xst" -ofn "F:/MyProgramme/0arch/PCPU/D_cache.syr" 

@@ -22,7 +22,6 @@ module I_cache_crl(
 	input clk,
 	input rst,
 	input [7:0]op,//op[7] = cache_r
-	input cache_err,
 	input cache_hit,
 	input cache_hit_0,
 	input addr_12,//index select
@@ -90,7 +89,7 @@ always @* begin
 	 data0_w, data1_w,
 	 state_store} = 0;
 	 cache_ready = 1'b1;
-	if (~rst & ~cache_err) begin
+	if (~rst) begin
 		case (curstate)
 			START: if (op[7] & cache_hit) begin
 						 count0_w = 1'b1;

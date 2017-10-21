@@ -45,7 +45,9 @@ module I_cache(
 	reg [7:0]op_;//op_[7] = cache_r
 	reg [31:0]addr_;
 	reg [31:0]Tag_Lo_, Tag_Hi_;
+	reg mem_ready_;
 	always @(posedge clk) begin
+		mem_ready_ <= mem_ready;
 		if (cache_ready) begin
 			op_ <= {cache_r, op};
 			addr_ <= addr;
@@ -154,7 +156,7 @@ module I_cache(
 	//select data word
 	wire [31:0]data_w00, data_w01, data_w02, data_w03, data_w10, data_w11, data_w12, data_w13,
 				  mem_w0, mem_w1, mem_w2, mem_w3;
-	reg [31:0]data_w0, data_w1, mem_w;
+	reg [31:0]data_w0, data_w1, mem_word;
 	assign {data_w03, data_w02, data_w01, data_w00} = data0_data;
 	assign {data_w13, data_w12, data_w11, data_w10} = data1_data;
 	assign {mem_w3, mem_w2, mem_w1, mem_w0} = mem_data;
@@ -163,22 +165,22 @@ module I_cache(
 			2'b11:begin
 						data_w0 = data_w03;
 						data_w1 = data_w13;
-						mem_w = mem_w3;
+						mem_word = mem_w3;
 					end
 			2'b10:begin
 						data_w0 = data_w02;
 						data_w1 = data_w12;
-						mem_w = mem_w2;
+						mem_word = mem_w2;
 					end
 			2'b01:begin
 						data_w0 = data_w01;
 						data_w1 = data_w11;
-						mem_w = mem_w1;
+						mem_word = mem_w1;
 					end
 			2'b00:begin
 						data_w0 = data_w00;
 						data_w1 = data_w10;
-						mem_w = mem_w0;
+						mem_word = mem_w0;
 			      end
 		endcase
 	end
@@ -196,16 +198,6 @@ module I_cache(
 	end
 	assign cache_hit = cache_hit_0 | cache_hit_1;
 	
-	reg tag0_equ, tag1_equ;
-	always @* begin
-		tag0_equ = 1'b0;
-		tag1_equ = 1'b0;
-		if (Tag_Lo_[19:0] == tag0_data)
-			tag0_equ = 1'b1;
-		if (Tag_Lo_[19:0] == tag1_data)
-			tag1_equ = 1'b1;
-	end
-	
 	//LRU select
 	wire select_1;
 	assign select_1 = ~v1_data | ((v0_data & v1_data) & (count1_data < count0_data));
@@ -218,12 +210,11 @@ module I_cache(
     .clk(clk), 
     .rst(rst), 
     .op(op_), 
-	 .cache_err(cache_err),
     .cache_hit(cache_hit), 
     .cache_hit_0(cache_hit_0), 
     .addr_12(addr_[12]), 
     .select_1(select_1), 
-    .mem_ready(mem_ready), 
+    .mem_ready(mem_ready_), 
     .cache_tag_w(cache_tag_w), 
     .v0_w(v0_w), 
     .v1_w(v1_w), 
@@ -262,11 +253,9 @@ module I_cache(
 	assign count1_wdata = count1_wdata_s ? 2'b11 : count1_nxtdata;
 	
 	//output
-	assign cache_err = (cache_hit_0 & cache_hit_1)
-							| offset_[1] | offset_[0]
-							| (op_[2] & (addr_[12]?(v0_data & tag0_equ) : (v1_data & tag1_equ)));
+	assign cache_err = cache_hit_0 & cache_hit_1;
 	assign Tag_Hi_in = 32'b0;
 	assign Tag_Lo_in = {12'b0, addr_[12]? tag1_data : tag0_data};
-	assign cache_data = state_store ? mem_w : (cache_hit_0 ? data_w0 : data_w1);
+	assign cache_data = state_store ? mem_word : (cache_hit_0 ? data_w0 : data_w1);
 	assign mem_addr = addr_;
 endmodule

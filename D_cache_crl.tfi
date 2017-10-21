@@ -1,0 +1,46 @@
+
+
+
+// Instantiate the module
+D_cache_crl instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .op(op), 
+    .cache_hit(cache_hit), 
+    .cache_hit_0(cache_hit_0), 
+    .v0_data(v0_data), 
+    .v1_data(v1_data), 
+    .d0_data(d0_data), 
+    .d1_data(d1_data), 
+    .addr_12(addr_12), 
+    .select_1(select_1), 
+    .mem_ready(mem_ready), 
+    .cache_tag_w(cache_tag_w), 
+    .v0_w(v0_w), 
+    .v1_w(v1_w), 
+    .v0_wdata(v0_wdata), 
+    .v1_wdata(v1_wdata), 
+    .d0_w(d0_w), 
+    .d1_w(d1_w), 
+    .d0_wdata(d0_wdata), 
+    .d1_wdata(d1_wdata), 
+    .tag0_w(tag0_w), 
+    .tag1_w(tag1_w), 
+    .tag0_wdata_s(tag0_wdata_s), 
+    .tag1_wdata_s(tag1_wdata_s), 
+    .data0_w(data0_w), 
+    .data1_w(data1_w), 
+    .data0_wdata_s(data0_wdata_s), 
+    .data1_wdata_s(data1_wdata_s), 
+    .count0_w(count0_w), 
+    .count1_w(count1_w), 
+    .count0_wdata_s(count0_wdata_s), 
+    .count1_wdata_s(count1_wdata_s), 
+    .mem_addr_s(mem_addr_s), 
+    .mem_r(mem_r), 
+    .mem_w(mem_w), 
+    .cache_data_s(cache_data_s), 
+    .cache_ready(cache_ready)
+    );
+
+

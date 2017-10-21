@@ -1,0 +1,6 @@
+verilog work "write_data_mask_32.v"
+verilog work "write_data_mask.v"
+verilog work "LUT_countdown.v"
+verilog work "D_cache_crl.v"
+verilog work "cache_mem.v"
+verilog work "D_cache.v"
