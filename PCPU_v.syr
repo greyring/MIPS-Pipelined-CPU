@@ -1,0 +1,1465 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: PCPU_v.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "PCPU_v.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "PCPU_v"
+Output Format                      : NGC
+Target Device                      : xc7k325t-2L-ffg676
+
+---- Source Options
+Top Module Name                    : PCPU_v
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\res_adder.v" into library work
+Parsing module <res_adder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\inner_adder.v" into library work
+Parsing module <inner_adder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\half_adder.v" into library work
+Parsing module <half_adder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\half_adder_sub.v" into library work
+Parsing module <half_adder_sub>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\full_adder.v" into library work
+Parsing module <full_adder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\adder64.v" into library work
+Parsing module <adder64>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\STATUS_data.v" into library work
+Parsing module <STATUS_data>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Status.v" into library work
+Parsing module <Status>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Reg_HiLo.v" into library work
+Parsing module <Reg_HiLo>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUX2T1_32.v" into library work
+Parsing module <MUX2T1_32>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUL_ID_EXE.v" into library work
+Parsing module <MUL_ID_EXE>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUL_EXE_EWB.v" into library work
+Parsing module <MUL_EXE_EWB>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\mul_adder.v" into library work
+Parsing module <mul_adder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\mul32_s.v" into library work
+Parsing module <mul32_s>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\EPC_data.v" into library work
+Parsing module <EPC_data>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Epc.v" into library work
+Parsing module <Epc>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Count.v" into library work
+Parsing module <Count>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Compare.v" into library work
+Parsing module <Compare>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\CAUSE_data.v" into library work
+Parsing module <CAUSE_data>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Cause.v" into library work
+Parsing module <Cause>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" into library work
+Parsing module <adder32_Sklansky>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\stall_control.v" into library work
+Parsing module <stall_control>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\regs.v" into library work
+Parsing module <Regs>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\PC.v" into library work
+Parsing module <REG32>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUX4T1_32.v" into library work
+Parsing module <MUX4T1_32>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUL_control.v" into library work
+Parsing module <MUL_control>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUL_ALU.vf" into library work
+Parsing module <MUL_ALU>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MEM_WB_REG.v" into library work
+Parsing module <MEM_WB_REG>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\jump_control.v" into library work
+Parsing module <jump_control>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\IF_ID_Reg.v" into library work
+Parsing module <IF_ID_Reg>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\ID_EXE_REG.v" into library work
+Parsing module <ID_EXE_REG>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\forward_reg.v" into library work
+Parsing module <forward_reg>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Ext_imm16.v" into library work
+Parsing module <Ext_32>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Exp_Addr.v" into library work
+Parsing module <Exp_Addr>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\EXE_MEM_REG.v" into library work
+Parsing module <EXE_MEM_REG>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\CP0.v" into library work
+Parsing module <CP0>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\control.v" into library work
+Parsing module <control>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\branch_judge.v" into library work
+Parsing module <branch_judge>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\alu.v" into library work
+Parsing module <alu>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\adder4.v" into library work
+Parsing module <adder4>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\PCPU_v.v" into library work
+Parsing module <PCPU_v>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <PCPU_v>.
+
+Elaborating module <CP0>.
+
+Elaborating module <Count>.
+
+Elaborating module <Compare>.
+
+Elaborating module <Status>.
+
+Elaborating module <Cause>.
+
+Elaborating module <Epc>.
+
+Elaborating module <EPC_data>.
+
+Elaborating module <STATUS_data>.
+
+Elaborating module <CAUSE_data>.
+
+Elaborating module <jump_control>.
+
+Elaborating module <MUX4T1_32>.
+
+Elaborating module <Exp_Addr>.
+
+Elaborating module <REG32>.
+
+Elaborating module <adder4>.
+
+Elaborating module <IF_ID_Reg>.
+
+Elaborating module <control>.
+
+Elaborating module <Regs>.
+
+Elaborating module <forward_reg>.
+
+Elaborating module <Ext_32>.
+
+Elaborating module <adder32_Sklansky>.
+
+Elaborating module <half_adder_sub>.
+
+Elaborating module <half_adder>.
+
+Elaborating module <inner_adder>.
+
+Elaborating module <res_adder>.
+
+Elaborating module <branch_judge>.
+
+Elaborating module <MUL_control>.
+
+Elaborating module <MUL_ALU>.
+
+Elaborating module <MUX2T1_32>.
+
+Elaborating module <VCC>.
+
+Elaborating module <mul_adder>.
+
+Elaborating module <full_adder>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul_adder.v" Line 290: Assignment to c1_63_1 ignored, since the identifier is never used
+
+Elaborating module <adder64>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 771: Assignment to p2_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1059: Assignment to p4_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1068: Assignment to p5_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1077: Assignment to p6_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1347: Assignment to p8_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1356: Assignment to p9_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1365: Assignment to p10_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1374: Assignment to p11_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1383: Assignment to p12_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1392: Assignment to p13_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1401: Assignment to p14_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1635: Assignment to p16_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1644: Assignment to p17_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1653: Assignment to p18_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1662: Assignment to p19_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1671: Assignment to p20_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1680: Assignment to p21_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1689: Assignment to p22_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1698: Assignment to p23_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1707: Assignment to p24_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1716: Assignment to p25_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1725: Assignment to p26_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1734: Assignment to p27_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1743: Assignment to p28_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1752: Assignment to p29_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1761: Assignment to p30_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1923: Assignment to p32_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1932: Assignment to p33_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1941: Assignment to p34_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1950: Assignment to p35_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1959: Assignment to p36_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1968: Assignment to p37_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1977: Assignment to p38_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1986: Assignment to p39_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 1995: Assignment to p40_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2004: Assignment to p41_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2013: Assignment to p42_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2022: Assignment to p43_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2031: Assignment to p44_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2040: Assignment to p45_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2049: Assignment to p46_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2058: Assignment to p47_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2067: Assignment to p48_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2076: Assignment to p49_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2085: Assignment to p50_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2094: Assignment to p51_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2103: Assignment to p52_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2112: Assignment to p53_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2121: Assignment to p54_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2130: Assignment to p55_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2139: Assignment to p56_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2148: Assignment to p57_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2157: Assignment to p58_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2166: Assignment to p59_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2175: Assignment to p60_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2184: Assignment to p61_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2193: Assignment to p62_0 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\adder64.v" Line 2202: Assignment to p63_0 ignored, since the identifier is never used
+
+Elaborating module <MUL_EXE_EWB>.
+
+Elaborating module <MUL_ID_EXE>.
+
+Elaborating module <mul32_s>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2148: Assignment to c1_63_1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2152: Assignment to c1_63_2 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2156: Assignment to c1_63_3 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2160: Assignment to c1_63_4 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2164: Assignment to c1_63_5 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2168: Assignment to c1_63_6 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2172: Assignment to c1_63_7 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2176: Assignment to c1_63_8 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2180: Assignment to c1_63_9 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2184: Assignment to c1_63_10 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 2188: Assignment to c1_63_11 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 3560: Assignment to c2_63_1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 3564: Assignment to c2_63_2 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 3568: Assignment to c2_63_3 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 3572: Assignment to c2_63_4 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 3576: Assignment to c2_63_5 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 3580: Assignment to c2_63_6 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 3584: Assignment to c2_63_7 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 4544: Assignment to c3_63_1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 4548: Assignment to c3_63_2 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 4552: Assignment to c3_63_3 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 4556: Assignment to c3_63_4 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 4560: Assignment to c3_63_5 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 5168: Assignment to c4_63_1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 5172: Assignment to c4_63_2 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 5176: Assignment to c4_63_3 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 5592: Assignment to c5_63_1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 5596: Assignment to c5_63_2 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 5964: Assignment to c6_63_1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 5968: Assignment to c6_63_2 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 6200: Assignment to c7_63_1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 6428: Assignment to c8_63_1 ignored, since the identifier is never used
+
+Elaborating module <Reg_HiLo>.
+
+Elaborating module <ID_EXE_REG>.
+
+Elaborating module <alu>.
+
+Elaborating module <EXE_MEM_REG>.
+
+Elaborating module <MEM_WB_REG>.
+
+Elaborating module <stall_control>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <PCPU_v>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\PCPU_v.v".
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 287: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 406: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
+    Found 32-bit 4-to-1 multiplexer for signal <_n0109> created at line 468.
+    Summary:
+	inferred   4 Multiplexer(s).
+Unit <PCPU_v> synthesized.
+
+Synthesizing Unit <CP0>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\CP0.v".
+    Found 32-bit 8-to-1 multiplexer for signal <_n0067> created at line 28.
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <CP0> synthesized.
+
+Synthesizing Unit <Count>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Count.v".
+    Found 32-bit register for signal <count>.
+    Found 32-bit adder for signal <count[31]_GND_3_o_add_1_OUT> created at line 36.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
+Unit <Count> synthesized.
+
+Synthesizing Unit <Compare>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Compare.v".
+    Found 1-bit register for signal <int_>.
+    Found 32-bit register for signal <compare>.
+    Found 32-bit comparator equal for signal <count[31]_compare[31]_equal_2_o> created at line 44
+    Summary:
+	inferred  33 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <Compare> synthesized.
+
+Synthesizing Unit <Status>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Status.v".
+    Found 32-bit register for signal <status>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <Status> synthesized.
+
+Synthesizing Unit <Cause>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Cause.v".
+    Found 32-bit register for signal <cause>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <Cause> synthesized.
+
+Synthesizing Unit <Epc>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Epc.v".
+    Found 32-bit register for signal <epc>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <Epc> synthesized.
+
+Synthesizing Unit <EPC_data>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\EPC_data.v".
+    Summary:
+	inferred   6 Multiplexer(s).
+Unit <EPC_data> synthesized.
+
+Synthesizing Unit <STATUS_data>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\STATUS_data.v".
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <STATUS_data> synthesized.
+
+Synthesizing Unit <CAUSE_data>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\CAUSE_data.v".
+WARNING:Xst:647 - Input <cause_out<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <cause_out<15:10>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	inferred  27 Multiplexer(s).
+Unit <CAUSE_data> synthesized.
+
+Synthesizing Unit <jump_control>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\jump_control.v".
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <jump_control> synthesized.
+
+Synthesizing Unit <MUX4T1_32>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\MUX4T1_32.v".
+    Found 32-bit 4-to-1 multiplexer for signal <o> created at line 30.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <MUX4T1_32> synthesized.
+
+Synthesizing Unit <Exp_Addr>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Exp_Addr.v".
+    Found 32-bit adder for signal <PWR_13_o_GND_13_o_add_3_OUT> created at line 35.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Multiplexer(s).
+Unit <Exp_Addr> synthesized.
+
+Synthesizing Unit <REG32>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\PC.v".
+    Found 32-bit register for signal <pc>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <REG32> synthesized.
+
+Synthesizing Unit <adder4>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\adder4.v".
+    Found 32-bit adder for signal <nextPc> created at line 26.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <adder4> synthesized.
+
+Synthesizing Unit <IF_ID_Reg>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\IF_ID_Reg.v".
+    Found 96-bit register for signal <temp>.
+    Summary:
+	inferred  96 D-type flip-flop(s).
+Unit <IF_ID_Reg> synthesized.
+
+Synthesizing Unit <control>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\control.v".
+    Summary:
+	inferred 106 Multiplexer(s).
+Unit <control> synthesized.
+
+Synthesizing Unit <Regs>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\regs.v".
+    Found 992-bit register for signal <n0051[991:0]>.
+    Found 32-bit 31-to-1 multiplexer for signal <R_addr_A[4]_register[31][31]_wide_mux_1_OUT> created at line 28.
+    Found 32-bit 31-to-1 multiplexer for signal <R_addr_B[4]_register[31][31]_wide_mux_4_OUT> created at line 29.
+    Summary:
+	inferred 992 D-type flip-flop(s).
+	inferred  35 Multiplexer(s).
+Unit <Regs> synthesized.
+
+Synthesizing Unit <forward_reg>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\forward_reg.v".
+    Found 5-bit comparator equal for signal <id_reg[4]_mem_wb_dreg[4]_equal_2_o> created at line 40
+    Found 5-bit comparator equal for signal <id_reg[4]_exe_wb_dreg[4]_equal_5_o> created at line 42
+    Summary:
+	inferred   2 Comparator(s).
+	inferred   2 Multiplexer(s).
+Unit <forward_reg> synthesized.
+
+Synthesizing Unit <Ext_32>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Ext_imm16.v".
+    Summary:
+	no macro.
+Unit <Ext_32> synthesized.
+
+Synthesizing Unit <adder32_Sklansky>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v".
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 411: Output port <pi_j> of the instance <in2_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 555: Output port <pi_j> of the instance <in4_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 564: Output port <pi_j> of the instance <in5_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 573: Output port <pi_j> of the instance <in6_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 699: Output port <pi_j> of the instance <in8_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 708: Output port <pi_j> of the instance <in9_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 717: Output port <pi_j> of the instance <in10_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 726: Output port <pi_j> of the instance <in11_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 735: Output port <pi_j> of the instance <in12_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 744: Output port <pi_j> of the instance <in13_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 753: Output port <pi_j> of the instance <in14_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 843: Output port <pi_j> of the instance <in16_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 852: Output port <pi_j> of the instance <in17_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 861: Output port <pi_j> of the instance <in18_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 870: Output port <pi_j> of the instance <in19_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 879: Output port <pi_j> of the instance <in20_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 888: Output port <pi_j> of the instance <in21_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 897: Output port <pi_j> of the instance <in22_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 906: Output port <pi_j> of the instance <in23_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 915: Output port <pi_j> of the instance <in24_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 924: Output port <pi_j> of the instance <in25_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 933: Output port <pi_j> of the instance <in26_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 942: Output port <pi_j> of the instance <in27_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 951: Output port <pi_j> of the instance <in28_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 960: Output port <pi_j> of the instance <in29_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 969: Output port <pi_j> of the instance <in30_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 978: Output port <pi_j> of the instance <in31_0> is unconnected or connected to loadless signal.
+    Summary:
+Unit <adder32_Sklansky> synthesized.
+
+Synthesizing Unit <half_adder_sub>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\half_adder_sub.v".
+    Summary:
+Unit <half_adder_sub> synthesized.
+
+Synthesizing Unit <half_adder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\half_adder.v".
+    Summary:
+Unit <half_adder> synthesized.
+
+Synthesizing Unit <inner_adder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\inner_adder.v".
+    Summary:
+	no macro.
+Unit <inner_adder> synthesized.
+
+Synthesizing Unit <res_adder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\res_adder.v".
+    Summary:
+Unit <res_adder> synthesized.
+
+Synthesizing Unit <branch_judge>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\branch_judge.v".
+    Found 32-bit comparator equal for signal <equl> created at line 26
+    Summary:
+	inferred   1 Comparator(s).
+Unit <branch_judge> synthesized.
+
+Synthesizing Unit <MUL_control>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\MUL_control.v".
+    Summary:
+	inferred  47 Multiplexer(s).
+Unit <MUL_control> synthesized.
+
+Synthesizing Unit <MUL_ALU>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\MUL_ALU.vf".
+    Summary:
+	no macro.
+Unit <MUL_ALU> synthesized.
+
+Synthesizing Unit <MUX2T1_32>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\MUX2T1_32.v".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <MUX2T1_32> synthesized.
+
+Synthesizing Unit <mul_adder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\mul_adder.v".
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul_adder.v" line 289: Output port <co> of the instance <fa1_63_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul_adder.v" line 423: Output port <overflow> of the instance <Adder> is unconnected or connected to loadless signal.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <mul_adder> synthesized.
+
+Synthesizing Unit <full_adder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\full_adder.v".
+    Summary:
+Unit <full_adder> synthesized.
+
+Synthesizing Unit <adder64>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\adder64.v".
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 765: Output port <pi_j> of the instance <in2_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1053: Output port <pi_j> of the instance <in4_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1062: Output port <pi_j> of the instance <in5_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1071: Output port <pi_j> of the instance <in6_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1341: Output port <pi_j> of the instance <in8_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1350: Output port <pi_j> of the instance <in9_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1359: Output port <pi_j> of the instance <in10_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1368: Output port <pi_j> of the instance <in11_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1377: Output port <pi_j> of the instance <in12_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1386: Output port <pi_j> of the instance <in13_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1395: Output port <pi_j> of the instance <in14_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1629: Output port <pi_j> of the instance <in16_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1638: Output port <pi_j> of the instance <in17_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1647: Output port <pi_j> of the instance <in18_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1656: Output port <pi_j> of the instance <in19_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1665: Output port <pi_j> of the instance <in20_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1674: Output port <pi_j> of the instance <in21_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1683: Output port <pi_j> of the instance <in22_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1692: Output port <pi_j> of the instance <in23_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1701: Output port <pi_j> of the instance <in24_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1710: Output port <pi_j> of the instance <in25_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1719: Output port <pi_j> of the instance <in26_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1728: Output port <pi_j> of the instance <in27_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1737: Output port <pi_j> of the instance <in28_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1746: Output port <pi_j> of the instance <in29_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1755: Output port <pi_j> of the instance <in30_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1917: Output port <pi_j> of the instance <in32_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1926: Output port <pi_j> of the instance <in33_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1935: Output port <pi_j> of the instance <in34_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1944: Output port <pi_j> of the instance <in35_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1953: Output port <pi_j> of the instance <in36_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1962: Output port <pi_j> of the instance <in37_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1971: Output port <pi_j> of the instance <in38_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1980: Output port <pi_j> of the instance <in39_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1989: Output port <pi_j> of the instance <in40_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 1998: Output port <pi_j> of the instance <in41_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2007: Output port <pi_j> of the instance <in42_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2016: Output port <pi_j> of the instance <in43_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2025: Output port <pi_j> of the instance <in44_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2034: Output port <pi_j> of the instance <in45_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2043: Output port <pi_j> of the instance <in46_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2052: Output port <pi_j> of the instance <in47_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2061: Output port <pi_j> of the instance <in48_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2070: Output port <pi_j> of the instance <in49_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2079: Output port <pi_j> of the instance <in50_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2088: Output port <pi_j> of the instance <in51_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2097: Output port <pi_j> of the instance <in52_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2106: Output port <pi_j> of the instance <in53_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2115: Output port <pi_j> of the instance <in54_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2124: Output port <pi_j> of the instance <in55_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2133: Output port <pi_j> of the instance <in56_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2142: Output port <pi_j> of the instance <in57_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2151: Output port <pi_j> of the instance <in58_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2160: Output port <pi_j> of the instance <in59_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2169: Output port <pi_j> of the instance <in60_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2178: Output port <pi_j> of the instance <in61_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2187: Output port <pi_j> of the instance <in62_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder64.v" line 2196: Output port <pi_j> of the instance <in63_0> is unconnected or connected to loadless signal.
+    Summary:
+Unit <adder64> synthesized.
+
+Synthesizing Unit <MUL_EXE_EWB>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\MUL_EXE_EWB.v".
+    Found 166-bit register for signal <temp>.
+    Summary:
+	inferred 166 D-type flip-flop(s).
+Unit <MUL_EXE_EWB> synthesized.
+
+Synthesizing Unit <MUL_ID_EXE>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\MUL_ID_EXE.v".
+    Found 103-bit register for signal <temp>.
+    Summary:
+	inferred 103 D-type flip-flop(s).
+Unit <MUL_ID_EXE> synthesized.
+
+Synthesizing Unit <mul32_s>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\mul32_s.v".
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2147: Output port <co> of the instance <fa1_63_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2151: Output port <co> of the instance <fa1_63_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2155: Output port <co> of the instance <fa1_63_3> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2159: Output port <co> of the instance <fa1_63_4> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2163: Output port <co> of the instance <fa1_63_5> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2167: Output port <co> of the instance <fa1_63_6> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2171: Output port <co> of the instance <fa1_63_7> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2175: Output port <co> of the instance <fa1_63_8> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2179: Output port <co> of the instance <fa1_63_9> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2183: Output port <co> of the instance <fa1_63_10> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 2187: Output port <co> of the instance <fa1_63_11> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 3559: Output port <co> of the instance <fa2_63_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 3563: Output port <co> of the instance <fa2_63_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 3567: Output port <co> of the instance <fa2_63_3> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 3571: Output port <co> of the instance <fa2_63_4> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 3575: Output port <co> of the instance <fa2_63_5> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 3579: Output port <co> of the instance <fa2_63_6> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 3583: Output port <co> of the instance <fa2_63_7> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 4543: Output port <co> of the instance <fa3_63_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 4547: Output port <co> of the instance <fa3_63_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 4551: Output port <co> of the instance <fa3_63_3> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 4555: Output port <co> of the instance <fa3_63_4> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 4559: Output port <co> of the instance <fa3_63_5> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 5167: Output port <co> of the instance <fa4_63_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 5171: Output port <co> of the instance <fa4_63_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 5175: Output port <co> of the instance <fa4_63_3> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 5591: Output port <co> of the instance <fa5_63_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 5595: Output port <co> of the instance <fa5_63_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 5963: Output port <co> of the instance <fa6_63_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 5967: Output port <g> of the instance <ha6_63_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 6199: Output port <co> of the instance <fa7_63_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" line 6427: Output port <co> of the instance <fa8_63_1> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <mul32_s> synthesized.
+
+Synthesizing Unit <Reg_HiLo>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Reg_HiLo.v".
+    Found 32-bit register for signal <Lo>.
+    Found 32-bit register for signal <Hi>.
+    Summary:
+	inferred  64 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <Reg_HiLo> synthesized.
+
+Synthesizing Unit <ID_EXE_REG>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\ID_EXE_REG.v".
+    Found 171-bit register for signal <temp>.
+    Summary:
+	inferred 171 D-type flip-flop(s).
+Unit <ID_EXE_REG> synthesized.
+
+Synthesizing Unit <alu>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\alu.v".
+        one = 32'b00000000000000000000000000000001
+        zero_0 = 32'b00000000000000000000000000000000
+    Found 32-bit shifter logical right for signal <res_srl> created at line 29
+    Found 32-bit shifter logical left for signal <res_sll> created at line 29
+    Found 32-bit comparator greater for signal <B[31]_A[31]_LessThan_4_o> created at line 44
+    Summary:
+	inferred   1 Comparator(s).
+	inferred   9 Multiplexer(s).
+	inferred   2 Combinational logic shifter(s).
+Unit <alu> synthesized.
+
+Synthesizing Unit <EXE_MEM_REG>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\EXE_MEM_REG.v".
+    Found 114-bit register for signal <temp>.
+    Summary:
+	inferred 114 D-type flip-flop(s).
+Unit <EXE_MEM_REG> synthesized.
+
+Synthesizing Unit <MEM_WB_REG>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\MEM_WB_REG.v".
+    Found 38-bit register for signal <temp>.
+    Summary:
+	inferred  38 D-type flip-flop(s).
+Unit <MEM_WB_REG> synthesized.
+
+Synthesizing Unit <stall_control>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\stall_control.v".
+    Found 5-bit comparator equal for signal <exe_wb_dreg[4]_id_rega[4]_equal_6_o> created at line 35
+    Found 5-bit comparator equal for signal <exe_wb_dreg[4]_id_regb[4]_equal_7_o> created at line 35
+    Summary:
+	inferred   2 Comparator(s).
+Unit <stall_control> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 32-bit adder                                          : 4
+# Registers                                            : 16
+ 1-bit register                                        : 1
+ 103-bit register                                      : 1
+ 114-bit register                                      : 1
+ 166-bit register                                      : 1
+ 171-bit register                                      : 1
+ 32-bit register                                       : 8
+ 38-bit register                                       : 1
+ 96-bit register                                       : 1
+ 992-bit register                                      : 1
+# Comparators                                          : 9
+ 32-bit comparator equal                               : 2
+ 32-bit comparator greater                             : 1
+ 5-bit comparator equal                                : 6
+# Multiplexers                                         : 259
+ 1-bit 2-to-1 multiplexer                              : 120
+ 2-bit 2-to-1 multiplexer                              : 12
+ 3-bit 2-to-1 multiplexer                              : 7
+ 32-bit 2-to-1 multiplexer                             : 70
+ 32-bit 31-to-1 multiplexer                            : 2
+ 32-bit 4-to-1 multiplexer                             : 2
+ 32-bit 8-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 5
+ 5-bit 2-to-1 multiplexer                              : 40
+# Logic shifters                                       : 2
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# Xors                                                 : 3457
+ 1-bit xor2                                            : 3450
+ 1-bit xor4                                            : 3
+ 32-bit xor2                                           : 3
+ 64-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1290 - Hierarchical block <in63_62> is unconnected in block <Adder>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in63_60> is unconnected in block <Adder>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in63_56> is unconnected in block <Adder>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in63_48> is unconnected in block <Adder>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in63_32> is unconnected in block <Adder>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in63_0> is unconnected in block <Adder>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in31_30> is unconnected in block <add_branch_addr>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in31_28> is unconnected in block <add_branch_addr>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in31_24> is unconnected in block <add_branch_addr>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in31_16> is unconnected in block <add_branch_addr>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <in31_0> is unconnected in block <add_branch_addr>.
+   It will be removed from the design.
+WARNING:Xst:1293 - FF/Latch <temp_102> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_103> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_104> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_105> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_106> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_107> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_108> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_109> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+
+Synthesizing (advanced) Unit <Count>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+Unit <Count> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 3
+ 32-bit adder                                          : 3
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 1905
+ Flip-Flops                                            : 1905
+# Comparators                                          : 9
+ 32-bit comparator equal                               : 2
+ 32-bit comparator greater                             : 1
+ 5-bit comparator equal                                : 6
+# Multiplexers                                         : 258
+ 1-bit 2-to-1 multiplexer                              : 119
+ 2-bit 2-to-1 multiplexer                              : 12
+ 3-bit 2-to-1 multiplexer                              : 7
+ 32-bit 2-to-1 multiplexer                             : 70
+ 32-bit 31-to-1 multiplexer                            : 2
+ 32-bit 4-to-1 multiplexer                             : 2
+ 32-bit 8-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 5
+ 5-bit 2-to-1 multiplexer                              : 40
+# Logic shifters                                       : 2
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# Xors                                                 : 3457
+ 1-bit xor2                                            : 3450
+ 1-bit xor4                                            : 3
+ 32-bit xor2                                           : 3
+ 64-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_35_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_36_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_37_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_38_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_39_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_40_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_41_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_42_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_43_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_44_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_45_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_46_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_47_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_48_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_49_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_50_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_51_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_52_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_53_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_54_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_55_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_56_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_57_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_58_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_59_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_60_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_61_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_34_11>, <fa1_62_11> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_38_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_39_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_40_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_41_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_42_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_43_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_44_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_45_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_46_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_47_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_48_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_49_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_50_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_51_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_52_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_53_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_54_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_55_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_56_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_57_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_58_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_59_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_60_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_61_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_37_10>, <fa1_62_10> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_41_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_42_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_43_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_44_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_45_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_46_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_47_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_48_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_49_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_50_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_51_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_52_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_53_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_54_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_55_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_56_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_57_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_58_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_59_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_60_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_61_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_40_9>, <fa1_62_9> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_44_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_45_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_46_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_47_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_48_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_49_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_50_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_51_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_52_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_53_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_54_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_55_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_56_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_57_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_58_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_59_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_60_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_61_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_43_8>, <fa1_62_8> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_47_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_48_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_49_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_50_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_51_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_52_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_53_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_54_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_55_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_56_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_57_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_58_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_59_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_60_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_61_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_46_7>, <fa1_62_7> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_50_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_51_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_52_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_53_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_54_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_55_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_56_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_57_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_58_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_59_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_60_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_61_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_49_6>, <fa1_62_6> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_53_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_54_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_55_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_56_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_57_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_58_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_59_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_60_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_61_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_52_5>, <fa1_62_5> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_55_4>, <fa1_56_4> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_55_4>, <fa1_57_4> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_55_4>, <fa1_58_4> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_55_4>, <fa1_59_4> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_55_4>, <fa1_60_4> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_55_4>, <fa1_61_4> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_55_4>, <fa1_62_4> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_58_3>, <fa1_59_3> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_58_3>, <fa1_60_3> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_58_3>, <fa1_61_3> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_58_3>, <fa1_62_3> of unit <full_adder> are equivalent, second instance is removed
+WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_61_2>, <fa1_62_2> of unit <full_adder> are equivalent, second instance is removed
+INFO:Xst:2261 - The FF/Latch <temp_20> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_89> 
+INFO:Xst:2261 - The FF/Latch <temp_25> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_94> 
+INFO:Xst:2261 - The FF/Latch <temp_2> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_71> 
+INFO:Xst:2261 - The FF/Latch <temp_15> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_84> 
+INFO:Xst:2261 - The FF/Latch <temp_8> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_77> 
+INFO:Xst:2261 - The FF/Latch <temp_26> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_95> 
+INFO:Xst:2261 - The FF/Latch <temp_31> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_100> 
+INFO:Xst:2261 - The FF/Latch <temp_3> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_72> 
+INFO:Xst:2261 - The FF/Latch <temp_16> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_85> 
+INFO:Xst:2261 - The FF/Latch <temp_21> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_90> 
+INFO:Xst:2261 - The FF/Latch <temp_11> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_80> 
+INFO:Xst:2261 - The FF/Latch <temp_9> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_78> 
+INFO:Xst:2261 - The FF/Latch <temp_27> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_96> 
+INFO:Xst:2261 - The FF/Latch <temp_32> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_101> 
+INFO:Xst:2261 - The FF/Latch <temp_4> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_73> 
+INFO:Xst:2261 - The FF/Latch <temp_17> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_86> 
+INFO:Xst:2261 - The FF/Latch <temp_22> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_91> 
+INFO:Xst:2261 - The FF/Latch <temp_12> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_81> 
+INFO:Xst:2261 - The FF/Latch <temp_10> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_79> 
+INFO:Xst:2261 - The FF/Latch <temp_28> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_97> 
+INFO:Xst:2261 - The FF/Latch <temp_5> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_74> 
+INFO:Xst:2261 - The FF/Latch <temp_18> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_87> 
+INFO:Xst:2261 - The FF/Latch <temp_23> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_92> 
+INFO:Xst:2261 - The FF/Latch <temp_13> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_82> 
+INFO:Xst:2261 - The FF/Latch <temp_29> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_98> 
+INFO:Xst:2261 - The FF/Latch <temp_6> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_75> 
+INFO:Xst:2261 - The FF/Latch <temp_19> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_88> 
+INFO:Xst:2261 - The FF/Latch <temp_24> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_93> 
+INFO:Xst:2261 - The FF/Latch <temp_1> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_70> 
+INFO:Xst:2261 - The FF/Latch <temp_14> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_83> 
+INFO:Xst:2261 - The FF/Latch <temp_30> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_99> 
+INFO:Xst:2261 - The FF/Latch <temp_7> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_76> 
+
+Optimizing unit <IF_ID_Reg> ...
+
+Optimizing unit <REG32> ...
+
+Optimizing unit <MUL_ID_EXE> ...
+
+Optimizing unit <MUL_EXE_EWB> ...
+
+Optimizing unit <ID_EXE_REG> ...
+
+Optimizing unit <EXE_MEM_REG> ...
+
+Optimizing unit <MEM_WB_REG> ...
+
+Optimizing unit <PCPU_v> ...
+
+Optimizing unit <CP0> ...
+
+Optimizing unit <Compare> ...
+
+Optimizing unit <Status> ...
+
+Optimizing unit <Cause> ...
+
+Optimizing unit <Epc> ...
+
+Optimizing unit <MUL_ALU> ...
+
+Optimizing unit <Reg_HiLo> ...
+
+Optimizing unit <mul32_s> ...
+
+Optimizing unit <mul_adder> ...
+
+Optimizing unit <adder64> ...
+
+Optimizing unit <Regs> ...
+
+Optimizing unit <adder32_Sklansky> ...
+
+Optimizing unit <alu> ...
+
+Optimizing unit <forward_reg> ...
+WARNING:Xst:1293 - FF/Latch <MUL_ALU_/_Mul_EXE_EWB/temp_109> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MUL_ALU_/_Mul_EXE_EWB/temp_108> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MUL_ALU_/_Mul_EXE_EWB/temp_107> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MUL_ALU_/_Mul_EXE_EWB/temp_106> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MUL_ALU_/_Mul_EXE_EWB/temp_105> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MUL_ALU_/_Mul_EXE_EWB/temp_104> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MUL_ALU_/_Mul_EXE_EWB/temp_103> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MUL_ALU_/_Mul_EXE_EWB/temp_102> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ID_EXE/temp_15> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXE_MEM_REG/temp_15> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <ID_EXE/temp_56> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_24> 
+INFO:Xst:2261 - The FF/Latch <IF_ID/temp_32> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <IF_ID/temp_0> 
+INFO:Xst:2261 - The FF/Latch <IF_ID/temp_33> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <IF_ID/temp_1> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_1> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_135> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_2> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_136> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_3> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_137> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_4> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_138> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_5> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_139> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_6> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_140> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_7> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_141> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_8> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_142> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_9> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_143> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_10> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_144> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_11> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_145> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_12> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_146> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_13> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_147> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_14> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_148> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_20> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_154> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_15> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_149> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_21> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_155> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_16> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_150> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_22> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_156> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_17> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_151> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_23> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_157> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_18> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_152> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_24> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_158> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_19> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_153> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_30> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_164> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_25> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_159> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_31> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_165> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_26> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_160> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_32> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_166> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_27> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_161> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_28> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_162> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_29> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_163> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_40> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_105> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_41> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_106> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_42> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_107> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_43> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_108> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_38> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_103> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_44> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_109> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_39> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_104> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_50> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_115> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_45> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_110> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_51> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_116> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_46> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_111> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_52> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_117> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_47> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_112> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_53> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_118> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_48> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_113> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_54> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_119> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_49> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_114> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_60> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_125> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_55> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_120> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_61> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_126> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_56> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_121> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_62> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_127> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_57> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_122> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_63> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_128> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_58> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_123> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_64> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_129> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_59> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_124> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_65> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_130> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_66> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_131> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_67> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_132> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_68> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_133> 
+INFO:Xst:2261 - The FF/Latch <MUL_ALU_/_MUL_ID_EXE/temp_69> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_134> 
+INFO:Xst:2261 - The FF/Latch <ID_EXE/temp_55> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_23> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block PCPU_v, actual ratio is 3.
+FlipFlop IF_ID/temp_66 has been replicated 1 time(s)
+INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_66 connected to a primary input has been replicated
+FlipFlop IF_ID/temp_68 has been replicated 1 time(s)
+INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_68 connected to a primary input has been replicated
+FlipFlop IF_ID/temp_69 has been replicated 1 time(s)
+INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_69 connected to a primary input has been replicated
+FlipFlop IF_ID/temp_90 has been replicated 1 time(s)
+INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_90 connected to a primary input has been replicated
+FlipFlop IF_ID/temp_91 has been replicated 1 time(s)
+INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_91 connected to a primary input has been replicated
+FlipFlop IF_ID/temp_92 has been replicated 1 time(s)
+INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_92 connected to a primary input has been replicated
+FlipFlop IF_ID/temp_93 has been replicated 1 time(s)
+INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_93 connected to a primary input has been replicated
+FlipFlop IF_ID/temp_95 has been replicated 1 time(s)
+INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_95 connected to a primary input has been replicated
+FlipFlop MUL_ALU_/_Mul_EXE_EWB/temp_4 has been replicated 4 time(s)
+FlipFlop MUL_ALU_/_Mul_EXE_EWB/temp_5 has been replicated 3 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 1842
+ Flip-Flops                                            : 1842
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : PCPU_v.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 6542
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 88
+#      LUT2                        : 41
+#      LUT3                        : 2175
+#      LUT4                        : 292
+#      LUT5                        : 1783
+#      LUT6                        : 1894
+#      MUXCY                       : 127
+#      MUXF7                       : 44
+#      VCC                         : 1
+#      XORCY                       : 92
+# FlipFlops/Latches                : 1842
+#      FDCE                        : 1024
+#      FDR                         : 374
+#      FDRE                        : 434
+#      FDS                         : 10
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 232
+#      IBUF                        : 70
+#      OBUF                        : 162
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7k325tffg676-2l 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:            1842  out of  407600     0%  
+ Number of Slice LUTs:                 6277  out of  203800     3%  
+    Number used as Logic:              6277  out of  203800     3%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   7363
+   Number with an unused Flip Flop:    5521  out of   7363    74%  
+   Number with an unused LUT:          1086  out of   7363    14%  
+   Number of fully used LUT-FF pairs:   756  out of   7363    10%  
+   Number of unique control sets:        11
+
+IO Utilization: 
+ Number of IOs:                         233
+ Number of bonded IOBs:                 233  out of    400    58%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 1842  |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 7.770ns (Maximum Frequency: 128.692MHz)
+   Minimum input arrival time before clock: 3.885ns
+   Maximum output required time after clock: 0.706ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 7.770ns (frequency: 128.692MHz)
+  Total number of paths / destination ports: 31759830 / 3332
+-------------------------------------------------------------------------
+Delay:               3.885ns (Levels of Logic = 17)
+  Source:            Reg_file/register_31_898 (FF)
+  Destination:       PC/pc_30 (FF)
+  Source Clock:      clk falling
+  Destination Clock: clk rising
+
+  Data Path: Reg_file/register_31_898 to PC/pc_30
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.236   0.507  Reg_file/register_31_898 (Reg_file/register_31_898)
+     LUT6:I3->O            1   0.043   0.522  Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_868 (Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_868)
+     LUT6:I2->O            1   0.043   0.405  Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_422 (Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_422)
+     LUT6:I4->O            2   0.043   0.618  forward_b/Mmux_id_exe_reg231 (id_exe_regb<2>)
+     LUT6:I0->O            1   0.043   0.000  Branch_judge/Mcompar_equl_lut<0> (Branch_judge/Mcompar_equl_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Branch_judge/Mcompar_equl_cy<0> (Branch_judge/Mcompar_equl_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<1> (Branch_judge/Mcompar_equl_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<2> (Branch_judge/Mcompar_equl_cy<2>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<3> (Branch_judge/Mcompar_equl_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<4> (Branch_judge/Mcompar_equl_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<5> (Branch_judge/Mcompar_equl_cy<5>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<6> (Branch_judge/Mcompar_equl_cy<6>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<7> (Branch_judge/Mcompar_equl_cy<7>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<8> (Branch_judge/Mcompar_equl_cy<8>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<9> (Branch_judge/Mcompar_equl_cy<9>)
+     MUXCY:CI->O          14   0.150   0.422  Branch_judge/Mcompar_equl_cy<10> (id_eql)
+     LUT6:I5->O           11   0.043   0.406  Jump_control/beq_bne_OR_56_o1 (Jump_control/beq_bne_OR_56_o)
+     LUT6:I5->O            1   0.043   0.000  Mmux_PC_data_in293 (PC_data_in<6>)
+     FDCE:D                   -0.000          PC/pc_6
+    ----------------------------------------
+    Total                      3.885ns (1.004ns logic, 2.881ns route)
+                                       (25.8% logic, 74.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 6208 / 2016
+-------------------------------------------------------------------------
+Offset:              3.885ns (Levels of Logic = 18)
+  Source:            mem_data_in<2> (PAD)
+  Destination:       PC/pc_30 (FF)
+  Destination Clock: clk rising
+
+  Data Path: mem_data_in<2> to PC/pc_30
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.000   0.603  mem_data_in_2_IBUF (mem_data_in_2_IBUF)
+     LUT6:I1->O            5   0.043   0.545  Mmux_mem_wb_data_temp235 (mem_wb_data_temp<2>)
+     LUT4:I0->O            1   0.043   0.522  Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_2_f7_21_SW1 (N320)
+     LUT6:I2->O            2   0.043   0.618  forward_b/Mmux_id_exe_reg231 (id_exe_regb<2>)
+     LUT6:I0->O            1   0.043   0.000  Branch_judge/Mcompar_equl_lut<0> (Branch_judge/Mcompar_equl_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Branch_judge/Mcompar_equl_cy<0> (Branch_judge/Mcompar_equl_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<1> (Branch_judge/Mcompar_equl_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<2> (Branch_judge/Mcompar_equl_cy<2>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<3> (Branch_judge/Mcompar_equl_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<4> (Branch_judge/Mcompar_equl_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<5> (Branch_judge/Mcompar_equl_cy<5>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<6> (Branch_judge/Mcompar_equl_cy<6>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<7> (Branch_judge/Mcompar_equl_cy<7>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<8> (Branch_judge/Mcompar_equl_cy<8>)
+     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<9> (Branch_judge/Mcompar_equl_cy<9>)
+     MUXCY:CI->O          14   0.150   0.422  Branch_judge/Mcompar_equl_cy<10> (id_eql)
+     LUT6:I5->O           11   0.043   0.406  Jump_control/beq_bne_OR_56_o1 (Jump_control/beq_bne_OR_56_o)
+     LUT6:I5->O            1   0.043   0.000  Mmux_PC_data_in293 (PC_data_in<6>)
+     FDCE:D                   -0.000          PC/pc_6
+    ----------------------------------------
+    Total                      3.885ns (0.768ns logic, 3.117ns route)
+                                       (19.8% logic, 80.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 162 / 162
+-------------------------------------------------------------------------
+Offset:              0.706ns (Levels of Logic = 1)
+  Source:            CP0_/STATUS/status_1 (FF)
+  Destination:       status_data<1> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: CP0_/STATUS/status_1 to status_data<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             39   0.236   0.470  CP0_/STATUS/status_1 (CP0_/STATUS/status_1)
+     OBUF:I->O                 0.000          status_data_1_OBUF (status_data<1>)
+    ----------------------------------------
+    Total                      0.706ns (0.236ns logic, 0.470ns route)
+                                       (33.4% logic, 66.6% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    7.734|    3.885|    1.747|         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 78.00 secs
+Total CPU time to Xst completion: 78.19 secs
+ 
+--> 
+
+Total memory usage is 521400 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  267 (   0 filtered)
+Number of infos    :  229 (   0 filtered)
+

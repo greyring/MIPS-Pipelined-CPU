@@ -63,17 +63,18 @@ module I_cache(
 	end
 	
 	//decode
-	wire [19:0]tag_;
-	wire [7:0]block_;
-	wire [3:0]offset_;
+	wire [19:0]tag_, tag;
+	wire [7:0]block_, block;
+	wire [3:0]offset_, offset;
 	assign {tag_, block_, offset_} = addr_;
+	assign {tag, block, offset} = addr;
 	
 	wire v0_data, v1_data;
 	wire v0_wdata, v1_wdata;
 	wire v0_w, v1_w;
 	cache_mem #(.DATA_WIDTH(1)) v0(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), //attention
     .r_en(cache_ready), 
     .r_data(v0_data), 
     .w_addr(block_), 
@@ -82,7 +83,7 @@ module I_cache(
    );
 	cache_mem #(.DATA_WIDTH(1)) v1(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(v1_data), 
     .w_addr(block_), 
@@ -94,7 +95,7 @@ module I_cache(
 	wire tag0_w, tag1_w;
 	cache_mem #(.DATA_WIDTH(20)) tag0(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(tag0_data), 
     .w_addr(block_), 
@@ -103,7 +104,7 @@ module I_cache(
    );
 	cache_mem #(.DATA_WIDTH(20)) tag1(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(tag1_data), 
     .w_addr(block_), 
@@ -115,7 +116,7 @@ module I_cache(
 	wire data0_w, data1_w;
 	cache_mem #(.DATA_WIDTH(128)) data0(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(data0_data), 
     .w_addr(block_), 
@@ -124,7 +125,7 @@ module I_cache(
    );
 	cache_mem #(.DATA_WIDTH(128)) data1(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(data1_data), 
     .w_addr(block_), 
@@ -136,7 +137,7 @@ module I_cache(
 	wire count0_w, count1_w;
 	cache_mem #(.DATA_WIDTH(2)) count0(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(count0_data), 
     .w_addr(block_), 
@@ -145,7 +146,7 @@ module I_cache(
    );
 	cache_mem #(.DATA_WIDTH(2)) count1(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(count1_data), 
     .w_addr(block_), 
@@ -257,5 +258,5 @@ module I_cache(
 	assign Tag_Hi_in = 32'b0;
 	assign Tag_Lo_in = {12'b0, addr_[12]? tag1_data : tag0_data};
 	assign cache_data = state_store ? mem_word : (cache_hit_0 ? data_w0 : data_w1);
-	assign mem_addr = addr_;
+	assign mem_addr = {addr_[31:4], 4'b0};
 endmodule

@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Mon Oct 09 09:54:36 2017
+# Date: Sat Oct 21 06:22:54 2017
 #
 ##############################################################
 #
@@ -46,7 +46,7 @@ CSET axi_id_width=4
 CSET axi_slave_type=Memory_Slave
 CSET axi_type=AXI4_Full
 CSET byte_size=9
-CSET coe_file=F:\MyProgramme\0arch\PCPU\asm\PCPU_test_I.coe
+CSET coe_file=F:\MyProgramme\0arch\PCPU\asm\vga_text_test.coe
 CSET collision_warnings=ALL
 CSET component_name=blk_mem_gen_v7_3
 CSET disable_collision_warnings=false
@@ -105,4 +105,4 @@ CSET write_width_b=32
 MISC pkg_timestamp=2012-11-19T16:22:25Z
 # END Extra information
 GENERATE
-# CRC: bcda4d4f
+# CRC: 22c2bd14

@@ -173,42 +173,44 @@ always @* begin
 								d0_w = 1'b1;
 								data0_wdata_s = 1'b1;//new data
 								data0_w = 1'b1;
-								count0_wdata_s = 1'b0;
-								count1_wdata_s = 1'b1;
+								count0_wdata_s = 1'b1;
+								count1_wdata_s = 1'b0;
 							end
 							else begin
 								d1_wdata = 1'b1;
 								d1_w = 1'b1;
 								data1_wdata_s = 1'b1;//new data
 								data1_w = 1'b1;
-								count0_wdata_s = 1'b1;
-								count1_wdata_s = 1'b0;
+								count0_wdata_s = 1'b0;
+								count1_wdata_s = 1'b1;
 							end
 						end
 						else if (~v0_data | ~v1_data) begin//has empty
 							mem_addr_s = 1'b1;
 							mem_r = 1'b1;
+							cache_ready = 1'b0;
 						end
 						else begin//full
+							cache_ready = 1'b0;
 							if (select_1) begin
-								if (d1_data) begin//dirty
-									mem_data_s = 1'b1;
-									mem_addr_s = 1'b0;
-									mem_w = 1'b1;
-								end
-								else begin
-									mem_addr_s = 1'b1;
-									mem_r = 1'b1;
-								end
-							end
-							else begin
-								if (d0_data) begin//dirty
+								if (d1_data) begin//dirty write back
 									mem_data_s = 1'b0;
 									mem_addr_s = 1'b0;
 									mem_w = 1'b1;
 								end
 								else begin
-									mem_addr_s = 1'b1;
+									mem_addr_s = 1'b1;//read
+									mem_r = 1'b1;
+								end
+							end
+							else begin
+								if (d0_data) begin//dirty write back
+									mem_data_s = 1'b0;
+									mem_addr_s = 1'b0;
+									mem_w = 1'b1;
+								end
+								else begin
+									mem_addr_s = 1'b1;//read
 									mem_r = 1'b1;
 								end
 							end
@@ -219,38 +221,40 @@ always @* begin
 							count0_w = 1'b1;
 							count1_w = 1'b1;
 							if (cache_hit_0) begin
-								count0_wdata_s = 1'b0;
-								count1_wdata_s = 1'b1;
-							end
-							else begin
 								count0_wdata_s = 1'b1;
 								count1_wdata_s = 1'b0;
 							end
+							else begin
+								count0_wdata_s = 1'b0;
+								count1_wdata_s = 1'b1;
+							end
 						end
 						else if (~v0_data | ~v1_data) begin//has empty
-							mem_addr_s = 1'b0;
+						   cache_ready = 1'b0;
+							mem_addr_s = 1'b1;
 							mem_r = 1'b1;
 						end
 						else begin//full
+							cache_ready = 1'b0;
 							if (select_1) begin
-								if (d1_data) begin
-									mem_data_s = 1'b1;
-									mem_addr_s = 1'b1;
-									mem_w = 1'b1;
-								end
-								else begin
-									mem_addr_s = 1'b0;
-									mem_r = 1'b1;
-								end
-							end
-							else begin
-								if (d0_data) begin
+								if (d1_data) begin//dirty write back
 									mem_data_s = 1'b0;
 									mem_addr_s = 1'b1;
 									mem_w = 1'b1;
 								end
 								else begin
-									mem_addr_s = 1'b0;
+									mem_addr_s = 1'b1;//read
+									mem_r = 1'b1;
+								end
+							end
+							else begin
+								if (d0_data) begin
+									mem_data_s = 1'b0;//dirty write back
+									mem_addr_s = 1'b1;
+									mem_w = 1'b1;
+								end
+								else begin
+									mem_addr_s = 1'b1;//read
 									mem_r = 1'b1;
 								end
 							end
@@ -295,8 +299,9 @@ always @* begin
 						if (cache_hit) begin
 							if (cache_hit_0) begin
 								if (d0_data) begin//dirty
+									cache_ready = 1'b0;
 									mem_data_s = 1'b0;
-									mem_addr_s = 1'b0;
+									mem_addr_s = 1'b1;
 									mem_w = 1'b1;
 								end
 								else begin
@@ -306,8 +311,9 @@ always @* begin
 							end
 							else begin
 								if (d1_data) begin//dirty
+									cache_ready = 1'b0;
 									mem_data_s = 1'b1;
-									mem_addr_s = 1'b0;
+									mem_addr_s = 1'b1;
 									mem_w = 1'b1;
 								end
 								else begin
@@ -321,27 +327,29 @@ always @* begin
 						if (cache_hit) begin
 							if (cache_hit_0) begin
 								if (d0_data) begin
+									cache_ready = 1'b0;
 									mem_data_s = 1'b0;
-									mem_addr_s = 1'b0;
+									mem_addr_s = 1'b1;
 									mem_w = 1'b1;
 								end
 							end
 							else begin
 								if (d1_data) begin
+									cache_ready = 1'b0;
 									mem_data_s = 1'b1;
-									mem_addr_s = 1'b0;
+									mem_addr_s = 1'b1;
 									mem_w = 1'b1;
 								end
 							end
 						end
 					 end
 			FETCH: begin
-						mem_addr_s = 1'b0;//get mem data
+						mem_addr_s = 1'b1;//get mem data
 						mem_r = 1'b1;
 						cache_ready = 1'b0;
 					 end
 			STORE: begin//read or write
-					   cache_ready = 1'b0;
+					   cache_ready = 1'b1;
 						cache_data_s = 1'b1;
 						if (select_1) begin
 							v1_wdata = 1'b1;
@@ -385,22 +393,21 @@ always @* begin
 							end
 						end
 					 end
-			WB:	 if (op[7] | op[8]) begin
+			WB:	 if (op[7] | op[8]) begin//read write
 						cache_ready = 1'b0;
-						mem_addr_s = 1'b1;//write back
+						mem_addr_s = 1'b0;//write back
 						mem_w = 1'b1;
 						if (select_1) mem_data_s = 1'b1;
 						else mem_data_s = 1'b0;
 					 end
-					 else if (op[5] | op[6]) begin
+					 else if (op[5] | op[6]) begin//write back
 						cache_ready = 1'b0;
-						mem_addr_s = 1'b0;
+						mem_addr_s = 1'b1;
 						mem_w = 1'b1;
 						if (cache_hit_0) mem_data_s = 1'b0;
 						else mem_data_s = 1'b1;
 					 end
 			WBSET: if (op[5]) begin
-						cache_ready = 1'b0;
 						if (cache_hit_0) begin
 							v0_wdata = 1'b0;
 							v0_w = 1'b1;
@@ -411,7 +418,6 @@ always @* begin
 						end
 					 end
 					 else if (op[6]) begin
-						cache_ready = 1'b0;
 						if (cache_hit_0) begin
 							d0_wdata = 1'b0;
 							d0_w = 1'b1;

@@ -1,0 +1,32 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/TD_cache_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/TD_cache_beh.prj" "work.TD_cache" "work.glbl" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/write_data_mask_32.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/write_data_mask.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/LUT_countdown.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/D_cache_crl.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/cache_mem.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/D_cache.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/TD_cache.v" into library work
+Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module cache_mem(DATA_WIDTH=1)
+Compiling module cache_mem(DATA_WIDTH=20)
+Compiling module cache_mem
+Compiling module cache_mem(DATA_WIDTH=2)
+Compiling module write_data_mask_32
+Compiling module write_data_mask
+Compiling module LUT_countdown
+Compiling module D_cache_crl
+Compiling module D_cache
+Compiling module TD_cache
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 4 sub-compilation(s) to finish...
+Compiled 11 Verilog Units
+Built simulation executable F:/MyProgramme/0arch/PCPU/TD_cache_isim_beh.exe
+Fuse Memory Usage: 29516 KB
+Fuse CPU Usage: 530 ms

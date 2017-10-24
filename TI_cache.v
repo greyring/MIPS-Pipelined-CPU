@@ -90,14 +90,14 @@ module TI_cache;
 		#10
 		addr = {19'b0, 1'b0, 8'hff, 4'b0};
 		Tag_Lo = {12'b0, 20'hfffff};
-		op = 7'b0000100;//index load tag
+		op = 7'b0000100;//index store tag
 		#10
 		addr = {19'b0, 1'b1, 8'hff, 4'b0};
 		Tag_Lo = {12'b0, 20'h5a5a5};
 		op = 7'b0000100;
 		#10
 		addr = {19'b0, 1'b0, 8'hff, 4'b0};
-		op = 7'b0000010;//index store tag
+		op = 7'b0000010;//index load tag
 		#10
 		addr = 32'hfffffff0;
 		op = 7'b0100000;//addre fill
@@ -123,11 +123,12 @@ module TI_cache;
 		#10
 		mem_data = 128'h00000000ffffffff;
 		mem_ready = 1'b1;
-		#10
+		/*#10
 		cache_r = 1'b0;
 		addr = {19'b0, 1'b0, 8'hff, 4'b0};
 		Tag_Lo = {12'b0, 20'hfffff};
 		op = 7'b0000100;//index load tag err
+		*/
 		#10
 		op = 7'b0;
 		

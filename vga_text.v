@@ -33,14 +33,14 @@ module vga_text(
 reg [10:0]addr_ram;
 always @* begin
 	if (we | rd) addr_ram = addr[12:2];
-	else addr_ram = vga_row[8:4] * 40 + vga_column[8:4];
+	else addr_ram = vga_row[8:4] * 40 + vga_column[9:4];
 end
 
 wire [31:0]text_data;
 text_vga_ram Text_vga_ram(
   .clka(clk), // input clka
   .wea(we), // input [0 : 0] wea
-  .addra(addr_ram), // input [12 : 0] addra
+  .addra(addr_ram), // input [10 : 0] addra
   .dina(data), // input [31 : 0] dina
   .douta(text_data) // output [31 : 0] douta
 );

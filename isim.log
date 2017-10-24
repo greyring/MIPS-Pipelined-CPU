@@ -1,0 +1,478 @@
+ISim log file
+Running: F:\MyProgramme\0arch\PCPU\TD_cache_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb F:/MyProgramme/0arch/PCPU/TD_cache_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 100ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 100ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 100ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 100ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 210ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 210ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# restart
+# run 250ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 249ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# step
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 38
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 41
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 34
+# run 10ns
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 38
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 41
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 34
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 34
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 38
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 41
+# step
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 34
+# run 10ns
+Stopped at time : 260 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 35
+# run 10ns
+# restart
+# run 260ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 260ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 250ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 1ns
+# restart
+# run 249ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 2ns
+# restart
+# run 249ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+Stopped at time : 250 ns : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# run 2ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Stopped at time : 0 fs : File "F:/MyProgramme/0arch/PCPU/cache_mem.v" Line 37
+# restart
+# run 100ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 270ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 290ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 360ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 360ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 330ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 330ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 340ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 340ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 340ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 340ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns
+# run 10ns

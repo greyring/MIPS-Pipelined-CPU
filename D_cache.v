@@ -71,17 +71,18 @@ module D_cache(
 	end
 	
 	//decode
-	wire [19:0]tag_;
-	wire [7:0]block_;
-	wire [3:0]offset_;
+	wire [19:0]tag_, tag;
+	wire [7:0]block_, block;
+	wire [3:0]offset_, offset;
 	assign {tag_, block_, offset_} = addr_;
+	assign {tag, block, offset} = addr;
 	
 	wire v0_data, v1_data;
 	wire v0_wdata, v1_wdata;
 	wire v0_w, v1_w;
 	cache_mem #(.DATA_WIDTH(1)) v0(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), //attention
     .r_en(cache_ready), 
     .r_data(v0_data), 
     .w_addr(block_), 
@@ -90,7 +91,7 @@ module D_cache(
    );
 	cache_mem #(.DATA_WIDTH(1)) v1(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(v1_data), 
     .w_addr(block_), 
@@ -104,7 +105,7 @@ module D_cache(
 	wire d0_w, d1_w;
 	cache_mem #(.DATA_WIDTH(1)) d0(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(d0_data), 
     .w_addr(block_), 
@@ -113,7 +114,7 @@ module D_cache(
    );
 	cache_mem #(.DATA_WIDTH(1)) d1(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(d1_data), 
     .w_addr(block_), 
@@ -125,7 +126,7 @@ module D_cache(
 	wire tag0_w, tag1_w;
 	cache_mem #(.DATA_WIDTH(20)) tag0(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(tag0_data), 
     .w_addr(block_), 
@@ -134,7 +135,7 @@ module D_cache(
    );
 	cache_mem #(.DATA_WIDTH(20)) tag1(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(tag1_data), 
     .w_addr(block_), 
@@ -147,7 +148,7 @@ module D_cache(
 	wire data0_w, data1_w;
 	cache_mem #(.DATA_WIDTH(128)) data0(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(data0_data), 
     .w_addr(block_), 
@@ -156,7 +157,7 @@ module D_cache(
    );
 	cache_mem #(.DATA_WIDTH(128)) data1(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(data1_data), 
     .w_addr(block_), 
@@ -168,7 +169,7 @@ module D_cache(
 	wire count0_w, count1_w;
 	cache_mem #(.DATA_WIDTH(2)) count0(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(count0_data), 
     .w_addr(block_), 
@@ -177,7 +178,7 @@ module D_cache(
    );
 	cache_mem #(.DATA_WIDTH(2)) count1(
     .clk(clk), 
-    .r_addr(block_), 
+    .r_addr(block), 
     .r_en(cache_ready), 
     .r_data(count1_data), 
     .w_addr(block_), 
@@ -328,9 +329,9 @@ module D_cache(
 	//output
 	assign cache_err = cache_hit_0 & cache_hit_1;
 	assign cache_data = cache_data_s ? mem_word : (cache_hit_0 ? data_w0 : data_w1);
-	assign mem_addr = mem_addr_s ? addr_ : (select_1 ? {tag1_data, block_, 4'b0} : {tag0_data, block_, 4'b0});
+	assign mem_addr = mem_addr_s ? {addr_[31:4], 4'b0} : (select_1 ? {tag1_data, block_, 4'b0} : {tag0_data, block_, 4'b0});
 	assign mem_data_out = mem_data_s ? data1_data : data0_data;
-	assign Tag_Lo_in = cache_hit_0 ? {12'b0, tag0_data} : {12'b0, tag1_data};
+	assign Tag_Lo_in = addr_[12] ? {12'b0, tag1_data} : {12'b0, tag0_data};
 	assign Tag_Hi_in = 32'b0;
 
 endmodule

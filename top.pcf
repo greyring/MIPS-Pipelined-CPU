@@ -1,0 +1,56 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sat Oct 21 15:50:05 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "seg_clk" LOCATE = SITE "M24" LEVEL 1;
+COMP "vga_blue<2>" LOCATE = SITE "T22" LEVEL 1;
+COMP "vga_blue<1>" LOCATE = SITE "R20" LEVEL 1;
+COMP "vga_blue<3>" LOCATE = SITE "T23" LEVEL 1;
+COMP "vga_blue<0>" LOCATE = SITE "T20" LEVEL 1;
+COMP "btn_x<0>" LOCATE = SITE "V17" LEVEL 1;
+COMP "btn_x<2>" LOCATE = SITE "W19" LEVEL 1;
+COMP "btn_x<1>" LOCATE = SITE "W18" LEVEL 1;
+COMP "btn_x<4>" LOCATE = SITE "W16" LEVEL 1;
+COMP "btn_x<3>" LOCATE = SITE "W15" LEVEL 1;
+COMP "vga_green<3>" LOCATE = SITE "T25" LEVEL 1;
+COMP "vga_green<1>" LOCATE = SITE "R23" LEVEL 1;
+COMP "vga_green<2>" LOCATE = SITE "T24" LEVEL 1;
+COMP "vga_green<0>" LOCATE = SITE "R22" LEVEL 1;
+COMP "seg_pen" LOCATE = SITE "R18" LEVEL 1;
+COMP "seg_do" LOCATE = SITE "L24" LEVEL 1;
+COMP "switch<10>" LOCATE = SITE "AF12" LEVEL 1;
+COMP "switch<11>" LOCATE = SITE "AE8" LEVEL 1;
+COMP "switch<12>" LOCATE = SITE "AF8" LEVEL 1;
+COMP "switch<13>" LOCATE = SITE "AE13" LEVEL 1;
+COMP "switch<14>" LOCATE = SITE "AF13" LEVEL 1;
+COMP "switch<15>" LOCATE = SITE "AF10" LEVEL 1;
+COMP "led_clk" LOCATE = SITE "N26" LEVEL 1;
+COMP "btn_y<0>" LOCATE = SITE "V18" LEVEL 1;
+COMP "btn_y<2>" LOCATE = SITE "V14" LEVEL 1;
+COMP "btn_y<1>" LOCATE = SITE "V19" LEVEL 1;
+COMP "btn_y<4>" LOCATE = SITE "V16" LEVEL 1;
+COMP "btn_y<3>" LOCATE = SITE "W14" LEVEL 1;
+COMP "led_do" LOCATE = SITE "M26" LEVEL 1;
+COMP "vga_red<3>" LOCATE = SITE "P21" LEVEL 1;
+COMP "vga_red<2>" LOCATE = SITE "R21" LEVEL 1;
+COMP "vga_red<1>" LOCATE = SITE "N22" LEVEL 1;
+COMP "vga_red<0>" LOCATE = SITE "N21" LEVEL 1;
+COMP "vga_v_sync" LOCATE = SITE "M21" LEVEL 1;
+COMP "vga_h_sync" LOCATE = SITE "M22" LEVEL 1;
+COMP "switch<9>" LOCATE = SITE "AE12" LEVEL 1;
+COMP "RSTN" LOCATE = SITE "W13" LEVEL 1;
+COMP "switch<7>" LOCATE = SITE "AD10" LEVEL 1;
+COMP "switch<8>" LOCATE = SITE "AE10" LEVEL 1;
+COMP "switch<5>" LOCATE = SITE "Y12" LEVEL 1;
+COMP "switch<6>" LOCATE = SITE "AD11" LEVEL 1;
+COMP "switch<3>" LOCATE = SITE "AA12" LEVEL 1;
+COMP "switch<4>" LOCATE = SITE "Y13" LEVEL 1;
+COMP "switch<1>" LOCATE = SITE "AB10" LEVEL 1;
+COMP "switch<2>" LOCATE = SITE "AA13" LEVEL 1;
+COMP "led_pen" LOCATE = SITE "N24" LEVEL 1;
+COMP "switch<0>" LOCATE = SITE "AA10" LEVEL 1;
+COMP "clk200N" LOCATE = SITE "AD18" LEVEL 1;
+COMP "clk200P" LOCATE = SITE "AC18" LEVEL 1;
+SCHEMATIC END;
+

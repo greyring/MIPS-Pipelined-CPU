@@ -21,7 +21,7 @@
 module top(
 	input clk200P,
 	input clk200N,
-	input clk_100mhz,
+	//input clk_100mhz,
 	
     output [4:0] btn_x,
 	 input [4:0] btn_y,
@@ -42,7 +42,7 @@ module top(
 	output vga_v_sync
     );
 
-/*wire clk_100mhz;
+wire clk_100mhz;
 wire [31:0]Div;
 clk_gen_sword Clk_gen(
     .clk_pad_p(clk200P), 
@@ -54,11 +54,11 @@ clk_gen_sword Clk_gen(
     .Div(Div), 
     .locked()
     );
-*/
 
-reg [31:0]Div = 32'b0;
-always @(posedge clk_100mhz)
-	Div <= Div+1;
+
+//reg [31:0]Div = 32'b0;
+//always @(posedge clk_100mhz)
+//	Div <= Div+1;
 
 wire [15:0]SW_OK;
 wire [24:0]BTN_OK;
@@ -220,8 +220,8 @@ GPIO gpio(
 	  .counter_ch(counter_set), 
 	  .counter_val(Peripheral_in), 
 	  .counter_we(counter_we), 
-	  //.rst(rst), 
-	  .rst(RSTN),
+	  .rst(rst), 
+	  //.rst(RSTN),
 	  .counter_out(Counter_out), 
 	  .counter0_OUT(counter0_OUT), 
 	  .counter1_OUT(counter1_OUT), 
@@ -230,8 +230,8 @@ GPIO gpio(
 
    PCPU_v PCPU(
 		.clk(Clk_CPU & ~SW_OK[15]), 
-		//.rst(rst),
-		.rst(RSTN),
+		.rst(rst),
+		//.rst(RSTN),
 		.int_(5'b0),
 		.mem_we(mem_w), 
 		.mem_rd(mem_rd),
