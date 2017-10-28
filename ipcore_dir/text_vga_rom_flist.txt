@@ -5,7 +5,6 @@ text_vga_rom.asy
 text_vga_rom.gise
 text_vga_rom.mif
 text_vga_rom.ngc
-text_vga_rom.sym
 text_vga_rom.v
 text_vga_rom.veo
 text_vga_rom.xco
