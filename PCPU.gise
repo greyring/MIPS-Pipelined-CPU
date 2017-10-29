@@ -65,10 +65,15 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="PCPU_v.xst"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="PCPU_v_xst.xrpt"/>
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="Reg_HiLo.sym" xil_pn:origination="imported"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TD_cache_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TD_cache_isim_beh.exe"/>
+<<<<<<< Updated upstream
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="TD_cache_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Ttop_beh.prj"/>
+=======
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Taddr_decoder_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Taddr_decoder_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Taddr_decoder_isim_beh.wdb"/>
+>>>>>>> Stashed changes
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Ttop_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Ttop_isim_beh.wdb"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Twrite_data_mask_32_isim_beh.exe"/>
@@ -80,13 +85,35 @@
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="addr_decoder.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="addr_decoder.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="addr_decoder.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="addr_decoder.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="addr_decoder.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="addr_decoder.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="addr_decoder.syr"/>
+    <file xil_pn:fileType="FILE_VERILOG_INSTTEMPLATE" xil_pn:name="addr_decoder.tfi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="addr_decoder.xst"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="addr_decoder_xst.xrpt"/>
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="branch_judge.sym" xil_pn:origination="imported"/>
+<<<<<<< Updated upstream
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="control.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="control.lso"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="control.ngc"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="control.ngr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="control.prj"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="control.stx"/>
+=======
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="bus.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="bus.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="bus.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="bus.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="bus.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="bus.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="bus.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="bus.xst"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="bus_xst.xrpt"/>
+>>>>>>> Stashed changes
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="control.sym" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="control.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="control.xst"/>
@@ -173,9 +200,20 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
+<<<<<<< Updated upstream
     <transform xil_pn:end_ts="1509244792" xil_pn:in_ck="-7480155428273381568" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1509244792">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+=======
+    <transform xil_pn:end_ts="1509266754" xil_pn:in_ck="-938951424839455164" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1509266754">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+>>>>>>> Stashed changes
       <outfile xil_pn:name="CAUSE_data.v"/>
       <outfile xil_pn:name="CP0.v"/>
       <outfile xil_pn:name="Cause.v"/>
@@ -212,6 +250,7 @@
       <outfile xil_pn:name="TPCPU_I.v"/>
       <outfile xil_pn:name="Tadder32_Sklansky.v"/>
       <outfile xil_pn:name="Tadder64.v"/>
+      <outfile xil_pn:name="Taddr_decoder.v"/>
       <outfile xil_pn:name="Tcounter.v"/>
       <outfile xil_pn:name="Tkey_board.v"/>
       <outfile xil_pn:name="Tmio.v"/>
@@ -225,10 +264,12 @@
       <outfile xil_pn:name="Twrite_data_mask_32.v"/>
       <outfile xil_pn:name="adder32_Sklansky.v"/>
       <outfile xil_pn:name="adder64.v"/>
+      <outfile xil_pn:name="addr_decoder.v"/>
       <outfile xil_pn:name="alu.v"/>
       <outfile xil_pn:name="anti_jitter.v"/>
       <outfile xil_pn:name="branch_judge.v"/>
       <outfile xil_pn:name="btn_scan.v"/>
+      <outfile xil_pn:name="bus.v"/>
       <outfile xil_pn:name="cache_mem.v"/>
       <outfile xil_pn:name="clk_gen_sword.v"/>
       <outfile xil_pn:name="control.v"/>
@@ -258,22 +299,38 @@
       <outfile xil_pn:name="write_data_mask.v"/>
       <outfile xil_pn:name="write_data_mask_32.v"/>
     </transform>
+<<<<<<< Updated upstream
     <transform xil_pn:end_ts="1509244792" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-9091312850432693961" xil_pn:start_ts="1509244792">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1509244794" xil_pn:in_ck="121987580868890555" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3353625282586476907" xil_pn:start_ts="1509244792">
+=======
+    <transform xil_pn:end_ts="1509266754" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="3861583508703832244" xil_pn:start_ts="1509266754">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1509266756" xil_pn:in_ck="121987580868890555" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="6180865836290496424" xil_pn:start_ts="1509266754">
+>>>>>>> Stashed changes
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="MUL_ALU.vf"/>
     </transform>
+<<<<<<< Updated upstream
     <transform xil_pn:end_ts="1509244794" xil_pn:in_ck="4842994160147466341" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5279048935723839207" xil_pn:start_ts="1509244794">
+=======
+    <transform xil_pn:end_ts="1509266756" xil_pn:in_ck="4842994160147466341" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5279875776136035984" xil_pn:start_ts="1509266756">
+>>>>>>> Stashed changes
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/Inst_ROM.ngc"/>
       <outfile xil_pn:name="ipcore_dir/Inst_ROM.v"/>
     </transform>
+<<<<<<< Updated upstream
     <transform xil_pn:end_ts="1509244794" xil_pn:in_ck="-6667903282480827303" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1509244794">
+=======
+    <transform xil_pn:end_ts="1509266757" xil_pn:in_ck="-5162011220408323491" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1509266756">
+>>>>>>> Stashed changes
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="CAUSE_data.v"/>
@@ -313,6 +370,7 @@
       <outfile xil_pn:name="TPCPU_I.v"/>
       <outfile xil_pn:name="Tadder32_Sklansky.v"/>
       <outfile xil_pn:name="Tadder64.v"/>
+      <outfile xil_pn:name="Taddr_decoder.v"/>
       <outfile xil_pn:name="Tcounter.v"/>
       <outfile xil_pn:name="Tkey_board.v"/>
       <outfile xil_pn:name="Tmio.v"/>
@@ -326,10 +384,12 @@
       <outfile xil_pn:name="Twrite_data_mask_32.v"/>
       <outfile xil_pn:name="adder32_Sklansky.v"/>
       <outfile xil_pn:name="adder64.v"/>
+      <outfile xil_pn:name="addr_decoder.v"/>
       <outfile xil_pn:name="alu.v"/>
       <outfile xil_pn:name="anti_jitter.v"/>
       <outfile xil_pn:name="branch_judge.v"/>
       <outfile xil_pn:name="btn_scan.v"/>
+      <outfile xil_pn:name="bus.v"/>
       <outfile xil_pn:name="cache_mem.v"/>
       <outfile xil_pn:name="clk_gen_sword.v"/>
       <outfile xil_pn:name="control.v"/>
@@ -359,20 +419,43 @@
       <outfile xil_pn:name="write_data_mask.v"/>
       <outfile xil_pn:name="write_data_mask_32.v"/>
     </transform>
+<<<<<<< Updated upstream
     <transform xil_pn:end_ts="1509244846" xil_pn:in_ck="-8486623839677444678" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-6178386370524259729" xil_pn:start_ts="1509244794">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="Ttop_beh.prj"/>
       <outfile xil_pn:name="Ttop_isim_beh.exe"/>
+=======
+    <transform xil_pn:end_ts="1509266761" xil_pn:in_ck="-1295318722414266690" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5260404893008934345" xil_pn:start_ts="1509266757">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="Taddr_decoder_beh.prj"/>
+      <outfile xil_pn:name="Taddr_decoder_isim_beh.exe"/>
+>>>>>>> Stashed changes
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
+<<<<<<< Updated upstream
     <transform xil_pn:end_ts="1509244846" xil_pn:in_ck="1116781275175486878" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2984539855972415154" xil_pn:start_ts="1509244846">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="Ttop_isim_beh.wdb"/>
+=======
+    <transform xil_pn:end_ts="1509266761" xil_pn:in_ck="6187462899555094987" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-8895730956751623924" xil_pn:start_ts="1509266761">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="Taddr_decoder_isim_beh.wdb"/>
+>>>>>>> Stashed changes
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
     </transform>

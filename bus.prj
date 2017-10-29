@@ -1,0 +1,2 @@
+verilog work "addr_decoder.v"
+verilog work "bus.v"

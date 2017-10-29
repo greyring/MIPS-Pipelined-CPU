@@ -1,0 +1,545 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: bus.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "bus.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "bus"
+Output Format                      : NGC
+Target Device                      : xc7k325t-2L-ffg676
+
+---- Source Options
+Top Module Name                    : bus
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\addr_decoder.v" into library work
+Parsing module <addr_decoder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\bus.v" into library work
+Parsing module <bus>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <bus>.
+
+Elaborating module <addr_decoder>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\bus.v" Line 64: Assignment to en_DRAM ignored, since the identifier is never used
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <bus>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\bus.v".
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\bus.v" line 56: Output port <en_DRAM> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
+    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 92
+    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 93
+    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 94
+    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 95
+    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 96
+    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 97
+    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 98
+    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 98
+    Summary:
+	inferred 224 Tristate(s).
+Unit <bus> synthesized.
+
+Synthesizing Unit <addr_decoder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\addr_decoder.v".
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <addr_decoder> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multiplexers                                         : 2
+ 1-bit 2-to-1 multiplexer                              : 2
+# Tristates                                            : 224
+ 1-bit tristate buffer                                 : 224
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multiplexers                                         : 2
+ 1-bit 2-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2040 - Unit bus: 32 multi-source signals are replaced by logic (pull-up yes): vga_cursor_data_w<0>_MLTSRCEDGE, vga_cursor_data_w<10>_MLTSRCEDGE, vga_cursor_data_w<11>_MLTSRCEDGE, vga_cursor_data_w<12>_MLTSRCEDGE, vga_cursor_data_w<13>_MLTSRCEDGE, vga_cursor_data_w<14>_MLTSRCEDGE, vga_cursor_data_w<15>_MLTSRCEDGE, vga_cursor_data_w<16>_MLTSRCEDGE, vga_cursor_data_w<17>_MLTSRCEDGE, vga_cursor_data_w<18>_MLTSRCEDGE, vga_cursor_data_w<19>_MLTSRCEDGE, vga_cursor_data_w<1>_MLTSRCEDGE, vga_cursor_data_w<20>_MLTSRCEDGE, vga_cursor_data_w<21>_MLTSRCEDGE, vga_cursor_data_w<22>_MLTSRCEDGE, vga_cursor_data_w<23>_MLTSRCEDGE, vga_cursor_data_w<24>_MLTSRCEDGE, vga_cursor_data_w<25>_MLTSRCEDGE, vga_cursor_data_w<26>_MLTSRCEDGE, vga_cursor_data_w<27>_MLTSRCEDGE, vga_cursor_data_w<28>_MLTSRCEDGE, vga_cursor_data_w<29>_MLTSRCEDGE, vga_cursor_data_w<2>_MLTSRCEDGE, vga_cursor_data_w<30>_MLTSRCEDGE, vga_cursor_data_w<31>_MLTSRCEDGE, vga_cursor_data_w<3>_MLTSRCEDGE, vga_cursor_data_w<4>_MLTSRCEDGE, vga_cursor_data_w<5>_MLTSRCEDGE, vga_cursor_data_w<6>_MLTSRCEDGE, vga_cursor_data_w<7>_MLTSRCEDGE, vga_cursor_data_w<8>_MLTSRCEDGE, vga_cursor_data_w<9>_MLTSRCEDGE.
+
+Optimizing unit <bus> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block bus, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : bus.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 118
+#      GND                         : 1
+#      LUT2                        : 1
+#      LUT3                        : 2
+#      LUT4                        : 4
+#      LUT5                        : 3
+#      LUT6                        : 107
+# IO Buffers                       : 588
+#      IBUF                        : 258
+#      OBUF                        : 138
+#      OBUFT                       : 192
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7k325tffg676-2l 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                  117  out of  203800     0%  
+    Number used as Logic:               117  out of  203800     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    117
+   Number with an unused Flip Flop:     117  out of    117   100%  
+   Number with an unused LUT:             0  out of    117     0%  
+   Number of fully used LUT-FF pairs:     0  out of    117     0%  
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                         588
+ Number of bonded IOBs:                 588  out of    400   147% (*) 
+
+Specific Feature Utilization:
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 4.125ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 51367 / 281
+-------------------------------------------------------------------------
+Delay:               4.125ns (Levels of Logic = 8)
+  Source:            master_addr<29> (PAD)
+  Destination:       master_data_r<31> (PAD)
+
+  Data Path: master_addr<29> to master_data_r<31>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.000   0.630  master_addr_29_IBUF (master_addr_29_IBUF)
+     LUT6:I0->O            2   0.043   0.608  Addr_decoder/Mmux_en_cursor_reg111 (Addr_decoder/Mmux_en_cursor_reg111)
+     LUT5:I0->O            8   0.043   0.389  Addr_decoder/Mmux_en_cursor_reg113 (Addr_decoder/Mmux_en_cursor_reg11)
+     LUT6:I5->O           34   0.043   0.743  vga_text_rw<0>1 (vga_text_rw_0_OBUF)
+     LUT6:I0->O          224   0.043   0.779  vga_cursor_data_w<0>_MLTSRCEDGELogicTrst1 (vga_cursor_data_w<0>_MLTSRCEDGELogicTrst1)
+     LUT6:I0->O            1   0.043   0.350  vga_cursor_data_w<31>_MLTSRCEDGELogicTrst4_SW0 (N4)
+     LUT6:I5->O            6   0.043   0.367  vga_cursor_data_w<31>_MLTSRCEDGELogicTrst4 (vga_cursor_data_w<31>_MLTSRCEDGE)
+     OBUFT:I->O                0.000          master_data_r_31_OBUFT (master_data_r<31>)
+    ----------------------------------------
+    Total                      4.125ns (0.258ns logic, 3.867ns route)
+                                       (6.3% logic, 93.7% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 12.08 secs
+ 
+--> 
+
+Total memory usage is 449656 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

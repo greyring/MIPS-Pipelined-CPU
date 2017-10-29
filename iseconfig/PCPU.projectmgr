@@ -7,6 +7,7 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/Automatic `includes</ClosedNode>
          <ClosedNode>/CP0 F:|MyProgramme|0|PCPU|CP0.v</ClosedNode>
          <ClosedNode>/D_cache F:|MyProgramme|0arch|PCPU|D_cache.v</ClosedNode>
          <ClosedNode>/D_cache F:|MyProgramme|0arch|PCPU|D_cache.v/Write_data_mask0 - write_data_mask</ClosedNode>
@@ -27,6 +28,7 @@
          <ClosedNode>/adder32_Sklansky F:|MyProgramme|0|PCPU|adder32_Sklansky.v</ClosedNode>
          <ClosedNode>/adder64 F:|MyProgramme|0|PCPU|adder64.v</ClosedNode>
          <ClosedNode>/adder8 F:|MyProgramme|0|PCPU|adder8.v</ClosedNode>
+         <ClosedNode>/bus F:|MyProgramme|0arch|PCPU|bus.v</ClosedNode>
          <ClosedNode>/input_switch_btn F:|MyProgramme|0|PCPU|input_switch_btn.v</ClosedNode>
          <ClosedNode>/mul24 F:|MyProgramme|0|PCPU|mul24.v</ClosedNode>
          <ClosedNode>/mul32 F:|MyProgramme|0arch|PCPU|mul32.v</ClosedNode>
@@ -44,7 +46,9 @@
          <ClosedNode>/mulu32 F:|MyProgramme|0|PCPU|mulu32.v</ClosedNode>
          <ClosedNode>/output_led F:|MyProgramme|0|PCPU|output_led.v</ClosedNode>
          <ClosedNode>/output_led F:|MyProgramme|2017summer|PCPU|output_led.v</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Input_switch_btn - input_switch_btn</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/ALU - alu</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/CP0_ - CP0</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU</ClosedNode>
@@ -58,6 +62,7 @@
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Vga_controller - vga_controller/Graph_vga - vga_graph</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Vga_controller - vga_controller/Text_vga - vga_text</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Vga_controller - vga_controller/Vga_graph - vga_graph</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Vga_controller - vga_controller/Vga_text - vga_text</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/gpio - GPIO</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/instance_name - vga_controller</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/instance_name - vga_controller/Vga_graph - vga_graph</ClosedNode>
@@ -101,23 +106,21 @@
          <ClosedNode>/write_data_mask F:|MyProgramme|0arch|PCPU|write_data_mask.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Control - control (F:/MyProgramme/0arch/PCPU/control.v)</SelectedItem>
+         <SelectedItem>L2_cache (F:/MyProgramme/0arch/PCPU/L2_cache.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >16</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001c2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001c20000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000141000000020000000000000000000000000200000064ffffffff000000810000000300000002000001410000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Control - control (F:/MyProgramme/0arch/PCPU/control.v)</CurrentItem>
+      <CurrentItem>L2_cache (F:/MyProgramme/0arch/PCPU/L2_cache.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>Design Utilities</ClosedNode>
          <ClosedNode>Implement Design</ClosedNode>
          <ClosedNode>Implement Design/Map</ClosedNode>
          <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
          <ClosedNode>Implement Design/Translate</ClosedNode>
-         <ClosedNode>Synthesize - XST</ClosedNode>
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
@@ -204,6 +207,7 @@
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/Automatic `includes</ClosedNode>
          <ClosedNode>/D_cache F:|MyProgramme|0arch|PCPU|D_cache.v</ClosedNode>
          <ClosedNode>/MUL_ALU F:|MyProgramme|0|PCPU|MUL_ALU.sch</ClosedNode>
          <ClosedNode>/PCPU F:|MyProgramme|0|PCPU|PCPU.sch</ClosedNode>
@@ -225,6 +229,7 @@
          <ClosedNode>/Tadder64 F:|MyProgramme|0arch|PCPU|Tadder64.v</ClosedNode>
          <ClosedNode>/Tadder64 F:|MyProgramme|0|PCPU|Tadder64.v</ClosedNode>
          <ClosedNode>/Tadder64 F:|MyProgramme|2017summer|PCPU|Tadder64.v</ClosedNode>
+         <ClosedNode>/Taddr_decoder F:|MyProgramme|0arch|PCPU|Taddr_decoder.v</ClosedNode>
          <ClosedNode>/Tcounter F:|MyProgramme|0arch|PCPU|Tcounter.v</ClosedNode>
          <ClosedNode>/Tkey_board F:|MyProgramme|0arch|PCPU|Tkey_board.v</ClosedNode>
          <ClosedNode>/Tkey_board F:|MyProgramme|0|PCPU|Tkey_board.v</ClosedNode>
@@ -274,13 +279,13 @@
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>D_cache_crl_ - D_cache_crl (F:/MyProgramme/0arch/PCPU/D_cache_crl.v)</SelectedItem>
+         <SelectedItem>Taddr_decoder (F:/MyProgramme/0arch/PCPU/Taddr_decoder.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000149000000020000000000000000000000000200000064ffffffff000000810000000300000002000001490000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000016f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000016f0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>D_cache_crl_ - D_cache_crl (F:/MyProgramme/0arch/PCPU/D_cache_crl.v)</CurrentItem>
+      <CurrentItem>Taddr_decoder (F:/MyProgramme/0arch/PCPU/Taddr_decoder.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -301,13 +306,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
       <ClosedNodes>

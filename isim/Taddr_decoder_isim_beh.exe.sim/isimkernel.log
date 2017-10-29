@@ -1,0 +1,28 @@
+Command line:
+   Taddr_decoder_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  48524
+
+Sun Oct 29 16:47:23 2017
+
+
+ Elaboration Time: 0.078001 sec
+
+ Current Memory Usage: 673.288 Meg
+
+ Total Signals          : 22
+ Total Nets             : 53
+ Total Signal Drivers   : 14
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 18
+ Total Traceable Variables  : 27
+ Total Scalar Nets and Variables : 173
+
+ Total Simulation Time: 0.156002 sec
+
+ Current Memory Usage: 673.288 Meg
+
+Sun Oct 29 16:47:38 2017
+

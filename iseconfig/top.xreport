@@ -1,12 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
+<<<<<<< Updated upstream
   <DateModified>2017-10-29T10:39:22</DateModified>
   <ModuleName>top</ModuleName>
   <SummaryTimeStamp>2017-10-29T10:27:35</SummaryTimeStamp>
   <SavedFilePath>F:/MyProgramme/0arch/PCPU/iseconfig/top.xreport</SavedFilePath>
   <ImplementationReportsDirectory>F:/MyProgramme/0arch/PCPU\</ImplementationReportsDirectory>
   <DateInitialized>2017-10-29T10:27:50</DateInitialized>
+=======
+  <DateModified>2017-10-29T16:51:37</DateModified>
+  <ModuleName>bus</ModuleName>
+  <SummaryTimeStamp>2017-10-29T15:49:23</SummaryTimeStamp>
+  <SavedFilePath>F:/MyProgramme/0arch/PCPU/iseconfig/top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>F:/MyProgramme/0arch/PCPU\</ImplementationReportsDirectory>
+  <DateInitialized>2017-10-29T15:46:28</DateInitialized>
+>>>>>>> Stashed changes
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

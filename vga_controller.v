@@ -50,9 +50,9 @@ module vga_controller(
 wire [9:0]vga_column;
 wire [8:0]vga_row;
 
-parameter GRAPH = 2'b01;
-parameter TEXT = 2'b00;
-reg [31:0]status = 32'b0;//[1:0]01 graph 00 text
+parameter GRAPH = 2'b00;
+parameter TEXT = 2'b01;
+reg [31:0]status = 32'b0;//[31:16]graph addre select 64K [1:0]00 graph 01 text
 always @(posedge clk) begin
 	if (we_reg)
 		status <= data_in;
@@ -98,7 +98,7 @@ vga_graph Vga_graph(
     .clk(clk), 
     .we(we_graph), 
     .rd(rd_graph), 
-    .addr(addr_in), 
+    .addr({status[31:16], addr_in[15:0]}), 
     .data(data_in), 
     .vga_column(vga_column), 
     .vga_row(vga_row), 

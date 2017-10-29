@@ -5,6 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<<<<<<< Updated upstream
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\control.v" Line 80: Assignment to <arg fmt="%s" index="1">shift</arg> ignored, since the identifier is never used
 </msg>
 
@@ -1496,6 +1497,17 @@ It will be removed from the design.
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">ID_EXE/temp_55</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PCPU_v</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;ID_EXE/temp_23&gt; </arg>
+=======
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"F:\MyProgramme\0arch\PCPU\bus.v" Line 64: Assignment to <arg fmt="%s" index="1">en_DRAM</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\bus.v</arg>&quot; line <arg fmt="%s" index="2">56</arg>: Output port &lt;<arg fmt="%s" index="3">en_DRAM</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Addr_decoder</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="2040" delta="new" >Unit <arg fmt="%s" index="1">bus</arg>: <arg fmt="%d" index="2">32</arg> multi-source signals are replaced by logic (pull-up <arg fmt="%s" index="3">yes</arg>): </msg>
+
+<msg type="warning" file="Xst" num="1336" delta="new" > (*) More than 100% of Device resources are used
+>>>>>>> Stashed changes
 </msg>
 
 </messages>

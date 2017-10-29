@@ -1,8 +1,13 @@
+<<<<<<< Updated upstream
 Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe -prj F:/MyProgramme/0arch/PCPU/Ttop_beh.prj work.Ttop work.glbl 
+=======
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/Taddr_decoder_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/Taddr_decoder_beh.prj" "work.Taddr_decoder" "work.glbl" 
+>>>>>>> Stashed changes
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+<<<<<<< Updated upstream
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/res_adder.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/inner_adder.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/half_adder.v" into library work
@@ -152,3 +157,19 @@ Compiled 80 Verilog Units
 Built simulation executable F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe
 Fuse Memory Usage: 216852 KB
 Fuse CPU Usage: 4586 ms
+=======
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/addr_decoder.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Taddr_decoder.v" into library work
+Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module addr_decoder
+Compiling module Taddr_decoder
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 2 sub-compilation(s) to finish...
+Compiled 3 Verilog Units
+Built simulation executable F:/MyProgramme/0arch/PCPU/Taddr_decoder_isim_beh.exe
+Fuse Memory Usage: 28588 KB
+Fuse CPU Usage: 452 ms
+>>>>>>> Stashed changes

@@ -1,5 +1,9 @@
 ISim log file
+<<<<<<< Updated upstream
 Running: F:\MyProgramme\0arch\PCPU\Ttop_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.wdb 
+=======
+Running: F:\MyProgramme\0arch\PCPU\Taddr_decoder_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb F:/MyProgramme/0arch/PCPU/Taddr_decoder_isim_beh.wdb 
+>>>>>>> Stashed changes
 ISim P.20131013 (signature 0x7708f090)
 ----------------------------------------------------------------------
 WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
@@ -12,6 +16,7 @@ Time resolution is 1 ps
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
+<<<<<<< Updated upstream
 Block Memory Generator CORE Generator module Ttop.uut.Vga_controller.Vga_text.Text_vga_ram.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
  Block Memory Generator CORE Generator module loading initial data...
  Block Memory Generator data initialization complete.
@@ -720,3 +725,16 @@ blk_mem_gen_v7_3 WARNING: Address 4c7 is outside range for A Read
 # run 1.00us
 # run 1.00us
 # run 1.00us
+=======
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+>>>>>>> Stashed changes
