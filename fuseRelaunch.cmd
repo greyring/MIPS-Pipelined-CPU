@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/TD_cache_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/TD_cache_beh.prj" "work.TD_cache" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/Ttop_beh.prj" "work.Ttop" "work.glbl" 

@@ -56,20 +56,20 @@ assign overflow = alu_sign?overflow_:1'b0;
 			4'b0010:begin//add
 					 res = res_add_sub;
 					 end
-			4'b0110:begin//sub
-					 res = res_add_sub;
+			4'b0011:begin
+					 res = res_xor;
 					 end
 			4'b0100:begin
 					 res = ~res_or;
 					 end
-			4'b0111:begin
-					 res = res_slt;
-					 end
 			4'b0101:begin
 					 res = res_srl;
 					 end
-			4'b0011:begin
-					 res = res_xor;
+			4'b0110:begin//sub
+					 res = res_add_sub;
+					 end
+			4'b0111:begin
+					 res = res_slt;
 					 end
 			4'b1000:begin
 					 res = res_sll;

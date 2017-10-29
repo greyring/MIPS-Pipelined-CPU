@@ -134,13 +134,15 @@ wire [31:0]mtc0_data;
 	wire [31:0]id_inst;
 	wire [31:0]id_exe_rega;
 	wire [31:0]PC_data_in;
-	wire [31:0]PC_jump;
-	MUX4T1_32  XLXI_85 (.I0(npc), //npc
-						 .I1(id_baddr[31:0]), //b
-						 .I2({id_npc[31:28], id_inst[25:0], 2'b0}), //j
-						 .I3(id_exe_rega[31:0]), //jr
-						 .s(jump_s), 
-						 .o(PC_jump));
+	reg [31:0]PC_jump;
+	always @* begin
+		case(jump_s)
+			2'b00: PC_jump = npc;//npc
+			2'b01: PC_jump = id_baddr[31:0];//b
+			2'b10: PC_jump = {id_npc[31:28], id_inst[25:0], 2'b0};//j
+			2'b11: PC_jump = id_exe_rega[31:0];//jr
+		endcase
+	end
 	
 //异常地址 = (STATUS[BEV]? 0x80000000:0xBFC00200) + CAUSE[IV]? 0x200:0x180;
 	wire [31:0]Exp_addr;
@@ -171,8 +173,7 @@ wire [31:0]mtc0_data;
 				  .rst(rst), 
 				  .Q(inst_addr_DUMMY));
 	
-	adder4  Adder4 (.pc(inst_addr_DUMMY), 
-					.nextPc(npc));
+	assign npc = inst_addr_DUMMY + 4;
 					
 //////////////////////////////////////////////////////////
 	IF_ID_Reg IF_ID(.clk(clk), 
@@ -190,18 +191,16 @@ wire [31:0]mtc0_data;
 	wire id_exe_jal;
 	wire id_exe_lui;
 	wire id_exe_sign;
-	wire id_exe_srcb;
+	wire id_exe_imm;
+	wire id_exe_res_sign;
 	wire [2:0]id_mem_mem_reg;
 	wire id_mem_we;
 	wire id_mem_rd;
-	//wire id_ra;
-	wire [4:0]id_wb_dreg;
-	wire [4:0]id_rega_addr;
-	wire [4:0]id_regb_addr;
+	wire [1:0]id_wb_dreg_s;
+	wire [1:0]id_rega_addr_s;
+	wire [1:0]id_regb_addr_s;
 	wire id_wb_we;
-	wire id_exe_alu_sign;
 	wire id_mem_CP0_we;
-	wire [4:0]id_mem_CP0_dreg;
 	control  Control(.inst(id_inst[31:0]), 
                     .id_beq(id_beq), 
                     .id_bne(id_bne), 
@@ -211,32 +210,52 @@ wire [31:0]mtc0_data;
                     .id_exe_jal(id_exe_jal), 
                     .id_exe_lui(id_exe_lui), 
                     .id_exe_sign(id_exe_sign), 
-                    .id_exe_srcb(id_exe_srcb), 
+                    .id_exe_imm(id_exe_imm), 
+						  .id_exe_res_sign(id_exe_res_sign),
                     .id_mem_mem_reg(id_mem_mem_reg), 
                     .id_mem_we(id_mem_we), 
 						  .id_mem_rd(id_mem_rd),
-                    //.id_ra(id_ra), 
-                    .id_wb_dreg(id_wb_dreg[4:0]), 
-						  .id_rega_addr(id_rega_addr[4:0]),
-						  .id_regb_addr(id_regb_addr[4:0]),
+                    .id_wb_dreg(id_wb_dreg_s[1:0]), 
+						  .id_rega_addr(id_rega_addr_s[1:0]),
+						  .id_regb_addr(id_regb_addr_s[1:0]),
                     .id_wb_we(id_wb_we),
 						  .id_syscall(id_syscall),
 						  .id_unknown(id_unknown),
-						  .id_exe_alu_sign(id_exe_alu_sign),
 						  .id_eret(id_eret),
-						  .id_mem_CP0_we(id_mem_CP0_we),
-						  .id_mem_CP0_dreg(id_mem_CP0_dreg));
+						  .id_mem_CP0_we(id_mem_CP0_we));
 	assign id_bj = id_beq | id_bne | id_j | id_jr;
 	
+	wire [4:0]id_mem_CP0_dreg;
+	assign id_mem_CP0_dreg = id_inst[15:11];
 	
-	/*
-	wire [4:0]id_rega_addr;
-	MUX2T1_5  XLXI_71 (.I0(id_inst[25:21]), 
-						.I1(id_inst[20:16]), 
-						.s(id_ra), 
-						.o(id_rega_addr[4:0]));
-	*/
-	
+	reg [4:0]id_rega_addr;
+	always @* begin
+		case (id_rega_addr_s)
+			2'b00: id_rega_addr = 0; 
+			2'b01: id_rega_addr = id_inst[25:21];
+			2'b10: id_rega_addr = id_inst[20:16];
+			2'b11: id_rega_addr = id_inst[15:11];
+		endcase
+	end
+	reg [4:0]id_regb_addr;
+	always @* begin
+		case (id_regb_addr_s)
+			2'b00: id_regb_addr = 0; 
+			2'b01: id_regb_addr = id_inst[25:21];
+			2'b10: id_regb_addr = id_inst[20:16];
+			2'b11: id_regb_addr = id_inst[15:11];
+		endcase
+	end
+	reg [4:0]id_wb_dreg;
+	always @* begin
+		case (id_wb_dreg_s)
+			2'b00: id_wb_dreg = 0;
+			2'b01: id_wb_dreg = 5'b11111;
+			2'b10: id_wb_dreg = id_inst[20:16];
+			2'b11: id_wb_dreg = id_inst[15:11];
+		endcase
+	end
+
 	wire wb_we;
 	wire [4:0]wb_dreg;
 	wire [31:0]wb_data;
@@ -253,7 +272,7 @@ wire [31:0]mtc0_data;
                 .rdata_B(rdata_B[31:0]));
 	
 	wire [2:0]exe_mem_mem_reg;
-	wire [31:0]exe_result;
+	reg [31:0]exe_result;
 	wire [4:0]exe_wb_dreg;
 	wire exe_wb_we;
 	wire [31:0]mem_wb_data;
@@ -281,12 +300,10 @@ wire [31:0]mtc0_data;
                          .mem_wb_dreg(mem_wb_dreg[4:0]), 
                          .mem_wb_we(mem_wb_we), 
                          .id_exe_reg(id_exe_regb[31:0]));
-	wire [31:0]id_sign_imm;
-	Ext_32  XLXI_76 (.imm_16(id_inst[15:0]), 
-					 .Imm_32(id_sign_imm[31:0]));
+								 
 	adder32_Sklansky add_branch_addr(
     .A_in(id_npc[31:0]), 
-    .B_in({id_sign_imm[29:0],2'b0}), 
+    .B_in({{14{id_inst[15]}}, id_inst[15:0],2'b0}), 
     .add_sub(1'b0), 
     .res(id_baddr[31:0]), 
     .overflow()
@@ -342,7 +359,7 @@ wire [31:0]exe_npc;
 wire [31:0]exe_rega;
 wire [31:0]exe_pc;
 wire exe_sign;
-wire exe_srcb; 
+wire exe_imm; 
 wire exe_bj;
 wire exe_alu_sign;
 ID_EXE_REG  ID_EXE (.clk(clk), 
@@ -358,13 +375,13 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                        .id_exe_rega(id_exe_rega[31:0]), 
                        .id_exe_regb(id_exe_regb[31:0]), 
                        .id_exe_sign(id_exe_sign), 
-                       .id_exe_srcb(id_exe_srcb), 
+                       .id_exe_imm(id_exe_imm), 
                        .id_mem_mem_reg(id_mem_mem_reg), 
                        .id_mem_we(id_mem_we), 
 							  .id_mem_rd(id_mem_rd),
                        .id_wb_dreg(id_wb_dreg[4:0]), 
                        .id_wb_we(id_wb_we), 
-							  .id_exe_alu_sign(id_exe_alu_sign),
+							  .id_exe_alu_sign(id_exe_res_sign),
 							  .id_mem_CP0_we(id_mem_CP0_we),
 							  .id_mem_CP0_dreg(id_mem_CP0_dreg),
                        .exe_aluop(exe_aluop[3:0]), 
@@ -380,28 +397,25 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                        .exe_rega(exe_rega[31:0]), 
                        .exe_regb(exe_regb[31:0]), 
                        .exe_sign(exe_sign), 
-                       .exe_srcb(exe_srcb), 
+                       .exe_imm(exe_imm), 
                        .exe_wb_dreg(exe_wb_dreg[4:0]), 
                        .exe_wb_we(exe_wb_we),
 							  .exe_alu_sign(exe_alu_sign),
 							  .exe_mem_CP0_we(exe_mem_CP0_we),
 							  .exe_mem_CP0_dreg(exe_mem_CP0_dreg));
 //////////////////////////////////////////////////////////////////
-	wire [31:0]exe_sign_imme;
-	Ext_32  XLXI_43 (.imm_16(exe_imme[15:0]), 
-					 .Imm_32(exe_sign_imme[31:0]));
+	reg [31:0]exe_b;
+	always @* begin
+		if (~exe_imm)
+			exe_b = exe_regb;
+		else begin
+			if (exe_sign)
+				exe_b = {{16{exe_imme[15]}}, exe_imme[15:0]};
+			else
+				exe_b = {16'b0, exe_imme[15:0]};
+		end
+	end
 	
-	wire [31:0]exe_imme_in;
-	MUX2T1_32  XLXI_42 (.I0({16'b0, exe_imme[15:0]}), 
-						 .I1(exe_sign_imme[31:0]), 
-						 .s(exe_sign), 
-						 .o(exe_imme_in[31:0]));
-	wire [31:0]exe_b;
-	MUX2T1_32  XLXI_13 (.I0(exe_regb[31:0]), 
-						 .I1(exe_imme_in[31:0]), 
-						 .s(exe_srcb), 
-						 .o(exe_b[31:0]));
-						 
 	wire [31:0]exe_alu_res;
    alu  ALU (.A(exe_rega[31:0]), 
                .ALU_Ctr(exe_aluop[3:0]), 
@@ -411,21 +425,14 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                .res(exe_alu_res[31:0]), 
                .zero());//暂时不做overflow
 	
-	wire [31:0]exe_lui_out;
-	MUX2T1_32  XLXI_74 (.I0(exe_alu_res[31:0]), 
-						 .I1({exe_imme[15:0], 16'b0}), 
-						 .s(exe_lui), 
-						 .o(exe_lui_out[31:0]));
-	
-	wire [31:0]exe_pc_8;
-	adder4  XLXI_89 (.pc(exe_npc[31:0]), 
-					 .nextPc(exe_pc_8[31:0]));
-	
-	MUX2T1_32  XLXI_86 (.I0(exe_lui_out[31:0]), 
-						 .I1(exe_pc_8[31:0]), 
-						 .s(exe_jal), 
-						 .o(exe_result[31:0]));
-	 
+	always @* begin
+		if (exe_jal)
+			exe_result = exe_npc + 4;
+		else if (exe_lui)
+			exe_result = {exe_imme[15:0], 16'b0};
+		else
+			exe_result = exe_alu_res[31:0];
+	end
 /////////////////////////////////////////////////////////////
 	//wire EXE_MEM_stall_;
 	wire [2:0]mem_mem_reg;

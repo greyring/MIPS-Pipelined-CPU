@@ -3,7 +3,6 @@ Inst_ROM.asy
 Inst_ROM.gise
 Inst_ROM.mif
 Inst_ROM.ngc
-Inst_ROM.sym
 Inst_ROM.v
 Inst_ROM.veo
 Inst_ROM.xco

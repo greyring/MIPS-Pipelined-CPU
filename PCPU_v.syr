@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: PCPU_v.prj
 
@@ -156,8 +156,6 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\regs.v" into library work
 Parsing module <Regs>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\PC.v" into library work
 Parsing module <REG32>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUX4T1_32.v" into library work
-Parsing module <MUX4T1_32>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUL_control.v" into library work
 Parsing module <MUL_control>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUL_ALU.vf" into library work
@@ -172,8 +170,6 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\ID_EXE_REG.v" into library wor
 Parsing module <ID_EXE_REG>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\forward_reg.v" into library work
 Parsing module <forward_reg>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Ext_imm16.v" into library work
-Parsing module <Ext_32>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Exp_Addr.v" into library work
 Parsing module <Exp_Addr>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\EXE_MEM_REG.v" into library work
@@ -186,8 +182,6 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\branch_judge.v" into library w
 Parsing module <branch_judge>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\alu.v" into library work
 Parsing module <alu>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\adder4.v" into library work
-Parsing module <adder4>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\PCPU_v.v" into library work
 Parsing module <PCPU_v>.
 
@@ -217,23 +211,18 @@ Elaborating module <CAUSE_data>.
 
 Elaborating module <jump_control>.
 
-Elaborating module <MUX4T1_32>.
-
 Elaborating module <Exp_Addr>.
 
 Elaborating module <REG32>.
 
-Elaborating module <adder4>.
-
 Elaborating module <IF_ID_Reg>.
 
 Elaborating module <control>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\control.v" Line 80: Assignment to shift ignored, since the identifier is never used
 
 Elaborating module <Regs>.
 
 Elaborating module <forward_reg>.
-
-Elaborating module <Ext_32>.
 
 Elaborating module <adder32_Sklansky>.
 
@@ -376,11 +365,18 @@ Elaborating module <stall_control>.
 
 Synthesizing Unit <PCPU_v>.
     Related source file is "F:\MyProgramme\0arch\PCPU\PCPU_v.v".
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 287: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 406: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
-    Found 32-bit 4-to-1 multiplexer for signal <_n0109> created at line 468.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 304: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 420: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
+    Found 32-bit adder for signal <npc> created at line 176.
+    Found 32-bit adder for signal <exe_npc[31]_GND_1_o_add_13_OUT> created at line 430.
+    Found 32-bit 4-to-1 multiplexer for signal <PC_jump> created at line 139.
+    Found 5-bit 4-to-1 multiplexer for signal <id_rega_addr> created at line 233.
+    Found 5-bit 4-to-1 multiplexer for signal <id_regb_addr> created at line 242.
+    Found 5-bit 4-to-1 multiplexer for signal <id_wb_dreg> created at line 251.
+    Found 32-bit 4-to-1 multiplexer for signal <_n0125> created at line 475.
     Summary:
-	inferred   4 Multiplexer(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  12 Multiplexer(s).
 Unit <PCPU_v> synthesized.
 
 Synthesizing Unit <CP0>.
@@ -459,16 +455,9 @@ Synthesizing Unit <jump_control>.
 	inferred   2 Multiplexer(s).
 Unit <jump_control> synthesized.
 
-Synthesizing Unit <MUX4T1_32>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\MUX4T1_32.v".
-    Found 32-bit 4-to-1 multiplexer for signal <o> created at line 30.
-    Summary:
-	inferred   1 Multiplexer(s).
-Unit <MUX4T1_32> synthesized.
-
 Synthesizing Unit <Exp_Addr>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Exp_Addr.v".
-    Found 32-bit adder for signal <PWR_13_o_GND_13_o_add_3_OUT> created at line 35.
+    Found 32-bit adder for signal <PWR_12_o_GND_12_o_add_3_OUT> created at line 35.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 Multiplexer(s).
@@ -481,13 +470,6 @@ Synthesizing Unit <REG32>.
 	inferred  32 D-type flip-flop(s).
 Unit <REG32> synthesized.
 
-Synthesizing Unit <adder4>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\adder4.v".
-    Found 32-bit adder for signal <nextPc> created at line 26.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-Unit <adder4> synthesized.
-
 Synthesizing Unit <IF_ID_Reg>.
     Related source file is "F:\MyProgramme\0arch\PCPU\IF_ID_Reg.v".
     Found 96-bit register for signal <temp>.
@@ -497,8 +479,26 @@ Unit <IF_ID_Reg> synthesized.
 
 Synthesizing Unit <control>.
     Related source file is "F:\MyProgramme\0arch\PCPU\control.v".
+        NO = 2'b00
+        RS = 2'b01
+        RA = 2'b01
+        RT = 2'b10
+        RD = 2'b11
+        MEM = 3'b000
+        ALU = 3'b001
+        CP0 = 3'b010
+        MUL = 3'b011
+        AND = 4'b0000
+        OR = 4'b0001
+        ADD = 4'b0010
+        XOR = 4'b0011
+        NOR = 4'b0100
+        SRL = 4'b0101
+        SUB = 4'b0110
+        SLT = 4'b0111
+        SLL = 4'b1000
     Summary:
-	inferred 106 Multiplexer(s).
+	inferred  43 Multiplexer(s).
 Unit <control> synthesized.
 
 Synthesizing Unit <Regs>.
@@ -519,12 +519,6 @@ Synthesizing Unit <forward_reg>.
 	inferred   2 Comparator(s).
 	inferred   2 Multiplexer(s).
 Unit <forward_reg> synthesized.
-
-Synthesizing Unit <Ext_32>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\Ext_imm16.v".
-    Summary:
-	no macro.
-Unit <Ext_32> synthesized.
 
 Synthesizing Unit <adder32_Sklansky>.
     Related source file is "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v".
@@ -803,16 +797,16 @@ Macro Statistics
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 1
  5-bit comparator equal                                : 6
-# Multiplexers                                         : 259
- 1-bit 2-to-1 multiplexer                              : 120
- 2-bit 2-to-1 multiplexer                              : 12
- 3-bit 2-to-1 multiplexer                              : 7
- 32-bit 2-to-1 multiplexer                             : 70
+# Multiplexers                                         : 199
+ 1-bit 2-to-1 multiplexer                              : 97
+ 2-bit 2-to-1 multiplexer                              : 15
+ 3-bit 2-to-1 multiplexer                              : 2
+ 32-bit 2-to-1 multiplexer                             : 69
  32-bit 31-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 2
  32-bit 8-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 5
- 5-bit 2-to-1 multiplexer                              : 40
+ 4-bit 2-to-1 multiplexer                              : 8
+ 5-bit 4-to-1 multiplexer                              : 3
 # Logic shifters                                       : 2
  32-bit shifter logical left                           : 1
  32-bit shifter logical right                          : 1
@@ -877,16 +871,16 @@ Macro Statistics
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 1
  5-bit comparator equal                                : 6
-# Multiplexers                                         : 258
- 1-bit 2-to-1 multiplexer                              : 119
- 2-bit 2-to-1 multiplexer                              : 12
- 3-bit 2-to-1 multiplexer                              : 7
- 32-bit 2-to-1 multiplexer                             : 70
+# Multiplexers                                         : 198
+ 1-bit 2-to-1 multiplexer                              : 96
+ 2-bit 2-to-1 multiplexer                              : 15
+ 3-bit 2-to-1 multiplexer                              : 2
+ 32-bit 2-to-1 multiplexer                             : 69
  32-bit 31-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 2
  32-bit 8-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 5
- 5-bit 2-to-1 multiplexer                              : 40
+ 4-bit 2-to-1 multiplexer                              : 8
+ 5-bit 4-to-1 multiplexer                              : 3
 # Logic shifters                                       : 2
  32-bit shifter logical left                           : 1
  32-bit shifter logical right                          : 1
@@ -1078,6 +1072,11 @@ INFO:Xst:2261 - The FF/Latch <temp_1> in Unit <MUL_ID_EXE> is equivalent to the 
 INFO:Xst:2261 - The FF/Latch <temp_14> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_83> 
 INFO:Xst:2261 - The FF/Latch <temp_30> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_99> 
 INFO:Xst:2261 - The FF/Latch <temp_7> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_76> 
+INFO:Xst:2261 - The FF/Latch <temp_3> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_101> 
+INFO:Xst:2261 - The FF/Latch <temp_4> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_102> 
+INFO:Xst:2261 - The FF/Latch <temp_0> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_98> 
+INFO:Xst:2261 - The FF/Latch <temp_1> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_99> 
+INFO:Xst:2261 - The FF/Latch <temp_2> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_100> 
 
 Optimizing unit <IF_ID_Reg> ...
 
@@ -1116,6 +1115,10 @@ Optimizing unit <mul_adder> ...
 Optimizing unit <adder64> ...
 
 Optimizing unit <Regs> ...
+
+Optimizing unit <control> ...
+
+Optimizing unit <MUL_control> ...
 
 Optimizing unit <adder32_Sklansky> ...
 
@@ -1204,24 +1207,7 @@ INFO:Xst:2261 - The FF/Latch <ID_EXE/temp_55> in Unit <PCPU_v> is equivalent to 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block PCPU_v, actual ratio is 3.
-FlipFlop IF_ID/temp_66 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_66 connected to a primary input has been replicated
-FlipFlop IF_ID/temp_68 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_68 connected to a primary input has been replicated
-FlipFlop IF_ID/temp_69 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_69 connected to a primary input has been replicated
-FlipFlop IF_ID/temp_90 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_90 connected to a primary input has been replicated
-FlipFlop IF_ID/temp_91 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_91 connected to a primary input has been replicated
-FlipFlop IF_ID/temp_92 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_92 connected to a primary input has been replicated
-FlipFlop IF_ID/temp_93 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_93 connected to a primary input has been replicated
-FlipFlop IF_ID/temp_95 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop IF_ID/temp_95 connected to a primary input has been replicated
-FlipFlop MUL_ALU_/_Mul_EXE_EWB/temp_4 has been replicated 4 time(s)
-FlipFlop MUL_ALU_/_Mul_EXE_EWB/temp_5 has been replicated 3 time(s)
+FlipFlop MUL_ALU_/_Mul_EXE_EWB/temp_4 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -1229,8 +1215,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1842
- Flip-Flops                                            : 1842
+# Registers                                            : 1823
+ Flip-Flops                                            : 1823
 
 =========================================================================
 
@@ -1253,23 +1239,23 @@ Top Level Output File Name         : PCPU_v.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 6542
+# BELS                             : 6478
 #      GND                         : 1
 #      INV                         : 4
 #      LUT1                        : 88
-#      LUT2                        : 41
-#      LUT3                        : 2175
-#      LUT4                        : 292
-#      LUT5                        : 1783
-#      LUT6                        : 1894
+#      LUT2                        : 39
+#      LUT3                        : 2167
+#      LUT4                        : 273
+#      LUT5                        : 1781
+#      LUT6                        : 1856
 #      MUXCY                       : 127
-#      MUXF7                       : 44
+#      MUXF7                       : 49
 #      VCC                         : 1
 #      XORCY                       : 92
-# FlipFlops/Latches                : 1842
+# FlipFlops/Latches                : 1823
 #      FDCE                        : 1024
-#      FDR                         : 374
-#      FDRE                        : 434
+#      FDR                         : 369
+#      FDRE                        : 420
 #      FDS                         : 10
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
@@ -1284,15 +1270,15 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1842  out of  407600     0%  
- Number of Slice LUTs:                 6277  out of  203800     3%  
-    Number used as Logic:              6277  out of  203800     3%  
+ Number of Slice Registers:            1823  out of  407600     0%  
+ Number of Slice LUTs:                 6208  out of  203800     3%  
+    Number used as Logic:              6208  out of  203800     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   7363
-   Number with an unused Flip Flop:    5521  out of   7363    74%  
-   Number with an unused LUT:          1086  out of   7363    14%  
-   Number of fully used LUT-FF pairs:   756  out of   7363    10%  
+ Number of LUT Flip Flop pairs used:   7299
+   Number with an unused Flip Flop:    5476  out of   7299    75%  
+   Number with an unused LUT:          1091  out of   7299    14%  
+   Number of fully used LUT-FF pairs:   732  out of   7299    10%  
    Number of unique control sets:        11
 
 IO Utilization: 
@@ -1323,7 +1309,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 1842  |
+clk                                | BUFGP                  | 1823  |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -1334,8 +1320,8 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 7.770ns (Maximum Frequency: 128.692MHz)
-   Minimum input arrival time before clock: 3.885ns
+   Minimum period: 8.698ns (Maximum Frequency: 114.964MHz)
+   Minimum input arrival time before clock: 3.892ns
    Maximum output required time after clock: 0.706ns
    Maximum combinational path delay: No path found
 
@@ -1345,47 +1331,40 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 7.770ns (frequency: 128.692MHz)
-  Total number of paths / destination ports: 31759830 / 3332
+  Clock period: 8.698ns (frequency: 114.964MHz)
+  Total number of paths / destination ports: 10733932 / 3300
 -------------------------------------------------------------------------
-Delay:               3.885ns (Levels of Logic = 17)
-  Source:            Reg_file/register_31_898 (FF)
+Delay:               4.349ns (Levels of Logic = 10)
+  Source:            Reg_file/register_31_184 (FF)
   Destination:       PC/pc_30 (FF)
   Source Clock:      clk falling
   Destination Clock: clk rising
 
-  Data Path: Reg_file/register_31_898 to PC/pc_30
+  Data Path: Reg_file/register_31_184 to PC/pc_30
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             3   0.236   0.507  Reg_file/register_31_898 (Reg_file/register_31_898)
-     LUT6:I3->O            1   0.043   0.522  Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_868 (Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_868)
-     LUT6:I2->O            1   0.043   0.405  Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_422 (Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_422)
-     LUT6:I4->O            2   0.043   0.618  forward_b/Mmux_id_exe_reg231 (id_exe_regb<2>)
-     LUT6:I0->O            1   0.043   0.000  Branch_judge/Mcompar_equl_lut<0> (Branch_judge/Mcompar_equl_lut<0>)
-     MUXCY:S->O            1   0.238   0.000  Branch_judge/Mcompar_equl_cy<0> (Branch_judge/Mcompar_equl_cy<0>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<1> (Branch_judge/Mcompar_equl_cy<1>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<2> (Branch_judge/Mcompar_equl_cy<2>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<3> (Branch_judge/Mcompar_equl_cy<3>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<4> (Branch_judge/Mcompar_equl_cy<4>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<5> (Branch_judge/Mcompar_equl_cy<5>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<6> (Branch_judge/Mcompar_equl_cy<6>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<7> (Branch_judge/Mcompar_equl_cy<7>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<8> (Branch_judge/Mcompar_equl_cy<8>)
+     FDCE:C->Q             3   0.236   0.534  Reg_file/register_31_184 (Reg_file/register_31_184)
+     LUT6:I2->O            1   0.043   0.522  Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_849 (Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_849)
+     LUT6:I2->O            1   0.043   0.495  Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_316 (Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_316)
+     LUT6:I3->O            1   0.043   0.405  forward_a/Mmux_id_exe_reg171_F (N796)
+     LUT3:I1->O            3   0.043   0.625  forward_a/Mmux_id_exe_reg1711 (id_exe_rega<24>)
+     LUT6:I0->O            1   0.043   0.000  Branch_judge/Mcompar_equl_lut<8> (Branch_judge/Mcompar_equl_lut<8>)
+     MUXCY:S->O            1   0.238   0.000  Branch_judge/Mcompar_equl_cy<8> (Branch_judge/Mcompar_equl_cy<8>)
      MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<9> (Branch_judge/Mcompar_equl_cy<9>)
      MUXCY:CI->O          14   0.150   0.422  Branch_judge/Mcompar_equl_cy<10> (id_eql)
-     LUT6:I5->O           11   0.043   0.406  Jump_control/beq_bne_OR_56_o1 (Jump_control/beq_bne_OR_56_o)
+     LUT5:I4->O           11   0.043   0.406  Jump_control/beq_bne_OR_56_o1 (Jump_control/beq_bne_OR_56_o)
      LUT6:I5->O            1   0.043   0.000  Mmux_PC_data_in293 (PC_data_in<6>)
      FDCE:D                   -0.000          PC/pc_6
     ----------------------------------------
-    Total                      3.885ns (1.004ns logic, 2.881ns route)
-                                       (25.8% logic, 74.2% route)
+    Total                      4.349ns (0.939ns logic, 3.410ns route)
+                                       (21.6% logic, 78.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 6208 / 2016
+  Total number of paths / destination ports: 5645 / 1989
 -------------------------------------------------------------------------
-Offset:              3.885ns (Levels of Logic = 18)
+Offset:              3.892ns (Levels of Logic = 18)
   Source:            mem_data_in<2> (PAD)
   Destination:       PC/pc_30 (FF)
   Destination Clock: clk rising
@@ -1396,8 +1375,8 @@ Offset:              3.885ns (Levels of Logic = 18)
     ----------------------------------------  ------------
      IBUF:I->O             1   0.000   0.603  mem_data_in_2_IBUF (mem_data_in_2_IBUF)
      LUT6:I1->O            5   0.043   0.545  Mmux_mem_wb_data_temp235 (mem_wb_data_temp<2>)
-     LUT4:I0->O            1   0.043   0.522  Reg_file/Mmux_R_addr_B[4]_register[31][31]_wide_mux_4_OUT_2_f7_21_SW1 (N320)
-     LUT6:I2->O            2   0.043   0.618  forward_b/Mmux_id_exe_reg231 (id_exe_regb<2>)
+     LUT4:I0->O            1   0.043   0.522  Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_2_f7_21_SW1 (N305)
+     LUT6:I2->O            3   0.043   0.625  forward_a/Mmux_id_exe_reg231 (id_exe_rega<2>)
      LUT6:I0->O            1   0.043   0.000  Branch_judge/Mcompar_equl_lut<0> (Branch_judge/Mcompar_equl_lut<0>)
      MUXCY:S->O            1   0.238   0.000  Branch_judge/Mcompar_equl_cy<0> (Branch_judge/Mcompar_equl_cy<0>)
      MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<1> (Branch_judge/Mcompar_equl_cy<1>)
@@ -1410,12 +1389,12 @@ Offset:              3.885ns (Levels of Logic = 18)
      MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<8> (Branch_judge/Mcompar_equl_cy<8>)
      MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<9> (Branch_judge/Mcompar_equl_cy<9>)
      MUXCY:CI->O          14   0.150   0.422  Branch_judge/Mcompar_equl_cy<10> (id_eql)
-     LUT6:I5->O           11   0.043   0.406  Jump_control/beq_bne_OR_56_o1 (Jump_control/beq_bne_OR_56_o)
+     LUT5:I4->O           11   0.043   0.406  Jump_control/beq_bne_OR_56_o1 (Jump_control/beq_bne_OR_56_o)
      LUT6:I5->O            1   0.043   0.000  Mmux_PC_data_in293 (PC_data_in<6>)
      FDCE:D                   -0.000          PC/pc_6
     ----------------------------------------
-    Total                      3.885ns (0.768ns logic, 3.117ns route)
-                                       (19.8% logic, 80.2% route)
+    Total                      3.892ns (0.768ns logic, 3.124ns route)
+                                       (19.7% logic, 80.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -1446,20 +1425,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    7.734|    3.885|    1.747|         |
+clk            |    7.734|    4.349|    1.747|         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 78.00 secs
-Total CPU time to Xst completion: 78.19 secs
+Total REAL time to Xst completion: 67.00 secs
+Total CPU time to Xst completion: 67.07 secs
  
 --> 
 
-Total memory usage is 521400 kilobytes
+Total memory usage is 520632 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  267 (   0 filtered)
-Number of infos    :  229 (   0 filtered)
+Number of warnings :  268 (   0 filtered)
+Number of infos    :  226 (   0 filtered)
 
