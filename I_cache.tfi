@@ -1,0 +1,25 @@
+
+
+
+// Instantiate the module
+I_cache instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .addr(addr), 
+    .cache_r(cache_r), 
+    .cache_data(cache_data), 
+    .cache_ready(cache_ready), 
+    .cache_err(cache_err), 
+    .mem_ready(mem_ready), 
+    .mem_data(mem_data), 
+    .mem_addr(mem_addr), 
+    .mem_r(mem_r), 
+    .op(op), 
+    .Tag_Lo(Tag_Lo), 
+    .Tag_Hi(Tag_Hi), 
+    .Tag_Lo_in(Tag_Lo_in), 
+    .Tag_Hi_in(Tag_Hi_in), 
+    .cache_tag_w(cache_tag_w)
+    );
+
+

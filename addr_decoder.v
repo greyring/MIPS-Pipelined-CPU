@@ -26,7 +26,9 @@ module addr_decoder(
 	output reg en_cursor_reg,
 	output reg en_textRAM,
 	output reg en_graphRAM,
-	output reg en_DRAM
+	output reg en_DRAM,
+	output reg en_SEG,
+	output reg en_others
     );
 //0x0000_0000-0x0fff_ffff SRAM 256M
 //0x1000_0000-0x1000_0fff regs 4K
@@ -40,19 +42,21 @@ always @* begin
 	{en_SRAM, en_BIOS, en_regs, en_textRAM, en_graphRAM,
 	 en_DRAM} = 0;
 	if (~(|addr[31:28])) en_SRAM = 1'b1;
-	if (a0001 & ~(|addr[27:12])) en_regs = 1'b1;
-	if (a0001 & ~(|addr[27:14]) & addr[13]) en_textRAM = 1'b1;
-	if (a0001 & ~(|addr[27:17]) & addr[16]) en_graphRAM = 1'b1;
-	if (~(|addr[31:29]) & (&addr[28:22])) en_BIOS = 1'b1;
-	if (|addr[31:29]) en_DRAM = 1'b1;
-end
+	else if (a0001 & ~(|addr[27:12])) en_regs = 1'b1;
+	else if (a0001 & ~(|addr[27:14]) & addr[13]) en_textRAM = 1'b1;
+	else if (a0001 & ~(|addr[27:17]) & addr[16]) en_graphRAM = 1'b1;
+	else if (~(|addr[31:29]) & (&addr[28:22])) en_BIOS = 1'b1;
+	else if (|addr[31:29]) en_DRAM = 1'b1;
+	else en_others = 1'b1;
+	
 //regs decoder
-always @* begin
-	{en_vga_reg, en_cursor_reg} = 0;
+	{en_vga_reg, en_cursor_reg, en_SEG, en_others} = 0;
 	if (en_regs) begin
 		case (addr[11:0])
-			3'h000: en_vga_reg = 1'b1;
-			3'h004: en_cursor_reg = 1'b1;
+			12'h000: en_vga_reg = 1'b1;
+			12'h004: en_cursor_reg = 1'b1;
+			12'h010: en_SEG = 1'b1;
+			default: en_others = 1'b1;
 		endcase
 	end
 end

@@ -1,0 +1,4 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/mem_buffer.xst" -ofn "F:/MyProgramme/0arch/PCPU/mem_buffer.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/mem_buffer.xst" -ofn "F:/MyProgramme/0arch/PCPU/mem_buffer.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/mem_buffer.xst" -ofn "F:/MyProgramme/0arch/PCPU/mem_buffer.syr" 
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/mem_buffer.tfi -lib work F:/MyProgramme/0arch/PCPU//mem_buffer.v -module mem_buffer -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

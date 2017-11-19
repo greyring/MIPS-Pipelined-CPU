@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/TL2Cache_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/TL2Cache_beh.prj" "work.TL2Cache" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/Tmem_buffer_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/Tmem_buffer_beh.prj" "work.Tmem_buffer" "work.glbl" 

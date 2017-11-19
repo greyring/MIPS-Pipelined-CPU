@@ -3,3 +3,4 @@ xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/D_cache.xst" -ofn "F:/MyProgra
 xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/D_cache.xst" -ofn "F:/MyProgramme/0arch/PCPU/D_cache.syr" 
 xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/D_cache.xst" -ofn "F:/MyProgramme/0arch/PCPU/D_cache.syr" 
 xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/D_cache.xst" -ofn "F:/MyProgramme/0arch/PCPU/D_cache.syr" 
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/D_cache.tfi -lib work F:/MyProgramme/0arch/PCPU//D_cache.v -module D_cache -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

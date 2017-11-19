@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-11-03T16:15:03</DateModified>
-  <ModuleName>control</ModuleName>
-  <SummaryTimeStamp>2017-11-03T16:13:31</SummaryTimeStamp>
+  <DateModified>2017-11-20T00:47:17</DateModified>
+  <ModuleName>cache</ModuleName>
+  <SummaryTimeStamp>2017-11-20T00:47:02</SummaryTimeStamp>
   <SavedFilePath>F:/MyProgramme/0arch/PCPU/iseconfig/bus.xreport</SavedFilePath>
   <ImplementationReportsDirectory>F:/MyProgramme/0arch/PCPU\</ImplementationReportsDirectory>
-  <DateInitialized>2017-11-03T16:15:03</DateInitialized>
+  <DateInitialized>2017-11-20T00:37:57</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

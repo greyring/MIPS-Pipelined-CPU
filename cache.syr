@@ -1,0 +1,1411 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: cache.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "cache.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "cache"
+Output Format                      : NGC
+Target Device                      : xc7k325t-2L-ffg676
+
+---- Source Options
+Top Module Name                    : cache
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\write_data_mask_32.v" into library work
+Parsing module <write_data_mask_32>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\write_data_mask.v" into library work
+Parsing module <write_data_mask>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\LUT_countdown.v" into library work
+Parsing module <LUT_countdown>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\L2cache_crl.v" into library work
+Parsing module <L2cache_crl>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\I_cache_crl.v" into library work
+Parsing module <I_cache_crl>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\D_cache_crl.v" into library work
+Parsing module <D_cache_crl>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\cache_mem.v" into library work
+Parsing module <cache_mem>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\mem_buffer.v" into library work
+Parsing module <mem_buffer>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\L2_cache.v" into library work
+Parsing module <L2_cache>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\I_cache.v" into library work
+Parsing module <I_cache>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\D_cache.v" into library work
+Parsing module <D_cache>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\cache.v" into library work
+Parsing module <cache>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <cache>.
+
+Elaborating module <I_cache>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\I_cache.v" Line 70: Assignment to offset ignored, since the identifier is never used
+
+Elaborating module <cache_mem(DATA_WIDTH=1)>.
+
+Elaborating module <cache_mem(DATA_WIDTH=20)>.
+
+Elaborating module <cache_mem(DATA_WIDTH=128)>.
+
+Elaborating module <cache_mem(DATA_WIDTH=2)>.
+
+Elaborating module <I_cache_crl>.
+
+Elaborating module <LUT_countdown>.
+
+Elaborating module <D_cache>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\D_cache.v" Line 78: Assignment to offset ignored, since the identifier is never used
+
+Elaborating module <write_data_mask>.
+
+Elaborating module <write_data_mask_32>.
+
+Elaborating module <D_cache_crl>.
+
+Elaborating module <L2_cache>.
+
+Elaborating module <cache_mem(DATA_WIDTH=1,ADDR_WIDTH=10)>.
+
+Elaborating module <cache_mem(DATA_WIDTH=18,ADDR_WIDTH=10)>.
+
+Elaborating module <cache_mem(DATA_WIDTH=128,ADDR_WIDTH=10)>.
+
+Elaborating module <L2cache_crl>.
+
+Elaborating module <mem_buffer>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <cache>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\cache.v".
+    Summary:
+	inferred   8 Multiplexer(s).
+Unit <cache> synthesized.
+
+Synthesizing Unit <I_cache>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\I_cache.v".
+WARNING:Xst:647 - Input <Tag_Hi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit register for signal <op_>.
+    Found 32-bit register for signal <addr_>.
+    Found 32-bit register for signal <Tag_Lo_>.
+    Found 1-bit register for signal <mem_ready_>.
+    Found 32-bit 4-to-1 multiplexer for signal <data_w0> created at line 165.
+    Found 32-bit 4-to-1 multiplexer for signal <data_w1> created at line 165.
+    Found 32-bit 4-to-1 multiplexer for signal <mem_word> created at line 165.
+    Found 20-bit comparator equal for signal <tag0_data[19]_tag_[19]_equal_18_o> created at line 195
+    Found 20-bit comparator equal for signal <tag1_data[19]_tag_[19]_equal_19_o> created at line 197
+    Found 2-bit comparator greater for signal <count1_data[1]_count0_data[1]_LessThan_20_o> created at line 204
+    Summary:
+	inferred  73 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred  10 Multiplexer(s).
+Unit <I_cache> synthesized.
+
+Synthesizing Unit <cache_mem_1>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\cache_mem.v".
+        DATA_WIDTH = 1
+        ADDR_WIDTH = 8
+    Found 256x1-bit dual-port RAM <Mram_data> for signal <data>.
+    Found 1-bit register for signal <r_data>.
+    Found 8-bit comparator equal for signal <w_addr[7]_r_addr[7]_equal_3_o> created at line 38
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <cache_mem_1> synthesized.
+
+Synthesizing Unit <cache_mem_2>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\cache_mem.v".
+        DATA_WIDTH = 20
+        ADDR_WIDTH = 8
+    Found 256x20-bit dual-port RAM <Mram_data> for signal <data>.
+    Found 20-bit register for signal <r_data>.
+    Found 8-bit comparator equal for signal <w_addr[7]_r_addr[7]_equal_3_o> created at line 38
+    Summary:
+	inferred   1 RAM(s).
+	inferred  20 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <cache_mem_2> synthesized.
+
+Synthesizing Unit <cache_mem_3>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\cache_mem.v".
+        DATA_WIDTH = 128
+        ADDR_WIDTH = 8
+    Found 256x128-bit dual-port RAM <Mram_data> for signal <data>.
+    Found 128-bit register for signal <r_data>.
+    Found 8-bit comparator equal for signal <w_addr[7]_r_addr[7]_equal_3_o> created at line 38
+    Summary:
+	inferred   1 RAM(s).
+	inferred 128 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <cache_mem_3> synthesized.
+
+Synthesizing Unit <cache_mem_4>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\cache_mem.v".
+        DATA_WIDTH = 2
+        ADDR_WIDTH = 8
+    Found 256x2-bit dual-port RAM <Mram_data> for signal <data>.
+    Found 2-bit register for signal <r_data>.
+    Found 8-bit comparator equal for signal <w_addr[7]_r_addr[7]_equal_3_o> created at line 38
+    Summary:
+	inferred   1 RAM(s).
+	inferred   2 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <cache_mem_4> synthesized.
+
+Synthesizing Unit <I_cache_crl>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\I_cache_crl.v".
+        START = 2'b00
+        FETCH = 2'b01
+        STORE = 2'b10
+WARNING:Xst:647 - Input <op<3:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <op<6:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 2-bit register for signal <curstate>.
+    Found finite state machine <FSM_0> for signal <curstate>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit 4-to-1 multiplexer for signal <curstate[1]_GND_7_o_Mux_10_o> created at line 93.
+    Found 1-bit 4-to-1 multiplexer for signal <curstate[1]_GND_7_o_Mux_12_o> created at line 93.
+    Found 1-bit 4-to-1 multiplexer for signal <curstate[1]_GND_7_o_Mux_14_o> created at line 93.
+    Found 1-bit 4-to-1 multiplexer for signal <curstate[1]_GND_7_o_Mux_15_o> created at line 93.
+    Found 1-bit 4-to-1 multiplexer for signal <curstate[1]_GND_7_o_Mux_17_o> created at line 93.
+    Found 1-bit 4-to-1 multiplexer for signal <curstate[1]_GND_7_o_Mux_19_o> created at line 93.
+    Found 1-bit 4-to-1 multiplexer for signal <curstate[1]_GND_7_o_Mux_21_o> created at line 93.
+    Found 1-bit 4-to-1 multiplexer for signal <curstate[1]_GND_7_o_Mux_22_o> created at line 93.
+    Summary:
+	inferred  63 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <I_cache_crl> synthesized.
+
+Synthesizing Unit <LUT_countdown>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\LUT_countdown.v".
+    Found 4x2-bit Read Only RAM for signal <nxt_count>
+    Summary:
+	inferred   1 RAM(s).
+Unit <LUT_countdown> synthesized.
+
+Synthesizing Unit <D_cache>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\D_cache.v".
+WARNING:Xst:647 - Input <Tag_Hi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 4-bit register for signal <wmask_>.
+    Found 32-bit register for signal <wdata_>.
+    Found 32-bit register for signal <addr_>.
+    Found 32-bit register for signal <Tag_Lo_>.
+    Found 9-bit register for signal <op_>.
+    Found 32-bit 4-to-1 multiplexer for signal <data_w0> created at line 197.
+    Found 32-bit 4-to-1 multiplexer for signal <data_w1> created at line 197.
+    Found 32-bit 4-to-1 multiplexer for signal <mem_word> created at line 197.
+    Found 20-bit comparator equal for signal <tag0_data[19]_tag_[19]_equal_22_o> created at line 251
+    Found 20-bit comparator equal for signal <tag1_data[19]_tag_[19]_equal_23_o> created at line 253
+    Found 2-bit comparator greater for signal <count1_data[1]_count0_data[1]_LessThan_24_o> created at line 260
+    Summary:
+	inferred 109 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred  34 Multiplexer(s).
+Unit <D_cache> synthesized.
+
+Synthesizing Unit <write_data_mask>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\write_data_mask.v".
+    Found 128-bit 4-to-1 multiplexer for signal <new_data> created at line 56.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <write_data_mask> synthesized.
+
+Synthesizing Unit <write_data_mask_32>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\write_data_mask_32.v".
+    Found 16-bit 4-to-1 multiplexer for signal <data_16_h> created at line 34.
+    Found 16-bit 4-to-1 multiplexer for signal <data_16_l> created at line 40.
+    Summary:
+	inferred   3 Multiplexer(s).
+Unit <write_data_mask_32> synthesized.
+
+Synthesizing Unit <D_cache_crl>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\D_cache_crl.v".
+        START = 3'b000
+        FETCH = 3'b001
+        STORE = 3'b010
+        WB = 3'b011
+        WBSET = 3'b100
+WARNING:Xst:647 - Input <op<3:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 3-bit register for signal <curstate>.
+    Found finite state machine <FSM_1> for signal <curstate>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 29                                             |
+    | Inputs             | 10                                             |
+    | Outputs            | 4                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred 211 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <D_cache_crl> synthesized.
+
+Synthesizing Unit <L2_cache>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\L2_cache.v".
+WARNING:Xst:647 - Input <Tag_Hi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit register for signal <d_addr_>.
+    Found 128-bit register for signal <d_data_>.
+    Found 1-bit register for signal <i_op_>.
+    Found 32-bit register for signal <i_addr_>.
+    Found 7-bit register for signal <op_>.
+    Found 32-bit register for signal <op_index_>.
+    Found 32-bit register for signal <Tag_Lo_>.
+    Found 2-bit register for signal <d_op_>.
+    Found 18-bit comparator equal for signal <t_data[17]_d_addr_[31]_equal_27_o> created at line 177
+    Summary:
+	inferred 266 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   9 Multiplexer(s).
+Unit <L2_cache> synthesized.
+
+Synthesizing Unit <cache_mem_5>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\cache_mem.v".
+        DATA_WIDTH = 1
+        ADDR_WIDTH = 10
+    Found 1024x1-bit dual-port RAM <Mram_data> for signal <data>.
+    Found 1-bit register for signal <r_data>.
+    Found 10-bit comparator equal for signal <w_addr[9]_r_addr[9]_equal_3_o> created at line 38
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <cache_mem_5> synthesized.
+
+Synthesizing Unit <cache_mem_6>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\cache_mem.v".
+        DATA_WIDTH = 18
+        ADDR_WIDTH = 10
+    Found 1024x18-bit dual-port RAM <Mram_data> for signal <data>.
+    Found 18-bit register for signal <r_data>.
+    Found 10-bit comparator equal for signal <w_addr[9]_r_addr[9]_equal_3_o> created at line 38
+    Summary:
+	inferred   1 RAM(s).
+	inferred  18 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <cache_mem_6> synthesized.
+
+Synthesizing Unit <cache_mem_7>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\cache_mem.v".
+        DATA_WIDTH = 128
+        ADDR_WIDTH = 10
+    Found 1024x128-bit dual-port RAM <Mram_data> for signal <data>.
+    Found 128-bit register for signal <r_data>.
+    Found 10-bit comparator equal for signal <w_addr[9]_r_addr[9]_equal_3_o> created at line 38
+    Summary:
+	inferred   1 RAM(s).
+	inferred 128 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <cache_mem_7> synthesized.
+
+Synthesizing Unit <L2cache_crl>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\L2cache_crl.v".
+        INIT = 4'b0001
+        DECODE = 4'b1010
+        OP = 4'b0010
+        IOP = 4'b0011
+        IFETCH = 4'b0100
+        ISTORE = 4'b0101
+        DOP = 4'b0110
+        DWB = 4'b0111
+        DFETCH = 4'b1000
+        DSTORE = 4'b1001
+WARNING:Xst:647 - Input <op<0:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <op<6:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 4-bit register for signal <curstate>.
+    Found finite state machine <FSM_2> for signal <curstate>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 33                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 11                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0001                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred  31 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <L2cache_crl> synthesized.
+
+Synthesizing Unit <mem_buffer>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\mem_buffer.v".
+        INIT = 3'b000
+        RW0 = 3'b001
+        RW1 = 3'b010
+        RW2 = 3'b011
+        RW3 = 3'b100
+        FIN = 3'b101
+    Found 3-bit register for signal <state>.
+    Found 2-bit register for signal <op_>.
+    Found 32-bit register for signal <addr_>.
+    Found 32-bit register for signal <buf0>.
+    Found 32-bit register for signal <buf1>.
+    Found 32-bit register for signal <buf2>.
+    Found 32-bit register for signal <buf3>.
+    Found finite state machine <FSM_3> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 5                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 32-bit 7-to-1 multiplexer for signal <bus_addr> created at line 91.
+    Found 32-bit 4-to-1 multiplexer for signal <bus_wdata> created at line 151.
+    Summary:
+	inferred 162 D-type flip-flop(s).
+	inferred  22 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <mem_buffer> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 26
+ 1024x1-bit dual-port RAM                              : 2
+ 1024x128-bit dual-port RAM                            : 1
+ 1024x18-bit dual-port RAM                             : 1
+ 256x1-bit dual-port RAM                               : 6
+ 256x128-bit dual-port RAM                             : 4
+ 256x2-bit dual-port RAM                               : 4
+ 256x20-bit dual-port RAM                              : 4
+ 4x2-bit single-port Read Only RAM                     : 4
+# Registers                                            : 45
+ 1-bit register                                        : 10
+ 128-bit register                                      : 6
+ 18-bit register                                       : 1
+ 2-bit register                                        : 6
+ 20-bit register                                       : 4
+ 32-bit register                                       : 14
+ 4-bit register                                        : 1
+ 7-bit register                                        : 1
+ 8-bit register                                        : 1
+ 9-bit register                                        : 1
+# Comparators                                          : 29
+ 10-bit comparator equal                               : 4
+ 18-bit comparator equal                               : 1
+ 2-bit comparator greater                              : 2
+ 20-bit comparator equal                               : 4
+ 8-bit comparator equal                                : 18
+# Multiplexers                                         : 449
+ 1-bit 2-to-1 multiplexer                              : 341
+ 1-bit 4-to-1 multiplexer                              : 8
+ 10-bit 2-to-1 multiplexer                             : 2
+ 128-bit 2-to-1 multiplexer                            : 10
+ 128-bit 4-to-1 multiplexer                            : 3
+ 16-bit 4-to-1 multiplexer                             : 24
+ 18-bit 2-to-1 multiplexer                             : 4
+ 2-bit 2-to-1 multiplexer                              : 8
+ 20-bit 2-to-1 multiplexer                             : 9
+ 32-bit 2-to-1 multiplexer                             : 32
+ 32-bit 4-to-1 multiplexer                             : 7
+ 32-bit 7-to-1 multiplexer                             : 1
+# FSMs                                                 : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <i_addr__0> (without init value) has a constant value of 0 in block <L2_cache_>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i_addr__1> (without init value) has a constant value of 0 in block <L2_cache_>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i_addr__2> (without init value) has a constant value of 0 in block <L2_cache_>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i_addr__3> (without init value) has a constant value of 0 in block <L2_cache_>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <op__7> (without init value) has a constant value of 1 in block <I_cache_>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <op__6> (without init value) has a constant value of 0 in block <D_cache_>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <op__0> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op__3> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op__4> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op__5> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op__6> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__0> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__1> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__2> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__3> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__14> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__15> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__16> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__17> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__18> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__19> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__20> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__21> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__22> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__23> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__24> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__25> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__26> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__27> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__28> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__29> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__30> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <op_index__31> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__18> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__19> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__20> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__21> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__22> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__23> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__24> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__25> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__26> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__27> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__28> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__29> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__30> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__31> of sequential type is unconnected in block <L2_cache_>.
+WARNING:Xst:2677 - Node <addr__0> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <addr__1> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__20> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__21> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__22> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__23> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__24> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__25> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__26> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__27> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__28> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__29> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__30> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__31> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <op__3> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <op__6> of sequential type is unconnected in block <I_cache_>.
+WARNING:Xst:2677 - Node <addr__0> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <addr__1> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__20> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__21> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__22> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__23> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__24> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__25> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__26> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__27> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__28> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__29> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__30> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <Tag_Lo__31> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <op__3> of sequential type is unconnected in block <D_cache_>.
+WARNING:Xst:2677 - Node <addr__0> of sequential type is unconnected in block <Mem_buf>.
+WARNING:Xst:2677 - Node <addr__1> of sequential type is unconnected in block <Mem_buf>.
+WARNING:Xst:2677 - Node <addr__2> of sequential type is unconnected in block <Mem_buf>.
+WARNING:Xst:2677 - Node <addr__3> of sequential type is unconnected in block <Mem_buf>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <op__5> is unconnected in block <I_cache_>.
+
+Synthesizing (advanced) Unit <D_cache>.
+INFO:Xst:3226 - The RAM <data1/Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <data1/r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <data1_w>       | high     |
+    |     addrA          | connected to signal <addr_<11:4>>   |          |
+    |     diA            | connected to signal <data1_wdata>   |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     enB            | connected to signal <cache_ready>   | high     |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to signal <data1_data>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <data0/Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <data0/r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <data0_w>       | high     |
+    |     addrA          | connected to signal <addr_<11:4>>   |          |
+    |     diA            | connected to signal <data0_wdata>   |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     enB            | connected to signal <cache_ready>   | high     |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to signal <data0_data>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <tag1/Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <tag1/r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <tag1_w>        | high     |
+    |     addrA          | connected to signal <addr_<11:4>>   |          |
+    |     diA            | connected to signal <tag1_wdata>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     enB            | connected to signal <cache_ready>   | high     |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to signal <tag1_data>     |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <tag0/Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <tag0/r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <tag0_w>        | high     |
+    |     addrA          | connected to signal <addr_<11:4>>   |          |
+    |     diA            | connected to signal <tag0_wdata>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     enB            | connected to signal <cache_ready>   | high     |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to signal <tag0_data>     |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <D_cache> synthesized (advanced).
+
+Synthesizing (advanced) Unit <I_cache>.
+INFO:Xst:3226 - The RAM <tag1/Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <tag1/r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <tag1_w>        | high     |
+    |     addrA          | connected to signal <addr_<11:4>>   |          |
+    |     diA            | connected to signal <tag1_wdata>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     enB            | connected to signal <cache_ready>   | high     |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to signal <tag1_data>     |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <tag0/Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <tag0/r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <tag0_w>        | high     |
+    |     addrA          | connected to signal <addr_<11:4>>   |          |
+    |     diA            | connected to signal <tag0_wdata>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 20-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     enB            | connected to signal <cache_ready>   | high     |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to signal <tag0_data>     |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <data1/Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <data1/r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <data1_w>       | high     |
+    |     addrA          | connected to signal <addr_<11:4>>   |          |
+    |     diA            | connected to signal <mem_data>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     enB            | connected to signal <cache_ready>   | high     |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to signal <data1_data>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <data0/Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <data0/r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <data0_w>       | high     |
+    |     addrA          | connected to signal <addr_<11:4>>   |          |
+    |     diA            | connected to signal <mem_data>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 128-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     enB            | connected to signal <cache_ready>   | high     |
+    |     addrB          | connected to signal <addr<11:4>>    |          |
+    |     doB            | connected to signal <data0_data>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <I_cache> synthesized (advanced).
+
+Synthesizing (advanced) Unit <LUT_countdown>.
+INFO:Xst:3231 - The small RAM <Mram_nxt_count> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 2-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <cur_count>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <nxt_count>     |          |
+    -----------------------------------------------------------------------
+Unit <LUT_countdown> synthesized (advanced).
+
+Synthesizing (advanced) Unit <cache_mem_1>.
+INFO:Xst:3231 - The small RAM <Mram_data> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 1-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <w_en>          | high     |
+    |     addrA          | connected to signal <w_addr>        |          |
+    |     diA            | connected to signal <w_data>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 1-bit                    |          |
+    |     addrB          | connected to signal <r_addr>        |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <cache_mem_1> synthesized (advanced).
+
+Synthesizing (advanced) Unit <cache_mem_4>.
+INFO:Xst:3231 - The small RAM <Mram_data> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 2-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <w_en>          | high     |
+    |     addrA          | connected to signal <w_addr>        |          |
+    |     diA            | connected to signal <w_data>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 2-bit                    |          |
+    |     addrB          | connected to signal <r_addr>        |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <cache_mem_4> synthesized (advanced).
+
+Synthesizing (advanced) Unit <cache_mem_5>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_data> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 1024-word x 1-bit                   |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <w_en>          | high     |
+    |     addrA          | connected to signal <w_addr>        |          |
+    |     diA            | connected to signal <w_data>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 1024-word x 1-bit                   |          |
+    |     addrB          | connected to signal <r_addr>        |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <cache_mem_5> synthesized (advanced).
+
+Synthesizing (advanced) Unit <cache_mem_6>.
+INFO:Xst:3226 - The RAM <Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 1024-word x 18-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <w_en>          | high     |
+    |     addrA          | connected to signal <w_addr>        |          |
+    |     diA            | connected to signal <w_data>        |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 1024-word x 18-bit                  |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     addrB          | connected to signal <r_addr>        |          |
+    |     doB            | connected to signal <r_data>        |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <cache_mem_6> synthesized (advanced).
+
+Synthesizing (advanced) Unit <cache_mem_7>.
+INFO:Xst:3226 - The RAM <Mram_data> will be implemented as a BLOCK RAM, absorbing the following register(s): <r_data>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 1024-word x 128-bit                 |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <w_en>          | high     |
+    |     addrA          | connected to signal <w_addr>        |          |
+    |     diA            | connected to signal <w_data>        |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 1024-word x 128-bit                 |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     addrB          | connected to signal <r_addr>        |          |
+    |     doB            | connected to signal <r_data>        |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <cache_mem_7> synthesized (advanced).
+WARNING:Xst:2677 - Node <op_index__0> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__1> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__2> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__3> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__14> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__15> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__16> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__17> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__18> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__19> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__20> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__21> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__22> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__23> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__24> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__25> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__26> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__27> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__28> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__29> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__30> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <op_index__31> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__18> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__19> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__20> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__21> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__22> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__23> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__24> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__25> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__26> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__27> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__28> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__29> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__30> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__31> of sequential type is unconnected in block <L2_cache>.
+WARNING:Xst:2677 - Node <addr__0> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <addr__1> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__20> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__21> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__22> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__23> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__24> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__25> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__26> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__27> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__28> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__29> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__30> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__31> of sequential type is unconnected in block <I_cache>.
+WARNING:Xst:2677 - Node <addr__0> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <addr__1> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__20> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__21> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__22> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__23> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__24> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__25> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__26> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__27> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__28> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__29> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__30> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <Tag_Lo__31> of sequential type is unconnected in block <D_cache>.
+WARNING:Xst:2677 - Node <addr__0> of sequential type is unconnected in block <mem_buffer>.
+WARNING:Xst:2677 - Node <addr__1> of sequential type is unconnected in block <mem_buffer>.
+WARNING:Xst:2677 - Node <addr__2> of sequential type is unconnected in block <mem_buffer>.
+WARNING:Xst:2677 - Node <addr__3> of sequential type is unconnected in block <mem_buffer>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 26
+ 1024x1-bit dual-port distributed RAM                  : 2
+ 1024x128-bit dual-port block RAM                      : 1
+ 1024x18-bit dual-port block RAM                       : 1
+ 256x1-bit dual-port distributed RAM                   : 6
+ 256x128-bit dual-port block RAM                       : 4
+ 256x2-bit dual-port distributed RAM                   : 4
+ 256x20-bit dual-port block RAM                        : 4
+ 4x2-bit single-port distributed Read Only RAM         : 4
+# Registers                                            : 558
+ Flip-Flops                                            : 558
+# Comparators                                          : 19
+ 10-bit comparator equal                               : 2
+ 18-bit comparator equal                               : 1
+ 2-bit comparator greater                              : 2
+ 20-bit comparator equal                               : 4
+ 8-bit comparator equal                                : 10
+# Multiplexers                                         : 578
+ 1-bit 2-to-1 multiplexer                              : 455
+ 1-bit 4-to-1 multiplexer                              : 40
+ 10-bit 2-to-1 multiplexer                             : 1
+ 128-bit 2-to-1 multiplexer                            : 5
+ 128-bit 4-to-1 multiplexer                            : 3
+ 16-bit 4-to-1 multiplexer                             : 24
+ 18-bit 2-to-1 multiplexer                             : 3
+ 2-bit 2-to-1 multiplexer                              : 8
+ 20-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 31
+ 32-bit 4-to-1 multiplexer                             : 6
+ 32-bit 7-to-1 multiplexer                             : 1
+# FSMs                                                 : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <op__7> (without init value) has a constant value of 1 in block <I_cache>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <op__6> (without init value) has a constant value of 0 in block <L2_cache>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <op__6> (without init value) has a constant value of 0 in block <D_cache>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <L2_cache_/L2cache_crl_/FSM_2> on signal <curstate[1:4]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0001  | 0001
+ 1010  | 1010
+ 0100  | 0100
+ 0101  | 0101
+ 1000  | 1000
+ 0111  | 0111
+ 1001  | 1001
+ 0110  | 0110
+ 0011  | 0011
+ 0010  | 0010
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <I_cache_/I_cache_crl_/FSM_0> on signal <curstate[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <D_cache_/D_cache_crl_/FSM_1> on signal <curstate[1:3]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 011   | 001
+ 100   | 011
+ 001   | 010
+ 010   | 110
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <Mem_buf/FSM_3> on signal <state[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+ 101   | 101
+-------------------
+
+Optimizing unit <cache> ...
+
+Optimizing unit <L2_cache> ...
+
+Optimizing unit <L2cache_crl> ...
+
+Optimizing unit <I_cache> ...
+
+Optimizing unit <I_cache_crl> ...
+
+Optimizing unit <D_cache> ...
+
+Optimizing unit <D_cache_crl> ...
+
+Optimizing unit <mem_buffer> ...
+WARNING:Xst:2677 - Node <L2_cache_/d_addr__3> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/d_addr__2> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/d_addr__1> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/d_addr__0> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/op__5> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/op__4> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/op__3> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/op__0> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/i_addr__3> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/i_addr__2> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/i_addr__1> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <L2_cache_/i_addr__0> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <I_cache_/op__6> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <I_cache_/op__5> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <I_cache_/op__3> of sequential type is unconnected in block <cache>.
+WARNING:Xst:2677 - Node <D_cache_/op__3> of sequential type is unconnected in block <cache>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block cache, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 551
+ Flip-Flops                                            : 551
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : cache.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 2414
+#      GND                         : 1
+#      LUT1                        : 1
+#      LUT2                        : 32
+#      LUT3                        : 569
+#      LUT4                        : 515
+#      LUT5                        : 435
+#      LUT6                        : 746
+#      MUXCY                       : 42
+#      MUXF7                       : 72
+#      VCC                         : 1
+# FlipFlops/Latches                : 551
+#      FD                          : 1
+#      FDC                         : 3
+#      FDE                         : 538
+#      FDR                         : 8
+#      FDS                         : 1
+# RAMS                             : 61
+#      RAM128X1D                   : 44
+#      RAMB18E1                    : 5
+#      RAMB36E1                    : 12
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 387
+#      IBUF                        : 190
+#      OBUF                        : 197
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7k325tffg676-2l 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             551  out of  407600     0%  
+ Number of Slice LUTs:                 2474  out of  203800     1%  
+    Number used as Logic:              2298  out of  203800     1%  
+    Number used as Memory:              176  out of  64000     0%  
+       Number used as RAM:              176
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   2606
+   Number with an unused Flip Flop:    2055  out of   2606    78%  
+   Number with an unused LUT:           132  out of   2606     5%  
+   Number of fully used LUT-FF pairs:   419  out of   2606    16%  
+   Number of unique control sets:        12
+
+IO Utilization: 
+ Number of IOs:                         440
+ Number of bonded IOBs:                 388  out of    400    97%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:               15  out of    445     3%  
+    Number using Block RAM only:         15
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 612   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+--------------------------------------------------+------------------------------+-------+
+Control Signal                                    | Buffer(FF name)              | Load  |
+--------------------------------------------------+------------------------------+-------+
+L2_cache_/t_w(L2_cache_/L2cache_crl_/Mmux_t_w11:O)| NONE(L2_cache_/Tag/Mram_data)| 2     |
+--------------------------------------------------+------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 4.646ns (Maximum Frequency: 215.253MHz)
+   Minimum input arrival time before clock: 2.675ns
+   Maximum output required time after clock: 4.887ns
+   Maximum combinational path delay: 2.688ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.646ns (frequency: 215.253MHz)
+  Total number of paths / destination ports: 255150 / 2118
+-------------------------------------------------------------------------
+Delay:               4.646ns (Levels of Logic = 11)
+  Source:            D_cache_/tag0/Mram_data (RAM)
+  Destination:       D_cache_/data1/Mram_data2 (RAM)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: D_cache_/tag0/Mram_data to D_cache_/data1/Mram_data2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB18E1:CLKARDCLK->DOADO2    3   1.800   0.507  D_cache_/tag0/Mram_data (D_cache_/tag0_data<2>)
+     LUT6:I3->O            1   0.043   0.000  D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_lut<0> (D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<0> (D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<1> (D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<2> (D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<2>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<3> (D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<4> (D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<5> (D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<5>)
+     MUXCY:CI->O          26   0.013   0.479  D_cache_/Mcompar_tag0_data[19]_tag_[19]_equal_22_o_cy<6> (D_cache_/tag0_data[19]_tag_[19]_equal_22_o)
+     LUT2:I1->O            1   0.043   0.350  D_cache_/cache_hit_01_1 (D_cache_/cache_hit_01)
+     LUT6:I5->O          128   0.043   0.498  D_cache_/D_cache_crl_/Mmux_count1_wdata_s151 (D_cache_/data1_wdata_s)
+     LUT6:I5->O            1   0.043   0.339  D_cache_/Mmux_data1_wdata1731 (D_cache_/data1_wdata<74>)
+     RAMB36E1:DIADI2           0.182          D_cache_/data1/Mram_data2
+    ----------------------------------------
+    Total                      4.646ns (2.473ns logic, 2.173ns route)
+                                       (53.2% logic, 46.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 1840 / 1095
+-------------------------------------------------------------------------
+Offset:              2.675ns (Levels of Logic = 4)
+  Source:            rst (PAD)
+  Destination:       D_cache_/count1/Mram_data4 (RAM)
+  Destination Clock: clk rising
+
+  Data Path: rst to D_cache_/count1/Mram_data4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           193   0.000   0.655  rst_IBUF (rst_IBUF)
+     LUT4:I1->O            4   0.043   0.539  D_cache_/D_cache_crl_/Mmux_count0_wdata_s1101 (D_cache_/D_cache_crl_/Mmux_count0_wdata_s110)
+     LUT4:I0->O            1   0.043   0.522  D_cache_/D_cache_crl_/Mmux_count1_wdata_s11_SW5 (N99)
+     LUT5:I1->O            3   0.043   0.000  D_cache_/Mmux_count1_wdata21 (D_cache_/count1_wdata<1>)
+     RAM128X1D:D               0.830          D_cache_/count1/Mram_data3
+    ----------------------------------------
+    Total                      2.675ns (0.959ns logic, 1.716ns route)
+                                       (35.8% logic, 64.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 59346 / 151
+-------------------------------------------------------------------------
+Offset:              4.887ns (Levels of Logic = 12)
+  Source:            D_cache_/tag1/Mram_data (RAM)
+  Destination:       ready (PAD)
+  Source Clock:      clk rising
+
+  Data Path: D_cache_/tag1/Mram_data to ready
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB18E1:CLKARDCLK->DOADO2    3   1.800   0.507  D_cache_/tag1/Mram_data (D_cache_/tag1_data<2>)
+     LUT6:I3->O            1   0.043   0.000  D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_lut<0> (D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<0> (D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<1> (D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<2> (D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<2>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<3> (D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<4> (D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<5> (D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<5>)
+     MUXCY:CI->O          21   0.151   0.461  D_cache_/Mcompar_tag1_data[19]_tag_[19]_equal_23_o_cy<6> (D_cache_/tag1_data[19]_tag_[19]_equal_23_o)
+     LUT6:I5->O            1   0.043   0.405  D_cache_/D_cache_crl_/Mmux_cache_ready33 (D_cache_/D_cache_crl_/Mmux_cache_ready32)
+     LUT6:I4->O          108   0.043   0.747  D_cache_/D_cache_crl_/Mmux_cache_ready36 (dcache_ready)
+     LUT5:I0->O            1   0.043   0.339  ready1 (ready_OBUF)
+     OBUF:I->O                 0.000          ready_OBUF (ready)
+    ----------------------------------------
+    Total                      4.887ns (2.428ns logic, 2.459ns route)
+                                       (49.7% logic, 50.3% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 127 / 86
+-------------------------------------------------------------------------
+Delay:               2.688ns (Levels of Logic = 6)
+  Source:            rst (PAD)
+  Destination:       ready (PAD)
+
+  Data Path: rst to ready
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           193   0.000   0.773  rst_IBUF (rst_IBUF)
+     LUT6:I0->O            1   0.043   0.000  D_cache_/D_cache_crl_/Mmux_cache_ready32_G (N1182)
+     MUXF7:I1->O           1   0.178   0.522  D_cache_/D_cache_crl_/Mmux_cache_ready32 (D_cache_/D_cache_crl_/Mmux_cache_ready31)
+     LUT6:I2->O          108   0.043   0.747  D_cache_/D_cache_crl_/Mmux_cache_ready36 (dcache_ready)
+     LUT5:I0->O            1   0.043   0.339  ready1 (ready_OBUF)
+     OBUF:I->O                 0.000          ready_OBUF (ready)
+    ----------------------------------------
+    Total                      2.688ns (0.307ns logic, 2.381ns route)
+                                       (11.4% logic, 88.6% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    4.646|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 26.00 secs
+Total CPU time to Xst completion: 25.31 secs
+ 
+--> 
+
+Total memory usage is 447672 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  180 (   0 filtered)
+Number of infos    :   14 (   0 filtered)
+

@@ -3,13 +3,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: L2_cache.prj
@@ -144,7 +144,7 @@ WARNING:Xst:647 - Input <Tag_Hi> is never used. This port will be preserved and 
     Found 32-bit register for signal <op_index_>.
     Found 32-bit register for signal <Tag_Lo_>.
     Found 2-bit register for signal <d_op_>.
-    Found 18-bit comparator equal for signal <t_data[17]_d_addr_[31]_equal_27_o> created at line 176
+    Found 18-bit comparator equal for signal <t_data[17]_d_addr_[31]_equal_27_o> created at line 177
     Summary:
 	inferred 266 D-type flip-flop(s).
 	inferred   1 Comparator(s).
@@ -195,34 +195,34 @@ Unit <cache_mem_3> synthesized.
 
 Synthesizing Unit <L2cache_crl>.
     Related source file is "F:\MyProgramme\0arch\PCPU\L2cache_crl.v".
-        INIT = 3'b000
-        OP = 3'b001
-        IOP = 3'b010
-        DOP = 3'b011
-        IFETCH = 3'b100
-        DWB = 3'b101
-        DFETCH = 3'b110
+        INIT = 4'b0001
+        DECODE = 4'b1010
+        OP = 4'b0010
+        IOP = 4'b0011
+        IFETCH = 4'b0100
+        ISTORE = 4'b0101
+        DOP = 4'b0110
+        DWB = 4'b0111
+        DFETCH = 4'b1000
+        DSTORE = 4'b1001
 WARNING:Xst:647 - Input <op<0:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <op<6:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 3-bit register for signal <curstate>.
+    Found 4-bit register for signal <curstate>.
     Found finite state machine <FSM_0> for signal <curstate>.
     -----------------------------------------------------------------------
-    | States             | 7                                              |
-    | Transitions        | 26                                             |
+    | States             | 10                                             |
+    | Transitions        | 33                                             |
     | Inputs             | 9                                              |
-    | Outputs            | 3                                              |
+    | Outputs            | 11                                             |
     | Clock              | clk (rising_edge)                              |
     | Reset              | rst (positive)                                 |
     | Reset type         | synchronous                                    |
-    | Reset State        | 000                                            |
+    | Reset State        | 0001                                           |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 1-bit 8-to-1 multiplexer for signal <addr_s> created at line 129.
-    Found 1-bit 8-to-1 multiplexer for signal <t_w> created at line 129.
-    Found 1-bit 7-to-1 multiplexer for signal <mem_r> created at line 129.
     Summary:
-	inferred  61 Multiplexer(s).
+	inferred  31 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <L2cache_crl> synthesized.
 
@@ -244,10 +244,8 @@ Macro Statistics
 # Comparators                                          : 5
  10-bit comparator equal                               : 4
  18-bit comparator equal                               : 1
-# Multiplexers                                         : 74
- 1-bit 2-to-1 multiplexer                              : 60
- 1-bit 7-to-1 multiplexer                              : 1
- 1-bit 8-to-1 multiplexer                              : 2
+# Multiplexers                                         : 44
+ 1-bit 2-to-1 multiplexer                              : 33
  10-bit 2-to-1 multiplexer                             : 2
  128-bit 2-to-1 multiplexer                            : 3
  18-bit 2-to-1 multiplexer                             : 4
@@ -422,10 +420,8 @@ Macro Statistics
 # Comparators                                          : 3
  10-bit comparator equal                               : 2
  18-bit comparator equal                               : 1
-# Multiplexers                                         : 110
- 1-bit 2-to-1 multiplexer                              : 100
- 1-bit 7-to-1 multiplexer                              : 1
- 1-bit 8-to-1 multiplexer                              : 2
+# Multiplexers                                         : 80
+ 1-bit 2-to-1 multiplexer                              : 73
  10-bit 2-to-1 multiplexer                             : 1
  128-bit 2-to-1 multiplexer                            : 2
  18-bit 2-to-1 multiplexer                             : 3
@@ -438,17 +434,20 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <L2cache_crl_/FSM_0> on signal <curstate[1:3]> with user encoding.
+Optimizing FSM <L2cache_crl_/FSM_0> on signal <curstate[1:4]> with user encoding.
 -------------------
  State | Encoding
 -------------------
- 000   | 000
- 011   | 011
- 010   | 010
- 001   | 001
- 100   | 100
- 110   | 110
- 101   | 101
+ 0001  | 0001
+ 1010  | 1010
+ 0100  | 0100
+ 0101  | 0101
+ 1000  | 1000
+ 0111  | 0111
+ 1001  | 1001
+ 0110  | 0110
+ 0011  | 0011
+ 0010  | 0010
 -------------------
 
 Optimizing unit <L2_cache> ...
@@ -463,8 +462,7 @@ WARNING:Xst:2677 - Node <op__6> of sequential type is unconnected in block <L2_c
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block L2_cache, actual ratio is 0.
-FlipFlop L2cache_crl_/curstate_FSM_FFd1 has been replicated 2 time(s)
-FlipFlop L2cache_crl_/curstate_FSM_FFd2 has been replicated 2 time(s)
+FlipFlop L2cache_crl_/curstate_FSM_FFd1 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -472,8 +470,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 234
- Flip-Flops                                            : 234
+# Registers                                            : 232
+ Flip-Flops                                            : 232
 
 =========================================================================
 
@@ -496,20 +494,20 @@ Top Level Output File Name         : L2_cache.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 608
+# BELS                             : 417
 #      GND                         : 1
 #      LUT2                        : 5
-#      LUT3                        : 484
-#      LUT4                        : 21
-#      LUT5                        : 56
-#      LUT6                        : 31
-#      MUXCY                       : 6
-#      MUXF7                       : 3
+#      LUT3                        : 296
+#      LUT4                        : 1
+#      LUT5                        : 47
+#      LUT6                        : 56
+#      MUXCY                       : 8
+#      MUXF7                       : 2
 #      VCC                         : 1
-# FlipFlops/Latches                : 234
-#      FD                          : 195
-#      FDE                         : 32
-#      FDR                         : 7
+# FlipFlops/Latches                : 232
+#      FDE                         : 227
+#      FDR                         : 4
+#      FDS                         : 1
 # RAMS                             : 21
 #      RAM128X1D                   : 16
 #      RAMB18E1                    : 1
@@ -527,18 +525,18 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             234  out of  407600     0%  
- Number of Slice LUTs:                  661  out of  203800     0%  
-    Number used as Logic:               597  out of  203800     0%  
+ Number of Slice Registers:             232  out of  407600     0%  
+ Number of Slice LUTs:                  469  out of  203800     0%  
+    Number used as Logic:               405  out of  203800     0%  
     Number used as Memory:               64  out of  64000     0%  
        Number used as RAM:               64
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    693
-   Number with an unused Flip Flop:     459  out of    693    66%  
-   Number with an unused LUT:            32  out of    693     4%  
-   Number of fully used LUT-FF pairs:   202  out of    693    29%  
-   Number of unique control sets:         4
+ Number of LUT Flip Flop pairs used:    549
+   Number with an unused Flip Flop:     317  out of    549    57%  
+   Number with an unused LUT:            80  out of    549    14%  
+   Number of fully used LUT-FF pairs:   152  out of    549    27%  
+   Number of unique control sets:         3
 
 IO Utilization: 
  Number of IOs:                         787
@@ -572,7 +570,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 255   |
+clk                                | BUFGP                  | 253   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -580,17 +578,17 @@ Asynchronous Control Signals Information:
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-t_w(L2cache_crl_/Mmux_t_w12:O)     | NONE(Tag/Mram_data)    | 2     |
+t_w(L2cache_crl_/Mmux_t_w11:O)     | NONE(Tag/Mram_data)    | 2     |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 4.688ns (Maximum Frequency: 213.300MHz)
-   Minimum input arrival time before clock: 3.934ns
-   Maximum output required time after clock: 5.821ns
-   Maximum combinational path delay: 5.067ns
+   Minimum period: 4.278ns (Maximum Frequency: 233.740MHz)
+   Minimum input arrival time before clock: 1.245ns
+   Maximum output required time after clock: 4.209ns
+   Maximum combinational path delay: 0.737ns
 
 Timing Details:
 ---------------
@@ -598,132 +596,101 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 4.688ns (frequency: 213.300MHz)
-  Total number of paths / destination ports: 84574 / 546
+  Clock period: 4.278ns (frequency: 233.740MHz)
+  Total number of paths / destination ports: 38947 / 544
 -------------------------------------------------------------------------
-Delay:               4.688ns (Levels of Logic = 13)
-  Source:            L2cache_crl_/curstate_FSM_FFd1_1 (FF)
-  Destination:       d_op__0 (FF)
+Delay:               4.278ns (Levels of Logic = 9)
+  Source:            Tag/Mram_data (RAM)
+  Destination:       D/Mram_data1 (RAM)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: L2cache_crl_/curstate_FSM_FFd1_1 to d_op__0
+  Data Path: Tag/Mram_data to D/Mram_data1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              1   0.236   0.603  L2cache_crl_/curstate_FSM_FFd1_1 (L2cache_crl_/curstate_FSM_FFd1_1)
-     LUT5:I0->O            4   0.043   0.367  L2cache_crl_/Mmux_t_w11111 (L2cache_crl_/Mmux_t_w1111)
-     LUT6:I5->O           45   0.043   0.482  L2cache_crl_/Mmux_d_wdata12 (d_wdata)
-     LUT6:I5->O           44   0.043   0.482  L2cache_crl_/Mmux_addr_s1 (addr_s)
-     LUT3:I2->O            1   0.043   0.495  Mmux_d_addr_[31]_i_addr_[31]_mux_25_OUT141 (d_addr_[31]_i_addr_[31]_mux_25_OUT<5>)
-     LUT6:I3->O            1   0.043   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<1>)
-     MUXCY:S->O            1   0.238   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1>)
+     RAMB18E1:CLKARDCLK->DOBDO2    3   1.800   0.507  Tag/Mram_data (Tag_Lo_in_2_OBUF)
+     LUT6:I3->O            1   0.043   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<0> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<0> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1>)
      MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<2> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<2>)
      MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<3> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<3>)
      MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<4> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<4>)
-     MUXCY:CI->O           1   0.150   0.350  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<5> (t_data[17]_d_addr_[31]_equal_27_o)
-     LUT2:I1->O            9   0.043   0.395  cache_hit1 (cache_hit)
-     LUT6:I5->O          163   0.043   0.504  L2cache_crl_/Mmux_cache_ready_d15 (cache_ready_d_OBUF)
-     LUT3:I2->O            1   0.043   0.000  d_op__0_rstpot (d_op__0_rstpot)
-     FD:D                     -0.000          d_op__0
+     MUXCY:CI->O           9   0.013   0.395  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<5> (t_data[17]_d_addr_[31]_equal_27_o)
+     LUT6:I5->O            8   0.043   0.389  L2cache_crl_/Mmux_v_wdata11_1 (L2cache_crl_/Mmux_v_wdata11)
+     LUT6:I5->O            2   0.043   0.344  write_ctrl (write_ctrl)
+     RAM128X1D:WE              0.408          D/Mram_data1
     ----------------------------------------
-    Total                      4.688ns (1.009ns logic, 3.679ns route)
-                                       (21.5% logic, 78.5% route)
+    Total                      4.278ns (2.642ns logic, 1.636ns route)
+                                       (61.8% logic, 38.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 8404 / 553
+  Total number of paths / destination ports: 368 / 363
 -------------------------------------------------------------------------
-Offset:              3.934ns (Levels of Logic = 13)
+Offset:              1.245ns (Levels of Logic = 3)
   Source:            mem_ready (PAD)
-  Destination:       d_op__0 (FF)
+  Destination:       L2cache_crl_/curstate_FSM_FFd4 (FF)
   Destination Clock: clk rising
 
-  Data Path: mem_ready to d_op__0
+  Data Path: mem_ready to L2cache_crl_/curstate_FSM_FFd4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            17   0.000   0.495  mem_ready_IBUF (mem_ready_IBUF)
-     LUT6:I4->O           45   0.043   0.482  L2cache_crl_/Mmux_d_wdata12 (d_wdata)
-     LUT6:I5->O           44   0.043   0.482  L2cache_crl_/Mmux_addr_s1 (addr_s)
-     LUT3:I2->O            1   0.043   0.495  Mmux_d_addr_[31]_i_addr_[31]_mux_25_OUT141 (d_addr_[31]_i_addr_[31]_mux_25_OUT<5>)
-     LUT6:I3->O            1   0.043   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<1>)
-     MUXCY:S->O            1   0.238   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<2> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<2>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<3> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<3>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<4> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<4>)
-     MUXCY:CI->O           1   0.150   0.350  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<5> (t_data[17]_d_addr_[31]_equal_27_o)
-     LUT2:I1->O            9   0.043   0.395  cache_hit1 (cache_hit)
-     LUT6:I5->O          163   0.043   0.504  L2cache_crl_/Mmux_cache_ready_d15 (cache_ready_d_OBUF)
-     LUT3:I2->O            1   0.043   0.000  d_op__0_rstpot (d_op__0_rstpot)
-     FD:D                     -0.000          d_op__0
+     IBUF:I->O             7   0.000   0.637  mem_ready_IBUF (mem_ready_IBUF)
+     LUT6:I1->O            1   0.043   0.522  L2cache_crl_/curstate_FSM_FFd4-In4_SW0 (N64)
+     LUT6:I2->O            1   0.043   0.000  L2cache_crl_/curstate_FSM_FFd4-In5 (L2cache_crl_/curstate_FSM_FFd4-In)
+     FDS:D                    -0.000          L2cache_crl_/curstate_FSM_FFd4
     ----------------------------------------
-    Total                      3.934ns (0.730ns logic, 3.204ns route)
-                                       (18.6% logic, 81.4% route)
+    Total                      1.245ns (0.086ns logic, 1.159ns route)
+                                       (6.9% logic, 93.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 27352 / 184
+  Total number of paths / destination ports: 40703 / 184
 -------------------------------------------------------------------------
-Offset:              5.821ns (Levels of Logic = 15)
-  Source:            L2cache_crl_/curstate_FSM_FFd1_1 (FF)
+Offset:              4.209ns (Levels of Logic = 10)
+  Source:            Tag/Mram_data (RAM)
   Destination:       mem_addr<31> (PAD)
   Source Clock:      clk rising
 
-  Data Path: L2cache_crl_/curstate_FSM_FFd1_1 to mem_addr<31>
+  Data Path: Tag/Mram_data to mem_addr<31>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              1   0.236   0.603  L2cache_crl_/curstate_FSM_FFd1_1 (L2cache_crl_/curstate_FSM_FFd1_1)
-     LUT5:I0->O            4   0.043   0.367  L2cache_crl_/Mmux_t_w11111 (L2cache_crl_/Mmux_t_w1111)
-     LUT6:I5->O           45   0.043   0.482  L2cache_crl_/Mmux_d_wdata12 (d_wdata)
-     LUT6:I5->O           44   0.043   0.482  L2cache_crl_/Mmux_addr_s1 (addr_s)
-     LUT3:I2->O            1   0.043   0.495  Mmux_d_addr_[31]_i_addr_[31]_mux_25_OUT141 (d_addr_[31]_i_addr_[31]_mux_25_OUT<5>)
-     LUT6:I3->O            1   0.043   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<1>)
-     MUXCY:S->O            1   0.238   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1>)
+     RAMB18E1:CLKARDCLK->DOBDO2    3   1.800   0.507  Tag/Mram_data (Tag_Lo_in_2_OBUF)
+     LUT6:I3->O            1   0.043   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<0> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<0> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1>)
      MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<2> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<2>)
      MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<3> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<3>)
      MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<4> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<4>)
-     MUXCY:CI->O           1   0.151   0.350  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<5> (t_data[17]_d_addr_[31]_equal_27_o)
-     LUT2:I1->O            9   0.043   0.395  cache_hit1 (cache_hit)
-     LUT5:I4->O            1   0.043   0.522  L2cache_crl_/curstate_FSM_FFd1-In211 (L2cache_crl_/curstate_FSM_FFd1-In21)
-     LUT5:I1->O           33   0.043   0.733  L2cache_crl_/Mmux_mem_write_back11 (mem_w_OBUF)
-     LUT5:I0->O            1   0.043   0.339  Mmux_mem_addr251 (mem_addr_31_OBUF)
+     MUXCY:CI->O           9   0.013   0.395  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<5> (t_data[17]_d_addr_[31]_equal_27_o)
+     LUT6:I5->O           35   0.043   0.733  L2cache_crl_/curstate_FSM_FFd1-In421 (L2cache_crl_/curstate_FSM_FFd1-In42)
+     LUT6:I1->O            1   0.043   0.339  Mmux_mem_addr251 (mem_addr_31_OBUF)
      OBUF:I->O                 0.000          mem_addr_31_OBUF (mem_addr<31>)
     ----------------------------------------
-    Total                      5.821ns (1.052ns logic, 4.769ns route)
-                                       (18.1% logic, 81.9% route)
+    Total                      4.209ns (2.234ns logic, 1.975ns route)
+                                       (53.1% logic, 46.9% route)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 2772 / 164
+  Total number of paths / destination ports: 128 / 128
 -------------------------------------------------------------------------
-Delay:               5.067ns (Levels of Logic = 15)
-  Source:            mem_ready (PAD)
-  Destination:       mem_addr<31> (PAD)
+Delay:               0.737ns (Levels of Logic = 3)
+  Source:            mem_data<127> (PAD)
+  Destination:       cache_data<127> (PAD)
 
-  Data Path: mem_ready to mem_addr<31>
+  Data Path: mem_data<127> to cache_data<127>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            17   0.000   0.495  mem_ready_IBUF (mem_ready_IBUF)
-     LUT6:I4->O           45   0.043   0.482  L2cache_crl_/Mmux_d_wdata12 (d_wdata)
-     LUT6:I5->O           44   0.043   0.482  L2cache_crl_/Mmux_addr_s1 (addr_s)
-     LUT3:I2->O            1   0.043   0.495  Mmux_d_addr_[31]_i_addr_[31]_mux_25_OUT141 (d_addr_[31]_i_addr_[31]_mux_25_OUT<5>)
-     LUT6:I3->O            1   0.043   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_lut<1>)
-     MUXCY:S->O            1   0.238   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<1>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<2> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<2>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<3> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<3>)
-     MUXCY:CI->O           1   0.013   0.000  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<4> (Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<4>)
-     MUXCY:CI->O           1   0.151   0.350  Mcompar_t_data[17]_d_addr_[31]_equal_27_o_cy<5> (t_data[17]_d_addr_[31]_equal_27_o)
-     LUT2:I1->O            9   0.043   0.395  cache_hit1 (cache_hit)
-     LUT5:I4->O            1   0.043   0.522  L2cache_crl_/curstate_FSM_FFd1-In211 (L2cache_crl_/curstate_FSM_FFd1-In21)
-     LUT5:I1->O           33   0.043   0.733  L2cache_crl_/Mmux_mem_write_back11 (mem_w_OBUF)
-     LUT5:I0->O            1   0.043   0.339  Mmux_mem_addr251 (mem_addr_31_OBUF)
-     OBUF:I->O                 0.000          mem_addr_31_OBUF (mem_addr<31>)
+     IBUF:I->O             2   0.000   0.355  mem_data_127_IBUF (mem_data_127_IBUF)
+     LUT3:I2->O            1   0.043   0.339  Mmux_cache_data311 (cache_data_127_OBUF)
+     OBUF:I->O                 0.000          cache_data_127_OBUF (cache_data<127>)
     ----------------------------------------
-    Total                      5.067ns (0.773ns logic, 4.294ns route)
-                                       (15.3% logic, 84.7% route)
+    Total                      0.737ns (0.043ns logic, 0.694ns route)
+                                       (5.8% logic, 94.2% route)
 
 =========================================================================
 
@@ -735,18 +702,18 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.688|         |         |         |
+clk            |    4.278|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 14.00 secs
-Total CPU time to Xst completion: 13.15 secs
+Total CPU time to Xst completion: 13.64 secs
  
 --> 
 
-Total memory usage is 451576 kilobytes
+Total memory usage is 449208 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   86 (   0 filtered)
