@@ -144,7 +144,7 @@ wire [31:0]mtc0_data;
 		endcase
 	end
 	
-//异常地址 = (STATUS[BEV]? 0x80000000:0xBFC00200) + CAUSE[IV]? 0x200:0x180;
+//异常地址 = (STATUS[BEV]? 0xBFC00200:0x80000000) + CAUSE[IV]? 0x200:0x180;
 	wire [31:0]Exp_addr;
 	Exp_Addr EXP_Addr(
     .INT(INT), 

@@ -1,0 +1,33 @@
+
+
+
+// Instantiate the module
+L2_cache instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .dcache_r(dcache_r), 
+    .dcache_w(dcache_w), 
+    .dcache_addr(dcache_addr), 
+    .dcache_data_in(dcache_data_in), 
+    .cache_ready_d(cache_ready_d), 
+    .icache_r(icache_r), 
+    .icache_addr(icache_addr), 
+    .cache_ready_i(cache_ready_i), 
+    .op(op), 
+    .op_index(op_index), 
+    .cache_ready_op(cache_ready_op), 
+    .mem_ready(mem_ready), 
+    .mem_data(mem_data), 
+    .mem_addr(mem_addr), 
+    .mem_data_out(mem_data_out), 
+    .mem_r(mem_r), 
+    .mem_w(mem_w), 
+    .cache_data(cache_data), 
+    .Tag_Lo(Tag_Lo), 
+    .Tag_Hi(Tag_Hi), 
+    .Tag_Lo_in(Tag_Lo_in), 
+    .Tag_Hi_in(Tag_Hi_in), 
+    .cache_tag_w(cache_tag_w)
+    );
+
+

@@ -1,6 +1,7 @@
 .section .text
 li $s0, 0xb0010004;
-sw $0, 0($s0); #text mode
+addi $t0, $0, 1;
+sw $t0, 0($s0); #text mode
 
 add $t0, $0, $0;
 addi $t1, $0, 256;

@@ -1,0 +1,36 @@
+
+
+
+// Instantiate the module
+L2cache_crl instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .d_op(d_op), 
+    .i_op(i_op), 
+    .op(op), 
+    .v_data(v_data), 
+    .d_data(d_data), 
+    .cache_hit(cache_hit), 
+    .mem_ready(mem_ready), 
+    .addr_s(addr_s), 
+    .v_wdata(v_wdata), 
+    .v_w(v_w), 
+    .d_wdata(d_wdata), 
+    .d_w(d_w), 
+    .t_in(t_in), 
+    .t_ds(t_ds), 
+    .t_w(t_w), 
+    .da_ds(da_ds), 
+    .mem_write_back(mem_write_back), 
+    .mem_addr_s(mem_addr_s), 
+    .mem_r(mem_r), 
+    .mem_w(mem_w), 
+    .data_mem(data_mem), 
+    .data_d(data_d), 
+    .cache_tag_w(cache_tag_w), 
+    .cache_ready_i(cache_ready_i), 
+    .cache_ready_d(cache_ready_d), 
+    .cache_ready_op(cache_ready_op)
+    );
+
+

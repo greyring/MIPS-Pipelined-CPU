@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: top.prj
 
@@ -174,8 +174,6 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\regs.v" into library work
 Parsing module <Regs>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\PC.v" into library work
 Parsing module <REG32>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUX4T1_32.v" into library work
-Parsing module <MUX4T1_32>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUL_control.v" into library work
 Parsing module <MUL_control>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUL_ALU.vf" into library work
@@ -192,8 +190,6 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\ID_EXE_REG.v" into library wor
 Parsing module <ID_EXE_REG>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\forward_reg.v" into library work
 Parsing module <forward_reg>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Ext_imm16.v" into library work
-Parsing module <Ext_32>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Exp_Addr.v" into library work
 Parsing module <Exp_Addr>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\EXE_MEM_REG.v" into library work
@@ -208,8 +204,6 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\branch_judge.v" into library w
 Parsing module <branch_judge>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\alu.v" into library work
 Parsing module <alu>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\adder4.v" into library work
-Parsing module <adder4>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\vga_controller.v" into library work
 Parsing module <vga_controller>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\PCPU_v.v" into library work
@@ -233,6 +227,7 @@ Parsing module <Counter>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\clk_gen_sword.v" into library work
 Parsing module <clk_gen_sword>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\top.v" into library work
+Parsing verilog file "define.vh" included at line 21.
 Parsing module <top>.
 
 =========================================================================
@@ -256,7 +251,7 @@ Elaborating module <btn_scan>.
 Elaborating module <santi_jitter>.
 
 Elaborating module <anti_jitter>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 73: Assignment to BTN_OK ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 76: Assignment to BTN_OK ignored, since the identifier is never used
 
 Elaborating module <Display>.
 WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\Display_IO.v" Line 21: Empty module <Display> remains a black box.
@@ -323,23 +318,18 @@ Elaborating module <CAUSE_data>.
 
 Elaborating module <jump_control>.
 
-Elaborating module <MUX4T1_32>.
-
 Elaborating module <Exp_Addr>.
 
 Elaborating module <REG32>.
 
-Elaborating module <adder4>.
-
 Elaborating module <IF_ID_Reg>.
 
 Elaborating module <control>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\control.v" Line 80: Assignment to shift ignored, since the identifier is never used
 
 Elaborating module <Regs>.
 
 Elaborating module <forward_reg>.
-
-Elaborating module <Ext_32>.
 
 Elaborating module <adder32_Sklansky>.
 
@@ -488,14 +478,14 @@ WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\Inst_ROM.v" Lin
 
 Synthesizing Unit <top>.
     Related source file is "F:\MyProgramme\0arch\PCPU\top.v".
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 47: Output port <clk_50m> of the instance <Clk_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 47: Output port <clk_25m> of the instance <Clk_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 47: Output port <clk_10m> of the instance <Clk_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 47: Output port <locked> of the instance <Clk_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 66: Output port <btn_ok> of the instance <Input_switch_btn> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 66: Output port <cr> of the instance <Input_switch_btn> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 84: Output port <segclrn> of the instance <display> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 177: Output port <busy> of the instance <Vga_controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 54: Output port <clk_50m> of the instance <Clk_gen> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 54: Output port <clk_25m> of the instance <Clk_gen> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 54: Output port <clk_10m> of the instance <Clk_gen> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 54: Output port <locked> of the instance <Clk_gen> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 69: Output port <btn_ok> of the instance <Input_switch_btn> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 69: Output port <cr> of the instance <Input_switch_btn> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 87: Output port <segclrn> of the instance <display> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 180: Output port <busy> of the instance <Vga_controller> is unconnected or connected to loadless signal.
     Summary:
 	inferred   1 Multiplexer(s).
 Unit <top> synthesized.
@@ -592,8 +582,8 @@ Unit <MIO> synthesized.
 
 Synthesizing Unit <vga_controller>.
     Related source file is "F:\MyProgramme\0arch\PCPU\vga_controller.v".
-        GRAPH = 2'b01
-        TEXT = 2'b00
+        GRAPH = 2'b00
+        TEXT = 2'b01
     Found 32-bit register for signal <status>.
     Summary:
 	inferred  32 D-type flip-flop(s).
@@ -699,11 +689,18 @@ Unit <Counter> synthesized.
 
 Synthesizing Unit <PCPU_v>.
     Related source file is "F:\MyProgramme\0arch\PCPU\PCPU_v.v".
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 287: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 406: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
-    Found 32-bit 4-to-1 multiplexer for signal <_n0109> created at line 468.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 304: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 420: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
+    Found 32-bit adder for signal <npc> created at line 176.
+    Found 32-bit adder for signal <exe_npc[31]_GND_26_o_add_13_OUT> created at line 430.
+    Found 32-bit 4-to-1 multiplexer for signal <PC_jump> created at line 139.
+    Found 5-bit 4-to-1 multiplexer for signal <id_rega_addr> created at line 233.
+    Found 5-bit 4-to-1 multiplexer for signal <id_regb_addr> created at line 242.
+    Found 5-bit 4-to-1 multiplexer for signal <id_wb_dreg> created at line 251.
+    Found 32-bit 4-to-1 multiplexer for signal <_n0125> created at line 475.
     Summary:
-	inferred   4 Multiplexer(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  12 Multiplexer(s).
 Unit <PCPU_v> synthesized.
 
 Synthesizing Unit <CP0>.
@@ -782,16 +779,9 @@ Synthesizing Unit <jump_control>.
 	inferred   2 Multiplexer(s).
 Unit <jump_control> synthesized.
 
-Synthesizing Unit <MUX4T1_32>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\MUX4T1_32.v".
-    Found 32-bit 4-to-1 multiplexer for signal <o> created at line 30.
-    Summary:
-	inferred   1 Multiplexer(s).
-Unit <MUX4T1_32> synthesized.
-
 Synthesizing Unit <Exp_Addr>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Exp_Addr.v".
-    Found 32-bit adder for signal <PWR_38_o_GND_38_o_add_3_OUT> created at line 35.
+    Found 32-bit adder for signal <PWR_37_o_GND_37_o_add_3_OUT> created at line 35.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 Multiplexer(s).
@@ -804,13 +794,6 @@ Synthesizing Unit <REG32>.
 	inferred  32 D-type flip-flop(s).
 Unit <REG32> synthesized.
 
-Synthesizing Unit <adder4>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\adder4.v".
-    Found 32-bit adder for signal <nextPc> created at line 26.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-Unit <adder4> synthesized.
-
 Synthesizing Unit <IF_ID_Reg>.
     Related source file is "F:\MyProgramme\0arch\PCPU\IF_ID_Reg.v".
     Found 96-bit register for signal <temp>.
@@ -820,8 +803,26 @@ Unit <IF_ID_Reg> synthesized.
 
 Synthesizing Unit <control>.
     Related source file is "F:\MyProgramme\0arch\PCPU\control.v".
+        NO = 2'b00
+        RS = 2'b01
+        RA = 2'b01
+        RT = 2'b10
+        RD = 2'b11
+        MEM = 3'b000
+        ALU = 3'b001
+        CP0 = 3'b010
+        MUL = 3'b011
+        AND = 4'b0000
+        OR = 4'b0001
+        ADD = 4'b0010
+        XOR = 4'b0011
+        NOR = 4'b0100
+        SRL = 4'b0101
+        SUB = 4'b0110
+        SLT = 4'b0111
+        SLL = 4'b1000
     Summary:
-	inferred 106 Multiplexer(s).
+	inferred  43 Multiplexer(s).
 Unit <control> synthesized.
 
 Synthesizing Unit <Regs>.
@@ -842,12 +843,6 @@ Synthesizing Unit <forward_reg>.
 	inferred   2 Comparator(s).
 	inferred   2 Multiplexer(s).
 Unit <forward_reg> synthesized.
-
-Synthesizing Unit <Ext_32>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\Ext_imm16.v".
-    Summary:
-	no macro.
-Unit <Ext_32> synthesized.
 
 Synthesizing Unit <adder32_Sklansky>.
     Related source file is "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v".
@@ -1144,23 +1139,23 @@ Macro Statistics
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 44
  5-bit comparator equal                                : 6
-# Multiplexers                                         : 332
+# Multiplexers                                         : 272
  1-bit 16-to-1 multiplexer                             : 1
- 1-bit 2-to-1 multiplexer                              : 163
+ 1-bit 2-to-1 multiplexer                              : 140
  1-bit 4-to-1 multiplexer                              : 1
  10-bit 2-to-1 multiplexer                             : 1
  11-bit 2-to-1 multiplexer                             : 1
  12-bit 2-to-1 multiplexer                             : 4
- 2-bit 2-to-1 multiplexer                              : 12
- 3-bit 2-to-1 multiplexer                              : 7
- 32-bit 2-to-1 multiplexer                             : 87
+ 2-bit 2-to-1 multiplexer                              : 15
+ 3-bit 2-to-1 multiplexer                              : 2
+ 32-bit 2-to-1 multiplexer                             : 86
  32-bit 31-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 2
  32-bit 8-to-1 multiplexer                             : 1
  33-bit 2-to-1 multiplexer                             : 4
  33-bit 4-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 5
- 5-bit 2-to-1 multiplexer                              : 40
+ 4-bit 2-to-1 multiplexer                              : 8
+ 5-bit 4-to-1 multiplexer                              : 3
 # Logic shifters                                       : 2
  32-bit shifter logical left                           : 1
  32-bit shifter logical right                          : 1
@@ -1314,8 +1309,8 @@ Unit <input_switch_btn> synthesized (advanced).
 
 Synthesizing (advanced) Unit <vga_controller>.
 	Multiplier <Vga_text/Mmult_n0024> in block <vga_controller> and adder/subtractor <Vga_text/Madd_vga_row[8]_GND_14_o_add_1_OUT> in block <vga_controller> are combined into a MAC<Vga_text/Maddsub_n0024>.
-	Multiplier <Vga_graph/Mmult_vga_row[8]_PWR_18_o_MuLt_0_OUT> in block <vga_controller> and adder/subtractor <Vga_graph/Madd_n0020[19:0]> in block <vga_controller> are combined into a MAC<Vga_graph/Maddsub_vga_row[8]_PWR_18_o_MuLt_0_OUT>.
 	Multiplier <Vga_cursor/Mmult_n0030> in block <vga_controller> and adder/subtractor <Vga_cursor/Madd_addr> in block <vga_controller> are combined into a MAC<Vga_cursor/Maddsub_n0030>.
+	Multiplier <Vga_graph/Mmult_vga_row[8]_PWR_18_o_MuLt_0_OUT> in block <vga_controller> and adder/subtractor <Vga_graph/Madd_n0020[19:0]> in block <vga_controller> are combined into a MAC<Vga_graph/Maddsub_vga_row[8]_PWR_18_o_MuLt_0_OUT>.
 Unit <vga_controller> synthesized (advanced).
 
 Synthesizing (advanced) Unit <vga_port>.
@@ -1370,23 +1365,23 @@ Macro Statistics
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 44
  5-bit comparator equal                                : 6
-# Multiplexers                                         : 426
+# Multiplexers                                         : 366
  1-bit 16-to-1 multiplexer                             : 1
- 1-bit 2-to-1 multiplexer                              : 260
+ 1-bit 2-to-1 multiplexer                              : 237
  1-bit 4-to-1 multiplexer                              : 1
  10-bit 2-to-1 multiplexer                             : 1
  11-bit 2-to-1 multiplexer                             : 1
  12-bit 2-to-1 multiplexer                             : 4
- 2-bit 2-to-1 multiplexer                              : 12
- 3-bit 2-to-1 multiplexer                              : 7
- 32-bit 2-to-1 multiplexer                             : 86
+ 2-bit 2-to-1 multiplexer                              : 15
+ 3-bit 2-to-1 multiplexer                              : 2
+ 32-bit 2-to-1 multiplexer                             : 85
  32-bit 31-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 2
  32-bit 8-to-1 multiplexer                             : 1
  33-bit 2-to-1 multiplexer                             : 2
  33-bit 4-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 5
- 5-bit 2-to-1 multiplexer                              : 40
+ 4-bit 2-to-1 multiplexer                              : 8
+ 5-bit 4-to-1 multiplexer                              : 3
 # Logic shifters                                       : 2
  32-bit shifter logical left                           : 1
  32-bit shifter logical right                          : 1
@@ -1579,6 +1574,11 @@ INFO:Xst:2261 - The FF/Latch <temp_1> in Unit <MUL_ID_EXE> is equivalent to the 
 INFO:Xst:2261 - The FF/Latch <temp_14> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_83> 
 INFO:Xst:2261 - The FF/Latch <temp_30> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_99> 
 INFO:Xst:2261 - The FF/Latch <temp_7> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_76> 
+INFO:Xst:2261 - The FF/Latch <temp_3> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_101> 
+INFO:Xst:2261 - The FF/Latch <temp_4> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_102> 
+INFO:Xst:2261 - The FF/Latch <temp_0> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_98> 
+INFO:Xst:2261 - The FF/Latch <temp_1> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_99> 
+INFO:Xst:2261 - The FF/Latch <temp_2> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_100> 
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <Input_switch_btn/Btn_scan/FSM_0> on signal <state[1:5]> with user encoding.
 -------------------
@@ -1643,6 +1643,10 @@ Optimizing unit <mul_adder> ...
 Optimizing unit <adder64> ...
 
 Optimizing unit <Regs> ...
+
+Optimizing unit <control> ...
+
+Optimizing unit <MUL_control> ...
 
 Optimizing unit <adder32_Sklansky> ...
 
@@ -2819,11 +2823,8 @@ INFO:Xst:2260 - The FF/Latch <P7SEG/sh_clk> in Unit <display> is equivalent to t
 INFO:Xst:2260 - The FF/Latch <P7SEG/S_0> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/S_0_1> 
 INFO:Xst:2260 - The FF/Latch <P7SEG/sh_clk> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/sh_clk_1> 
 INFO:Xst:2260 - The FF/Latch <P7SEG/S_0> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/S_0_1> 
-FlipFlop PCPU/IF_ID/temp_91 has been replicated 1 time(s)
-FlipFlop PCPU/IF_ID/temp_92 has been replicated 1 time(s)
-FlipFlop PCPU/IF_ID/temp_93 has been replicated 1 time(s)
-FlipFlop PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_4 has been replicated 2 time(s)
-FlipFlop PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_5 has been replicated 2 time(s)
+FlipFlop PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_4 has been replicated 3 time(s)
+FlipFlop PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_5 has been replicated 3 time(s)
 
 Final Macro Processing ...
 
@@ -2831,8 +2832,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 2360
- Flip-Flops                                            : 2360
+# Registers                                            : 2354
+ Flip-Flops                                            : 2354
 
 =========================================================================
 
@@ -2855,7 +2856,7 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 9578
+# BELS                             : 9481
 #      AND2                        : 8
 #      AND3                        : 88
 #      AND4                        : 72
@@ -2863,26 +2864,26 @@ Primitive and Black Box Usage:
 #      INV                         : 134
 #      LUT1                        : 444
 #      LUT2                        : 82
-#      LUT3                        : 2327
-#      LUT4                        : 376
-#      LUT5                        : 2159
-#      LUT6                        : 2405
+#      LUT3                        : 2317
+#      LUT4                        : 387
+#      LUT5                        : 2157
+#      LUT6                        : 2313
 #      MUXCY                       : 677
-#      MUXF7                       : 130
+#      MUXF7                       : 126
 #      MUXF8                       : 1
 #      OR2                         : 56
 #      OR3                         : 24
 #      OR4                         : 32
 #      VCC                         : 7
 #      XORCY                       : 548
-# FlipFlops/Latches                : 2545
+# FlipFlops/Latches                : 2539
 #      FD                          : 41
 #      FDC                         : 35
 #      FDCE                        : 1059
 #      FDE                         : 109
 #      FDE_1                       : 65
-#      FDR                         : 419
-#      FDRE                        : 807
+#      FDR                         : 414
+#      FDRE                        : 806
 #      FDS                         : 10
 # RAMS                             : 111
 #      RAMB18E1                    : 4
@@ -2905,15 +2906,15 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            2545  out of  407600     0%  
- Number of Slice LUTs:                 7927  out of  203800     3%  
-    Number used as Logic:              7927  out of  203800     3%  
+ Number of Slice Registers:            2539  out of  407600     0%  
+ Number of Slice LUTs:                 7834  out of  203800     3%  
+    Number used as Logic:              7834  out of  203800     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   8294
-   Number with an unused Flip Flop:    5749  out of   8294    69%  
-   Number with an unused LUT:           367  out of   8294     4%  
-   Number of fully used LUT-FF pairs:  2178  out of   8294    26%  
+ Number of LUT Flip Flop pairs used:   8196
+   Number with an unused Flip Flop:    5657  out of   8196    69%  
+   Number with an unused LUT:           362  out of   8196     4%  
+   Number of fully used LUT-FF pairs:  2177  out of   8196    26%  
    Number of unique control sets:        53
 
 IO Utilization: 
@@ -2951,7 +2952,7 @@ Clk_gen/clk_100m_unbuf                                       | BUFG             
 Clk_gen/Div_1                                                | BUFG                                  | 20    |
 Clk_CPU_INV_25_o(Clk_CPU_INV_25_o1:O)                        | BUFG(*)(gpio/leds_17)                 | 157   |
 Clk_gen/Div_6                                                | BUFG                                  | 35    |
-Clk_CPU_SW_OK[15]_AND_6605_o(Clk_CPU_SW_OK[15]_AND_6605_o1:O)| BUFG(*)(PCPU/IF_ID/temp_95)           | 842   |
+Clk_CPU_SW_OK[15]_AND_6566_o(Clk_CPU_SW_OK[15]_AND_6566_o1:O)| BUFG(*)(PCPU/IF_ID/temp_95)           | 836   |
 PCPU/clk_INV_79_o(PCPU/clk_INV_79_o1:O)                      | BUFG(*)(PCPU/Reg_file/register_31_991)| 992   |
 display/P7SEG/sh_clk                                         | BUFG                                  | 65    |
 -------------------------------------------------------------+---------------------------------------+-------+
@@ -2964,7 +2965,7 @@ Asynchronous Control Signals Information:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Control Signal                                                                                                                                                                                                                                                                                                                                     | Buffer(FF name)                                                                                                                                                                    | Load  |
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-Vga_controller/Vga_graph/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram/XST_GND:G)                                                                                                                                                          | NONE(Vga_controller/Vga_graph/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[41].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)    | 182   |
+Vga_controller/Vga_graph/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram/XST_GND:G)                                                                                                                                                          | NONE(Vga_controller/Vga_graph/Graph_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)    | 182   |
 Vga_controller/Vga_text/Text_vga_rom/N1(Vga_controller/Vga_text/Text_vga_rom/XST_GND:G)                                                                                                                                                                                                                                                            | NONE(Vga_controller/Vga_text/Text_vga_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)         | 4     |
 Data_RAM_/N1(Data_RAM_/XST_GND:G)                                                                                                                                                                                                                                                                                                                  | NONE(Data_RAM_/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                    | 2     |
 Inst_ROM_/N1(Inst_ROM_/XST_GND:G)                                                                                                                                                                                                                                                                                                                  | NONE(Inst_ROM_/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                    | 2     |
@@ -3009,8 +3010,8 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk_gen/clk_100m_unbuf'
-  Clock period: 2.622ns (frequency: 381.441MHz)
-  Total number of paths / destination ports: 11917 / 746
+  Clock period: 2.622ns (frequency: 381.430MHz)
+  Total number of paths / destination ports: 11927 / 752
 -------------------------------------------------------------------------
 Delay:               2.622ns (Levels of Logic = 7)
   Source:            Input_switch_btn/counter_10 (FF)
@@ -3028,7 +3029,7 @@ Delay:               2.622ns (Levels of Logic = 7)
      MUXCY:CI->O           1   0.013   0.000  Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<1> (Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<1>)
      MUXCY:CI->O           1   0.013   0.000  Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<2> (Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<2>)
      MUXCY:CI->O           1   0.013   0.000  Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<3> (Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<3>)
-     MUXCY:CI->O        1699   0.166   0.601  Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<4> (Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<4>)
+     MUXCY:CI->O        1701   0.166   0.601  Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<4> (Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<4>)
      INV:I->O             28   0.054   0.468  Input_switch_btn/Mcompar_counter[31]_GND_6_o_LessThan_2_o_cy<4>_inv1_INV_0 (counter/rst_inv)
      FDRE:CE                   0.161          Input_switch_btn/counter_0
     ----------------------------------------
@@ -3139,15 +3140,15 @@ Delay:               1.862ns (Levels of Logic = 2)
                                        (25.9% logic, 74.1% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'Clk_CPU_SW_OK[15]_AND_6605_o'
+Timing constraint: Default period analysis for Clock 'Clk_CPU_SW_OK[15]_AND_6566_o'
   Clock period: 7.733ns (frequency: 129.311MHz)
-  Total number of paths / destination ports: 29297357 / 1335
+  Total number of paths / destination ports: 8344493 / 1321
 -------------------------------------------------------------------------
 Delay:               7.733ns (Levels of Logic = 17)
   Source:            PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_45 (FF)
   Destination:       PCPU/MUL_ALU_/_REG_HiLo/Hi_31 (FF)
-  Source Clock:      Clk_CPU_SW_OK[15]_AND_6605_o rising
-  Destination Clock: Clk_CPU_SW_OK[15]_AND_6605_o rising
+  Source Clock:      Clk_CPU_SW_OK[15]_AND_6566_o rising
+  Destination Clock: Clk_CPU_SW_OK[15]_AND_6566_o rising
 
   Data Path: PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_45 to PCPU/MUL_ALU_/_REG_HiLo/Hi_31
                                 Gate     Net
@@ -3155,21 +3156,21 @@ Delay:               7.733ns (Levels of Logic = 17)
     ----------------------------------------  ------------
      FDRE:C->Q             3   0.236   0.534  PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_45 (PCPU/MUL_ALU_/_Mul_EXE_EWB/temp_45)
      LUT4:I0->O            3   0.043   0.625  PCPU/MUL_ALU_/_Mul_adder/s1_7_11 (PCPU/MUL_ALU_/_Mul_adder/s1_7_1)
-     LUT6:I0->O            1   0.043   0.495  PCPU/MUL_ALU_/_Mul_adder/Adder/in5_0/gi_j1_SW1 (N328)
+     LUT6:I0->O            1   0.043   0.495  PCPU/MUL_ALU_/_Mul_adder/Adder/in5_0/gi_j1_SW1 (N304)
      LUT5:I2->O            6   0.043   0.378  PCPU/MUL_ALU_/_Mul_adder/Adder/in7_0/gi_j1 (PCPU/MUL_ALU_/_Mul_adder/Adder/g7_0)
      LUT6:I5->O            6   0.043   0.378  PCPU/MUL_ALU_/_Mul_adder/Adder/in13_0/gi_j1 (PCPU/MUL_ALU_/_Mul_adder/Adder/g13_0)
      LUT6:I5->O            7   0.043   0.384  PCPU/MUL_ALU_/_Mul_adder/Adder/in23_0/gi_j2 (PCPU/MUL_ALU_/_Mul_adder/Adder/g23_0)
      LUT6:I5->O            5   0.043   0.373  PCPU/MUL_ALU_/_Mul_adder/Adder/in29_0/gi_j1 (PCPU/MUL_ALU_/_Mul_adder/Adder/g29_0)
      LUT6:I5->O            4   0.043   0.367  PCPU/MUL_ALU_/_Mul_adder/Adder/in37_0/gi_j1 (PCPU/MUL_ALU_/_Mul_adder/Adder/g37_0)
-     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in43_0/gi_j3_SW0 (N848)
+     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in43_0/gi_j3_SW0 (N811)
      LUT6:I5->O            4   0.043   0.367  PCPU/MUL_ALU_/_Mul_adder/Adder/in43_0/gi_j3 (PCPU/MUL_ALU_/_Mul_adder/Adder/g43_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in47_0/gi_j3_SW0 (N846)
+     LUT5:I4->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in47_0/gi_j3_SW0 (N809)
      LUT6:I5->O            5   0.043   0.373  PCPU/MUL_ALU_/_Mul_adder/Adder/in47_0/gi_j3 (PCPU/MUL_ALU_/_Mul_adder/Adder/g47_0)
-     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in55_0/gi_j11_SW0 (N844)
+     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in55_0/gi_j11_SW0 (N807)
      LUT6:I5->O            5   0.043   0.373  PCPU/MUL_ALU_/_Mul_adder/Adder/in55_0/gi_j11 (PCPU/MUL_ALU_/_Mul_adder/Adder/in55_0/gi_j1)
-     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in59_0/gi_j4_SW0 (N842)
+     LUT6:I5->O            1   0.043   0.350  PCPU/MUL_ALU_/_Mul_adder/Adder/in59_0/gi_j4_SW0 (N805)
      LUT6:I5->O            4   0.043   0.367  PCPU/MUL_ALU_/_Mul_adder/Adder/in59_0/gi_j4 (PCPU/MUL_ALU_/_Mul_adder/Adder/g59_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/MUL_ALU_/_REG_HiLo/Mmux__n0045252_SW0 (N840)
+     LUT5:I4->O            1   0.043   0.350  PCPU/MUL_ALU_/_REG_HiLo/Mmux__n0045252_SW0 (N803)
      LUT6:I5->O            1   0.043   0.000  PCPU/MUL_ALU_/_REG_HiLo/Mmux__n0045252 (PCPU/MUL_ALU_/_REG_HiLo/_n0045<31>)
      FDRE:D                   -0.000          PCPU/MUL_ALU_/_REG_HiLo/Hi_31
     ----------------------------------------
@@ -3363,21 +3364,21 @@ Clock to Setup on destination clock Clk_CPU_INV_25_o
 Source Clock                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------------+---------+---------+---------+---------+
 Clk_CPU_INV_25_o            |    1.862|         |         |         |
-Clk_CPU_SW_OK[15]_AND_6605_o|    2.094|         |         |         |
+Clk_CPU_SW_OK[15]_AND_6566_o|    2.094|         |         |         |
 Clk_gen/Div_6               |    1.500|         |         |         |
 Clk_gen/clk_100m_unbuf      |    2.849|         |         |         |
 ----------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock Clk_CPU_SW_OK[15]_AND_6605_o
+Clock to Setup on destination clock Clk_CPU_SW_OK[15]_AND_6566_o
 ----------------------------+---------+---------+---------+---------+
                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------------+---------+---------+---------+---------+
-Clk_CPU_INV_25_o            |    4.740|         |         |         |
-Clk_CPU_SW_OK[15]_AND_6605_o|    7.733|         |         |         |
-Clk_gen/Div_6               |    4.891|         |         |         |
-Clk_gen/clk_100m_unbuf      |    7.369|         |         |         |
-PCPU/clk_INV_79_o           |    4.342|         |         |         |
+Clk_CPU_INV_25_o            |    4.676|         |         |         |
+Clk_CPU_SW_OK[15]_AND_6566_o|    7.733|         |         |         |
+Clk_gen/Div_6               |    4.828|         |         |         |
+Clk_gen/clk_100m_unbuf      |    7.251|         |         |         |
+PCPU/clk_INV_79_o           |    4.532|         |         |         |
 ----------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock Clk_gen/Div_1
@@ -3394,7 +3395,7 @@ Clock to Setup on destination clock Clk_gen/Div_6
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_CPU_INV_25_o      |    1.988|         |         |         |
+Clk_CPU_INV_25_o      |    2.133|         |         |         |
 Clk_gen/Div_6         |    2.216|         |         |         |
 Clk_gen/clk_100m_unbuf|    2.741|         |         |         |
 ----------------------+---------+---------+---------+---------+
@@ -3404,7 +3405,7 @@ Clock to Setup on destination clock Clk_gen/clk_100m_unbuf
                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------------+---------+---------+---------+---------+
-Clk_CPU_SW_OK[15]_AND_6605_o|    3.685|         |         |         |
+Clk_CPU_SW_OK[15]_AND_6566_o|    3.680|         |         |         |
 Clk_gen/Div_1               |    7.776|         |         |         |
 Clk_gen/clk_100m_unbuf      |    2.622|         |         |         |
 display/P7SEG/sh_clk        |         |    2.068|         |         |
@@ -3415,7 +3416,7 @@ Clock to Setup on destination clock PCPU/clk_INV_79_o
                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------------+---------+---------+---------+---------+
-Clk_CPU_SW_OK[15]_AND_6605_o|    1.747|         |         |         |
+Clk_CPU_SW_OK[15]_AND_6566_o|    1.747|         |         |         |
 Clk_gen/clk_100m_unbuf      |    2.203|         |         |         |
 PCPU/clk_INV_79_o           |    0.641|         |         |         |
 ----------------------------+---------+---------+---------+---------+
@@ -3426,23 +3427,23 @@ Clock to Setup on destination clock display/P7SEG/sh_clk
 Source Clock                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------------+---------+---------+---------+---------+
 Clk_CPU_INV_25_o            |         |         |    5.412|         |
-Clk_CPU_SW_OK[15]_AND_6605_o|         |         |    7.500|         |
+Clk_CPU_SW_OK[15]_AND_6566_o|         |         |    7.495|         |
 Clk_gen/Div_6               |         |         |    5.591|         |
-Clk_gen/clk_100m_unbuf      |         |         |    8.258|         |
+Clk_gen/clk_100m_unbuf      |         |         |    8.248|         |
 display/P7SEG/sh_clk        |         |         |    0.700|         |
 ----------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 125.00 secs
-Total CPU time to Xst completion: 124.83 secs
+Total REAL time to Xst completion: 103.00 secs
+Total CPU time to Xst completion: 102.79 secs
  
 --> 
 
-Total memory usage is 403384 kilobytes
+Total memory usage is 404216 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1452 (   0 filtered)
-Number of infos    :  236 (   0 filtered)
+Number of warnings : 1453 (   0 filtered)
+Number of infos    :  241 (   0 filtered)
 

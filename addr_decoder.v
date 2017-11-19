@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module addr_decoder(
 	input [31:0]addr,
-	output reg en_SDRAM,
+	output reg en_SRAM,
 	output reg en_BIOS,
 	output reg en_vga_reg,
 	output reg en_cursor_reg,
@@ -28,7 +28,7 @@ module addr_decoder(
 	output reg en_graphRAM,
 	output reg en_DRAM
     );
-//0x0000_0000-0x0fff_ffff DRAM 256M
+//0x0000_0000-0x0fff_ffff SRAM 256M
 //0x1000_0000-0x1000_0fff regs 4K
 //0x1000_2000-0x1000_3fff text_ram 8K
 //0x1001_0000-0x1001_ffff graph_ram 64K
@@ -37,15 +37,16 @@ module addr_decoder(
 wire a0001 = ~(|addr[31:29]) & addr[28] ;
 reg en_regs;
 always @* begin
-	{en_SDRAM, en_BIOS, en_regs, en_textRAM, en_graphRAM,
+	{en_SRAM, en_BIOS, en_regs, en_textRAM, en_graphRAM,
 	 en_DRAM} = 0;
-	if (~(|addr[31:28])) en_SDRAM = 1'b1;
+	if (~(|addr[31:28])) en_SRAM = 1'b1;
 	if (a0001 & ~(|addr[27:12])) en_regs = 1'b1;
 	if (a0001 & ~(|addr[27:14]) & addr[13]) en_textRAM = 1'b1;
 	if (a0001 & ~(|addr[27:17]) & addr[16]) en_graphRAM = 1'b1;
 	if (~(|addr[31:29]) & (&addr[28:22])) en_BIOS = 1'b1;
 	if (|addr[31:29]) en_DRAM = 1'b1;
 end
+//regs decoder
 always @* begin
 	{en_vga_reg, en_cursor_reg} = 0;
 	if (en_regs) begin

@@ -252,6 +252,34 @@ GPIO gpio(
 		.status_data(status_data),
 		.mem_data_in(Data_in)
    );
+/*
+bus Bus(
+    .master_addr(master_addr), 
+    .master_data_w(master_data_w), 
+    .master_data_r(master_data_r), 
+    .master_rw(master_rw), 
+    .IROM_addr(IROM_addr), 
+    .IROM_data(IROM_data), 
+    .SRAM_addr(SRAM_addr), 
+    .SRAM_data_r(SRAM_data_r), 
+    .SRAM_data_w(SRAM_data_w), 
+    .SRAM_rw(SRAM_rw), 
+    .vga_text_addr(vga_text_addr), 
+    .vga_text_data_r(vga_text_data_r), 
+    .vga_text_data_w(vga_text_data_w), 
+    .vga_text_rw(vga_text_rw), 
+    .vga_graph_addr(vga_graph_addr), 
+    .vga_graph_data_r(vga_graph_data_r), 
+    .vga_graph_data_w(vga_graph_data_w), 
+    .vga_graph_rw(vga_graph_rw), 
+    .vga_reg_data_r(vga_reg_data_r), 
+    .vga_reg_data_w(vga_reg_data_w), 
+    .vga_reg_rw(vga_reg_rw), 
+    .vga_cursor_data_r(vga_cursor_data_r), 
+    .vga_cursor_data_w(vga_cursor_data_w), 
+    .vga_cursor_rw(vga_cursor_rw)
+    );
+*/
 	
 	Data_RAM Data_RAM_(
 	  .clka(~Clk_CPU), 
