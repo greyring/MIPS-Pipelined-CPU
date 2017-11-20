@@ -101,6 +101,14 @@ module L2_cache(
 		end
 	end
 	
+	reg [127:0]mem_data_;
+	always @(posedge clk) begin
+		if (mem_ready)
+			mem_data_ <= mem_data;
+		else
+			mem_data_ <= mem_data_;
+	end
+	
 	wire [9:0]v_addr;
 	wire v_data, v_wdata;
 	wire v_w;
@@ -169,7 +177,7 @@ module L2_cache(
 	//data
 	wire da_ds;//data_s
 	assign da_addr = addr_s ? i_addr_[13:4] : d_addr_[13:4];
-	assign da_wdata = da_ds ? d_data_ : mem_data;
+	assign da_wdata = da_ds ? d_data_ : mem_data_;
 	
 	reg cache_hit;
 	always @* begin
@@ -214,7 +222,7 @@ module L2_cache(
 	
 	assign Tag_Hi_in = 0;
 	assign Tag_Lo_in = {14'b0, t_data};
-	assign cache_data = data_mem ? mem_data : da_data;
+	assign cache_data = data_mem ? mem_data_ : da_data;
 	assign mem_addr = mem_write_back ? {t_data, d_addr_[13:4], 4'b0} : (mem_addr_s ? i_addr_ : d_addr_);
 	assign mem_data_out = da_data;
 endmodule

@@ -1,18 +1,47 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/Tmem_buffer_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/Tmem_buffer_beh.prj" "work.Tmem_buffer" "work.glbl" 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/Tcache_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/Tcache_beh.prj" "work.Tcache" "work.glbl" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/write_data_mask_32.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/write_data_mask.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/LUT_countdown.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/L2cache_crl.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/I_cache_crl.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/D_cache_crl.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/cache_mem.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/mem_buffer.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Tmem_buffer.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/L2_cache.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/I_cache.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/D_cache.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/cache.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Tcache.v" into library work
 Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
+Compiling module cache_mem(DATA_WIDTH=1)
+Compiling module cache_mem(DATA_WIDTH=20)
+Compiling module cache_mem
+Compiling module cache_mem(DATA_WIDTH=2)
+Compiling module I_cache_crl
+Compiling module LUT_countdown
+Compiling module I_cache
+Compiling module write_data_mask_32
+Compiling module write_data_mask
+Compiling module D_cache_crl
+Compiling module D_cache
+Compiling module cache_mem(DATA_WIDTH=1,ADDR_WIDT...
+Compiling module cache_mem(DATA_WIDTH=18,ADDR_WID...
+Compiling module cache_mem(ADDR_WIDTH=10)
+Compiling module L2cache_crl
+Compiling module L2_cache
 Compiling module mem_buffer
-Compiling module Tmem_buffer
+Compiling module cache
+Compiling module Tcache
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Compiled 3 Verilog Units
-Built simulation executable F:/MyProgramme/0arch/PCPU/Tmem_buffer_isim_beh.exe
-Fuse Memory Usage: 28740 KB
-Fuse CPU Usage: 436 ms
+Waiting for 13 sub-compilation(s) to finish...
+Compiled 20 Verilog Units
+Built simulation executable F:/MyProgramme/0arch/PCPU/Tcache_isim_beh.exe
+Fuse Memory Usage: 29840 KB
+Fuse CPU Usage: 717 ms

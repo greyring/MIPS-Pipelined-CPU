@@ -41,15 +41,15 @@ module cache(
 	output[31:0]d_rdata,
 	input [31:0]d_wdata,
 	
+	output cache_err,
+	output ready,
+	
 	output mem_r,
 	output mem_w,
 	output [31:0]mem_addr,
 	output [31:0]mem_wdata,
 	input  [31:0]mem_rdata,
-	input mem_ready,
-	
-	output cache_err,
-	output ready
+	input mem_ready
     );
 
 wire icache_ready, icache_err, dcache_ready, dcache_err, L2_ready,
@@ -67,7 +67,7 @@ I_cache I_cache_(
     .clk(clk), 
     .rst(rst), 
     .addr(I_addr), 
-    .cache_r(1'b1), 
+    .cache_r(~rst & ~choose[0]), 
     .cache_data(i_data), 
     .cache_ready(icache_ready), 
     .cache_err(icache_err), 

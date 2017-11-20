@@ -52,10 +52,12 @@
       <branch xil_pn:name="BehavioralSim"/>
     </file>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="PCPU_v.ngr"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TI_cache_isim_beh.exe"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TL2Cache_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Tmem_buffer_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Tcache_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Tcache_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Tcache_isim_beh.wdb"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Tmem_buffer_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Tmem_buffer_isim_beh.wdb"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Ttop_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
@@ -99,7 +101,6 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="mem_buffer.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="mem_buffer.lso"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="mem_buffer.ngc"/>
@@ -173,14 +174,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1511102628" xil_pn:in_ck="6748096243210642025" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1511102628">
+    <transform xil_pn:end_ts="1511144459" xil_pn:in_ck="8768233065721516109" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1511144459">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="CAUSE_data.v"/>
       <outfile xil_pn:name="CP0.v"/>
       <outfile xil_pn:name="Cause.v"/>
@@ -222,6 +218,7 @@
       <outfile xil_pn:name="Tadder32_Sklansky.v"/>
       <outfile xil_pn:name="Tadder64.v"/>
       <outfile xil_pn:name="Taddr_decoder.v"/>
+      <outfile xil_pn:name="Tcache.v"/>
       <outfile xil_pn:name="Tcounter.v"/>
       <outfile xil_pn:name="Tkey_board.v"/>
       <outfile xil_pn:name="Tmem_buffer.v"/>
@@ -242,6 +239,7 @@
       <outfile xil_pn:name="branch_judge.v"/>
       <outfile xil_pn:name="btn_scan.v"/>
       <outfile xil_pn:name="bus.v"/>
+      <outfile xil_pn:name="cache.v"/>
       <outfile xil_pn:name="cache_mem.v"/>
       <outfile xil_pn:name="clk_gen_sword.v"/>
       <outfile xil_pn:name="control.v"/>
@@ -272,19 +270,18 @@
       <outfile xil_pn:name="write_data_mask.v"/>
       <outfile xil_pn:name="write_data_mask_32.v"/>
     </transform>
-    <transform xil_pn:end_ts="1511102601" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-8785154243611412484" xil_pn:start_ts="1511102601">
+    <transform xil_pn:end_ts="1511144431" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="6029083981134379096" xil_pn:start_ts="1511144431">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1511102604" xil_pn:in_ck="121987580868890555" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-9038487144609299216" xil_pn:start_ts="1511102601">
+    <transform xil_pn:end_ts="1511144433" xil_pn:in_ck="121987580868890555" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="7770548613610518092" xil_pn:start_ts="1511144431">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="MUL_ALU.vf"/>
     </transform>
-    <transform xil_pn:end_ts="1510053879" xil_pn:in_ck="4842994160147466341" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5279048935723839207" xil_pn:start_ts="1510053879">
+    <transform xil_pn:end_ts="1511143341" xil_pn:in_ck="4842994160147466341" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="5618624007339316954" xil_pn:start_ts="1511143340">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
       <outfile xil_pn:name="ipcore_dir/Data_RAM.ngc"/>
       <outfile xil_pn:name="ipcore_dir/Data_RAM.v"/>
       <outfile xil_pn:name="ipcore_dir/Inst_ROM.ngc"/>
@@ -296,14 +293,9 @@
       <outfile xil_pn:name="ipcore_dir/text_vga_rom.ngc"/>
       <outfile xil_pn:name="ipcore_dir/text_vga_rom.v"/>
     </transform>
-    <transform xil_pn:end_ts="1511102628" xil_pn:in_ck="-2015968470804844958" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1511102628">
+    <transform xil_pn:end_ts="1511144459" xil_pn:in_ck="-3527875182380772570" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1511144459">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="CAUSE_data.v"/>
       <outfile xil_pn:name="CP0.v"/>
       <outfile xil_pn:name="Cause.v"/>
@@ -346,6 +338,7 @@
       <outfile xil_pn:name="Tadder32_Sklansky.v"/>
       <outfile xil_pn:name="Tadder64.v"/>
       <outfile xil_pn:name="Taddr_decoder.v"/>
+      <outfile xil_pn:name="Tcache.v"/>
       <outfile xil_pn:name="Tcounter.v"/>
       <outfile xil_pn:name="Tkey_board.v"/>
       <outfile xil_pn:name="Tmem_buffer.v"/>
@@ -366,6 +359,7 @@
       <outfile xil_pn:name="branch_judge.v"/>
       <outfile xil_pn:name="btn_scan.v"/>
       <outfile xil_pn:name="bus.v"/>
+      <outfile xil_pn:name="cache.v"/>
       <outfile xil_pn:name="cache_mem.v"/>
       <outfile xil_pn:name="clk_gen_sword.v"/>
       <outfile xil_pn:name="control.v"/>
@@ -396,30 +390,20 @@
       <outfile xil_pn:name="write_data_mask.v"/>
       <outfile xil_pn:name="write_data_mask_32.v"/>
     </transform>
-    <transform xil_pn:end_ts="1511102632" xil_pn:in_ck="-8083619270076185341" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="3542567516245414809" xil_pn:start_ts="1511102628">
+    <transform xil_pn:end_ts="1511144464" xil_pn:in_ck="3759054891261289671" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4247783688730252529" xil_pn:start_ts="1511144459">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="Tmem_buffer_beh.prj"/>
-      <outfile xil_pn:name="Tmem_buffer_isim_beh.exe"/>
+      <outfile xil_pn:name="Tcache_beh.prj"/>
+      <outfile xil_pn:name="Tcache_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1511102632" xil_pn:in_ck="-8179915260718376538" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2362369386437983260" xil_pn:start_ts="1511102632">
+    <transform xil_pn:end_ts="1511144465" xil_pn:in_ck="3440051848981394172" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7740357334712281708" xil_pn:start_ts="1511144464">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="Tmem_buffer_isim_beh.wdb"/>
+      <outfile xil_pn:name="Tcache_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1509428359" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1509428359">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -464,6 +448,8 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="D_cache.ngr"/>
       <outfile xil_pn:name="D_cache_crl.ngr"/>
       <outfile xil_pn:name="L2_cache.ngr"/>

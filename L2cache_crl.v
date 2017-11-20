@@ -133,11 +133,13 @@ always @* begin
 	{addr_s, v_wdata, v_w, d_wdata, d_w, t_in, t_ds, t_w, da_ds, da_w
 	, mem_write_back, mem_addr_s, mem_r, mem_w
 	, data_mem, cache_tag_w,
-	cache_ready_i, cache_ready_d, cache_ready_op} = 0;
+	cache_ready_i, cache_ready_d} = 0;
+	cache_ready_op = 1'b1;
 	init = curstate == INIT;
 	case (curstate)
 		DECODE:if (op[1] | op[2]) begin//index load/store tag
 				t_in = 1'b1;
+				cache_ready_op = 1'b0;
 			  end
 			  else if(i_op) begin//icache read
 				addr_s = 1'b1;
