@@ -1,0 +1,32 @@
+
+
+
+// Instantiate the module
+vga_controller instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .clk_vga(clk_vga), 
+    .clk_cursor(clk_cursor), 
+    .we_text(we_text), 
+    .we_graph(we_graph), 
+    .we_cursor(we_cursor), 
+    .we_reg(we_reg), 
+    .text_addr(text_addr), 
+    .text_wdata(text_wdata), 
+    .text_rdata(text_rdata), 
+    .graph_addr(graph_addr), 
+    .graph_wdata(graph_wdata), 
+    .graph_rdata(graph_rdata), 
+    .cursor_wdata(cursor_wdata), 
+    .cursor_rdata(cursor_rdata), 
+    .reg_wdata(reg_wdata), 
+    .reg_rdata(reg_rdata), 
+    .r(r), 
+    .g(g), 
+    .b(b), 
+    .hsync(hsync), 
+    .vsync(vsync), 
+    .busy(busy)
+    );
+
+

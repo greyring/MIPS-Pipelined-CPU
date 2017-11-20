@@ -63,7 +63,7 @@ always @* begin
 end
 assign color_out = (clk_cursor & font) ? 
 						{stat[21:20], 2'b0, stat[19:18], 2'b0, stat[17:16],2'b0} 
-						: 32'b0;
+						: 12'b0;
 assign cursor_on = addr == stat[12:2];
 
 endmodule

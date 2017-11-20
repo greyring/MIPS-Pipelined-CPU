@@ -36,6 +36,7 @@ module addr_decoder(
 //0x1001_0000-0x1001_ffff graph_ram 64K
 //0x1fc0_0000-0x1fff_ffff IROM 4M
 //0x2000_0000-0xffff_ffff DRAM 4G-512M
+/*
 wire a0001 = ~(|addr[31:29]) & addr[28] ;
 reg en_regs;
 always @* begin
@@ -59,6 +60,20 @@ always @* begin
 			default: en_others = 1'b1;
 		endcase
 	end
+end
+*/
+always @* begin
+	{en_SRAM, en_BIOS, en_textRAM, en_graphRAM,
+	 en_DRAM} = 0;
+	{en_vga_reg, en_cursor_reg, en_SEG, en_others} = 0;
+	
+	if (addr[31:28] == 4'b0) en_SRAM = 1'b1;
+	else if (addr[31:16] == 16'hb000) en_textRAM = 1'b1;
+	else if (addr[31:24] == 8'ha0) en_graphRAM = 1'b1;
+	else if (addr == 32'hb0010004) en_vga_reg = 1'b1;
+	else if (addr == 32'hb0010000) en_cursor_reg = 1'b1;
+	else if (addr[31:28] == 4'he) en_SEG = 1'b1;
+	else en_others = 1'b1;
 end
 
 endmodule

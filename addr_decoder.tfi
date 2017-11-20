@@ -4,13 +4,15 @@
 // Instantiate the module
 addr_decoder instance_name (
     .addr(addr), 
-    .en_SDRAM(en_SDRAM), 
+    .en_SRAM(en_SRAM), 
     .en_BIOS(en_BIOS), 
     .en_vga_reg(en_vga_reg), 
     .en_cursor_reg(en_cursor_reg), 
     .en_textRAM(en_textRAM), 
     .en_graphRAM(en_graphRAM), 
-    .en_DRAM(en_DRAM)
+    .en_DRAM(en_DRAM), 
+    .en_SEG(en_SEG), 
+    .en_others(en_others)
     );
 
 

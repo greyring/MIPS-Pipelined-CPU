@@ -1,0 +1,20 @@
+
+
+
+// Instantiate the module
+bus_interface instance_name (
+    .enable(enable), 
+    .addr(addr), 
+    .data(data), 
+    .r(r), 
+    .w(w), 
+    .ready(ready), 
+    .addr_(addr_), 
+    .wdata(wdata), 
+    .rdata(rdata), 
+    .r_(r_), 
+    .w_(w_), 
+    .ready_(ready_)
+    );
+
+

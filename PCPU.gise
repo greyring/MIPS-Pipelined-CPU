@@ -54,10 +54,9 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="PCPU_v.ngr"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TI_cache_isim_beh.exe"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TL2Cache_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Tcache_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Tcache_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Tcache_isim_beh.wdb"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Tmem_buffer_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Ttop_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Ttop_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
@@ -67,6 +66,7 @@
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="addr_decoder.ngr"/>
+    <file xil_pn:fileType="FILE_VERILOG_INSTTEMPLATE" xil_pn:name="addr_decoder.tfi"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="bus.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="bus.lso"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="bus.ngc"/>
@@ -77,6 +77,7 @@
     <file xil_pn:fileType="FILE_VERILOG_INSTTEMPLATE" xil_pn:name="bus.tfi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="bus.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="bus_envsettings.html"/>
+    <file xil_pn:fileType="FILE_VERILOG_INSTTEMPLATE" xil_pn:name="bus_interface.tfi"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="bus_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="bus_xst.xrpt"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="cache.cmd_log"/>
@@ -101,6 +102,7 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="mem_buffer.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="mem_buffer.lso"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="mem_buffer.ngc"/>
@@ -136,6 +138,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="top.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="top_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="top_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="top_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="top_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="top_map.mrp" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="top_map.ncd" xil_pn:subbranch="Map"/>
@@ -150,6 +153,18 @@
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="top_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="top_xst.xrpt"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="vga_controller.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="vga_controller.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="vga_controller.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="vga_controller.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="vga_controller.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="vga_controller.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="vga_controller.syr"/>
+    <file xil_pn:fileType="FILE_VERILOG_INSTTEMPLATE" xil_pn:name="vga_controller.tfi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="vga_controller.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="vga_controller_envsettings.html"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="vga_controller_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="vga_controller_xst.xrpt"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="vga_text.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="vga_text.lso"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="vga_text.ngc"/>
@@ -174,9 +189,13 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1511144459" xil_pn:in_ck="8768233065721516109" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1511144459">
+    <transform xil_pn:end_ts="1511192095" xil_pn:in_ck="5290787625945636651" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1511192095">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="CAUSE_data.v"/>
       <outfile xil_pn:name="CP0.v"/>
       <outfile xil_pn:name="Cause.v"/>
@@ -239,6 +258,7 @@
       <outfile xil_pn:name="branch_judge.v"/>
       <outfile xil_pn:name="btn_scan.v"/>
       <outfile xil_pn:name="bus.v"/>
+      <outfile xil_pn:name="bus_interface.v"/>
       <outfile xil_pn:name="cache.v"/>
       <outfile xil_pn:name="cache_mem.v"/>
       <outfile xil_pn:name="clk_gen_sword.v"/>
@@ -270,16 +290,16 @@
       <outfile xil_pn:name="write_data_mask.v"/>
       <outfile xil_pn:name="write_data_mask_32.v"/>
     </transform>
-    <transform xil_pn:end_ts="1511144431" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="6029083981134379096" xil_pn:start_ts="1511144431">
+    <transform xil_pn:end_ts="1511192095" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-9091312850432693961" xil_pn:start_ts="1511192095">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1511144433" xil_pn:in_ck="121987580868890555" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="7770548613610518092" xil_pn:start_ts="1511144431">
+    <transform xil_pn:end_ts="1511192096" xil_pn:in_ck="121987580868890555" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3353625282586476907" xil_pn:start_ts="1511192095">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="MUL_ALU.vf"/>
     </transform>
-    <transform xil_pn:end_ts="1511143341" xil_pn:in_ck="4842994160147466341" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="5618624007339316954" xil_pn:start_ts="1511143340">
+    <transform xil_pn:end_ts="1511192096" xil_pn:in_ck="4842994160147466341" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5279048935723839207" xil_pn:start_ts="1511192096">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/Data_RAM.ngc"/>
@@ -293,9 +313,14 @@
       <outfile xil_pn:name="ipcore_dir/text_vga_rom.ngc"/>
       <outfile xil_pn:name="ipcore_dir/text_vga_rom.v"/>
     </transform>
-    <transform xil_pn:end_ts="1511144459" xil_pn:in_ck="-3527875182380772570" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1511144459">
+    <transform xil_pn:end_ts="1511192097" xil_pn:in_ck="-4088105310175360763" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1511192096">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="CAUSE_data.v"/>
       <outfile xil_pn:name="CP0.v"/>
       <outfile xil_pn:name="Cause.v"/>
@@ -359,6 +384,7 @@
       <outfile xil_pn:name="branch_judge.v"/>
       <outfile xil_pn:name="btn_scan.v"/>
       <outfile xil_pn:name="bus.v"/>
+      <outfile xil_pn:name="bus_interface.v"/>
       <outfile xil_pn:name="cache.v"/>
       <outfile xil_pn:name="cache_mem.v"/>
       <outfile xil_pn:name="clk_gen_sword.v"/>
@@ -370,6 +396,11 @@
       <outfile xil_pn:name="half_adder_sub.v"/>
       <outfile xil_pn:name="inner_adder.v"/>
       <outfile xil_pn:name="input_switch_btn.v"/>
+      <outfile xil_pn:name="ipcore_dir/Data_RAM.v"/>
+      <outfile xil_pn:name="ipcore_dir/Inst_ROM.v"/>
+      <outfile xil_pn:name="ipcore_dir/graph_vga_ram.v"/>
+      <outfile xil_pn:name="ipcore_dir/text_vga_ram.v"/>
+      <outfile xil_pn:name="ipcore_dir/text_vga_rom.v"/>
       <outfile xil_pn:name="jump_control.v"/>
       <outfile xil_pn:name="keyboard_controller.v"/>
       <outfile xil_pn:name="led_parallel2serial_io.v"/>
@@ -390,31 +421,42 @@
       <outfile xil_pn:name="write_data_mask.v"/>
       <outfile xil_pn:name="write_data_mask_32.v"/>
     </transform>
-    <transform xil_pn:end_ts="1511144464" xil_pn:in_ck="3759054891261289671" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4247783688730252529" xil_pn:start_ts="1511144459">
+    <transform xil_pn:end_ts="1511192147" xil_pn:in_ck="-4088105310175360763" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-6178386370524259729" xil_pn:start_ts="1511192097">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="Tcache_beh.prj"/>
-      <outfile xil_pn:name="Tcache_isim_beh.exe"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="Ttop_beh.prj"/>
+      <outfile xil_pn:name="Ttop_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1511144465" xil_pn:in_ck="3440051848981394172" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7740357334712281708" xil_pn:start_ts="1511144464">
+    <transform xil_pn:end_ts="1511192147" xil_pn:in_ck="3440051848981394172" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2881078778594171902" xil_pn:start_ts="1511192147">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="Tcache_isim_beh.wdb"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="top_isim_beh.wdb"/>
     </transform>
     <transform xil_pn:end_ts="1509428359" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1509428359">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1511109935" xil_pn:in_ck="121987580868890555" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="2241443375364612280" xil_pn:start_ts="1511109933">
+    <transform xil_pn:end_ts="1511191098" xil_pn:in_ck="121987580868890555" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="6048817141569665431" xil_pn:start_ts="1511191096">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="MUL_ALU.vf"/>
     </transform>
-    <transform xil_pn:end_ts="1511109935" xil_pn:in_ck="4842994160147466341" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="5618624007339316954" xil_pn:start_ts="1511109935">
+    <transform xil_pn:end_ts="1511191099" xil_pn:in_ck="4842994160147466341" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-5279048935723839207" xil_pn:start_ts="1511191098">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/Data_RAM.ngc"/>
@@ -428,45 +470,43 @@
       <outfile xil_pn:name="ipcore_dir/text_vga_rom.ngc"/>
       <outfile xil_pn:name="ipcore_dir/text_vga_rom.v"/>
     </transform>
-    <transform xil_pn:end_ts="1511109935" xil_pn:in_ck="2627617419016824688" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1511109935">
+    <transform xil_pn:end_ts="1511191099" xil_pn:in_ck="2627617419016824688" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1511191099">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1511109935" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-4732096801527568828" xil_pn:start_ts="1511109935">
+    <transform xil_pn:end_ts="1511191099" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="588004348262624291" xil_pn:start_ts="1511191099">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1511109935" xil_pn:in_ck="2627617419016824688" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-5918749233538364341" xil_pn:start_ts="1511109935">
+    <transform xil_pn:end_ts="1511191099" xil_pn:in_ck="2627617419016824688" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-5918749233538364341" xil_pn:start_ts="1511191099">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1511109935" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-2046547989059649500" xil_pn:start_ts="1511109935">
+    <transform xil_pn:end_ts="1511191099" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-4473008032563453981" xil_pn:start_ts="1511191099">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1511110197" xil_pn:in_ck="2041386740642530972" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-261030587587142021" xil_pn:start_ts="1511110169">
+    <transform xil_pn:end_ts="1511192054" xil_pn:in_ck="4870021505970097722" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="1979158659827003866" xil_pn:start_ts="1511191948">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="InputChanged"/>
-      <outfile xil_pn:name="D_cache.ngr"/>
-      <outfile xil_pn:name="D_cache_crl.ngr"/>
-      <outfile xil_pn:name="L2_cache.ngr"/>
-      <outfile xil_pn:name="L2cache_crl.ngr"/>
+      <outfile xil_pn:name="PCPU_v.ngr"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="cache.lso"/>
-      <outfile xil_pn:name="cache.ngc"/>
-      <outfile xil_pn:name="cache.ngr"/>
-      <outfile xil_pn:name="cache.prj"/>
-      <outfile xil_pn:name="cache.stx"/>
-      <outfile xil_pn:name="cache.syr"/>
-      <outfile xil_pn:name="cache.xst"/>
-      <outfile xil_pn:name="cache_xst.xrpt"/>
-      <outfile xil_pn:name="mem_buffer.ngr"/>
+      <outfile xil_pn:name="addr_decoder.ngr"/>
+      <outfile xil_pn:name="control.ngr"/>
+      <outfile xil_pn:name="top.lso"/>
+      <outfile xil_pn:name="top.ngc"/>
+      <outfile xil_pn:name="top.ngr"/>
+      <outfile xil_pn:name="top.prj"/>
+      <outfile xil_pn:name="top.stx"/>
+      <outfile xil_pn:name="top.syr"/>
+      <outfile xil_pn:name="top.xst"/>
+      <outfile xil_pn:name="top_xst.xrpt"/>
+      <outfile xil_pn:name="vga_controller.ngr"/>
+      <outfile xil_pn:name="vga_text.ngr"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="write_data_mask.ngr"/>
-      <outfile xil_pn:name="write_data_mask_32.ngr"/>
       <outfile xil_pn:name="xst"/>
     </transform>
     <transform xil_pn:end_ts="1510052264" xil_pn:in_ck="4382569134452074404" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="3734212952611957" xil_pn:start_ts="1510052264">

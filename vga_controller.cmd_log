@@ -1,0 +1,5 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/vga_controller.xst" -ofn "F:/MyProgramme/0arch/PCPU/vga_controller.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/vga_controller.xst" -ofn "F:/MyProgramme/0arch/PCPU/vga_controller.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/vga_controller.xst" -ofn "F:/MyProgramme/0arch/PCPU/vga_controller.syr" 
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/vga_controller.tfi -lib work F:/MyProgramme/0arch/PCPU//vga_controller.v -module vga_controller -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/vga_controller.xst" -ofn "F:/MyProgramme/0arch/PCPU/vga_controller.syr" 

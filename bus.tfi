@@ -7,8 +7,11 @@ bus instance_name (
     .master_data_w(master_data_w), 
     .master_data_r(master_data_r), 
     .master_rw(master_rw), 
+    .master_ready(master_ready), 
     .IROM_addr(IROM_addr), 
-    .IROM_data(IROM_data), 
+    .IROM_data_r(IROM_data_r), 
+    .IROM_data_w(IROM_data_w), 
+    .IROM_rw(IROM_rw), 
     .SRAM_addr(SRAM_addr), 
     .SRAM_data_r(SRAM_data_r), 
     .SRAM_data_w(SRAM_data_w), 
@@ -26,7 +29,10 @@ bus instance_name (
     .vga_reg_rw(vga_reg_rw), 
     .vga_cursor_data_r(vga_cursor_data_r), 
     .vga_cursor_data_w(vga_cursor_data_w), 
-    .vga_cursor_rw(vga_cursor_rw)
+    .vga_cursor_rw(vga_cursor_rw), 
+    .seg_data_r(seg_data_r), 
+    .seg_data_w(seg_data_w), 
+    .seg_rw(seg_rw)
     );
 
 

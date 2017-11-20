@@ -31,11 +31,21 @@ module vga_controller(
 	input rd_text,
 	input rd_graph,
 	input rd_cursor,
-	input rd_reg,//only 1 of 8 will be 1
+	input rd_reg,
 	
-	input [31:0]addr_in,
-	input [31:0]data_in,
-	output reg [31:0]data_out,
+	input [31:0]text_addr,
+	input [31:0]text_wdata,
+	output[31:0]text_rdata,
+	
+	input [31:0]graph_addr,
+	input [31:0]graph_wdata,
+	output[31:0]graph_rdata,
+	
+	input [31:0]cursor_wdata,
+	output[31:0]cursor_rdata,
+	
+	input [31:0]reg_wdata,
+	output[31:0]reg_rdata,
 	
 	output [3:0]r,
 	output [3:0]g,
@@ -55,28 +65,26 @@ parameter TEXT = 2'b01;
 reg [31:0]status = 32'b0;//[31:16]graph addre select 64K [1:0]00 graph 01 text
 always @(posedge clk) begin
 	if (we_reg)
-		status <= data_in;
+		status <= reg_wdata;
 	else
 		status <= status;
 end
+assign reg_rdata = status;
 
-wire [11:0]color_text;
-wire [31:0]text_data_out;
 wire [11:0]text_color_out;
 vga_text Vga_text(
     .clk(clk), 
     .we(we_text), 
 	 .rd(rd_text),
-    .addr(addr_in), 
-    .data(data_in), 
+    .addr(text_addr), 
+    .data(text_wdata), 
     .vga_column(vga_column), 
     .vga_row(vga_row), 
-	 .data_out(text_data_out),
+	 .data_out(text_rdata),
     .color_out(text_color_out)
     );
 
 wire [11:0]cursor_color_out;
-wire [31:0]cursor_data_out;
 wire cursor_on;
 vga_cursor Vga_cursor(
     .clk(clk), 
@@ -84,10 +92,10 @@ vga_cursor Vga_cursor(
     .rst(rst), 
     .we(we_cursor), 
     .rd(rd_cursor), 
-    .data_in(data_in), 
+    .data_in(cursor_wdata), 
     .vga_column(vga_column), 
     .vga_row(vga_row), 
-    .data_out(cursor_data_out), 
+    .data_out(cursor_rdata), 
     .color_out(cursor_color_out), 
     .cursor_on(cursor_on)
     );
@@ -98,12 +106,12 @@ vga_graph Vga_graph(
     .clk(clk), 
     .we(we_graph), 
     .rd(rd_graph), 
-    .addr({status[31:16], addr_in[15:0]}), 
-    .data(data_in), 
+    .addr({status[31:16], graph_addr[15:0]}), 
+    .data(graph_wdata), 
     .vga_column(vga_column), 
     .vga_row(vga_row), 
     .color_out(graph_color_out), 
-    .data_out(graph_data_out)
+    .data_out(graph_rdata)
     );
 
 reg [11:0]color_out;
@@ -119,19 +127,6 @@ always @* begin
 	end
 	else
 		color_out = 12'b0;
-end
-
-always @* begin
-	if (rd_reg)
-		data_out = status;
-	else if (rd_text)
-		data_out = text_data_out;
-	else if (rd_graph)
-		data_out = graph_data_out;
-	else if (rd_cursor)
-		data_out = cursor_data_out;
-	else
-		data_out = 32'b0;
 end
 
 vga_port Vga_port(
