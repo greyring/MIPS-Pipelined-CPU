@@ -35,9 +35,9 @@ NET "seg_pen"			LOC = R18   | IOSTANDARD = LVCMOS33 ;
 NET "seg_do"			LOC = L24   | IOSTANDARD = LVCMOS33 ;
 
 ##LED
-NET "led_clk"			LOC = N26   | IOSTANDARD = LVCMOS33 ;
-NET "led_pen"			LOC = N24   | IOSTANDARD = LVCMOS33 ;
-NET "led_do"			LOC = M26   | IOSTANDARD = LVCMOS33 ;
+#NET "led_clk"			LOC = N26   | IOSTANDARD = LVCMOS33 ;
+#NET "led_pen"			LOC = N24   | IOSTANDARD = LVCMOS33 ;
+#NET "led_do"			LOC = M26   | IOSTANDARD = LVCMOS33 ;
 
 ##switch
 NET "switch[0]"			LOC = AA10  | IOSTANDARD = LVCMOS15 ;
