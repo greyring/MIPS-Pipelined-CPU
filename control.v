@@ -20,34 +20,35 @@
 //////////////////////////////////////////////////////////////////////////////////
 module control(
 	input [31:0]inst,
-	//output reg id_ra,//register A的选择
-	output reg id_beq,
-	output reg id_bne,
-	output reg id_j,
-	output reg id_jr,
+
+	output id_beq,
+	output id_bne,
+	output id_j,
+	output id_jr,
 	
-	output reg [1:0]id_rega_addr,//exe_a,未使用时会为0，exe默认运算为and，并且0不会被forward或stall
-	output reg [1:0]id_regb_addr,//exe_b,未使用时会为0，exe默认运算为and，并且0不会被forward或stall
+	output [1:0]id_rega_addr,
+	output [1:0]id_regb_addr,
 	
-	output reg id_exe_sign,
-	output reg id_exe_imm,//寄存器还是立即数
-	output reg [3:0]id_exe_aluop,
-	output reg id_exe_res_sign,//表示是无符号还是有符号，用来帮助判断overflow
-	output reg id_exe_lui,
-	output reg id_exe_jal,
+	output id_exe_sign,
+	output id_exe_imm,
+	output [3:0]id_exe_aluop,
+	output id_exe_res_sign,//help to judgeoverflow
+	output id_exe_lui,
+	output id_exe_jal,
 	
-	output reg id_mem_we,
-	output reg id_mem_rd,
-	output reg id_mem_CP0_we,
-	output reg [2:0]id_mem_mem_reg,
+	output id_mem_we,
+	output id_mem_rd,
+	output id_mem_CP0_we,
+	output [2:0]id_mem_mem_reg,
 	
-	output reg id_wb_we,
-	output reg [1:0]id_wb_dreg,//目标寄存器
+	output id_wb_we,
+	output [1:0]id_wb_dreg,//dest register
 	
-	output reg id_syscall,
-	output reg id_unknown,//未知指令
-	output reg id_eret
+	output id_syscall,
+	output id_unknown,
+	output id_eret
     );
+/*
 //for id_wb_dreg, id_rega_addr, id_regb_addr
 parameter NO = 2'b00;
 parameter RS = 2'b01;
@@ -69,197 +70,111 @@ parameter SRL = 4'b0101;
 parameter SUB = 4'b0110;
 parameter SLT = 4'b0111;
 parameter SLL = 4'b1000;
+*/
 
- 
-wire [5:0]op;
-wire [4:0]rs;
-wire [4:0]rt;
-wire [4:0]rd;
-wire [4:0]shift;
-wire [5:0]fun;
+integer i;
+wire [5:0]op, fun;
+wire [4:0]rs, rt, rd, shift;
+reg [28:0]LUT_fun[63:0], LUT_op[63:0], LUT_1c[63:0];
+reg [28:0]op_10;
+wire [28:0]op_0, op_1c, op_other, bus;
+
 assign {op, rs, rt, rd, shift, fun} = inst;
+initial begin
+	for (i = 0; i<64; i=i+1)
+		 LUT_fun[i] = 29'b0000_0000_000000000_000000_000_010;//unknown
+	LUT_fun[6'h00] = 29'b0000_1000_011000000_000001_111_000;//sll
+	LUT_fun[6'h02] = 29'b0000_1000_010101000_000001_111_000;//srl
+	//6'h3: _sra = 1'b1;
+	LUT_fun[6'h08] = 29'b0001_0100_000000000_000000_000_000;//jr
+	LUT_fun[6'h09] = 29'b0001_0100_000000001_000001_111_000;//jalr
+	LUT_fun[6'h0c] = 29'b0000_0000_000000000_000000_000_100;//syscall
+	LUT_fun[6'h10] = 29'b0000_0000_000000000_000011_111_000;//mfhi
+	LUT_fun[6'h11] = 29'b0000_0001_000000000_001000_000_000;//mthi
+	LUT_fun[6'h12] = 29'b0000_0000_000000000_000011_111_000;//mflo
+	LUT_fun[6'h13] = 29'b0000_0001_000000000_001000_000_000;//mtlo
+	LUT_fun[6'h18] = 29'b0000_0110_000000000_000000_000_000;//mult
+	LUT_fun[6'h19] = 29'b0000_0110_000000000_000000_000_000;//multu
+	//6'h1a:_div = 1'b1;
+	//6'h1b:_divu = 1'b1;
+	LUT_fun[6'h20] = 29'b0000_0110_000010100_000001_111_000;//add
+	LUT_fun[6'h21] = 29'b0000_0110_000010000_000001_111_000;//addu
+	LUT_fun[6'h22] = 29'b0000_0110_000110100_000001_111_000;//sub
+	LUT_fun[6'h23] = 29'b0000_0110_000110000_000001_111_000;//subu
+	LUT_fun[6'h24] = 29'b0000_0110_000000000_000001_111_000;//and
+	LUT_fun[6'h25] = 29'b0000_0110_000001000_000001_111_000;//or
+	LUT_fun[6'h26] = 29'b0000_0110_000011000_000001_111_000;//xor
+	LUT_fun[6'h27] = 29'b0000_0110_000100000_000001_111_000;//nor
+	LUT_fun[6'h2a] = 29'b0000_0110_000111000_000001_111_000;//slt
+	//6'h2b:_sltu = 1'b1;
+end
+initial begin
+	for (i = 0; i<64; i= i+1)
+		 LUT_op[i] = 29'b0000_0000_000000000_000000_000_010;//unknown
+	LUT_op[6'h02] = 29'b0010_0000_000000000_000000_000_000;//j
+	LUT_op[6'h03] = 29'b0010_0000_000000001_000001_101_000;//jal
+	LUT_op[6'h04] = 29'b1000_0000_000000000_000000_000_000;//beq
+	LUT_op[6'h05] = 29'b0100_0000_000000000_000000_000_000;//bne
+	//6'h06:_blez = 1'b1;
+	//6'h07:_bgtz = 1'b1;
+	LUT_op[6'h08] = 29'b0000_0100_110010100_000001_110_000;//addi
+	LUT_op[6'h09] = 29'b0000_0100_110010000_000001_110_000;//addiu
+	LUT_op[6'h0a] = 29'b0000_0100_110111000_000001_110_000;//slti
+	//6'h0b:_sltiu = 1'b1;
+	LUT_op[6'h0c] = 29'b0000_0100_010000000_000001_110_000;//andi
+	LUT_op[6'h0d] = 29'b0000_0100_010001000_000001_110_000;//ori
+	LUT_op[6'h0e] = 29'b0000_0100_010011000_000001_110_000;//xori
+	LUT_op[6'h0f] = 29'b0000_0000_000000010_000001_110_000;//lui
+	//6'h20:_lb = 1'b1;
+	//6'h21:_lh = 1'b1;
+	LUT_op[6'h23] = 29'b0000_0100_110010000_010000_110_000;//lw
+	//6'h24:_lbu = 1'b1;
+	//6'h25:_lhu = 1'b1;
+	//6'h28:_sb = 1'b1;
+	//6'h29:_sh = 1'b1;
+	LUT_op[6'h2b] = 29'b0000_0100_110010000_100000_000_000;//sw
+	LUT_op[6'h2f] = 29'b0000_0000_000000000_000000_000_000;//cache
+end
+initial begin
+	for (i = 0; i<64; i=i+1)
+		LUT_1c[i] = 29'b0000_0000_000000000_000000_000_010;//unknown
+	LUT_1c[6'h00] = 29'b0000_0110_000000000_000000_000_000;//madd
+	LUT_1c[6'h01] = 29'b0000_0110_000000000_000000_000_000;//maddu
+	LUT_1c[6'h02] = 29'b0000_0110_000000000_000011_111_000;//mul
+	LUT_1c[6'h04] = 29'b0000_0110_000000000_000000_000_000;//msub
+	LUT_1c[6'h05] = 29'b0000_0110_000000000_000000_000_000;//msubu
+end
 
-reg _sll, _srl, _jr, _jalr
-	, _mfhi, _mthi, _mflo, _mtlo
-	, _mult, _multu, _madd, _maddu, _mul, _msub, _msubu
-	, _add, _addu, _sub, _subu
-	, _and, _or, _xor, _nor, _slt, _sltu
-	, _j, _jal, _beq, _bne
-	, _addi, _addiu, _slti, _sltiu, _andi, _ori, _xori, _lui
-	, _mfc0, _mtc0, _eret
-	, _lw, _sw
-	, _cache, _syscall;
+assign op_0      = LUT_fun[fun];
+assign op_1c     = LUT_1c[fun];
+assign op_other = LUT_op[op];
 always @* begin
-	{_sll, _srl, _jr, _jalr
-	, _mfhi, _mthi, _mflo, _mtlo
-	, _mult, _multu, _madd, _maddu, _mul, _msub, _msubu
-	, _add, _addu, _sub, _subu
-	, _and, _or, _xor, _nor, _slt, _sltu
-	, _j, _jal, _beq, _bne
-	, _addi, _addiu, _slti, _sltiu, _andi, _ori, _xori, _lui
-	, _mfc0, _mtc0, _eret
-	, _lw, _sw
-	, _cache, _syscall} = 0;
-	case (op)
-		6'h0:
-			case (fun)
-				6'h0: _sll  = 1'b1;
-				6'h2: _srl  = 1'b1;
-				//6'h3: _sra = 1'b1;
-				6'h8: _jr   = 1'b1;
-				6'h9: _jalr = 1'b1;
-				6'h0c:_syscall = 1'b1;
-				6'h10:_mfhi = 1'b1;
-				6'h11:_mthi = 1'b1;
-				6'h12:_mflo = 1'b1;
-				6'h13:_mtlo = 1'b1;
-				6'h18:_mult = 1'b1;
-				6'h19:_multu = 1'b1;
-				//6'h1a:_div = 1'b1;
-				//6'h1b:_divu = 1'b1;
-				6'h20:_add  = 1'b1;
-				6'h21:_addu = 1'b1;
-				6'h22:_sub  = 1'b1;
-				6'h23:_subu = 1'b1;
-				6'h24:_and  = 1'b1;
-				6'h25:_or   = 1'b1;
-				6'h26:_xor  = 1'b1;
-				6'h27:_nor  = 1'b1;
-				6'h2a:_slt  = 1'b1;
-				6'h2b:_sltu = 1'b1;
-			endcase
-		6'h02:_j = 1'b1;
-		6'h03:_jal = 1'b1;
-		6'h04:_beq = 1'b1;
-		6'h05:_bne = 1'b1;
-		//6'h06:_blez = 1'b1;
-		//6'h07:_bgtz = 1'b1;
-		6'h08:_addi = 1'b1;
-		6'h09:_addiu = 1'b1;
-		6'h0a:_slti = 1'b1;
-		6'h0b:_sltiu = 1'b1;
-		6'h0c:_andi = 1'b1;
-		6'h0d:_ori = 1'b1;
-		6'h0e:_xori = 1'b1;
-		6'h0f:_lui = 1'b1;
-		6'h10:case (rs)
-					6'h00:_mfc0 = 1'b1;
-					6'h04:_mtc0 = 1'b1;
-					6'h10:case(fun)
-								6'h18:_eret = 1'b1;
-							endcase
+	op_10 = 29'b0000_0000_000000000_000000_000_010;//unknown
+	case(rs)
+		6'h00: op_10 = 29'b0000_0000_000000000_000010_110_000;//mfc0
+		6'h04: op_10 = 29'b0000_0010_000000000_001000_000_000;//mtc0
+		6'h10:case(fun)
+					6'h18: op_10 = 29'b0000_0000_000000000_000000_000_001;//eret
 				endcase
-		6'h1c:case (fun)
-					6'h00: _madd = 1'b1;
-					6'h01: _maddu= 1'b1;
-					6'h02: _mul  = 1'b1;
-					6'h04: _msub = 1'b1;
-					6'h05: _msubu= 1'b1;
-				endcase
-		//6'h20:_lb = 1'b1;
-		//6'h21:_lh = 1'b1;
-		6'h23:_lw = 1'b1;
-		//6'h24:_lbu = 1'b1;
-		//6'h25:_lhu = 1'b1;
-		//6'h28:_sb = 1'b1;
-		//6'h29:_sh = 1'b1;
-		6'h2b:_sw = 1'b1;
-		6'h2f:_cache = 1'b1;
 	endcase
 end
-wire _unknown;
-assign _unknown = ~(|{_sll, _srl, _jr, _jalr
-	, _mfhi, _mthi, _mflo, _mtlo
-	, _mult, _multu, _madd, _maddu, _mul, _msub, _msubu
-	, _add, _addu, _sub, _subu
-	, _and, _or, _xor, _nor, _slt, _sltu
-	, _j, _jal, _beq, _bne
-	, _addi, _addiu, _slti, _sltiu, _andi, _ori, _xori, _lui
-	, _mfc0, _mtc0, _eret
-	, _lw, _sw
-	, _cache, _syscall});
-wire arith_, bitwise_, itype_, mulw_, mula_;
-assign arith_ = |{_add, _addu, _sub, _subu};
-assign bitwise_ = |{_slt, _and, _or, _xor, _nor};
-assign itype_ = |{_addi, _addiu, _andi, _ori, _slti, _xori};
-assign mulw_ = |{_mul, _mfhi, _mflo};
-assign mula_ = |{_mult, _multu, _mul, _madd, _maddu, _msub, _msubu};
 
-always @* begin
-	{id_beq, id_bne, id_j, id_jr,
-	id_rega_addr, id_regb_addr,
-	id_exe_sign, id_exe_imm, id_exe_aluop,
-	id_exe_res_sign, id_exe_lui, id_exe_jal,
-	id_mem_we, id_mem_rd, id_mem_CP0_we, id_mem_mem_reg, 
-	id_wb_we, id_wb_dreg, 
-	id_syscall, id_unknown, id_eret} = 0;
-	
-	id_beq = _beq;
-	id_bne = _bne;
-	id_j = _j | _jal;
-	id_jr = _jr | _jalr;
-	if (|{arith_ , bitwise_, itype_, mula_, _jr, _jalr, _mthi, _mtlo, _lw, _sw, _beq, _bne})
-		id_rega_addr = RS;
-	else if(_srl | _sll)
-		id_rega_addr = RT;
-	else
-		id_rega_addr = NO;
-	
-	if (|{arith_, bitwise_, mula_, _sw, _beq, _bne})
-		id_regb_addr = RT;
-	else
-		id_regb_addr = NO;
-		
-	id_exe_sign = |{_lw, _sw, _addi, _addiu, _slti};
-	id_exe_imm = |{itype_, _srl, _sll, _lw, _sw};
-	
-	if (|{_add, _addu, _lw, _sw, _addi, _addiu})
-		id_exe_aluop = ADD;
-	else if (_sub | _subu)
-		id_exe_aluop = SUB;
-	else if (_slt | _slti)
-		id_exe_aluop = SLT;
-	else if (_and | _andi)
-		id_exe_aluop = AND;
-	else if (_or | _ori)
-		id_exe_aluop = OR;
-	else if (_xor | _xori)
-		id_exe_aluop = XOR;
-	else if (_nor)
-		id_exe_aluop = NOR;
-	else if (_srl)
-		id_exe_aluop = SRL;
-	else if (_sll)
-		id_exe_aluop = SLL;
-	
-	id_exe_res_sign = |{_add, _sub, _addi};
-	id_exe_lui = _lui;
-	id_exe_jal = _jalr | _jal;
-	id_mem_we = _sw;
-	id_mem_rd = _lw;
-	id_mem_CP0_we = _mtc0;
-	if (_lw)
-		id_mem_mem_reg = MEM;
-	else if (_mfc0)
-		id_mem_mem_reg = CP0;
-	else if (|{_mfhi, _mflo, _mul})
-		id_mem_mem_reg = MUL;
-	else
-		id_mem_mem_reg = ALU;
-		
-	id_wb_we = |{arith_ , bitwise_, itype_, mulw_, _srl, _sll, _jalr, _lw, _lui, _mfc0, _jal};
-	if (|{_lw, itype_, _lui, _mfc0})
-		id_wb_dreg = RT;
-	else if (_jal)
-		id_wb_dreg = RA;
-   else if(|{arith_, bitwise_, mulw_, _srl, _sll, _jalr})
-		id_wb_dreg = RD;
-	else
-	   id_wb_dreg = NO;
-	
-	id_syscall =  _syscall;
-	id_unknown =  _unknown;
-	id_eret = _eret;
-end
+wire en_00, en_1c, en_10, en_other;
+assign en_00 = op == 6'h00;
+assign en_10 = op == 6'h10;
+assign en_1c = op == 6'h1c;
+assign en_other = ~(en_00 | en_10 | en_1c);
+
+assign bus = en_00 ? op_0 : 29'bz;
+assign bus = en_10 ? op_10: 29'bz;
+assign bus = en_1c ? op_1c: 29'bz;
+assign bus = en_other ? op_other : 29'bz;
+
+assign {id_beq, id_bne, id_j, id_jr,
+	     id_rega_addr, id_regb_addr,
+		  id_exe_sign, id_exe_imm, id_exe_aluop, id_exe_res_sign, id_exe_lui, id_exe_jal,
+		  id_mem_we, id_mem_rd, id_mem_CP0_we, id_mem_mem_reg,
+		  id_wb_we, id_wb_dreg,
+		  id_syscall, id_unknown, id_eret} = bus;
 
 endmodule

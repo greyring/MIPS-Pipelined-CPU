@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
@@ -116,7 +116,8 @@ Parsing module <control>.
 =========================================================================
 
 Elaborating module <control>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\control.v" Line 80: Assignment to shift ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\control.v" Line 82: Assignment to shift ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "F:\MyProgramme\0arch\PCPU\control.v" Line 162: Net <en_10> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -124,37 +125,113 @@ WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\control.v" Line 80: Assign
 
 Synthesizing Unit <control>.
     Related source file is "F:\MyProgramme\0arch\PCPU\control.v".
-        NO = 2'b00
-        RS = 2'b01
-        RA = 2'b01
-        RT = 2'b10
-        RD = 2'b11
-        MEM = 3'b000
-        ALU = 3'b001
-        CP0 = 3'b010
-        MUL = 3'b011
-        AND = 4'b0000
-        OR = 4'b0001
-        ADD = 4'b0010
-        XOR = 4'b0011
-        NOR = 4'b0100
-        SRL = 4'b0101
-        SUB = 4'b0110
-        SLT = 4'b0111
-        SLL = 4'b1000
+WARNING:Xst:2999 - Signal 'LUT_fun', unconnected in block 'control', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'LUT_op', unconnected in block 'control', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'LUT_1c', unconnected in block 'control', is tied to its initial value.
+WARNING:Xst:653 - Signal <en_10> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 64x29-bit single-port Read Only RAM <Mram_LUT_fun> for signal <LUT_fun>.
+    Found 64x29-bit single-port Read Only RAM <Mram_LUT_op> for signal <LUT_op>.
+    Found 64x29-bit single-port Read Only RAM <Mram_LUT_1c> for signal <LUT_1c>.
+    Found 1-bit tristate buffer for signal <id_beq> created at line 168
+    Found 1-bit tristate buffer for signal <id_bne> created at line 168
+    Found 1-bit tristate buffer for signal <id_j> created at line 168
+    Found 1-bit tristate buffer for signal <id_jr> created at line 168
+    Found 1-bit tristate buffer for signal <bus<24>> created at line 168
+    Found 1-bit tristate buffer for signal <bus<23>> created at line 168
+    Found 1-bit tristate buffer for signal <bus<22>> created at line 168
+    Found 1-bit tristate buffer for signal <bus<21>> created at line 168
+    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 168
+    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 168
+    Found 1-bit tristate buffer for signal <bus<18>> created at line 168
+    Found 1-bit tristate buffer for signal <bus<17>> created at line 168
+    Found 1-bit tristate buffer for signal <bus<16>> created at line 168
+    Found 1-bit tristate buffer for signal <bus<15>> created at line 168
+    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 168
+    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 168
+    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 168
+    Found 1-bit tristate buffer for signal <id_mem_we> created at line 168
+    Found 1-bit tristate buffer for signal <id_mem_rd> created at line 168
+    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 168
+    Found 1-bit tristate buffer for signal <bus<8>> created at line 168
+    Found 1-bit tristate buffer for signal <bus<7>> created at line 168
+    Found 1-bit tristate buffer for signal <bus<6>> created at line 168
+    Found 1-bit tristate buffer for signal <id_wb_we> created at line 168
+    Found 1-bit tristate buffer for signal <bus<4>> created at line 168
+    Found 1-bit tristate buffer for signal <bus<3>> created at line 168
+    Found 1-bit tristate buffer for signal <id_syscall> created at line 168
+    Found 1-bit tristate buffer for signal <id_unknown> created at line 168
+    Found 1-bit tristate buffer for signal <id_eret> created at line 168
+    Found 1-bit tristate buffer for signal <id_beq> created at line 170
+    Found 1-bit tristate buffer for signal <id_bne> created at line 170
+    Found 1-bit tristate buffer for signal <id_j> created at line 170
+    Found 1-bit tristate buffer for signal <id_jr> created at line 170
+    Found 1-bit tristate buffer for signal <bus<24>> created at line 170
+    Found 1-bit tristate buffer for signal <bus<23>> created at line 170
+    Found 1-bit tristate buffer for signal <bus<22>> created at line 170
+    Found 1-bit tristate buffer for signal <bus<21>> created at line 170
+    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 170
+    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 170
+    Found 1-bit tristate buffer for signal <bus<18>> created at line 170
+    Found 1-bit tristate buffer for signal <bus<17>> created at line 170
+    Found 1-bit tristate buffer for signal <bus<16>> created at line 170
+    Found 1-bit tristate buffer for signal <bus<15>> created at line 170
+    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 170
+    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 170
+    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 170
+    Found 1-bit tristate buffer for signal <id_mem_we> created at line 170
+    Found 1-bit tristate buffer for signal <id_mem_rd> created at line 170
+    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 170
+    Found 1-bit tristate buffer for signal <bus<8>> created at line 170
+    Found 1-bit tristate buffer for signal <bus<7>> created at line 170
+    Found 1-bit tristate buffer for signal <bus<6>> created at line 170
+    Found 1-bit tristate buffer for signal <id_wb_we> created at line 170
+    Found 1-bit tristate buffer for signal <bus<4>> created at line 170
+    Found 1-bit tristate buffer for signal <bus<3>> created at line 170
+    Found 1-bit tristate buffer for signal <id_syscall> created at line 170
+    Found 1-bit tristate buffer for signal <id_unknown> created at line 170
+    Found 1-bit tristate buffer for signal <id_eret> created at line 170
+    Found 1-bit tristate buffer for signal <id_beq> created at line 171
+    Found 1-bit tristate buffer for signal <id_bne> created at line 171
+    Found 1-bit tristate buffer for signal <id_j> created at line 171
+    Found 1-bit tristate buffer for signal <id_jr> created at line 171
+    Found 1-bit tristate buffer for signal <bus<24>> created at line 171
+    Found 1-bit tristate buffer for signal <bus<23>> created at line 171
+    Found 1-bit tristate buffer for signal <bus<22>> created at line 171
+    Found 1-bit tristate buffer for signal <bus<21>> created at line 171
+    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 171
+    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 171
+    Found 1-bit tristate buffer for signal <bus<18>> created at line 171
+    Found 1-bit tristate buffer for signal <bus<17>> created at line 171
+    Found 1-bit tristate buffer for signal <bus<16>> created at line 171
+    Found 1-bit tristate buffer for signal <bus<15>> created at line 171
+    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 171
+    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 171
+    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 171
+    Found 1-bit tristate buffer for signal <id_mem_we> created at line 171
+    Found 1-bit tristate buffer for signal <id_mem_rd> created at line 171
+    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 171
+    Found 1-bit tristate buffer for signal <bus<8>> created at line 171
+    Found 1-bit tristate buffer for signal <bus<7>> created at line 171
+    Found 1-bit tristate buffer for signal <bus<6>> created at line 171
+    Found 1-bit tristate buffer for signal <id_wb_we> created at line 171
+    Found 1-bit tristate buffer for signal <bus<4>> created at line 171
+    Found 1-bit tristate buffer for signal <bus<3>> created at line 171
+    Found 1-bit tristate buffer for signal <id_syscall> created at line 171
+    Found 1-bit tristate buffer for signal <id_unknown> created at line 171
+    Found 1-bit tristate buffer for signal <id_eret> created at line 171
     Summary:
-	inferred  43 Multiplexer(s).
+	inferred   3 RAM(s).
+	inferred  87 Tristate(s).
 Unit <control> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Multiplexers                                         : 43
- 1-bit 2-to-1 multiplexer                              : 30
- 2-bit 2-to-1 multiplexer                              : 3
- 3-bit 2-to-1 multiplexer                              : 2
- 4-bit 2-to-1 multiplexer                              : 8
+# RAMs                                                 : 3
+ 64x29-bit single-port Read Only RAM                   : 3
+# Tristates                                            : 87
+ 1-bit tristate buffer                                 : 87
 
 =========================================================================
 
@@ -163,21 +240,55 @@ Macro Statistics
 =========================================================================
 
 
+Synthesizing (advanced) Unit <control>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_LUT_op> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 29-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <inst>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_LUT_fun> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 29-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <inst>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_LUT_1c> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 29-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <inst>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <control> synthesized (advanced).
+
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Multiplexers                                         : 43
- 1-bit 2-to-1 multiplexer                              : 30
- 2-bit 2-to-1 multiplexer                              : 3
- 3-bit 2-to-1 multiplexer                              : 2
- 4-bit 2-to-1 multiplexer                              : 8
+# RAMs                                                 : 3
+ 64x29-bit single-port distributed Read Only RAM       : 3
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:2040 - Unit control: 29 multi-source signals are replaced by logic (pull-up yes): id_beq_MLTSRCEDGE, id_bne_MLTSRCEDGE, id_eret_MLTSRCEDGE, id_exe_aluop<0>_MLTSRCEDGE, id_exe_aluop<1>_MLTSRCEDGE, id_exe_aluop<2>_MLTSRCEDGE, id_exe_aluop<3>_MLTSRCEDGE, id_exe_imm_MLTSRCEDGE, id_exe_jal_MLTSRCEDGE, id_exe_lui_MLTSRCEDGE, id_exe_res_sign_MLTSRCEDGE, id_exe_sign_MLTSRCEDGE, id_j_MLTSRCEDGE, id_jr_MLTSRCEDGE, id_mem_CP0_we_MLTSRCEDGE, id_mem_mem_reg<0>_MLTSRCEDGE, id_mem_mem_reg<1>_MLTSRCEDGE, id_mem_mem_reg<2>_MLTSRCEDGE, id_mem_rd_MLTSRCEDGE, id_mem_we_MLTSRCEDGE, id_rega_addr<0>_MLTSRCEDGE, id_rega_addr<1>_MLTSRCEDGE, id_regb_addr<0>_MLTSRCEDGE, id_regb_addr<1>_MLTSRCEDGE, id_syscall_MLTSRCEDGE, id_unknown_MLTSRCEDGE, id_wb_dreg<0>_MLTSRCEDGE, id_wb_dreg<1>_MLTSRCEDGE, id_wb_we_MLTSRCEDGE.
 
 Optimizing unit <control> ...
 
@@ -212,15 +323,13 @@ Top Level Output File Name         : control.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 70
+# BELS                             : 66
 #      GND                         : 1
-#      LUT2                        : 4
-#      LUT3                        : 4
-#      LUT4                        : 9
-#      LUT5                        : 16
-#      LUT6                        : 36
-# IO Buffers                       : 46
-#      IBUF                        : 17
+#      LUT3                        : 1
+#      LUT5                        : 25
+#      LUT6                        : 39
+# IO Buffers                       : 41
+#      IBUF                        : 12
 #      OBUF                        : 29
 
 Device utilization summary:
@@ -230,19 +339,19 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice LUTs:                   69  out of  203800     0%  
-    Number used as Logic:                69  out of  203800     0%  
+ Number of Slice LUTs:                   65  out of  203800     0%  
+    Number used as Logic:                65  out of  203800     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     69
-   Number with an unused Flip Flop:      69  out of     69   100%  
-   Number with an unused LUT:             0  out of     69     0%  
-   Number of fully used LUT-FF pairs:     0  out of     69     0%  
+ Number of LUT Flip Flop pairs used:     65
+   Number with an unused Flip Flop:      65  out of     65   100%  
+   Number with an unused LUT:             0  out of     65     0%  
+   Number of fully used LUT-FF pairs:     0  out of     65     0%  
    Number of unique control sets:         0
 
 IO Utilization: 
  Number of IOs:                          61
- Number of bonded IOBs:                  46  out of    400    11%  
+ Number of bonded IOBs:                  41  out of    400    10%  
 
 Specific Feature Utilization:
 
@@ -277,7 +386,7 @@ Speed Grade: -2
    Minimum period: No path found
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: No path found
-   Maximum combinational path delay: 2.955ns
+   Maximum combinational path delay: 1.801ns
 
 Timing Details:
 ---------------
@@ -285,25 +394,23 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 477 / 27
+  Total number of paths / destination ports: 472 / 27
 -------------------------------------------------------------------------
-Delay:               2.955ns (Levels of Logic = 6)
-  Source:            inst<4> (PAD)
-  Destination:       id_wb_we (PAD)
+Delay:               1.801ns (Levels of Logic = 4)
+  Source:            inst<28> (PAD)
+  Destination:       id_rega_addr<0> (PAD)
 
-  Data Path: inst<4> to id_wb_we
+  Data Path: inst<28> to id_rega_addr<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            14   0.000   0.685  inst_4_IBUF (inst_4_IBUF)
-     LUT6:I0->O            2   0.043   0.618  Mmux_id_wb_dreg211 (Mmux_id_wb_dreg21)
-     LUT6:I0->O            1   0.043   0.613  Mmux_id_wb_dreg224 (Mmux_id_wb_dreg224)
-     LUT6:I0->O            2   0.043   0.527  Mmux_id_wb_dreg226 (Mmux_id_wb_dreg22)
-     LUT5:I1->O            1   0.043   0.339  out51 (id_wb_we_OBUF)
-     OBUF:I->O                 0.000          id_wb_we_OBUF (id_wb_we)
+     IBUF:I->O            40   0.000   0.744  inst_28_IBUF (inst_28_IBUF)
+     LUT6:I0->O            6   0.043   0.631  en_00<5>1 (en_00)
+     LUT5:I0->O            1   0.043   0.339  id_rega_addr<0>_MLTSRCEDGELogicTrst1 (id_rega_addr_0_OBUF)
+     OBUF:I->O                 0.000          id_rega_addr_0_OBUF (id_rega_addr<0>)
     ----------------------------------------
-    Total                      2.955ns (0.172ns logic, 2.783ns route)
-                                       (5.8% logic, 94.2% route)
+    Total                      1.801ns (0.086ns logic, 1.715ns route)
+                                       (4.8% logic, 95.2% route)
 
 =========================================================================
 
@@ -313,14 +420,14 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 11.85 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 11.62 secs
  
 --> 
 
-Total memory usage is 438584 kilobytes
+Total memory usage is 448632 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    1 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 
