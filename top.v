@@ -83,7 +83,7 @@ assign Clk_CPU = SW_OK[2]? Div[24]:Div[0];
 
 wire [31:0]addr_bus;
 wire [31:0]data_bus;
-wire [2:0]ctrl_bus;
+wire [4:0]ctrl_bus;
 wire en_SRAM, en_BIOS, en_vga_reg, en_cursor_reg, en_textRAM, 
 		en_graphRAM, en_DRAM, en_SEG, en_others;
 addr_decoder Addr_decoder(
@@ -94,50 +94,56 @@ addr_decoder Addr_decoder(
     .en_others(en_others)
     );
 wire [31:0]SRAM_addr, SRAM_wdata, SRAM_rdata;
-wire SRAM_r, SRAM_w;
+wire SRAM_r;
+wire [3:0]SRAM_w;
 bus_interface SRAM(
     .enable(en_SRAM), 
-    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[1]), .ready(ctrl_bus[2]), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[4]), .w(ctrl_bus[3:0]), .ready(ctrl_bus[2]), 
     .addr_(SRAM_addr), .wdata(SRAM_wdata), .rdata(SRAM_rdata), 
 	 .r_(SRAM_r), .w_(SRAM_w), .ready_(1'b1)
     );
 wire [31:0]vga_reg_wdata, vga_reg_rdata;
-wire vga_reg_r, vga_reg_w;
+wire vga_reg_r;
+wire [3:0]vga_reg_w;
 bus_interface VGA_REG(
     .enable(en_vga_reg), 
-    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[1]), .ready(ctrl_bus[2]), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[4]), .w(ctrl_bus[3:0]), .ready(ctrl_bus[2]), 
     .addr_(), .wdata(vga_reg_wdata), .rdata(vga_reg_rdata), 
 	 .r_(vga_reg_r), .w_(vga_reg_w), .ready_(1'b1)
     );
 wire [31:0]vga_cursor_wdata, vga_cursor_rdata;
-wire vga_cursor_r, vga_cursor_w;
+wire vga_cursor_r;
+wire [3:0]vga_cursor_w;
 bus_interface VGA_CURSOR(
     .enable(en_cursor_reg), 
-    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[1]), .ready(ctrl_bus[2]), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[4]), .w(ctrl_bus[3:0]), .ready(ctrl_bus[2]), 
     .addr_(), .wdata(vga_cursor_wdata), .rdata(vga_cursor_rdata), 
 	 .r_(vga_cursor_r), .w_(vga_cursor_w), .ready_(1'b1)
     );
 wire [31:0]vga_text_addr, vga_text_wdata, vga_text_rdata;
-wire vga_text_r, vga_text_w;
+wire vga_text_r;
+wire [3:0]vga_text_w;
 bus_interface VGA_TEXT(
     .enable(en_textRAM), 
-    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[1]), .ready(ctrl_bus[2]), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[4]), .w(ctrl_bus[3:0]), .ready(ctrl_bus[2]), 
     .addr_(vga_text_addr), .wdata(vga_text_wdata), .rdata(vga_text_rdata), 
 	 .r_(vga_text_r), .w_(vga_text_w), .ready_(1'b1)
     );
 wire [31:0]vga_graph_addr, vga_graph_wdata, vga_graph_rdata;
-wire vga_graph_r, vga_graph_w;
+wire vga_graph_r;
+wire [3:0]vga_graph_w;
 bus_interface VGA_GRAPH(
     .enable(en_graphRAM), 
-    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[1]), .ready(ctrl_bus[2]), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[4]), .w(ctrl_bus[3:0]), .ready(ctrl_bus[2]), 
     .addr_(vga_graph_addr), .wdata(vga_graph_wdata), .rdata(vga_graph_rdata), 
 	 .r_(vga_graph_r), .w_(vga_graph_w), .ready_(1'b1)
     );
-wire SEG_r, SEG_w;
+wire SEG_r;
+wire [3:0]SEG_w;
 wire [31:0]SEG_wdata;
 bus_interface SEG(
     .enable(en_SEG), 
-    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[1]), .ready(ctrl_bus[2]), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[4]), .w(ctrl_bus[3:0]), .ready(ctrl_bus[2]), 
     .addr_(), .wdata(SEG_wdata), .rdata(32'h0), 
 	 .r_(SEG_r), .w_(SEG_w), .ready_(1'b1)
     );

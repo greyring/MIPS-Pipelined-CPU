@@ -24,6 +24,18 @@ module write_data_mask_32(
 	input [31:0]old_data,
 	output reg [31:0]new_data
     );
+	always @* begin
+		new_data = old_data;
+		if (mask[3])
+		  new_data[31:24] = w_data[31:24];
+		if (mask[2])
+		  new_data[23:16] = w_data[23:16];
+		if (mask[1])
+		  new_data[15:8] = w_data[15:8];
+		if (mask[0])
+		  new_data[7:0] = w_data[7:0];
+   end
+	/*
 	wire [7:0]byte_;
 	wire [15:0]hword_;
 	assign byte_ = w_data[7:0];
@@ -49,4 +61,5 @@ module write_data_mask_32(
 		if (&{mask}) new_data = w_data;
 		else new_data = {data_16_h, data_16_l};
 	end
+	*/
 endmodule

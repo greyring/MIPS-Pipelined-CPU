@@ -19,16 +19,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module jump_control(
-	input beq,
-	input bne,
+	input b,
 	input j,
 	input jr,
-	input equal,
 	output reg [1:0]s
     );
 
 always @* begin
-	if ((beq&equal)|(bne&~equal))
+	if (b)
 		s = 2'b01;
 	else if (j)
 		s = 2'b10;

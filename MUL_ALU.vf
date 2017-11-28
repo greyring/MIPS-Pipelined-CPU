@@ -7,11 +7,11 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : MUL_ALU.vf
-// /___/   /\     Timestamp : 11/07/2017 18:55:57
+// /___/   /\     Timestamp : 11/22/2017 08:27:48
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: sch2hdl -sympath F:/MyProgramme/0arch/PCPU/ipcore_dir -intstyle ise -family kintex7 -verilog F:/MyProgramme/0arch/PCPU/MUL_ALU.vf -w F:/MyProgramme/0arch/PCPU/MUL_ALU.sch
+//Command: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\sch2hdl.exe -sympath F:/MyProgramme/0arch/PCPU/ipcore_dir -intstyle ise -family kintex7 -verilog MUL_ALU.vf -w F:/MyProgramme/0arch/PCPU/MUL_ALU.sch
 //Design Name: MUL_ALU
 //Device: kintex7
 //Purpose:

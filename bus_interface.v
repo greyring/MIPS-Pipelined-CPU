@@ -23,14 +23,14 @@ module bus_interface(
 		input [31:0]addr,
 		inout [31:0]data,
 		input r,
-		input w,
+		input [3:0]w,
 		inout ready,
 		
 		output [31:0]addr_,
 		output [31:0]wdata,
 		input  [31:0]rdata,
 		output r_,
-		output w_,
+		output [3:0]w_,
 		input  ready_
     );
 assign addr_ = addr;

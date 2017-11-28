@@ -24,10 +24,10 @@ module vga_controller(
 	input clk_vga,
 	input clk_cursor,//Div[25]
 	
-	input we_text,
-	input we_graph,
-	input we_cursor,
-	input we_reg,
+	input [3:0]we_text,
+	input [3:0]we_graph,
+	input [3:0]we_cursor,
+	input [3:0]we_reg,
 	input rd_text,
 	input rd_graph,
 	input rd_cursor,
@@ -62,12 +62,22 @@ wire [8:0]vga_row;
 
 parameter GRAPH = 2'b00;
 parameter TEXT = 2'b01;
+parameter MIXED = 2'b11;
 reg [31:0]status = 32'b0;//[31:16]graph addre select 64K [1:0]00 graph 01 text
 always @(posedge clk) begin
-	if (we_reg)
-		status <= reg_wdata;
-	else
-		status <= status;
+   if (rst)
+	   status <= 0;
+	else begin
+	   status <= status;
+		if (we_reg[3])
+			status[31:24] <= reg_wdata[31:24];
+		if (we_reg[2])
+			status[23:16] <= reg_wdata[23:16];
+		if (we_reg[1])
+			status[15:8] <= reg_wdata[15:8];
+		if (we_reg[0])
+			status[7:0] <= reg_wdata[7:0];
+	end
 end
 assign reg_rdata = status;
 
@@ -124,6 +134,12 @@ always @* begin
 	end
 	else if (status[1:0] == GRAPH) begin//graph
 		color_out = graph_color_out;
+	end
+	else if (status[1:0] == MIXED) begin//mix
+	   if (|text_color_out)
+		  color_out = text_color_out;
+		else
+		  color_out = graph_color_out;
 	end
 	else
 		color_out = 12'b0;

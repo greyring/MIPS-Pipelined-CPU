@@ -26,17 +26,17 @@ module PCPU_v(	//人肉保证CP0写入后一段时间不读取CP0，避免CP0遇险
 	 input [4:0]int_,//IP7 is counter interrupt
    output [31:0] inst_addr,
    output [31:0] mem_addr,
-   output [31:0] mem_data,
+   output reg [31:0] mem_data,
 	output [31:0] cause_data,//
 	output [31:0] status_data,//
-   output mem_we,
+   output reg [3:0]mem_we,
 	output mem_rd
 	);
 	
    
 	wire [31:0]mem_addr_DUMMY;
+	wire [31:0]mem_data_DUMMY;
 	wire [31:0]inst_addr_DUMMY;
-   assign mem_addr[31:0] = mem_addr_DUMMY[31:0];
 	assign inst_addr = inst_addr_DUMMY;
 
 /////////////////////////////////////////////////////////////////////////////
@@ -66,28 +66,13 @@ wire forward_status;
 wire forward_cause;
 wire forward_epc;
 wire [31:0]mtc0_data;
-
-/*forward_CP0 Forward_CP0(//eret,以及中断和异常的发生要修改CP0，会与mtc0有冲突
-    .exe_mem_CP0_we(exe_mem_CP0_we), 
-    .exe_mem_CP0_dreg(exe_mem_CP0_dreg[4:0]), 
-    .exe_data(exe_regb[31:0]), 
-    .mem_CP0_we(mem_CP0_we), 
-    .mem_CP0_dreg(mem_CP0_dreg[4:0]), 
-    .mem_data(mem_data[31:0]), 
-	 
-    .forward_status(forward_status),
-	 .forward_cause(forward_cause), 
-	 .forward_epc(forward_epc), 	 
-    .mtc0_data(mtc0_data[31:0])//eret在ID，forward的可能在EXE或者在MEM
-    );
-*/	 
 	CP0 CP0_(
     .clk(clk), 
     .rst(rst), 
 	 
     .we(mem_CP0_we), 
     .r_reg(mem_CP0_dreg), 
-    .data_in(mem_data), //mtc0
+    .data_in(mem_data_DUMMY), //mtc0
     .data_out(CP0_data_out), //mfc0
 	 
     .STATUS_out(STATUS_out), 
@@ -106,24 +91,16 @@ wire [31:0]mtc0_data;
     .mem_pc(mem_pc), 
 	 
     .int_(int_)//外部硬件中断，不包括内存等
-	 
-	 //.forward_status(forward_status),
-	 //.forward_cause(forward_cause),
-	 //.forward_epc(forward_epc),
-	 //.mtc0_data(mtc0_data[31:0])
     );
 	 assign cause_data = CAUSE_out;
 	 assign status_data = STATUS_out;
 ////////////////////////////////////////////////////////////////////////
-	wire id_beq;
-	wire id_ben;
-	wire id_eql;
+   wire id_b;
 	wire id_j;
 	wire id_jr;
 	wire [1:0]jump_s;
-	jump_control  Jump_control(.beq(id_beq), 
-							 .bne(id_bne), 
-							 .equal(id_eql), 
+	jump_control  Jump_control(
+							 .b(id_b), 
 							 .j(id_j), 
 							 .jr(id_jr), 
 							 .s(jump_s[1:0]));
@@ -186,7 +163,7 @@ wire [31:0]mtc0_data;
 						.npc_out(id_npc[31:0]),
 						.id_pc(id_pc[31:0]));
 ///////////////////////////////////////////////////////////	
-	
+	wire [2:0]id_bcond;
 	wire [3:0]id_exe_aluop;
 	wire id_exe_jal;
 	wire id_exe_lui;
@@ -194,16 +171,15 @@ wire [31:0]mtc0_data;
 	wire id_exe_imm;
 	wire id_exe_res_sign;
 	wire [2:0]id_mem_mem_reg;
-	wire id_mem_we;
-	wire id_mem_rd;
+	wire [1:0]id_mem_ctrl;
+	wire [1:0]id_mem_op;
 	wire [1:0]id_wb_dreg_s;
 	wire [1:0]id_rega_addr_s;
 	wire [1:0]id_regb_addr_s;
 	wire id_wb_we;
 	wire id_mem_CP0_we;
 	control  Control(.inst(id_inst[31:0]), 
-                    .id_beq(id_beq), 
-                    .id_bne(id_bne), 
+                    .id_bcond(id_bcond[2:0]), 
 						  .id_j(id_j), 
                     .id_jr(id_jr), 
                     .id_exe_aluop(id_exe_aluop[3:0]), 
@@ -213,8 +189,8 @@ wire [31:0]mtc0_data;
                     .id_exe_imm(id_exe_imm), 
 						  .id_exe_res_sign(id_exe_res_sign),
                     .id_mem_mem_reg(id_mem_mem_reg), 
-                    .id_mem_we(id_mem_we), 
-						  .id_mem_rd(id_mem_rd),
+                    .id_mem_ctrl(id_mem_ctrl), 
+						  .id_mem_op(id_mem_op),
                     .id_wb_dreg(id_wb_dreg_s[1:0]), 
 						  .id_rega_addr(id_rega_addr_s[1:0]),
 						  .id_regb_addr(id_regb_addr_s[1:0]),
@@ -223,7 +199,7 @@ wire [31:0]mtc0_data;
 						  .id_unknown(id_unknown),
 						  .id_eret(id_eret),
 						  .id_mem_CP0_we(id_mem_CP0_we));
-	assign id_bj = id_beq | id_bne | id_j | id_jr;
+	assign id_bj = (|id_bcond) | id_j | id_jr;
 	
 	wire [4:0]id_mem_CP0_dreg;
 	assign id_mem_CP0_dreg = id_inst[15:11];
@@ -308,9 +284,11 @@ wire [31:0]mtc0_data;
     .res(id_baddr[31:0]), 
     .overflow()
     );
-	branch_judge Branch_judge(.rega(id_exe_rega[31:0]), 
+	branch_judge Branch_judge(
+	                   .rega(id_exe_rega[31:0]), 
 							 .regb(id_exe_regb[31:0]), 
-							 .equl(id_eql));
+							 .branch_cond(id_bcond[2:0]),
+							 .b(id_b));
 						
 /////////////////////////////////////////////////////////////////////////
 wire MUL_ID_sign;
@@ -330,31 +308,41 @@ MUL_control MUL_Control(
     );
 
 wire id_bubble;
-wire [31:0]MUL_EWB_data_out;
-	MUL_ALU MUL_ALU_(
-		.clk(clk), 
-		.rst(rst), 
-		.MUL_ID_EXE_rst(rst | id_bubble | exe_overflow), 
-		.MUL_ID_sign(MUL_ID_sign), 
-		.MUL_ID_we(MUL_ID_we), 
-		.MUL_ID_en_c(MUL_ID_en_c), 
-		.MUL_ID_add_sub(MUL_ID_add_sub), 
-		.MUL_ID_A(id_exe_rega[31:0]), 
-		.MUL_ID_B(id_exe_regb[31:0]), 
-		.MUL_ID_HiLo(MUL_ID_HiLo[1:0]), 
-		.MUL_ID_data(id_exe_rega[31:0]), //选择rs作为rega
-		.MUL_ID_mul(MUL_ID_mul), 
-		.MUL_EWB_data_out(MUL_EWB_data_out)
-   );
-
+wire [31:0]MUL_EXE_A, MUL_EXE_B, MUL_EXE_data;
+wire MUL_EXE_add_sub, MUL_EXE_en_c, MUL_EXE_mul, MUL_EXE_sign, MUL_EXE_we;
+wire [1:0]MUL_EXE_HiLo;
+MUL_ID_EXE  _MUL_ID_EXE (
+	.clk(clk), 
+	.rst(rst | id_bubble | exe_overflow), 
+	.EN(1'b1), 
+	.MUL_ID_A(id_exe_rega[31:0]), 
+	.MUL_ID_add_sub(MUL_ID_add_sub), 
+	.MUL_ID_B(id_exe_regb[31:0]), 
+	.MUL_ID_data(id_exe_regb[31:0]), 
+	.MUL_ID_en_c(MUL_ID_en_c), 
+	.MUL_ID_HiLo(MUL_ID_HiLo[1:0]), 
+	.MUL_ID_mul(MUL_ID_mul), 
+	.MUL_ID_sign(MUL_ID_sign), 
+	.MUL_ID_we(MUL_ID_we), 
+	
+	.MUL_EXE_A(MUL_EXE_A[31:0]), 
+	.MUL_EXE_add_sub(MUL_EXE_add_sub), 
+	.MUL_EXE_B(MUL_EXE_B[31:0]), 
+	.MUL_EXE_data(MUL_EXE_data[31:0]), 
+	.MUL_EXE_en_c(MUL_EXE_en_c), 
+	.MUL_EXE_HiLo(MUL_EXE_HiLo[1:0]), 
+	.MUL_EXE_mul(MUL_EXE_mul), 
+	.MUL_EXE_sign(MUL_EXE_sign), 
+	.MUL_EXE_we(MUL_EXE_we)
+	);
 //////////////////////////////////////////////////////////////////////
-//wire ID_EXE_stall_;
 wire [3:0]exe_aluop;
 wire [15:0]exe_imme;
 wire exe_jal;
 wire exe_lui;
-wire exe_mem_we;
-wire exe_mem_rd;
+wire [1:0]exe_mem_ctrl;
+wire [1:0]exe_mem_op;
+wire [4:0]exe_mem_wreg;
 wire [31:0]exe_npc;
 wire [31:0]exe_rega;
 wire [31:0]exe_pc;
@@ -377,8 +365,9 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                        .id_exe_sign(id_exe_sign), 
                        .id_exe_imm(id_exe_imm), 
                        .id_mem_mem_reg(id_mem_mem_reg), 
-                       .id_mem_we(id_mem_we), 
-							  .id_mem_rd(id_mem_rd),
+                       .id_mem_ctrl(id_mem_ctrl), 
+							  .id_mem_op(id_mem_op),
+							  .id_mem_wreg(id_regb_addr[4:0]),
                        .id_wb_dreg(id_wb_dreg[4:0]), 
                        .id_wb_we(id_wb_we), 
 							  .id_exe_alu_sign(id_exe_res_sign),
@@ -391,8 +380,9 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 							  .exe_bj(exe_bj),
                        .exe_lui(exe_lui), 
                        .exe_mem_mem_reg(exe_mem_mem_reg), 
-                       .exe_mem_we(exe_mem_we), 
-							  .exe_mem_rd(exe_mem_rd),
+                       .exe_mem_ctrl(exe_mem_ctrl), 
+							  .exe_mem_op(exe_mem_op),
+							  .exe_mem_wreg(exe_mem_wreg),
                        .exe_npc(exe_npc[31:0]), 
                        .exe_rega(exe_rega[31:0]), 
                        .exe_regb(exe_regb[31:0]), 
@@ -433,8 +423,45 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 		else
 			exe_result = exe_alu_res[31:0];
 	end
+//////////////////////////////////////////////////////////////
+	wire [63:0]MUL_EXE_At, MUL_EXE_Bt;
+	mul32_s  _Mul32_s (
+		.A_i(MUL_EXE_A[31:0]), 
+		.B_i(MUL_EXE_B[31:0]), 
+		.sign(MUL_EXE_sign), 
+		.A_t(MUL_EXE_At[63:0]), 
+		.B_t(MUL_EXE_Bt[63:0])
+		);
+	wire MUL_EWB_add_sub, MUL_EWB_en_c, MUL_EWB_mul, MUL_EWB_we;
+	wire [63:0]MUL_EWB_At, MUL_EWB_Bt;
+	wire [31:0]MUL_EWB_data;
+	wire [1:0]MUL_EWB_HiLo;
+	MUL_EXE_EWB  _Mul_EXE_EWB (
+	  .clk(clk), 
+	  .EN(1'b1), 
+	  .rst(rst), 
+	  .MUL_EXE_add_sub(MUL_EXE_add_sub), 
+	  .MUL_EXE_A_t(MUL_EXE_At[63:0]), 
+	  .MUL_EXE_B_t(MUL_EXE_Bt[63:0]), 
+	  .MUL_EXE_data(MUL_EXE_data[31:0]), 
+	  .MUL_EXE_en_c(MUL_EXE_en_c), 
+	  .MUL_EXE_HiLo(MUL_EXE_HiLo[1:0]), 
+	  .MUL_EXE_mul(MUL_EXE_mul), 
+	  .MUL_EXE_we(MUL_EXE_we),
+	  
+	  .MUL_EWB_add_sub(MUL_EWB_add_sub), 
+	  .MUL_EWB_A_t(MUL_EWB_At[63:0]), 
+	  .MUL_EWB_B_t(MUL_EWB_Bt[63:0]), 
+	  .MUL_EWB_data(MUL_EWB_data[31:0]), 
+	  .MUL_EWB_en_c(MUL_EWB_en_c), 
+	  .MUL_EWB_HiLo(MUL_EWB_HiLo[1:0]), 
+	  .MUL_EWB_mul(MUL_EWB_mul), 
+	  .MUL_EWB_we(MUL_EWB_we)
+	  );
 /////////////////////////////////////////////////////////////
-	//wire EXE_MEM_stall_;
+   wire [1:0]mem_ctrl;
+	wire [1:0]mem_op;
+	wire [4:0]mem_wreg;
 	wire [2:0]mem_mem_reg;
 	EXE_MEM_REG  EXE_MEM_REG (.clk(clk), 
                         .rst(rst),
@@ -443,39 +470,103 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                         .exe_mem_data(exe_regb[31:0]),
 								.exe_pc(exe_pc),
                         .exe_mem_mem_reg(exe_mem_mem_reg), 
-                        .exe_mem_we(exe_mem_we), 
-								.exe_mem_rd(exe_mem_rd),
+                        .exe_mem_ctrl(exe_mem_ctrl), 
+								.exe_mem_op(exe_mem_op),
+								.exe_mem_wreg(exe_mem_wreg),
                         .exe_wb_dreg(exe_wb_dreg[4:0]), 
                         .exe_wb_we(exe_wb_we),  
 								.exe_bj(exe_bj),
 								.exe_mem_CP0_we(exe_mem_CP0_we),
 							   .exe_mem_CP0_dreg(exe_mem_CP0_dreg),
                         .mem_addr(mem_addr_DUMMY[31:0]), 
-                        .mem_data(mem_data[31:0]), 
+                        .mem_data(mem_data_DUMMY[31:0]), 
 								.mem_pc(mem_pc),
                         .mem_mem_reg(mem_mem_reg), 
                         .mem_wb_dreg(mem_wb_dreg[4:0]), 
                         .mem_wb_we(mem_wb_we), 
-                        .mem_we(mem_we),
-								.mem_rd(mem_rd),
+                        .mem_ctrl(mem_ctrl),
+								.mem_op(mem_op),
+								.mem_wreg(mem_wreg),
 								.mem_bj(mem_bj),
 								.mem_CP0_we(mem_CP0_we),
 								.mem_CP0_dreg(mem_CP0_dreg));
-								
+	assign exc_memAddr = mem_ctrl[1] & (mem_addr_DUMMY[0] | (mem_ctrl[0] & mem_addr_DUMMY[1]));
+	//todo handle excption
+	assign mem_rd = mem_op[1];
+	assign mem_addr = {mem_addr_DUMMY[31:2],2'b0};
+	always @* begin
+		case (mem_addr_DUMMY[1:0])
+			2'b00: mem_data = mem_data_DUMMY;
+			2'b01: mem_data = {16'b0, mem_data_DUMMY[7:0], 8'b0};
+			2'b10: mem_data = {mem_data_DUMMY[15:0], 16'b0};
+			2'b11: mem_data = {mem_data_DUMMY[7:0], 24'b0};
+		endcase
+   end
+	always @* begin
+		if (mem_op == 2'b10) begin//we
+		  case ({mem_ctrl, mem_addr_DUMMY[1:0]})
+				4'b1100:mem_we = 4'b1111;
+				4'b1000:mem_we = 4'b0011;
+				4'b1010:mem_we = 4'b1100;
+				4'b0100:mem_we = 4'b0001;
+				4'b0101:mem_we = 4'b0010;
+				4'b0110:mem_we = 4'b0100;
+				4'b0111:mem_we = 4'b1000;
+				default:mem_we = 4'b0000;
+		  endcase
+		end
+		else
+			mem_we = 0;
+	end
+	//todo: mem_wreg used for forward
 ///////////////////////////////////////////////////////////////
-/*	wire [31:0]mem_wb_data_temp;
-	MUX2T1_32  XLXI_20 (.I0(mem_data_in[31:0]), 
-						 .I1(mem_addr_DUMMY[31:0]), //alu result
-						 .s(mem_mem_reg), 
-						 .o(mem_wb_data_temp[31:0]));		
-	
-	assign mem_wb_data = mem_mfc? CP0_data_out[31:0] : mem_wb_data_temp[31:0];
-*/
+wire [63:0]MUL_EWB_Hi_Lo, MUL_EWB_res;
+   mul_adder  _Mul_adder (
+	  .A(MUL_EWB_At[63:0]), 
+	  .B(MUL_EWB_Bt[63:0]), 
+	  .a_s(MUL_EWB_add_sub), 
+	  .C_(MUL_EWB_Hi_Lo[63:0]), 
+	  .en_c(MUL_EWB_en_c), 
+	  .res(MUL_EWB_res[63:0]));
+	Reg_HiLo  _REG_HiLo (
+	  .clk(clk),
+	  .rst(rst),
+	  .we(MUL_EWB_we), 
+	  .cal_res(MUL_EWB_res[63:0]), 
+	  .data_in(MUL_EWB_data[31:0]), 
+	  .HiLo(MUL_EWB_HiLo[1:0]), 
+	  .Hi_Lo(MUL_EWB_Hi_Lo[63:0])
+	  );
+wire [31:0]MUL_EWB_data_out;
+assign MUL_EWB_data_out = MUL_EWB_mul ? MUL_EWB_res[31:0] 
+												  : (MUL_EWB_HiLo[0] ? MUL_EWB_Hi_Lo[31:0] : MUL_EWB_Hi_Lo[63:32]);
+
+reg [7:0]mem_dataB;
+reg [15:0]mem_dataH;
+reg  [31:0]mem_data_in_DUMMY;
+always @* begin
+  case(mem_addr_DUMMY[1:0])
+    2'b00:begin mem_dataB = mem_data_in[7:0];   mem_dataH = mem_data_in[15:0]; end
+	 2'b01:begin mem_dataB = mem_data_in[15:8];  mem_dataH = 0; end
+	 2'b10:begin mem_dataB = mem_data_in[23:16]; mem_dataH = mem_data_in[31:16]; end
+	 2'b11:begin mem_dataB = mem_data_in[31:24]; mem_dataH = 0; end
+  endcase
+end
+always @* begin
+  case({mem_op, mem_ctrl})
+    4'b1001: mem_data_in_DUMMY = {24'b0, mem_dataB};
+	 4'b1010: mem_data_in_DUMMY = {16'b0, mem_dataH};
+    4'b1011: mem_data_in_DUMMY = mem_data_in;
+	 4'b1101: mem_data_in_DUMMY = {{24{mem_dataB[7]}}, mem_dataB};
+	 4'b1110: mem_data_in_DUMMY = {{16{mem_dataH[15]}}, mem_dataH};
+	 default: mem_data_in_DUMMY = 0;
+  endcase
+end
 
 reg [31:0]mem_wb_data_temp;
 always @* begin
 	case(mem_mem_reg)
-		3'b000: mem_wb_data_temp = mem_data_in[31:0];//memory
+		3'b000: mem_wb_data_temp = mem_data_in_DUMMY[31:0];//memory
 		3'b001: mem_wb_data_temp = mem_addr_DUMMY[31:0];//alu result
 		3'b010: mem_wb_data_temp = CP0_data_out[31:0];//CP0 mfc0
 		3'b011: mem_wb_data_temp = MUL_EWB_data_out[31:0];//hi/lo/result  mul/mfhi/mflo
@@ -494,7 +585,6 @@ assign mem_wb_data = mem_wb_data_temp;
                        .wb_data(wb_data[31:0]), 
                        .wb_dreg(wb_dreg[4:0]), 
                        .wb_we(wb_we));
-
 //////////////////////////////////////////////////////////////
 	stall_control  Stall_control(.exe_mem_mem_reg(exe_mem_mem_reg), 
 								.exe_wb_dreg(exe_wb_dreg[4:0]), 

@@ -20,10 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 module vga_text(
 	input clk,
-	input we,
+	input [3:0]we,
 	input rd,
 	input [31:0]addr,//write location, character
-	input [31:0]data,//6(front color) 6(back color) 16(Zcode)
+	input [31:0]data,//00 6(front color)00 6(back color) 16(Zcode)
 	input [9:0]vga_column,
 	input [8:0]vga_row,
 	output[31:0]data_out,
@@ -32,14 +32,14 @@ module vga_text(
 
 reg [10:0]addr_ram;
 always @* begin
-	if (we | rd) addr_ram = addr[12:2];
+	if ((|we) | rd) addr_ram = addr[12:2];
 	else addr_ram = vga_row[8:4] * 40 + vga_column[9:4];
 end
 
 wire [31:0]text_data;
 text_vga_ram Text_vga_ram(
   .clka(clk), // input clka
-  .wea(we), // input [0 : 0] wea
+  .wea(we), // input [3 : 0] wea
   .addra(addr_ram), // input [10 : 0] addra
   .dina(data), // input [31 : 0] dina
   .douta(text_data) // output [31 : 0] douta
@@ -55,7 +55,7 @@ text_vga_rom Text_vga_rom(
 );
 
 assign color_out = font_data[vga_column[3:0]] ? 
-						{text_data[27:26],2'b0,text_data[25:24],2'b0, text_data[23:22],2'b0}://front
+						{text_data[29:28],2'b0,text_data[27:26],2'b0, text_data[25:24],2'b0}://front
 						{text_data[21:20],2'b0,text_data[19:18],2'b0, text_data[17:16],2'b0};//back
 assign data_out = rd ? text_data : 32'b0;
 

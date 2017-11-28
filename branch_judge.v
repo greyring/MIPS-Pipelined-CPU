@@ -21,9 +21,20 @@
 module branch_judge(
 	input [31:0]rega,
 	input [31:0]regb,
-	output equl
+	input [2:0]branch_cond,
+	output reg b
     );
+wire equl;
+wire great;
 assign equl = rega == regb;
 
-
+always @* begin
+	case (branch_cond)
+	  3'd1: b = equl;
+	  3'd2: b = ~equl;
+	  3'd3: b = rega[31];
+	  3'd4: b = ~rega[31];
+	  default: b = 0;
+	endcase
+end
 endmodule

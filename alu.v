@@ -26,7 +26,7 @@ module alu(input [31:0]A,
 				output zero,
 				output overflow);
 parameter one = 32'h00000001,zero_0=32'h00000000;
-wire[31:0] res_and,res_or,res_add_sub,res_slt,res_srl,res_xor,res_sll;
+wire[31:0] res_and,res_or,res_add_sub,res_slt,res_srl,res_xor,res_sll,res_sra,res_stlu;
 
 wire overflow_;
 adder32_Sklansky adder32(
@@ -45,35 +45,21 @@ assign overflow = alu_sign?overflow_:1'b0;
 	assign res_srl = A>>B[10:6];
 	assign res_xor = A^B;
 	assign res_sll = A<<B[10:6];
+	assign res_sra = $signed(A)>>B[10:6];
+	assign res_stlu = A<B;
 	always@*
 		case(ALU_Ctr)
-			4'b0000:begin
-					 res = res_and;
-					 end
-			4'b0001:begin
-					 res = res_or;
-					 end
-			4'b0010:begin//add
-					 res = res_add_sub;
-					 end
-			4'b0011:begin
-					 res = res_xor;
-					 end
-			4'b0100:begin
-					 res = ~res_or;
-					 end
-			4'b0101:begin
-					 res = res_srl;
-					 end
-			4'b0110:begin//sub
-					 res = res_add_sub;
-					 end
-			4'b0111:begin
-					 res = res_slt;
-					 end
-			4'b1000:begin
-					 res = res_sll;
-					 end
+			4'b0000:res = res_and;
+			4'b0001:res = res_or;
+			4'b0010:res = res_add_sub;
+			4'b0011:res = res_xor;
+			4'b0100:res = ~res_or;
+			4'b0101:res = res_srl;
+			4'b0110:res = res_add_sub;//sub
+			4'b0111:res = res_slt;
+			4'b1000:res = res_sll;
+			4'b1001:res = res_sra;
+			4'b1010:res = res_stlu;
 			default:res = 32'hx;
 		endcase
 	assign zero = (res==0)?1'b1:1'b0;

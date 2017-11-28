@@ -22,9 +22,9 @@ module vga_cursor(
 	input clk,//high frequency for update register
 	input clk_cursor,
 	input rst,
-	input we,
+	input [3:0]we,
 	input rd,
-	input [31:0]data_in,// [12:2]text mode下第几个方块位置 [21:16]光标颜色 [1:0]11 方块 10 竖线 01 下横线 00 disable
+	input [31:0]data_in,// [10:0]text mode下第几个方块位置 [21:16]光标颜色 [25:24]11 方块 10 竖线 01 下横线 00 disable
 	
 	input [9:0]vga_column,
 	input [8:0]vga_row,
@@ -37,10 +37,17 @@ reg [31:0]stat = 32'b0;
 always @(posedge clk) begin
 	if (rst) 
 		stat <= 0;
-	else if (we)
-		stat <= data_in;
-	else
-		stat <= stat;
+   else begin
+	   stat <= stat;
+		if (we[3])
+			stat[31:24] <= data_in[31:24];
+		if (we[2])
+		   stat[23:16] <= data_in[23:16];
+		if (we[1])
+		   stat[15:8] <= data_in[15:8];
+		if (we[0])
+		   stat[7:0] <= data_in[7:0];
+	end
 end
 assign data_out = rd ? stat : 32'b0;
 
@@ -48,12 +55,12 @@ wire [10:0]addr;
 assign addr = vga_row[8:4] * 40 + vga_column[9:4];
 reg font;
 always @* begin
-	if (addr == stat[12:2]) begin
-		if (stat[1:0] == 2'b11)//方块
+	if (addr == stat[10:0]) begin
+		if (stat[25:24] == 2'b11)//方块
 			font = 1'b1;
-		else if (stat[1:0] == 2'b10)//竖线
+		else if (stat[25:24] == 2'b10)//竖线
 			font = vga_column[3:0] == 4'hf;
-		else if (stat[1:0] == 2'b01)//下横线
+		else if (stat[25:24] == 2'b01)//下横线
 			font = vga_row[3:0] == 4'hf;
 		else
 			font = 1'b0;//光标模式决定不显示
@@ -63,7 +70,7 @@ always @* begin
 end
 assign color_out = (clk_cursor & font) ? 
 						{stat[21:20], 2'b0, stat[19:18], 2'b0, stat[17:16],2'b0} 
-						: 32'b0;
-assign cursor_on = addr == stat[12:2];
+						: 12'b0;
+assign cursor_on = addr == stat[10:0];
 
 endmodule

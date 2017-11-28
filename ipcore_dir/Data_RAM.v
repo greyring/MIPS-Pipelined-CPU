@@ -45,7 +45,7 @@ module Data_RAM(
 );
 
 input clka;
-input [0 : 0] wea;
+input [3 : 0] wea;
 input [9 : 0] addra;
 input [31 : 0] dina;
 output [31 : 0] douta;
@@ -59,7 +59,7 @@ output [31 : 0] douta;
     .C_AXI_ID_WIDTH(4),
     .C_AXI_SLAVE_TYPE(0),
     .C_AXI_TYPE(1),
-    .C_BYTE_SIZE(9),
+    .C_BYTE_SIZE(8),
     .C_COMMON_CLK(0),
     .C_DEFAULT_DATA("0"),
     .C_DISABLE_WARN_BHV_COLL(0),
@@ -100,13 +100,13 @@ output [31 : 0] douta;
     .C_RSTRAM_B(0),
     .C_SIM_COLLISION_CHECK("ALL"),
     .C_USE_BRAM_BLOCK(0),
-    .C_USE_BYTE_WEA(0),
-    .C_USE_BYTE_WEB(0),
+    .C_USE_BYTE_WEA(1),
+    .C_USE_BYTE_WEB(1),
     .C_USE_DEFAULT_DATA(0),
     .C_USE_ECC(0),
     .C_USE_SOFTECC(0),
-    .C_WEA_WIDTH(1),
-    .C_WEB_WIDTH(1),
+    .C_WEA_WIDTH(4),
+    .C_WEB_WIDTH(4),
     .C_WRITE_DEPTH_A(1024),
     .C_WRITE_DEPTH_B(1024),
     .C_WRITE_MODE_A("WRITE_FIRST"),

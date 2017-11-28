@@ -1,0 +1,1 @@
+sch2hdl -sympath F:/MyProgramme/0arch/PCPU/ipcore_dir -intstyle ise -family kintex7 -verilog MUL_ALU.vf -w F:/MyProgramme/0arch/PCPU/MUL_ALU.sch 

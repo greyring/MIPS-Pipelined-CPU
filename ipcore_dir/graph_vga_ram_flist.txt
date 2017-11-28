@@ -2,7 +2,6 @@
 _xmsgs\pn_parser.xmsgs
 graph_vga_ram.asy
 graph_vga_ram.gise
-graph_vga_ram.mif
 graph_vga_ram.ngc
 graph_vga_ram.sym
 graph_vga_ram.v

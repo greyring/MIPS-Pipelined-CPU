@@ -35,7 +35,7 @@ module cache(
 	output[31:0]i_data,
 	
 	input d_r,
-	input d_w,
+	//input d_w,
 	input [3:0]d_wmask,
 	input [31:0]d_addr,
 	output[31:0]d_rdata,
@@ -89,7 +89,7 @@ D_cache D_cache_(
     .rst(rst), 
     .addr(D_addr), 
     .cache_r(d_r), 
-    .cache_w(d_w), 
+    //.cache_w(d_w), 
     .cache_data_in(d_wdata), 
     .wmask(d_wmask), 
     .cache_data(d_rdata), 

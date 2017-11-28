@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Fri Sep 08 13:04:52 2017
+# Date: Tue Nov 28 07:04:44 2017
 #
 ##############################################################
 #
@@ -45,7 +45,7 @@ CSET assume_synchronous_clk=false
 CSET axi_id_width=4
 CSET axi_slave_type=Memory_Slave
 CSET axi_type=AXI4_Full
-CSET byte_size=9
+CSET byte_size=8
 CSET coe_file=no_coe_file_loaded
 CSET collision_warnings=ALL
 CSET component_name=graph_vga_ram
@@ -74,8 +74,8 @@ CSET port_b_clock=100
 CSET port_b_enable_rate=100
 CSET port_b_write_rate=50
 CSET primitive=8kx2
-CSET read_width_a=12
-CSET read_width_b=12
+CSET read_width_a=16
+CSET read_width_b=16
 CSET register_porta_input_of_softecc=false
 CSET register_porta_output_of_memory_core=false
 CSET register_porta_output_of_memory_primitives=false
@@ -91,18 +91,18 @@ CSET reset_type=SYNC
 CSET softecc=false
 CSET use_axi_id=false
 CSET use_bram_block=Stand_Alone
-CSET use_byte_write_enable=false
+CSET use_byte_write_enable=true
 CSET use_error_injection_pins=false
 CSET use_regcea_pin=false
 CSET use_regceb_pin=false
 CSET use_rsta_pin=false
 CSET use_rstb_pin=false
-CSET write_depth_a=307200
-CSET write_width_a=12
-CSET write_width_b=12
+CSET write_depth_a=153600
+CSET write_width_a=16
+CSET write_width_b=16
 # END Parameters
 # BEGIN Extra information
 MISC pkg_timestamp=2012-11-19T16:22:25Z
 # END Extra information
 GENERATE
-# CRC: eb9c4a40
+# CRC: e940fce8

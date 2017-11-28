@@ -24,7 +24,7 @@ module D_cache(
 	input [31:0]addr,//indexmode = way, block, offset; addrmode = tag, block, offset
 						  //不能同时读取以及执行指令
 	input cache_r,
-	input cache_w,
+	//input cache_w,
 	input [31:0]cache_data_in,
 	input [3:0]wmask,//read的时候需要保证wmask为0
 	output [31:0]cache_data,
@@ -53,7 +53,7 @@ module D_cache(
 	reg [31:0]Tag_Lo_, Tag_Hi_;
 	always @(posedge clk) begin
 		if (cache_ready) begin
-			op_ <= {cache_w, cache_r, op};
+			op_ <= {|wmask, cache_r, op};
 			wmask_ <= wmask;
 			wdata_ <= cache_data_in;
 			addr_ <= addr;

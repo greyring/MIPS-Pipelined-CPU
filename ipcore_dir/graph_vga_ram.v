@@ -45,21 +45,21 @@ module graph_vga_ram(
 );
 
 input clka;
-input [0 : 0] wea;
-input [18 : 0] addra;
-input [11 : 0] dina;
-output [11 : 0] douta;
+input [1 : 0] wea;
+input [17 : 0] addra;
+input [15 : 0] dina;
+output [15 : 0] douta;
 
 // synthesis translate_off
 
   BLK_MEM_GEN_V7_3 #(
-    .C_ADDRA_WIDTH(19),
-    .C_ADDRB_WIDTH(19),
+    .C_ADDRA_WIDTH(18),
+    .C_ADDRB_WIDTH(18),
     .C_ALGORITHM(1),
     .C_AXI_ID_WIDTH(4),
     .C_AXI_SLAVE_TYPE(0),
     .C_AXI_TYPE(1),
-    .C_BYTE_SIZE(9),
+    .C_BYTE_SIZE(8),
     .C_COMMON_CLK(0),
     .C_DEFAULT_DATA("0"),
     .C_DISABLE_WARN_BHV_COLL(0),
@@ -89,10 +89,10 @@ output [11 : 0] douta;
     .C_MEM_TYPE(0),
     .C_MUX_PIPELINE_STAGES(0),
     .C_PRIM_TYPE(1),
-    .C_READ_DEPTH_A(307200),
-    .C_READ_DEPTH_B(307200),
-    .C_READ_WIDTH_A(12),
-    .C_READ_WIDTH_B(12),
+    .C_READ_DEPTH_A(153600),
+    .C_READ_DEPTH_B(153600),
+    .C_READ_WIDTH_A(16),
+    .C_READ_WIDTH_B(16),
     .C_RST_PRIORITY_A("CE"),
     .C_RST_PRIORITY_B("CE"),
     .C_RST_TYPE("SYNC"),
@@ -100,19 +100,19 @@ output [11 : 0] douta;
     .C_RSTRAM_B(0),
     .C_SIM_COLLISION_CHECK("ALL"),
     .C_USE_BRAM_BLOCK(0),
-    .C_USE_BYTE_WEA(0),
-    .C_USE_BYTE_WEB(0),
+    .C_USE_BYTE_WEA(1),
+    .C_USE_BYTE_WEB(1),
     .C_USE_DEFAULT_DATA(0),
     .C_USE_ECC(0),
     .C_USE_SOFTECC(0),
-    .C_WEA_WIDTH(1),
-    .C_WEB_WIDTH(1),
-    .C_WRITE_DEPTH_A(307200),
-    .C_WRITE_DEPTH_B(307200),
+    .C_WEA_WIDTH(2),
+    .C_WEB_WIDTH(2),
+    .C_WRITE_DEPTH_A(153600),
+    .C_WRITE_DEPTH_B(153600),
     .C_WRITE_MODE_A("WRITE_FIRST"),
     .C_WRITE_MODE_B("WRITE_FIRST"),
-    .C_WRITE_WIDTH_A(12),
-    .C_WRITE_WIDTH_B(12),
+    .C_WRITE_WIDTH_A(16),
+    .C_WRITE_WIDTH_B(16),
     .C_XDEVICEFAMILY("kintex7")
   )
   inst (

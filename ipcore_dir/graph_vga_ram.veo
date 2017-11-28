@@ -49,10 +49,10 @@
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 graph_vga_ram your_instance_name (
   .clka(clka), // input clka
-  .wea(wea), // input [0 : 0] wea
-  .addra(addra), // input [18 : 0] addra
-  .dina(dina), // input [11 : 0] dina
-  .douta(douta) // output [11 : 0] douta
+  .wea(wea), // input [1 : 0] wea
+  .addra(addra), // input [17 : 0] addra
+  .dina(dina), // input [15 : 0] dina
+  .douta(douta) // output [15 : 0] douta
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

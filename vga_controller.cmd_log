@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/vga_controller.xst" -ofn "F:/MyProgramme/0arch/PCPU/vga_controller.syr" 

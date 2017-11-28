@@ -90,12 +90,12 @@ ENTITY graph_vga_ram_exdes IS
   PORT (
       --Inputs - Port A
   
-    WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA          : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
+    WEA            : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    ADDRA          : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
   
-    DINA           : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    DINA           : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
   
-    DOUTA          : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+    DOUTA          : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     CLKA       : IN STD_LOGIC
 
 
@@ -117,12 +117,12 @@ ARCHITECTURE xilinx OF graph_vga_ram_exdes IS
   PORT (
       --Port A
   
-    WEA        : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA      : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
+    WEA        : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    ADDRA      : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
   
-    DINA       : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    DINA       : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
   
-    DOUTA      : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+    DOUTA      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 
     CLKA       : IN STD_LOGIC
 
