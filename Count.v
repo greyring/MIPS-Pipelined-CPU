@@ -20,20 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 module Count(
 	input clk,
-	input rst,
-	input compare_we,
-	//input [31:0]D,
 	output [31:0]Q
     );
 
-reg [31:0]count = 32'b1;//防止一上电就中断
+reg [31:0]count = 32'b0;//防止一上电就中断
 always @(posedge clk) begin
-	if (rst)
-		count <= 32'b1;
-	else if (compare_we)//写入compare时计时自动清零
-		count <= 32'b0;
-	else
-		count <= count + 1'b1;
+	count <= count + 1'b1;
 end
 assign Q = count;
 

@@ -58,9 +58,6 @@ module CP0(//≤ª¥¶¿Ìharzard
 	wire [31:0]COUNT_out;
 	Count COUNT(
     .clk(clk), 
-    .rst(rst), 
-    .compare_we(compare_we), 
-    //.D(data_in), 
     .Q(COUNT_out)
     );
 	 
