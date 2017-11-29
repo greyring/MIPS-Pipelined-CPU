@@ -35,7 +35,7 @@ module bus_interface(
     );
 assign addr_ = addr;
 assign r_ = r & enable;
-assign w_ = w & enable;
+assign w_ = w & {4{enable}};
 assign data =  r_? rdata : 32'bz;
 assign ready = r_? ready_: 1'bz;
 assign wdata = data;

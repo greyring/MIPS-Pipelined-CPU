@@ -1,4 +1,4 @@
-Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe -prj F:/MyProgramme/0arch/PCPU/Ttop_beh.prj work.Ttop work.glbl 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/Ttop_beh.prj" "work.Ttop" "work.glbl" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -50,7 +50,7 @@ Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/branch_judge.v" into library w
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/alu.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/vga_controller.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/PCPU_v.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Multi_8CH32_IO.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Multi_8CH32.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/Inst_ROM.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/Data_RAM.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/input_switch_btn.v" into library work
@@ -59,6 +59,7 @@ Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/bus_interface.v" into library 
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/addr_decoder.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/top.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Ttop.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/MUL_ALU.vf" into library work
 Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
@@ -138,8 +139,8 @@ Compiling module top
 Compiling module Ttop
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 10 sub-compilation(s) to finish...
+Waiting for 6 sub-compilation(s) to finish...
 Compiled 75 Verilog Units
 Built simulation executable F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe
-Fuse Memory Usage: 216584 KB
-Fuse CPU Usage: 4757 ms
+Fuse Memory Usage: 216676 KB
+Fuse CPU Usage: 4102 ms

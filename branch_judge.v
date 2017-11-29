@@ -25,15 +25,17 @@ module branch_judge(
 	output reg b
     );
 wire equl;
+wire _zero;
 wire great;
 assign equl = rega == regb;
+assign _zero = |rega;
 
 always @* begin
 	case (branch_cond)
 	  3'd1: b = equl;
 	  3'd2: b = ~equl;
-	  3'd3: b = rega[31];
-	  3'd4: b = ~rega[31];
+	  3'd3: b = rega[31] | ~_zero;//blez
+	  3'd4: b = ~rega[31] & _zero;//bgtz
 	  default: b = 0;
 	endcase
 end

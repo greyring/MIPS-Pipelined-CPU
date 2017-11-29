@@ -22,8 +22,9 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "F:/MyProgramme/0arch/PCPU/Compare.v";
-static unsigned int ng1[] = {0U, 0U};
-static unsigned int ng2[] = {1U, 0U};
+static unsigned int ng1[] = {4294967295U, 0U};
+static unsigned int ng2[] = {0U, 0U};
+static unsigned int ng3[] = {1U, 0U};
 
 
 
@@ -164,7 +165,7 @@ LAB9:    xsi_set_current_line(35, ng0);
     t12 = (t0 + 2408);
     xsi_vlogvar_wait_assign_value(t12, t11, 0, 0, 32, 0LL);
     xsi_set_current_line(36, ng0);
-    t2 = ((char*)((ng1)));
+    t2 = ((char*)((ng2)));
     t3 = (t0 + 2568);
     xsi_vlogvar_wait_assign_value(t3, t2, 0, 0, 1, 0LL);
     goto LAB8;
@@ -177,7 +178,7 @@ LAB13:    xsi_set_current_line(39, ng0);
     t4 = (t0 + 2408);
     xsi_vlogvar_wait_assign_value(t4, t5, 0, 0, 32, 0LL);
     xsi_set_current_line(40, ng0);
-    t2 = ((char*)((ng1)));
+    t2 = ((char*)((ng2)));
     t3 = (t0 + 2568);
     xsi_vlogvar_wait_assign_value(t3, t2, 0, 0, 1, 0LL);
     goto LAB12;
@@ -188,7 +189,7 @@ LAB17:    t21 = (t13 + 4);
     goto LAB18;
 
 LAB19:    xsi_set_current_line(45, ng0);
-    t28 = ((char*)((ng2)));
+    t28 = ((char*)((ng3)));
     t29 = (t0 + 2568);
     xsi_vlogvar_wait_assign_value(t29, t28, 0, 0, 1, 0LL);
     goto LAB21;

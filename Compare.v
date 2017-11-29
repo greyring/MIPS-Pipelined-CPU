@@ -28,11 +28,11 @@ module Compare(
 	output timer_int
     );
 
-reg [31:0]compare = 32'bffffffff;//防止一上电就中断
+reg [31:0]compare = 32'hffffffff;//防止一上电就中断
 reg int_ = 1'b0;
 always @(posedge clk) begin
 	if (rst) begin
-		compare <= 32'bffffffff;
+		compare <= 32'hffffffff;
 		int_ <= 1'b0;
 	end
 	else if (we) begin//如果写入，中断清除

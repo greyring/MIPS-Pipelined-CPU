@@ -233,28 +233,56 @@ bne  $24, $30, print_err;
 nop;
 addi $30, $30, 1;
 
-#reg test
-sw  $30, 0($29);
-add $25, $24, $1;
-bne  $25, $30, print_err;
+#reg test   ##  NOTE: 24 IS CHANGED!!!
+sw  $30, 0($29);  # test branch in 2 cases: > 0 and == 0, if right, then 25 in $25 is not changed
+addi $25, $zero, 26;
+addi $24, $zero, 2; # 2 > 0
+bgtz $24, label_10;
+nop;
+addi $25, $25, -1;
+label_10:
+add $24, $zero, $zero; # 0 == 0
+bgtz $24, label_11;
+nop;
+addi $25, $25, -1;
+label_11:
+bne  $25, $30, print_err;   # $25 = 25 BGTZ
 nop;
 addi $30, $30, 1;
 
 sw  $30, 0($29);
-add $26, $25, $1;
-bne  $26, $30, print_err;
+addi $26, $zero, 26;
+addi $24, $zero, -2; # -2 < 0
+blez $24, label_12;
+nop;
+addi $26, $26, -1;
+label_12:
+add $24, $zero, $zero; # 0 == 0
+blez $24, label_13;
+nop;
+addi $26, $26, -1;
+label_13:
+bne  $26, $30, print_err;  # $26 = 26 BLEZ
 nop;
 addi $30, $30, 1;
 
 sw  $30, 0($29);
-add $27, $26, $1;
-bne  $27, $30, print_err;
+add $27, $26, $1; # $26 + $1 = 26 + 1 = 27
+sb $27, 200($30);
+sb $0, 201($30);
+lb $27, 200($30);
+lb $0, 201($30);
+bne  $27, $30, print_err;  # 27 SB, LB
 nop;
 addi $30, $30, 1;
 
 sw  $30, 0($29);
 add $28, $27, $1;
-bne  $28, $30, print_err;
+sh $28, 240($30);
+sh $0, 242($30);
+lh $28, 240($30);
+lh $0, 242($30);
+bne  $28, $30, print_err; # 28 LH, SH
 nop;
 addi $30, $30, 1;
 
@@ -368,6 +396,32 @@ nor $30, $0, $0;
 sw  $30, 0($31);
 j   test_end;
 nop;
+
+sw $30, 0($29); # 39 sltu 1 < -1
+addi $2, $zero, -1
+add $3, $zero, 1
+sltu $1, $2, $3  # $1 == 1 if -1 < 1  
+bne $1, $0, print_err;
+nop;
+addi $30, $30, 1;
+
+sw $30, 0($29); # 39 sltui 1 < -1
+addi $2, $zero, -1
+sltiu $1, $2, 1  # $1 == 1 if -1 < 1  
+bne $1, $0, print_err;
+nop;
+addi $30, $30, 1;
+
+sw  $30, 0($29);  #41 LBU, LHU
+addi $24, $0, -1; 
+sb $24, 400($30);
+sh $1, 402($30);
+lbu $24, 400($30);
+lhu $1, 402($30);
+bne  $1, $0, print_err;  # 27 SB, LB
+nop;
+addi $30, $30, 1;
+
 
 print_err:
 test_end:

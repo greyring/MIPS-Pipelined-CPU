@@ -503,7 +503,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 		endcase
    end
 	always @* begin
-		if (mem_op == 2'b10) begin//we
+		if (mem_op == 2'b01) begin//we
 		  case ({mem_ctrl, mem_addr_DUMMY[1:0]})
 				4'b1100:mem_we = 4'b1111;
 				4'b1000:mem_we = 4'b0011;
