@@ -1,0 +1,5 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.xst" -ofn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.xst" -ofn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.xst" -ofn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.xst" -ofn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.xst" -ofn "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.syr" 

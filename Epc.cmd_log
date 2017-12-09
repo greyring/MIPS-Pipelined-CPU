@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Epc.xst" -ofn "F:/MyProgramme/0arch/PCPU/Epc.syr" 

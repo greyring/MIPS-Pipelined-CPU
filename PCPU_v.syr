@@ -116,22 +116,16 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\half_adder_sub.v" into library
 Parsing module <half_adder_sub>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\half_adder.v" into library work
 Parsing module <half_adder>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\STATUS_data.v" into library work
-Parsing module <STATUS_data>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Status.v" into library work
 Parsing module <Status>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\full_adder.v" into library work
 Parsing module <full_adder>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\EPC_data.v" into library work
-Parsing module <EPC_data>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Epc.v" into library work
 Parsing module <Epc>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Count.v" into library work
 Parsing module <Count>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Compare.v" into library work
 Parsing module <Compare>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\CAUSE_data.v" into library work
-Parsing module <CAUSE_data>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Cause.v" into library work
 Parsing module <Cause>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\adder64.v" into library work
@@ -166,10 +160,12 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\ID_EXE_REG.v" into library wor
 Parsing module <ID_EXE_REG>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\forward_reg.v" into library work
 Parsing module <forward_reg>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Exp_Addr.v" into library work
-Parsing module <Exp_Addr>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\forward_mem.v" into library work
+Parsing module <forward_mem>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\EXE_MEM_REG.v" into library work
 Parsing module <EXE_MEM_REG>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Exception_handler.v" into library work
+Parsing module <Exception_handler>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\CP0.v" into library work
 Parsing module <CP0>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\control.v" into library work
@@ -194,6 +190,7 @@ Elaborating module <CP0>.
 Elaborating module <Count>.
 
 Elaborating module <Compare>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\CP0.v" Line 60: Assignment to timer_int ignored, since the identifier is never used
 
 Elaborating module <Status>.
 
@@ -201,15 +198,7 @@ Elaborating module <Cause>.
 
 Elaborating module <Epc>.
 
-Elaborating module <EPC_data>.
-
-Elaborating module <STATUS_data>.
-
-Elaborating module <CAUSE_data>.
-
 Elaborating module <jump_control>.
-
-Elaborating module <Exp_Addr>.
 
 Elaborating module <REG32>.
 
@@ -281,8 +270,9 @@ WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul32_s.v" Line 6428: Assi
 Elaborating module <MUL_EXE_EWB>.
 
 Elaborating module <EXE_MEM_REG>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" Line 489: Assignment to mem_wreg ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" Line 493: Assignment to exc_memAddr ignored, since the identifier is never used
+
+Elaborating module <forward_mem>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" Line 490: Assignment to exc_memAddr ignored, since the identifier is never used
 
 Elaborating module <mul_adder>.
 WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul_adder.v" Line 290: Assignment to c1_63_1 ignored, since the identifier is never used
@@ -353,26 +343,27 @@ Elaborating module <MEM_WB_REG>.
 
 Elaborating module <stall_control>.
 
+Elaborating module <Exception_handler>.
+
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <PCPU_v>.
     Related source file is "F:\MyProgramme\0arch\PCPU\PCPU_v.v".
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 280: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 410: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 466: Output port <mem_wreg> of the instance <EXE_MEM_REG> is unconnected or connected to loadless signal.
-    Found 32-bit adder for signal <npc> created at line 153.
-    Found 32-bit adder for signal <exe_npc[31]_GND_1_o_add_13_OUT> created at line 420.
-    Found 32-bit 4-to-1 multiplexer for signal <PC_jump> created at line 116.
-    Found 5-bit 4-to-1 multiplexer for signal <id_rega_addr> created at line 209.
-    Found 5-bit 4-to-1 multiplexer for signal <id_regb_addr> created at line 218.
-    Found 5-bit 4-to-1 multiplexer for signal <id_wb_dreg> created at line 227.
-    Found 32-bit 4-to-1 multiplexer for signal <mem_data> created at line 498.
-    Found 8-bit 4-to-1 multiplexer for signal <mem_dataB> created at line 548.
-    Found 16-bit 4-to-1 multiplexer for signal <mem_dataH> created at line 548.
-    Found 32-bit 8-to-1 multiplexer for signal <_n0218> created at line 546.
-    Found 32-bit 4-to-1 multiplexer for signal <_n0227> created at line 566.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 249: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 387: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
+    Found 32-bit adder for signal <npc> created at line 112.
+    Found 32-bit adder for signal <exe_npc[31]_GND_1_o_add_14_OUT> created at line 397.
+    Found 32-bit 4-to-1 multiplexer for signal <PC_jump> created at line 94.
+    Found 5-bit 4-to-1 multiplexer for signal <id_rega_addr> created at line 177.
+    Found 5-bit 4-to-1 multiplexer for signal <id_regb_addr> created at line 186.
+    Found 5-bit 4-to-1 multiplexer for signal <id_wb_dreg> created at line 196.
+    Found 32-bit 4-to-1 multiplexer for signal <mem_data> created at line 495.
+    Found 8-bit 4-to-1 multiplexer for signal <mem_dataB> created at line 545.
+    Found 16-bit 4-to-1 multiplexer for signal <mem_dataH> created at line 545.
+    Found 32-bit 8-to-1 multiplexer for signal <_n0250> created at line 543.
+    Found 32-bit 4-to-1 multiplexer for signal <_n0259> created at line 563.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  20 Multiplexer(s).
@@ -380,7 +371,8 @@ Unit <PCPU_v> synthesized.
 
 Synthesizing Unit <CP0>.
     Related source file is "F:\MyProgramme\0arch\PCPU\CP0.v".
-    Found 32-bit 8-to-1 multiplexer for signal <_n0067> created at line 28.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\CP0.v" line 52: Output port <timer_int> of the instance <COMPARE> is unconnected or connected to loadless signal.
+    Found 32-bit 8-to-1 multiplexer for signal <_n0047> created at line 28.
     Summary:
 	inferred   2 Multiplexer(s).
 Unit <CP0> synthesized.
@@ -388,7 +380,7 @@ Unit <CP0> synthesized.
 Synthesizing Unit <Count>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Count.v".
     Found 32-bit register for signal <count>.
-    Found 32-bit adder for signal <count[31]_GND_3_o_add_1_OUT> created at line 36.
+    Found 32-bit adder for signal <count[31]_GND_3_o_add_1_OUT> created at line 28.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
@@ -406,18 +398,33 @@ Unit <Compare> synthesized.
 
 Synthesizing Unit <Status>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Status.v".
-    Found 32-bit register for signal <status>.
+WARNING:Xst:647 - Input <mtcd<7:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mtcd<21:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mtcd<31:23>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit register for signal <IM>.
+    Found 1-bit register for signal <ERL>.
+    Found 1-bit register for signal <EXL>.
+    Found 1-bit register for signal <IE>.
+    Found 1-bit register for signal <BEV>.
     Summary:
-	inferred  32 D-type flip-flop(s).
+	inferred  12 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
 Unit <Status> synthesized.
 
 Synthesizing Unit <Cause>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Cause.v".
-    Found 32-bit register for signal <cause>.
+WARNING:Xst:647 - Input <mtcd<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mtcd<7:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mtcd<22:10>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mtcd<30:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <IV>.
+    Found 5-bit register for signal <HIP>.
+    Found 2-bit register for signal <SIP>.
+    Found 5-bit register for signal <ExcCode>.
+    Found 1-bit register for signal <BD>.
     Summary:
-	inferred  32 D-type flip-flop(s).
-	inferred   1 Multiplexer(s).
+	inferred  14 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
 Unit <Cause> synthesized.
 
 Synthesizing Unit <Epc>.
@@ -428,39 +435,11 @@ Synthesizing Unit <Epc>.
 	inferred   1 Multiplexer(s).
 Unit <Epc> synthesized.
 
-Synthesizing Unit <EPC_data>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\EPC_data.v".
-    Summary:
-	inferred   6 Multiplexer(s).
-Unit <EPC_data> synthesized.
-
-Synthesizing Unit <STATUS_data>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\STATUS_data.v".
-    Summary:
-	inferred   2 Multiplexer(s).
-Unit <STATUS_data> synthesized.
-
-Synthesizing Unit <CAUSE_data>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\CAUSE_data.v".
-WARNING:Xst:647 - Input <cause_out<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <cause_out<15:10>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Summary:
-	inferred  27 Multiplexer(s).
-Unit <CAUSE_data> synthesized.
-
 Synthesizing Unit <jump_control>.
     Related source file is "F:\MyProgramme\0arch\PCPU\jump_control.v".
     Summary:
 	inferred   2 Multiplexer(s).
 Unit <jump_control> synthesized.
-
-Synthesizing Unit <Exp_Addr>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\Exp_Addr.v".
-    Found 32-bit adder for signal <PWR_12_o_GND_12_o_add_3_OUT> created at line 35.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred   2 Multiplexer(s).
-Unit <Exp_Addr> synthesized.
 
 Synthesizing Unit <REG32>.
     Related source file is "F:\MyProgramme\0arch\PCPU\PC.v".
@@ -471,9 +450,11 @@ Unit <REG32> synthesized.
 
 Synthesizing Unit <IF_ID_Reg>.
     Related source file is "F:\MyProgramme\0arch\PCPU\IF_ID_Reg.v".
-    Found 96-bit register for signal <temp>.
+    Found 65-bit register for signal <temp>.
+    Found 32-bit register for signal <temp1>.
     Summary:
-	inferred  96 D-type flip-flop(s).
+	inferred  97 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 Unit <IF_ID_Reg> synthesized.
 
 Synthesizing Unit <control>.
@@ -692,7 +673,7 @@ Unit <res_adder> synthesized.
 
 Synthesizing Unit <branch_judge>.
     Related source file is "F:\MyProgramme\0arch\PCPU\branch_judge.v".
-    Found 32-bit comparator equal for signal <equl> created at line 29
+    Found 32-bit comparator equal for signal <equl> created at line 30
     Summary:
 	inferred   1 Comparator(s).
 Unit <branch_judge> synthesized.
@@ -712,9 +693,10 @@ Unit <MUL_ID_EXE> synthesized.
 
 Synthesizing Unit <ID_EXE_REG>.
     Related source file is "F:\MyProgramme\0arch\PCPU\ID_EXE_REG.v".
-    Found 178-bit register for signal <temp>.
+    Found 34-bit register for signal <temp1>.
+    Found 146-bit register for signal <temp>.
     Summary:
-	inferred 178 D-type flip-flop(s).
+	inferred 180 D-type flip-flop(s).
 Unit <ID_EXE_REG> synthesized.
 
 Synthesizing Unit <alu>.
@@ -784,10 +766,20 @@ Unit <MUL_EXE_EWB> synthesized.
 
 Synthesizing Unit <EXE_MEM_REG>.
     Related source file is "F:\MyProgramme\0arch\PCPU\EXE_MEM_REG.v".
-    Found 121-bit register for signal <temp>.
+    Found 35-bit register for signal <temp1>.
+    Found 89-bit register for signal <temp>.
     Summary:
-	inferred 121 D-type flip-flop(s).
+	inferred 124 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 Unit <EXE_MEM_REG> synthesized.
+
+Synthesizing Unit <forward_mem>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\forward_mem.v".
+    Found 5-bit comparator equal for signal <wb_dreg[4]_mem_wreg[4]_equal_2_o> created at line 30
+    Summary:
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <forward_mem> synthesized.
 
 Synthesizing Unit <mul_adder>.
     Related source file is "F:\MyProgramme\0arch\PCPU\mul_adder.v".
@@ -871,18 +863,36 @@ Unit <Reg_HiLo> synthesized.
 
 Synthesizing Unit <MEM_WB_REG>.
     Related source file is "F:\MyProgramme\0arch\PCPU\MEM_WB_REG.v".
-    Found 38-bit register for signal <temp>.
+    Found 35-bit register for signal <temp1>.
+    Found 39-bit register for signal <temp>.
     Summary:
-	inferred  38 D-type flip-flop(s).
+	inferred  74 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 Unit <MEM_WB_REG> synthesized.
 
 Synthesizing Unit <stall_control>.
     Related source file is "F:\MyProgramme\0arch\PCPU\stall_control.v".
-    Found 5-bit comparator equal for signal <exe_wb_dreg[4]_id_rega[4]_equal_6_o> created at line 35
-    Found 5-bit comparator equal for signal <exe_wb_dreg[4]_id_regb[4]_equal_7_o> created at line 35
+    Found 5-bit comparator equal for signal <exe_wb_dreg[4]_id_rega[4]_equal_6_o> created at line 34
+    Found 5-bit comparator equal for signal <exe_wb_dreg[4]_id_regb[4]_equal_7_o> created at line 34
     Summary:
 	inferred   2 Comparator(s).
 Unit <stall_control> synthesized.
+
+Synthesizing Unit <Exception_handler>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Exception_handler.v".
+WARNING:Xst:647 - Input <STATUS_in<7:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <STATUS_in<21:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <STATUS_in<31:23>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <CAUSE_in<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <CAUSE_in<7:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <CAUSE_in<22:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <CAUSE_in<30:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit subtractor for signal <PC[31]_GND_162_o_sub_4_OUT> created at line 56.
+    Found 32-bit adder for signal <PWR_35_o_GND_162_o_add_13_OUT> created at line 97.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  11 Multiplexer(s).
+Unit <Exception_handler> synthesized.
 
 =========================================================================
 HDL Synthesis Report
@@ -890,34 +900,44 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 3
  64x32-bit single-port Read Only RAM                   : 3
-# Adders/Subtractors                                   : 4
+# Adders/Subtractors                                   : 5
  32-bit adder                                          : 4
-# Registers                                            : 16
- 1-bit register                                        : 1
+ 32-bit subtractor                                     : 1
+# Registers                                            : 28
+ 1-bit register                                        : 7
  103-bit register                                      : 1
- 121-bit register                                      : 1
+ 146-bit register                                      : 1
  166-bit register                                      : 1
- 178-bit register                                      : 1
- 32-bit register                                       : 8
- 38-bit register                                       : 1
- 96-bit register                                       : 1
+ 2-bit register                                        : 1
+ 32-bit register                                       : 7
+ 34-bit register                                       : 1
+ 35-bit register                                       : 2
+ 39-bit register                                       : 1
+ 5-bit register                                        : 2
+ 65-bit register                                       : 1
+ 8-bit register                                        : 1
+ 89-bit register                                       : 1
  992-bit register                                      : 1
-# Comparators                                          : 10
+# Comparators                                          : 11
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 2
- 5-bit comparator equal                                : 6
-# Multiplexers                                         : 156
- 1-bit 2-to-1 multiplexer                              : 68
+ 5-bit comparator equal                                : 7
+# Multiplexers                                         : 135
+ 1-bit 2-to-1 multiplexer                              : 46
  16-bit 4-to-1 multiplexer                             : 1
  2-bit 2-to-1 multiplexer                              : 12
  32-bit 11-to-1 multiplexer                            : 1
- 32-bit 2-to-1 multiplexer                             : 62
+ 32-bit 2-to-1 multiplexer                             : 55
  32-bit 31-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 3
  32-bit 8-to-1 multiplexer                             : 2
+ 39-bit 2-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 5
  5-bit 4-to-1 multiplexer                              : 3
+ 65-bit 2-to-1 multiplexer                             : 1
  8-bit 4-to-1 multiplexer                              : 1
+ 89-bit 2-to-1 multiplexer                             : 1
 # Logic shifters                                       : 2
  32-bit shifter logical left                           : 1
  32-bit shifter logical right                          : 1
@@ -965,16 +985,6 @@ WARNING:Xst:1293 - FF/Latch <temp_106> has a constant value of 0 in block <_Mul_
 WARNING:Xst:1293 - FF/Latch <temp_107> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <temp_108> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <temp_109> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <temp_16> of sequential type is unconnected in block <ID_EXE>.
-WARNING:Xst:2677 - Node <temp_17> of sequential type is unconnected in block <ID_EXE>.
-WARNING:Xst:2677 - Node <temp_18> of sequential type is unconnected in block <ID_EXE>.
-WARNING:Xst:2677 - Node <temp_19> of sequential type is unconnected in block <ID_EXE>.
-WARNING:Xst:2677 - Node <temp_20> of sequential type is unconnected in block <ID_EXE>.
-WARNING:Xst:2677 - Node <temp_16> of sequential type is unconnected in block <EXE_MEM_REG>.
-WARNING:Xst:2677 - Node <temp_17> of sequential type is unconnected in block <EXE_MEM_REG>.
-WARNING:Xst:2677 - Node <temp_18> of sequential type is unconnected in block <EXE_MEM_REG>.
-WARNING:Xst:2677 - Node <temp_19> of sequential type is unconnected in block <EXE_MEM_REG>.
-WARNING:Xst:2677 - Node <temp_20> of sequential type is unconnected in block <EXE_MEM_REG>.
 
 Synthesizing (advanced) Unit <Count>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
@@ -1022,28 +1032,33 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 3
  64x32-bit single-port distributed Read Only RAM       : 3
-# Adders/Subtractors                                   : 3
+# Adders/Subtractors                                   : 4
  32-bit adder                                          : 3
+ 32-bit subtractor                                     : 1
 # Counters                                             : 1
  32-bit up counter                                     : 1
-# Registers                                            : 1919
- Flip-Flops                                            : 1919
-# Comparators                                          : 10
+# Registers                                            : 1923
+ Flip-Flops                                            : 1923
+# Comparators                                          : 11
  32-bit comparator equal                               : 2
  32-bit comparator greater                             : 2
- 5-bit comparator equal                                : 6
-# Multiplexers                                         : 154
- 1-bit 2-to-1 multiplexer                              : 66
+ 5-bit comparator equal                                : 7
+# Multiplexers                                         : 132
+ 1-bit 2-to-1 multiplexer                              : 43
  16-bit 4-to-1 multiplexer                             : 1
  2-bit 2-to-1 multiplexer                              : 12
  32-bit 11-to-1 multiplexer                            : 1
- 32-bit 2-to-1 multiplexer                             : 62
+ 32-bit 2-to-1 multiplexer                             : 55
  32-bit 31-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 3
  32-bit 8-to-1 multiplexer                             : 2
+ 39-bit 2-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 5
  5-bit 4-to-1 multiplexer                              : 3
+ 65-bit 2-to-1 multiplexer                             : 1
  8-bit 4-to-1 multiplexer                              : 1
+ 89-bit 2-to-1 multiplexer                             : 1
 # Logic shifters                                       : 2
  32-bit shifter logical left                           : 1
  32-bit shifter logical right                          : 1
@@ -1235,28 +1250,22 @@ INFO:Xst:2261 - The FF/Latch <temp_31> in Unit <MUL_ID_EXE> is equivalent to the
 INFO:Xst:2261 - The FF/Latch <temp_16> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_53> 
 INFO:Xst:2261 - The FF/Latch <temp_21> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_58> 
 INFO:Xst:2261 - The FF/Latch <temp_11> in Unit <MUL_ID_EXE> is equivalent to the following FF/Latch, which will be removed : <temp_48> 
-INFO:Xst:2261 - The FF/Latch <temp_3> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_108> 
-INFO:Xst:2261 - The FF/Latch <temp_4> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_109> 
-INFO:Xst:2261 - The FF/Latch <temp_0> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_105> 
-INFO:Xst:2261 - The FF/Latch <temp_1> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_106> 
-INFO:Xst:2261 - The FF/Latch <temp_2> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_107> 
+INFO:Xst:2261 - The FF/Latch <temp_4> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_77> 
+INFO:Xst:2261 - The FF/Latch <temp_0> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_73> 
+INFO:Xst:2261 - The FF/Latch <temp_1> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_74> 
+INFO:Xst:2261 - The FF/Latch <temp_2> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_75> 
+INFO:Xst:2261 - The FF/Latch <temp_3> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_76> 
 WARNING:Xst:2040 - Unit control: 32 multi-source signals are replaced by logic (pull-up yes): bus<10>, bus<11>, bus<12>, bus<13>, bus<17>, bus<18>, bus<19>, bus<20>, bus<23>, bus<24>, bus<25>, bus<26>, bus<29>, bus<30>, bus<31>, bus<3>, bus<4>, bus<6>, bus<7>, bus<8>, id_eret, id_exe_imm, id_exe_jal, id_exe_lui, id_exe_res_sign, id_exe_sign, id_j, id_jr, id_mem_CP0_we, id_syscall, id_unknown, id_wb_we.
-
-Optimizing unit <IF_ID_Reg> ...
 
 Optimizing unit <REG32> ...
 
 Optimizing unit <MUL_ID_EXE> ...
 
-Optimizing unit <ID_EXE_REG> ...
-
 Optimizing unit <MUL_EXE_EWB> ...
 
-Optimizing unit <EXE_MEM_REG> ...
-
-Optimizing unit <MEM_WB_REG> ...
-
 Optimizing unit <PCPU_v> ...
+
+Optimizing unit <IF_ID_Reg> ...
 
 Optimizing unit <CP0> ...
 
@@ -1268,7 +1277,13 @@ Optimizing unit <Cause> ...
 
 Optimizing unit <Epc> ...
 
+Optimizing unit <ID_EXE_REG> ...
+
+Optimizing unit <EXE_MEM_REG> ...
+
 Optimizing unit <Reg_HiLo> ...
+
+Optimizing unit <MEM_WB_REG> ...
 
 Optimizing unit <Regs> ...
 
@@ -1277,6 +1292,8 @@ Optimizing unit <control> ...
 Optimizing unit <MUL_control> ...
 
 Optimizing unit <adder32_Sklansky> ...
+
+Optimizing unit <Exception_handler> ...
 
 Optimizing unit <mul32_s> ...
 
@@ -1298,123 +1315,19 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <_Mul_EXE_EWB/temp_1
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <_Mul_EXE_EWB/temp_104> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <_Mul_EXE_EWB/temp_103> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <_Mul_EXE_EWB/temp_102> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <ID_EXE/temp_20> of sequential type is unconnected in block <PCPU_v>.
-WARNING:Xst:2677 - Node <ID_EXE/temp_19> of sequential type is unconnected in block <PCPU_v>.
-WARNING:Xst:2677 - Node <ID_EXE/temp_18> of sequential type is unconnected in block <PCPU_v>.
-WARNING:Xst:2677 - Node <ID_EXE/temp_17> of sequential type is unconnected in block <PCPU_v>.
-WARNING:Xst:2677 - Node <ID_EXE/temp_16> of sequential type is unconnected in block <PCPU_v>.
-WARNING:Xst:2677 - Node <EXE_MEM_REG/temp_20> of sequential type is unconnected in block <PCPU_v>.
-WARNING:Xst:2677 - Node <EXE_MEM_REG/temp_19> of sequential type is unconnected in block <PCPU_v>.
-WARNING:Xst:2677 - Node <EXE_MEM_REG/temp_18> of sequential type is unconnected in block <PCPU_v>.
-WARNING:Xst:2677 - Node <EXE_MEM_REG/temp_17> of sequential type is unconnected in block <PCPU_v>.
-WARNING:Xst:2677 - Node <EXE_MEM_REG/temp_16> of sequential type is unconnected in block <PCPU_v>.
+WARNING:Xst:2677 - Node <CP0_/COMPARE/int_> of sequential type is unconnected in block <PCPU_v>.
 WARNING:Xst:1293 - FF/Latch <EXE_MEM_REG/temp_15> has a constant value of 0 in block <PCPU_v>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_4> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_113> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_5> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_114> 
-INFO:Xst:2261 - The FF/Latch <ID_EXE/temp_62> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_30> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_6> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_115> 
-INFO:Xst:2261 - The FF/Latch <ID_EXE/temp_63> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_31> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_7> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_116> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_8> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_117> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_9> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_118> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_6> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_57> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_10> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_119> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_7> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_58> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_11> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_120> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_8> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_59> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_12> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_121> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_9> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_60> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_13> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_122> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_14> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_123> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_20> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_129> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_15> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_124> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_21> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_130> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_16> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_125> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_22> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_131> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_17> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_126> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_23> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_132> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_18> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_127> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_24> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_133> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_19> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_128> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_30> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_139> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_25> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_134> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_31> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_140> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_26> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_135> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_32> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_141> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_27> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_136> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_28> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_137> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_29> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_138> 
-INFO:Xst:2261 - The FF/Latch <IF_ID/temp_32> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <IF_ID/temp_0> 
-INFO:Xst:2261 - The FF/Latch <IF_ID/temp_33> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <IF_ID/temp_1> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_70> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_142> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_71> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_143> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_72> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_144> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_73> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_145> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_74> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_146> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_80> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_152> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_75> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_147> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_81> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_153> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_76> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_148> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_82> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_154> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_77> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_149> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_83> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_155> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_78> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_150> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_84> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_156> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_79> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_151> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_90> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_162> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_85> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_157> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_91> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_163> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_86> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_158> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_92> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_164> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_10> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_61> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_87> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_159> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_93> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_165> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_11> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_62> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_88> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_160> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_94> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_166> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_12> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_63> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_89> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_161> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_95> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_167> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_13> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_64> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_96> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_168> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_14> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_65> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_97> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_169> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_15> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_66> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_20> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_71> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_98> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_170> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_16> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_67> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_21> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_72> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_100> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_172> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_17> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_68> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_22> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_73> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_99> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_171> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_101> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_173> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_18> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_69> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_23> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_74> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_24> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_75> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_19> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_70> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_30> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_81> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_25> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_76> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_31> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_82> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_26> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_77> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_32> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_83> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_27> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_78> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_33> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_84> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_28> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_79> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_34> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_85> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_29> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_80> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_35> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_86> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_36> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_87> 
-INFO:Xst:2261 - The FF/Latch <_Mul_EXE_EWB/temp_37> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <EXE_MEM_REG/temp_88> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_1> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_110> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_2> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_111> 
-INFO:Xst:2261 - The FF/Latch <_MUL_ID_EXE/temp_3> in Unit <PCPU_v> is equivalent to the following FF/Latch, which will be removed : <ID_EXE/temp_112> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block PCPU_v, actual ratio is 3.
 FlipFlop _Mul_EXE_EWB/temp_4 has been replicated 2 time(s)
-FlipFlop _Mul_EXE_EWB/temp_5 has been replicated 2 time(s)
+FlipFlop _Mul_EXE_EWB/temp_5 has been replicated 1 time(s)
+FlipFlop CP0_/CAUSE/HIP_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop CP0_/CAUSE/HIP_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop CP0_/CAUSE/HIP_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop CP0_/CAUSE/HIP_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop CP0_/CAUSE/HIP_0 has been replicated 1 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
 
@@ -1422,8 +1335,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1798
- Flip-Flops                                            : 1798
+# Registers                                            : 1915
+ Flip-Flops                                            : 1915
 
 =========================================================================
 
@@ -1446,24 +1359,26 @@ Top Level Output File Name         : PCPU_v.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 6558
+# BELS                             : 6856
 #      GND                         : 1
-#      INV                         : 4
-#      LUT1                        : 89
-#      LUT2                        : 30
-#      LUT3                        : 2122
-#      LUT4                        : 355
-#      LUT5                        : 1786
-#      LUT6                        : 1911
-#      MUXCY                       : 146
-#      MUXF7                       : 21
+#      INV                         : 33
+#      LUT1                        : 90
+#      LUT2                        : 287
+#      LUT3                        : 2073
+#      LUT4                        : 372
+#      LUT5                        : 1745
+#      LUT6                        : 1944
+#      MUXCY                       : 164
+#      MUXF7                       : 24
 #      VCC                         : 1
-#      XORCY                       : 92
-# FlipFlops/Latches                : 1798
-#      FDCE                        : 1024
-#      FDR                         : 574
-#      FDRE                        : 190
-#      FDS                         : 10
+#      XORCY                       : 122
+# FlipFlops/Latches                : 1915
+#      FD                          : 32
+#      FDC                         : 371
+#      FDCE                        : 1089
+#      FDR                         : 281
+#      FDRE                        : 100
+#      FDSE                        : 42
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 235
@@ -1477,20 +1392,21 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1798  out of  407600     0%  
- Number of Slice LUTs:                 6297  out of  203800     3%  
-    Number used as Logic:              6297  out of  203800     3%  
+ Number of Slice Registers:            1910  out of  407600     0%  
+ Number of Slice LUTs:                 6544  out of  203800     3%  
+    Number used as Logic:              6544  out of  203800     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   7410
-   Number with an unused Flip Flop:    5612  out of   7410    75%  
-   Number with an unused LUT:          1113  out of   7410    15%  
-   Number of fully used LUT-FF pairs:   685  out of   7410     9%  
-   Number of unique control sets:         9
+ Number of LUT Flip Flop pairs used:   7647
+   Number with an unused Flip Flop:    5737  out of   7647    75%  
+   Number with an unused LUT:          1103  out of   7647    14%  
+   Number of fully used LUT-FF pairs:   807  out of   7647    10%  
+   Number of unique control sets:        14
 
 IO Utilization: 
  Number of IOs:                         236
  Number of bonded IOBs:                 236  out of    400    59%  
+    IOB Flip Flops/Latches:               5
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
@@ -1516,7 +1432,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 1798  |
+clk                                | BUFGP                  | 1915  |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -1527,9 +1443,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 8.144ns (Maximum Frequency: 122.785MHz)
-   Minimum input arrival time before clock: 5.324ns
-   Maximum output required time after clock: 1.366ns
+   Minimum period: 8.633ns (Maximum Frequency: 115.829MHz)
+   Minimum input arrival time before clock: 5.597ns
+   Maximum output required time after clock: 3.045ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -1538,48 +1454,38 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 8.144ns (frequency: 122.785MHz)
-  Total number of paths / destination ports: 12613933 / 3277
+  Clock period: 8.633ns (frequency: 115.829MHz)
+  Total number of paths / destination ports: 16392194 / 3368
 -------------------------------------------------------------------------
-Delay:               8.144ns (Levels of Logic = 18)
-  Source:            _Mul_EXE_EWB/temp_45 (FF)
-  Destination:       _REG_HiLo/Hi_31 (FF)
-  Source Clock:      clk rising
+Delay:               4.317ns (Levels of Logic = 8)
+  Source:            Reg_file/register_31_182 (FF)
+  Destination:       PC/pc_31 (FF)
+  Source Clock:      clk falling
   Destination Clock: clk rising
 
-  Data Path: _Mul_EXE_EWB/temp_45 to _REG_HiLo/Hi_31
+  Data Path: Reg_file/register_31_182 to PC/pc_31
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              3   0.236   0.534  _Mul_EXE_EWB/temp_45 (_Mul_EXE_EWB/temp_45)
-     LUT4:I0->O            3   0.043   0.625  _Mul_adder/s1_7_11 (_Mul_adder/s1_7_1)
-     LUT6:I0->O            1   0.043   0.495  _Mul_adder/Adder/in5_0/gi_j1_SW1 (N238)
-     LUT5:I2->O            6   0.043   0.378  _Mul_adder/Adder/in7_0/gi_j1 (_Mul_adder/Adder/g7_0)
-     LUT6:I5->O            5   0.043   0.373  _Mul_adder/Adder/in13_0/gi_j1 (_Mul_adder/Adder/g13_0)
-     LUT6:I5->O            5   0.043   0.373  _Mul_adder/Adder/in19_0/gi_j3 (_Mul_adder/Adder/g19_0)
-     LUT5:I4->O            7   0.043   0.384  _Mul_adder/Adder/in23_0/gi_j2 (_Mul_adder/Adder/g23_0)
-     LUT6:I5->O            5   0.043   0.373  _Mul_adder/Adder/in29_0/gi_j1 (_Mul_adder/Adder/g29_0)
-     LUT6:I5->O            4   0.043   0.367  _Mul_adder/Adder/in37_0/gi_j1 (_Mul_adder/Adder/g37_0)
-     LUT6:I5->O            1   0.043   0.350  _Mul_adder/Adder/in43_0/gi_j3_SW0 (N552)
-     LUT6:I5->O            4   0.043   0.367  _Mul_adder/Adder/in43_0/gi_j3 (_Mul_adder/Adder/g43_0)
-     LUT5:I4->O            1   0.043   0.350  _Mul_adder/Adder/in47_0/gi_j3_SW0 (N550)
-     LUT6:I5->O            5   0.043   0.373  _Mul_adder/Adder/in47_0/gi_j3 (_Mul_adder/Adder/g47_0)
-     LUT6:I5->O            1   0.043   0.350  _Mul_adder/Adder/in55_0/gi_j11_SW0 (N548)
-     LUT6:I5->O            5   0.043   0.373  _Mul_adder/Adder/in55_0/gi_j11 (_Mul_adder/Adder/in55_0/gi_j1)
-     LUT6:I5->O            1   0.043   0.350  _Mul_adder/Adder/in59_0/gi_j4_SW0 (N546)
-     LUT6:I5->O            4   0.043   0.367  _Mul_adder/Adder/in59_0/gi_j4 (_Mul_adder/Adder/g59_0)
-     LUT5:I4->O            1   0.043   0.350  _REG_HiLo/Mmux__n0045252_SW0 (N544)
-     LUT6:I5->O            1   0.043   0.000  _REG_HiLo/Mmux__n0045252 (_REG_HiLo/_n0045<31>)
-     FDRE:D                   -0.000          _REG_HiLo/Hi_31
+     FDCE:C->Q             3   0.236   0.534  Reg_file/register_31_182 (Reg_file/register_31_182)
+     LUT6:I2->O            1   0.043   0.522  Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_843 (Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_843)
+     LUT6:I2->O            1   0.043   0.495  Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_314 (Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_314)
+     LUT6:I3->O            1   0.043   0.405  forward_a/Mmux_id_exe_reg151_F (N656)
+     LUT3:I1->O            5   0.043   0.545  forward_a/Mmux_id_exe_reg1511 (id_exe_rega<22>)
+     LUT5:I1->O            1   0.043   0.405  Branch_judge/out2 (Branch_judge/out1)
+     LUT6:I4->O            1   0.043   0.350  Branch_judge/b1_SW0 (N396)
+     LUT6:I5->O           32   0.043   0.480  Branch_judge/b1 (id_b)
+     LUT6:I5->O            1   0.043   0.000  Mmux_PC_data_in1 (PC_data_in<0>)
+     FDCE:D                   -0.000          PC/pc_0
     ----------------------------------------
-    Total                      8.144ns (1.010ns logic, 7.134ns route)
-                                       (12.4% logic, 87.6% route)
+    Total                      4.317ns (0.580ns logic, 3.737ns route)
+                                       (13.4% logic, 86.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 26612 / 1964
+  Total number of paths / destination ports: 37751 / 2117
 -------------------------------------------------------------------------
-Offset:              5.324ns (Levels of Logic = 17)
+Offset:              5.597ns (Levels of Logic = 12)
   Source:            mem_data_in<15> (PAD)
   Destination:       PC/pc_31 (FF)
   Destination Clock: clk rising
@@ -1589,46 +1495,44 @@ Offset:              5.324ns (Levels of Logic = 17)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             3   0.000   0.534  mem_data_in_15_IBUF (mem_data_in_15_IBUF)
-     LUT6:I2->O            3   0.043   0.362  Mmux__n02181731 (Mmux__n02181731)
+     LUT6:I2->O            3   0.043   0.362  Mmux__n02501731 (Mmux__n02501731)
      LUT5:I4->O            8   0.043   0.652  Mmux_mem_wb_data_temp1031 (Mmux_mem_wb_data_temp103)
-     LUT6:I0->O            1   0.043   0.405  Mmux_mem_wb_data_temp645 (Mmux_mem_wb_data_temp644)
-     LUT5:I3->O            5   0.043   0.545  Mmux_mem_wb_data_temp647 (mem_wb_data_temp<9>)
-     LUT4:I0->O            1   0.043   0.522  Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_2_f7_30_SW1 (N310)
-     LUT6:I2->O            3   0.043   0.625  forward_a/Mmux_id_exe_reg321 (id_exe_rega<9>)
-     LUT6:I0->O            1   0.043   0.000  Branch_judge/Mcompar_equl_lut<3> (Branch_judge/Mcompar_equl_lut<3>)
-     MUXCY:S->O            1   0.238   0.000  Branch_judge/Mcompar_equl_cy<3> (Branch_judge/Mcompar_equl_cy<3>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<4> (Branch_judge/Mcompar_equl_cy<4>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<5> (Branch_judge/Mcompar_equl_cy<5>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<6> (Branch_judge/Mcompar_equl_cy<6>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<7> (Branch_judge/Mcompar_equl_cy<7>)
-     MUXCY:CI->O           1   0.013   0.000  Branch_judge/Mcompar_equl_cy<8> (Branch_judge/Mcompar_equl_cy<8>)
-     MUXCY:CI->O           2   0.151   0.355  Branch_judge/Mcompar_equl_cy<9> (Branch_judge/Mcompar_equl_cy<9>)
-     LUT5:I4->O           31   0.043   0.480  Branch_judge/b<31>1 (id_b)
-     LUT6:I5->O            1   0.043   0.000  Mmux_PC_data_in293 (PC_data_in<6>)
-     FDCE:D                   -0.000          PC/pc_6
+     LUT6:I0->O            2   0.043   0.410  Mmux_mem_wb_data_temp105 (Mmux_mem_wb_data_temp106)
+     LUT5:I3->O            4   0.043   0.422  Mmux_mem_wb_data_temp107 (mem_wb_data_temp<13>)
+     LUT4:I2->O            1   0.043   0.522  Reg_file/Mmux_R_addr_A[4]_register[31][31]_wide_mux_1_OUT_2_f7_3_SW1 (N343)
+     LUT6:I2->O            5   0.043   0.636  forward_a/Mmux_id_exe_reg51 (id_exe_rega<13>)
+     LUT6:I0->O            1   0.043   0.405  Branch_judge/out3 (Branch_judge/out2)
+     LUT4:I2->O            1   0.043   0.350  Branch_judge/out5 (Branch_judge/out4)
+     LUT6:I5->O            1   0.043   0.350  Branch_judge/b1_SW0 (N396)
+     LUT6:I5->O           32   0.043   0.480  Branch_judge/b1 (id_b)
+     LUT6:I5->O            1   0.043   0.000  Mmux_PC_data_in1 (PC_data_in<0>)
+     FDCE:D                   -0.000          PC/pc_0
     ----------------------------------------
-    Total                      5.324ns (0.843ns logic, 4.481ns route)
-                                       (15.8% logic, 84.2% route)
+    Total                      5.597ns (0.473ns logic, 5.124ns route)
+                                       (8.5% logic, 91.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 279 / 163
+  Total number of paths / destination ports: 1673 / 125
 -------------------------------------------------------------------------
-Offset:              1.366ns (Levels of Logic = 2)
-  Source:            EXE_MEM_REG/temp_89 (FF)
-  Destination:       mem_we<2> (PAD)
+Offset:              3.045ns (Levels of Logic = 5)
+  Source:            Mem_wb_reg/temp_38 (FF)
+  Destination:       mem_data<25> (PAD)
   Source Clock:      clk rising
 
-  Data Path: EXE_MEM_REG/temp_89 to mem_we<2>
+  Data Path: Mem_wb_reg/temp_38 to mem_data<25>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             57   0.236   0.747  EXE_MEM_REG/temp_89 (EXE_MEM_REG/temp_89)
-     LUT6:I0->O            1   0.043   0.339  Mmux_mem_we11 (mem_we_0_OBUF)
-     OBUF:I->O                 0.000          mem_we_0_OBUF (mem_we<0>)
+     FDC:C->Q             34   0.236   0.625  Mem_wb_reg/temp_38 (Mem_wb_reg/temp_38)
+     LUT4:I1->O            1   0.043   0.613  Forward_Mem/mem_wreg[4]_wb_dreg[4]_AND_6347_o11 (Forward_Mem/mem_wreg[4]_wb_dreg[4]_AND_6347_o1)
+     LUT6:I0->O           41   0.043   0.536  Forward_Mem/mem_wreg[4]_wb_dreg[4]_AND_6347_o4 (Forward_Mem/mem_wreg[4]_wb_dreg[4]_AND_6347_o5)
+     LUT4:I2->O            6   0.043   0.523  Forward_Mem/Mmux_mem_data321 (mem_data_DUMMY<9>)
+     LUT5:I2->O            1   0.043   0.339  Mmux_mem_data181 (mem_data_25_OBUF)
+     OBUF:I->O                 0.000          mem_data_25_OBUF (mem_data<25>)
     ----------------------------------------
-    Total                      1.366ns (0.279ns logic, 1.087ns route)
-                                       (20.4% logic, 79.6% route)
+    Total                      3.045ns (0.408ns logic, 2.637ns route)
+                                       (13.4% logic, 86.6% route)
 
 =========================================================================
 
@@ -1640,20 +1544,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    8.144|    3.885|    1.747|         |
+clk            |    8.121|    4.317|    2.436|         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 74.00 secs
-Total CPU time to Xst completion: 73.93 secs
+Total REAL time to Xst completion: 73.00 secs
+Total CPU time to Xst completion: 73.69 secs
  
 --> 
 
-Total memory usage is 522680 kilobytes
+Total memory usage is 523448 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  294 (   0 filtered)
-Number of infos    :  262 (   0 filtered)
+Number of warnings :  287 (   0 filtered)
+Number of infos    :  162 (   0 filtered)
 

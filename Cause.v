@@ -22,19 +22,51 @@ module Cause(input clk,
 			 input rst,
 			 input we,
 			 input [31:0]mtcd,
-			 input [31:0]D,
+			 input BD_,
+			 input [4:0]int_,
+			 input [4:0]ExcCode_,
 			 output [31:0]Q
     );
-reg [31:0] cause = 32'h00000000;
+reg BD = 0;
+reg IV = 0;//0:0x180 1:0x200
+reg [4:0]HIP = 0;//hardware interrupt pending
+reg [1:0]SIP = 0;//software interrupt pending
+reg [4:0]ExcCode = 0;
 
-always @(posedge clk) begin//同步取样（减小时序问题）
-	if (rst) 
-		cause <= 32'h0000;
-	else if (we)
-		cause <= mtcd;
-	else cause <= D;
+//BD
+always @(posedge clk) begin
+	if (rst) BD <= 0;
+	else if (we) BD <= mtcd[31];
+	else BD <= BD_;
 end
 
-assign Q = cause;
+//IV
+always @(posedge clk) begin
+	if (rst) IV <= 0;
+	else if (we) IV <= mtcd[23];
+	else IV <= IV;
+end
+
+//HIP
+always @(posedge clk) begin
+	if (rst) HIP <= 0;
+	else HIP <= int_;
+end
+
+//SIP
+always @(posedge clk) begin
+	if (rst) SIP <= 0;
+	else if (we) SIP <= mtcd[9:8];
+	else SIP <= SIP;
+end
+
+//ExcCode
+always @(posedge clk) begin
+	if (rst) ExcCode <= 0;
+	else if (we) ExcCode <= mtcd[6:2];
+	else ExcCode <= ExcCode_;
+end
+
+assign Q = {BD, 7'b0, IV, 7'b0, HIP, SIP, 1'b0, ExcCode, 2'b0};
 
 endmodule

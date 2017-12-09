@@ -25,10 +25,10 @@ module Epc(input clk,
 			 input [31:0]D,
 			 output [31:0]Q
     );
-reg [31:0] epc = 32'h00000000;
+reg [31:0] epc = 0;
 
 always @(posedge clk ) begin
-	if (rst) epc<=32'h00000000;
+	if (rst) epc<=0;
 	else if (we) epc<=mtcd;
 	else epc<=D;
 end

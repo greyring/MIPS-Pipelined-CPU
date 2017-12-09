@@ -21,10 +21,10 @@
 module Compare(
 	input clk,
 	input rst,
-	input [31:0]count,
 	input we,
-	input [31:0]D,
+	input [31:0]mtcd,
 	output [31:0]Q,
+	input [31:0]count,
 	output timer_int
     );
 
@@ -36,7 +36,7 @@ always @(posedge clk) begin
 		int_ <= 1'b0;
 	end
 	else if (we) begin//如果写入，中断清除
-		compare <= D;
+		compare <= mtcd;
 		int_ <= 1'b0;
 	end
 	else begin

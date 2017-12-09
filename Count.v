@@ -23,7 +23,7 @@ module Count(
 	output [31:0]Q
     );
 
-reg [31:0]count = 32'b0;//防止一上电就中断
+reg [31:0]count = 0;//防止一上电就中断
 always @(posedge clk) begin
 	count <= count + 1'b1;
 end

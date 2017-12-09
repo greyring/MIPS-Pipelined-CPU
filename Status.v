@@ -21,19 +21,53 @@
 module Status(input clk,
 			 input rst,
 			 input we,
-			 //input forward,
+			 
 			 input [31:0]mtcd,
-			 input [31:0]D,
+			 input EXL_,
 			 output [31:0]Q
     );
-reg [31:0] status = 32'b00000000000000001111111100000001;//[15:8] == 1 [0] = 1 [22] = 0 [1] = 0 [2] = 0
 
+reg BEV = 1;//0 normal 1 boot
+reg [7:0] IM = 8'hff;
+reg ERL = 0;
+reg EXL = 0;
+reg IE = 1;
+
+//BEV
 always @(posedge clk) begin
-	if (rst) status<=32'b00000000000000001111111100000001;
-	else if (we) status<=mtcd;	//else if (forward) status<=D;//forward时信息来自于Status_Data
-	else status<=D;
+	if (rst) BEV <= 1'b1;
+	else if (we) BEV <= mtcd[22];
+	else BEV <= BEV;
 end
 
-assign Q = status;
+//IM
+always @(posedge clk) begin
+	if (rst) IM <= 8'hff;
+	else if (we) IM <= mtcd[15:8];
+	else IM <= IM;
+end
+
+//ERL
+always @(posedge clk) begin
+	if (rst) ERL <= 0;
+	else if (we) ERL <= mtcd[2];
+	else ERL <= ERL;
+end
+
+//EXL
+always @(posedge clk) begin
+	if (rst) EXL <= 0;
+	else if (we) EXL <= mtcd[1];
+	else EXL <= EXL_;
+end
+
+//IE
+always @(posedge clk) begin
+	if (rst) IE <= 1'b1;
+	else if (we) IE <= mtcd[0];
+	else IE <= IE;
+end
+
+assign Q = {9'b0, BEV, 6'b0, IM, 6'b0, ERL, EXL, IE};
 
 endmodule

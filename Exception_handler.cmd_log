@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Exception_handler.xst" -ofn "F:/MyProgramme/0arch/PCPU/Exception_handler.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Exception_handler.xst" -ofn "F:/MyProgramme/0arch/PCPU/Exception_handler.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Exception_handler.xst" -ofn "F:/MyProgramme/0arch/PCPU/Exception_handler.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Exception_handler.xst" -ofn "F:/MyProgramme/0arch/PCPU/Exception_handler.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Exception_handler.xst" -ofn "F:/MyProgramme/0arch/PCPU/Exception_handler.syr" 
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/Exception_handler.tfi -lib work F:/MyProgramme/0arch/PCPU//Exception_handler.v -module Exception_handler -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

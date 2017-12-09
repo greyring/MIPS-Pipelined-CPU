@@ -22,7 +22,7 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "F:/MyProgramme/0arch/PCPU/Epc.v";
-static unsigned int ng1[] = {0U, 0U};
+static int ng1[] = {0, 0};
 
 
 

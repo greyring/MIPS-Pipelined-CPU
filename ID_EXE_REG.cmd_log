@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/ID_EXE_REG.xst" -ofn "F:/MyProgramme/0arch/PCPU/ID_EXE_REG.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/ID_EXE_REG.xst" -ofn "F:/MyProgramme/0arch/PCPU/ID_EXE_REG.syr" 

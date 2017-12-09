@@ -1,4 +1,4 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/Ttop_beh.prj" "work.Ttop" "work.glbl" 
+Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe -prj F:/MyProgramme/0arch/PCPU/Ttop_beh.prj work.Ttop work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -7,17 +7,14 @@ Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/res_adder.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/inner_adder.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/half_adder_sub.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/half_adder.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/STATUS_data.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Status.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/text_vga_rom.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/text_vga_ram.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/graph_vga_ram.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/full_adder.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/EPC_data.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Epc.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Count.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Compare.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/CAUSE_data.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Cause.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/anti_jitter.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/adder64.v" into library work
@@ -41,8 +38,9 @@ Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/jump_control.v" into library w
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/IF_ID_Reg.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ID_EXE_REG.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/forward_reg.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Exp_Addr.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/forward_mem.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/EXE_MEM_REG.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Exception_handler.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/CP0.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/control.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/btn_scan.v" into library work
@@ -96,12 +94,8 @@ Compiling module Compare
 Compiling module Status
 Compiling module Cause
 Compiling module Epc
-Compiling module EPC_data
-Compiling module STATUS_data
-Compiling module CAUSE_data
 Compiling module CP0
 Compiling module jump_control
-Compiling module Exp_Addr
 Compiling module REG32
 Compiling module IF_ID_Reg
 Compiling module control
@@ -121,11 +115,13 @@ Compiling module full_adder
 Compiling module mul32_s
 Compiling module MUL_EXE_EWB
 Compiling module EXE_MEM_REG
+Compiling module forward_mem
 Compiling module adder64
 Compiling module mul_adder
 Compiling module Reg_HiLo
 Compiling module MEM_WB_REG
 Compiling module stall_control
+Compiling module Exception_handler
 Compiling module PCPU_v
 Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
 Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
@@ -139,8 +135,8 @@ Compiling module top
 Compiling module Ttop
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 6 sub-compilation(s) to finish...
-Compiled 75 Verilog Units
+Waiting for 46 sub-compilation(s) to finish...
+Compiled 73 Verilog Units
 Built simulation executable F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe
-Fuse Memory Usage: 216676 KB
-Fuse CPU Usage: 4102 ms
+Fuse Memory Usage: 216648 KB
+Fuse CPU Usage: 4414 ms

@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Cause.xst" -ofn "F:/MyProgramme/0arch/PCPU/Cause.syr" 
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/Cause.tfi -lib work F:/MyProgramme/0arch/PCPU//Cause.v -module Cause -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
