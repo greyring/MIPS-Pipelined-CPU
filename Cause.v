@@ -23,13 +23,13 @@ module Cause(input clk,
 			 input we,
 			 input [31:0]mtcd,
 			 input BD_,
-			 input [4:0]int_,
+			 input [5:0]int_,
 			 input [4:0]ExcCode_,
 			 output [31:0]Q
     );
 reg BD = 0;
 reg IV = 0;//0:0x180 1:0x200
-reg [4:0]HIP = 0;//hardware interrupt pending
+reg [5:0]HIP = 0;//hardware interrupt pending
 reg [1:0]SIP = 0;//software interrupt pending
 reg [4:0]ExcCode = 0;
 

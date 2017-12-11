@@ -241,6 +241,122 @@ blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
 blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
 blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
 blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+# restart
+# run 1.00us
+Simulator is doing circuit initialization process.
+Block Memory Generator CORE Generator module Ttop.uut.Vga_controller.Vga_text.Text_vga_ram.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module Ttop.uut.Vga_controller.Vga_text.Text_vga_rom.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator CORE Generator module Ttop.uut.Vga_controller.Vga_graph.Graph_vga_ram0.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator CORE Generator module Ttop.uut.Vga_controller.Vga_graph.Graph_vga_ram1.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module Ttop.uut.Data_RAM_.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module Ttop.uut.Inst_ROM_.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4bf is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
+blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
 # run 1.00us
 blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read
 blk_mem_gen_v7_3 WARNING: Address 4c0 is outside range for A Read

@@ -46,7 +46,7 @@ module Exception_handler(
 wire INT_;
 assign INT_ = (|(CAUSE_in[15:8] & STATUS_in[15:8])) & ~STATUS_in[1] & ~STATUS_in[2] & STATUS_in[0];
 wire [3:0]excvec;
-assign excvec = {wb_excvec, (|wb_excvec) & INT_};//notice &
+assign excvec = {wb_excvec, ~(|wb_excvec) & INT_};//notice &
 
 //handle EPC
 always @* begin

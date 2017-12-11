@@ -277,17 +277,17 @@ MUL_control MUL_Control(
     .MUL_ID_mul(MUL_ID_mul)
     );
 
-wire [31:0]MUL_EXE_A, MUL_EXE_B, MUL_EXE_data;
+wire [31:0]MUL_EXE_A, MUL_EXE_B;//, MUL_EXE_data;
 wire MUL_EXE_add_sub, MUL_EXE_en_c, MUL_EXE_mul, MUL_EXE_sign, MUL_EXE_we;
 wire [1:0]MUL_EXE_HiLo;
 MUL_ID_EXE  _MUL_ID_EXE (
 	.clk(clk), 
-	.rst(rst | ~IF_ID_stall_ | exe_overflow), 
+	.rst(rst | ~IF_ID_stall_ | exe_exc | mem_exc | wb_exc), 
 	.EN(1'b1), 
 	.MUL_ID_A(id_exe_rega[31:0]), 
 	.MUL_ID_add_sub(MUL_ID_add_sub), 
 	.MUL_ID_B(id_exe_regb[31:0]), 
-	.MUL_ID_data(id_exe_regb[31:0]), 
+	//.MUL_ID_data(id_exe_regb[31:0]), 
 	.MUL_ID_en_c(MUL_ID_en_c), 
 	.MUL_ID_HiLo(MUL_ID_HiLo[1:0]), 
 	.MUL_ID_mul(MUL_ID_mul), 
@@ -297,7 +297,7 @@ MUL_ID_EXE  _MUL_ID_EXE (
 	.MUL_EXE_A(MUL_EXE_A[31:0]), 
 	.MUL_EXE_add_sub(MUL_EXE_add_sub), 
 	.MUL_EXE_B(MUL_EXE_B[31:0]), 
-	.MUL_EXE_data(MUL_EXE_data[31:0]), 
+	//.MUL_EXE_data(MUL_EXE_data[31:0]), 
 	.MUL_EXE_en_c(MUL_EXE_en_c), 
 	.MUL_EXE_HiLo(MUL_EXE_HiLo[1:0]), 
 	.MUL_EXE_mul(MUL_EXE_mul), 
@@ -413,7 +413,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 		);
 	wire MUL_EWB_add_sub, MUL_EWB_en_c, MUL_EWB_mul, MUL_EWB_we;
 	wire [63:0]MUL_EWB_At, MUL_EWB_Bt;
-	wire [31:0]MUL_EWB_data;
+	//wire [31:0]MUL_EWB_data;
 	wire [1:0]MUL_EWB_HiLo;
 	MUL_EXE_EWB  _Mul_EXE_EWB (
 	  .clk(clk), 
@@ -422,7 +422,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 	  .MUL_EXE_add_sub(MUL_EXE_add_sub), 
 	  .MUL_EXE_A_t(MUL_EXE_At[63:0]), 
 	  .MUL_EXE_B_t(MUL_EXE_Bt[63:0]), 
-	  .MUL_EXE_data(MUL_EXE_data[31:0]), 
+	  //.MUL_EXE_data(MUL_EXE_data[31:0]), 
 	  .MUL_EXE_en_c(MUL_EXE_en_c), 
 	  .MUL_EXE_HiLo(MUL_EXE_HiLo[1:0]), 
 	  .MUL_EXE_mul(MUL_EXE_mul), 
@@ -431,7 +431,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 	  .MUL_EWB_add_sub(MUL_EWB_add_sub), 
 	  .MUL_EWB_A_t(MUL_EWB_At[63:0]), 
 	  .MUL_EWB_B_t(MUL_EWB_Bt[63:0]), 
-	  .MUL_EWB_data(MUL_EWB_data[31:0]), 
+	  //.MUL_EWB_data(MUL_EWB_data[31:0]), 
 	  .MUL_EWB_en_c(MUL_EWB_en_c), 
 	  .MUL_EWB_HiLo(MUL_EWB_HiLo[1:0]), 
 	  .MUL_EWB_mul(MUL_EWB_mul), 
@@ -475,7 +475,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 								.mem_CP0_dreg(mem_CP0_dreg),
 								
 								.exe_pc(exe_pc),
-								.exe_excvec({(|exe_excvec) & exe_overflow, exe_excvec}),//notice &
+								.exe_excvec({~(|exe_excvec) & exe_overflow, exe_excvec}),//notice &
 								.mem_pc(mem_pc),
 								.mem_excvec(mem_excvec));
 								
@@ -530,7 +530,7 @@ wire [63:0]MUL_EWB_Hi_Lo, MUL_EWB_res;
 	  .rst(rst),
 	  .we(MUL_EWB_we & ~mem_exc & ~wb_exc), 
 	  .cal_res(MUL_EWB_res[63:0]), 
-	  .data_in(MUL_EWB_data[31:0]), 
+	  .data_in(mem_data_DUMMY[31:0]), 
 	  .HiLo(MUL_EWB_HiLo[1:0]), 
 	  .Hi_Lo(MUL_EWB_Hi_Lo[63:0])
 	  );

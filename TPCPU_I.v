@@ -35,7 +35,10 @@ module TPCPU_I;
 	wire [31:0] inst_addr;
 	wire [31:0] mem_addr;
 	wire [31:0] mem_data;
-	wire mem_we;
+	wire [31:0] cause_data;
+	wire [31:0] status_data;
+	wire [3:0]mem_we;
+	wire mem_rd;
 
 	// Instantiate the Unit Under Test (UUT)
 	PCPU_v uut (
@@ -47,7 +50,10 @@ module TPCPU_I;
 		.inst_addr(inst_addr), 
 		.mem_addr(mem_addr), 
 		.mem_data(mem_data), 
-		.mem_we(mem_we)
+		.cause_data(cause_data),
+		.status_data(status_data),
+		.mem_we(mem_we),
+		.mem_rd(mem_rd)
 	);
 
 	initial begin
@@ -238,6 +244,7 @@ module TPCPU_I;
 		inst_data = 32'b00010001011100100000000000001110;//beq $11, $18, E
 		*/
 		//forward测试
+		/*
 		inst_data = 32'b00000000000000000000100000100111;//nor $1, $0, $0 = $1 = ffffffff
 		#10
 		inst_data = 32'b00100000001000100000000000000001;//addi $2, $1, 1 = $2 = 00000000 出错为1
@@ -257,8 +264,19 @@ module TPCPU_I;
 		inst_data = 32'b00100000110001100000000000000001;//addi $6, $6, 1 = $6 = 00000005 出错为1或2
 		#10
 		inst_data = 32'b0;
-		
-		
+		*/
+		//forward mem test
+		/*
+		inst_data = 32'b10001100000000100000000000000100;//lw $2, $0(4);//no forward
+		#10
+		inst_data = 32'b10101100000000100000000000001000;//sw $2. $0(8);//mem_forward
+		#10
+		inst_data = 32'b0;
+		#5
+		mem_data_in = 32'hffffffff;
+		#10
+		mem_data_in = 0;
+		*/
 		/*//stall 测试
 		inst_data = 32'b10001100000000010000000000000100;//lw $1, $0(4) = $1 = 1
 		#10
@@ -327,7 +345,7 @@ module TPCPU_I;
 		*/
 		
 		//中断测试头
-		/*
+		
 		#10
 		inst_data = 32'h00000020;//add $0, $0, $0
 		#10
@@ -338,16 +356,38 @@ module TPCPU_I;
 		inst_data = 32'h00000020;
 		#10
 		inst_data = 32'h3c018000;//lui $1, 0x8000;
-		*/
+		
 		/*
 		#10
 		inst_data = 32'h0000000c;//syscall
 		#10
 		inst_data = 32'h00000020;//被取消的
 		#10
-		inst_data = 32'h70000002;//mul $0, $0, $0 ri
+		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000001;//unknown
+		#10
+		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000020;//被取消的
 		#10
 		inst_data = 32'h00211020;//add $2, $1, $1 overflow
+		#10
+		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000020;//被取消的
 		*/
 		/*
 		#10
@@ -358,18 +398,18 @@ module TPCPU_I;
 		inst_data = 32'h00000020;//被取消的
 		#10
 		inst_data = 32'h00000020;//被取消的
-		*/
-		
-		/*
 		#10
 		inst_data = 32'h00000020;//被取消的
+		#10
+		inst_data = 32'h00000020;//被取消的
+		*/
+		/*
 		#1
 		int_ = 6'b000001;
 		#9
 		inst_data = 32'h00000020;
 		//interrupt 单独测，一个interrupt后不会再有interrupt
 		*/
-		
 		/*
 		#10
 		inst_data = 32'h08000000;//jump
@@ -404,14 +444,25 @@ module TPCPU_I;
 		inst_data = 32'h3463ffff;//ori $3, $3, 0xffff//stall
 		*/
 		
-		/*
+		
 		#10//stall时中断
 		inst_data = 32'h8c010000;//lw $t1, 0($zero)
+		#10
+		inst_data = 32'h00210820;//add $t1, $t1, $t1; 
+		#10
+		inst_data = 32'h00000000;
+		#10
 		#1
 		int_ = 6'b000001;
-		inst_data = 32'h00210820;//add $t1, $t1, $t1; 
 		#9
-		*/
+		#10
+		int_ = 0;
+		inst_data = 32'h3063ff02; //andi $3, $3, 0xff02
+		#10
+		inst_data = 32'b01000000100000110110000000000000;//mtc0 $3, $12
+		#10
+		inst_data = 32'b01000010000000000000000000011000;//eret
+		
 		
 		#10
 		inst_data = 32'h0;

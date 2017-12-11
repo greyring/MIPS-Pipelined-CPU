@@ -79,7 +79,7 @@ module CP0(//≤ª¥¶¿Ìharzard
     .we(cause_we), 
     .mtcd(data_in), 
     .BD_(CAUSE_BD), 
-    .int_(int_), 
+    .int_({timer_int, int_}),//IP7 is timmer interrupt 
     .ExcCode_(CAUSE_EXCCODE), 
     .Q(CAUSE_out)
     );
