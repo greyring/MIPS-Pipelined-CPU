@@ -1,0 +1,14 @@
+
+
+
+// Instantiate the module
+CAM_16 instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .we(we), 
+    .wdata(wdata), 
+    .rdata(rdata), 
+    .hit(hit)
+    );
+
+

@@ -1,0 +1,12 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+netgen -intstyle ise -insert_glbl true -w -dir netgen/synthesis -ofmt verilog -sim TLB_16.ngc TLB_16_synthesis.v 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/TLB_16.xst" -ofn "F:/MyProgramme/0arch/PCPU/TLB_16.syr" 

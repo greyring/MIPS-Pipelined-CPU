@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: CAM_16.prj
 
@@ -112,8 +112,8 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\CAM_unit.v" into library work
 Parsing module <CAM_unit>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\CAM_16.v" into library work
 Parsing module <CAM_16>.
-WARNING:HDLCompiler:248 - "F:\MyProgramme\0arch\PCPU\CAM_16.v" Line 33: Block identifier is required on this block
-WARNING:HDLCompiler:1335 - "F:\MyProgramme\0arch\PCPU\CAM_16.v" Line 27: Port hit must not be declared to be an array
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MUL_ALU.vf" into library work
+Parsing module <MUL_ALU>.
 
 =========================================================================
 *                            HDL Elaboration                            *
@@ -121,7 +121,7 @@ WARNING:HDLCompiler:1335 - "F:\MyProgramme\0arch\PCPU\CAM_16.v" Line 27: Port hi
 
 Elaborating module <CAM_16>.
 
-Elaborating module <CAM_unit>.
+Elaborating module <CAM_unit(DATA_SIZE=19)>.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -130,15 +130,16 @@ Elaborating module <CAM_unit>.
 Synthesizing Unit <CAM_16>.
     Related source file is "F:\MyProgramme\0arch\PCPU\CAM_16.v".
         DATA_SIZE = 19
+    Found 19-bit 16-to-1 multiplexer for signal <data> created at line 45.
     Summary:
-	no macro.
+	inferred   1 Multiplexer(s).
 Unit <CAM_16> synthesized.
 
 Synthesizing Unit <CAM_unit>.
     Related source file is "F:\MyProgramme\0arch\PCPU\CAM_unit.v".
         DATA_SIZE = 19
     Found 19-bit register for signal <temp>.
-    Found 19-bit comparator equal for signal <hit> created at line 39
+    Found 19-bit comparator equal for signal <hit> created at line 40
     Summary:
 	inferred  19 D-type flip-flop(s).
 	inferred   1 Comparator(s).
@@ -152,6 +153,8 @@ Macro Statistics
  19-bit register                                       : 16
 # Comparators                                          : 16
  19-bit comparator equal                               : 16
+# Multiplexers                                         : 1
+ 19-bit 16-to-1 multiplexer                            : 1
 
 =========================================================================
 
@@ -168,31 +171,16 @@ Macro Statistics
  Flip-Flops                                            : 304
 # Comparators                                          : 16
  19-bit comparator equal                               : 16
+# Multiplexers                                         : 1
+ 19-bit 16-to-1 multiplexer                            : 1
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[1].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[2].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[3].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[4].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[5].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[6].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[7].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[8].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[9].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[10].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[11].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[12].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[13].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[14].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <CAM_16>: instances <[0].CAM_unit>, <[15].CAM_unit> of unit <CAM_unit> are equivalent, second instance is removed
 
 Optimizing unit <CAM_16> ...
-
-Optimizing unit <CAM_unit> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -204,8 +192,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 19
- Flip-Flops                                            : 19
+# Registers                                            : 304
+ Flip-Flops                                            : 304
 
 =========================================================================
 
@@ -228,19 +216,21 @@ Top Level Output File Name         : CAM_16.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 16
+# BELS                             : 359
 #      GND                         : 1
-#      LUT2                        : 1
-#      LUT6                        : 6
-#      MUXCY                       : 7
+#      LUT2                        : 16
+#      LUT6                        : 172
+#      MUXCY                       : 112
+#      MUXF7                       : 38
+#      MUXF8                       : 19
 #      VCC                         : 1
-# FlipFlops/Latches                : 19
-#      FDRE                        : 19
+# FlipFlops/Latches                : 304
+#      FDRE                        : 304
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 56
-#      IBUF                        : 40
-#      OBUF                        : 16
+# IO Buffers                       : 94
+#      IBUF                        : 59
+#      OBUF                        : 35
 
 Device utilization summary:
 ---------------------------
@@ -249,20 +239,20 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice LUTs:                    7  out of  203800     0%  
-    Number used as Logic:                 7  out of  203800     0%  
+ Number of Slice Registers:             304  out of  407600     0%  
+ Number of Slice LUTs:                  188  out of  203800     0%  
+    Number used as Logic:               188  out of  203800     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:      7
-   Number with an unused Flip Flop:       7  out of      7   100%  
-   Number with an unused LUT:             0  out of      7     0%  
-   Number of fully used LUT-FF pairs:     0  out of      7     0%  
-   Number of unique control sets:         1
+ Number of LUT Flip Flop pairs used:    416
+   Number with an unused Flip Flop:     112  out of    416    26%  
+   Number with an unused LUT:           228  out of    416    54%  
+   Number of fully used LUT-FF pairs:    76  out of    416    18%  
+   Number of unique control sets:        16
 
 IO Utilization: 
- Number of IOs:                          57
- Number of bonded IOBs:                  57  out of    400    14%  
-    IOB Flip Flops/Latches:              19
+ Number of IOs:                          95
+ Number of bonded IOBs:                  95  out of    400    23%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
@@ -288,7 +278,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 19    |
+clk                                | BUFGP                  | 304   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -300,8 +290,8 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: No path found
-   Minimum input arrival time before clock: 0.704ns
-   Maximum output required time after clock: 1.761ns
+   Minimum input arrival time before clock: 0.783ns
+   Maximum output required time after clock: 1.682ns
    Maximum combinational path delay: 1.535ns
 
 Timing Details:
@@ -310,53 +300,53 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 57 / 57
+  Total number of paths / destination ports: 912 / 912
 -------------------------------------------------------------------------
-Offset:              0.704ns (Levels of Logic = 1)
+Offset:              0.783ns (Levels of Logic = 1)
   Source:            rst (PAD)
-  Destination:       [0].CAM_unit/temp_18 (FF)
+  Destination:       CAM_unit[15].CAM_unit/temp_18 (FF)
   Destination Clock: clk rising
 
-  Data Path: rst to [0].CAM_unit/temp_18
+  Data Path: rst to CAM_unit[15].CAM_unit/temp_18
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            19   0.000   0.440  rst_IBUF (rst_IBUF)
-     FDRE:R                    0.264          [0].CAM_unit/temp_0
+     IBUF:I->O           304   0.000   0.519  rst_IBUF (rst_IBUF)
+     FDRE:R                    0.264          CAM_unit[15].CAM_unit/temp_0
     ----------------------------------------
-    Total                      0.704ns (0.264ns logic, 0.440ns route)
-                                       (37.5% logic, 62.5% route)
+    Total                      0.783ns (0.264ns logic, 0.519ns route)
+                                       (33.7% logic, 66.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 304 / 16
+  Total number of paths / destination ports: 608 / 35
 -------------------------------------------------------------------------
-Offset:              1.761ns (Levels of Logic = 9)
-  Source:            [0].CAM_unit/temp_0 (FF)
+Offset:              1.682ns (Levels of Logic = 9)
+  Source:            CAM_unit[15].CAM_unit/temp_0 (FF)
   Destination:       hit<15> (PAD)
   Source Clock:      clk rising
 
-  Data Path: [0].CAM_unit/temp_0 to hit<15>
+  Data Path: CAM_unit[15].CAM_unit/temp_0 to hit<15>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             1   0.236   0.603  [0].CAM_unit/temp_0 ([0].CAM_unit/temp_0)
-     LUT6:I1->O            1   0.043   0.000  [0].CAM_unit/Mcompar_hit_lut<0> ([0].CAM_unit/Mcompar_hit_lut<0>)
-     MUXCY:S->O            1   0.238   0.000  [0].CAM_unit/Mcompar_hit_cy<0> ([0].CAM_unit/Mcompar_hit_cy<0>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<1> ([0].CAM_unit/Mcompar_hit_cy<1>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<2> ([0].CAM_unit/Mcompar_hit_cy<2>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<3> ([0].CAM_unit/Mcompar_hit_cy<3>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<4> ([0].CAM_unit/Mcompar_hit_cy<4>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<5> ([0].CAM_unit/Mcompar_hit_cy<5>)
-     MUXCY:CI->O          16   0.150   0.422  [0].CAM_unit/Mcompar_hit_cy<6> (hit_0_OBUF)
+     FDRE:C->Q             2   0.236   0.608  CAM_unit[15].CAM_unit/temp_0 (CAM_unit[15].CAM_unit/temp_0)
+     LUT6:I1->O            1   0.043   0.000  CAM_unit[15].CAM_unit/Mcompar_hit_lut<0> (CAM_unit[15].CAM_unit/Mcompar_hit_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  CAM_unit[15].CAM_unit/Mcompar_hit_cy<0> (CAM_unit[15].CAM_unit/Mcompar_hit_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[15].CAM_unit/Mcompar_hit_cy<1> (CAM_unit[15].CAM_unit/Mcompar_hit_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[15].CAM_unit/Mcompar_hit_cy<2> (CAM_unit[15].CAM_unit/Mcompar_hit_cy<2>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[15].CAM_unit/Mcompar_hit_cy<3> (CAM_unit[15].CAM_unit/Mcompar_hit_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[15].CAM_unit/Mcompar_hit_cy<4> (CAM_unit[15].CAM_unit/Mcompar_hit_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[15].CAM_unit/Mcompar_hit_cy<5> (CAM_unit[15].CAM_unit/Mcompar_hit_cy<5>)
+     MUXCY:CI->O           1   0.150   0.339  CAM_unit[15].CAM_unit/Mcompar_hit_cy<6> (hit_15_OBUF)
      OBUF:I->O                 0.000          hit_15_OBUF (hit<15>)
     ----------------------------------------
-    Total                      1.761ns (0.735ns logic, 1.026ns route)
-                                       (41.7% logic, 58.3% route)
+    Total                      1.682ns (0.735ns logic, 0.947ns route)
+                                       (43.7% logic, 56.3% route)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 304 / 16
+  Total number of paths / destination ports: 513 / 35
 -------------------------------------------------------------------------
 Delay:               1.535ns (Levels of Logic = 10)
   Source:            rdata<0> (PAD)
@@ -366,16 +356,16 @@ Delay:               1.535ns (Levels of Logic = 10)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   0.000   0.613  rdata_0_IBUF (rdata_0_IBUF)
-     LUT6:I0->O            1   0.043   0.000  [0].CAM_unit/Mcompar_hit_lut<0> ([0].CAM_unit/Mcompar_hit_lut<0>)
-     MUXCY:S->O            1   0.238   0.000  [0].CAM_unit/Mcompar_hit_cy<0> ([0].CAM_unit/Mcompar_hit_cy<0>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<1> ([0].CAM_unit/Mcompar_hit_cy<1>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<2> ([0].CAM_unit/Mcompar_hit_cy<2>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<3> ([0].CAM_unit/Mcompar_hit_cy<3>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<4> ([0].CAM_unit/Mcompar_hit_cy<4>)
-     MUXCY:CI->O           1   0.013   0.000  [0].CAM_unit/Mcompar_hit_cy<5> ([0].CAM_unit/Mcompar_hit_cy<5>)
-     MUXCY:CI->O          16   0.150   0.422  [0].CAM_unit/Mcompar_hit_cy<6> (hit_0_OBUF)
-     OBUF:I->O                 0.000          hit_15_OBUF (hit<15>)
+     IBUF:I->O            16   0.000   0.696  rdata_0_IBUF (rdata_0_IBUF)
+     LUT6:I0->O            1   0.043   0.000  CAM_unit[14].CAM_unit/Mcompar_hit_lut<0> (CAM_unit[14].CAM_unit/Mcompar_hit_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  CAM_unit[14].CAM_unit/Mcompar_hit_cy<0> (CAM_unit[14].CAM_unit/Mcompar_hit_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[14].CAM_unit/Mcompar_hit_cy<1> (CAM_unit[14].CAM_unit/Mcompar_hit_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[14].CAM_unit/Mcompar_hit_cy<2> (CAM_unit[14].CAM_unit/Mcompar_hit_cy<2>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[14].CAM_unit/Mcompar_hit_cy<3> (CAM_unit[14].CAM_unit/Mcompar_hit_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[14].CAM_unit/Mcompar_hit_cy<4> (CAM_unit[14].CAM_unit/Mcompar_hit_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  CAM_unit[14].CAM_unit/Mcompar_hit_cy<5> (CAM_unit[14].CAM_unit/Mcompar_hit_cy<5>)
+     MUXCY:CI->O           1   0.150   0.339  CAM_unit[14].CAM_unit/Mcompar_hit_cy<6> (hit_14_OBUF)
+     OBUF:I->O                 0.000          hit_14_OBUF (hit<14>)
     ----------------------------------------
     Total                      1.535ns (0.499ns logic, 1.036ns route)
                                        (32.5% logic, 67.5% route)
@@ -388,14 +378,14 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 11.79 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.72 secs
  
 --> 
 
-Total memory usage is 441528 kilobytes
+Total memory usage is 449784 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   17 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

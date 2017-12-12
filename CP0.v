@@ -31,12 +31,14 @@ module CP0(//不处理harzard
 	output [31:0]STATUS_out,
 	
 	input CAUSE_BD,
-	input [4:0]int_,
+	input [5:0]CAUSE_HIP,
 	input [4:0]CAUSE_EXCCODE,
 	output [31:0]CAUSE_out,
 	
 	input [31:0]EPC_in,
-	output [31:0]EPC_out
+	output [31:0]EPC_out,
+	
+	output timer_int
     );
 
 ////////////////////////////////////////////////////////
@@ -48,7 +50,6 @@ module CP0(//不处理harzard
     );
 	 
 	wire [31:0]COMPARE_out;
-	wire timer_int;
 	Compare COMPARE(
     .clk(clk), 
     .rst(rst), 
@@ -79,7 +80,7 @@ module CP0(//不处理harzard
     .we(cause_we), 
     .mtcd(data_in), 
     .BD_(CAUSE_BD), 
-    .int_({timer_int, int_}),//IP7 is timmer interrupt 
+    .int_(CAUSE_HIP),//IP7 is timmer interrupt 
     .ExcCode_(CAUSE_EXCCODE), 
     .Q(CAUSE_out)
     );

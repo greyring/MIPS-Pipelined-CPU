@@ -51,7 +51,9 @@ wire [31:0]EPC_out;
 wire STATUS_EXL_in;
 wire CAUSE_BD_in;
 wire [4:0]CAUSE_EXCCODE_in;
+wire [5:0]CAUSE_HIP_in;
 wire [31:0]EPC_in;
+wire timer_int;
 
 CP0 CP0_(
     .clk(clk), 
@@ -63,11 +65,12 @@ CP0 CP0_(
     .STATUS_EXL(STATUS_EXL_in), 
     .STATUS_out(STATUS_out), 
     .CAUSE_BD(CAUSE_BD_in), 
-    .int_(int_), 
+    .CAUSE_HIP(CAUSE_HIP_in), 
     .CAUSE_EXCCODE(CAUSE_EXCCODE_in), 
     .CAUSE_out(CAUSE_out), 
     .EPC_in(EPC_in), 
-    .EPC_out(EPC_out)
+    .EPC_out(EPC_out),
+	 .timer_int(timer_int)
    );
 	//debug
 	assign cause_data = CAUSE_out;
@@ -602,7 +605,11 @@ wire wb_bd;
 								._stall_en(IF_ID_stall_));
 /////////////////////////////////////////////////////////////
 //Exception
+reg [5:0]int_reg;
+always @(posedge clk)
+	int_reg <= {timer_int, int_};
 Exception_handler Exc_Handler(
+	 .int_reg(int_reg),
     .wb_excvec(wb_excvec), 
     .PC(wb_pc), 
     .bd(wb_bd), 
@@ -613,6 +620,7 @@ Exception_handler Exc_Handler(
     .STATUS_EXL(STATUS_EXL_in), 
     .CAUSE_EXCCODE(CAUSE_EXCCODE_in), 
     .CAUSE_BD(CAUSE_BD_in), 
+	 .CAUSE_HIP(CAUSE_HIP_in),
     .EPC_out(EPC_in), 
     .exc_addr(exc_addr), 
     .exc(wb_exc)//include interrupt

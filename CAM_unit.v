@@ -23,8 +23,13 @@ module CAM_unit(
 	input rst,
 	input we,
 	input [DATA_SIZE-1:0]wdata,
-	input [DATA_SIZE-1:0]rdata,
-	output hit
+	input [DATA_SIZE-1:0]rdata0,
+	input [DATA_SIZE-1:0]rdata1,
+	input [DATA_SIZE-1:0]rdata2,
+	output [DATA_SIZE-1:0]data,
+	output hit0,
+	output hit1,
+	output hit2
     );
 parameter DATA_SIZE = 19;
 reg [DATA_SIZE-1:0]temp = 0;
@@ -36,6 +41,9 @@ always @(posedge clk) begin
 	else
 		temp <= temp;
 end
-assign hit = rdata == temp;
+assign hit0 = rdata0 == temp;
+assign hit1 = rdata1 == temp;
+assign hit2 = rdata2 == temp;
+assign data = temp;
 
 endmodule

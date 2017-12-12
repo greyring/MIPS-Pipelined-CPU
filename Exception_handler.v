@@ -23,6 +23,7 @@ module Exception_handler(
 	input [31:0]PC,
 	input bd,
 	input id_eret,//STATUS_EXL
+	input [5:0]int_reg,
 	
 	input [31:0]STATUS_in,
 	input [31:0]CAUSE_in,
@@ -31,6 +32,7 @@ module Exception_handler(
 	output reg STATUS_EXL,
 	output reg [4:0]CAUSE_EXCCODE,
 	output reg CAUSE_BD,
+	output reg [5:0]CAUSE_HIP,//CAUSE_HIP 与MIPS32标准可能不太一样
 	output reg [31:0]EPC_out,
 	
 	output reg [31:0]exc_addr,
@@ -44,9 +46,9 @@ module Exception_handler(
 `define OVERFLOW 3
 
 wire INT_;
-assign INT_ = (|(CAUSE_in[15:8] & STATUS_in[15:8])) & ~STATUS_in[1] & ~STATUS_in[2] & STATUS_in[0];
+assign INT_ = ~(|wb_excvec) & (|(int_reg[15:8] & STATUS_in[15:8])) & ~STATUS_in[1] & ~STATUS_in[2] & STATUS_in[0];
 wire [3:0]excvec;
-assign excvec = {wb_excvec, ~(|wb_excvec) & INT_};//notice &
+assign excvec = {wb_excvec, INT_};//notice &
 
 //handle EPC
 always @* begin
@@ -86,6 +88,12 @@ always @* begin
 		CAUSE_BD = CAUSE_in[31];
 	else
 		CAUSE_BD = bd;
+end
+always @* begin
+	if (INT_)
+		CAUSE_HIP = int_reg;
+	else
+		CAUSE_HIP = CAUSE_HIP;
 end
 
 //handle PC

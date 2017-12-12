@@ -1,0 +1,28 @@
+Command line:
+   TTLB_16_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  4796
+
+Tue Dec 12 17:32:56 2017
+
+
+ Elaboration Time: 0.405603 sec
+
+ Current Memory Usage: 1171.03 Meg
+
+ Total Signals          : 447
+ Total Nets             : 1158
+ Total Signal Drivers   : 184
+ Total Blocks           : 40
+ Total Primitive Blocks : 36
+ Total Processes        : 225
+ Total Traceable Variables  : 120
+ Total Scalar Nets and Variables : 3911
+
+ Total Simulation Time: 0.717605 sec
+
+ Current Memory Usage: 699.146 Meg
+
+Tue Dec 12 17:38:26 2017
+

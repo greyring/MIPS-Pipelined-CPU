@@ -23,7 +23,7 @@ module Cause(input clk,
 			 input we,
 			 input [31:0]mtcd,
 			 input BD_,
-			 input [5:0]int_,
+			 input [5:0]CAUSE_HIP,
 			 input [4:0]ExcCode_,
 			 output [31:0]Q
     );
@@ -50,7 +50,7 @@ end
 //HIP
 always @(posedge clk) begin
 	if (rst) HIP <= 0;
-	else HIP <= int_;
+	else HIP <= CAUSE_HIP;
 end
 
 //SIP
