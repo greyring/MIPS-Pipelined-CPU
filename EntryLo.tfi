@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+EntryLo instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .we(we), 
+    .mtcd(mtcd), 
+    .pfn(pfn), 
+    .dvg(dvg), 
+    .Q(Q)
+    );
+
+

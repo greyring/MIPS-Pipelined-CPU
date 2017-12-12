@@ -34,34 +34,34 @@ reg [1:0]SIP = 0;//software interrupt pending
 reg [4:0]ExcCode = 0;
 
 //BD
-always @(posedge clk) begin
+always @(posedge clk or posedge rst) begin
 	if (rst) BD <= 0;
 	else if (we) BD <= mtcd[31];
 	else BD <= BD_;
 end
 
 //IV
-always @(posedge clk) begin
+always @(posedge clk or posedge rst) begin
 	if (rst) IV <= 0;
 	else if (we) IV <= mtcd[23];
 	else IV <= IV;
 end
 
 //HIP
-always @(posedge clk) begin
+always @(posedge clk or posedge rst) begin
 	if (rst) HIP <= 0;
 	else HIP <= CAUSE_HIP;
 end
 
 //SIP
-always @(posedge clk) begin
+always @(posedge clk or posedge rst) begin
 	if (rst) SIP <= 0;
 	else if (we) SIP <= mtcd[9:8];
 	else SIP <= SIP;
 end
 
 //ExcCode
-always @(posedge clk) begin
+always @(posedge clk or posedge rst) begin
 	if (rst) ExcCode <= 0;
 	else if (we) ExcCode <= mtcd[6:2];
 	else ExcCode <= ExcCode_;

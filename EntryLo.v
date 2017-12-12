@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    19:08:36 12/12/2017 
+// Create Date:    19:15:30 12/12/2017 
 // Design Name: 
-// Module Name:    Random 
+// Module Name:    EntryLo 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,19 +18,28 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Random(
+module EntryLo(
 	input clk,
 	input rst,
-	input [31:0]Wired,
-	input Wired_we,
+	input we,
+	input [31:0]mtcd,
+	input [19:0]pfn,
+	input [2:0]dvg,
 	output [31:0]Q
     );
-reg [3:0]RANDOM = 4'b1111;
+reg [19:0]PFN = 0;
+reg [2:0]DVG = 0;
 always @(posedge clk or posedge rst) begin
-	if (rst) RANDOM <= 4'b1111;
-	else if (Wired_we) RANDOM<= 4'b1111;
-	else if (RANDOM == Wired) RANDOM <= 4'b1111;
-	else RANDOM <= RANDOM-4'b1;
+	if (rst) PFN <= 0;
+	else if (we) PFN <= mtcd[25:6];
+	else PFN <= pfn;
 end
-assign Q = {28'b0, RANDOM};
+
+always @(posedge clk or posedge rst) begin
+	if (rst) DVG <= 0;
+	else if (we) DVG <= mtcd[2:0];
+	else DVG <= dvg;
+end
+
+assign Q = {6'b0, PFN, 3'b0, DVG};
 endmodule

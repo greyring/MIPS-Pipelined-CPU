@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+Wired instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .we(we), 
+    .mtcd(mtcd), 
+    .Q(Q)
+    );
+
+

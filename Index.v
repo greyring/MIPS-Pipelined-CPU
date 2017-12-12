@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    19:08:36 12/12/2017 
+// Create Date:    18:55:43 12/12/2017 
 // Design Name: 
-// Module Name:    Random 
+// Module Name:    Index 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,19 +18,30 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Random(
+module Index(
 	input clk,
 	input rst,
-	input [31:0]Wired,
-	input Wired_we,
+	input we,
+	input [31:0]mtcd,
+	
+	input p,
+	input [3:0]index,
 	output [31:0]Q
     );
-reg [3:0]RANDOM = 4'b1111;
+reg P = 0;
+reg [3:0]INDEX = 0;
+
 always @(posedge clk or posedge rst) begin
-	if (rst) RANDOM <= 4'b1111;
-	else if (Wired_we) RANDOM<= 4'b1111;
-	else if (RANDOM == Wired) RANDOM <= 4'b1111;
-	else RANDOM <= RANDOM-4'b1;
+	if (rst) P <= 0;
+	else if (we) P <= mtcd[31];
+	else P <= p;
 end
-assign Q = {28'b0, RANDOM};
+
+always @(posedge clk or posedge rst) begin
+	if (rst) INDEX <= 0;
+	else if (we) INDEX <= mtcd[3:0];
+	else INDEX <= index;
+end
+
+assign Q = {P, 27'b0, INDEX};
 endmodule

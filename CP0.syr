@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: CP0.prj
 
@@ -108,10 +108,20 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Wired.v" into library work
+Parsing module <Wired>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Status.v" into library work
 Parsing module <Status>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Random.v" into library work
+Parsing module <Random>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Index.v" into library work
+Parsing module <Index>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Epc.v" into library work
 Parsing module <Epc>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\EntryLo.v" into library work
+Parsing module <EntryLo>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\EntryHi.v" into library work
+Parsing module <EntryHi>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Count.v" into library work
 Parsing module <Count>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Compare.v" into library work
@@ -129,10 +139,19 @@ Parsing module <MUL_ALU>.
 
 Elaborating module <CP0>.
 
+Elaborating module <Wired>.
+
+Elaborating module <Random>.
+
+Elaborating module <Index>.
+
+Elaborating module <EntryLo>.
+
+Elaborating module <EntryHi>.
+
 Elaborating module <Count>.
 
 Elaborating module <Compare>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\CP0.v" Line 60: Assignment to timer_int ignored, since the identifier is never used
 
 Elaborating module <Status>.
 
@@ -146,16 +165,66 @@ Elaborating module <Epc>.
 
 Synthesizing Unit <CP0>.
     Related source file is "F:\MyProgramme\0arch\PCPU\CP0.v".
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\CP0.v" line 52: Output port <timer_int> of the instance <COMPARE> is unconnected or connected to loadless signal.
-    Found 32-bit 8-to-1 multiplexer for signal <_n0047> created at line 28.
+    Found 32-bit 15-to-1 multiplexer for signal <_n0069> created at line 28.
     Summary:
 	inferred   2 Multiplexer(s).
 Unit <CP0> synthesized.
 
+Synthesizing Unit <Wired>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Wired.v".
+WARNING:Xst:647 - Input <mtcd<31:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 4-bit register for signal <WIRED>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <Wired> synthesized.
+
+Synthesizing Unit <Random>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Random.v".
+    Found 4-bit register for signal <RANDOM>.
+    Found 4-bit subtractor for signal <RANDOM[3]_GND_3_o_sub_2_OUT> created at line 33.
+    Found 32-bit comparator equal for signal <GND_3_o_Wired[31]_equal_1_o> created at line 32
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   4 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   2 Multiplexer(s).
+Unit <Random> synthesized.
+
+Synthesizing Unit <Index>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Index.v".
+WARNING:Xst:647 - Input <mtcd<30:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 4-bit register for signal <INDEX>.
+    Found 1-bit register for signal <P>.
+    Summary:
+	inferred   5 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <Index> synthesized.
+
+Synthesizing Unit <EntryLo>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\EntryLo.v".
+WARNING:Xst:647 - Input <mtcd<5:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mtcd<31:26>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 3-bit register for signal <DVG>.
+    Found 20-bit register for signal <PFN>.
+    Summary:
+	inferred  23 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <EntryLo> synthesized.
+
+Synthesizing Unit <EntryHi>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\EntryHi.v".
+WARNING:Xst:647 - Input <mtcd<12:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit register for signal <ASID>.
+    Found 19-bit register for signal <VPN2>.
+    Summary:
+	inferred  27 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <EntryHi> synthesized.
+
 Synthesizing Unit <Count>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Count.v".
     Found 32-bit register for signal <count>.
-    Found 32-bit adder for signal <count[31]_GND_2_o_add_1_OUT> created at line 28.
+    Found 32-bit adder for signal <count[31]_GND_8_o_add_1_OUT> created at line 28.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
@@ -163,9 +232,9 @@ Unit <Count> synthesized.
 
 Synthesizing Unit <Compare>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Compare.v".
-    Found 1-bit register for signal <int_>.
     Found 32-bit register for signal <compare>.
-    Found 32-bit comparator equal for signal <count[31]_compare[31]_equal_2_o> created at line 44
+    Found 1-bit register for signal <int_>.
+    Found 32-bit comparator not equal for signal <count[31]_compare[31]_equal_1_o> created at line 44
     Summary:
 	inferred  33 D-type flip-flop(s).
 	inferred   1 Comparator(s).
@@ -176,11 +245,11 @@ Synthesizing Unit <Status>.
 WARNING:Xst:647 - Input <mtcd<7:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <mtcd<21:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <mtcd<31:23>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <IE>.
+    Found 1-bit register for signal <BEV>.
     Found 8-bit register for signal <IM>.
     Found 1-bit register for signal <ERL>.
     Found 1-bit register for signal <EXL>.
-    Found 1-bit register for signal <IE>.
-    Found 1-bit register for signal <BEV>.
     Summary:
 	inferred  12 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
@@ -192,13 +261,13 @@ WARNING:Xst:647 - Input <mtcd<1:0>> is never used. This port will be preserved a
 WARNING:Xst:647 - Input <mtcd<7:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <mtcd<22:10>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <mtcd<30:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit register for signal <IV>.
-    Found 5-bit register for signal <HIP>.
+    Found 6-bit register for signal <HIP>.
     Found 2-bit register for signal <SIP>.
     Found 5-bit register for signal <ExcCode>.
+    Found 1-bit register for signal <IV>.
     Found 1-bit register for signal <BD>.
     Summary:
-	inferred  14 D-type flip-flop(s).
+	inferred  15 D-type flip-flop(s).
 	inferred   2 Multiplexer(s).
 Unit <Cause> synthesized.
 
@@ -214,21 +283,33 @@ Unit <Epc> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
+# Adders/Subtractors                                   : 2
  32-bit adder                                          : 1
-# Registers                                            : 14
- 1-bit register                                        : 7
+ 4-bit subtractor                                      : 1
+# Registers                                            : 24
+ 1-bit register                                        : 8
+ 19-bit register                                       : 1
  2-bit register                                        : 1
+ 20-bit register                                       : 2
+ 3-bit register                                        : 2
  32-bit register                                       : 3
- 5-bit register                                        : 2
- 8-bit register                                        : 1
-# Comparators                                          : 1
+ 4-bit register                                        : 3
+ 5-bit register                                        : 1
+ 6-bit register                                        : 1
+ 8-bit register                                        : 2
+# Comparators                                          : 2
  32-bit comparator equal                               : 1
-# Multiplexers                                         : 6
- 1-bit 2-to-1 multiplexer                              : 2
+ 32-bit comparator not equal                           : 1
+# Multiplexers                                         : 16
+ 1-bit 2-to-1 multiplexer                              : 3
+ 19-bit 2-to-1 multiplexer                             : 1
+ 20-bit 2-to-1 multiplexer                             : 2
+ 3-bit 2-to-1 multiplexer                              : 2
+ 32-bit 15-to-1 multiplexer                            : 1
  32-bit 2-to-1 multiplexer                             : 2
- 32-bit 8-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 3
  5-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
 
@@ -245,17 +326,25 @@ Unit <Count> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
+# Adders/Subtractors                                   : 1
+ 4-bit subtractor                                      : 1
 # Counters                                             : 1
  32-bit up counter                                     : 1
-# Registers                                            : 91
- Flip-Flops                                            : 91
-# Comparators                                          : 1
+# Registers                                            : 178
+ Flip-Flops                                            : 178
+# Comparators                                          : 2
  32-bit comparator equal                               : 1
-# Multiplexers                                         : 5
- 1-bit 2-to-1 multiplexer                              : 1
+ 32-bit comparator not equal                           : 1
+# Multiplexers                                         : 15
+ 1-bit 2-to-1 multiplexer                              : 2
+ 19-bit 2-to-1 multiplexer                             : 1
+ 20-bit 2-to-1 multiplexer                             : 2
+ 3-bit 2-to-1 multiplexer                              : 2
+ 32-bit 15-to-1 multiplexer                            : 1
  32-bit 2-to-1 multiplexer                             : 2
- 32-bit 8-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 3
  5-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
 
@@ -265,6 +354,10 @@ Macro Statistics
 
 Optimizing unit <CP0> ...
 
+Optimizing unit <EntryLo> ...
+
+Optimizing unit <EntryHi> ...
+
 Optimizing unit <Compare> ...
 
 Optimizing unit <Status> ...
@@ -272,7 +365,8 @@ Optimizing unit <Status> ...
 Optimizing unit <Cause> ...
 
 Optimizing unit <Epc> ...
-WARNING:Xst:2677 - Node <COMPARE/int_> of sequential type is unconnected in block <CP0>.
+
+Optimizing unit <Random> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -291,6 +385,7 @@ FlipFlop STATUS/EXL has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop STATUS/IE has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop CAUSE/BD has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop CAUSE/IV has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop CAUSE/HIP_5 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop CAUSE/HIP_4 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop CAUSE/HIP_3 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop CAUSE/HIP_2 has been replicated 1 time(s) to handle iob=true attribute.
@@ -335,6 +430,84 @@ FlipFlop EPC/epc_3 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop EPC/epc_2 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop EPC/epc_1 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop EPC/epc_0 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop INDEX/P has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop INDEX/INDEX_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop INDEX/INDEX_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop INDEX/INDEX_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop INDEX/INDEX_0 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_19 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_18 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_17 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_16 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_15 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_14 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_13 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_12 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_11 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_10 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_9 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_8 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_7 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_6 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_5 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/PFN_0 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/DVG_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/DVG_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO0/DVG_0 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_19 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_18 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_17 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_16 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_15 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_14 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_13 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_12 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_11 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_10 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_9 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_8 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_7 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_6 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_5 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/PFN_0 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/DVG_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/DVG_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYLO1/DVG_0 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_18 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_17 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_16 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_15 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_14 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_13 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_12 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_11 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_10 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_9 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_8 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_7 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_6 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_5 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/VPN2_0 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/ASID_7 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/ASID_6 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/ASID_5 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/ASID_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/ASID_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/ASID_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/ASID_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop ENTRYHI/ASID_0 has been replicated 1 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
 
@@ -342,8 +515,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 180
- Flip-Flops                                            : 180
+# Registers                                            : 347
+ Flip-Flops                                            : 347
 
 =========================================================================
 
@@ -366,27 +539,30 @@ Top Level Output File Name         : CP0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 217
+# BELS                             : 380
 #      GND                         : 1
 #      INV                         : 1
 #      LUT1                        : 31
 #      LUT2                        : 1
-#      LUT3                        : 69
-#      LUT5                        : 14
-#      LUT6                        : 36
-#      MUXCY                       : 31
+#      LUT3                        : 139
+#      LUT4                        : 9
+#      LUT5                        : 46
+#      LUT6                        : 74
+#      MUXCY                       : 44
+#      MUXF7                       : 1
 #      VCC                         : 1
 #      XORCY                       : 32
-# FlipFlops/Latches                : 180
+# FlipFlops/Latches                : 347
 #      FD                          : 32
-#      FDR                         : 88
-#      FDRE                        : 8
-#      FDSE                        : 52
+#      FDC                         : 247
+#      FDCE                        : 12
+#      FDP                         : 4
+#      FDPE                        : 52
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 211
-#      IBUF                        : 83
-#      OBUF                        : 128
+# IO Buffers                       : 451
+#      IBUF                        : 162
+#      OBUF                        : 289
 
 Device utilization summary:
 ---------------------------
@@ -395,24 +571,26 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             117  out of  407600     0%  
- Number of Slice LUTs:                  152  out of  203800     0%  
-    Number used as Logic:               152  out of  203800     0%  
+ Number of Slice Registers:             204  out of  407600     0%  
+ Number of Slice LUTs:                  301  out of  203800     0%  
+    Number used as Logic:               301  out of  203800     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    154
-   Number with an unused Flip Flop:      37  out of    154    24%  
-   Number with an unused LUT:             2  out of    154     1%  
-   Number of fully used LUT-FF pairs:   115  out of    154    74%  
-   Number of unique control sets:         5
+ Number of LUT Flip Flop pairs used:    319
+   Number with an unused Flip Flop:     115  out of    319    36%  
+   Number with an unused LUT:            18  out of    319     5%  
+   Number of fully used LUT-FF pairs:   186  out of    319    58%  
+   Number of unique control sets:         6
 
 IO Utilization: 
- Number of IOs:                         212
- Number of bonded IOBs:                 212  out of    400    53%  
-    IOB Flip Flops/Latches:              63
+ Number of IOs:                         452
+ Number of bonded IOBs:                 452  out of    400   113% (*) 
+    IOB Flip Flops/Latches:             143
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
 
 ---------------------------
 Partition Resource Summary:
@@ -435,7 +613,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 180   |
+clk                                | BUFGP                  | 347   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -446,10 +624,10 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 1.539ns (Maximum Frequency: 649.667MHz)
-   Minimum input arrival time before clock: 1.457ns
-   Maximum output required time after clock: 2.045ns
-   Maximum combinational path delay: 2.050ns
+   Minimum period: 1.610ns (Maximum Frequency: 621.292MHz)
+   Minimum input arrival time before clock: 1.704ns
+   Maximum output required time after clock: 2.158ns
+   Maximum combinational path delay: 2.165ns
 
 Timing Details:
 ---------------
@@ -457,121 +635,92 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 1.539ns (frequency: 649.667MHz)
-  Total number of paths / destination ports: 528 / 32
+  Clock period: 1.610ns (frequency: 621.292MHz)
+  Total number of paths / destination ports: 635 / 37
 -------------------------------------------------------------------------
-Delay:               1.539ns (Levels of Logic = 33)
-  Source:            COUNT/count_0 (FF)
-  Destination:       COUNT/count_31 (FF)
+Delay:               1.610ns (Levels of Logic = 3)
+  Source:            WIRED/WIRED_1 (FF)
+  Destination:       RANDOM/RANDOM_3 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: COUNT/count_0 to COUNT/count_31
+  Data Path: WIRED/WIRED_1 to RANDOM/RANDOM_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.236   0.344  COUNT/count_0 (COUNT/count_0)
-     INV:I->O              1   0.054   0.000  COUNT/Mcount_count_lut<0>_INV_0 (COUNT/Mcount_count_lut<0>)
-     MUXCY:S->O            1   0.238   0.000  COUNT/Mcount_count_cy<0> (COUNT/Mcount_count_cy<0>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<1> (COUNT/Mcount_count_cy<1>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<2> (COUNT/Mcount_count_cy<2>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<3> (COUNT/Mcount_count_cy<3>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<4> (COUNT/Mcount_count_cy<4>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<5> (COUNT/Mcount_count_cy<5>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<6> (COUNT/Mcount_count_cy<6>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<7> (COUNT/Mcount_count_cy<7>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<8> (COUNT/Mcount_count_cy<8>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<9> (COUNT/Mcount_count_cy<9>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<10> (COUNT/Mcount_count_cy<10>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<11> (COUNT/Mcount_count_cy<11>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<12> (COUNT/Mcount_count_cy<12>)
-     MUXCY:CI->O           1   0.013   0.000  COUNT/Mcount_count_cy<13> (COUNT/Mcount_count_cy<13>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<14> (COUNT/Mcount_count_cy<14>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<15> (COUNT/Mcount_count_cy<15>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<16> (COUNT/Mcount_count_cy<16>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<17> (COUNT/Mcount_count_cy<17>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<18> (COUNT/Mcount_count_cy<18>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<19> (COUNT/Mcount_count_cy<19>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<20> (COUNT/Mcount_count_cy<20>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<21> (COUNT/Mcount_count_cy<21>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<22> (COUNT/Mcount_count_cy<22>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<23> (COUNT/Mcount_count_cy<23>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<24> (COUNT/Mcount_count_cy<24>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<25> (COUNT/Mcount_count_cy<25>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<26> (COUNT/Mcount_count_cy<26>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<27> (COUNT/Mcount_count_cy<27>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<28> (COUNT/Mcount_count_cy<28>)
-     MUXCY:CI->O           1   0.014   0.000  COUNT/Mcount_count_cy<29> (COUNT/Mcount_count_cy<29>)
-     MUXCY:CI->O           0   0.014   0.000  COUNT/Mcount_count_cy<30> (COUNT/Mcount_count_cy<30>)
-     XORCY:CI->O           1   0.262   0.000  COUNT/Mcount_count_xor<31> (Result<31>)
-     FD:D                     -0.000          COUNT/count_31
+     FDCE:C->Q             2   0.236   0.527  WIRED/WIRED_1 (WIRED/WIRED_1)
+     LUT4:I0->O            1   0.043   0.350  RANDOM/GND_3_o_Wired[31]_equal_1_o4_SW0 (N11)
+     LUT5:I4->O            4   0.043   0.367  RANDOM/GND_3_o_Wired[31]_equal_1_o4 (RANDOM/GND_3_o_Wired[31]_equal_1_o)
+     LUT5:I4->O            1   0.043   0.000  RANDOM/Mmux_RANDOM[3]_PWR_3_o_mux_3_OUT31 (RANDOM/RANDOM[3]_PWR_3_o_mux_3_OUT<2>)
+     FDP:D                    -0.000          RANDOM/RANDOM_2
     ----------------------------------------
-    Total                      1.539ns (1.195ns logic, 0.344ns route)
-                                       (77.6% logic, 22.4% route)
+    Total                      1.610ns (0.365ns logic, 1.245ns route)
+                                       (22.7% logic, 77.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 1202 / 356
+  Total number of paths / destination ports: 2683 / 694
 -------------------------------------------------------------------------
-Offset:              1.457ns (Levels of Logic = 3)
-  Source:            r_reg<2> (PAD)
-  Destination:       EPC/epc_31 (FF)
+Offset:              1.704ns (Levels of Logic = 4)
+  Source:            r_reg<3> (PAD)
+  Destination:       COMPARE/int_ (FF)
   Destination Clock: clk rising
 
-  Data Path: r_reg<2> to EPC/epc_31
+  Data Path: r_reg<3> to COMPARE/int_
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            50   0.000   0.746  r_reg_2_IBUF (r_reg_2_IBUF)
-     LUT6:I0->O           32   0.043   0.625  epc_we1 (epc_we)
-     LUT3:I0->O            2   0.043   0.000  EPC/Mmux_D[31]_mtcd[31]_mux_1_OUT110 (EPC/D[31]_mtcd[31]_mux_1_OUT<0>)
-     FDR:D                    -0.000          EPC/epc_0
+     IBUF:I->O            60   0.000   0.748  r_reg_3_IBUF (r_reg_3_IBUF)
+     LUT6:I0->O           33   0.043   0.480  compare_we1 (compare_we)
+     LUT2:I1->O            1   0.043   0.000  COMPARE/int__rstpot_lut1 (COMPARE/int__rstpot_lut1)
+     MUXCY:S->O            1   0.390   0.000  COMPARE/int__rstpot_cy1 (COMPARE/int__rstpot)
+     FDC:D                    -0.000          COMPARE/int_
     ----------------------------------------
-    Total                      1.457ns (0.086ns logic, 1.371ns route)
-                                       (5.9% logic, 94.1% route)
+    Total                      1.704ns (0.476ns logic, 1.228ns route)
+                                       (27.9% logic, 72.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 180 / 90
+  Total number of paths / destination ports: 351 / 174
 -------------------------------------------------------------------------
-Offset:              2.045ns (Levels of Logic = 4)
-  Source:            COMPARE/compare_14 (FF)
-  Destination:       data_out<14> (PAD)
+Offset:              2.158ns (Levels of Logic = 4)
+  Source:            COMPARE/compare_12 (FF)
+  Destination:       data_out<12> (PAD)
   Source Clock:      clk rising
 
-  Data Path: COMPARE/compare_14 to data_out<14>
+  Data Path: COMPARE/compare_12 to data_out<12>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDSE:C->Q             1   0.236   0.495  COMPARE/compare_14 (COMPARE/compare_14)
-     LUT5:I2->O            1   0.043   0.350  Mmux_data_out61 (Mmux_data_out6)
-     LUT6:I5->O            1   0.043   0.495  Mmux_data_out62 (Mmux_data_out61)
-     LUT3:I0->O            1   0.043   0.339  Mmux_data_out63 (data_out_14_OBUF)
-     OBUF:I->O                 0.000          data_out_14_OBUF (data_out<14>)
+     FDPE:C->Q             2   0.236   0.500  COMPARE/compare_12 (COMPARE/compare_12)
+     LUT5:I2->O            1   0.043   0.350  Mmux_data_out41 (Mmux_data_out4)
+     LUT6:I5->O            1   0.043   0.603  Mmux_data_out42 (Mmux_data_out41)
+     LUT6:I1->O            1   0.043   0.339  Mmux_data_out44 (data_out_12_OBUF)
+     OBUF:I->O                 0.000          data_out_12_OBUF (data_out<12>)
     ----------------------------------------
-    Total                      2.045ns (0.365ns logic, 1.680ns route)
-                                       (17.9% logic, 82.1% route)
+    Total                      2.158ns (0.365ns logic, 1.793ns route)
+                                       (16.9% logic, 83.1% route)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 193 / 32
+  Total number of paths / destination ports: 392 / 32
 -------------------------------------------------------------------------
-Delay:               2.050ns (Levels of Logic = 5)
+Delay:               2.165ns (Levels of Logic = 5)
   Source:            r_reg<2> (PAD)
-  Destination:       data_out<14> (PAD)
+  Destination:       data_out<12> (PAD)
 
-  Data Path: r_reg<2> to data_out<14>
+  Data Path: r_reg<2> to data_out<12>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            50   0.000   0.736  r_reg_2_IBUF (r_reg_2_IBUF)
-     LUT5:I0->O            1   0.043   0.350  Mmux_data_out210 (Mmux_data_out2)
-     LUT6:I5->O            1   0.043   0.495  Mmux_data_out211 (Mmux_data_out21)
-     LUT3:I0->O            1   0.043   0.339  Mmux_data_out212 (data_out_10_OBUF)
+     IBUF:I->O            90   0.000   0.744  r_reg_2_IBUF (r_reg_2_IBUF)
+     LUT5:I0->O            1   0.043   0.350  Mmux_data_out25 (Mmux_data_out2)
+     LUT6:I5->O            1   0.043   0.603  Mmux_data_out210 (Mmux_data_out21)
+     LUT6:I1->O            1   0.043   0.339  Mmux_data_out212 (data_out_10_OBUF)
      OBUF:I->O                 0.000          data_out_10_OBUF (data_out<10>)
     ----------------------------------------
-    Total                      2.050ns (0.129ns logic, 1.921ns route)
-                                       (6.3% logic, 93.7% route)
+    Total                      2.165ns (0.129ns logic, 2.036ns route)
+                                       (6.0% logic, 94.0% route)
 
 =========================================================================
 
@@ -583,20 +732,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    1.539|         |         |         |
+clk            |    1.610|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 15.00 secs
-Total CPU time to Xst completion: 14.95 secs
+Total REAL time to Xst completion: 14.00 secs
+Total CPU time to Xst completion: 13.58 secs
  
 --> 
 
-Total memory usage is 443512 kilobytes
+Total memory usage is 449656 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    9 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings :   13 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
 

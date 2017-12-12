@@ -29,7 +29,7 @@ module cache(
 	input [31:0]Tag_Lo,
 	output reg [31:0]Tag_wHi,
 	output reg [31:0]Tag_wLo,
-	output Tag_w,
+	//output Tag_w,
 	
 	input [31:0]i_addr,
 	output[31:0]i_data,
@@ -159,15 +159,21 @@ mem_buffer Mem_buf(
     .ready(buf_L2_ready)
     );
 
+wire Tag_w;
 assign Tag_w = I_tag_w | D_tag_w | L2_tag_w;
 always @* begin
 	{Tag_wHi, Tag_wLo} = 0;
-	if (choose[0])
-		{Tag_wHi, Tag_wLo} = {I_tag_wHi, I_tag_wLo};
-	else if (choose[1])
-		{Tag_wHi, Tag_wLo} = {D_tag_wHi, D_tag_wLo};
-	else if (choose[2])
-		{Tag_wHi, Tag_wLo} = {L2_tag_wHi, L2_tag_wLo};
+	if (Tag_w) begin
+		if (choose[0])
+			{Tag_wHi, Tag_wLo} = {I_tag_wHi, I_tag_wLo};
+		else if (choose[1])
+			{Tag_wHi, Tag_wLo} = {D_tag_wHi, D_tag_wLo};
+		else if (choose[2])
+			{Tag_wHi, Tag_wLo} = {L2_tag_wHi, L2_tag_wLo};
+	end
+	else begin
+		{Tag_wHi, Tag_wLo} = {Tag_Hi, Tag_Lo};
+	end
 end
 
 assign cache_err = icache_err | dcache_err;

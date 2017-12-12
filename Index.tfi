@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+Index instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .we(we), 
+    .mtcd(mtcd), 
+    .p(p), 
+    .index(index), 
+    .Q(Q)
+    );
+
+

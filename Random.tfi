@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+Random instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .Wired(Wired), 
+    .Wired_we(Wired_we), 
+    .Q(Q)
+    );
+
+

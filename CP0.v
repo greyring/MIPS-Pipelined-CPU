@@ -38,19 +38,103 @@ module CP0(//不处理harzard
 	input [31:0]EPC_in,
 	output [31:0]EPC_out,
 	
+	input INDEX_P,
+	input [3:0]INDEX_INDEX,
+	output [31:0]INDEX_out,
+	
+	output [31:0]RANDOM_out,
+	
+	input [19:0]ENTRY_LO0_PFN,
+	input [2:0]ENTRY_LO0_DVG,
+	output [31:0]ENTRY_LO0_out,
+	
+	input [19:0]ENTRY_LO1_PFN,
+	input [2:0]ENTRY_LO1_DVG,
+	output [31:0]ENTRY_LO1_out,
+	
+	input [18:0]ENTRY_HI_VPN2,
+	input [7:0]ENTRY_HI_ASID,
+	output [31:0]ENTRY_HI_out,
+	
 	output timer_int
     );
 
+/////////////////////////////
+//Wired and Random
+	wire [31:0]WIRED_out;
+	wire wired_we;
+	Wired WIRED(//6
+    .clk(clk), 
+    .rst(rst), 
+    .we(wired_we), 
+    .mtcd(data_in), 
+    .Q(WIRED_out)
+    );
+	 
+	Random RANDOM(//1
+    .clk(clk), 
+    .rst(rst), 
+    .Wired(WIRED_out), 
+    .Wired_we(wired_we), 
+    .Q(RANDOM_out)
+    );
+///////////////////////////
+//index and entrylo0 and entrylo1 and entryhi
+	wire index_we;
+	Index INDEX(//0
+		 .clk(clk), 
+		 .rst(rst), 
+		 .we(index_we), 
+		 .mtcd(data_in), 
+		 .p(INDEX_P), 
+		 .index(INDEX_INDEX), 
+		 .Q(INDEX_out)
+		 );
+		 
+	wire entry_lo0_we;
+	EntryLo ENTRYLO0(//2
+    .clk(clk), 
+    .rst(rst), 
+    .we(entry_lo0_we), 
+    .mtcd(data_in), 
+    .pfn(ENTRY_LO0_PFN), 
+    .dvg(ENTRY_LO0_DVG), 
+    .Q(ENTRY_LO0_out)
+    );
+	
+	wire entry_lo1_we;
+	EntryLo ENTRYLO1(//3
+    .clk(clk), 
+    .rst(rst), 
+    .we(entry_lo1_we), 
+    .mtcd(data_in), 
+    .pfn(ENTRY_LO1_PFN), 
+    .dvg(ENTRY_LO1_DVG), 
+    .Q(ENTRY_LO1_out)
+    );
+	
+	wire entry_hi_we;
+	EntryHi ENTRYHI(
+    .clk(clk), 
+    .rst(rst), 
+    .we(entry_hi_we), 
+    .mtcd(data_in), 
+    .vpn2(ENTRY_HI_VPN2), 
+    .asid(ENTRY_HI_ASID), 
+    .Q(ENTRY_HI_out)
+    );
+	
+	
 ////////////////////////////////////////////////////////
 //COUNT and COMPARE
 	wire [31:0]COUNT_out;
-	Count COUNT(
+	Count COUNT(//9
     .clk(clk), 
     .Q(COUNT_out)
     );
 	 
 	wire [31:0]COMPARE_out;
-	Compare COMPARE(
+	Compare COMPARE(//11
     .clk(clk), 
     .rst(rst), 
     .we(compare_we), 
@@ -63,7 +147,7 @@ module CP0(//不处理harzard
 /////////////////////////////////////////////////////////////////
 	wire [31:0]STATUS_in;
 	wire status_we;
-	Status STATUS(
+	Status STATUS(//12
     .clk(clk), 
     .rst(rst), 
     .we(status_we), 
@@ -74,13 +158,13 @@ module CP0(//不处理harzard
 
 	wire [31:0]CAUSE_in;
 	wire cause_we;
-	Cause CAUSE(
+	Cause CAUSE(//13
     .clk(clk), 
     .rst(rst), 
     .we(cause_we), 
     .mtcd(data_in), 
     .BD_(CAUSE_BD), 
-    .int_(CAUSE_HIP),//IP7 is timmer interrupt 
+    .CAUSE_HIP(CAUSE_HIP),//IP7 is timmer interrupt 
     .ExcCode_(CAUSE_EXCCODE), 
     .Q(CAUSE_out)
     );
@@ -94,9 +178,16 @@ module CP0(//不处理harzard
 			  .rst(rst), 
 			  .Q(EPC_out));
 ////////////////////////////////////////////////////
+
 always @* begin
 	case (r_reg)
+		5'd0 : data_out = INDEX_out;
+		5'd1 : data_out = RANDOM_out;
+		5'd2 : data_out = ENTRY_LO0_out;
+		5'd3 : data_out = ENTRY_LO1_out;
+		5'd6 : data_out = WIRED_out;
 		5'd9 : data_out = COUNT_out;
+		5'd10: data_out = ENTRY_HI_out;
 		5'd11: data_out = COMPARE_out;
 		5'd12: data_out = STATUS_out;
 		5'd13: data_out = CAUSE_out;
@@ -105,6 +196,11 @@ always @* begin
 	endcase
 end
 
+assign index_we = we & (r_reg == 5'd0);
+assign entry_lo0_we = we & (r_reg == 5'd2);
+assign entry_lo1_we = we & (r_reg == 5'd3);
+assign wired_we = we & (r_reg == 5'd6);
+assign entry_hi_we = we & (r_reg == 5'd10);
 assign compare_we = we & (r_reg == 5'd11);
 assign status_we = we & (r_reg == 5'd12);
 assign cause_we = we & (r_reg == 5'd13);

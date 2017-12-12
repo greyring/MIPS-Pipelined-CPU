@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/Index.tfi -lib work F:/MyProgramme/0arch/PCPU//Index.v -module Index -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

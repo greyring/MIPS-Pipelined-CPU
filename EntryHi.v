@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    19:08:36 12/12/2017 
+// Create Date:    19:28:20 12/12/2017 
 // Design Name: 
-// Module Name:    Random 
+// Module Name:    EntryHi 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,19 +18,28 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Random(
+module EntryHi(
 	input clk,
 	input rst,
-	input [31:0]Wired,
-	input Wired_we,
-	output [31:0]Q
+	input we,
+	input [31:0]mtcd,
+	input [18:0]vpn2,
+	input [7:0]asid,
+	output[31:0]Q
     );
-reg [3:0]RANDOM = 4'b1111;
+reg [18:0]VPN2 = 0;
 always @(posedge clk or posedge rst) begin
-	if (rst) RANDOM <= 4'b1111;
-	else if (Wired_we) RANDOM<= 4'b1111;
-	else if (RANDOM == Wired) RANDOM <= 4'b1111;
-	else RANDOM <= RANDOM-4'b1;
+	if (rst) VPN2 <= 0;
+	else if (we) VPN2 <= mtcd[31:13];
+	else VPN2 <= vpn2;
 end
-assign Q = {28'b0, RANDOM};
+
+reg [7:0]ASID = 0;
+always @(posedge clk or posedge rst) begin
+	if (rst) ASID <= 0;
+	else if (we) ASID <= mtcd[7:0];
+	else ASID <= asid;
+end
+assign Q = {VPN2, 5'b0, ASID};
+
 endmodule

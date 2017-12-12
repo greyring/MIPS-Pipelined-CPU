@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/EntryLo.tfi -lib work F:/MyProgramme/0arch/PCPU//EntryLo.v -module EntryLo -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
