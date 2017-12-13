@@ -68,6 +68,6 @@ always @(posedge clk or posedge rst) begin
 	else IE <= IE;
 end
 
-assign Q = {9'b0, BEV, 6'b0, IM, 6'b0, ERL, EXL, IE};
+assign Q = {9'b0, BEV, 6'b0, IM, 5'b0, ERL, EXL, IE};
 
 endmodule

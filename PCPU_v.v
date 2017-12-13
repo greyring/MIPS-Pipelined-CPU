@@ -29,6 +29,7 @@ module PCPU_v(	//人肉保证CP0写入后一段时间不读取CP0，避免CP0遇险
    output reg [31:0] mem_data,
 	output [31:0] cause_data,//
 	output [31:0] status_data,//
+	output [31:0] epc_data,
    output reg [3:0]mem_we,
 	output mem_rd
 	);
@@ -75,6 +76,7 @@ CP0 CP0_(
 	//debug
 	assign cause_data = CAUSE_out;
 	assign status_data = STATUS_out;
+	assign epc_data = EPC_out;
 ////////////////////////////////////////////////////////////////////////
    wire id_b;
 	wire id_j;
@@ -103,23 +105,26 @@ CP0 CP0_(
 	end
 	
 	wire [31:0]exc_addr;//assigned by Exception_Handler
-	assign PC_data_in = id_eret? EPC_out : (wb_exc? exc_addr : PC_jump);	
+	assign PC_data_in = wb_exc? exc_addr : PC_jump;	
 	
 	wire IF_ID_stall_;
-	REG32  PC(.CE(IF_ID_stall_ | id_eret | wb_exc),//exception is prior than stall
+	REG32  PC(.CE(IF_ID_stall_ | wb_exc),//exception is prior than stall
 				  .clk(clk), 
 				  .D(PC_data_in), 
 				  .rst(rst), 
 				  .Q(inst_addr_DUMMY));
 				  
 	assign npc = inst_addr_DUMMY + 4;
+	
+	//wire if_excvec;
+	//wire [31:0]
 //////////////////////////////////////////////////////////
 wire id_bj;
 wire [31:0]id_pc;
 	IF_ID_Reg IF_ID(.clk(clk), 
 						.EN(IF_ID_stall_), 
-						.rst(rst), 
-						.bubble(id_eret | id_exc | exe_exc | mem_exc | wb_exc),//there is no delayed slot after eret
+						.rst(rst | wb_exc), 
+						.bubble(id_eret | id_exc | exe_exc | mem_exc),//there is no delayed slot after eret
 						.inst(inst_data[31:0]), 
 						.npc(npc[31:0]), 
 						.pc(inst_addr_DUMMY[31:0]),
@@ -262,7 +267,7 @@ wire [31:0]id_pc;
 							 .branch_cond(id_bcond[2:0]),
 							 .b(id_b));
 	
-	assign id_exc = id_syscall | id_unknown;
+	assign id_exc = id_eret | id_syscall | id_unknown;
 /////////////////////////////////////////////////////////////////////////
 wire MUL_ID_sign;
 wire MUL_ID_we;
@@ -285,7 +290,7 @@ wire MUL_EXE_add_sub, MUL_EXE_en_c, MUL_EXE_mul, MUL_EXE_sign, MUL_EXE_we;
 wire [1:0]MUL_EXE_HiLo;
 MUL_ID_EXE  _MUL_ID_EXE (
 	.clk(clk), 
-	.rst(rst | ~IF_ID_stall_ | exe_exc | mem_exc | wb_exc), 
+	.rst(rst | ~IF_ID_stall_ | id_exc | exe_exc | mem_exc | wb_exc), 
 	.EN(1'b1), 
 	.MUL_ID_A(id_exe_rega[31:0]), 
 	.MUL_ID_add_sub(MUL_ID_add_sub), 
@@ -325,16 +330,15 @@ wire exe_bd;
 wire exe_alu_sign;
 wire exe_mem_CP0_we;
 wire [4:0]exe_mem_CP0_dreg;
-wire [1:0]exe_excvec;
+wire [2:0]exe_excvec;
 ID_EXE_REG  ID_EXE (.clk(clk), 
                        .EN(1'b1), 
-							  .rst(rst),
-							  .bubble(~IF_ID_stall_ | exe_exc | mem_exc | wb_exc),//当overflow时id阶段bubble 
+							  .rst(rst | wb_exc),//clear excvec
+							  .bubble(~IF_ID_stall_ | id_exc | exe_exc | mem_exc),//clear the inst which causes exc in ID 
                        .id_exe_aluop(id_exe_aluop[3:0]), 
                        .id_exe_imme(id_inst[15:0]), 
                        .id_exe_jal(id_exe_jal), 
                        .id_exe_lui(id_exe_lui), 
-							  .id_bd(id_bd),
                        .id_exe_npc(id_npc[31:0]), 
                        .id_exe_rega(id_exe_rega[31:0]), 
                        .id_exe_regb(id_exe_regb[31:0]), 
@@ -352,7 +356,6 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                        .exe_aluop(exe_aluop[3:0]), 
                        .exe_imme(exe_imme[15:0]), 
                        .exe_jal(exe_jal), 
-							  .exe_bd(exe_bd),
                        .exe_lui(exe_lui), 
                        .exe_mem_mem_reg(exe_mem_mem_reg), 
                        .exe_mem_ctrl(exe_mem_ctrl), 
@@ -369,9 +372,11 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 							  .exe_mem_CP0_we(exe_mem_CP0_we),
 							  .exe_mem_CP0_dreg(exe_mem_CP0_dreg),
 							  
+							  .id_bd(id_bd),							  
+							  .exe_bd(exe_bd),
 							  .id_pc(id_pc),
 							  .exe_pc(exe_pc),
-							  .id_excvec({id_syscall, id_unknown}),
+							  .id_excvec({id_eret, id_syscall, id_unknown}),
 							  .exe_excvec(exe_excvec));
 //////////////////////////////////////////////////////////////////
 	reg [31:0]exe_b;
@@ -421,7 +426,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 	MUL_EXE_EWB  _Mul_EXE_EWB (
 	  .clk(clk), 
 	  .EN(1'b1), 
-	  .rst(rst | mem_exc | wb_exc), 
+	  .rst(rst | exe_exc | mem_exc | wb_exc), 
 	  .MUL_EXE_add_sub(MUL_EXE_add_sub), 
 	  .MUL_EXE_A_t(MUL_EXE_At[63:0]), 
 	  .MUL_EXE_B_t(MUL_EXE_Bt[63:0]), 
@@ -448,11 +453,11 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 	wire [2:0]mem_mem_reg;
 	wire [31:0]mem_pc;
 	wire mem_bd;
-	wire [2:0]mem_excvec;
+	wire [3:0]mem_excvec;
 	EXE_MEM_REG  EXE_MEM_REG (.clk(clk), 
-                        .rst(rst),
+                        .rst(rst | wb_exc),
                         .EN(1'b1), 
-								.bubble(mem_exc | wb_exc),
+								.bubble(exe_exc | mem_exc),
 								
                         .exe_mem_addr(exe_result[31:0]), 
                         .exe_mem_data(exe_regb[31:0]),
@@ -462,7 +467,6 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 								.exe_mem_wreg(exe_mem_wreg),
                         .exe_wb_dreg(exe_wb_dreg[4:0]), 
                         .exe_wb_we(exe_wb_we),  
-								.exe_bd(exe_bd),
 								.exe_mem_CP0_we(exe_mem_CP0_we),
 							   .exe_mem_CP0_dreg(exe_mem_CP0_dreg),
                         .mem_addr(mem_addr_DUMMY[31:0]), 
@@ -473,12 +477,13 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                         .mem_ctrl(mem_ctrl),
 								.mem_op(mem_op),
 								.mem_wreg(mem_wreg),
-								.mem_bd(mem_bd),
 								.mem_CP0_we(mem_CP0_we),
 								.mem_CP0_dreg(mem_CP0_dreg),
 								
+								.exe_bd(exe_bd),
+								.mem_bd(mem_bd),
 								.exe_pc(exe_pc),
-								.exe_excvec({~(|exe_excvec) & exe_overflow, exe_excvec}),//notice &
+								.exe_excvec({exe_overflow, exe_excvec}),
 								.mem_pc(mem_pc),
 								.mem_excvec(mem_excvec));
 								
@@ -492,7 +497,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
     );
 	assign exc_memAddr = mem_ctrl[1] & (mem_addr_DUMMY[0] | (mem_ctrl[0] & mem_addr_DUMMY[1]));
 	//todo handle excption
-	assign mem_rd = mem_op[1];
+	assign mem_rd = (~mem_exc & ~wb_exc & mem_op[1]);
 	assign mem_addr = {mem_addr_DUMMY[31:2],2'b0};
 	always @* begin
 		case (mem_addr_DUMMY[1:0])
@@ -576,21 +581,21 @@ end
 assign mem_wb_data = mem_wb_data_temp;
 //////////////////////////////////////////////////////////////
 wire [31:0]wb_pc;		
-wire [2:0]wb_excvec;	
+wire [3:0]wb_excvec;	
 wire wb_bd;
 	MEM_WB_REG  Mem_wb_reg(.clk(clk), 
-                       .rst(rst), 
+                       .rst(rst | wb_exc), 
                        .EN(1'b1), 
-							  .bubble(wb_exc),
+							  .bubble(mem_exc),
                        .mem_wb_data(mem_wb_data[31:0]), 
                        .mem_wb_dreg(mem_wb_dreg[4:0]), 
                        .mem_wb_we(mem_wb_we), 
-							  .mem_bd(mem_bd),
                        .wb_data(wb_data[31:0]), 
                        .wb_dreg(wb_dreg[4:0]), 
                        .wb_we(wb_we),
-							  .wb_bd(wb_bd),
 							  
+							  .mem_bd(mem_bd),
+							  .wb_bd(wb_bd),
 							  .mem_pc(mem_pc),
 							  .wb_pc(wb_pc),
 							  .mem_excvec(mem_excvec),
@@ -609,11 +614,11 @@ reg [5:0]int_reg;
 always @(posedge clk)
 	int_reg <= {timer_int, int_};
 Exception_handler Exc_Handler(
-	 .int_reg(int_reg),
+	 //.int_reg(int_reg),
+	 .int_reg(6'b0),//todo
     .wb_excvec(wb_excvec), 
     .PC(wb_pc), 
     .bd(wb_bd), 
-    .id_eret(id_eret), //influence EXl
     .STATUS_in(STATUS_out), 
     .CAUSE_in(CAUSE_out), 
     .EPC_in(EPC_out), 

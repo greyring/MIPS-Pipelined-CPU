@@ -18,11 +18,13 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+//if an instruction cause an exception in early stage, such as ID
+//it must not cause more exceptions in later stage, such as EXE
+//eret will be trated as an exception to prevent following insts running in kernel mode
 module Exception_handler(
-	input [2:0]wb_excvec,
+	input [3:0]wb_excvec,
 	input [31:0]PC,
 	input bd,
-	input id_eret,//STATUS_EXL
 	input [5:0]int_reg,
 	
 	input [31:0]STATUS_in,
@@ -44,10 +46,11 @@ module Exception_handler(
 `define UNKNOWN 1
 `define SYSCALL 2
 `define OVERFLOW 3
+`define ERET 4
 
 wire INT_;
-assign INT_ = ~(|wb_excvec) & (|(int_reg[15:8] & STATUS_in[15:8])) & ~STATUS_in[1] & ~STATUS_in[2] & STATUS_in[0];
-wire [3:0]excvec;
+assign INT_ = ~(|wb_excvec) & (|({int_reg[5:0], CAUSE_in[9:8]} & STATUS_in[15:8])) & ~STATUS_in[1] & ~STATUS_in[2] & STATUS_in[0];
+wire [4:0]excvec;
 assign excvec = {wb_excvec, INT_};//notice &
 
 //handle EPC
@@ -64,7 +67,7 @@ end
 always @* begin
 	if (exc)
 		STATUS_EXL = 1'b1;
-	else if (id_eret)
+	else if (excvec[`ERET])
 		STATUS_EXL = 1'b0;
 	else
 		STATUS_EXL = STATUS_in[1];
@@ -99,7 +102,9 @@ end
 //handle PC
 //exc_addr = (STATUS[BEV]? 0xBFC00200:0x80000000) + CAUSE[IV]? 0x200:0x180;
 always @* begin
-	if (excvec[`OVERFLOW] | excvec[`SYSCALL] | excvec[`UNKNOWN])
+	if (excvec[`ERET])
+		exc_addr = EPC_in;
+	else if (excvec[`OVERFLOW] | excvec[`SYSCALL] | excvec[`UNKNOWN])
 		exc_addr = (STATUS_in[22]? 32'hBFC00380: 32'h80000180);
 	else if (excvec[`INT])
 		exc_addr = (STATUS_in[22]? 32'hBFC00200: 32'h80000000) + (CAUSE_in[23]? 32'h200:32'h180); 

@@ -43,10 +43,10 @@ module MUL_ID_EXE(
 	output MUL_EXE_mul
     );
 
-reg [102:0]temp = 103'b0;	 
+reg [70:0]temp = 0;	 
 always @(posedge clk) begin
 	if (rst)
-		temp <= 103'b0;
+		temp <= 0;
 	else if (EN)
 		temp <= {MUL_ID_sign, MUL_ID_A, MUL_ID_B, MUL_ID_HiLo, MUL_ID_we
 					, MUL_ID_en_c, MUL_ID_add_sub, MUL_ID_mul};

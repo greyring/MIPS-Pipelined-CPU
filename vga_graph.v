@@ -29,7 +29,7 @@ module vga_graph(
 	output [11:0]color_out,
 	output [31:0]data_out
     );
-
+//16 bit a pixel
 wire [18:0]temp_addr;
 assign temp_addr = vga_row * 640 + vga_column;
 wire [17:0]addr_ram;

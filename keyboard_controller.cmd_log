@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/keyboard_controller.tfi -lib work F:/MyProgramme/0arch/PCPU//keyboard_controller.v -module keyboard_controller -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

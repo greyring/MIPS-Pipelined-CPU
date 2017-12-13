@@ -24,12 +24,12 @@ module REG32(input clk,
 			 input [31:0]D,
 			 output [31:0]Q
     );
-reg [31:0] pc = 32'h00000000;
-//reg [31:0] pc = 32'hbfc00000;//MIPS上电地址
+//reg [31:0] pc = 32'h00000000;
+reg [31:0] pc = 32'hbfc00000;//MIPS上电地址
 
 always @(posedge clk or posedge rst) begin
-	if (rst) pc<=32'h00000000;
-//  if (rst) pc<=32'hbfc00000;
+//	if (rst) pc<=32'h00000000;
+  if (rst) pc<=32'hbfc00000;
   else if (CE) pc<=D;
   else pc<=pc;
 end

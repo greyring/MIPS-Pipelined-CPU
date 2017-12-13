@@ -30,6 +30,7 @@ module Ttop;
 	reg [4:0] btn_y;
 	reg [15:0] switch;
 	reg RSTN;
+	reg [4:0]int_;
 
 	// Outputs
 	wire [4:0] btn_x;
@@ -54,6 +55,7 @@ module Ttop;
 		.btn_y(btn_y), 
 		.switch(switch), 
 		.RSTN(RSTN), 
+		.int_(int_),
 		//.led_clk(led_clk), 
 		//.led_do(led_do), 
 		//.led_pen(led_pen), 
@@ -74,11 +76,14 @@ module Ttop;
 		clk_100mhz = 1;
 		btn_y = 0;
 		switch = 0;
+		int_ = 0;
 		RSTN = 1;
 
 		// Wait 100 ns for global reset to finish
 		#100;
 		RSTN = 0;
+		#1000;
+		int_ = 6'b1;
 		//#10000
 		//RSTN = 1;
         

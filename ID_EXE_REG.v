@@ -34,7 +34,6 @@ module ID_EXE_REG(
 	input id_exe_imm,
 	input id_exe_lui,
 	input id_exe_jal,
-	input id_bd,
 	
 	input [1:0]id_mem_ctrl,
 	input [1:0]id_mem_op,
@@ -55,7 +54,6 @@ module ID_EXE_REG(
 	output exe_imm,
 	output exe_lui,
 	output exe_jal,
-	output exe_bd,
 	
 	output [1:0]exe_mem_ctrl,
 	output [1:0]exe_mem_op,
@@ -67,41 +65,43 @@ module ID_EXE_REG(
 	output exe_mem_CP0_we,
 	output [4:0]exe_mem_CP0_dreg,
 	
+	input id_bd,
+	output exe_bd,
 	input [31:0]id_pc,
 	output [31:0]exe_pc,
-	input [1:0]id_excvec,
-	output [1:0]exe_excvec
+	input [2:0]id_excvec,
+	output [2:0]exe_excvec
     );
 
-reg [145:0]temp = 0;
-always @(posedge clk or posedge rst) begin
+reg [144:0]temp = 0;
+always @(posedge clk) begin
 	if (rst | bubble)
 		temp <= 0;
 	else if (EN) 
 		temp <= {id_exe_aluop, id_exe_rega, id_exe_regb, id_exe_imme, id_exe_npc, 
 					id_exe_sign, id_exe_imm, id_exe_lui,
-					id_exe_jal, id_bd, id_mem_ctrl, id_mem_op, id_mem_wreg, id_mem_mem_reg, 
+					id_exe_jal, id_mem_ctrl, id_mem_op, id_mem_wreg, id_mem_mem_reg, 
 					id_wb_dreg, id_wb_we, id_exe_alu_sign,
 					id_mem_CP0_we, id_mem_CP0_dreg};
 	else
 		temp <= temp;
 end
 
-reg [33:0]temp1 = 0;
-always @(posedge clk or posedge rst) begin
+reg [35:0]temp1 = 0;
+always @(posedge clk) begin
 	if (rst)
 		temp1 <= 0;
 	else if (EN)
-		temp1 <= {id_pc, id_excvec};
+		temp1 <= {id_pc, id_excvec, id_bd};
 	else
 	   temp1 <= temp1;
 end
 
 assign {exe_aluop, exe_rega, exe_regb, exe_imme, exe_npc, 
-         exe_sign, exe_imm, exe_lui, exe_jal, exe_bd,
+         exe_sign, exe_imm, exe_lui, exe_jal,
 			exe_mem_ctrl, exe_mem_op, exe_mem_wreg, exe_mem_mem_reg,	
 			exe_wb_dreg, exe_wb_we, exe_alu_sign,
 			exe_mem_CP0_we, exe_mem_CP0_dreg} = temp;
-assign {exe_pc, exe_excvec} = temp1;
+assign {exe_pc, exe_excvec, exe_bd} = temp1;
 			
 endmodule

@@ -34,28 +34,28 @@ module IF_ID_Reg(
 	output id_bd
     );
 
-reg [64:0]temp = 0;
+reg [63:0]temp = 0;
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst | bubble)
 		temp <= 0;
 	else if (EN)
-		temp <= {inst, npc, if_bd};
+		temp <= {inst, npc};
 	else
 		temp <= temp;
 end
 
-reg [31:0]temp1 = 0;
+reg [32:0]temp1 = 0;
 always @(posedge clk) begin
 	if (rst)
 		temp1 <= 0;
 	else if (EN)
-		temp1 <= pc;
+		temp1 <= {pc, if_bd};
 	else
 	   temp1 <= temp1;
 end
 
-assign {inst_out, npc_out, id_bd} = temp;
-assign id_pc = temp1;
+assign {inst_out, npc_out} = temp;
+assign {id_pc, id_bd} = temp1;
 
 endmodule

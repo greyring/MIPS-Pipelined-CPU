@@ -24,6 +24,7 @@ module top(
 	input clk200N,
 	`ifdef DEBUG
 	input clk_100mhz,
+	input [4:0]int_,
 	`endif
 	
     output [4:0] btn_x,
@@ -42,7 +43,10 @@ module top(
 	output [3:0]vga_green,
 	output [3:0]vga_blue,
 	output vga_h_sync,
-	output vga_v_sync
+	output vga_v_sync,
+	
+	input ps2_clk,
+	input ps2_dat
     );
 `ifdef DEBUG
 reg [31:0]Div = 32'b0;
@@ -79,18 +83,19 @@ input_switch_btn Input_switch_btn(
     );
 
 wire Clk_CPU;
-assign Clk_CPU = SW_OK[2]? Div[24]:Div[0];
+assign Clk_CPU = SW_OK[2]? Div[24]:Div[0];//50mÓÐµã¿ì£¿
 
 wire [31:0]addr_bus;
 wire [31:0]data_bus;
 wire [5:0]ctrl_bus;
 wire en_SRAM, en_BIOS, en_vga_reg, en_cursor_reg, en_textRAM, 
-		en_graphRAM, en_DRAM, en_SEG, en_others;
+		en_graphRAM, en_DRAM, en_SEG, en_keyboard, en_others;
 addr_decoder Addr_decoder(
     .addr(addr_bus), 
     .en_SRAM(en_SRAM), .en_BIOS(en_BIOS), .en_vga_reg(en_vga_reg),     
 	 .en_cursor_reg(en_cursor_reg), .en_textRAM(en_textRAM),     
 	 .en_graphRAM(en_graphRAM), .en_DRAM(en_DRAM), .en_SEG(en_SEG), 
+	 .en_keyboard(en_keyboard),
     .en_others(en_others)
     );
 wire [31:0]SRAM_addr, SRAM_wdata, SRAM_rdata;
@@ -147,6 +152,14 @@ bus_interface SEG(
     .addr_(), .wdata(SEG_wdata), .rdata(32'h0), 
 	 .r_(SEG_r), .w_(SEG_w), .ready_(1'b1)
     );
+wire keyboard_r;
+wire [7:0]keyboard_data;
+bus_interface keyboard(
+    .enable(en_keyboard), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
+    .addr_(), .wdata(), .rdata({24'b0, keyboard_data}), 
+	 .r_(keyboard_r), .w_(), .ready_(1'b1)
+    );
 	 
 wire [31:0]Disp_num;
 wire [7:0]point_out;
@@ -173,6 +186,7 @@ wire [31:0]inst;
 wire [31:0]Data_in;
 wire [31:0]cause_data;
 wire [31:0]status_data;
+wire [31:0]epc_data;
 	Multi_8CH32  multi_8ch32(
 		.clk(~Clk_CPU), 
 		.Data0(SEG_wdata), 
@@ -181,7 +195,8 @@ wire [31:0]status_data;
 		.data3(status_data[31:0]), 
 		.data4(addr_bus[31:0]), 
 		.data5(data_bus[31:0]), 
-		.data6(Data_in[31:0]), 
+		//.data6(Data_in[31:0]),
+		.data6(epc_data[31:0]),
 		.data7(PC[31:0]), 
 		.EN(SEG_w), 
 		.LES(64'b0), 
@@ -223,6 +238,19 @@ vga_controller Vga_controller(
     .vsync(vga_v_sync), 
     .busy()
     );
+
+wire keyboard_int;
+keyboard_controller Keyboard_controller(
+    .clk(clk_100mhz), 
+    .clk_read(Clk_CPU),
+    .rst(rst), 
+    .ps2_clk(ps2_clk), 
+    .ps2_data(ps2_dat), 
+    .read(keyboard_r), 
+    .ready(keyboard_int), 
+    .full(), 
+    .key_out(keyboard_data)
+    );
 /*
 wire [1:0]counter_set;
 GPIO gpio(
@@ -258,24 +286,28 @@ GPIO gpio(
 	  );
 */
 wire [31:0]CPU_wdata;
+wire [31:0]CPU_mem_addr;
    PCPU_v PCPU(
-		.clk(Clk_CPU & ~SW_OK[15]), 
+		.clk(Clk_CPU), 
 		`ifdef DEBUG
 		.rst(RSTN),
+		.int_(int_),
 		`else
 		.rst(rst),
+		.int_({keyboard_int, 4'b0}),
 		`endif
-		.int_(5'b0),
 		.mem_we(ctrl_bus[4:1]), 
 		.mem_rd(ctrl_bus[0]),
-		.mem_addr(addr_bus), 
+		.mem_addr(CPU_mem_addr), 
 		.mem_data(CPU_wdata), 
 		.inst_addr(PC), 
 		.inst_data(inst), 
 		.cause_data(cause_data),
 		.status_data(status_data),
+		.epc_data(epc_data),
 		.mem_data_in(data_bus)
    );
+assign addr_bus = {3'b0, CPU_mem_addr[28:0]};
 assign data_bus = (|ctrl_bus[4:1]) ? CPU_wdata : 32'hz;
 /*
 bus Bus(

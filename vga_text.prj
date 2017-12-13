@@ -1,3 +1,0 @@
-verilog work "ipcore_dir/text_vga_rom.v"
-verilog work "ipcore_dir/text_vga_ram.v"
-verilog work "vga_text.v"

@@ -1,5 +1,0 @@
-verilog work "CAM_unit.v"
-verilog work "Decoder.v"
-verilog work "CAM_16.v"
-verilog work "TLB_16.v"
-verilog work "MUL_ALU.vf"

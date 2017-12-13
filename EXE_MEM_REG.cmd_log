@@ -1,1 +1,0 @@
-xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/EXE_MEM_REG.xst" -ofn "F:/MyProgramme/0arch/PCPU/EXE_MEM_REG.syr" 

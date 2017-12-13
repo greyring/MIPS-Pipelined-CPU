@@ -48,11 +48,11 @@ santi_jitter Santi_jitter(
     .rst_ok(cr)
     );
 
-reg [31:0]counter = 0;
+reg [27:0]counter = 0;
 always @(posedge clk) begin
 	if (cr)
 		if (counter <200000000)
-			counter<=counter+1;
+			counter<=counter+1'b1;
 		else
 			counter <= counter;
 	else

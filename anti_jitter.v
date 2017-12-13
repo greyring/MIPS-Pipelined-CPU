@@ -24,11 +24,11 @@ module anti_jitter(
 	output out
     );
 
-reg [31:0]counter = 32'b0;
+reg [16:0]counter = 0;
 always @(posedge clk) begin
 	if (in)
 		if (counter < 100000)
-			counter <= counter+1;
+			counter <= counter+1'b1;
 		else
 			counter <= counter;
 	else

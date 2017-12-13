@@ -63,7 +63,7 @@ wire [8:0]vga_row;
 parameter GRAPH = 2'b00;
 parameter TEXT = 2'b01;
 parameter MIXED = 2'b11;
-reg [31:0]status = 32'b0;//[31:16]graph addre select 64K [1:0]00 graph 01 text
+reg [31:0]status = 32'b0;//[31:16]graph addre select 64K [1:0]00 graph 01 text 11mix
 always @(posedge clk) begin
    if (rst)
 	   status <= 0;

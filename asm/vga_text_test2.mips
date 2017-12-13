@@ -1,0 +1,27 @@
+.section .text
+li $s0, 0xb0000000;
+addi $t0, $0, 1;
+sw $t0, 0($s0); #text mode
+
+add $t0, $0, $0;
+addi $t1, $0, 256;
+li $s0, 0xb0002000;
+addi $s1, $0, 0x3f;
+
+loop:
+sb $s1, 3($s0);
+sh $t0, 0($s0);
+addi $t0, $t0, 1;
+addi $s0, $s0, 4;
+bne $t0, $t1, loop;
+
+li $s0, 0xb0000000;
+sb $s1, 6($s0);
+sb $s1, 7($s0);
+addi $s1, $0, 0x65;
+sh $s1, 4($s0);
+
+end:
+beq $0, $0, end;
+#0000 0000 0011 1111
+#0000 0001 1111 1111

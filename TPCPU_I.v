@@ -444,7 +444,7 @@ module TPCPU_I;
 		inst_data = 32'h3463ffff;//ori $3, $3, 0xffff//stall
 		*/
 		
-		
+		/*
 		#10//stall ±÷–∂œ
 		inst_data = 32'h8c010000;//lw $t1, 0($zero)
 		#10
@@ -462,7 +462,13 @@ module TPCPU_I;
 		inst_data = 32'b01000000100000110110000000000000;//mtc0 $3, $12
 		#10
 		inst_data = 32'b01000010000000000000000000011000;//eret
-		
+		*/
+		#10
+		inst_data = 32'h00000020;
+		#100
+		rst = 1;
+		#100
+		rst = 0;
 		
 		#10
 		inst_data = 32'h0;
