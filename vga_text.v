@@ -30,10 +30,10 @@ module vga_text(
 	output[11:0]color_out
     );
 
-reg [10:0]addr_ram;
+reg [10:0]addr_ram = 0;
 always @* begin
 	if ((|we) | rd) addr_ram = addr[12:2];
-	else addr_ram = vga_row[8:4] * 40 + vga_column[9:4];
+	else addr_ram = vga_row[8:4] * 6'd40 + vga_column[9:4];
 end
 
 wire [31:0]text_data;

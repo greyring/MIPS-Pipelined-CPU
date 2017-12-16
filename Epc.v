@@ -27,7 +27,7 @@ module Epc(input clk,
     );
 reg [31:0] epc = 0;
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) epc<=0;
 	else if (we) epc<=mtcd;
 	else epc<=D;

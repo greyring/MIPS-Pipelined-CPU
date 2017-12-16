@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/input_switch_btn.xst" -ofn "F:/MyProgramme/0arch/PCPU/input_switch_btn.syr" 

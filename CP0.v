@@ -130,6 +130,7 @@ module CP0(//≤ª¥¶¿Ìharzard
 	wire [31:0]COUNT_out;
 	Count COUNT(//9
     .clk(clk), 
+	 .rst(rst),
     .Q(COUNT_out)
     );
 	 

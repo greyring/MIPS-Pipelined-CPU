@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module Multi_8CH32(
     input clk,
-    input rst,
+	 input rst,
     input [3:0]EN,
     input [2:0] Test,
     input [63:0] point_in,
@@ -55,37 +55,36 @@ always @* begin
 	endcase
 end
 
-always@(posedge clk) begin
-  disp_data <=disp_data;
-  cpu_blink <=cpu_blink;
-  cpu_point <=cpu_point;
-  if (EN[3]) begin
-	 disp_data <= Data0[31:24];
-	 cpu_blink <= LES[31:24];
-	 cpu_point <= point_in[31:24];
-  end
-  if (EN[2]) begin
-    disp_data <= Data0[23:16];
-	 cpu_blink <= LES[23:16];
-	 cpu_point <= point_in[23:16];
-  end
-  if (EN[1]) begin
-	 disp_data <= Data0[15:8];
-	 cpu_blink <= LES[15:8];
-	 cpu_point <= point_in[15:8];
-  end
-  if (EN[0]) begin
-    disp_data <= Data0[7:0];
-	 cpu_blink <= LES[7:0];
-	 cpu_point <= point_in[7:0];
-  end
-  if (EN) begin
-    disp_data <= Data0;
-	 cpu_blink <= LES[7:0];
-	 cpu_point <= point_in[7:0];
+always@(posedge clk or posedge rst) begin
+  if (rst) begin
+	 disp_data <= 32'hAA5555AA;
+	 cpu_blink <= 8'b11111111;
+	 cpu_point <= 8'b00000000;
   end
   else begin
-    
+	  disp_data <=disp_data;
+	  cpu_blink <=cpu_blink;
+	  cpu_point <=cpu_point;
+	  if (EN[3]) begin
+		 disp_data <= Data0[31:24];
+		 cpu_blink <= LES[31:24];
+		 cpu_point <= point_in[31:24];
+	  end
+	  if (EN[2]) begin
+		 disp_data <= Data0[23:16];
+		 cpu_blink <= LES[23:16];
+		 cpu_point <= point_in[23:16];
+	  end
+	  if (EN[1]) begin
+		 disp_data <= Data0[15:8];
+		 cpu_blink <= LES[15:8];
+		 cpu_point <= point_in[15:8];
+	  end
+	  if (EN[0]) begin
+		 disp_data <= Data0[7:0];
+		 cpu_blink <= LES[7:0];
+		 cpu_point <= point_in[7:0];
+	  end
   end
 end
 

@@ -9,7 +9,9 @@ sb $t0, 6($s0);#initialize cursor color
 addi $t0, $zero, 1;
 sb $t0, 7($s0);#initialize cursor shape
 LOOP:
-j LOOP;
+beq $0, $0, LOOP;
+.word 0
+.word 0
 .word 0
 .word 0
 .word 0

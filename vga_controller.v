@@ -124,7 +124,7 @@ vga_graph Vga_graph(
     .data_out(graph_rdata)
     );
 
-reg [11:0]color_out;
+reg [11:0]color_out = 0;
 always @* begin
 	if (status[1:0] == TEXT) begin//text
 		if (cursor_on)
@@ -142,7 +142,7 @@ always @* begin
 		  color_out = graph_color_out;
 	end
 	else
-		color_out = 12'b0;
+		color_out = 0;
 end
 
 vga_port Vga_port(

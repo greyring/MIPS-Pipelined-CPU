@@ -25,13 +25,16 @@ module IF_ID_Reg(
 	input bubble,
 	
 	input [31:0]inst,
-	input [31:0]npc,
-	input [31:0]pc,
-	input if_bd,
+	input [31:0]npc,	
 	output [31:0]inst_out,
 	output [31:0]npc_out,
+	
+	input [31:0]pc,
 	output [31:0]id_pc,
-	output id_bd
+	input if_bd,
+	output id_bd,
+	input [5:0]if_int,
+	output [5:0]id_int
     );
 
 reg [63:0]temp = 0;
@@ -45,17 +48,17 @@ always @(posedge clk) begin
 		temp <= temp;
 end
 
-reg [32:0]temp1 = 0;
+reg [38:0]temp1 = 0;
 always @(posedge clk) begin
 	if (rst)
 		temp1 <= 0;
 	else if (EN)
-		temp1 <= {pc, if_bd};
+		temp1 <= {pc, if_bd, if_int};
 	else
 	   temp1 <= temp1;
 end
 
 assign {inst_out, npc_out} = temp;
-assign {id_pc, id_bd} = temp1;
+assign {id_pc, id_bd, id_int} = temp1;
 
 endmodule

@@ -29,13 +29,13 @@ module EntryLo(
     );
 reg [19:0]PFN = 0;
 reg [2:0]DVG = 0;
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) PFN <= 0;
 	else if (we) PFN <= mtcd[25:6];
 	else PFN <= pfn;
 end
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) DVG <= 0;
 	else if (we) DVG <= mtcd[2:0];
 	else DVG <= dvg;

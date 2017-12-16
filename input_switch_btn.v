@@ -48,17 +48,6 @@ santi_jitter Santi_jitter(
     .rst_ok(cr)
     );
 
-reg [27:0]counter = 0;
-always @(posedge clk) begin
-	if (cr)
-		if (counter <200000000)
-			counter<=counter+1'b1;
-		else
-			counter <= counter;
-	else
-		counter <= 0;
-end
-
-assign rst = counter >= 200000000;
+anti_jitter #(.WIDTH(21), .INIT(0)) Aj_rst(.clk(clk), .in(~RSTN), .out(rst));
 
 endmodule

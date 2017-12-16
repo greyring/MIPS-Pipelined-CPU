@@ -70,7 +70,9 @@ module ID_EXE_REG(
 	input [31:0]id_pc,
 	output [31:0]exe_pc,
 	input [2:0]id_excvec,
-	output [2:0]exe_excvec
+	output [2:0]exe_excvec,
+	input [5:0]id_int,
+	output [5:0]exe_int
     );
 
 reg [144:0]temp = 0;
@@ -87,12 +89,12 @@ always @(posedge clk) begin
 		temp <= temp;
 end
 
-reg [35:0]temp1 = 0;
+reg [41:0]temp1 = 0;
 always @(posedge clk) begin
 	if (rst)
 		temp1 <= 0;
 	else if (EN)
-		temp1 <= {id_pc, id_excvec, id_bd};
+		temp1 <= {id_pc, id_excvec, id_bd, id_int};
 	else
 	   temp1 <= temp1;
 end
@@ -102,6 +104,6 @@ assign {exe_aluop, exe_rega, exe_regb, exe_imme, exe_npc,
 			exe_mem_ctrl, exe_mem_op, exe_mem_wreg, exe_mem_mem_reg,	
 			exe_wb_dreg, exe_wb_we, exe_alu_sign,
 			exe_mem_CP0_we, exe_mem_CP0_dreg} = temp;
-assign {exe_pc, exe_excvec, exe_bd} = temp1;
+assign {exe_pc, exe_excvec, exe_bd, exe_int} = temp1;
 			
 endmodule

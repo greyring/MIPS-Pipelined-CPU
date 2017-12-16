@@ -18,23 +18,30 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module anti_jitter(
-	input clk,
-	input in,
-	output out
-    );
+module anti_jitter #(
+	parameter WIDTH = 20,
+	parameter INIT = 1'b0
+)(
+	input clk, input in, output reg out = INIT
+);
+	reg [WIDTH-1:0] cnt = {WIDTH{INIT}};
 
-reg [16:0]counter = 0;
-always @(posedge clk) begin
-	if (in)
-		if (counter < 100000)
-			counter <= counter+1'b1;
+	always @ (posedge clk)
+	begin
+		if(in)
+		begin
+			if(&cnt)
+				out <= 1'b1;
+			else
+				cnt <= cnt + 1'b1;
+		end
 		else
-			counter <= counter;
-	else
-		counter <= 0;
-end
-assign out = counter >= 100000;
-
+		begin
+			if(|cnt)
+				cnt <= cnt - 1'b1;
+			else
+				out <= 1'b0;
+		end
+	end
 
 endmodule

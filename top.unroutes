@@ -1,0 +1,29 @@
+Release 14.7 - par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Sat Dec 16 14:29:08 2017
+
+All signals are completely routed.
+
+WARNING:ParHelpers:361 - There are 17 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   Keyboard_controller/Mram_queue1_RAMD_D1_O
+   btn_y<0>_IBUF
+   btn_y<1>_IBUF
+   btn_y<2>_IBUF
+   btn_y<3>_IBUF
+   btn_y<4>_IBUF
+   switch<10>_IBUF
+   switch<11>_IBUF
+   switch<12>_IBUF
+   switch<13>_IBUF
+   switch<14>_IBUF
+   switch<15>_IBUF
+   switch<1>_IBUF
+   switch<3>_IBUF
+   switch<4>_IBUF
+   switch<8>_IBUF
+   switch<9>_IBUF
+
+

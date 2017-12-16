@@ -20,12 +20,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 module Count(
 	input clk,
+	input rst,
 	output [31:0]Q
     );
 
 reg [31:0]count = 0;//防止一上电就中断
 always @(posedge clk) begin
-	count <= count + 1'b1;
+	if (rst) count <= 0;
+	else count <= count + 1'b1;
 end
 assign Q = count;
 

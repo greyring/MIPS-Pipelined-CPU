@@ -28,14 +28,14 @@ module EntryHi(
 	output[31:0]Q
     );
 reg [18:0]VPN2 = 0;
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) VPN2 <= 0;
 	else if (we) VPN2 <= mtcd[31:13];
 	else VPN2 <= vpn2;
 end
 
 reg [7:0]ASID = 0;
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) ASID <= 0;
 	else if (we) ASID <= mtcd[7:0];
 	else ASID <= asid;

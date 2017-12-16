@@ -34,35 +34,35 @@ reg EXL = 0;
 reg IE = 1;
 
 //BEV
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) BEV <= 1'b1;
 	else if (we) BEV <= mtcd[22];
 	else BEV <= BEV;
 end
 
 //IM
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) IM <= 8'hff;
 	else if (we) IM <= mtcd[15:8];
 	else IM <= IM;
 end
 
 //ERL
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) ERL <= 0;
 	else if (we) ERL <= mtcd[2];
 	else ERL <= ERL;
 end
 
 //EXL
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) EXL <= 0;
 	else if (we) EXL <= mtcd[1];
 	else EXL <= EXL_;
 end
 
 //IE
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) IE <= 1'b1;
 	else if (we) IE <= mtcd[0];
 	else IE <= IE;

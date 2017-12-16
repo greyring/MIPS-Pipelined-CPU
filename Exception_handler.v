@@ -22,7 +22,7 @@
 //it must not cause more exceptions in later stage, such as EXE
 //eret will be trated as an exception to prevent following insts running in kernel mode
 module Exception_handler(
-	input [3:0]wb_excvec,
+	input [3:0]mem_excvec,
 	input [31:0]PC,
 	input bd,
 	input [5:0]int_reg,
@@ -45,13 +45,14 @@ module Exception_handler(
 `define INT 0
 `define UNKNOWN 1
 `define SYSCALL 2
-`define OVERFLOW 3
-`define ERET 4
+`define ERET 3
+`define OVERFLOW 4
+
 
 wire INT_;
-assign INT_ = ~(|wb_excvec) & (|({int_reg[5:0], CAUSE_in[9:8]} & STATUS_in[15:8])) & ~STATUS_in[1] & ~STATUS_in[2] & STATUS_in[0];
+assign INT_ = ~(|mem_excvec) & (|({int_reg[5:0], CAUSE_in[9:8]} & STATUS_in[15:8])) & ~STATUS_in[1] & ~STATUS_in[2] & STATUS_in[0];
 wire [4:0]excvec;
-assign excvec = {wb_excvec, INT_};//notice &
+assign excvec = {mem_excvec, INT_};//notice &
 
 //handle EPC
 always @* begin
@@ -65,10 +66,10 @@ end
 
 //handle STATUS
 always @* begin
-	if (exc)
-		STATUS_EXL = 1'b1;
-	else if (excvec[`ERET])
+	if (excvec[`ERET])
 		STATUS_EXL = 1'b0;
+	else if (exc)
+		STATUS_EXL = 1'b1;
 	else
 		STATUS_EXL = STATUS_in[1];
 end
@@ -96,7 +97,7 @@ always @* begin
 	if (INT_)
 		CAUSE_HIP = int_reg;
 	else
-		CAUSE_HIP = CAUSE_HIP;
+		CAUSE_HIP = CAUSE_in[15:10];
 end
 
 //handle PC

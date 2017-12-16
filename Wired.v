@@ -26,7 +26,7 @@ module Wired(
 	output [31:0]Q
     );
 reg [3:0]WIRED = 0;
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) WIRED <= 0;
 	else if (we) WIRED <= mtcd[3:0];
 	else WIRED <= WIRED;

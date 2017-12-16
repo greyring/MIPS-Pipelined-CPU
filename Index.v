@@ -31,13 +31,13 @@ module Index(
 reg P = 0;
 reg [3:0]INDEX = 0;
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) P <= 0;
 	else if (we) P <= mtcd[31];
 	else P <= p;
 end
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) INDEX <= 0;
 	else if (we) INDEX <= mtcd[3:0];
 	else INDEX <= index;

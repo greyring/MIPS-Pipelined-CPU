@@ -30,7 +30,7 @@ module Compare(
 
 reg [31:0]compare = 32'hffffffff;//防止一上电就中断
 reg int_ = 1'b0;
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) begin
 		compare <= 32'hffffffff;
 		int_ <= 1'b0;

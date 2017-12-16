@@ -1,1 +1,4 @@
 vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0/PCPU/Multi_8CH32.tfi -lib work F:/MyProgramme/0/PCPU//Multi_8CH32_IO.v -module Multi_8CH32 -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Multi_8CH32.xst" -ofn "F:/MyProgramme/0arch/PCPU/Multi_8CH32.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Multi_8CH32.xst" -ofn "F:/MyProgramme/0arch/PCPU/Multi_8CH32.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Multi_8CH32.xst" -ofn "F:/MyProgramme/0arch/PCPU/Multi_8CH32.syr" 

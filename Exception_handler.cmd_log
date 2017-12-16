@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Exception_handler.xst" -ofn "F:/MyProgramme/0arch/PCPU/Exception_handler.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/Exception_handler.xst" -ofn "F:/MyProgramme/0arch/PCPU/Exception_handler.syr" 

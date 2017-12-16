@@ -26,7 +26,7 @@ module Random(
 	output [31:0]Q
     );
 reg [3:0]RANDOM = 4'b1111;
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) RANDOM <= 4'b1111;
 	else if (Wired_we) RANDOM<= 4'b1111;
 	else if (RANDOM == Wired) RANDOM <= 4'b1111;

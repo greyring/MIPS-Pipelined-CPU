@@ -27,7 +27,7 @@ module REG32(input clk,
 //reg [31:0] pc = 32'h00000000;
 reg [31:0] pc = 32'hbfc00000;//MIPS…œµÁµÿ÷∑
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 //	if (rst) pc<=32'h00000000;
   if (rst) pc<=32'hbfc00000;
   else if (CE) pc<=D;

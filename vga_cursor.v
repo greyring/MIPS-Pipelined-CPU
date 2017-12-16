@@ -33,7 +33,7 @@ module vga_cursor(
 	output cursor_on
     );
 
-reg [31:0]stat = 32'b0;
+reg [31:0]stat = 0;
 always @(posedge clk) begin
 	if (rst) 
 		stat <= 0;
@@ -53,7 +53,7 @@ assign data_out = rd ? stat : 32'b0;
 
 wire [10:0]addr;
 assign addr = vga_row[8:4] * 40 + vga_column[9:4];
-reg font;
+reg font = 0;
 always @* begin
 	if (addr == stat[10:0]) begin
 		if (stat[25:24] == 2'b11)//·½¿é

@@ -1,0 +1,496 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: input_switch_btn.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "input_switch_btn.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "input_switch_btn"
+Output Format                      : NGC
+Target Device                      : xc7k325t-2L-ffg676
+
+---- Source Options
+Top Module Name                    : input_switch_btn
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\anti_jitter.v" into library work
+Parsing module <anti_jitter>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\santi_jitter.v" into library work
+Parsing module <santi_jitter>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\btn_scan.v" into library work
+Parsing module <btn_scan>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\input_switch_btn.v" into library work
+Parsing module <input_switch_btn>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <input_switch_btn>.
+
+Elaborating module <btn_scan>.
+
+Elaborating module <santi_jitter>.
+
+Elaborating module <anti_jitter>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <input_switch_btn>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\input_switch_btn.v".
+    Found 28-bit register for signal <counter>.
+    Found 28-bit adder for signal <counter[27]_GND_1_o_add_2_OUT> created at line 55.
+    Found 28-bit comparator greater for signal <counter[27]_PWR_1_o_LessThan_2_o> created at line 54
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  28 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <input_switch_btn> synthesized.
+
+Synthesizing Unit <btn_scan>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\btn_scan.v".
+    Found 1-bit register for signal <btn_result<23>>.
+    Found 1-bit register for signal <btn_result<22>>.
+    Found 1-bit register for signal <btn_result<21>>.
+    Found 1-bit register for signal <btn_result<20>>.
+    Found 1-bit register for signal <btn_result<19>>.
+    Found 1-bit register for signal <btn_result<18>>.
+    Found 1-bit register for signal <btn_result<17>>.
+    Found 1-bit register for signal <btn_result<16>>.
+    Found 1-bit register for signal <btn_result<15>>.
+    Found 1-bit register for signal <btn_result<14>>.
+    Found 1-bit register for signal <btn_result<13>>.
+    Found 1-bit register for signal <btn_result<12>>.
+    Found 1-bit register for signal <btn_result<11>>.
+    Found 1-bit register for signal <btn_result<10>>.
+    Found 1-bit register for signal <btn_result<9>>.
+    Found 1-bit register for signal <btn_result<8>>.
+    Found 1-bit register for signal <btn_result<7>>.
+    Found 1-bit register for signal <btn_result<6>>.
+    Found 1-bit register for signal <btn_result<5>>.
+    Found 1-bit register for signal <btn_result<4>>.
+    Found 1-bit register for signal <btn_result<3>>.
+    Found 1-bit register for signal <btn_result<2>>.
+    Found 1-bit register for signal <btn_result<1>>.
+    Found 1-bit register for signal <btn_result<0>>.
+    Found 5-bit register for signal <state>.
+    Found 1-bit register for signal <btn_result<24>>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 1                                              |
+    | Outputs            | 10                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 11110                                          |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred  25 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+Unit <btn_scan> synthesized.
+
+Synthesizing Unit <santi_jitter>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\santi_jitter.v".
+    Summary:
+	no macro.
+Unit <santi_jitter> synthesized.
+
+Synthesizing Unit <anti_jitter>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\anti_jitter.v".
+    Found 17-bit register for signal <counter>.
+    Found 1-bit register for signal <out>.
+    Found 1-bit register for signal <temp>.
+    Found 17-bit adder for signal <counter[16]_GND_4_o_add_3_OUT> created at line 36.
+    Found 1-bit comparator equal for signal <n0000> created at line 31
+    Found 17-bit comparator greater for signal <counter[16]_PWR_4_o_LessThan_3_o> created at line 35
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  19 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <anti_jitter> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 43
+ 17-bit adder                                          : 42
+ 28-bit adder                                          : 1
+# Registers                                            : 128
+ 1-bit register                                        : 84
+ 17-bit register                                       : 42
+ 25-bit register                                       : 1
+ 28-bit register                                       : 1
+# Comparators                                          : 85
+ 1-bit comparator equal                                : 42
+ 17-bit comparator greater                             : 42
+ 28-bit comparator greater                             : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <anti_jitter>.
+The following registers are absorbed into counter <counter>: 1 register on signal <counter>.
+Unit <anti_jitter> synthesized (advanced).
+
+Synthesizing (advanced) Unit <input_switch_btn>.
+The following registers are absorbed into counter <counter>: 1 register on signal <counter>.
+Unit <input_switch_btn> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 43
+ 17-bit up counter                                     : 42
+ 28-bit up counter                                     : 1
+# Registers                                            : 109
+ Flip-Flops                                            : 109
+# Comparators                                          : 85
+ 1-bit comparator equal                                : 42
+ 17-bit comparator greater                             : 42
+ 28-bit comparator greater                             : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <Btn_scan/FSM_0> on signal <state[1:5]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 11110 | 11110
+ 11101 | 11101
+ 11011 | 11011
+ 10111 | 10111
+ 01111 | 01111
+-------------------
+
+Optimizing unit <santi_jitter> ...
+
+Optimizing unit <input_switch_btn> ...
+
+Optimizing unit <anti_jitter> ...
+
+Optimizing unit <btn_scan> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block input_switch_btn, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 856
+ Flip-Flops                                            : 856
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : input_switch_btn.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 2477
+#      GND                         : 1
+#      INV                         : 45
+#      LUT1                        : 699
+#      LUT2                        : 82
+#      LUT3                        : 1
+#      LUT4                        : 114
+#      LUT5                        : 3
+#      LUT6                        : 88
+#      MUXCY                       : 699
+#      MUXF7                       : 2
+#      VCC                         : 1
+#      XORCY                       : 742
+# FlipFlops/Latches                : 856
+#      FD                          : 114
+#      FDRE                        : 742
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 70
+#      IBUF                        : 22
+#      OBUF                        : 48
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7k325tffg676-2l 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             856  out of  407600     0%  
+ Number of Slice LUTs:                 1032  out of  203800     0%  
+    Number used as Logic:              1032  out of  203800     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1040
+   Number with an unused Flip Flop:     184  out of   1040    17%  
+   Number with an unused LUT:             8  out of   1040     0%  
+   Number of fully used LUT-FF pairs:   848  out of   1040    81%  
+   Number of unique control sets:        44
+
+IO Utilization: 
+ Number of IOs:                          71
+ Number of bonded IOBs:                  71  out of    400    17%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 856   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 2.060ns (Maximum Frequency: 485.541MHz)
+   Minimum input arrival time before clock: 1.103ns
+   Maximum output required time after clock: 1.878ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.060ns (frequency: 485.541MHz)
+  Total number of paths / destination ports: 17984 / 2323
+-------------------------------------------------------------------------
+Delay:               2.060ns (Levels of Logic = 2)
+  Source:            counter_24 (FF)
+  Destination:       counter_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: counter_24 to counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             2   0.236   0.608  counter_24 (counter_24)
+     LUT5:I0->O            2   0.043   0.500  counter[27]_PWR_1_o_LessThan_2_o31 (counter[27]_PWR_1_o_LessThan_2_o3)
+     LUT6:I3->O           28   0.043   0.468  counter[27]_PWR_1_o_LessThan_2_o34 (counter[27]_PWR_1_o_LessThan_2_o)
+     FDRE:CE                   0.161          counter_0
+    ----------------------------------------
+    Total                      2.060ns (0.483ns logic, 1.577ns route)
+                                       (23.5% logic, 76.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 350 / 348
+-------------------------------------------------------------------------
+Offset:              1.103ns (Levels of Logic = 2)
+  Source:            RSTN (PAD)
+  Destination:       Santi_jitter/Aj_rst/counter_16 (FF)
+  Destination Clock: clk rising
+
+  Data Path: RSTN to Santi_jitter/Aj_rst/counter_16
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.000   0.367  RSTN_IBUF (RSTN_IBUF)
+     LUT2:I1->O           17   0.043   0.429  Santi_jitter/Aj_rst/n0000_inv1 (Santi_jitter/Aj_rst/n0000_inv)
+     FDRE:R                    0.264          Santi_jitter/Aj_rst/counter_0
+    ----------------------------------------
+    Total                      1.103ns (0.307ns logic, 0.796ns route)
+                                       (27.8% logic, 72.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 69 / 48
+-------------------------------------------------------------------------
+Offset:              1.878ns (Levels of Logic = 3)
+  Source:            counter_24 (FF)
+  Destination:       rst (PAD)
+  Source Clock:      clk rising
+
+  Data Path: counter_24 to rst
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             2   0.236   0.608  counter_24 (counter_24)
+     LUT5:I0->O            2   0.043   0.608  counter[27]_PWR_1_o_LessThan_2_o31 (counter[27]_PWR_1_o_LessThan_2_o3)
+     LUT6:I1->O            1   0.043   0.339  _n00211 (rst_OBUF)
+     OBUF:I->O                 0.000          rst_OBUF (rst)
+    ----------------------------------------
+    Total                      1.878ns (0.322ns logic, 1.556ns route)
+                                       (17.1% logic, 82.9% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    2.060|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 17.00 secs
+Total CPU time to Xst completion: 16.25 secs
+ 
+--> 
+
+Total memory usage is 453048 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

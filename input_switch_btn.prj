@@ -1,0 +1,4 @@
+verilog work "anti_jitter.v"
+verilog work "santi_jitter.v"
+verilog work "btn_scan.v"
+verilog work "input_switch_btn.v"

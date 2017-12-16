@@ -41,7 +41,7 @@ module MUL_EXE_EWB(
 	output MUL_EWB_mul
     );
 
-reg [133:0]temp = 166'b0;
+reg [133:0]temp = 0;
 always @(posedge clk) begin
 	if (rst)
 		temp <= 166'b0;
