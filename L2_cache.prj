@@ -1,0 +1,3 @@
+verilog work "L2cache_crl.v"
+verilog work "cache_mem.v"
+verilog work "L2_cache.v"

@@ -2,10 +2,10 @@
 <report-views version="2.0" >
  <header>
   <ImplementationReportsDirectory>F:/MyProgramme/0arch/PCPU\</ImplementationReportsDirectory>
-  <ModuleName>vga_controller</ModuleName>
-  <DateModified>2017-12-16T13:39:03</DateModified>
+  <ModuleName>L2_cache</ModuleName>
+  <DateModified>2017-12-16T15:49:05</DateModified>
   <SavedFilePath>F:/MyProgramme/0arch/PCPU/iseconfig/top.xreport</SavedFilePath>
-  <DateInitialized>2017-12-16T13:39:03</DateInitialized>
+  <DateInitialized>2017-12-16T15:49:05</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
   <SummaryTimeStamp>2017-12-15T21:47:56</SummaryTimeStamp>
  </header>

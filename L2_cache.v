@@ -32,7 +32,7 @@ module L2_cache(
 	input [31:0]icache_addr,
 	output cache_ready_i,
 	
-	input [6:0]op,//one hot only index store tag and index load tag
+	input [6:0]op,//one hot only index store tag[2] and index load tag[1] and hit writeback[5] index invalid
 	input [31:0]op_index,
 	output cache_ready_op,
 	
@@ -161,28 +161,29 @@ module L2_cache(
     .w_en(da_w)
    );
 	
+	wire hit_wb;
 	//v
 	wire addr_s;
-	assign v_addr = addr_s ? i_addr_[13:4] : d_addr_[13:4];
+	assign v_addr = hit_wb? op_index_[13:4] : (addr_s ? i_addr_[13:4] : d_addr_[13:4]);
 	
 	//d
-	assign d_addr = addr_s ? i_addr_[13:4] : d_addr_[13:4];
+	assign d_addr = hit_wb? op_index_[13:4] : (addr_s ? i_addr_[13:4] : d_addr_[13:4]);
 	
 	//tag
 	wire t_in;//addr_s  index
 	wire t_ds;//data_s
-	assign t_addr = t_in ? op_index_[13:4] : (addr_s ? i_addr_[13:4] : d_addr_[13:4]);
+	assign t_addr = (hit_wb | t_in)? op_index_[13:4] : (addr_s ? i_addr_[13:4] : d_addr_[13:4]);
 	assign t_wdata = t_in ? Tag_Lo_[17:0] : (t_ds ? i_addr_[31:14]: d_addr_[31:14]); 
 	
 	//data
 	wire da_ds;//data_s
-	assign da_addr = addr_s ? i_addr_[13:4] : d_addr_[13:4];
+	assign da_addr = hit_wb ? op_index_[13:4] : (addr_s ? i_addr_[13:4] : d_addr_[13:4]);
 	assign da_wdata = da_ds ? d_data_ : mem_data_;
 	
 	reg cache_hit;
 	always @* begin
 		cache_hit = 0;
-		if (v_data & (t_data == (addr_s ? i_addr_[31:14]: d_addr_[31:14])))
+		if (v_data & (t_data == (hit_wb ? op_index_[31:14] : (addr_s ? i_addr_[31:14]: d_addr_[31:14]))))
 			cache_hit = 1'b1;
 	end
 	
@@ -217,6 +218,7 @@ module L2_cache(
     .cache_ready_i(cache_ready_i), 
     .cache_ready_d(cache_ready_d), 
     .cache_ready_op(cache_ready_op),
+	 .hit_wb(hit_wb),
 	 .init(state_init)
     );
 	

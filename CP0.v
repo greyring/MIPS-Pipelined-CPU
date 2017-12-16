@@ -127,13 +127,17 @@ module CP0(//≤ª¥¶¿Ìharzard
 	
 ////////////////////////////////////////////////////////
 //COUNT and COMPARE
+   wire count_we;
 	wire [31:0]COUNT_out;
 	Count COUNT(//9
     .clk(clk), 
 	 .rst(rst),
+	 .we(count_we),
+	 .mtcd(data_in),
     .Q(COUNT_out)
     );
-	 
+	
+	wire compare_we;
 	wire [31:0]COMPARE_out;
 	Compare COMPARE(//11
     .clk(clk), 
@@ -201,6 +205,7 @@ assign index_we = we & (r_reg == 5'd0);
 assign entry_lo0_we = we & (r_reg == 5'd2);
 assign entry_lo1_we = we & (r_reg == 5'd3);
 assign wired_we = we & (r_reg == 5'd6);
+assign count_we = we & (r_reg == 5'd9);
 assign entry_hi_we = we & (r_reg == 5'd10);
 assign compare_we = we & (r_reg == 5'd11);
 assign status_we = we & (r_reg == 5'd12);

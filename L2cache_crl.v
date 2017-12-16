@@ -48,19 +48,23 @@ module L2cache_crl(
 	output reg cache_ready_i,
 	output reg cache_ready_d,
 	output reg cache_ready_op,
+	output reg hit_wb,
 	output reg init
 	
     );
 parameter INIT  = 4'd1;//choose the right address
 parameter DECODE= 4'd10;
 parameter OP    = 4'd2;
+parameter HITWB = 4'd11;
 parameter IOP   = 4'd3;
+parameter IWB   = 4'd12;
 parameter IFETCH= 4'd4;
 parameter ISTORE= 4'd5;
 parameter DOP   = 4'd6;
 parameter DWB   = 4'd7;
 parameter DFETCH= 4'd8;
 parameter DSTORE= 4'd9;
+
 
 reg [3:0]curstate;
 reg [3:0]nxtstate;
@@ -76,7 +80,7 @@ always @* begin
 	else begin
 		case (curstate)
 			INIT: nxtstate = DECODE;
-			DECODE:if (op[1] | op[2])
+			DECODE:if (op[1] | op[2] | op[5])
 					nxtstate = OP;
 				  else if (i_op)
 					nxtstate = IOP;
@@ -84,18 +88,37 @@ always @* begin
 					nxtstate = DOP;
 				  else
 					nxtstate = INIT;
-			OP:  nxtstate = INIT;
+			OP:  if (op[1] | op[2]) 
+					nxtstate = INIT;
+				  else if (op[5])
+					if (cache_hit & d_data) 
+					  if (mem_ready) nxtstate = INIT;
+					  else nxtstate = HITWB;
+					else 
+					  nxtstate = INIT;
+			HITWB: if (mem_ready)
+						nxtstate = INIT;
+					 else 
+						nxtstate = HITWB;
 			IOP: if (cache_hit)
 					nxtstate = INIT;
-				  else
-					if (mem_ready)
+				  else begin
+				   if (v_data & d_data)
+						if (mem_ready) nxtstate = IFETCH;
+						else nxtstate = IWB;
+					else if (mem_ready)
 						nxtstate = ISTORE;
 					else
-						nxtstate = IFETCH;
+					   nxtstate = IFETCH;
+				  end
 			IFETCH: if (mem_ready)
 							nxtstate = ISTORE;
 					  else
 							nxtstate = IFETCH;
+			IWB   : if (mem_ready)
+							nxtstate = IFETCH;
+					  else
+							nxtstate = IWB;
 			ISTORE: nxtstate = INIT;
 			DOP: if (d_op[1]) begin//write
 					 if (~cache_hit & v_data & d_data)
@@ -110,6 +133,8 @@ always @* begin
 					 else if (v_data & d_data)
 						if (mem_ready) nxtstate = DFETCH;
 						else nxtstate = DWB;
+					 else if (mem_ready)
+						nxtstate = DSTORE;
 					 else
 						nxtstate = DFETCH;
 				  end
@@ -133,13 +158,15 @@ always @* begin
 	{addr_s, v_wdata, v_w, d_wdata, d_w, t_in, t_ds, t_w, da_ds, da_w
 	, mem_write_back, mem_addr_s, mem_r, mem_w
 	, data_mem, cache_tag_w,
-	cache_ready_i, cache_ready_d} = 0;
-	cache_ready_op = 1'b1;
+	cache_ready_i, cache_ready_d, cache_ready_op,
+	hit_wb} = 0;
 	init = curstate == INIT;
 	case (curstate)
 		DECODE:if (op[1] | op[2]) begin//index load/store tag
 				t_in = 1'b1;
-				cache_ready_op = 1'b0;
+			  end
+			  else if (op[5])begin//hit write back
+				hit_wb = 1'b1;
 			  end
 			  else if(i_op) begin//icache read
 				addr_s = 1'b1;
@@ -151,23 +178,51 @@ always @* begin
 				cache_tag_w = 1'b1;
 				cache_ready_op = 1'b1;
 			  end
-			  else begin//index store
+			  else if (op[2]) begin//index store
 				t_in = 1'b1;
 				t_w = 1'b1;
 				cache_ready_op = 1'b1;
 			  end
+			  else if (op[5]) begin//hit writeback
+				if (cache_hit & d_data) begin//hit then write back
+					hit_wb = 1'b1;
+					mem_write_back = 1'b1;
+					mem_w = 1'b1;
+				end
+				else
+					cache_ready_op = 1'b1;
+			  end
+		HITWB: begin
+					hit_wb = 1'b1;
+					mem_write_back = 1'b1;
+					mem_w = 1'b1;
+					d_w = 1'b1;
+					d_wdata = 1'b0;//clear dirty bit
+				 end
 		IOP: if (cache_hit) begin//icache hit
 				cache_ready_i = 1'b1;
 				data_mem = 1'b0;
 			  end
-			  else begin
-				mem_addr_s = 1'b1;
-				mem_r = 1'b1;
+			  else begin//unhit
+					if (v_data & d_data) begin//write back
+						addr_s = 1'b1;
+						mem_write_back = 1'b1;
+						mem_w = 1'b1;
+					end
+					else begin//fetch
+						mem_addr_s = 1'b1;
+						mem_r = 1'b1;
+					end
 			  end
 		IFETCH:begin
 					mem_addr_s = 1'b1;
 					mem_r = 1'b1;
 				 end
+	   IWB: begin
+				addr_s = 1'b1;
+				mem_write_back = 1'b1;
+				mem_w = 1'b1;
+			  end		
 		ISTORE:begin
 					addr_s = 1'b1;
 					v_wdata = 1'b1;
@@ -181,9 +236,10 @@ always @* begin
 					da_w = 1'b1;
 					data_mem = 1'b1;
 					cache_ready_i = 1'b1;
-				 end
+				 end	
 		DOP: if (d_op[1]) begin//write
 				 if (~cache_hit & v_data & d_data) begin//write back
+					addr_s = 1'b0;
 					mem_write_back = 1'b1;
 					mem_w = 1'b1;
 				 end
@@ -209,6 +265,7 @@ always @* begin
 				 end
 				 else begin//unhit
 					if (v_data & d_data) begin//write back
+						addr_s = 1'b0;
 						mem_write_back = 1'b1;
 						mem_w = 1'b1;
 					end
@@ -219,6 +276,7 @@ always @* begin
 				 end
 			  end
 		DWB: begin
+				addr_s = 1'b0;
 				mem_write_back = 1'b1;
 				mem_w = 1'b1;
 			  end					

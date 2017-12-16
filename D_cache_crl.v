@@ -260,7 +260,7 @@ always @* begin
 							end
 						end
 					end
-					else if (op[0]) begin//index invalidate
+					else if (op[0]) begin//index invalidate //todo
 						if (addr_12) begin
 							v1_wdata = 1'b0;
 							v1_w = 1'b1;
