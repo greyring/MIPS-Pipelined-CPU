@@ -34,6 +34,7 @@ module EXE_MEM_REG(
 	input exe_wb_we,
 	input exe_mem_CP0_we,
 	input [4:0]exe_mem_CP0_dreg,
+	input [3:0]exe_tlb,
 	
 	output [31:0]mem_addr,
 	output [31:0]mem_data,
@@ -45,6 +46,7 @@ module EXE_MEM_REG(
 	output mem_wb_we,
 	output mem_CP0_we,
 	output [4:0]mem_CP0_dreg,
+	output [3:0]mem_tlb,
    
 	input exe_bd,
 	output mem_bd,
@@ -54,14 +56,14 @@ module EXE_MEM_REG(
 	output [3:0]mem_excvec,
 	input [5:0]exe_int,
 	output [5:0]mem_int);
-reg [87:0]temp = 0;
+reg [91:0]temp = 0;
 always @(posedge clk) begin
 	if (rst|bubble)
 		temp <= 0;
 	else if (EN)
 		temp <= {exe_mem_addr, exe_mem_data, exe_mem_ctrl, exe_mem_op, exe_mem_wreg, 
 					exe_mem_mem_reg, exe_wb_dreg, exe_wb_we
-					,exe_mem_CP0_we, exe_mem_CP0_dreg};
+					,exe_mem_CP0_we, exe_mem_CP0_dreg, exe_tlb};
 	else
 		temp <= temp;
 end
@@ -77,6 +79,6 @@ always @(posedge clk) begin
 end
 
 assign {mem_addr, mem_data, mem_ctrl, mem_op, mem_wreg, mem_mem_reg, mem_wb_dreg, mem_wb_we
-			,mem_CP0_we, mem_CP0_dreg} = temp;
+			,mem_CP0_we, mem_CP0_dreg, mem_tlb} = temp;
 assign {mem_pc, mem_excvec, mem_bd, mem_int} = temp1;
 endmodule

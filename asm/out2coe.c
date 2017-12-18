@@ -29,7 +29,8 @@ void main(int argc , char *args[])
   }
   fclose(fp);
   fclose(fout);
-  system("del a.out");
+  sprintf(strings, "del %s", args[1]);
+  system(strings);
   system("del a.bin");
   printf("Successful\n");
 }

@@ -36,6 +36,8 @@ always @* begin
 	  3'd2: b = ~equl;
 	  3'd3: b = rega[31] | ~_zero;//blez
 	  3'd4: b = ~rega[31] & _zero;//bgtz
+	  3'd5: b = rega[31];//bltz
+	  3'd6: b = ~rega[31];//bgez
 	  default: b = 0;
 	endcase
 end

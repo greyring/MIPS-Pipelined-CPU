@@ -347,7 +347,7 @@ always @* begin
 	ENTRY_LO1_PFN = ENTRY_LO1[25:6];
 	ENTRY_LO1_DV  = ENTRY_LO1[2:1];
 	ENTRY_LO_G = ENTRY_LO0[0] & ENTRY_LO1[0];
-	if (TLBR) begin
+	if (TLBP) begin
 		ENTRY_HI_VPN2 = VPN_data;
 		ENTRY_HI_ASID = ASID_data;
 		ENTRY_LO0_PFN = DATA[raddr][`PFN0];

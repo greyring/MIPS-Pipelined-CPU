@@ -1,0 +1,26 @@
+.global _start
+.text
+.set at
+_start:#initialize tlb
+mtc0 $0, $2#entry lo 0
+mtc0 $0, $3#entry lo 1
+mtc0 $0, $10#entry hi
+addi $t0, $0, 15
+
+loop:
+mtc0 $t0, $0#index
+tlbwi
+addi $t0, $t0, -1
+bgez $t0, loop
+
+li $t0, 0x007f0002
+mtc0 $t0, $2#entry lo 0 PFN = 1fc00 D=0 V=1
+li $t0, 0x00000001
+mtc0 $t0, $10#entry hi ASID = 1
+tlbwr#00000 -> 1fc00
+li $t0, 0x00000180
+jr $t0
+
+.org 0x180
+end_:
+beq $0, $0, end_

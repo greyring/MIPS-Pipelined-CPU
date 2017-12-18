@@ -24,7 +24,6 @@
 static const char *ng0 = "F:/MyProgramme/0arch/PCPU/Ttop.v";
 static int ng1[] = {0, 0};
 static int ng2[] = {1, 0};
-static unsigned int ng3[] = {16U, 0U};
 
 
 
@@ -87,11 +86,7 @@ LAB5:    xsi_set_current_line(84, ng0);
     *((char **)t1) = &&LAB6;
     goto LAB1;
 
-LAB6:    xsi_set_current_line(86, ng0);
-    t2 = ((char*)((ng3)));
-    t3 = (t0 + 4168);
-    xsi_vlogvar_assign_value(t3, t2, 0, 0, 5);
-    goto LAB1;
+LAB6:    goto LAB1;
 
 }
 

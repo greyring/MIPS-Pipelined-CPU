@@ -1,0 +1,39 @@
+
+
+
+// Instantiate the module
+MMU instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .IVaddr(IVaddr), 
+    .IPaddr(IPaddr), 
+    .ITLB_Refill(ITLB_Refill), 
+    .ITLB_Invalid(ITLB_Invalid), 
+    .dwe(dwe), 
+    .drd(drd), 
+    .DVaddr(DVaddr), 
+    .DPaddr(DPaddr), 
+    .DTLB_Refill(DTLB_Refill), 
+    .DTLB_Invalid(DTLB_Invalid), 
+    .DTLB_Modified(DTLB_Modified), 
+    .tlbwr(tlbwr), 
+    .tlbwi(tlbwi), 
+    .tlbr(tlbr), 
+    .tlbp(tlbp), 
+    .INDEX(INDEX), 
+    .RANDOM(RANDOM), 
+    .ENTRY_HI(ENTRY_HI), 
+    .ENTRY_LO0(ENTRY_LO0), 
+    .ENTRY_LO1(ENTRY_LO1), 
+    .INDEX_P(INDEX_P), 
+    .INDEX_INDEX(INDEX_INDEX), 
+    .ENTRY_HI_VPN2(ENTRY_HI_VPN2), 
+    .ENTRY_HI_ASID(ENTRY_HI_ASID), 
+    .ENTRY_LO0_PFN(ENTRY_LO0_PFN), 
+    .ENTRY_LO0_DV(ENTRY_LO0_DV), 
+    .ENTRY_LO1_PFN(ENTRY_LO1_PFN), 
+    .ENTRY_LO1_DV(ENTRY_LO1_DV), 
+    .ENTRY_LO_G(ENTRY_LO_G)
+    );
+
+

@@ -30,8 +30,8 @@ module stall_control(
 //对那些类lw指令，在MEM时数据才稳定的指令进行stall且后一条不是sw mtc0
 always @* begin
 	if (exe_wb_we == 1'b1 && (exe_mem_mem_reg == 3'b000 | exe_mem_mem_reg == 3'b010 | exe_mem_mem_reg == 3'b011) &&
-			(exe_wb_dreg != 0) && (~id_mem) &&
-			((exe_wb_dreg == id_rega) || (exe_wb_dreg == id_regb))) begin
+			(exe_wb_dreg != 0) && 
+			((exe_wb_dreg == id_rega) || ((~id_mem)&&(exe_wb_dreg == id_regb)))) begin
 			_stall_en = 0;
 	end
 	else begin

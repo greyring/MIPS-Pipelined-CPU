@@ -48,6 +48,6 @@ santi_jitter Santi_jitter(
     .rst_ok(cr)
     );
 
-anti_jitter #(.WIDTH(21), .INIT(0)) Aj_rst(.clk(clk), .in(~RSTN), .out(rst));
+anti_jitter #(.WIDTH(27), .INIT(0)) Aj_rst(.clk(clk), .in(~RSTN), .out(rst));
 
 endmodule

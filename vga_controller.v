@@ -136,7 +136,9 @@ always @* begin
 		color_out = graph_color_out;
 	end
 	else if (status[1:0] == MIXED) begin//mix
-	   if (|text_color_out)
+	   if (cursor_on && |cursor_color_out)
+		  color_out = cursor_color_out;
+		else if (|text_color_out)
 		  color_out = text_color_out;
 		else
 		  color_out = graph_color_out;

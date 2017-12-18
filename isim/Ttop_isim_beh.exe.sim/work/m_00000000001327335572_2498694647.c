@@ -22,7 +22,7 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "F:/MyProgramme/0arch/PCPU/vga_text.v";
-static int ng1[] = {40, 0};
+static unsigned int ng1[] = {40U, 0U};
 static unsigned int ng2[] = {0U, 0U};
 
 
@@ -168,7 +168,7 @@ LAB14:    xsi_set_current_line(36, ng0);
     *((unsigned int *)t2) = (t16 & 31U);
     t6 = ((char*)((ng1)));
     memset(t15, 0, 8);
-    xsi_vlog_unsigned_multiply(t15, 32, t4, 32, t6, 32);
+    xsi_vlog_unsigned_multiply(t15, 11, t4, 11, t6, 11);
     t12 = (t0 + 1848U);
     t13 = *((char **)t12);
     memset(t48, 0, 8);
@@ -185,7 +185,7 @@ LAB14:    xsi_set_current_line(36, ng0);
     t24 = *((unsigned int *)t12);
     *((unsigned int *)t12) = (t24 & 63U);
     memset(t59, 0, 8);
-    xsi_vlog_unsigned_add(t59, 32, t15, 32, t48, 32);
+    xsi_vlog_unsigned_add(t59, 11, t15, 11, t48, 11);
     t19 = (t0 + 3208);
     xsi_vlogvar_assign_value(t19, t59, 0, 0, 11);
 

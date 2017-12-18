@@ -19,6 +19,8 @@
          <ClosedNode>/I_cache F:|MyProgramme|0arch|PCPU|I_cache.v</ClosedNode>
          <ClosedNode>/I_cache F:|MyProgramme|0asm_interface|PCPU|I_cache.v</ClosedNode>
          <ClosedNode>/L2_cache F:|MyProgramme|0arch|PCPU|L2_cache.v</ClosedNode>
+         <ClosedNode>/MMU F:|MyProgramme|0arch|PCPU|MMU.v</ClosedNode>
+         <ClosedNode>/MMU F:|MyProgramme|0arch|PCPU|MMU.v/TLB - TLB_16/VPN - CAM_16</ClosedNode>
          <ClosedNode>/MUL_ALU F:|MyProgramme|0arch|PCPU|MUL_ALU.sch</ClosedNode>
          <ClosedNode>/MUL_ALU F:|MyProgramme|0|PCPU|MUL_ALU.sch</ClosedNode>
          <ClosedNode>/MUL_ALU F:|MyProgramme|0|PCPU|MUL_ALU.sch/XLXI_2 - mulu32</ClosedNode>
@@ -35,6 +37,8 @@
          <ClosedNode>/adder64 F:|MyProgramme|0|PCPU|adder64.v</ClosedNode>
          <ClosedNode>/adder8 F:|MyProgramme|0|PCPU|adder8.v</ClosedNode>
          <ClosedNode>/bus F:|MyProgramme|0arch|PCPU|bus.v</ClosedNode>
+         <ClosedNode>/cache F:|MyProgramme|0arch|PCPU|cache.v</ClosedNode>
+         <ClosedNode>/cache F:|MyProgramme|0arch|PCPU|cache.v/D_cache_ - D_cache</ClosedNode>
          <ClosedNode>/cache F:|MyProgramme|0arch|PCPU|cache.v/D_cache_ - D_cache/Write_data_mask0 - write_data_mask</ClosedNode>
          <ClosedNode>/cache F:|MyProgramme|0arch|PCPU|cache.v/D_cache_ - D_cache/Write_data_mask1 - write_data_mask</ClosedNode>
          <ClosedNode>/cache F:|MyProgramme|0arch|PCPU|cache.v/D_cache_ - D_cache/Write_data_mem - write_data_mask</ClosedNode>
@@ -57,9 +61,10 @@
          <ClosedNode>/mulu32 F:|MyProgramme|0|PCPU|mulu32.v</ClosedNode>
          <ClosedNode>/output_led F:|MyProgramme|0|PCPU|output_led.v</ClosedNode>
          <ClosedNode>/output_led F:|MyProgramme|2017summer|PCPU|output_led.v</ClosedNode>
-         <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Input_switch_btn - input_switch_btn</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/ALU - alu</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/CP0_ - CP0</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/MMU_ - MMU</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_2 - mulu32</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_3 - mul32</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/MUL_ALU_ - MUL_ALU/XLXI_8 - mul_adder</ClosedNode>
@@ -116,13 +121,13 @@
          <ClosedNode>/write_data_mask F:|MyProgramme|0arch|PCPU|write_data_mask.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>D_cache_crl_ - D_cache_crl (F:/MyProgramme/0arch/PCPU/D_cache_crl.v)</SelectedItem>
+         <SelectedItem>MUL_Control - MUL_control (F:/MyProgramme/0arch/PCPU/MUL_control.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >20</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >34</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b6000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b60000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d8000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d80000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>D_cache_crl_ - D_cache_crl (F:/MyProgramme/0arch/PCPU/D_cache_crl.v)</CurrentItem>
+      <CurrentItem>MUL_Control - MUL_control (F:/MyProgramme/0arch/PCPU/MUL_control.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -208,7 +213,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
    </ItemView>
@@ -233,10 +238,11 @@
          <ClosedNode>/TD_cache F:|MyProgramme|0arch|PCPU|TD_cache.v/uut - D_cache/Write_data_mask1 - write_data_mask</ClosedNode>
          <ClosedNode>/TD_cache F:|MyProgramme|0arch|PCPU|TD_cache.v/uut - D_cache/Write_data_mem - write_data_mask</ClosedNode>
          <ClosedNode>/TI_cache F:|MyProgramme|0arch|PCPU|TI_cache.v</ClosedNode>
+         <ClosedNode>/TL2Cache F:|MyProgramme|0arch|PCPU|TL2Cache.v</ClosedNode>
          <ClosedNode>/TL2Cache F:|MyProgramme|0arch|PCPU|TL2Cache.v/uut - L2_cache</ClosedNode>
-         <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v/uut - PCPU_v/ALU - alu</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v/uut - PCPU_v/CP0_ - CP0</ClosedNode>
+         <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v/uut - PCPU_v/MMU_ - MMU</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v/uut - PCPU_v/_Mul32_s - mul32_s</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v/uut - PCPU_v/_Mul_adder - mul_adder</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v/uut - PCPU_v/add_branch_addr - adder32_Sklansky</ClosedNode>
@@ -281,6 +287,7 @@
          <ClosedNode>/Ttimer F:|MyProgramme|0|PCPU|Ttimer.v</ClosedNode>
          <ClosedNode>/Ttimer F:|MyProgramme|2017summer|PCPU|Ttimer.v</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v</ClosedNode>
+         <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v/uut - top</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v/uut - top/Input_switch_btn - input_switch_btn</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v/uut - top/PCPU - PCPU_v</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v/uut - top/PCPU - PCPU_v/ALU - alu</ClosedNode>
@@ -309,13 +316,13 @@
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>uut - L2_cache (F:/MyProgramme/0arch/PCPU/L2_cache.v)</SelectedItem>
+         <SelectedItem>Ttop (F:/MyProgramme/0arch/PCPU/Ttop.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >8</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >45</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000149000000020000000000000000000000000200000064ffffffff000000810000000300000002000001490000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001c2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001c20000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>uut - L2_cache (F:/MyProgramme/0arch/PCPU/L2_cache.v)</CurrentItem>
+      <CurrentItem>Ttop (F:/MyProgramme/0arch/PCPU/Ttop.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -327,7 +334,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
    </ItemView>
@@ -336,13 +343,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
       <ClosedNodes>
@@ -376,13 +383,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem>CORE Generator</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem>CORE Generator</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_NGC" guiview="Process" >
       <ClosedNodes>

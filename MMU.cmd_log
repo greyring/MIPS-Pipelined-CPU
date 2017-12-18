@@ -1,0 +1,4 @@
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/MMU.xst" -ofn "F:/MyProgramme/0arch/PCPU/MMU.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/MMU.xst" -ofn "F:/MyProgramme/0arch/PCPU/MMU.syr" 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/MMU.xst" -ofn "F:/MyProgramme/0arch/PCPU/MMU.syr" 
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/MMU.tfi -lib work F:/MyProgramme/0arch/PCPU//MMU.v -module MMU -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

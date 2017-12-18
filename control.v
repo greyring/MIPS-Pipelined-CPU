@@ -43,6 +43,11 @@ module control(
 	output id_wb_we,
 	output [1:0]id_wb_dreg,//dest register
 	
+	output reg id_tlbr,
+	output reg id_tlbwi,
+	output reg id_tlbwr,
+	output reg id_tlbp,
+	
 	output id_syscall,
 	output id_unknown,
 	output id_eret
@@ -97,7 +102,7 @@ integer i;
 wire [5:0]op, fun;
 wire [4:0]rs, rt, rd, shift;
 reg [31:0]LUT_fun[63:0], LUT_op[63:0], LUT_1c[63:0];
-reg [31:0]op_10;
+reg [31:0]op_10, op_01;
 wire [31:0]op_0, op_1c, op_other, bus;
 
 assign {op, rs, rt, rd, shift, fun} = inst;
@@ -174,22 +179,36 @@ assign op_1c     = LUT_1c[fun];
 assign op_other = LUT_op[op];
 always @* begin
 	op_10 = 32'b00000_0000_000000000_00000000_000_010;//unknown
+	{id_tlbr, id_tlbwi, id_tlbwr, id_tlbp} = 0;
 	case(rs)
 		6'h00: op_10 = 32'b00000_0000_000000000_00000010_110_000;//mfc0
 		6'h04: op_10 = 32'b00000_0010_000000000_00001000_000_000;//mtc0
 		6'h10:case(fun)
+					6'h01: begin op_10 = 32'b00000_0000_000000000_00000000_000_000; id_tlbr = 1'b1; end//tlbr
+					6'h02: begin op_10 = 32'b00000_0000_000000000_00000000_000_000; id_tlbwi = 1'b1; end//tlbwi
+					6'h06: begin op_10 = 32'b00000_0000_000000000_00000000_000_000; id_tlbwr = 1'b1; end//tlbwr
+					6'h08: begin op_10 = 32'b00000_0000_000000000_00000000_000_000; id_tlbp = 1'b1; end//tlbp
 					6'h18: op_10 = 32'b00000_0000_000000000_00000000_000_001;//eret
 				endcase
 	endcase
 end
+always @* begin
+	op_01 = 32'b00000_0000_000000000_00000000_000_010;//unknown
+	case (rt)
+		6'h00:op_01 = 32'b10100_0100_000000000_00000000_000_000;//bltz untest
+		6'h01:op_01 = 32'b11000_0100_000000000_00000000_000_000;//bgez untest
+	endcase
+end
 
-wire en_00, en_1c, en_10, en_other;
+wire en_00, en_1c, en_10, en_01, en_other;
 assign en_00 = op == 6'h00;
+assign en_01 = op == 6'h01;
 assign en_10 = op == 6'h10;
 assign en_1c = op == 6'h1c;
-assign en_other = ~(en_00 | en_10 | en_1c);
+assign en_other = ~(en_00 | en_01 | en_10 | en_1c);
 
 assign bus = en_00 ? op_0 : 32'bz;
+assign bus = en_01 ? op_01: 32'bz;
 assign bus = en_10 ? op_10: 32'bz;
 assign bus = en_1c ? op_1c: 32'bz;
 assign bus = en_other ? op_other : 32'bz;

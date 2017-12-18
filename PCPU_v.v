@@ -37,23 +37,26 @@ module PCPU_v(	//人肉保证CP0写入后一段时间不读取CP0，避免CP0遇险
 	wire [31:0]mem_addr_DUMMY;
 	wire [31:0]mem_data_DUMMY;
 	wire [31:0]inst_addr_DUMMY;
-	assign inst_addr = inst_addr_DUMMY;
-	
 	wire id_exc, exe_exc, mem_exc;
 /////////////////////////////////////////////////////////////////////////////
 //CP0
 wire mem_CP0_we;
 wire [4:0]mem_CP0_dreg;
-wire [31:0]CP0_data_in;
-wire [31:0]CP0_data_out;
-wire [31:0]STATUS_out;
-wire [31:0]CAUSE_out;
-wire [31:0]EPC_out;
+wire [31:0]CP0_data_in, CP0_data_out;
+wire [31:0]STATUS_out, CAUSE_out, EPC_out;
 wire STATUS_EXL_in;
 wire CAUSE_BD_in;
 wire [4:0]CAUSE_EXCCODE_in;
 wire [5:0]CAUSE_HIP_in;
 wire [31:0]EPC_in;
+wire [31:0]INDEX_out, RANDOM_out, ENTRY_LO0_out, ENTRY_LO1_out, ENTRY_HI_out;
+wire INDEX_P;
+wire [3:0]INDEX_INDEX;
+wire [19:0]ENTRY_LO0_PFN, ENTRY_LO1_PFN;
+wire [1:0]ENTRY_LO0_DV, ENTRY_LO1_DV;
+wire ENTRY_LO_G;
+wire [18:0]ENTRY_HI_VPN2;
+wire [7:0]ENTRY_HI_ASID;
 wire timer_int;
 
 CP0 CP0_(
@@ -71,12 +74,55 @@ CP0 CP0_(
     .CAUSE_out(CAUSE_out), 
     .EPC_in(EPC_in), 
     .EPC_out(EPC_out),
+	 
+	 .INDEX_P(INDEX_P),
+	 .INDEX_INDEX(INDEX_INDEX),
+	 .INDEX_out(INDEX_out),
+	 .RANDOM_out(RANDOM_out),
+	 .ENTRY_LO0_PFN(ENTRY_LO0_PFN),
+	 .ENTRY_LO0_DVG({ENTRY_LO0_DV, ENTRY_LO_G}),
+	 .ENTRY_LO0_out(ENTRY_LO0_out),
+	 .ENTRY_LO1_PFN(ENTRY_LO1_PFN),
+	 .ENTRY_LO1_DVG({ENTRY_LO1_DV, ENTRY_LO_G}),
+	 .ENTRY_LO1_out(ENTRY_LO1_out),
+	 .ENTRY_HI_VPN2(ENTRY_HI_VPN2),
+	 .ENTRY_HI_ASID(ENTRY_HI_ASID),
+	 .ENTRY_HI_out(ENTRY_HI_out),
 	 .timer_int(timer_int)
    );
 	//debug
 	assign cause_data = CAUSE_out;
 	assign status_data = STATUS_out;
 	assign epc_data = EPC_out;
+
+wire [3:0]mem_tlb;
+MMU MMU_(
+    .clk(clk), 
+    .rst(rst), 
+    .IVaddr(inst_addr_DUMMY), .IPaddr(inst_addr), 
+    .ITLB_Refill(), .ITLB_Invalid(), 
+    .dwe(mem_we), .drd(mem_rd), 
+    .DVaddr({mem_addr_DUMMY[31:2],2'b0}), .DPaddr(mem_addr), 
+    .DTLB_Refill(), .DTLB_Invalid(), .DTLB_Modified(), 
+    .tlbr(mem_tlb[3]),
+	 .tlbwi(mem_tlb[2]), 
+	 .tlbwr(mem_tlb[1]), 
+    .tlbp(mem_tlb[0]), 
+    .INDEX(INDEX_out), 
+    .RANDOM(RANDOM_out), 
+    .ENTRY_HI(ENTRY_HI_out), 
+    .ENTRY_LO0(ENTRY_LO0_out), 
+    .ENTRY_LO1(ENTRY_LO1_out), 
+    .INDEX_P(INDEX_P), 
+    .INDEX_INDEX(INDEX_INDEX), 
+    .ENTRY_HI_VPN2(ENTRY_HI_VPN2), 
+    .ENTRY_HI_ASID(ENTRY_HI_ASID), 
+    .ENTRY_LO0_PFN(ENTRY_LO0_PFN), 
+    .ENTRY_LO0_DV(ENTRY_LO0_DV), 
+    .ENTRY_LO1_PFN(ENTRY_LO1_PFN), 
+    .ENTRY_LO1_DV(ENTRY_LO1_DV), 
+    .ENTRY_LO_G(ENTRY_LO_G)
+    );
 ////////////////////////////////////////////////////////////////////////
    wire id_b;
 	wire id_j;
@@ -173,14 +219,16 @@ assign if_int = {timer_int, int_};
 						  .id_rega_addr(id_rega_addr_s[1:0]),
 						  .id_regb_addr(id_regb_addr_s[1:0]),
                     .id_wb_we(id_wb_we),
+						  .id_tlbr(id_tlbr),
+						  .id_tlbwi(id_tlbwi),
+						  .id_tlbwr(id_tlbwr),
+						  .id_tlbp(id_tlbp),
 						  .id_syscall(id_syscall),
 						  .id_unknown(id_unknown),
 						  .id_eret(id_eret),
 						  .id_mem_CP0_we(id_mem_CP0_we));
 						  
 	assign id_bj = (|id_bcond) | id_j | id_jr;
-	wire id_mem;
-	assign id_mem = id_mem_CP0_we | (id_mem_op == 2'b01);//todo: modify and include MUL
 	
 	wire [4:0]id_mem_CP0_dreg;
 	assign id_mem_CP0_dreg = id_inst[15:11];
@@ -289,7 +337,10 @@ MUL_control MUL_Control(
     .MUL_ID_HiLo(MUL_ID_HiLo), 
     .MUL_ID_mul(MUL_ID_mul)
     );
-
+	 
+wire id_mem;
+assign id_mem = id_mem_CP0_we | (id_mem_op == 2'b01) | (MUL_ID_we && MUL_ID_HiLo != 2'b11);
+//////////////////////////////////////////////////////////////////////////////////////////////
 wire [31:0]MUL_EXE_A, MUL_EXE_B;//, MUL_EXE_data;
 wire MUL_EXE_add_sub, MUL_EXE_en_c, MUL_EXE_mul, MUL_EXE_sign, MUL_EXE_we;
 wire [1:0]MUL_EXE_HiLo;
@@ -335,6 +386,7 @@ wire exe_bd;
 wire exe_alu_sign;
 wire exe_mem_CP0_we;
 wire [4:0]exe_mem_CP0_dreg;
+wire [3:0]exe_tlb;
 wire [2:0]exe_excvec;
 wire [5:0]exe_int;
 ID_EXE_REG  ID_EXE (.clk(clk), 
@@ -359,6 +411,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 							  .id_exe_alu_sign(id_exe_res_sign),
 							  .id_mem_CP0_we(id_mem_CP0_we),
 							  .id_mem_CP0_dreg(id_mem_CP0_dreg),
+							  .id_tlb({id_tlbr, id_tlbwi, id_tlbwr, id_tlbp}),
                        .exe_aluop(exe_aluop[3:0]), 
                        .exe_imme(exe_imme[15:0]), 
                        .exe_jal(exe_jal), 
@@ -377,6 +430,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 							  .exe_alu_sign(exe_alu_sign),
 							  .exe_mem_CP0_we(exe_mem_CP0_we),
 							  .exe_mem_CP0_dreg(exe_mem_CP0_dreg),
+							  .exe_tlb(exe_tlb),
 							  
 							  .id_bd(id_bd),							  
 							  .exe_bd(exe_bd),
@@ -478,6 +532,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
                         .exe_wb_we(exe_wb_we),  
 								.exe_mem_CP0_we(exe_mem_CP0_we),
 							   .exe_mem_CP0_dreg(exe_mem_CP0_dreg),
+								.exe_tlb(exe_tlb),
                         .mem_addr(mem_addr_DUMMY[31:0]), 
                         .mem_data(mem_data_[31:0]), 
                         .mem_mem_reg(mem_mem_reg), 
@@ -488,6 +543,7 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 								.mem_wreg(mem_wreg),
 								.mem_CP0_we(mem_CP0_we),
 								.mem_CP0_dreg(mem_CP0_dreg),
+								.mem_tlb(mem_tlb),
 								
 								.exe_bd(exe_bd),
 								.mem_bd(mem_bd),
@@ -509,7 +565,6 @@ ID_EXE_REG  ID_EXE (.clk(clk),
 	assign exc_memAddr = mem_ctrl[1] & (mem_addr_DUMMY[0] | (mem_ctrl[0] & mem_addr_DUMMY[1]));
 	//todo handle excption
 	assign mem_rd = (~mem_exc & mem_op[1]);
-	assign mem_addr = {mem_addr_DUMMY[31:2],2'b0};
 	always @* begin
 		case (mem_addr_DUMMY[1:0])
 			2'b00: mem_data = mem_data_DUMMY;

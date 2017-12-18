@@ -8,8 +8,5 @@
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/MyProgramme/0arch/PCPU/Ttop.v" Line 50: Port <arg fmt="%s" index="1">ps2_clk</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/MyProgramme/0arch/PCPU/PCPU_v.v" Line 59: Port <arg fmt="%s" index="1">INDEX_P</arg> is not connected to this instance
-</msg>
-
 </messages>
 
