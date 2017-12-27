@@ -5,7 +5,7 @@
 #define _NUM_get_sw        1
 #define _NUM_get_btn       2
 #define _NUM_put_led       3
-#define _NUM_set_VGA       4
+#define _NUM_set_vga       4
 #define _NUM_set_cursor    5
 #define _NUM_get_cursor    6
 #define _NUM_scroll_screen 7
@@ -14,6 +14,7 @@
 #define _NUM_put_char      10
 #define _NUM_put_string    11
 #define _NUM_put_pixel     12
+#define _NUM_get_char      13
 
 #define _syscall0(name) \
 unsigned long name()\
@@ -43,7 +44,7 @@ return res;\
 }
 
 #define _syscall3(name, atype, a, btype, b, ctype, c) \
-unsigned long name(atype a)\
+unsigned long name(atype a, btype b, ctype c)\
 {\
 unsigned long res;\
 __asm__ volatile(\
@@ -62,6 +63,7 @@ _syscall0(get_sw);
 _syscall0(get_btn);
 _syscall0(get_cursor);
 _syscall0(clear_screen);
+_syscall0(get_char);
 
 _syscall1(put_seg, unsigned long, data);
 _syscall1(put_led, unsigned long, data);
@@ -73,5 +75,27 @@ _syscall1(put_string, unsigned short *, str);
 _syscall3(set_cursor, unsigned long, mode, unsigned char *, rgb, unsigned long, loc);//mode 0 1 2 3
 _syscall3(put_charAt, unsigned short, c, unsigned long, loc, unsigned char *, fbrgb);
 _syscall3(put_pixel, unsigned long, x, unsigned long, y, unsigned char *, rgb);
+
+unsigned short getc()
+{
+    unsigned short c;
+    while((c = get_char())==0x0000ffff);
+    return c;
+}
+
+void gets(unsigned long n, unsigned short* str)
+{
+    unsigned long i = 0;
+    while(i<n)
+    {
+        str[i] = getc();
+        if (str[i] == 0x000a)//enter
+        {
+            str[i] = 0;
+            break;
+        }
+        i++;
+    }
+}
 
 #endif

@@ -42,7 +42,7 @@ extern unsigned char skey_state[16];
 #define set_skey_state(code) {skey_state[code>>3]|=(1<<(code&7));}
 #define clr_skey_state(code) {skey_state[code>>3]&=~(1<<(code&7));}
 
-unsigned char get_frome_keybuf();
+unsigned short get_from_keybuf();
 void handle_keyboard();
 void init_keybuf();
 

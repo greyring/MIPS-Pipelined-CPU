@@ -20,10 +20,10 @@ void main(int argc , char *args[])
   while(!feof(fp))
   {
     fread(buffer, 4, 1, fp);
-    fprintf(fout,"%02x", buffer[0]);
-    fprintf(fout,"%02x", buffer[1]);
+    fprintf(fout,"%02x", buffer[3]);
     fprintf(fout,"%02x", buffer[2]);
-    fprintf(fout,"%02x, ", buffer[3]);
+    fprintf(fout,"%02x", buffer[1]);
+    fprintf(fout,"%02x, ", buffer[0]);
     i++;
     if (i % 8 == 0) fprintf(fout,"\n");
   }
@@ -44,10 +44,10 @@ void main(int argc , char *args[])
   while(!feof(fp))
   {
     fread(buffer, 4, 1, fp);
-    fprintf(fout,"%02x", buffer[0]);
-    fprintf(fout,"%02x", buffer[1]);
+    fprintf(fout,"%02x", buffer[3]);
     fprintf(fout,"%02x", buffer[2]);
-    fprintf(fout,"%02x, ", buffer[3]);
+    fprintf(fout,"%02x", buffer[1]);
+    fprintf(fout,"%02x, ", buffer[0]);
     i++;
     if (i % 8 == 0) fprintf(fout,"\n");
   }

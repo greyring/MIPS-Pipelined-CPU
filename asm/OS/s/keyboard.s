@@ -53,7 +53,7 @@ get_from_keybuf:
 	sll	$2,$3,1
 	addiu	$4,$4,%lo(keybuf)
 	addu	$2,$2,$4
-	lbu	$2,1($2)
+	lhu	$2,0($2)
 	addiu	$3,$3,1
 	andi	$3,$3,0x1f
 	lui	$4,%hi(keybuf_tail)
@@ -62,7 +62,7 @@ get_from_keybuf:
 
 $L4:
 	jr	$31
-	li	$2,255			# 0xff
+	li	$2,65535			# 0xffff
 
 	.set	macro
 	.set	reorder
@@ -81,88 +81,87 @@ handle_keyboard:
 	.set	noreorder
 	.set	nomacro
 	li	$2,-1342177280			# 0xffffffffb0000000
-	lbu	$3,20($2)
-	lui	$2,%hi(keyboard_state)
-	lw	$2,%lo(keyboard_state)($2)
+	lbu	$2,20($2)
+	lui	$3,%hi(keyboard_state)
+	lw	$3,%lo(keyboard_state)($3)
 	li	$4,1			# 0x1
-	beq	$2,$4,$L7
-	slt	$4,$2,2
+	beq	$3,$4,$L7
+	slt	$4,$3,2
 
 	bne	$4,$0,$L25
 	li	$4,2			# 0x2
 
-	beq	$2,$4,$L10
+	beq	$3,$4,$L10
 	li	$4,3			# 0x3
 
-	bne	$2,$4,$L36
-	srl	$4,$3,3
+	bne	$3,$4,$L36
+	srl	$4,$2,3
 
-	lui	$2,%hi(skey_state)
-	addiu	$2,$2,%lo(skey_state)
-	addu	$4,$4,$2
-	andi	$3,$3,0x7
-	li	$2,1			# 0x1
-	sll	$3,$2,$3
-	nor	$3,$0,$3
-	lbu	$2,0($4)
+	lui	$3,%hi(skey_state)
+	addiu	$3,$3,%lo(skey_state)
+	addu	$4,$4,$3
+	andi	$2,$2,0x7
+	li	$3,1			# 0x1
+	sll	$2,$3,$2
+	nor	$2,$0,$2
+	lbu	$3,0($4)
 	nop
-	and	$3,$3,$2
-	sb	$3,0($4)
+	and	$2,$2,$3
+	sb	$2,0($4)
 	lui	$2,%hi(keyboard_state)
 	jr	$31
 	sw	$0,%lo(keyboard_state)($2)
 
 $L25:
-	bne	$2,$0,$L36
-	li	$2,224			# 0xe0
+	bne	$3,$0,$L36
+	li	$3,224			# 0xe0
 
-	beq	$3,$2,$L28
-	li	$2,240			# 0xf0
+	beq	$2,$3,$L28
+	li	$3,240			# 0xf0
 
-	beq	$3,$2,$L29
-	srl	$2,$3,3
+	beq	$2,$3,$L29
+	srl	$3,$2,3
 
 	addiu	$sp,$sp,-24
 	sw	$31,20($sp)
 	lui	$4,%hi(key_state)
 	addiu	$4,$4,%lo(key_state)
-	addu	$2,$2,$4
-	andi	$5,$3,0x7
+	addu	$3,$3,$4
+	andi	$5,$2,0x7
 	li	$4,1			# 0x1
 	sll	$4,$4,$5
-	lbu	$5,0($2)
+	lbu	$5,0($3)
 	nop
 	or	$4,$4,$5
-	sb	$4,0($2)
-	li	$2,88			# 0x58
-	beq	$3,$2,$L30
-	lui	$2,%hi(capslock)
+	sb	$4,0($3)
+	li	$3,88			# 0x58
+	beq	$2,$3,$L30
+	lui	$3,%hi(capslock)
 
 $L14:
 	lui	$4,%hi(key_state)
 $L35:
 	addiu	$4,$4,%lo(key_state)
-	lbu	$2,2($4)
+	lbu	$3,2($4)
 	nop
-	andi	$2,$2,0x4
+	andi	$3,$3,0x4
 	lbu	$4,11($4)
 	nop
 	andi	$4,$4,0x2
-	or	$2,$2,$4
+	or	$3,$3,$4
 	lui	$4,%hi(capslock)
 	lw	$4,%lo(capslock)($4)
 	nop
-	or	$2,$2,$4
-	beq	$2,$0,$L17
-	lui	$2,%hi(scantoascii_lowercase)
+	or	$3,$3,$4
+	beq	$3,$0,$L17
+	lui	$3,%hi(scantoascii_lowercase)
 
-	lui	$2,%hi(scantoascii_uppercase)
-	addiu	$2,$2,%lo(scantoascii_uppercase)
-	addu	$3,$2,$3
-	lbu	$5,0($3)
-	nop
-	andi	$4,$5,0xffff
-	li	$2,255			# 0xff
+	sll	$2,$2,1
+	lui	$3,%hi(scantoascii_uppercase)
+	addiu	$3,$3,%lo(scantoascii_uppercase)
+	addu	$2,$2,$3
+	lhu	$4,0($2)
+	li	$2,65535			# 0xffff
 	beq	$4,$2,$L18
 	lui	$2,%hi(keybuf_head)
 
@@ -170,10 +169,10 @@ $L35:
 	nop
 	addiu	$3,$2,2
 	andi	$3,$3,0x1f
-	lui	$6,%hi(keybuf_tail)
-	lw	$6,%lo(keybuf_tail)($6)
+	lui	$5,%hi(keybuf_tail)
+	lw	$5,%lo(keybuf_tail)($5)
 	nop
-	beq	$3,$6,$L18
+	beq	$3,$5,$L18
 	addiu	$2,$2,1
 
 	andi	$2,$2,0x1f
@@ -184,7 +183,7 @@ $L35:
 	addiu	$3,$3,%lo(keybuf)
 	addu	$2,$2,$3
 	jal	_put_char
-	sh	$5,0($2)
+	sh	$4,0($2)
 
 $L18:
 	lui	$2,%hi(keyboard_state)
@@ -212,31 +211,30 @@ $L29:
 	sw	$3,%lo(keyboard_state)($2)
 
 $L30:
-	lw	$2,%lo(capslock)($2)
+	lw	$3,%lo(capslock)($3)
 	nop
-	beq	$2,$0,$L15
+	beq	$3,$0,$L15
 	li	$4,2			# 0x2
 
-	bne	$2,$4,$L35
+	bne	$3,$4,$L35
 	lui	$4,%hi(key_state)
 
-	lui	$2,%hi(capslock)
+	lui	$3,%hi(capslock)
 	b	$L35
-	sw	$0,%lo(capslock)($2)
+	sw	$0,%lo(capslock)($3)
 
 $L15:
-	lui	$2,%hi(capslock)
+	lui	$3,%hi(capslock)
 	li	$4,1			# 0x1
 	b	$L14
-	sw	$4,%lo(capslock)($2)
+	sw	$4,%lo(capslock)($3)
 
 $L17:
-	addiu	$2,$2,%lo(scantoascii_lowercase)
-	addu	$3,$2,$3
-	lbu	$5,0($3)
-	nop
-	andi	$4,$5,0xffff
-	li	$2,255			# 0xff
+	sll	$2,$2,1
+	addiu	$3,$3,%lo(scantoascii_lowercase)
+	addu	$2,$2,$3
+	lhu	$4,0($2)
+	li	$2,65535			# 0xffff
 	beq	$4,$2,$L18
 	lui	$2,%hi(keybuf_head)
 
@@ -244,10 +242,10 @@ $L17:
 	nop
 	addiu	$3,$2,2
 	andi	$3,$3,0x1f
-	lui	$6,%hi(keybuf_tail)
-	lw	$6,%lo(keybuf_tail)($6)
+	lui	$5,%hi(keybuf_tail)
+	lw	$5,%lo(keybuf_tail)($5)
 	nop
-	beq	$3,$6,$L18
+	beq	$3,$5,$L18
 	addiu	$2,$2,1
 
 	andi	$2,$2,0x1f
@@ -258,26 +256,26 @@ $L17:
 	addiu	$3,$3,%lo(keybuf)
 	addu	$2,$2,$3
 	jal	_put_char
-	sh	$5,0($2)
+	sh	$4,0($2)
 
 	b	$L34
 	lui	$2,%hi(keyboard_state)
 
 $L7:
-	srl	$4,$3,3
-	lui	$2,%hi(key_state)
-	addiu	$2,$2,%lo(key_state)
-	addu	$4,$4,$2
-	andi	$5,$3,0x7
-	li	$2,1			# 0x1
-	sll	$2,$2,$5
-	nor	$2,$0,$2
+	srl	$4,$2,3
+	lui	$3,%hi(key_state)
+	addiu	$3,$3,%lo(key_state)
+	addu	$4,$4,$3
+	andi	$5,$2,0x7
+	li	$3,1			# 0x1
+	sll	$3,$3,$5
+	nor	$3,$0,$3
 	lbu	$5,0($4)
 	nop
-	and	$2,$2,$5
-	sb	$2,0($4)
-	li	$2,88			# 0x58
-	beq	$3,$2,$L31
+	and	$3,$3,$5
+	sb	$3,0($4)
+	li	$3,88			# 0x58
+	beq	$2,$3,$L31
 	lui	$2,%hi(capslock)
 
 $L19:
@@ -300,20 +298,20 @@ $L32:
 	sw	$3,%lo(capslock)($2)
 
 $L10:
-	li	$2,240			# 0xf0
-	beq	$3,$2,$L33
-	srl	$2,$3,3
+	li	$3,240			# 0xf0
+	beq	$2,$3,$L33
+	srl	$3,$2,3
 
 	lui	$4,%hi(skey_state)
 	addiu	$4,$4,%lo(skey_state)
-	addu	$2,$2,$4
-	andi	$4,$3,0x7
-	li	$3,1			# 0x1
-	sll	$3,$3,$4
-	lbu	$4,0($2)
+	addu	$3,$3,$4
+	andi	$4,$2,0x7
+	li	$2,1			# 0x1
+	sll	$2,$2,$4
+	lbu	$4,0($3)
 	nop
-	or	$3,$3,$4
-	sb	$3,0($2)
+	or	$2,$2,$4
+	sb	$2,0($3)
 	lui	$2,%hi(keyboard_state)
 	jr	$31
 	sw	$0,%lo(keyboard_state)($2)
@@ -373,267 +371,267 @@ key_state:
 	.data
 	.align	2
 	.type	scantoascii_lowercase, @object
-	.size	scantoascii_lowercase, 128
+	.size	scantoascii_lowercase, 256
 scantoascii_lowercase:
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	9
-	.byte	96
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	113
-	.byte	49
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	122
-	.byte	115
-	.byte	97
-	.byte	119
-	.byte	50
-	.byte	-1
-	.byte	-1
-	.byte	99
-	.byte	120
-	.byte	100
-	.byte	101
-	.byte	52
-	.byte	51
-	.byte	-1
-	.byte	-1
-	.byte	32
-	.byte	118
-	.byte	102
-	.byte	116
-	.byte	114
-	.byte	53
-	.byte	-1
-	.byte	-1
-	.byte	110
-	.byte	98
-	.byte	104
-	.byte	103
-	.byte	121
-	.byte	54
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	109
-	.byte	106
-	.byte	117
-	.byte	55
-	.byte	56
-	.byte	-1
-	.byte	-1
-	.byte	44
-	.byte	107
-	.byte	105
-	.byte	111
-	.byte	48
-	.byte	57
-	.byte	-1
-	.byte	-1
-	.byte	46
-	.byte	47
-	.byte	108
-	.byte	59
-	.byte	112
-	.byte	45
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	39
-	.byte	-1
-	.byte	91
-	.byte	61
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	10
-	.byte	93
-	.byte	-1
-	.byte	92
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	8
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	27
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	9
+	.half	96
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	113
+	.half	49
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	122
+	.half	115
+	.half	97
+	.half	119
+	.half	50
+	.half	-1
+	.half	-1
+	.half	99
+	.half	120
+	.half	100
+	.half	101
+	.half	52
+	.half	51
+	.half	-1
+	.half	-1
+	.half	32
+	.half	118
+	.half	102
+	.half	116
+	.half	114
+	.half	53
+	.half	-1
+	.half	-1
+	.half	110
+	.half	98
+	.half	104
+	.half	103
+	.half	121
+	.half	54
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	109
+	.half	106
+	.half	117
+	.half	55
+	.half	56
+	.half	-1
+	.half	-1
+	.half	44
+	.half	107
+	.half	105
+	.half	111
+	.half	48
+	.half	57
+	.half	-1
+	.half	-1
+	.half	46
+	.half	47
+	.half	108
+	.half	59
+	.half	112
+	.half	45
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	39
+	.half	-1
+	.half	91
+	.half	61
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	10
+	.half	93
+	.half	-1
+	.half	92
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	8
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	27
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
 	.globl	scantoascii_uppercase
 	.align	2
 	.type	scantoascii_uppercase, @object
-	.size	scantoascii_uppercase, 128
+	.size	scantoascii_uppercase, 256
 scantoascii_uppercase:
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	9
-	.byte	126
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	81
-	.byte	33
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	90
-	.byte	83
-	.byte	65
-	.byte	87
-	.byte	64
-	.byte	-1
-	.byte	-1
-	.byte	67
-	.byte	88
-	.byte	68
-	.byte	69
-	.byte	36
-	.byte	35
-	.byte	-1
-	.byte	-1
-	.byte	32
-	.byte	86
-	.byte	70
-	.byte	84
-	.byte	82
-	.byte	37
-	.byte	-1
-	.byte	-1
-	.byte	78
-	.byte	66
-	.byte	72
-	.byte	71
-	.byte	89
-	.byte	94
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	77
-	.byte	74
-	.byte	85
-	.byte	38
-	.byte	42
-	.byte	-1
-	.byte	-1
-	.byte	60
-	.byte	75
-	.byte	73
-	.byte	79
-	.byte	41
-	.byte	40
-	.byte	-1
-	.byte	-1
-	.byte	62
-	.byte	63
-	.byte	76
-	.byte	58
-	.byte	80
-	.byte	95
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	34
-	.byte	-1
-	.byte	123
-	.byte	43
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	10
-	.byte	125
-	.byte	-1
-	.byte	124
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	8
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	27
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	9
+	.half	126
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	81
+	.half	33
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	90
+	.half	83
+	.half	65
+	.half	87
+	.half	64
+	.half	-1
+	.half	-1
+	.half	67
+	.half	88
+	.half	68
+	.half	69
+	.half	36
+	.half	35
+	.half	-1
+	.half	-1
+	.half	32
+	.half	86
+	.half	70
+	.half	84
+	.half	82
+	.half	37
+	.half	-1
+	.half	-1
+	.half	78
+	.half	66
+	.half	72
+	.half	71
+	.half	89
+	.half	94
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	77
+	.half	74
+	.half	85
+	.half	38
+	.half	42
+	.half	-1
+	.half	-1
+	.half	60
+	.half	75
+	.half	73
+	.half	79
+	.half	41
+	.half	40
+	.half	-1
+	.half	-1
+	.half	62
+	.half	63
+	.half	76
+	.half	58
+	.half	80
+	.half	95
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	34
+	.half	-1
+	.half	123
+	.half	43
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	10
+	.half	125
+	.half	-1
+	.half	124
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	8
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	27
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
+	.half	-1
 	.ident	"GCC: (GNU) 7.2.0"

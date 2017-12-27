@@ -38,7 +38,6 @@ void handle_timer()
 {
     int i;
     unsigned long *p = 0;
-    *(unsigned long *)(SEG_ADDR) = 0x00000001;
     if (inner_time[7]=='9')
     {
         inner_time[7] = '0';

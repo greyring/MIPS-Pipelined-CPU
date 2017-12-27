@@ -1,4 +1,5 @@
 .extern init_all
+.extern shell
 .global _start
 
 .data
@@ -17,7 +18,7 @@ exc_start:
 #lw $k1, 0($k0)
 #move $k0, $sp
 #move $sp, $k1
-addiu $sp, $sp, -112
+addiu $sp, $sp, -124
 #sw $k1, 108($sp)
 b save_all
 nop
@@ -38,8 +39,14 @@ nop
 
 
 save_all:
-sw $v0, 104($sp)
-sw $v1, 100($sp)
+#mfc0 $k0, $12 #status
+#sw $k0, 116($sp)
+#mfc0 $k0, $13 #cause
+#sw $k0, 112($sp)
+#mfc0 $k0, $14 #epc
+#sw $k0, 108($sp)
+#sw $v0, 104($sp)
+#sw $v1, 100($sp)
 sw $a0, 96($sp)
 sw $a1, 92($sp)
 sw $a2, 88($sp)
@@ -69,8 +76,14 @@ b save_all_return
 nop
 
 restore_all:
-lw $v0, 104($sp)
-lw $v1, 100($sp)
+#lw $k0, 116($sp)
+#mtc0 $k0, $12 #status
+#lw $k0, 112($sp)
+#mtc0 $k0, $13 #cause
+#lw $k0, 108($sp)
+#mtc0 $k0, $14 #epc
+#lw $v0, 104($sp)
+#lw $v1, 100($sp)
 lw $a0, 96($sp)
 lw $a1, 92($sp)
 lw $a2, 88($sp)
@@ -96,7 +109,7 @@ lw $t9, 12($sp)
 lw $gp, 8($sp)
 lw $fp, 4($sp)
 lw $ra, 0($sp)
-addi $sp, $sp, 112
+addi $sp, $sp, 124
 #lw $sp, -4($sp)
 eret
 
@@ -105,8 +118,7 @@ init_start:
 li $sp, 0x80003000
 jal init_all
 nop
-main_loop:
-nop
-nop
-j main_loop
+addi $k0, $0, 1
+mtc0 $k0, $10#set ASID = 1 shell process
+j shell
 nop

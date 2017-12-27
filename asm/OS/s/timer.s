@@ -77,9 +77,6 @@ handle_timer:
 	.fmask	0x00000000,0
 	addiu	$sp,$sp,-8
 	sw	$16,4($sp)
-	li	$2,-1342177280			# 0xffffffffb0000000
-	li	$3,1			# 0x1
-	sw	$3,16($2)
 	lui	$2,%hi(inner_time+14)
 	lhu	$2,%lo(inner_time+14)($2)
 	li	$3,57			# 0x39
@@ -114,7 +111,7 @@ $L13:
 	.set	reorder
 
  #APP
- # 95 "timer.c" 1
+ # 94 "timer.c" 1
 	li	$s0, 50000000
 	mtc0	$0, $9
 	mtc0	$s0, $11

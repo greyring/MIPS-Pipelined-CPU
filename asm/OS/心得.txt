@@ -20,3 +20,15 @@ res存放在寄存器a0中
 ‘data’ is for initialized variables, and it counts for RAM and FLASH. The linker allocates the data in FLASH which then is copied from ROM to RAM in the startup code.
 
 ‘bss’ is for the uninitialized data in RAM which is initialized with zero in the startup code.
+
+
+我设计的CPU是小端序,编译器默认大端序
+一定要注意内嵌汇编第一个:是输出，第二个才是输入，如果写反了很可能不会报错
+objdump出来的会自动做大小端转换，与在文件中实际的顺序不一样
+mips-as 的-EL和-EB只是表明它生成的文件的大小端顺序，和逻辑上的大小端顺序无关（有待考证）
+mips-ld的-EL和-EB只是表明它读取的文件以及生成的文件是大端还是小端（有待考证）
+我的out2coe程序输出时每4个字节就把它倒一下，所以原来它生成的都是大端代码我输出来的时候就变成了小端
+所以要把mips-gcc,mips-as和mips-ld的-EL打开(因为我的CPU是小端的)，out2coe不对4字节进行颠倒（因为如果out2coe对4字节进行颠倒的话，有的比如说short是2字节颠倒的）
+mips-gcc的-EL主要会影响大于一个word的数据的运算
+注意整数常量的符号拓展
+syscall的返回值会通过v0传递，所以不应该恢复v0

@@ -20,8 +20,8 @@ handle_syscall:
 	sw	$16,16($sp)
 	move	$4,$7
  #APP
- # 45 "exc.c" 1
-	addiu	$s0, $2, 4
+ # 34 "exc.c" 1
+	addiu	$s0, $6, 4
 	mtc0	$s0, $14
 	
  # 0 "" 2
@@ -123,45 +123,8 @@ handle_exception:
 	.set	reorder
 	.end	handle_exception
 	.size	handle_exception, .-handle_exception
-	.globl	syscall_tbl
-	.data
-	.align	2
-	.type	syscall_tbl, @object
-	.size	syscall_tbl, 128
-syscall_tbl:
-	.word	put_seg
-	.word	get_sw
-	.word	get_btn
-	.word	put_led
-	.word	set_vga
-	.word	set_cursor
-	.word	get_cursor
-	.word	scroll_screen
-	.word	clear_screen
-	.word	put_charAt
-	.word	put_char
-	.word	put_string
-	.word	put_pixel
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
 	.globl	exc_tbl
+	.section	.data,"aw",@progbits
 	.align	2
 	.type	exc_tbl, @object
 	.size	exc_tbl, 128

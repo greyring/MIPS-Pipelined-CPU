@@ -10,7 +10,7 @@ Target Device  : xc7k325t
 Target Package : ffg676
 Target Speed   : -2l
 Mapper Version : kintex7 -- $Revision: 1.55 $
-Mapped Date    : Tue Dec 26 22:58:38 2017
+Mapped Date    : Wed Dec 27 20:30:52 2017
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 INFO:Security:56 - Part 'xc7k325t' is not a WebPack part.
@@ -25,31 +25,31 @@ Updating timing models...
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
-Total REAL time at the beginning of Placer: 1 mins 42 secs 
-Total CPU  time at the beginning of Placer: 1 mins 30 secs 
+Total REAL time at the beginning of Placer: 1 mins 5 secs 
+Total CPU  time at the beginning of Placer: 1 mins 4 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:13944712) REAL time: 2 mins 2 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:13944712) REAL time: 1 mins 18 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:13944712) REAL time: 2 mins 3 secs 
+Phase 2.7  Design Feasibility Check (Checksum:13944712) REAL time: 1 mins 19 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:13944712) REAL time: 2 mins 3 secs 
+Phase 3.31  Local Placement Optimization (Checksum:13944712) REAL time: 1 mins 19 secs 
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 
 Phase 4.2  Initial Placement for Architecture Specific Features
-(Checksum:2f621947) REAL time: 2 mins 25 secs 
+(Checksum:2f621947) REAL time: 1 mins 35 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:2f621947) REAL time: 2 mins 25 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:2f621947) REAL time: 1 mins 35 secs 
 
 Phase 6.3  Local Placement Optimization
-Phase 6.3  Local Placement Optimization (Checksum:2f621947) REAL time: 2 mins 26 secs 
+Phase 6.3  Local Placement Optimization (Checksum:2f621947) REAL time: 1 mins 36 secs 
 
 Phase 7.5  Local Placement Optimization
-Phase 7.5  Local Placement Optimization (Checksum:2f621947) REAL time: 2 mins 27 secs 
+Phase 7.5  Local Placement Optimization (Checksum:2f621947) REAL time: 1 mins 36 secs 
 
 Phase 8.8  Global Placement
 ........................................
@@ -57,22 +57,22 @@ Phase 8.8  Global Placement
 ........................................................................
 .................................................................................................................................................................................................
 ...........................................................................................................................
-Phase 8.8  Global Placement (Checksum:4a9bd7a0) REAL time: 8 mins 37 secs 
+Phase 8.8  Global Placement (Checksum:4a9bd7a0) REAL time: 6 mins 49 secs 
 
 Phase 9.5  Local Placement Optimization
-Phase 9.5  Local Placement Optimization (Checksum:4a9bd7a0) REAL time: 8 mins 39 secs 
+Phase 9.5  Local Placement Optimization (Checksum:4a9bd7a0) REAL time: 6 mins 50 secs 
 
 Phase 10.18  Placement Optimization
-Phase 10.18  Placement Optimization (Checksum:7bdcf4b3) REAL time: 9 mins 57 secs 
+Phase 10.18  Placement Optimization (Checksum:7bdcf4b3) REAL time: 7 mins 56 secs 
 
 Phase 11.5  Local Placement Optimization
-Phase 11.5  Local Placement Optimization (Checksum:7bdcf4b3) REAL time: 9 mins 58 secs 
+Phase 11.5  Local Placement Optimization (Checksum:7bdcf4b3) REAL time: 7 mins 56 secs 
 
 Phase 12.34  Placement Validation
-Phase 12.34  Placement Validation (Checksum:7bdcf4b3) REAL time: 9 mins 58 secs 
+Phase 12.34  Placement Validation (Checksum:7bdcf4b3) REAL time: 7 mins 57 secs 
 
-Total REAL time to Placer completion: 11 mins 22 secs 
-Total CPU  time to Placer completion: 10 mins 47 secs 
+Total REAL time to Placer completion: 9 mins 9 secs 
+Total CPU  time to Placer completion: 9 mins 3 secs 
 Running post-placement packing...
 Writing output files...
 WARNING:PhysDesignRules:367 - The signal
@@ -172,9 +172,9 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                4.74
 
-Peak Memory Usage:  1374 MB
-Total REAL time to MAP completion:  11 mins 35 secs 
-Total CPU time to MAP completion:   11 mins 
+Peak Memory Usage:  1367 MB
+Total REAL time to MAP completion:  9 mins 20 secs 
+Total CPU time to MAP completion:   9 mins 15 secs 
 
 Mapping completed.
 See MAP report file "top_map.mrp" for details.

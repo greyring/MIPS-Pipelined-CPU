@@ -19,33 +19,35 @@ _scroll_screen:
 	addiu	$2,$4,-1
 	sltu	$2,$2,29
 	beq	$2,$0,$L9
-	sll	$3,$4,2
-
-	addu	$3,$3,$4
-	sll	$3,$3,5
-	move	$7,$3
-	li	$2,-1342177280			# 0xffffffffb0000000
-	addiu	$5,$2,8192
-	addu	$3,$3,$5
-	addiu	$2,$2,12832
-	sltu	$2,$3,$2
-	beq	$2,$0,$L10
-	nop
-
-	move	$2,$5
-	li	$6,4640			# 0x1220
-	subu	$6,$6,$7
-$L4:
-	lw	$5,0($3)
-	nop
-	sw	$5,0($2)
-	addiu	$3,$3,4
-	addu	$5,$6,$3
-	sltu	$5,$3,$5
-	bne	$5,$0,$L4
-	addiu	$2,$2,4
-
 	li	$3,-1342177280			# 0xffffffffb0000000
+
+	sll	$2,$4,2
+	addu	$2,$2,$4
+	sll	$7,$2,5
+	addiu	$2,$3,8192
+	addu	$2,$7,$2
+	addiu	$3,$3,12832
+	sltu	$3,$2,$3
+	beq	$3,$0,$L10
+	move	$8,$7
+
+	li	$6,-1342177280			# 0xffffffffb0000000
+	addiu	$6,$6,12832
+$L4:
+	lw	$5,0($2)
+	subu	$3,$2,$8
+	sw	$5,0($3)
+	addiu	$2,$2,4
+	sltu	$3,$2,$6
+	bne	$3,$0,$L4
+	li	$3,-4			# 0xfffffffffffffffc
+
+	li	$2,4639			# 0x121f
+	subu	$2,$2,$7
+	and	$2,$2,$3
+	li	$3,-1342177280			# 0xffffffffb0000000
+	addiu	$5,$3,8196
+	addu	$2,$2,$5
 	addiu	$3,$3,12832
 	sltu	$3,$2,$3
 	beq	$3,$0,$L5
@@ -98,84 +100,12 @@ $L9:
 	.end	_scroll_screen
 	.size	_scroll_screen, .-_scroll_screen
 	.align	2
-	.globl	_put_char
+	.globl	put_seg_
 	.set	nomips16
 	.set	nomicromips
-	.ent	_put_char
-	.type	_put_char, @function
-_put_char:
-	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
-	.mask	0x80000000,-4
-	.fmask	0x00000000,0
-	.set	noreorder
-	.set	nomacro
-	li	$2,10			# 0xa
-	beq	$4,$2,$L24
-	li	$3,-1342177280			# 0xffffffffb0000000
-
-	lw	$2,4($3)
-	nop
-	andi	$5,$2,0x7ff
-	sll	$5,$5,2
-	addu	$3,$3,$5
-	li	$5,1056964608			# 0x3f000000
-	or	$4,$4,$5
-	sw	$4,8192($3)
-	addiu	$2,$2,1
-$L17:
-	li	$3,-1342177280			# 0xffffffffb0000000
-	sw	$2,4($3)
-	andi	$2,$2,0x7ff
-	sltu	$2,$2,1160
-	beq	$2,$0,$L25
-	li	$2,1			# 0x1
-
-	jr	$31
-	nop
-
-$L24:
-	li	$2,-1342177280			# 0xffffffffb0000000
-	lw	$2,4($2)
-	nop
-	andi	$3,$2,0x7ff
-	sltu	$4,$3,40
-	bne	$4,$0,$L15
-	nop
-
-$L16:
-	addiu	$3,$3,-40
-	sltu	$4,$3,40
-	beq	$4,$0,$L16
-	nop
-
-$L15:
-	addiu	$2,$2,40
-	b	$L17
-	subu	$2,$2,$3
-
-$L25:
-	addiu	$sp,$sp,-24
-	sw	$31,20($sp)
-	jal	_scroll_screen
-	li	$4,1			# 0x1
-
-	li	$2,1			# 0x1
-	lw	$31,20($sp)
-	nop
-	jr	$31
-	addiu	$sp,$sp,24
-
-	.set	macro
-	.set	reorder
-	.end	_put_char
-	.size	_put_char, .-_put_char
-	.align	2
-	.globl	put_seg
-	.set	nomips16
-	.set	nomicromips
-	.ent	put_seg
-	.type	put_seg, @function
-put_seg:
+	.ent	put_seg_
+	.type	put_seg_, @function
+put_seg_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -189,15 +119,15 @@ put_seg:
 
 	.set	macro
 	.set	reorder
-	.end	put_seg
-	.size	put_seg, .-put_seg
+	.end	put_seg_
+	.size	put_seg_, .-put_seg_
 	.align	2
-	.globl	get_sw
+	.globl	get_sw_
 	.set	nomips16
 	.set	nomicromips
-	.ent	get_sw
-	.type	get_sw, @function
-get_sw:
+	.ent	get_sw_
+	.type	get_sw_, @function
+get_sw_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -210,15 +140,15 @@ get_sw:
 
 	.set	macro
 	.set	reorder
-	.end	get_sw
-	.size	get_sw, .-get_sw
+	.end	get_sw_
+	.size	get_sw_, .-get_sw_
 	.align	2
-	.globl	get_btn
+	.globl	get_btn_
 	.set	nomips16
 	.set	nomicromips
-	.ent	get_btn
-	.type	get_btn, @function
-get_btn:
+	.ent	get_btn_
+	.type	get_btn_, @function
+get_btn_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -231,15 +161,15 @@ get_btn:
 
 	.set	macro
 	.set	reorder
-	.end	get_btn
-	.size	get_btn, .-get_btn
+	.end	get_btn_
+	.size	get_btn_, .-get_btn_
 	.align	2
-	.globl	put_led
+	.globl	put_led_
 	.set	nomips16
 	.set	nomicromips
-	.ent	put_led
-	.type	put_led, @function
-put_led:
+	.ent	put_led_
+	.type	put_led_, @function
+put_led_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -253,15 +183,15 @@ put_led:
 
 	.set	macro
 	.set	reorder
-	.end	put_led
-	.size	put_led, .-put_led
+	.end	put_led_
+	.size	put_led_, .-put_led_
 	.align	2
-	.globl	set_vga
+	.globl	set_vga_
 	.set	nomips16
 	.set	nomicromips
-	.ent	set_vga
-	.type	set_vga, @function
-set_vga:
+	.ent	set_vga_
+	.type	set_vga_, @function
+set_vga_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -281,15 +211,15 @@ set_vga:
 
 	.set	macro
 	.set	reorder
-	.end	set_vga
-	.size	set_vga, .-set_vga
+	.end	set_vga_
+	.size	set_vga_, .-set_vga_
 	.align	2
-	.globl	set_cursor
+	.globl	set_cursor_
 	.set	nomips16
 	.set	nomicromips
-	.ent	set_cursor
-	.type	set_cursor, @function
-set_cursor:
+	.ent	set_cursor_
+	.type	set_cursor_, @function
+set_cursor_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -327,15 +257,15 @@ set_cursor:
 
 	.set	macro
 	.set	reorder
-	.end	set_cursor
-	.size	set_cursor, .-set_cursor
+	.end	set_cursor_
+	.size	set_cursor_, .-set_cursor_
 	.align	2
-	.globl	get_cursor
+	.globl	get_cursor_
 	.set	nomips16
 	.set	nomicromips
-	.ent	get_cursor
-	.type	get_cursor, @function
-get_cursor:
+	.ent	get_cursor_
+	.type	get_cursor_, @function
+get_cursor_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -348,15 +278,15 @@ get_cursor:
 
 	.set	macro
 	.set	reorder
-	.end	get_cursor
-	.size	get_cursor, .-get_cursor
+	.end	get_cursor_
+	.size	get_cursor_, .-get_cursor_
 	.align	2
-	.globl	scroll_screen
+	.globl	scroll_screen_
 	.set	nomips16
 	.set	nomicromips
-	.ent	scroll_screen
-	.type	scroll_screen, @function
-scroll_screen:
+	.ent	scroll_screen_
+	.type	scroll_screen_, @function
+scroll_screen_:
 	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
 	.mask	0x80000000,-4
 	.fmask	0x00000000,0
@@ -375,15 +305,15 @@ scroll_screen:
 
 	.set	macro
 	.set	reorder
-	.end	scroll_screen
-	.size	scroll_screen, .-scroll_screen
+	.end	scroll_screen_
+	.size	scroll_screen_, .-scroll_screen_
 	.align	2
-	.globl	clear_screen
+	.globl	clear_screen_
 	.set	nomips16
 	.set	nomicromips
-	.ent	clear_screen
-	.type	clear_screen, @function
-clear_screen:
+	.ent	clear_screen_
+	.type	clear_screen_, @function
+clear_screen_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -393,26 +323,31 @@ clear_screen:
 	addiu	$2,$2,8192
 	li	$3,-1342177280			# 0xffffffffb0000000
 	addiu	$3,$3,12832
-$L36:
+$L23:
 	sw	$0,0($2)
 	addiu	$2,$2,4
-	bne	$2,$3,$L36
-	nop
+	bne	$2,$3,$L23
+	li	$4,-2048			# 0xfffffffffffff800
 
+	li	$3,-1342177280			# 0xffffffffb0000000
+	lw	$2,4($3)
+	nop
+	and	$2,$2,$4
+	sw	$2,4($3)
 	jr	$31
 	li	$2,1			# 0x1
 
 	.set	macro
 	.set	reorder
-	.end	clear_screen
-	.size	clear_screen, .-clear_screen
+	.end	clear_screen_
+	.size	clear_screen_, .-clear_screen_
 	.align	2
-	.globl	put_charAt
+	.globl	put_charAt_
 	.set	nomips16
 	.set	nomicromips
-	.ent	put_charAt
-	.type	put_charAt, @function
-put_charAt:
+	.ent	put_charAt_
+	.type	put_charAt_, @function
+put_charAt_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -420,8 +355,8 @@ put_charAt:
 	.set	nomacro
 	lw	$2,88($4)
 	nop
-	sltu	$3,$2,1200
-	beq	$3,$0,$L40
+	sltu	$3,$2,1160
+	beq	$3,$0,$L27
 	li	$6,-1342177280			# 0xffffffffb0000000
 
 	lw	$3,84($4)
@@ -456,96 +391,28 @@ put_charAt:
 	srl	$3,$3,6
 	sll	$3,$3,16
 	or	$2,$2,$3
-	lhu	$3,94($4)
+	lhu	$3,92($4)
 	nop
 	or	$2,$2,$3
 	sw	$2,8192($6)
 	jr	$31
 	li	$2,1			# 0x1
 
-$L40:
+$L27:
 	jr	$31
 	move	$2,$0
 
 	.set	macro
 	.set	reorder
-	.end	put_charAt
-	.size	put_charAt, .-put_charAt
+	.end	put_charAt_
+	.size	put_charAt_, .-put_charAt_
 	.align	2
-	.globl	put_char
+	.globl	put_pixel_
 	.set	nomips16
 	.set	nomicromips
-	.ent	put_char
-	.type	put_char, @function
-put_char:
-	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
-	.mask	0x80000000,-4
-	.fmask	0x00000000,0
-	.set	noreorder
-	.set	nomacro
-	addiu	$sp,$sp,-24
-	sw	$31,20($sp)
-	lhu	$4,94($4)
-	jal	_put_char
-	nop
-
-	lw	$31,20($sp)
-	nop
-	jr	$31
-	addiu	$sp,$sp,24
-
-	.set	macro
-	.set	reorder
-	.end	put_char
-	.size	put_char, .-put_char
-	.align	2
-	.globl	put_string
-	.set	nomips16
-	.set	nomicromips
-	.ent	put_string
-	.type	put_string, @function
-put_string:
-	.frame	$sp,24,$31		# vars= 0, regs= 2/0, args= 16, gp= 0
-	.mask	0x80010000,-4
-	.fmask	0x00000000,0
-	.set	noreorder
-	.set	nomacro
-	addiu	$sp,$sp,-24
-	sw	$31,20($sp)
-	sw	$16,16($sp)
-	lw	$16,92($4)
-	nop
-	lhu	$4,0($16)
-	nop
-	beq	$4,$0,$L48
-	li	$2,1			# 0x1
-
-$L45:
-	jal	_put_char
-	addiu	$16,$16,2
-
-	lhu	$4,0($16)
-	nop
-	bne	$4,$0,$L45
-	li	$2,1			# 0x1
-
-$L48:
-	lw	$31,20($sp)
-	lw	$16,16($sp)
-	jr	$31
-	addiu	$sp,$sp,24
-
-	.set	macro
-	.set	reorder
-	.end	put_string
-	.size	put_string, .-put_string
-	.align	2
-	.globl	put_pixel
-	.set	nomips16
-	.set	nomicromips
-	.ent	put_pixel
-	.type	put_pixel, @function
-put_pixel:
+	.ent	put_pixel_
+	.type	put_pixel_, @function
+put_pixel_:
 	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
@@ -554,11 +421,11 @@ put_pixel:
 	lw	$5,92($4)
 	lw	$3,88($4)
 	sltu	$2,$5,640
-	beq	$2,$0,$L51
+	beq	$2,$0,$L30
 	nop
 
 	sltu	$2,$3,480
-	beq	$2,$0,$L51
+	beq	$2,$0,$L30
 	nop
 
 	lw	$6,84($4)
@@ -586,12 +453,238 @@ put_pixel:
 	jr	$31
 	li	$2,1			# 0x1
 
-$L51:
+$L30:
 	jr	$31
 	move	$2,$0
 
 	.set	macro
 	.set	reorder
-	.end	put_pixel
-	.size	put_pixel, .-put_pixel
+	.end	put_pixel_
+	.size	put_pixel_, .-put_pixel_
+	.align	2
+	.globl	get_char_
+	.set	nomips16
+	.set	nomicromips
+	.ent	get_char_
+	.type	get_char_, @function
+get_char_:
+	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
+	.mask	0x80000000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	jal	get_from_keybuf
+	nop
+
+	lw	$31,20($sp)
+	nop
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	get_char_
+	.size	get_char_, .-get_char_
+	.align	2
+	.globl	_put_char
+	.set	nomips16
+	.set	nomicromips
+	.ent	_put_char
+	.type	_put_char, @function
+_put_char:
+	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
+	.mask	0x80000000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	li	$2,10			# 0xa
+	beq	$4,$2,$L47
+	li	$2,9			# 0x9
+
+	beq	$4,$2,$L48
+	li	$3,-1342177280			# 0xffffffffb0000000
+
+	lw	$2,4($3)
+	nop
+	andi	$5,$2,0x7ff
+	sll	$5,$5,2
+	addu	$3,$3,$5
+	li	$5,1056964608			# 0x3f000000
+	or	$4,$4,$5
+	sw	$4,8192($3)
+	addiu	$2,$2,1
+$L37:
+	li	$3,-1342177280			# 0xffffffffb0000000
+$L50:
+	sw	$2,4($3)
+$L51:
+	andi	$2,$2,0x7ff
+	sltu	$2,$2,1160
+	beq	$2,$0,$L49
+	li	$2,1			# 0x1
+
+	jr	$31
+	nop
+
+$L47:
+	li	$2,-1342177280			# 0xffffffffb0000000
+	lw	$2,4($2)
+	nop
+	andi	$3,$2,0x7ff
+	sltu	$4,$3,40
+	bne	$4,$0,$L35
+	nop
+
+$L36:
+	addiu	$3,$3,-40
+	sltu	$4,$3,40
+	beq	$4,$0,$L36
+	nop
+
+$L35:
+	addiu	$2,$2,40
+	b	$L37
+	subu	$2,$2,$3
+
+$L48:
+	li	$2,-1342177280			# 0xffffffffb0000000
+	lw	$2,4($2)
+	nop
+	andi	$3,$2,0x3
+	beq	$3,$0,$L50
+	li	$3,-1342177280			# 0xffffffffb0000000
+
+$L39:
+	addiu	$2,$2,1
+	andi	$3,$2,0x3
+	bne	$3,$0,$L39
+	li	$3,-1342177280			# 0xffffffffb0000000
+
+	b	$L51
+	sw	$2,4($3)
+
+$L49:
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	jal	_scroll_screen
+	li	$4,1			# 0x1
+
+	li	$2,1			# 0x1
+	lw	$31,20($sp)
+	nop
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	_put_char
+	.size	_put_char, .-_put_char
+	.align	2
+	.globl	put_char_
+	.set	nomips16
+	.set	nomicromips
+	.ent	put_char_
+	.type	put_char_, @function
+put_char_:
+	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
+	.mask	0x80000000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	lhu	$4,92($4)
+	jal	_put_char
+	nop
+
+	lw	$31,20($sp)
+	nop
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	put_char_
+	.size	put_char_, .-put_char_
+	.align	2
+	.globl	put_string_
+	.set	nomips16
+	.set	nomicromips
+	.ent	put_string_
+	.type	put_string_, @function
+put_string_:
+	.frame	$sp,24,$31		# vars= 0, regs= 2/0, args= 16, gp= 0
+	.mask	0x80010000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	sw	$16,16($sp)
+	lw	$16,92($4)
+	nop
+	lhu	$4,0($16)
+	nop
+	beq	$4,$0,$L59
+	li	$2,1			# 0x1
+
+$L56:
+	jal	_put_char
+	addiu	$16,$16,2
+
+	lhu	$4,0($16)
+	nop
+	bne	$4,$0,$L56
+	li	$2,1			# 0x1
+
+$L59:
+	lw	$31,20($sp)
+	lw	$16,16($sp)
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	put_string_
+	.size	put_string_, .-put_string_
+	.globl	syscall_tbl
+	.section	.data,"aw",@progbits
+	.align	2
+	.type	syscall_tbl, @object
+	.size	syscall_tbl, 128
+syscall_tbl:
+	.word	put_seg_
+	.word	get_sw_
+	.word	get_btn_
+	.word	put_led_
+	.word	set_vga_
+	.word	set_cursor_
+	.word	get_cursor_
+	.word	scroll_screen_
+	.word	clear_screen_
+	.word	put_charAt_
+	.word	put_char_
+	.word	put_string_
+	.word	put_pixel_
+	.word	get_char_
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
 	.ident	"GCC: (GNU) 7.2.0"

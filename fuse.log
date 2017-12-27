@@ -166,8 +166,8 @@ Compiling module top
 Compiling module Ttop
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 60 sub-compilation(s) to finish...
+Waiting for 17 sub-compilation(s) to finish...
 Compiled 90 Verilog Units
 Built simulation executable F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe
-Fuse Memory Usage: 217664 KB
-Fuse CPU Usage: 5319 ms
+Fuse Memory Usage: 217656 KB
+Fuse CPU Usage: 5226 ms

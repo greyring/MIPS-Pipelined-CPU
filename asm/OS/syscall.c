@@ -1,5 +1,6 @@
 #include "arch.h"
 #include "syscall.h"
+#include "keyboard.h"
 
 static unsigned long _scroll_screen(unsigned long line)
 {
@@ -11,7 +12,7 @@ static unsigned long _scroll_screen(unsigned long line)
     if (line <=0 || line>=30) return 0;
 
     p0 = p1 + line * 160;
-    while(p0 < p1 + 4640)
+    while(p0 < TEXT_ADDR + 4640)
     {
         temp = *(unsigned long *)p0;
         *(unsigned long *)p1 = temp;
@@ -41,14 +42,14 @@ unsigned long _put_char(unsigned short c)
 {
     unsigned long cursor;
     unsigned long temp;
-    if (c == 0x0a)//enter
+    if (c == 0x000a)//enter
     {
         cursor = *(unsigned long *)(CURSOR_ADDR);
         temp = cursor & 0x7ff;
         while(temp >= 40) temp -= 40;
         cursor = cursor - temp + 40;
     }
-    if (c == 0x09)//tab
+    else if (c == 0x0009)//tab
     {
         cursor = *(unsigned long *)(CURSOR_ADDR);
         while(cursor & 0x3) cursor++;
@@ -68,37 +69,37 @@ unsigned long _put_char(unsigned short c)
     return 1;
 }
 
-SYSCALL put_seg(unsigned long *sp)
+SYSCALL put_seg_(unsigned long *sp)
 {
     *(unsigned long *)(SEG_ADDR) = sp[23];//a1
     return 1;
 }
 
-SYSCALL get_sw()
+SYSCALL get_sw_()
 {
     return *(unsigned long *)(SW_ADDR);
 }
 
-SYSCALL get_btn()
+SYSCALL get_btn_()
 {
     return *(unsigned long *)(BTN_ADDR);
 }
 
-SYSCALL put_led(unsigned long *sp)
+SYSCALL put_led_(unsigned long *sp)
 {
     *(unsigned long *)(LED_ADDR) = sp[23];//a1
     return 1;
 }
 
 //0 graph 1 text 3 mix
-SYSCALL set_vga(unsigned long *sp)
+SYSCALL set_vga_(unsigned long *sp)
 {
     unsigned long old_VGA = *(unsigned long *)(VGA_REG_ADDR);
     *(unsigned long *)(VGA_REG_ADDR) = (old_VGA & 0xfffffffc) | (sp[23] & 0x11);
     return 1;
 }
 
-SYSCALL set_cursor(unsigned long *sp)
+SYSCALL set_cursor_(unsigned long *sp)
 {
     //sp[23];//a1 mode
     //sp[22];//a2 *rgb
@@ -115,28 +116,32 @@ SYSCALL set_cursor(unsigned long *sp)
     return 1;
 }
 
-SYSCALL get_cursor()
+SYSCALL get_cursor_()
 {
     return *(unsigned long *)(CURSOR_ADDR);
 }
 
-SYSCALL scroll_screen(unsigned long *sp)
+SYSCALL scroll_screen_(unsigned long *sp)
 {
     return _scroll_screen(sp[23]);//a1
 }
 
-SYSCALL clear_screen()
+SYSCALL clear_screen_()
 {
     unsigned long p0 = TEXT_ADDR;
+    unsigned long cursor;
     while (p0 < TEXT_ADDR + 4640)
     {
         *(unsigned long *)p0 = 0;
         p0 += 4;
     }
+    cursor = *(unsigned long *)(CURSOR_ADDR);
+    cursor = (cursor >> 11 )<<11;
+    *(unsigned long *)(CURSOR_ADDR) = cursor;
     return 1;
 }
 
-SYSCALL put_charAt(unsigned long *sp)
+SYSCALL put_charAt_(unsigned long *sp)
 {
     //sp[23]//a1 c
     //sp[22]//a2 place
@@ -144,7 +149,7 @@ SYSCALL put_charAt(unsigned long *sp)
     unsigned char *fontRGB = (unsigned char*)sp[21];
     unsigned char *backRGB = (unsigned char*)sp[21]+3;
     unsigned long temp;
-    if (sp[22]<0 || sp[22]>=1200) return 0;
+    if (sp[22]<0 || sp[22]>=1160) return 0;
     temp = ((fontRGB[2]>>6)<<28) | ((fontRGB[1]>>6)<<26) | ((fontRGB[0]>>6)<<24)
         |  ((backRGB[2]>>6)<<20) | ((backRGB[1]>>6)<<18) | ((backRGB[0]>>6)<<16)
         |  (sp[23] & 0xffff);
@@ -152,12 +157,12 @@ SYSCALL put_charAt(unsigned long *sp)
     return 1;
 }
 
-SYSCALL put_char(unsigned long *sp)
+SYSCALL put_char_(unsigned long *sp)
 {
     return _put_char((unsigned short)sp[23]);//a1
 }
 
-SYSCALL put_string(unsigned long *sp)
+SYSCALL put_string_(unsigned long *sp)
 {
     unsigned short *str = (unsigned short *)sp[23];
     while(*str)
@@ -168,7 +173,7 @@ SYSCALL put_string(unsigned long *sp)
     return 1;
 }
 
-SYSCALL put_pixel(unsigned long *sp)
+SYSCALL put_pixel_(unsigned long *sp)
 {
     unsigned long x, y;
     unsigned char * RGB;
@@ -185,3 +190,19 @@ SYSCALL put_pixel(unsigned long *sp)
 
     return 1;
 }
+
+SYSCALL get_char_()
+{
+    return get_from_keybuf();
+}
+
+unsigned long __attribute__((section (".data"))) (*syscall_tbl[32])(unsigned long *)={
+    put_seg_, get_sw_, get_btn_, put_led_,
+    set_vga_, set_cursor_, get_cursor_, scroll_screen_, 
+    clear_screen_, put_charAt_, put_char_, put_string_, 
+    put_pixel_, get_char_, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0
+};
