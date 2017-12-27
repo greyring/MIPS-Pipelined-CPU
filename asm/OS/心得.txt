@@ -1,0 +1,22 @@
+void a()
+{
+    return (void)1;
+}
+这样写是可以的
+
+:output 必须写=表示只读 表示这段代码的输出，就是说要从这段代码中拿出值，比如syscall是有output的
+:input 表示这段代码需要的这段以外的一些东西
+:要中间保存的，告诉编译器这段代码中我会改这些寄存器，编译器自己看着办要不要保存这些寄存器"$s0", "memory"
+
+"r" register
+"i" immediate
+"m" memory
+
+register unsigned long res __asm__("$a0");
+res存放在寄存器a0中
+
+‘text’ is my code, vector table plus constants.
+
+‘data’ is for initialized variables, and it counts for RAM and FLASH. The linker allocates the data in FLASH which then is copied from ROM to RAM in the startup code.
+
+‘bss’ is for the uninitialized data in RAM which is initialized with zero in the startup code.

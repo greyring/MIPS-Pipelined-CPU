@@ -27,7 +27,7 @@ module Status(input clk,
 			 output [31:0]Q
     );
 
-reg BEV = 1;//0 normal 1 boot
+reg BEV = 0;//0 normal 1 boot
 reg [7:0] IM = 8'hff;
 reg ERL = 0;
 reg EXL = 0;
@@ -35,7 +35,7 @@ reg IE = 1;
 
 //BEV
 always @(posedge clk) begin
-	if (rst) BEV <= 1'b1;
+	if (rst) BEV <= 1'b0;
 	else if (we) BEV <= mtcd[22];
 	else BEV <= BEV;
 end

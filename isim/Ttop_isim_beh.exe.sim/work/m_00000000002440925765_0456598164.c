@@ -22,10 +22,10 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "F:/MyProgramme/0arch/PCPU/Status.v";
-static unsigned int ng1[] = {1U, 0U};
+static unsigned int ng1[] = {0U, 0U};
 static unsigned int ng2[] = {255U, 0U};
 static int ng3[] = {0, 0};
-static unsigned int ng4[] = {0U, 0U};
+static unsigned int ng4[] = {1U, 0U};
 
 
 
@@ -500,7 +500,7 @@ LAB11:
 LAB8:    goto LAB2;
 
 LAB6:    xsi_set_current_line(66, ng0);
-    t11 = ((char*)((ng1)));
+    t11 = ((char*)((ng4)));
     t12 = (t0 + 2888);
     xsi_vlogvar_wait_assign_value(t12, t11, 0, 0, 1, 0LL);
     goto LAB8;
@@ -571,15 +571,15 @@ LAB2:    xsi_set_current_line(71, ng0);
     t9 = (t0 + 2568);
     t10 = (t9 + 56U);
     t11 = *((char **)t10);
-    t12 = ((char*)((ng4)));
+    t12 = ((char*)((ng1)));
     t13 = (t0 + 2408);
     t14 = (t13 + 56U);
     t15 = *((char **)t14);
-    t16 = ((char*)((ng4)));
+    t16 = ((char*)((ng1)));
     t17 = (t0 + 2248);
     t18 = (t17 + 56U);
     t19 = *((char **)t18);
-    t20 = ((char*)((ng4)));
+    t20 = ((char*)((ng1)));
     xsi_vlogtype_concat(t3, 32, 32, 8U, t20, 9, t19, 1, t16, 6, t15, 8, t12, 5, t11, 1, t8, 1, t5, 1);
     t21 = (t0 + 5528);
     t22 = (t21 + 56U);

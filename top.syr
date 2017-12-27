@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.20 secs
  
 --> Reading design: top.prj
 
@@ -108,6 +108,8 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\CAM_unit.v" into library work
+Parsing module <CAM_unit>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\res_adder.v" into library work
 Parsing module <res_adder>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\inner_adder.v" into library work
@@ -116,8 +118,14 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\half_adder_sub.v" into library
 Parsing module <half_adder_sub>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\half_adder.v" into library work
 Parsing module <half_adder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Decoder.v" into library work
+Parsing module <Decoder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\CAM_16.v" into library work
+Parsing module <CAM_16>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Wired.v" into library work
 Parsing module <Wired>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\TLB_16.v" into library work
+Parsing module <TLB_16>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Status.v" into library work
 Parsing module <Status>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Random.v" into library work
@@ -178,6 +186,8 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\mul_adder.v" into library work
 Parsing module <mul_adder>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\mul32_s.v" into library work
 Parsing module <mul32_s>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MMU.v" into library work
+Parsing module <MMU>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\MEM_WB_REG.v" into library work
 Parsing module <MEM_WB_REG>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\jump_control.v" into library work
@@ -212,10 +222,12 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Multi_8CH32.v" into library wo
 Parsing module <Multi_8CH32>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\keyboard_controller.v" into library work
 Parsing module <keyboard_controller>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\ipcore_dir\Text_Section.v" into library work
+Parsing module <Text_Section>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\ipcore_dir\Inst_ROM.v" into library work
 Parsing module <Inst_ROM>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\ipcore_dir\Data_RAM.v" into library work
-Parsing module <Data_RAM>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\ipcore_dir\Data_Section.v" into library work
+Parsing module <Data_Section>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\input_switch_btn.v" into library work
 Parsing module <input_switch_btn>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Display_IO.v" into library work
@@ -252,7 +264,7 @@ Elaborating module <santi_jitter>.
 
 Elaborating module <anti_jitter>.
 
-Elaborating module <anti_jitter(WIDTH=21,INIT=0)>.
+Elaborating module <anti_jitter(WIDTH=27,INIT=0)>.
 WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 80: Assignment to BTN_OK ignored, since the identifier is never used
 
 Elaborating module <addr_decoder>.
@@ -261,8 +273,9 @@ WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 97: Assignment
 WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 99: Assignment to en_others ignored, since the identifier is never used
 
 Elaborating module <bus_interface>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 108: Assignment to SRAM_r ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 153: Assignment to SEG_r ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 119: Assignment to TEXTS_br ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 128: Assignment to DATAS_br ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 173: Assignment to SEG_r ignored, since the identifier is never used
 
 Elaborating module <Display>.
 WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\Display_IO.v" Line 21: Empty module <Display> remains a black box.
@@ -294,7 +307,6 @@ WARNING:HDLCompiler:413 - "F:\MyProgramme\0arch\PCPU\vga_port.v" Line 47: Result
 WARNING:HDLCompiler:413 - "F:\MyProgramme\0arch\PCPU\vga_port.v" Line 57: Result of 10-bit expression is truncated to fit in 9-bit target.
 
 Elaborating module <keyboard_controller>.
-WARNING:HDLCompiler:1016 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" Line 59: Port INDEX_P is not connected to this instance
 
 Elaborating module <PCPU_v>.
 
@@ -320,6 +332,27 @@ Elaborating module <Cause>.
 
 Elaborating module <Epc>.
 
+Elaborating module <MMU>.
+
+Elaborating module <TLB_16>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\TLB_16.v" Line 56: Assignment to TLBR ignored, since the identifier is never used
+
+Elaborating module <CAM_16(DATA_SIZE=19)>.
+
+Elaborating module <CAM_unit(DATA_SIZE=19)>.
+
+Elaborating module <CAM_16(DATA_SIZE=8)>.
+
+Elaborating module <CAM_unit(DATA_SIZE=8)>.
+
+Elaborating module <Decoder>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\MMU.v" Line 88: Assignment to Ikuseg ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\MMU.v" Line 89: Assignment to Iksseg ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\MMU.v" Line 90: Assignment to Ikseg3 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\MMU.v" Line 91: Assignment to Dkuseg ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\MMU.v" Line 92: Assignment to Dksseg ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\MMU.v" Line 93: Assignment to Dkseg3 ignored, since the identifier is never used
+
 Elaborating module <jump_control>.
 
 Elaborating module <REG32>.
@@ -327,7 +360,7 @@ Elaborating module <REG32>.
 Elaborating module <IF_ID_Reg>.
 
 Elaborating module <control>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\control.v" Line 103: Assignment to shift ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\control.v" Line 108: Assignment to shift ignored, since the identifier is never used
 
 Elaborating module <Regs>.
 
@@ -394,7 +427,7 @@ Elaborating module <MUL_EXE_EWB>.
 Elaborating module <EXE_MEM_REG>.
 
 Elaborating module <forward_mem>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" Line 509: Assignment to exc_memAddr ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" Line 565: Assignment to exc_memAddr ignored, since the identifier is never used
 
 Elaborating module <mul_adder>.
 WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\mul_adder.v" Line 290: Assignment to c1_63_1 ignored, since the identifier is never used
@@ -466,13 +499,17 @@ Elaborating module <Exception_handler>.
 Elaborating module <MEM_WB_REG>.
 
 Elaborating module <stall_control>.
-WARNING:HDLCompiler:552 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" Line 59: Input port INDEX_P is not connected on this instance
-
-Elaborating module <Data_RAM>.
-WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\Data_RAM.v" Line 39: Empty module <Data_RAM> remains a black box.
 
 Elaborating module <Inst_ROM>.
 WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\Inst_ROM.v" Line 39: Empty module <Inst_ROM> remains a black box.
+
+Elaborating module <Text_Section>.
+WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\Text_Section.v" Line 39: Empty module <Text_Section> remains a black box.
+WARNING:HDLCompiler:189 - "F:\MyProgramme\0arch\PCPU\top.v" Line 338: Size mismatch in connection of port <addrb>. Formal port size is 11-bit while actual signal size is 32-bit.
+
+Elaborating module <Data_Section>.
+WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\Data_Section.v" Line 39: Empty module <Data_Section> remains a black box.
+WARNING:HDLCompiler:189 - "F:\MyProgramme\0arch\PCPU\top.v" Line 347: Size mismatch in connection of port <addra>. Formal port size is 10-bit while actual signal size is 30-bit.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -489,53 +526,54 @@ INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 73: Output port <cr> of t
 INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 93: Output port <en_BIOS> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 93: Output port <en_DRAM> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 93: Output port <en_others> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 104: Output port <r_> of the instance <SRAM> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 113: Output port <addr_> of the instance <VGA_REG> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 122: Output port <addr_> of the instance <VGA_CURSOR> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 149: Output port <addr_> of the instance <SEG> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 149: Output port <r_> of the instance <SEG> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 157: Output port <addr_> of the instance <keyboard> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 157: Output port <wdata> of the instance <keyboard> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 157: Output port <w_> of the instance <keyboard> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 167: Output port <segclrn> of the instance <display> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 211: Output port <busy> of the instance <Vga_controller> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 243: Output port <full> of the instance <Keyboard_controller> is unconnected or connected to loadless signal.
-    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 311
-    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 311
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 115: Output port <r_> of the instance <TEXTS> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 124: Output port <r_> of the instance <DATAS> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 133: Output port <addr_> of the instance <VGA_REG> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 142: Output port <addr_> of the instance <VGA_CURSOR> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 169: Output port <addr_> of the instance <SEG> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 169: Output port <r_> of the instance <SEG> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 177: Output port <addr_> of the instance <keyboard> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 177: Output port <wdata> of the instance <keyboard> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 177: Output port <w_> of the instance <keyboard> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 187: Output port <segclrn> of the instance <display> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 231: Output port <busy> of the instance <Vga_controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 263: Output port <full> of the instance <Keyboard_controller> is unconnected or connected to loadless signal.
+    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 312
+    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 312
 INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal data_bus<31> may hinder XST clustering optimizations.
 INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal data_bus<9> may hinder XST clustering optimizations.
     Summary:
-	inferred   1 Multiplexer(s).
+	inferred   2 Multiplexer(s).
 	inferred  32 Tristate(s).
 Unit <top> synthesized.
 
@@ -619,21 +657,21 @@ Unit <anti_jitter> synthesized.
 
 Synthesizing Unit <anti_jitter_1>.
     Related source file is "F:\MyProgramme\0arch\PCPU\anti_jitter.v".
-        WIDTH = 21
+        WIDTH = 27
         INIT = 0
-    Found 21-bit register for signal <cnt>.
+    Found 27-bit register for signal <cnt>.
     Found 1-bit register for signal <out>.
-    Found 21-bit subtractor for signal <cnt[20]_GND_10_o_sub_6_OUT> created at line 41.
-    Found 21-bit adder for signal <cnt[20]_GND_10_o_add_2_OUT> created at line 36.
+    Found 27-bit subtractor for signal <cnt[26]_GND_10_o_sub_6_OUT> created at line 41.
+    Found 27-bit adder for signal <cnt[26]_GND_10_o_add_2_OUT> created at line 36.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  22 D-type flip-flop(s).
+	inferred  28 D-type flip-flop(s).
 Unit <anti_jitter_1> synthesized.
 
 Synthesizing Unit <addr_decoder>.
     Related source file is "F:\MyProgramme\0arch\PCPU\addr_decoder.v".
     Summary:
-	inferred  20 Multiplexer(s).
+	inferred  30 Multiplexer(s).
 Unit <addr_decoder> synthesized.
 
 Synthesizing Unit <bus_interface>.
@@ -677,14 +715,45 @@ Unit <bus_interface> synthesized.
 
 Synthesizing Unit <Multi_8CH32>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Multi_8CH32.v".
+    Found 1-bit register for signal <disp_data<29>>.
+    Found 1-bit register for signal <disp_data<27>>.
+    Found 1-bit register for signal <disp_data<25>>.
+    Found 1-bit register for signal <disp_data<22>>.
+    Found 1-bit register for signal <disp_data<20>>.
+    Found 1-bit register for signal <disp_data<18>>.
+    Found 1-bit register for signal <disp_data<16>>.
+    Found 1-bit register for signal <disp_data<14>>.
+    Found 1-bit register for signal <disp_data<12>>.
+    Found 1-bit register for signal <disp_data<10>>.
+    Found 1-bit register for signal <disp_data<8>>.
+    Found 1-bit register for signal <disp_data<7>>.
+    Found 1-bit register for signal <disp_data<5>>.
+    Found 1-bit register for signal <disp_data<3>>.
+    Found 1-bit register for signal <disp_data<1>>.
+    Found 1-bit register for signal <disp_data<31>>.
     Found 8-bit register for signal <cpu_blink>.
     Found 8-bit register for signal <cpu_point>.
-    Found 32-bit register for signal <disp_data>.
+    Found 1-bit register for signal <disp_data<30>>.
+    Found 1-bit register for signal <disp_data<28>>.
+    Found 1-bit register for signal <disp_data<26>>.
+    Found 1-bit register for signal <disp_data<24>>.
+    Found 1-bit register for signal <disp_data<23>>.
+    Found 1-bit register for signal <disp_data<21>>.
+    Found 1-bit register for signal <disp_data<19>>.
+    Found 1-bit register for signal <disp_data<17>>.
+    Found 1-bit register for signal <disp_data<15>>.
+    Found 1-bit register for signal <disp_data<13>>.
+    Found 1-bit register for signal <disp_data<11>>.
+    Found 1-bit register for signal <disp_data<9>>.
+    Found 1-bit register for signal <disp_data<6>>.
+    Found 1-bit register for signal <disp_data<4>>.
+    Found 1-bit register for signal <disp_data<2>>.
+    Found 1-bit register for signal <disp_data<0>>.
     Found 32-bit 8-to-1 multiplexer for signal <Disp_num> created at line 46.
     Found 8-bit 8-to-1 multiplexer for signal <point_out> created at line 46.
     Summary:
 	inferred  48 D-type flip-flop(s).
-	inferred   9 Multiplexer(s).
+	inferred   3 Multiplexer(s).
 Unit <Multi_8CH32> synthesized.
 
 Synthesizing Unit <vga_controller>.
@@ -729,7 +798,7 @@ WARNING:Xst:647 - Input <rd_reg> is never used. This port will be preserved and 
     Found 12-bit 4-to-1 multiplexer for signal <color_out> created at line 127.
     Summary:
 	inferred  32 D-type flip-flop(s).
-	inferred   3 Multiplexer(s).
+	inferred   4 Multiplexer(s).
 Unit <vga_controller> synthesized.
 
 Synthesizing Unit <vga_text>.
@@ -781,7 +850,7 @@ Synthesizing Unit <vga_cursor>.
     Found 1-bit register for signal <stat<31>>.
     Found 11-bit adder for signal <addr> created at line 55.
     Found 5x6-bit multiplier for signal <n0097> created at line 55.
-    Found 1-bit 4-to-1 multiplexer for signal <GND_54_o_PWR_21_o_MUX_227_o> created at line 61.
+    Found 1-bit 4-to-1 multiplexer for signal <GND_54_o_PWR_21_o_MUX_269_o> created at line 61.
     Found 11-bit comparator equal for signal <cursor_on> created at line 58
     Summary:
 	inferred   1 Multiplier(s).
@@ -849,32 +918,24 @@ Unit <keyboard_controller> synthesized.
 
 Synthesizing Unit <PCPU_v>.
     Related source file is "F:\MyProgramme\0arch\PCPU\PCPU_v.v".
-WARNING:Xst:2898 - Port 'INDEX_INDEX', unconnected in block instance 'CP0_', is tied to GND.
-WARNING:Xst:2898 - Port 'ENTRY_LO0_PFN', unconnected in block instance 'CP0_', is tied to GND.
-WARNING:Xst:2898 - Port 'ENTRY_LO0_DVG', unconnected in block instance 'CP0_', is tied to GND.
-WARNING:Xst:2898 - Port 'ENTRY_LO1_PFN', unconnected in block instance 'CP0_', is tied to GND.
-WARNING:Xst:2898 - Port 'ENTRY_LO1_DVG', unconnected in block instance 'CP0_', is tied to GND.
-WARNING:Xst:2898 - Port 'ENTRY_HI_VPN2', unconnected in block instance 'CP0_', is tied to GND.
-WARNING:Xst:2898 - Port 'ENTRY_HI_ASID', unconnected in block instance 'CP0_', is tied to GND.
-WARNING:Xst:2898 - Port 'INDEX_P', unconnected in block instance 'CP0_', is tied to GND.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 59: Output port <INDEX_out> of the instance <CP0_> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 59: Output port <RANDOM_out> of the instance <CP0_> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 59: Output port <ENTRY_LO0_out> of the instance <CP0_> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 59: Output port <ENTRY_LO1_out> of the instance <CP0_> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 59: Output port <ENTRY_HI_out> of the instance <CP0_> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 262: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 403: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
-    Found 32-bit adder for signal <npc> created at line 117.
-    Found 32-bit adder for signal <exe_npc[31]_GND_60_o_add_15_OUT> created at line 413.
-    Found 32-bit 4-to-1 multiplexer for signal <PC_jump> created at line 99.
-    Found 5-bit 4-to-1 multiplexer for signal <id_rega_addr> created at line 190.
-    Found 5-bit 4-to-1 multiplexer for signal <id_regb_addr> created at line 199.
-    Found 5-bit 4-to-1 multiplexer for signal <id_wb_dreg> created at line 209.
-    Found 32-bit 4-to-1 multiplexer for signal <mem_data> created at line 514.
-    Found 8-bit 4-to-1 multiplexer for signal <mem_dataB> created at line 563.
-    Found 16-bit 4-to-1 multiplexer for signal <mem_dataH> created at line 563.
-    Found 32-bit 8-to-1 multiplexer for signal <_n0247> created at line 561.
-    Found 32-bit 4-to-1 multiplexer for signal <_n0256> created at line 581.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 99: Output port <ITLB_Refill> of the instance <MMU_> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 99: Output port <ITLB_Invalid> of the instance <MMU_> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 99: Output port <DTLB_Refill> of the instance <MMU_> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 99: Output port <DTLB_Invalid> of the instance <MMU_> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 99: Output port <DTLB_Modified> of the instance <MMU_> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 310: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 457: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
+    Found 32-bit adder for signal <npc> created at line 163.
+    Found 32-bit adder for signal <exe_npc[31]_GND_60_o_add_15_OUT> created at line 467.
+    Found 32-bit 4-to-1 multiplexer for signal <PC_jump> created at line 145.
+    Found 5-bit 4-to-1 multiplexer for signal <id_rega_addr> created at line 238.
+    Found 5-bit 4-to-1 multiplexer for signal <id_regb_addr> created at line 247.
+    Found 5-bit 4-to-1 multiplexer for signal <id_wb_dreg> created at line 257.
+    Found 32-bit 4-to-1 multiplexer for signal <mem_data> created at line 569.
+    Found 8-bit 4-to-1 multiplexer for signal <mem_dataB> created at line 618.
+    Found 16-bit 4-to-1 multiplexer for signal <mem_dataH> created at line 618.
+    Found 32-bit 8-to-1 multiplexer for signal <_n0260> created at line 616.
+    Found 32-bit 4-to-1 multiplexer for signal <_n0269> created at line 636.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  19 Multiplexer(s).
@@ -882,7 +943,7 @@ Unit <PCPU_v> synthesized.
 
 Synthesizing Unit <CP0>.
     Related source file is "F:\MyProgramme\0arch\PCPU\CP0.v".
-    Found 32-bit 15-to-1 multiplexer for signal <_n0069> created at line 28.
+    Found 32-bit 15-to-1 multiplexer for signal <_n0070> created at line 28.
     Summary:
 	inferred   2 Multiplexer(s).
 Unit <CP0> synthesized.
@@ -914,6 +975,7 @@ WARNING:Xst:647 - Input <mtcd<30:4>> is never used. This port will be preserved 
     Found 1-bit register for signal <P>.
     Summary:
 	inferred   5 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
 Unit <Index> synthesized.
 
 Synthesizing Unit <EntryLo>.
@@ -934,15 +996,17 @@ WARNING:Xst:647 - Input <mtcd<12:8>> is never used. This port will be preserved 
     Found 19-bit register for signal <VPN2>.
     Summary:
 	inferred  27 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
 Unit <EntryHi> synthesized.
 
 Synthesizing Unit <Count>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Count.v".
     Found 32-bit register for signal <count>.
-    Found 32-bit adder for signal <count[31]_GND_67_o_add_1_OUT> created at line 28.
+    Found 32-bit adder for signal <count[31]_GND_67_o_add_1_OUT> created at line 33.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 Unit <Count> synthesized.
 
 Synthesizing Unit <Compare>.
@@ -994,6 +1058,89 @@ Synthesizing Unit <Epc>.
 	inferred   1 Multiplexer(s).
 Unit <Epc> synthesized.
 
+Synthesizing Unit <MMU>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\MMU.v".
+    Summary:
+	inferred   7 Multiplexer(s).
+Unit <MMU> synthesized.
+
+Synthesizing Unit <TLB_16>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\TLB_16.v".
+WARNING:Xst:647 - Input <INDEX<30:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <RANDOM<31:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ENTRY_HI<12:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ENTRY_LO0<5:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ENTRY_LO0<31:26>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ENTRY_LO1<5:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ENTRY_LO1<31:26>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 704-bit register for signal <n0153[703:0]>.
+    Found 16-bit register for signal <G>.
+    Found 1-bit 16-to-1 multiplexer for signal <hitaddr0[3]_DATA[15][0]_Mux_41_o> created at line 273.
+    Found 20-bit 16-to-1 multiplexer for signal <hitaddr0[3]_DATA[15][21]_wide_mux_42_OUT> created at line 274.
+    Found 1-bit 16-to-1 multiplexer for signal <hitaddr0[3]_DATA[15][22]_Mux_44_o> created at line 278.
+    Found 20-bit 16-to-1 multiplexer for signal <hitaddr0[3]_DATA[15][43]_wide_mux_45_OUT> created at line 279.
+    Found 1-bit 16-to-1 multiplexer for signal <hitaddr1[3]_DATA[15][0]_Mux_50_o> created at line 294.
+    Found 1-bit 16-to-1 multiplexer for signal <hitaddr1[3]_DATA[15][1]_Mux_51_o> created at line 296.
+    Found 20-bit 16-to-1 multiplexer for signal <hitaddr1[3]_DATA[15][21]_wide_mux_54_OUT> created at line 302.
+    Found 1-bit 16-to-1 multiplexer for signal <hitaddr1[3]_DATA[15][22]_Mux_57_o> created at line 308.
+    Found 1-bit 16-to-1 multiplexer for signal <hitaddr1[3]_DATA[15][23]_Mux_58_o> created at line 310.
+    Found 20-bit 16-to-1 multiplexer for signal <hitaddr1[3]_DATA[15][43]_wide_mux_61_OUT> created at line 316.
+    Found 20-bit 16-to-1 multiplexer for signal <raddr[3]_DATA[15][43]_wide_mux_71_OUT> created at line 353.
+    Found 20-bit 16-to-1 multiplexer for signal <raddr[3]_DATA[15][21]_wide_mux_74_OUT> created at line 355.
+    Found 1-bit 16-to-1 multiplexer for signal <raddr[3]_G[15]_Mux_77_o> created at line 357.
+    Found 2-bit 16-to-1 multiplexer for signal <n0215> created at line 350.
+    Found 2-bit 16-to-1 multiplexer for signal <n0214> created at line 350.
+    Summary:
+	inferred 720 D-type flip-flop(s).
+	inferred  85 Multiplexer(s).
+Unit <TLB_16> synthesized.
+
+Synthesizing Unit <CAM_16_1>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\CAM_16.v".
+        DATA_SIZE = 19
+    Found 19-bit 16-to-1 multiplexer for signal <data> created at line 50.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <CAM_16_1> synthesized.
+
+Synthesizing Unit <CAM_unit_1>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\CAM_unit.v".
+        DATA_SIZE = 19
+    Found 19-bit register for signal <temp>.
+    Found 19-bit comparator equal for signal <hit0> created at line 44
+    Found 19-bit comparator equal for signal <hit1> created at line 45
+    Found 19-bit comparator equal for signal <hit2> created at line 46
+    Summary:
+	inferred  19 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+Unit <CAM_unit_1> synthesized.
+
+Synthesizing Unit <CAM_16_2>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\CAM_16.v".
+        DATA_SIZE = 8
+    Found 8-bit 16-to-1 multiplexer for signal <data> created at line 50.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <CAM_16_2> synthesized.
+
+Synthesizing Unit <CAM_unit_2>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\CAM_unit.v".
+        DATA_SIZE = 8
+    Found 8-bit register for signal <temp>.
+    Found 8-bit comparator equal for signal <hit0> created at line 44
+    Found 8-bit comparator equal for signal <hit1> created at line 45
+    Found 8-bit comparator equal for signal <hit2> created at line 46
+    Summary:
+	inferred   8 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+Unit <CAM_unit_2> synthesized.
+
+Synthesizing Unit <Decoder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\Decoder.v".
+    Summary:
+	no macro.
+Unit <Decoder> synthesized.
+
 Synthesizing Unit <jump_control>.
     Related source file is "F:\MyProgramme\0arch\PCPU\jump_control.v".
     Summary:
@@ -1023,138 +1170,170 @@ WARNING:Xst:2999 - Signal 'LUT_1c', unconnected in block 'control', is tied to i
     Found 64x32-bit single-port Read Only RAM <Mram_LUT_fun> for signal <LUT_fun>.
     Found 64x32-bit single-port Read Only RAM <Mram_LUT_op> for signal <LUT_op>.
     Found 64x32-bit single-port Read Only RAM <Mram_LUT_1c> for signal <LUT_1c>.
-    Found 1-bit tristate buffer for signal <bus<31>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<30>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<29>> created at line 192
-    Found 1-bit tristate buffer for signal <id_j> created at line 192
-    Found 1-bit tristate buffer for signal <id_jr> created at line 192
-    Found 1-bit tristate buffer for signal <bus<26>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<25>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<24>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<23>> created at line 192
-    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 192
-    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 192
-    Found 1-bit tristate buffer for signal <bus<20>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<19>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<18>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<17>> created at line 192
-    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 192
-    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 192
-    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 192
-    Found 1-bit tristate buffer for signal <bus<13>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<12>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<11>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<10>> created at line 192
-    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 192
-    Found 1-bit tristate buffer for signal <bus<8>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<7>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<6>> created at line 192
-    Found 1-bit tristate buffer for signal <id_wb_we> created at line 192
-    Found 1-bit tristate buffer for signal <bus<4>> created at line 192
-    Found 1-bit tristate buffer for signal <bus<3>> created at line 192
-    Found 1-bit tristate buffer for signal <id_syscall> created at line 192
-    Found 1-bit tristate buffer for signal <id_unknown> created at line 192
-    Found 1-bit tristate buffer for signal <id_eret> created at line 192
-    Found 1-bit tristate buffer for signal <bus<31>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<30>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<29>> created at line 193
-    Found 1-bit tristate buffer for signal <id_j> created at line 193
-    Found 1-bit tristate buffer for signal <id_jr> created at line 193
-    Found 1-bit tristate buffer for signal <bus<26>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<25>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<24>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<23>> created at line 193
-    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 193
-    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 193
-    Found 1-bit tristate buffer for signal <bus<20>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<19>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<18>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<17>> created at line 193
-    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 193
-    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 193
-    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 193
-    Found 1-bit tristate buffer for signal <bus<13>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<12>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<11>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<10>> created at line 193
-    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 193
-    Found 1-bit tristate buffer for signal <bus<8>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<7>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<6>> created at line 193
-    Found 1-bit tristate buffer for signal <id_wb_we> created at line 193
-    Found 1-bit tristate buffer for signal <bus<4>> created at line 193
-    Found 1-bit tristate buffer for signal <bus<3>> created at line 193
-    Found 1-bit tristate buffer for signal <id_syscall> created at line 193
-    Found 1-bit tristate buffer for signal <id_unknown> created at line 193
-    Found 1-bit tristate buffer for signal <id_eret> created at line 193
-    Found 1-bit tristate buffer for signal <bus<31>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<30>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<29>> created at line 194
-    Found 1-bit tristate buffer for signal <id_j> created at line 194
-    Found 1-bit tristate buffer for signal <id_jr> created at line 194
-    Found 1-bit tristate buffer for signal <bus<26>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<25>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<24>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<23>> created at line 194
-    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 194
-    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 194
-    Found 1-bit tristate buffer for signal <bus<20>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<19>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<18>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<17>> created at line 194
-    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 194
-    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 194
-    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 194
-    Found 1-bit tristate buffer for signal <bus<13>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<12>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<11>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<10>> created at line 194
-    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 194
-    Found 1-bit tristate buffer for signal <bus<8>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<7>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<6>> created at line 194
-    Found 1-bit tristate buffer for signal <id_wb_we> created at line 194
-    Found 1-bit tristate buffer for signal <bus<4>> created at line 194
-    Found 1-bit tristate buffer for signal <bus<3>> created at line 194
-    Found 1-bit tristate buffer for signal <id_syscall> created at line 194
-    Found 1-bit tristate buffer for signal <id_unknown> created at line 194
-    Found 1-bit tristate buffer for signal <id_eret> created at line 194
-    Found 1-bit tristate buffer for signal <bus<31>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<30>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<29>> created at line 195
-    Found 1-bit tristate buffer for signal <id_j> created at line 195
-    Found 1-bit tristate buffer for signal <id_jr> created at line 195
-    Found 1-bit tristate buffer for signal <bus<26>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<25>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<24>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<23>> created at line 195
-    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 195
-    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 195
-    Found 1-bit tristate buffer for signal <bus<20>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<19>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<18>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<17>> created at line 195
-    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 195
-    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 195
-    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 195
-    Found 1-bit tristate buffer for signal <bus<13>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<12>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<11>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<10>> created at line 195
-    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 195
-    Found 1-bit tristate buffer for signal <bus<8>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<7>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<6>> created at line 195
-    Found 1-bit tristate buffer for signal <id_wb_we> created at line 195
-    Found 1-bit tristate buffer for signal <bus<4>> created at line 195
-    Found 1-bit tristate buffer for signal <bus<3>> created at line 195
-    Found 1-bit tristate buffer for signal <id_syscall> created at line 195
-    Found 1-bit tristate buffer for signal <id_unknown> created at line 195
-    Found 1-bit tristate buffer for signal <id_eret> created at line 195
+    Found 1-bit tristate buffer for signal <bus<31>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<30>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<29>> created at line 210
+    Found 1-bit tristate buffer for signal <id_j> created at line 210
+    Found 1-bit tristate buffer for signal <id_jr> created at line 210
+    Found 1-bit tristate buffer for signal <bus<26>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<25>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<24>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<23>> created at line 210
+    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 210
+    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 210
+    Found 1-bit tristate buffer for signal <bus<20>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<19>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<18>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<17>> created at line 210
+    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 210
+    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 210
+    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 210
+    Found 1-bit tristate buffer for signal <bus<13>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<12>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<11>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<10>> created at line 210
+    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 210
+    Found 1-bit tristate buffer for signal <bus<8>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<7>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<6>> created at line 210
+    Found 1-bit tristate buffer for signal <id_wb_we> created at line 210
+    Found 1-bit tristate buffer for signal <bus<4>> created at line 210
+    Found 1-bit tristate buffer for signal <bus<3>> created at line 210
+    Found 1-bit tristate buffer for signal <id_syscall> created at line 210
+    Found 1-bit tristate buffer for signal <id_unknown> created at line 210
+    Found 1-bit tristate buffer for signal <id_eret> created at line 210
+    Found 1-bit tristate buffer for signal <bus<31>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<30>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<29>> created at line 211
+    Found 1-bit tristate buffer for signal <id_j> created at line 211
+    Found 1-bit tristate buffer for signal <id_jr> created at line 211
+    Found 1-bit tristate buffer for signal <bus<26>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<25>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<24>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<23>> created at line 211
+    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 211
+    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 211
+    Found 1-bit tristate buffer for signal <bus<20>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<19>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<18>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<17>> created at line 211
+    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 211
+    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 211
+    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 211
+    Found 1-bit tristate buffer for signal <bus<13>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<12>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<11>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<10>> created at line 211
+    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 211
+    Found 1-bit tristate buffer for signal <bus<8>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<7>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<6>> created at line 211
+    Found 1-bit tristate buffer for signal <id_wb_we> created at line 211
+    Found 1-bit tristate buffer for signal <bus<4>> created at line 211
+    Found 1-bit tristate buffer for signal <bus<3>> created at line 211
+    Found 1-bit tristate buffer for signal <id_syscall> created at line 211
+    Found 1-bit tristate buffer for signal <id_unknown> created at line 211
+    Found 1-bit tristate buffer for signal <id_eret> created at line 211
+    Found 1-bit tristate buffer for signal <bus<31>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<30>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<29>> created at line 212
+    Found 1-bit tristate buffer for signal <id_j> created at line 212
+    Found 1-bit tristate buffer for signal <id_jr> created at line 212
+    Found 1-bit tristate buffer for signal <bus<26>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<25>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<24>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<23>> created at line 212
+    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 212
+    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 212
+    Found 1-bit tristate buffer for signal <bus<20>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<19>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<18>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<17>> created at line 212
+    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 212
+    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 212
+    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 212
+    Found 1-bit tristate buffer for signal <bus<13>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<12>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<11>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<10>> created at line 212
+    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 212
+    Found 1-bit tristate buffer for signal <bus<8>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<7>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<6>> created at line 212
+    Found 1-bit tristate buffer for signal <id_wb_we> created at line 212
+    Found 1-bit tristate buffer for signal <bus<4>> created at line 212
+    Found 1-bit tristate buffer for signal <bus<3>> created at line 212
+    Found 1-bit tristate buffer for signal <id_syscall> created at line 212
+    Found 1-bit tristate buffer for signal <id_unknown> created at line 212
+    Found 1-bit tristate buffer for signal <id_eret> created at line 212
+    Found 1-bit tristate buffer for signal <bus<31>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<30>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<29>> created at line 213
+    Found 1-bit tristate buffer for signal <id_j> created at line 213
+    Found 1-bit tristate buffer for signal <id_jr> created at line 213
+    Found 1-bit tristate buffer for signal <bus<26>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<25>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<24>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<23>> created at line 213
+    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 213
+    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 213
+    Found 1-bit tristate buffer for signal <bus<20>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<19>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<18>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<17>> created at line 213
+    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 213
+    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 213
+    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 213
+    Found 1-bit tristate buffer for signal <bus<13>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<12>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<11>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<10>> created at line 213
+    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 213
+    Found 1-bit tristate buffer for signal <bus<8>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<7>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<6>> created at line 213
+    Found 1-bit tristate buffer for signal <id_wb_we> created at line 213
+    Found 1-bit tristate buffer for signal <bus<4>> created at line 213
+    Found 1-bit tristate buffer for signal <bus<3>> created at line 213
+    Found 1-bit tristate buffer for signal <id_syscall> created at line 213
+    Found 1-bit tristate buffer for signal <id_unknown> created at line 213
+    Found 1-bit tristate buffer for signal <id_eret> created at line 213
+    Found 1-bit tristate buffer for signal <bus<31>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<30>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<29>> created at line 214
+    Found 1-bit tristate buffer for signal <id_j> created at line 214
+    Found 1-bit tristate buffer for signal <id_jr> created at line 214
+    Found 1-bit tristate buffer for signal <bus<26>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<25>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<24>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<23>> created at line 214
+    Found 1-bit tristate buffer for signal <id_exe_sign> created at line 214
+    Found 1-bit tristate buffer for signal <id_exe_imm> created at line 214
+    Found 1-bit tristate buffer for signal <bus<20>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<19>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<18>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<17>> created at line 214
+    Found 1-bit tristate buffer for signal <id_exe_res_sign> created at line 214
+    Found 1-bit tristate buffer for signal <id_exe_lui> created at line 214
+    Found 1-bit tristate buffer for signal <id_exe_jal> created at line 214
+    Found 1-bit tristate buffer for signal <bus<13>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<12>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<11>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<10>> created at line 214
+    Found 1-bit tristate buffer for signal <id_mem_CP0_we> created at line 214
+    Found 1-bit tristate buffer for signal <bus<8>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<7>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<6>> created at line 214
+    Found 1-bit tristate buffer for signal <id_wb_we> created at line 214
+    Found 1-bit tristate buffer for signal <bus<4>> created at line 214
+    Found 1-bit tristate buffer for signal <bus<3>> created at line 214
+    Found 1-bit tristate buffer for signal <id_syscall> created at line 214
+    Found 1-bit tristate buffer for signal <id_unknown> created at line 214
+    Found 1-bit tristate buffer for signal <id_eret> created at line 214
     Summary:
 	inferred   3 RAM(s).
-	inferred   1 Multiplexer(s).
-	inferred 128 Tristate(s).
+	inferred   5 Multiplexer(s).
+	inferred 160 Tristate(s).
 Unit <control> synthesized.
 
 Synthesizing Unit <Regs>.
@@ -1231,9 +1410,11 @@ Unit <res_adder> synthesized.
 
 Synthesizing Unit <branch_judge>.
     Related source file is "F:\MyProgramme\0arch\PCPU\branch_judge.v".
+    Found 1-bit 8-to-1 multiplexer for signal <b> created at line 34.
     Found 32-bit comparator equal for signal <equl> created at line 30
     Summary:
 	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
 Unit <branch_judge> synthesized.
 
 Synthesizing Unit <MUL_control>.
@@ -1252,9 +1433,9 @@ Unit <MUL_ID_EXE> synthesized.
 Synthesizing Unit <ID_EXE_REG>.
     Related source file is "F:\MyProgramme\0arch\PCPU\ID_EXE_REG.v".
     Found 42-bit register for signal <temp1>.
-    Found 145-bit register for signal <temp>.
+    Found 149-bit register for signal <temp>.
     Summary:
-	inferred 187 D-type flip-flop(s).
+	inferred 191 D-type flip-flop(s).
 Unit <ID_EXE_REG> synthesized.
 
 Synthesizing Unit <alu>.
@@ -1325,9 +1506,9 @@ Unit <MUL_EXE_EWB> synthesized.
 Synthesizing Unit <EXE_MEM_REG>.
     Related source file is "F:\MyProgramme\0arch\PCPU\EXE_MEM_REG.v".
     Found 43-bit register for signal <temp1>.
-    Found 88-bit register for signal <temp>.
+    Found 92-bit register for signal <temp>.
     Summary:
-	inferred 131 D-type flip-flop(s).
+	inferred 135 D-type flip-flop(s).
 Unit <EXE_MEM_REG> synthesized.
 
 Synthesizing Unit <forward_mem>.
@@ -1427,8 +1608,8 @@ WARNING:Xst:647 - Input <CAUSE_in<1:0>> is never used. This port will be preserv
 WARNING:Xst:647 - Input <CAUSE_in<7:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <CAUSE_in<22:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <CAUSE_in<30:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 32-bit subtractor for signal <PC[31]_GND_224_o_sub_5_OUT> created at line 62.
-    Found 32-bit adder for signal <PWR_66_o_GND_224_o_add_15_OUT> created at line 111.
+    Found 32-bit subtractor for signal <PC[31]_GND_263_o_sub_5_OUT> created at line 62.
+    Found 32-bit adder for signal <PWR_73_o_GND_263_o_add_15_OUT> created at line 111.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  13 Multiplexer(s).
@@ -1465,25 +1646,26 @@ Macro Statistics
  11-bit adder                                          : 2
  19-bit adder                                          : 1
  20-bit addsub                                         : 42
- 21-bit addsub                                         : 1
+ 27-bit addsub                                         : 1
  32-bit adder                                          : 5
  32-bit subtractor                                     : 1
  4-bit adder                                           : 1
  4-bit subtractor                                      : 1
  6-bit adder                                           : 2
  9-bit subtractor                                      : 1
-# Registers                                            : 199
- 1-bit register                                        : 115
+# Registers                                            : 264
+ 1-bit register                                        : 147
  10-bit register                                       : 3
  134-bit register                                      : 1
- 145-bit register                                      : 1
- 19-bit register                                       : 1
+ 149-bit register                                      : 1
+ 16-bit register                                       : 1
+ 19-bit register                                       : 17
  2-bit register                                        : 2
  20-bit register                                       : 44
- 21-bit register                                       : 1
  25-bit register                                       : 1
+ 27-bit register                                       : 1
  3-bit register                                        : 2
- 32-bit register                                       : 8
+ 32-bit register                                       : 7
  38-bit register                                       : 1
  39-bit register                                       : 1
  4-bit register                                        : 4
@@ -1492,49 +1674,60 @@ Macro Statistics
  5-bit register                                        : 1
  6-bit register                                        : 3
  64-bit register                                       : 1
+ 704-bit register                                      : 1
  71-bit register                                       : 1
- 8-bit register                                        : 4
- 88-bit register                                       : 1
+ 8-bit register                                        : 20
+ 92-bit register                                       : 1
  992-bit register                                      : 1
-# Comparators                                          : 23
+# Comparators                                          : 119
  10-bit comparator greater                             : 5
  10-bit comparator lessequal                           : 3
  11-bit comparator equal                               : 1
+ 19-bit comparator equal                               : 48
  32-bit comparator equal                               : 3
  32-bit comparator greater                             : 2
  5-bit comparator equal                                : 7
  6-bit comparator equal                                : 1
  6-bit comparator not equal                            : 1
-# Multiplexers                                         : 197
- 1-bit 16-to-1 multiplexer                             : 1
- 1-bit 2-to-1 multiplexer                              : 81
+ 8-bit comparator equal                                : 48
+# Multiplexers                                         : 307
+ 1-bit 16-to-1 multiplexer                             : 8
+ 1-bit 2-to-1 multiplexer                              : 132
  1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
  11-bit 2-to-1 multiplexer                             : 1
- 12-bit 2-to-1 multiplexer                             : 6
+ 12-bit 2-to-1 multiplexer                             : 7
  12-bit 4-to-1 multiplexer                             : 1
+ 16-bit 2-to-1 multiplexer                             : 1
  16-bit 4-to-1 multiplexer                             : 1
  18-bit 2-to-1 multiplexer                             : 1
- 2-bit 2-to-1 multiplexer                              : 12
- 20-bit 2-to-1 multiplexer                             : 2
+ 19-bit 16-to-1 multiplexer                            : 1
+ 19-bit 2-to-1 multiplexer                             : 2
+ 2-bit 16-to-1 multiplexer                             : 2
+ 2-bit 2-to-1 multiplexer                              : 14
+ 20-bit 16-to-1 multiplexer                            : 6
+ 20-bit 2-to-1 multiplexer                             : 4
  3-bit 2-to-1 multiplexer                              : 2
  32-bit 11-to-1 multiplexer                            : 1
  32-bit 15-to-1 multiplexer                            : 1
- 32-bit 2-to-1 multiplexer                             : 61
+ 32-bit 2-to-1 multiplexer                             : 75
  32-bit 31-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 3
  32-bit 8-to-1 multiplexer                             : 2
- 4-bit 2-to-1 multiplexer                              : 3
+ 4-bit 2-to-1 multiplexer                              : 7
+ 44-bit 2-to-1 multiplexer                             : 16
  5-bit 2-to-1 multiplexer                              : 5
  5-bit 4-to-1 multiplexer                              : 3
  6-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 4
+ 8-bit 16-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 3
  8-bit 4-to-1 multiplexer                              : 1
  8-bit 8-to-1 multiplexer                              : 1
 # Logic shifters                                       : 2
  32-bit shifter logical left                           : 1
  32-bit shifter logical right                          : 1
-# Tristates                                            : 391
- 1-bit tristate buffer                                 : 391
+# Tristates                                            : 456
+ 1-bit tristate buffer                                 : 456
 # FSMs                                                 : 1
 # Xors                                                 : 3458
  1-bit xor2                                            : 3450
@@ -1551,13 +1744,15 @@ Macro Statistics
 
 Reading core <Display.ngc>.
 Reading core <ipcore_dir/Inst_ROM.ngc>.
-Reading core <ipcore_dir/Data_RAM.ngc>.
+Reading core <ipcore_dir/Text_Section.ngc>.
+Reading core <ipcore_dir/Data_Section.ngc>.
 Reading core <ipcore_dir/text_vga_ram.ngc>.
 Reading core <ipcore_dir/text_vga_rom.ngc>.
 Reading core <ipcore_dir/graph_vga_ram.ngc>.
 Loading core <Display> for timing and area information for instance <display>.
-Loading core <Inst_ROM> for timing and area information for instance <Inst_ROM_>.
-Loading core <Data_RAM> for timing and area information for instance <Data_RAM_>.
+Loading core <Inst_ROM> for timing and area information for instance <BIOS>.
+Loading core <Text_Section> for timing and area information for instance <TEXT>.
+Loading core <Data_Section> for timing and area information for instance <DATA>.
 Loading core <text_vga_ram> for timing and area information for instance <Text_vga_ram>.
 Loading core <text_vga_rom> for timing and area information for instance <Text_vga_rom>.
 Loading core <graph_vga_ram> for timing and area information for instance <Graph_vga_ram0>.
@@ -1679,6 +1874,8 @@ WARNING:Xst:1293 - FF/Latch <temp1_3> has a constant value of 0 in block <IF_ID>
 WARNING:Xst:1293 - FF/Latch <temp1_2> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <temp1_1> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <temp1_0> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <temp_3> of sequential type is unconnected in block <ID_EXE>.
+WARNING:Xst:2677 - Node <temp_3> of sequential type is unconnected in block <EXE_MEM_REG>.
 
 Synthesizing (advanced) Unit <Count>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
@@ -1785,43 +1982,53 @@ Macro Statistics
 # Counters                                             : 50
  10-bit up counter                                     : 2
  20-bit updown counter                                 : 42
- 21-bit updown counter                                 : 1
+ 27-bit updown counter                                 : 1
  32-bit up counter                                     : 2
  4-bit up counter                                      : 1
  6-bit up counter                                      : 2
-# Registers                                            : 2122
- Flip-Flops                                            : 2122
-# Comparators                                          : 23
+# Registers                                            : 3282
+ Flip-Flops                                            : 3282
+# Comparators                                          : 119
  10-bit comparator greater                             : 5
  10-bit comparator lessequal                           : 3
  11-bit comparator equal                               : 1
+ 19-bit comparator equal                               : 48
  32-bit comparator equal                               : 3
  32-bit comparator greater                             : 2
  5-bit comparator equal                                : 7
  6-bit comparator equal                                : 1
  6-bit comparator not equal                            : 1
-# Multiplexers                                         : 211
- 1-bit 16-to-1 multiplexer                             : 1
- 1-bit 2-to-1 multiplexer                              : 96
+ 8-bit comparator equal                                : 48
+# Multiplexers                                         : 320
+ 1-bit 16-to-1 multiplexer                             : 8
+ 1-bit 2-to-1 multiplexer                              : 147
  1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
  11-bit 2-to-1 multiplexer                             : 1
- 12-bit 2-to-1 multiplexer                             : 6
+ 12-bit 2-to-1 multiplexer                             : 7
  12-bit 4-to-1 multiplexer                             : 1
+ 16-bit 2-to-1 multiplexer                             : 1
  16-bit 4-to-1 multiplexer                             : 1
- 2-bit 2-to-1 multiplexer                              : 12
- 20-bit 2-to-1 multiplexer                             : 2
+ 19-bit 16-to-1 multiplexer                            : 1
+ 19-bit 2-to-1 multiplexer                             : 2
+ 2-bit 16-to-1 multiplexer                             : 2
+ 2-bit 2-to-1 multiplexer                              : 14
+ 20-bit 16-to-1 multiplexer                            : 6
+ 20-bit 2-to-1 multiplexer                             : 4
  3-bit 2-to-1 multiplexer                              : 2
  32-bit 11-to-1 multiplexer                            : 1
  32-bit 15-to-1 multiplexer                            : 1
- 32-bit 2-to-1 multiplexer                             : 61
+ 32-bit 2-to-1 multiplexer                             : 74
  32-bit 31-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 3
  32-bit 8-to-1 multiplexer                             : 2
- 4-bit 2-to-1 multiplexer                              : 3
+ 4-bit 2-to-1 multiplexer                              : 7
+ 44-bit 2-to-1 multiplexer                             : 16
  5-bit 2-to-1 multiplexer                              : 5
  5-bit 4-to-1 multiplexer                              : 3
  6-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 4
+ 8-bit 16-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 3
  8-bit 4-to-1 multiplexer                              : 1
  8-bit 8-to-1 multiplexer                              : 1
 # Logic shifters                                       : 2
@@ -1987,11 +2194,11 @@ WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_58_3>, <fa1_62_3> of unit <ful
 WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_61_2>, <fa1_62_2> of unit <full_adder> are equivalent, second instance is removed
 INFO:Xst:2261 - The FF/Latch <cpu_blink_0> in Unit <Multi_8CH32> is equivalent to the following 7 FFs/Latches, which will be removed : <cpu_blink_1> <cpu_blink_2> <cpu_blink_3> <cpu_blink_4> <cpu_blink_5> <cpu_blink_6> <cpu_blink_7> 
 INFO:Xst:2261 - The FF/Latch <temp1_0> in Unit <IF_ID_Reg> is equivalent to the following 3 FFs/Latches, which will be removed : <temp1_1> <temp1_2> <temp1_3> 
-INFO:Xst:2261 - The FF/Latch <temp_0> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_72> 
-INFO:Xst:2261 - The FF/Latch <temp_1> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_73> 
-INFO:Xst:2261 - The FF/Latch <temp_2> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_74> 
-INFO:Xst:2261 - The FF/Latch <temp_3> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_75> 
+INFO:Xst:2261 - The FF/Latch <temp_6> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_78> 
+INFO:Xst:2261 - The FF/Latch <temp_7> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_79> 
+INFO:Xst:2261 - The FF/Latch <temp_8> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_80> 
 INFO:Xst:2261 - The FF/Latch <temp_4> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_76> 
+INFO:Xst:2261 - The FF/Latch <temp_5> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_77> 
 WARNING:Xst:1293 - FF/Latch <temp1_0> has a constant value of 0 in block <IF_ID_Reg>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <Input_switch_btn/Btn_scan/FSM_0> on signal <state[1:5]> with user encoding.
@@ -2004,23 +2211,12 @@ Optimizing FSM <Input_switch_btn/Btn_scan/FSM_0> on signal <state[1:5]> with use
  10111 | 10111
  01111 | 01111
 -------------------
-WARNING:Xst:1293 - FF/Latch <disp_data_9> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_11> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_13> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_15> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_17> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_19> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_21> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_23> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_24> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_26> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_28> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <disp_data_30> has a constant value of 0 in block <Multi_8CH32>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:1901 - Instance Clk_gen/MMCME2_BASE_inst in unit top of type MMCME2_BASE has been replaced by MMCME2_ADV
-INFO:Xst:2261 - The FF/Latch <cpu_blink_0> in Unit <Multi_8CH32> is equivalent to the following 12 FFs/Latches, which will be removed : <disp_data_8> <disp_data_10> <disp_data_12> <disp_data_14> <disp_data_16> <disp_data_18> <disp_data_20> <disp_data_22> <disp_data_25> <disp_data_27> <disp_data_29> <disp_data_31> 
 WARNING:Xst:2040 - Unit top: 32 multi-source signals are replaced by logic (pull-up yes): data_bus<0>, data_bus<10>, data_bus<11>, data_bus<12>, data_bus<13>, data_bus<14>, data_bus<15>, data_bus<16>, data_bus<17>, data_bus<18>, data_bus<19>, data_bus<1>, data_bus<20>, data_bus<21>, data_bus<22>, data_bus<23>, data_bus<24>, data_bus<25>, data_bus<26>, data_bus<27>, data_bus<28>, data_bus<29>, data_bus<2>, data_bus<30>, data_bus<31>, data_bus<3>, data_bus<4>, data_bus<5>, data_bus<6>, data_bus<7>, data_bus<8>, data_bus<9>.
 WARNING:Xst:2042 - Unit bus_interface: 33 internal tristates are replaced by logic (pull-up yes): data<0>, data<10>, data<11>, data<12>, data<13>, data<14>, data<15>, data<16>, data<17>, data<18>, data<19>, data<1>, data<20>, data<21>, data<22>, data<23>, data<24>, data<25>, data<26>, data<27>, data<28>, data<29>, data<2>, data<30>, data<31>, data<3>, data<4>, data<5>, data<6>, data<7>, data<8>, data<9>, ready.
 WARNING:Xst:2040 - Unit control: 32 multi-source signals are replaced by logic (pull-up yes): bus<10>, bus<11>, bus<12>, bus<13>, bus<17>, bus<18>, bus<19>, bus<20>, bus<23>, bus<24>, bus<25>, bus<26>, bus<29>, bus<30>, bus<31>, bus<3>, bus<4>, bus<6>, bus<7>, bus<8>, id_eret, id_exe_imm, id_exe_jal, id_exe_lui, id_exe_res_sign, id_exe_sign, id_j, id_jr, id_mem_CP0_we, id_syscall, id_unknown, id_wb_we.
+
+Optimizing unit <CAM_16_1> ...
 
 Optimizing unit <REG32> ...
 
@@ -2046,6 +2242,8 @@ Optimizing unit <IF_ID_Reg> ...
 
 Optimizing unit <CP0> ...
 
+Optimizing unit <EntryLo> ...
+
 Optimizing unit <EntryHi> ...
 
 Optimizing unit <Compare> ...
@@ -2057,6 +2255,12 @@ Optimizing unit <Cause> ...
 Optimizing unit <Epc> ...
 
 Optimizing unit <Random> ...
+
+Optimizing unit <MMU> ...
+
+Optimizing unit <TLB_16> ...
+
+Optimizing unit <CAM_16_2> ...
 
 Optimizing unit <ID_EXE_REG> ...
 
@@ -2085,8 +2289,6 @@ Optimizing unit <forward_reg> ...
 Optimizing unit <mul_adder> ...
 
 Optimizing unit <adder64> ...
-
-Optimizing unit <branch_judge> ...
 WARNING:Xst:1293 - FF/Latch <PCPU/_Mul_EXE_EWB/temp_70> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PCPU/_Mul_EXE_EWB/temp_71> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PCPU/_Mul_EXE_EWB/temp_72> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2099,7 +2301,7 @@ WARNING:Xst:1293 - FF/Latch <PCPU/ID_EXE/temp1_0> has a constant value of 0 in b
 WARNING:Xst:1293 - FF/Latch <PCPU/ID_EXE/temp1_1> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PCPU/ID_EXE/temp1_2> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PCPU/ID_EXE/temp1_3> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <PCPU/ID_EXE/temp_15> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <PCPU/ID_EXE/temp_19> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PCPU/CP0_/CAUSE/HIP_0> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PCPU/CP0_/CAUSE/HIP_1> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PCPU/CP0_/CAUSE/HIP_2> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -2910,90 +3112,104 @@ WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_3> of sequential t
 WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_2> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_1> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_0> of sequential type is unconnected in block <top>.
-WARNING:Xst:1293 - FF/Latch <PCPU/EXE_MEM_REG/temp_14> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_42> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_113> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_37> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_108> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_43> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_114> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_38> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_109> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_44> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_115> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_39> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_110> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_50> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_121> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_45> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_116> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_51> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_122> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_46> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_117> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_52> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_123> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_47> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_118> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_53> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_124> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_48> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_119> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_54> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_125> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_49> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_120> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_60> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_131> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_55> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_126> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_61> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_132> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_56> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_127> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_62> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_133> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_57> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_128> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_63> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_134> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_58> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_129> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_64> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_135> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_59> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_130> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_65> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_136> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_66> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_137> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_67> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_138> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_68> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_139> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_69> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_140> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_6> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_77> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_7> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_78> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_8> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_79> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_9> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_80> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_10> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_81> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_11> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_82> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_12> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_83> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_13> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_84> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_14> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_85> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_20> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_91> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_15> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_86> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_21> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_92> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_16> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_87> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_22> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_93> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_17> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_88> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_23> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_94> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_18> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_89> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_24> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_95> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_19> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_90> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_30> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_101> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_25> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_96> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_31> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_102> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_26> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_97> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_32> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_103> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_27> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_98> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_33> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_104> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_28> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_99> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_34> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_105> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_29> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_100> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_40> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_111> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_35> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_106> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_41> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_112> 
-INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_36> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_107> 
+WARNING:Xst:2677 - Node <PCPU/ID_EXE/temp_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <PCPU/EXE_MEM_REG/temp_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:1293 - FF/Latch <PCPU/EXE_MEM_REG/temp_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_15> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_14> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_13> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_12> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_11> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_10> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_9> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_8> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_42> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_117> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_37> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_112> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_43> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_118> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_38> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_113> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_44> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_119> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_39> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_114> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_50> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_125> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_45> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_120> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_51> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_126> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_46> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_121> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_52> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_127> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_47> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_122> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_53> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_128> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_48> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_123> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_54> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_129> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_49> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_124> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_60> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_135> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_55> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_130> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_61> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_136> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_56> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_131> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_62> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_137> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_57> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_132> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_63> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_138> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_58> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_133> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_64> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_139> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_59> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_134> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_65> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_140> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_66> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_141> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_67> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_142> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_68> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_143> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_69> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_144> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_6> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_81> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_7> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_82> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_8> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_83> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_9> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_84> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_10> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_85> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_11> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_86> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_12> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_87> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_13> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_88> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_14> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_89> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_20> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_95> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_15> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_90> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_21> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_96> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_16> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_91> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_22> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_97> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_17> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_92> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_23> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_98> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_18> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_93> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_24> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_99> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_19> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_94> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_30> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_105> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_25> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_100> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_31> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_106> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_26> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_101> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_32> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_107> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_27> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_102> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_33> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_108> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_28> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_103> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_34> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_109> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_29> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_104> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_40> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_115> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_35> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_110> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_41> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_116> 
+INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_36> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_111> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 4.
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 6.
 INFO:Xst:2260 - The FF/Latch <P7SEG/sh_clk> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/sh_clk_1> 
 INFO:Xst:2260 - The FF/Latch <P7SEG/S_0> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/S_0_1> 
 INFO:Xst:2260 - The FF/Latch <P7SEG/sh_clk> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/sh_clk_1> 
 INFO:Xst:2260 - The FF/Latch <P7SEG/S_0> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/S_0_1> 
-FlipFlop PCPU/EXE_MEM_REG/temp1_9 has been replicated 1 time(s)
-FlipFlop PCPU/ID_EXE/temp_141 has been replicated 1 time(s)
-FlipFlop PCPU/ID_EXE/temp_142 has been replicated 1 time(s)
-FlipFlop PCPU/ID_EXE/temp_144 has been replicated 1 time(s)
-FlipFlop PCPU/Mem_wb_reg/temp_33 has been replicated 1 time(s)
-FlipFlop PCPU/Mem_wb_reg/temp_34 has been replicated 1 time(s)
-FlipFlop PCPU/Mem_wb_reg/temp_35 has been replicated 1 time(s)
-FlipFlop PCPU/Mem_wb_reg/temp_36 has been replicated 1 time(s)
-FlipFlop PCPU/_MUL_ID_EXE/temp_6 has been replicated 1 time(s)
-FlipFlop PCPU/_Mul_EXE_EWB/temp_4 has been replicated 3 time(s)
-FlipFlop PCPU/_Mul_EXE_EWB/temp_5 has been replicated 3 time(s)
+FlipFlop PCPU/CP0_/ENTRYHI/ASID_2 has been replicated 1 time(s)
+FlipFlop PCPU/CP0_/ENTRYHI/ASID_3 has been replicated 1 time(s)
+FlipFlop PCPU/CP0_/ENTRYHI/ASID_4 has been replicated 1 time(s)
+FlipFlop PCPU/CP0_/ENTRYHI/ASID_5 has been replicated 1 time(s)
+FlipFlop PCPU/CP0_/ENTRYHI/ASID_6 has been replicated 1 time(s)
+FlipFlop PCPU/_Mul_EXE_EWB/temp_4 has been replicated 4 time(s)
+FlipFlop PCPU/_Mul_EXE_EWB/temp_5 has been replicated 4 time(s)
 
 Final Macro Processing ...
 
@@ -3001,8 +3217,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 2175
- Flip-Flops                                            : 2175
+# Registers                                            : 3345
+ Flip-Flops                                            : 3345
 
 =========================================================================
 
@@ -3025,42 +3241,42 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 9290
+# BELS                             : 12003
 #      AND2                        : 8
 #      AND3                        : 88
 #      AND4                        : 72
-#      GND                         : 8
+#      GND                         : 9
 #      INV                         : 86
-#      LUT1                        : 147
-#      LUT2                        : 184
-#      LUT3                        : 2847
-#      LUT4                        : 424
-#      LUT5                        : 1991
-#      LUT6                        : 2478
-#      MUXCY                       : 378
-#      MUXF7                       : 134
-#      MUXF8                       : 1
+#      LUT1                        : 146
+#      LUT2                        : 279
+#      LUT3                        : 2798
+#      LUT4                        : 402
+#      LUT5                        : 2041
+#      LUT6                        : 4274
+#      MUXCY                       : 729
+#      MUXF7                       : 468
+#      MUXF8                       : 152
 #      OR2                         : 56
 #      OR3                         : 24
 #      OR4                         : 32
-#      VCC                         : 8
-#      XORCY                       : 324
-# FlipFlops/Latches                : 2265
-#      FD                          : 72
+#      VCC                         : 9
+#      XORCY                       : 330
+# FlipFlops/Latches                : 3435
+#      FD                          : 40
 #      FDC                         : 2
-#      FDCE                        : 12
-#      FDE                         : 151
+#      FDCE                        : 24
+#      FDE                         : 157
 #      FDE_1                       : 65
-#      FDPE                        : 5
-#      FDR                         : 627
-#      FDRE                        : 1276
+#      FDPE                        : 17
+#      FDR                         : 663
+#      FDRE                        : 2413
 #      FDS                         : 4
-#      FDSE                        : 51
-# RAMS                             : 160
+#      FDSE                        : 50
+# RAMS                             : 162
 #      RAM32M                      : 1
 #      RAM32X1D                    : 2
 #      RAMB18E1                    : 3
-#      RAMB36E1                    : 154
+#      RAMB36E1                    : 156
 # Clock Buffers                    : 8
 #      BUFG                        : 8
 # IO Buffers                       : 31
@@ -3079,26 +3295,26 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            2265  out of  407600     0%  
- Number of Slice LUTs:                 8165  out of  203800     4%  
-    Number used as Logic:              8157  out of  203800     4%  
+ Number of Slice Registers:            3435  out of  407600     0%  
+ Number of Slice LUTs:                10034  out of  203800     4%  
+    Number used as Logic:             10026  out of  203800     4%  
     Number used as Memory:                8  out of  64000     0%  
        Number used as RAM:                8
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   8479
-   Number with an unused Flip Flop:    6214  out of   8479    73%  
-   Number with an unused LUT:           314  out of   8479     3%  
-   Number of fully used LUT-FF pairs:  1951  out of   8479    23%  
-   Number of unique control sets:        54
+ Number of LUT Flip Flop pairs used:  10913
+   Number with an unused Flip Flop:    7478  out of  10913    68%  
+   Number with an unused LUT:           879  out of  10913     8%  
+   Number of fully used LUT-FF pairs:  2556  out of  10913    23%  
+   Number of unique control sets:        73
 
 IO Utilization: 
  Number of IOs:                          48
  Number of bonded IOBs:                  32  out of    400     8%  
 
 Specific Feature Utilization:
- Number of Block RAM/FIFO:              156  out of    445    35%  
-    Number using Block RAM only:        156
+ Number of Block RAM/FIFO:              158  out of    445    35%  
+    Number using Block RAM only:        158
  Number of BUFG/BUFGCTRLs:                8  out of     32    25%  
  Number of DSP48E1s:                      1  out of    840     0%  
 
@@ -3123,9 +3339,9 @@ Clock Information:
 -------------------------------------+---------------------------------+-------+
 Clock Signal                         | Clock buffer(FF name)           | Load  |
 -------------------------------------+---------------------------------+-------+
-Clk_gen/clk_100m_unbuf               | BUFG                            | 433   |
-Clk_CPU(Mmux_Clk_CPU11:O)            | BUFG(*)(Keyboard_controller/t_5)| 896   |
-Clk_CPU_INV_58_o(Clk_CPU_INV_58_o1:O)| BUFG(*)(multi_8ch32/disp_data_7)| 1011  |
+Clk_gen/clk_100m_unbuf               | BUFG                            | 439   |
+Clk_CPU(Mmux_Clk_CPU11:O)            | BUFG(*)(Keyboard_controller/t_5)| 2036  |
+Clk_CPU_INV_66_o(Clk_CPU_INV_66_o1:O)| BUFG(*)(multi_8ch32/disp_data_0)| 1037  |
 Clk_gen/Div_1                        | BUFG                            | 20    |
 display/P7SEG/sh_clk                 | BUFG                            | 65    |
 -------------------------------------+---------------------------------+-------+
@@ -3138,20 +3354,21 @@ Asynchronous Control Signals Information:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Control Signal                                                                                                                                                                             | Buffer(FF name)                                                                                                                                                                 | Load  |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram0/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
-Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram1/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[27].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
+Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram0/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[63].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
+Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram1/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
+TEXT/N1(TEXT/XST_GND:G)                                                                                                                                                                    | NONE(TEXT/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram)                                 | 4     |
 Vga_controller/Vga_text/Text_vga_rom/N1(Vga_controller/Vga_text/Text_vga_rom/XST_GND:G)                                                                                                    | NONE(Vga_controller/Vga_text/Text_vga_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)      | 4     |
-Data_RAM_/N1(Data_RAM_/XST_GND:G)                                                                                                                                                          | NONE(Data_RAM_/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                 | 2     |
-Inst_ROM_/N1(Inst_ROM_/XST_GND:G)                                                                                                                                                          | NONE(Inst_ROM_/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                 | 2     |
+BIOS/N1(BIOS/XST_GND:G)                                                                                                                                                                    | NONE(BIOS/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                      | 2     |
+DATA/N1(DATA/XST_GND:G)                                                                                                                                                                    | NONE(DATA/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                      | 2     |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 7.729ns (Maximum Frequency: 129.376MHz)
-   Minimum input arrival time before clock: 2.399ns
-   Maximum output required time after clock: 6.666ns
+   Minimum period: 12.865ns (Maximum Frequency: 77.729MHz)
+   Minimum input arrival time before clock: 2.459ns
+   Maximum output required time after clock: 8.000ns
    Maximum combinational path delay: 0.000ns
 
 Timing Details:
@@ -3160,72 +3377,89 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk_gen/clk_100m_unbuf'
-  Clock period: 4.487ns (frequency: 222.891MHz)
-  Total number of paths / destination ports: 64058 / 1801
+  Clock period: 5.365ns (frequency: 186.385MHz)
+  Total number of paths / destination ports: 64934 / 1813
 -------------------------------------------------------------------------
-Delay:               4.487ns (Levels of Logic = 4)
+Delay:               5.365ns (Levels of Logic = 6)
   Source:            Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.WIDE_PRIM18.ram (RAM)
-  Destination:       Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram (RAM)
+  Destination:       Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram (RAM)
   Source Clock:      Clk_gen/clk_100m_unbuf rising
   Destination Clock: Clk_gen/clk_100m_unbuf rising
 
-  Data Path: Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.WIDE_PRIM18.ram to Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram
+  Data Path: Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.WIDE_PRIM18.ram to Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB18E1:CLKARDCLK->DOBDO11    1   1.800   0.405  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.WIDE_PRIM18.ram (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.ram_douta<27>)
-     LUT4:I2->O            3   0.043   0.615  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux201 (douta<27>)
-     end scope: 'Vga_controller/Vga_text/Text_vga_ram:douta<27>'
-     LUT6:I1->O            1   0.043   0.522  SEG_wdata<27>LogicTrst3 (SEG_wdata<27>LogicTrst2)
-     LUT5:I1->O           50   0.043   0.472  SEG_wdata<27>LogicTrst5 (SEG_wdata<27>)
-     begin scope: 'Vga_controller/Vga_text/Text_vga_ram:dina<27>'
-     RAMB18E1:DIADI11          0.543          U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram
+     RAMB18E1:CLKARDCLK->DOADO6    1   1.800   0.405  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.WIDE_PRIM18.ram (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.ram_douta<6>)
+     LUT4:I2->O            3   0.043   0.625  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux291 (douta<6>)
+     end scope: 'Vga_controller/Vga_text/Text_vga_ram:douta<6>'
+     LUT6:I0->O            1   0.043   0.495  DATAS_bwdata<6>LogicTrst5_SW0 (N210)
+     LUT6:I3->O            1   0.043   0.405  DATAS_bwdata<6>LogicTrst5 (DATAS_bwdata<6>LogicTrst4)
+     LUT6:I4->O            1   0.043   0.405  DATAS_bwdata<6>LogicTrst7 (DATAS_bwdata<6>LogicTrst6)
+     LUT5:I3->O           47   0.043   0.472  DATAS_bwdata<6>LogicTrst8 (DATAS_bwdata<6>)
+     begin scope: 'Vga_controller/Vga_text/Text_vga_ram:dina<6>'
+     RAMB18E1:DIADI6           0.543          U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram
     ----------------------------------------
-    Total                      4.487ns (2.472ns logic, 2.015ns route)
-                                       (55.1% logic, 44.9% route)
+    Total                      5.365ns (2.558ns logic, 2.807ns route)
+                                       (47.7% logic, 52.3% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk_CPU'
-  Clock period: 7.729ns (frequency: 129.376MHz)
-  Total number of paths / destination ports: 22848932 / 1735
+  Clock period: 12.865ns (frequency: 77.729MHz)
+  Total number of paths / destination ports: 146803733335 / 4010
 -------------------------------------------------------------------------
-Delay:               7.729ns (Levels of Logic = 15)
-  Source:            PCPU/CP0_/STATUS/ERL (FF)
-  Destination:       PCPU/PC/pc_31 (FF)
+Delay:               12.865ns (Levels of Logic = 30)
+  Source:            PCPU/_Mul_EXE_EWB/temp_8 (FF)
+  Destination:       PCPU/_REG_HiLo/Hi_31 (FF)
   Source Clock:      Clk_CPU rising
   Destination Clock: Clk_CPU rising
 
-  Data Path: PCPU/CP0_/STATUS/ERL to PCPU/PC/pc_31
+  Data Path: PCPU/_Mul_EXE_EWB/temp_8 to PCPU/_REG_HiLo/Hi_31
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             3   0.236   0.534  PCPU/CP0_/STATUS/ERL (PCPU/CP0_/STATUS/ERL)
-     LUT4:I0->O            2   0.043   0.500  PCPU/Exc_Handler/INT_<0>2 (PCPU/Exc_Handler/INT_<0>1)
-     LUT5:I2->O           14   0.043   0.422  PCPU/Exc_Handler/INT_<0>3 (PCPU/Exc_Handler/INT_)
-     LUT5:I4->O           19   0.043   0.451  PCPU/mem_exc_mem_op[1]_AND_6583_o1 (PCPU/mem_exc_mem_op[1]_AND_6583_o)
-     LUT5:I4->O            1   0.043   0.350  ctrl_bus[4]_reduce_or_2_o_inv321_1 (ctrl_bus[4]_reduce_or_2_o_inv321)
-     LUT6:I5->O           37   0.043   0.481  SEG_wdata<0>LogicTrst1 (SEG_wdata<0>LogicTrst1)
-     LUT5:I4->O           48   0.043   0.538  SEG_wdata<23>LogicTrst5 (SEG_wdata<23>)
-     LUT6:I4->O            3   0.043   0.362  PCPU/Mmux__n02471731 (PCPU/Mmux__n02471731)
-     LUT3:I2->O            8   0.043   0.389  PCPU/Mmux__n02471732 (PCPU/Mmux__n0247173)
-     LUT6:I5->O            3   0.043   0.362  PCPU/Mmux_mem_wb_data_temp128 (PCPU/mem_wb_data_temp<14>)
-     LUT6:I5->O            1   0.043   0.405  PCPU/forward_a/Mmux_id_exe_reg61_F (N853)
-     LUT3:I1->O            4   0.043   0.620  PCPU/forward_a/Mmux_id_exe_reg611 (PCPU/id_exe_rega<14>)
-     LUT5:I0->O            1   0.043   0.603  PCPU/Branch_judge/out3 (PCPU/Branch_judge/out2)
-     LUT6:I1->O            1   0.043   0.350  PCPU/Branch_judge/out7 (PCPU/Branch_judge/_zero)
-     LUT6:I5->O           32   0.043   0.480  PCPU/Branch_judge/b1 (PCPU/id_b)
-     LUT6:I5->O            1   0.043   0.000  PCPU/Mmux_PC_data_in93 (PCPU/PC_data_in<17>)
-     FDRE:D                   -0.000          PCPU/PC/pc_17
+     FDR:C->Q              2   0.236   0.527  PCPU/_Mul_EXE_EWB/temp_8 (PCPU/_Mul_EXE_EWB/temp_8)
+     LUT4:I0->O            4   0.043   0.620  PCPU/_Mul_adder/s1_2_11 (PCPU/_Mul_adder/s1_2_1)
+     LUT6:I1->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in3_0/gi_j1 (PCPU/_Mul_adder/Adder/g3_0)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in5_0/gi_j1 (PCPU/_Mul_adder/Adder/g5_0)
+     LUT5:I4->O            5   0.043   0.373  PCPU/_Mul_adder/Adder/in7_0/gi_j1 (PCPU/_Mul_adder/Adder/g7_0)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in9_0/gi_j1 (PCPU/_Mul_adder/Adder/g9_0)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in11_0/gi_j2 (PCPU/_Mul_adder/Adder/g11_0)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in13_0/gi_j1 (PCPU/_Mul_adder/Adder/g13_0)
+     LUT5:I4->O            5   0.043   0.373  PCPU/_Mul_adder/Adder/in15_0/gi_j1 (PCPU/_Mul_adder/Adder/g15_0)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in19_0/gi_j3_SW0 (N538)
+     LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in19_0/gi_j3 (PCPU/_Mul_adder/Adder/g19_0)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in23_0/gi_j11 (PCPU/_Mul_adder/Adder/in23_0/gi_j1)
+     LUT5:I4->O            5   0.043   0.373  PCPU/_Mul_adder/Adder/in23_0/gi_j2 (PCPU/_Mul_adder/Adder/g23_0)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in25_0/gi_j1 (PCPU/_Mul_adder/Adder/g25_0)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in27_0/gi_j2 (PCPU/_Mul_adder/Adder/g27_0)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in29_0/gi_j1 (PCPU/_Mul_adder/Adder/g29_0)
+     LUT5:I4->O            6   0.043   0.378  PCPU/_Mul_adder/Adder/in31_0/gi_j1 (PCPU/_Mul_adder/Adder/g31_0)
+     LUT6:I5->O            3   0.043   0.362  PCPU/_Mul_adder/Adder/in37_0/gi_j1 (PCPU/_Mul_adder/Adder/g37_0)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in39_0/gi_j2 (PCPU/_Mul_adder/Adder/g39_0)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in43_0/gi_j3_SW0 (N536)
+     LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in43_0/gi_j3 (PCPU/_Mul_adder/Adder/g43_0)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in47_0/gi_j3_SW0 (N534)
+     LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in47_0/gi_j3 (PCPU/_Mul_adder/Adder/g47_0)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in51_0/gi_j3_SW0 (N532)
+     LUT6:I5->O            3   0.043   0.362  PCPU/_Mul_adder/Adder/in51_0/gi_j3 (PCPU/_Mul_adder/Adder/g51_0)
+     LUT5:I4->O            3   0.043   0.362  PCPU/_Mul_adder/Adder/in55_0/gi_j11 (PCPU/_Mul_adder/Adder/in55_0/gi_j1)
+     LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in55_0/gi_j2 (PCPU/_Mul_adder/Adder/g55_0)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in59_0/gi_j4_SW0 (N530)
+     LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in59_0/gi_j4 (PCPU/_Mul_adder/Adder/g59_0)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_REG_HiLo/Mmux__n004525_SW0 (N134)
+     LUT6:I5->O            1   0.043   0.000  PCPU/_REG_HiLo/Mmux__n004525 (PCPU/_REG_HiLo/_n0045<31>)
+     FDRE:D                   -0.000          PCPU/_REG_HiLo/Hi_31
     ----------------------------------------
-    Total                      7.729ns (0.881ns logic, 6.848ns route)
-                                       (11.4% logic, 88.6% route)
+    Total                     12.865ns (1.526ns logic, 11.339ns route)
+                                       (11.9% logic, 88.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk_gen/Div_1'
-  Clock period: 2.669ns (frequency: 374.686MHz)
+  Clock period: 2.659ns (frequency: 376.095MHz)
   Total number of paths / destination ports: 490 / 50
 -------------------------------------------------------------------------
-Delay:               2.669ns (Levels of Logic = 3)
+Delay:               2.659ns (Levels of Logic = 3)
   Source:            Vga_controller/Vga_port/column_c_3 (FF)
   Destination:       Vga_controller/Vga_port/row_c_0 (FF)
   Source Clock:      Clk_gen/Div_1 rising
@@ -3237,23 +3471,23 @@ Delay:               2.669ns (Levels of Logic = 3)
     ----------------------------------------  ------------
      FDR:C->Q              5   0.236   0.626  Vga_controller/Vga_port/column_c_3 (Vga_controller/Vga_port/column_c_3)
      LUT5:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mcount_row_c_val21 (Vga_controller/Vga_port/Mcount_row_c_val21)
-     LUT6:I5->O           12   0.043   0.674  Vga_controller/Vga_port/Mcount_row_c_val22 (Vga_controller/Vga_port/Mcount_row_c_val2)
-     LUT6:I0->O           10   0.043   0.389  Vga_controller/Vga_port/Mcount_row_c_val1 (Vga_controller/Vga_port/Mcount_row_c_val)
+     LUT6:I5->O           12   0.043   0.664  Vga_controller/Vga_port/Mcount_row_c_val22 (Vga_controller/Vga_port/Mcount_row_c_val2)
+     LUT6:I1->O           10   0.043   0.389  Vga_controller/Vga_port/Mcount_row_c_val (Vga_controller/Vga_port/Mcount_row_c_val)
      FDRE:R                    0.264          Vga_controller/Vga_port/row_c_0
     ----------------------------------------
-    Total                      2.669ns (0.629ns logic, 2.040ns route)
-                                       (23.6% logic, 76.4% route)
+    Total                      2.659ns (0.629ns logic, 2.030ns route)
+                                       (23.7% logic, 76.3% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'Clk_CPU_INV_58_o'
+Timing constraint: Default period analysis for Clock 'Clk_CPU_INV_66_o'
   Clock period: 0.696ns (frequency: 1436.678MHz)
   Total number of paths / destination ports: 992 / 992
 -------------------------------------------------------------------------
 Delay:               0.696ns (Levels of Logic = 1)
   Source:            PCPU/Reg_file/register_31_991 (FF)
   Destination:       PCPU/Reg_file/register_31_991 (FF)
-  Source Clock:      Clk_CPU_INV_58_o rising
-  Destination Clock: Clk_CPU_INV_58_o rising
+  Source Clock:      Clk_CPU_INV_66_o rising
+  Destination Clock: Clk_CPU_INV_66_o rising
 
   Data Path: PCPU/Reg_file/register_31_991 to PCPU/Reg_file/register_31_991
                                 Gate     Net
@@ -3290,9 +3524,9 @@ Delay:               0.700ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_gen/clk_100m_unbuf'
-  Total number of paths / destination ports: 1676 / 274
+  Total number of paths / destination ports: 1841 / 286
 -------------------------------------------------------------------------
-Offset:              2.399ns (Levels of Logic = 4)
+Offset:              2.459ns (Levels of Logic = 4)
   Source:            RSTN (PAD)
   Destination:       Input_switch_btn/Aj_rst/cnt_0 (FF)
   Destination Clock: Clk_gen/clk_100m_unbuf rising
@@ -3301,46 +3535,49 @@ Offset:              2.399ns (Levels of Logic = 4)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            24   0.000   0.529  RSTN_IBUF (Input_switch_btn/RSTN_INV_28_o_inv)
-     LUT4:I2->O            2   0.043   0.527  Input_switch_btn/Aj_rst/_n003123 (Input_switch_btn/Aj_rst/_n003123)
-     LUT4:I0->O            1   0.043   0.603  Input_switch_btn/Aj_rst/_n003125 (Input_switch_btn/Aj_rst/_n00312)
-     LUT5:I0->O           21   0.043   0.450  Input_switch_btn/Aj_rst/_n0031_inv1 (Input_switch_btn/Aj_rst/_n0031_inv)
+     IBUF:I->O            30   0.000   0.479  RSTN_IBUF (Input_switch_btn/RSTN_INV_28_o_inv)
+     LUT4:I3->O            2   0.043   0.608  Input_switch_btn/Aj_rst/_n00244 (Input_switch_btn/Aj_rst/_n00244)
+     LUT5:I0->O            1   0.043   0.613  Input_switch_btn/Aj_rst/_n00246 (Input_switch_btn/Aj_rst/_n0024)
+     LUT6:I0->O           27   0.043   0.468  Input_switch_btn/Aj_rst/_n0031_inv1 (Input_switch_btn/Aj_rst/_n0031_inv)
      FDE:CE                    0.161          Input_switch_btn/Aj_rst/cnt_0
     ----------------------------------------
-    Total                      2.399ns (0.290ns logic, 2.109ns route)
-                                       (12.1% logic, 87.9% route)
+    Total                      2.459ns (0.290ns logic, 2.169ns route)
+                                       (11.8% logic, 88.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_gen/clk_100m_unbuf'
-  Total number of paths / destination ports: 1990 / 18
+  Total number of paths / destination ports: 2542 / 18
 -------------------------------------------------------------------------
-Offset:              4.909ns (Levels of Logic = 8)
-  Source:            Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.WIDE_PRIM18.ram (RAM)
+Offset:              6.184ns (Levels of Logic = 11)
+  Source:            Vga_controller/Vga_cursor/stat_2 (FF)
   Destination:       vga_red<3> (PAD)
   Source Clock:      Clk_gen/clk_100m_unbuf rising
 
-  Data Path: Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.WIDE_PRIM18.ram to vga_red<3>
+  Data Path: Vga_controller/Vga_cursor/stat_2 to vga_red<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB18E1:CLKARDCLK->DOBDO12    1   1.800   0.405  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.WIDE_PRIM18.ram (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.ram_douta<28>)
-     LUT4:I2->O            3   0.043   0.625  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux211 (douta<28>)
-     end scope: 'Vga_controller/Vga_text/Text_vga_ram:douta<28>'
-     LUT6:I0->O            1   0.043   0.000  Vga_controller/out3_G (N790)
-     MUXF7:I1->O           2   0.178   0.355  Vga_controller/out3 (Vga_controller/text_color_out[11]_reduce_or_8_o)
-     LUT5:I4->O            6   0.043   0.641  Vga_controller/Vga_port/Mmux_n002610611 (Vga_controller/Vga_port/Mmux_n00261061)
-     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N12)
+     FDRE:C->Q             2   0.236   0.618  Vga_controller/Vga_cursor/stat_2 (Vga_controller/Vga_cursor/stat_2)
+     LUT6:I0->O            1   0.043   0.350  Vga_controller/cursor_on111 (Vga_controller/cursor_on11)
+     LUT6:I5->O            1   0.043   0.603  Vga_controller/cursor_on112 (Vga_controller/cursor_on111)
+     LUT5:I0->O            1   0.043   0.350  Vga_controller/cursor_on113 (Vga_controller/cursor_on112)
+     LUT6:I5->O            1   0.043   0.613  Vga_controller/cursor_on115 (Vga_controller/cursor_on114)
+     LUT6:I0->O            2   0.043   0.527  Vga_controller/cursor_on118 (Vga_controller/cursor_on)
+     LUT4:I0->O            2   0.043   0.618  Vga_controller/Vga_port/Mmux_n002610413 (Vga_controller/Vga_port/Mmux_n00261041)
+     LUT6:I0->O            3   0.043   0.507  Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o (Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o)
+     LUT6:I3->O            6   0.043   0.641  Vga_controller/Vga_port/Mmux_n002610511 (Vga_controller/Vga_port/Mmux_n00261051)
+     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N14)
      LUT6:I5->O            1   0.043   0.339  Vga_controller/Vga_port/Mmux_n00266 (vga_blue_3_OBUF)
      OBUF:I->O                 0.000          vga_blue_3_OBUF (vga_blue<3>)
     ----------------------------------------
-    Total                      4.909ns (2.193ns logic, 2.716ns route)
-                                       (44.7% logic, 55.3% route)
+    Total                      6.184ns (0.666ns logic, 5.518ns route)
+                                       (10.8% logic, 89.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_gen/Div_1'
-  Total number of paths / destination ports: 18938 / 14
+  Total number of paths / destination ports: 55142 / 14
 -------------------------------------------------------------------------
-Offset:              6.666ns (Levels of Logic = 12)
+Offset:              8.000ns (Levels of Logic = 14)
   Source:            Vga_controller/Vga_port/row_c_4 (FF)
   Destination:       vga_red<3> (PAD)
   Source Clock:      Clk_gen/Div_1 rising
@@ -3349,22 +3586,24 @@ Offset:              6.666ns (Levels of Logic = 12)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.236   0.626  Vga_controller/Vga_port/row_c_4 (Vga_controller/Vga_port/row_c_4)
-     LUT5:I0->O           15   0.043   0.483  Vga_controller/Vga_port/Msub_row_xor<7>111 (Vga_controller/Vga_port/Msub_row_xor<7>11)
+     FDRE:C->Q             6   0.236   0.631  Vga_controller/Vga_port/row_c_4 (Vga_controller/Vga_port/row_c_4)
+     LUT5:I0->O           15   0.043   0.483  Vga_controller/Vga_port/Msub_row_xor<8>111 (Vga_controller/Vga_port/Msub_row_xor<8>11)
      LUT3:I1->O            2   0.043   0.355  Vga_controller/Vga_port/Msub_row_xor<5>11 (Vga_controller/vga_row<5>)
      LUT6:I5->O            3   0.043   0.625  Vga_controller/Vga_cursor/Maddsub_n0097_Madd_lut<4>1 (Vga_controller/Vga_cursor/Maddsub_n0097_Madd_lut<4>)
      LUT6:I0->O           10   0.043   0.545  Vga_controller/cursor_on1011 (Vga_controller/cursor_on101)
      LUT4:I1->O            2   0.043   0.355  Vga_controller/cursor_on721 (Vga_controller/cursor_on72)
      LUT5:I4->O            1   0.043   0.613  Vga_controller/SF1311 (Vga_controller/SF131)
      LUT6:I0->O            1   0.043   0.613  Vga_controller/cursor_on115 (Vga_controller/cursor_on114)
-     LUT6:I0->O            2   0.043   0.410  Vga_controller/cursor_on118 (Vga_controller/cursor_on)
-     LUT5:I3->O            6   0.043   0.641  Vga_controller/Vga_port/Mmux_n002610611 (Vga_controller/Vga_port/Mmux_n00261061)
-     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N12)
+     LUT6:I0->O            2   0.043   0.527  Vga_controller/cursor_on118 (Vga_controller/cursor_on)
+     LUT4:I0->O            2   0.043   0.618  Vga_controller/Vga_port/Mmux_n002610413 (Vga_controller/Vga_port/Mmux_n00261041)
+     LUT6:I0->O            3   0.043   0.507  Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o (Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o)
+     LUT6:I3->O            6   0.043   0.641  Vga_controller/Vga_port/Mmux_n002610511 (Vga_controller/Vga_port/Mmux_n00261051)
+     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N14)
      LUT6:I5->O            1   0.043   0.339  Vga_controller/Vga_port/Mmux_n00266 (vga_blue_3_OBUF)
      OBUF:I->O                 0.000          vga_blue_3_OBUF (vga_blue<3>)
     ----------------------------------------
-    Total                      6.666ns (0.709ns logic, 5.957ns route)
-                                       (10.6% logic, 89.4% route)
+    Total                      8.000ns (0.795ns logic, 7.205ns route)
+                                       (9.9% logic, 90.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'display/P7SEG/sh_clk'
@@ -3413,19 +3652,19 @@ Clock to Setup on destination clock Clk_CPU
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_CPU               |    7.729|         |         |         |
-Clk_CPU_INV_58_o      |    4.913|         |         |         |
-Clk_gen/clk_100m_unbuf|    7.929|         |         |         |
+Clk_CPU               |   12.865|         |         |         |
+Clk_CPU_INV_66_o      |    5.129|         |         |         |
+Clk_gen/clk_100m_unbuf|    9.014|         |         |         |
 ----------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock Clk_CPU_INV_58_o
+Clock to Setup on destination clock Clk_CPU_INV_66_o
 ----------------------+---------+---------+---------+---------+
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_CPU               |    4.560|         |         |         |
-Clk_CPU_INV_58_o      |    0.696|         |         |         |
-Clk_gen/clk_100m_unbuf|    4.776|         |         |         |
+Clk_CPU               |    8.357|         |         |         |
+Clk_CPU_INV_66_o      |    0.696|         |         |         |
+Clk_gen/clk_100m_unbuf|    5.365|         |         |         |
 ----------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock Clk_gen/Div_1
@@ -3433,8 +3672,8 @@ Clock to Setup on destination clock Clk_gen/Div_1
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_gen/Div_1         |    2.669|         |         |         |
-Clk_gen/clk_100m_unbuf|    1.585|         |         |         |
+Clk_gen/Div_1         |    2.659|         |         |         |
+Clk_gen/clk_100m_unbuf|    1.631|         |         |         |
 ----------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock Clk_gen/clk_100m_unbuf
@@ -3442,9 +3681,9 @@ Clock to Setup on destination clock Clk_gen/clk_100m_unbuf
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_CPU               |    5.545|         |         |         |
-Clk_gen/Div_1         |    6.251|         |         |         |
-Clk_gen/clk_100m_unbuf|    4.486|         |         |         |
+Clk_CPU               |    9.462|         |         |         |
+Clk_gen/Div_1         |    6.178|         |         |         |
+Clk_gen/clk_100m_unbuf|    5.365|         |         |         |
 display/P7SEG/sh_clk  |         |    2.068|         |         |
 ----------------------+---------+---------+---------+---------+
 
@@ -3453,23 +3692,23 @@ Clock to Setup on destination clock display/P7SEG/sh_clk
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_CPU               |         |         |    7.740|         |
-Clk_CPU_INV_58_o      |         |         |    4.633|         |
-Clk_gen/clk_100m_unbuf|         |         |    7.966|         |
+Clk_CPU               |         |         |   11.592|         |
+Clk_CPU_INV_66_o      |         |         |    4.565|         |
+Clk_gen/clk_100m_unbuf|         |         |    8.600|         |
 display/P7SEG/sh_clk  |         |         |    0.700|         |
 ----------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 138.00 secs
-Total CPU time to Xst completion: 137.40 secs
+Total REAL time to Xst completion: 275.00 secs
+Total CPU time to Xst completion: 275.06 secs
  
 --> 
 
-Total memory usage is 387896 kilobytes
+Total memory usage is 422072 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1201 (   0 filtered)
+Number of warnings : 1217 (   0 filtered)
 Number of infos    :  230 (   0 filtered)
 

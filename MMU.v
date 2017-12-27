@@ -79,8 +79,8 @@ TLB_16 TLB(
     );
 
 //0x00000000-0x7fffffff kuseg tlbed cached  2G    user   level
-//0x80000000-0x9fffffff kseg0 untlb uncache 512M  kernel level
-//0xa0000000-0xbfffffff kseg1 untlb cached  512M  kernel level
+//0x80000000-0x9fffffff kseg0 untlb cache 512M  kernel level
+//0xa0000000-0xbfffffff kseg1 untlb uncached  512M  kernel level
 //0xc0000000-0xdfffffff ksseg tlbed cached  512M  supervisor level
 //0xe0000000-0xffffffff kseg3 tlbed cached  512M  kernel level
 wire Ikuseg, Ikseg0, Ikseg1, Iksseg, Ikseg3;

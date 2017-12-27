@@ -1,7 +1,8 @@
-F:\MyProgramme\0arch\PCPU\top.ngc 1513404844
+F:\MyProgramme\0arch\PCPU\top.ngc 1514300243
 F:\MyProgramme\0arch\PCPU/Display.ngc 1488981900
-ipcore_dir/Inst_ROM.ngc 1513157662
-ipcore_dir/Data_RAM.ngc 1511846869
+ipcore_dir/Inst_ROM.ngc 1514263548
+ipcore_dir/Text_Section.ngc 1514298422
+ipcore_dir/Data_Section.ngc 1514298605
 ipcore_dir/text_vga_ram.ngc 1511847693
 ipcore_dir/text_vga_rom.ngc 1509179357
 ipcore_dir/graph_vga_ram.ngc 1511852868

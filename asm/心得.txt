@@ -4,3 +4,9 @@ a + b + c+d
 
 有些输出线同时作为另外模块的输入，最好加一根DUMMY线
 eret返回时没有delayed slot（直接产生一个bubble），返回时会将SR（EXL）清除
+
+‘text’ is my code, vector table plus constants.
+
+‘data’ is for initialized variables, and it counts for RAM and FLASH. The linker allocates the data in FLASH which then is copied from ROM to RAM in the startup code.
+
+‘bss’ is for the uninitialized data in RAM which is initialized with zero in the startup code.

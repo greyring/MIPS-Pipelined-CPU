@@ -20,7 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 module addr_decoder(
 	input [31:0]addr,
-	output reg en_SRAM,
+	output reg en_TEXTS,
+	output reg en_DATAS,
 	output reg en_BIOS,
 	output reg en_vga_reg,
 	output reg en_cursor_reg,
@@ -32,6 +33,8 @@ module addr_decoder(
 	output reg en_others
     );
 //0x0000_0000-0x0fff_ffff SRAM 256M
+	//0x0000_0000-0x0000_1fff TEXT_SECTION 8k
+	//0x0000_2000-0x0000_2fff DATA_SECTION 4k
 //0x1000_0000-0x1000_0fff regs 4K
 //0x1000_2000-0x1000_3fff text_ram 8K
 //0x1001_0000-0x1001_ffff graph_ram 64K
@@ -44,9 +47,14 @@ module addr_decoder(
 //0x10000014 keyboard
 reg en_regs;
 always @* begin
-	{en_SRAM, en_BIOS, en_regs, en_textRAM, en_graphRAM,
-	 en_DRAM} = 0;
-	if (addr[31:28] == 4'b0) en_SRAM = 1'b1;
+	{en_TEXTS, en_DATAS, en_BIOS, en_regs, en_textRAM, en_graphRAM,
+	 en_DRAM, en_others} = 0;
+	//if (addr[31:28] == 4'b0) en_SRAM = 1'b1;
+	if (addr[31:28] == 4'b0)begin
+		if (addr[15:12] == 4'b0000 || addr[15:12] == 4'b0001) en_TEXTS = 1'b1;
+		else if (addr[15:12] == 4'b0010) en_DATAS = 1'b1;
+		else en_others = 1'b1;
+	end
 	else if (addr[31:12] == 20'h10000) en_regs = 1'b1;
 	else if (addr[31:13] == 19'b0001_0000_0000_0000_001) en_textRAM = 1'b1;
 	else if (addr[31:16] == 16'h1001) en_graphRAM = 1'b1;
@@ -55,7 +63,7 @@ always @* begin
 	else en_others = 1'b1;
 	
 //regs decoder
-	{en_vga_reg, en_cursor_reg, en_SEG, en_keyboard, en_others} = 0;
+	{en_vga_reg, en_cursor_reg, en_SEG, en_keyboard} = 0;
 	if (en_regs) begin
 		case (addr[11:0])
 			12'h000: en_vga_reg = 1'b1;

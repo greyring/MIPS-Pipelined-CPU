@@ -88,16 +88,17 @@ assign Clk_CPU = SW_OK[2]? Div[24]:Div[0];//50m有点快？
 wire [31:0]addr_bus;
 wire [31:0]data_bus;
 wire [5:0]ctrl_bus;
-wire en_SRAM, en_BIOS, en_vga_reg, en_cursor_reg, en_textRAM, 
-		en_graphRAM, en_DRAM, en_SEG, en_keyboard, en_others;
+wire  en_TEXTS, en_DATAS, en_BIOS, en_vga_reg, en_cursor_reg, en_textRAM, 
+		en_graphRAM, en_DRAM, en_SEG, en_keyboard, en_others;//en_SRAM,
 addr_decoder Addr_decoder(
     .addr(addr_bus), 
-    .en_SRAM(en_SRAM), .en_BIOS(en_BIOS), .en_vga_reg(en_vga_reg),     
+    .en_TEXTS(en_TEXTS), .en_DATAS(en_DATAS), .en_BIOS(en_BIOS), .en_vga_reg(en_vga_reg),     
 	 .en_cursor_reg(en_cursor_reg), .en_textRAM(en_textRAM),     
 	 .en_graphRAM(en_graphRAM), .en_DRAM(en_DRAM), .en_SEG(en_SEG), 
 	 .en_keyboard(en_keyboard),
     .en_others(en_others)
-    );
+    );//.en_SRAM(en_SRAM),
+/*
 wire [31:0]SRAM_addr, SRAM_wdata, SRAM_rdata;
 wire SRAM_r;
 wire [3:0]SRAM_w;
@@ -106,6 +107,25 @@ bus_interface SRAM(
     .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
     .addr_(SRAM_addr), .wdata(SRAM_wdata), .rdata(SRAM_rdata), 
 	 .r_(SRAM_r), .w_(SRAM_w), .ready_(1'b1)
+    );
+*/
+wire [31:0]TEXTS_baddr, TEXTS_bwdata, TEXTS_brdata;
+wire TEXTS_br;
+wire [3:0]TEXTS_bw;
+bus_interface TEXTS(
+    .enable(en_TEXTS), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
+    .addr_(TEXTS_baddr), .wdata(TEXTS_bwdata), .rdata(TEXTS_brdata), 
+	 .r_(TEXTS_br), .w_(TEXTS_bw), .ready_(1'b1)
+    );
+wire [31:0]DATAS_baddr, DATAS_bwdata, DATAS_brdata;
+wire DATAS_br;
+wire [3:0]DATAS_bw;
+bus_interface DATAS(
+    .enable(en_DATAS), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
+    .addr_(DATAS_baddr), .wdata(DATAS_bwdata), .rdata(DATAS_brdata), 
+	 .r_(DATAS_br), .w_(DATAS_bw), .ready_(1'b1)
     );
 wire [31:0]vga_reg_wdata, vga_reg_rdata;
 wire vga_reg_r;
@@ -265,25 +285,6 @@ GPIO gpio(
     .ledsout(led_do), 
     .LEDEN(led_pen)
     );
-
-	Counter  counter(
-		.clk(~Clk_CPU), 
-	  .clk0(Div[6]), 
-	  .clk1(Div[9]), 
-	  .clk2(Div[11]), 
-	  .counter_ch(counter_set), 
-	  .counter_val(Peripheral_in), 
-	  .counter_we(counter_we), 
-	  `ifdef DEBUG
-	  .rst(RSTN),
-	  `else
-	  .rst(rst), 
-	  `endif
-	  .counter_out(Counter_out), 
-	  .counter0_OUT(counter0_OUT), 
-	  .counter1_OUT(counter1_OUT), 
-	  .counter2_OUT(counter2_OUT)
-	  );
 */
 wire [31:0]CPU_wdata;
 wire [31:0]CPU_mem_addr;
@@ -309,35 +310,7 @@ wire [31:0]CPU_mem_addr;
    );
 assign addr_bus = {3'b0, CPU_mem_addr[28:0]};
 assign data_bus = (|ctrl_bus[4:1]) ? CPU_wdata : 32'hz;
-/*
-bus Bus(
-    .master_addr(master_addr), 
-    .master_data_w(master_data_w), 
-    .master_data_r(master_data_r), 
-    .master_rw(master_rw), 
-    .IROM_addr(IROM_addr), 
-    .IROM_data(IROM_data), 
-    .SRAM_addr(SRAM_addr), 
-    .SRAM_data_r(SRAM_data_r), 
-    .SRAM_data_w(SRAM_data_w), 
-    .SRAM_rw(SRAM_rw), 
-    .vga_text_addr(vga_text_addr), 
-    .vga_text_data_r(vga_text_data_r), 
-    .vga_text_data_w(vga_text_data_w), 
-    .vga_text_rw(vga_text_rw), 
-    .vga_graph_addr(vga_graph_addr), 
-    .vga_graph_data_r(vga_graph_data_r), 
-    .vga_graph_data_w(vga_graph_data_w), 
-    .vga_graph_rw(vga_graph_rw), 
-    .vga_reg_data_r(vga_reg_data_r), 
-    .vga_reg_data_w(vga_reg_data_w), 
-    .vga_reg_rw(vga_reg_rw), 
-    .vga_cursor_data_r(vga_cursor_data_r), 
-    .vga_cursor_data_w(vga_cursor_data_w), 
-    .vga_cursor_rw(vga_cursor_rw)
-    );
-*/
-	
+	/*
 	Data_RAM Data_RAM_(
 	  .clka(~Clk_CPU), 
 	  .wea(SRAM_w), 
@@ -345,12 +318,35 @@ bus Bus(
 	  .dina(SRAM_wdata), 
 	  .douta(SRAM_rdata) 
 	);
-	
-	Inst_ROM Inst_ROM_(
+	*/
+	wire [31:0]instBIOS;
+	Inst_ROM BIOS(
 	  .clka(~Clk_CPU), 
 	  .addra(PC[11:2]), // addra,要移动两位
-	  .douta(inst) 
+	  .douta(instBIOS) 
 	);
-	  
+	
+	wire [31:0]instText;
+	Text_Section TEXT(
+  .clka(~Clk_CPU), 
+  .wea(4'b0), 
+  .addra(PC[12:2]), 
+  .dina(32'b0), 
+  .douta(instText), 
+  .clkb(~Clk_CPU), 
+  .web(TEXTS_bw), 
+  .addrb(TEXTS_baddr), 
+  .dinb(TEXTS_bwdata), 
+  .doutb(TEXTS_brdata) 
+  );
+  assign inst = (PC[31:28] == 4'h1)? instBIOS : instText;
+
+Data_Section DATA(
+  .clka(~Clk_CPU), 
+  .wea(DATAS_bw), 
+  .addra(DATAS_baddr[31:2]), 
+  .dina(DATAS_bwdata), 
+  .douta(DATAS_brdata) 
+);
 
 endmodule

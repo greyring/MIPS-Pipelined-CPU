@@ -60,8 +60,9 @@ Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/vga_controller.v" into library
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/PCPU_v.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Multi_8CH32.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/keyboard_controller.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/Text_Section.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/Inst_ROM.v" into library work
-Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/Data_RAM.v" into library work
+Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/ipcore_dir/Data_Section.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/input_switch_btn.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Display_IO.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/bus_interface.v" into library work
@@ -71,6 +72,8 @@ Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Ttop.v" into library work
 Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 WARNING:HDLCompiler:1016 - "F:/MyProgramme/0arch/PCPU/Ttop.v" Line 50: Port ps2_clk is not connected to this instance
+WARNING:HDLCompiler:189 - "F:/MyProgramme/0arch/PCPU/top.v" Line 338: Size mismatch in connection of port <addrb>. Formal port size is 11-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "F:/MyProgramme/0arch/PCPU/top.v" Line 347: Size mismatch in connection of port <addra>. Formal port size is 10-bit while actual signal size is 30-bit.
 Completed static elaboration
 Compiling module btn_scan
 Compiling module anti_jitter
@@ -152,16 +155,19 @@ Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
 Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
 Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
 Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module Data_RAM
+Compiling module Inst_ROM
 Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
 Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module Inst_ROM
+Compiling module Text_Section
+Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
+Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
+Compiling module Data_Section
 Compiling module top
 Compiling module Ttop
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 30 sub-compilation(s) to finish...
-Compiled 87 Verilog Units
+Waiting for 60 sub-compilation(s) to finish...
+Compiled 90 Verilog Units
 Built simulation executable F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe
-Fuse Memory Usage: 217052 KB
-Fuse CPU Usage: 5132 ms
+Fuse Memory Usage: 217664 KB
+Fuse CPU Usage: 5319 ms

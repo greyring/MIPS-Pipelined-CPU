@@ -24,6 +24,7 @@
 static const char *ng0 = "F:/MyProgramme/0arch/PCPU/Ttop.v";
 static int ng1[] = {0, 0};
 static int ng2[] = {1, 0};
+static unsigned int ng3[] = {16U, 0U};
 
 
 
@@ -32,6 +33,7 @@ static void Initial_72_0(char *t0)
     char *t1;
     char *t2;
     char *t3;
+    char *t4;
 
 LAB0:    t1 = (t0 + 5088U);
     t2 = *((char **)t1);
@@ -82,15 +84,29 @@ LAB5:    xsi_set_current_line(84, ng0);
     xsi_vlogvar_assign_value(t3, t2, 0, 0, 1);
     xsi_set_current_line(85, ng0);
     t2 = (t0 + 4896);
-    xsi_process_wait(t2, 1000000LL);
+    xsi_process_wait(t2, 200000000LL);
     *((char **)t1) = &&LAB6;
     goto LAB1;
 
-LAB6:    goto LAB1;
+LAB6:    xsi_set_current_line(86, ng0);
+    t3 = ((char*)((ng3)));
+    t4 = (t0 + 4168);
+    xsi_vlogvar_assign_value(t4, t3, 0, 0, 5);
+    xsi_set_current_line(87, ng0);
+    t2 = (t0 + 4896);
+    xsi_process_wait(t2, 500000LL);
+    *((char **)t1) = &&LAB7;
+    goto LAB1;
+
+LAB7:    xsi_set_current_line(88, ng0);
+    t3 = ((char*)((ng1)));
+    t4 = (t0 + 4168);
+    xsi_vlogvar_assign_value(t4, t3, 0, 0, 5);
+    goto LAB1;
 
 }
 
-static void Always_93_1(char *t0)
+static void Always_95_1(char *t0)
 {
     char t5[8];
     char *t1;
@@ -126,7 +142,7 @@ LAB0:    t1 = (t0 + 5336U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(93, ng0);
+LAB2:    xsi_set_current_line(95, ng0);
     t2 = (t0 + 5656);
     *((int *)t2) = 1;
     t3 = (t0 + 5368);
@@ -134,13 +150,13 @@ LAB2:    xsi_set_current_line(93, ng0);
     *((char **)t1) = &&LAB4;
 
 LAB1:    return;
-LAB4:    xsi_set_current_line(94, ng0);
+LAB4:    xsi_set_current_line(96, ng0);
     t4 = (t0 + 5144);
     xsi_process_wait(t4, 5000LL);
     *((char **)t1) = &&LAB5;
     goto LAB1;
 
-LAB5:    xsi_set_current_line(95, ng0);
+LAB5:    xsi_set_current_line(97, ng0);
     t6 = (t0 + 3528);
     t7 = (t6 + 56U);
     t8 = *((char **)t7);
@@ -194,7 +210,7 @@ LAB11:    t20 = *((unsigned int *)t5);
 
 extern void work_m_00000000001225968565_0714459514_init()
 {
-	static char *pe[] = {(void *)Initial_72_0,(void *)Always_93_1};
+	static char *pe[] = {(void *)Initial_72_0,(void *)Always_95_1};
 	xsi_register_didat("work_m_00000000001225968565_0714459514", "isim/Ttop_isim_beh.exe.sim/work/m_00000000001225968565_0714459514.didat");
 	xsi_register_executes(pe);
 }

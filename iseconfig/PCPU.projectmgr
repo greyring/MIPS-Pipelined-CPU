@@ -7,6 +7,7 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/Automatic `includes</ClosedNode>
          <ClosedNode>/CAM_16 F:|MyProgramme|0arch|PCPU|CAM_16.v</ClosedNode>
          <ClosedNode>/CP0 F:|MyProgramme|0|PCPU|CP0.v</ClosedNode>
          <ClosedNode>/D_cache F:|MyProgramme|0arch|PCPU|D_cache.v</ClosedNode>
@@ -121,18 +122,18 @@
          <ClosedNode>/write_data_mask F:|MyProgramme|0arch|PCPU|write_data_mask.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>MUL_Control - MUL_control (F:/MyProgramme/0arch/PCPU/MUL_control.v)</SelectedItem>
+         <SelectedItem>top (F:/MyProgramme/0arch/PCPU/top.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >34</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >6</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d8000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d80000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>MUL_Control - MUL_control (F:/MyProgramme/0arch/PCPU/MUL_control.v)</CurrentItem>
+      <CurrentItem>top (F:/MyProgramme/0arch/PCPU/top.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
          <ClosedNode>Implement Design/Map</ClosedNode>
          <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
          <ClosedNode>Implement Design/Translate</ClosedNode>
@@ -140,13 +141,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Generate Programming File</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >5</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000112000000010000000100000000000000000000000064ffffffff000000810000000000000001000001120000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Generate Programming File</CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -179,13 +180,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000158000000010000000100000000000000000000000064ffffffff000000810000000000000001000001580000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
       <ClosedNodes>
@@ -209,13 +210,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000012d0000011b01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
@@ -240,6 +241,7 @@
          <ClosedNode>/TI_cache F:|MyProgramme|0arch|PCPU|TI_cache.v</ClosedNode>
          <ClosedNode>/TL2Cache F:|MyProgramme|0arch|PCPU|TL2Cache.v</ClosedNode>
          <ClosedNode>/TL2Cache F:|MyProgramme|0arch|PCPU|TL2Cache.v/uut - L2_cache</ClosedNode>
+         <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v/uut - PCPU_v/ALU - alu</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v/uut - PCPU_v/CP0_ - CP0</ClosedNode>
          <ClosedNode>/TPCPU_I F:|MyProgramme|0arch|PCPU|TPCPU_I.v/uut - PCPU_v/MMU_ - MMU</ClosedNode>
@@ -286,8 +288,6 @@
          <ClosedNode>/Tmul_adder F:|MyProgramme|2017summer|PCPU|Tmul_adder.v</ClosedNode>
          <ClosedNode>/Ttimer F:|MyProgramme|0|PCPU|Ttimer.v</ClosedNode>
          <ClosedNode>/Ttimer F:|MyProgramme|2017summer|PCPU|Ttimer.v</ClosedNode>
-         <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v</ClosedNode>
-         <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v/uut - top</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v/uut - top/Input_switch_btn - input_switch_btn</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v/uut - top/PCPU - PCPU_v</ClosedNode>
          <ClosedNode>/Ttop F:|MyProgramme|0arch|PCPU|Ttop.v/uut - top/PCPU - PCPU_v/ALU - alu</ClosedNode>
@@ -318,9 +318,9 @@
       <SelectedItems>
          <SelectedItem>Ttop (F:/MyProgramme/0arch/PCPU/Ttop.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >45</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >10</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001c2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001c20000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001ec000000020000000000000000000000000200000064ffffffff000000810000000300000002000001ec0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>Ttop (F:/MyProgramme/0arch/PCPU/Ttop.v)</CurrentItem>
    </ItemView>
@@ -383,13 +383,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>CORE Generator</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>CORE Generator</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_NGC" guiview="Process" >
       <ClosedNodes>

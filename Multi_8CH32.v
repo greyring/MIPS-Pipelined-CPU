@@ -66,22 +66,22 @@ always@(posedge clk or posedge rst) begin
 	  cpu_blink <=cpu_blink;
 	  cpu_point <=cpu_point;
 	  if (EN[3]) begin
-		 disp_data <= Data0[31:24];
-		 cpu_blink <= LES[31:24];
-		 cpu_point <= point_in[31:24];
+		 disp_data[31:24] <= Data0[31:24];
+		 cpu_blink <= LES[7:0];
+		 cpu_point <= point_in[7:0];
 	  end
 	  if (EN[2]) begin
-		 disp_data <= Data0[23:16];
-		 cpu_blink <= LES[23:16];
-		 cpu_point <= point_in[23:16];
+		 disp_data[23:16] <= Data0[23:16];
+		 cpu_blink <= LES[7:0];
+		 cpu_point <= point_in[7:0];
 	  end
 	  if (EN[1]) begin
-		 disp_data <= Data0[15:8];
-		 cpu_blink <= LES[15:8];
-		 cpu_point <= point_in[15:8];
+		 disp_data[15:8] <= Data0[15:8];
+		 cpu_blink <= LES[7:0];
+		 cpu_point <= point_in[7:0];
 	  end
 	  if (EN[0]) begin
-		 disp_data <= Data0[7:0];
+		 disp_data[7:0] <= Data0[7:0];
 		 cpu_blink <= LES[7:0];
 		 cpu_point <= point_in[7:0];
 	  end

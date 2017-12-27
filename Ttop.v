@@ -82,8 +82,10 @@ module Ttop;
 		// Wait 100 ns for global reset to finish
 		#100;
 		RSTN = 0;
-		#1000;
-		//int_ = 5'b10000;
+		#200000
+		int_ = 5'b10000;
+		#500
+		int_ = 0;
 		//#10000
 		//RSTN = 1;
         
