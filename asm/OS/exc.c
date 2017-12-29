@@ -38,5 +38,6 @@ void handle_syscall(unsigned long status, unsigned long cause, unsigned long epc
         :"r"(epc)
         :"$s0"
     );
-    syscall_tbl[sp[24]](sp);//sp[24] is a0
+    sp[26] = syscall_tbl[sp[24]](sp);//sp[24] is a0
+    //v0 = return value important!!!
 }

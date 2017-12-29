@@ -624,11 +624,11 @@ always @* begin
 end
 always @* begin
   case({mem_op, mem_ctrl})
-    4'b1001: mem_data_in_DUMMY = {24'b0, mem_dataB};
-	 4'b1010: mem_data_in_DUMMY = {16'b0, mem_dataH};
+    4'b1101: mem_data_in_DUMMY = {24'b0, mem_dataB};
+	 4'b1110: mem_data_in_DUMMY = {16'b0, mem_dataH};
     4'b1011: mem_data_in_DUMMY = mem_data_in;
-	 4'b1101: mem_data_in_DUMMY = {{24{mem_dataB[7]}}, mem_dataB};
-	 4'b1110: mem_data_in_DUMMY = {{16{mem_dataH[15]}}, mem_dataH};
+	 4'b1001: mem_data_in_DUMMY = {{24{mem_dataB[7]}}, mem_dataB};
+	 4'b1010: mem_data_in_DUMMY = {{16{mem_dataH[15]}}, mem_dataH};
 	 default: mem_data_in_DUMMY = 0;
   endcase
 end

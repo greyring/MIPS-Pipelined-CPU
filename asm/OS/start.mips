@@ -45,8 +45,8 @@ save_all:
 #sw $k0, 112($sp)
 #mfc0 $k0, $14 #epc
 #sw $k0, 108($sp)
-#sw $v0, 104($sp)
-#sw $v1, 100($sp)
+sw $v0, 104($sp)
+sw $v1, 100($sp)
 sw $a0, 96($sp)
 sw $a1, 92($sp)
 sw $a2, 88($sp)
@@ -82,8 +82,8 @@ restore_all:
 #mtc0 $k0, $13 #cause
 #lw $k0, 108($sp)
 #mtc0 $k0, $14 #epc
-#lw $v0, 104($sp)
-#lw $v1, 100($sp)
+lw $v0, 104($sp)
+lw $v1, 100($sp)
 lw $a0, 96($sp)
 lw $a1, 92($sp)
 lw $a2, 88($sp)

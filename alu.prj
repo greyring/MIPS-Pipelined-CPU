@@ -1,0 +1,6 @@
+verilog work "res_adder.v"
+verilog work "inner_adder.v"
+verilog work "half_adder_sub.v"
+verilog work "half_adder.v"
+verilog work "adder32_Sklansky.v"
+verilog work "alu.v"

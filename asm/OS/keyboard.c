@@ -21,7 +21,7 @@ unsigned short scantoascii_lowercase[] = {
 unsigned char __attribute__((section (".data"))) key_state[16] = {0};
 unsigned char __attribute__((section (".data"))) skey_state[16] = {0};//special key
 
-static int __attribute__((section (".data"))) keyboard_state = 1;//KEY_WAIT;
+static int __attribute__((section (".data"))) keyboard_state = KEY_WAIT;//KEY_WAIT;
 static int __attribute__((section (".data"))) capslock = CAP_UP;
 
 unsigned short __attribute__((section (".data"))) keybuf[32] = {0};
@@ -32,11 +32,13 @@ void init_keybuf()
 {
     keybuf_head = 31;
     keybuf_tail = 0;
+    capslock = CAP_UP;
+    keyboard_state = KEY_WAIT;
 }
 
 static __inline__ void send_to_keybuf(unsigned short key)
 {
-    if (key == 0xffff) return;
+    if (key == 0x0ffff) return;
     if (((keybuf_head + 2)&0x1f) == keybuf_tail) return;
     keybuf_head = (keybuf_head + 1)&0x1f;
     keybuf[keybuf_head] = key;
@@ -46,7 +48,7 @@ static __inline__ void send_to_keybuf(unsigned short key)
 unsigned short get_from_keybuf()
 {
     unsigned short key;
-    if (((keybuf_head + 1)&0x1f) == keybuf_tail) return 0xffff;
+    if (((keybuf_head + 1)&0x1f) == keybuf_tail) return 0x0ffff;
     key = keybuf[keybuf_tail];
     keybuf_tail = (keybuf_tail + 1)&0x1f;
     return key;
@@ -61,8 +63,8 @@ void handle_keyboard()
     {
         case KEY_WAIT:
         {
-            if (key == 0xe0) keyboard_state = KEY_SPECIAL;
-            else if (key == 0xf0) keyboard_state = KEY_RELEASE;
+            if (key == 0x00e0) keyboard_state = KEY_SPECIAL;
+            else if (key == 0x00f0) keyboard_state = KEY_RELEASE;
             else
             {
                 set_key_state(key);
@@ -102,7 +104,7 @@ void handle_keyboard()
 
         case KEY_SPECIAL:
         {
-            if (key == 0xf0) keyboard_state = KEY_SPRELEASE;
+            if (key == 0x00f0) keyboard_state = KEY_SPRELEASE;
             else
             {
                 set_skey_state(key);

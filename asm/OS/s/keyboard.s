@@ -21,8 +21,12 @@ init_keybuf:
 	li	$3,31			# 0x1f
 	sw	$3,%lo(keybuf_head)($2)
 	lui	$2,%hi(keybuf_tail)
-	jr	$31
 	sw	$0,%lo(keybuf_tail)($2)
+	lui	$2,%hi(capslock)
+	sw	$0,%lo(capslock)($2)
+	lui	$2,%hi(keyboard_state)
+	jr	$31
+	sw	$0,%lo(keyboard_state)($2)
 
 	.set	macro
 	.set	reorder
@@ -354,7 +358,7 @@ capslock:
 	.type	keyboard_state, @object
 	.size	keyboard_state, 4
 keyboard_state:
-	.word	1
+	.space	4
 	.globl	skey_state
 	.align	2
 	.type	skey_state, @object

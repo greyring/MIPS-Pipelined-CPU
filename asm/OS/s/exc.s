@@ -12,13 +12,14 @@
 	.ent	handle_syscall
 	.type	handle_syscall, @function
 handle_syscall:
-	.frame	$sp,24,$31		# vars= 0, regs= 2/0, args= 16, gp= 0
-	.mask	0x80010000,-4
+	.frame	$sp,32,$31		# vars= 0, regs= 3/0, args= 16, gp= 0
+	.mask	0x80030000,-4
 	.fmask	0x00000000,0
-	addiu	$sp,$sp,-24
-	sw	$31,20($sp)
-	sw	$16,16($sp)
-	move	$4,$7
+	addiu	$sp,$sp,-32
+	sw	$31,28($sp)
+	sw	$17,24($sp)
+	sw	$16,20($sp)
+	move	$17,$7
  #APP
  # 34 "exc.c" 1
 	addiu	$s0, $6, 4
@@ -34,13 +35,21 @@ handle_syscall:
 	addu	$2,$2,$3
 	lw	$2,0($2)
 	#nop
+	.set	noreorder
+	.set	nomacro
 	jalr	$2
-	lw	$31,20($sp)
-	lw	$16,16($sp)
+	move	$4,$7
+	.set	macro
+	.set	reorder
+
+	sw	$2,104($17)
+	lw	$31,28($sp)
+	lw	$17,24($sp)
+	lw	$16,20($sp)
 	.set	noreorder
 	.set	nomacro
 	jr	$31
-	addiu	$sp,$sp,24
+	addiu	$sp,$sp,32
 	.set	macro
 	.set	reorder
 

@@ -177,7 +177,7 @@ wire [7:0]keyboard_data;
 bus_interface keyboard(
     .enable(en_keyboard), 
     .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
-    .addr_(), .wdata(), .rdata({24'b0, keyboard_data}), 
+    .addr_(), .wdata(), .rdata({24'b0, keyboard_data}),
 	 .r_(keyboard_r), .w_(), .ready_(1'b1)
     );
 	 

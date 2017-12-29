@@ -1,0 +1,428 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: alu.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "alu.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "alu"
+Output Format                      : NGC
+Target Device                      : xc7k325t-2L-ffg676
+
+---- Source Options
+Top Module Name                    : alu
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\res_adder.v" into library work
+Parsing module <res_adder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\inner_adder.v" into library work
+Parsing module <inner_adder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\half_adder_sub.v" into library work
+Parsing module <half_adder_sub>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\half_adder.v" into library work
+Parsing module <half_adder>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" into library work
+Parsing module <adder32_Sklansky>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\alu.v" into library work
+Parsing module <alu>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <alu>.
+
+Elaborating module <adder32_Sklansky>.
+
+Elaborating module <half_adder_sub>.
+
+Elaborating module <half_adder>.
+
+Elaborating module <inner_adder>.
+
+Elaborating module <res_adder>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <alu>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\alu.v".
+        one = 32'b00000000000000000000000000000001
+        zero_0 = 32'b00000000000000000000000000000000
+    Found 32-bit shifter logical left for signal <res_sll> created at line 29
+    Found 32-bit shifter logical right for signal <res_sra> created at line 29
+    Found 32-bit shifter logical left for signal <res_sllv> created at line 29
+    Found 32-bit shifter logical right for signal <res_srav> created at line 29
+    Found 32-bit 13-to-1 multiplexer for signal <res> created at line 54.
+    Found 32-bit comparator greater for signal <B[31]_A[31]_LessThan_4_o> created at line 44
+    Found 32-bit comparator greater for signal <res_stlu<0>> created at line 49
+    Summary:
+	inferred   2 Comparator(s).
+	inferred   4 Multiplexer(s).
+	inferred   4 Combinational logic shifter(s).
+Unit <alu> synthesized.
+
+Synthesizing Unit <adder32_Sklansky>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v".
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 411: Output port <pi_j> of the instance <in2_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 555: Output port <pi_j> of the instance <in4_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 564: Output port <pi_j> of the instance <in5_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 573: Output port <pi_j> of the instance <in6_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 699: Output port <pi_j> of the instance <in8_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 708: Output port <pi_j> of the instance <in9_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 717: Output port <pi_j> of the instance <in10_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 726: Output port <pi_j> of the instance <in11_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 735: Output port <pi_j> of the instance <in12_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 744: Output port <pi_j> of the instance <in13_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 753: Output port <pi_j> of the instance <in14_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 843: Output port <pi_j> of the instance <in16_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 852: Output port <pi_j> of the instance <in17_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 861: Output port <pi_j> of the instance <in18_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 870: Output port <pi_j> of the instance <in19_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 879: Output port <pi_j> of the instance <in20_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 888: Output port <pi_j> of the instance <in21_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 897: Output port <pi_j> of the instance <in22_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 906: Output port <pi_j> of the instance <in23_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 915: Output port <pi_j> of the instance <in24_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 924: Output port <pi_j> of the instance <in25_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 933: Output port <pi_j> of the instance <in26_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 942: Output port <pi_j> of the instance <in27_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 951: Output port <pi_j> of the instance <in28_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 960: Output port <pi_j> of the instance <in29_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 969: Output port <pi_j> of the instance <in30_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v" line 978: Output port <pi_j> of the instance <in31_0> is unconnected or connected to loadless signal.
+    Summary:
+Unit <adder32_Sklansky> synthesized.
+
+Synthesizing Unit <half_adder_sub>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\half_adder_sub.v".
+    Summary:
+Unit <half_adder_sub> synthesized.
+
+Synthesizing Unit <half_adder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\half_adder.v".
+    Summary:
+Unit <half_adder> synthesized.
+
+Synthesizing Unit <inner_adder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\inner_adder.v".
+    Summary:
+	no macro.
+Unit <inner_adder> synthesized.
+
+Synthesizing Unit <res_adder>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\res_adder.v".
+    Summary:
+Unit <res_adder> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Comparators                                          : 2
+ 32-bit comparator greater                             : 2
+# Multiplexers                                         : 4
+ 1-bit 2-to-1 multiplexer                              : 1
+ 32-bit 13-to-1 multiplexer                            : 1
+ 32-bit 2-to-1 multiplexer                             : 2
+# Logic shifters                                       : 4
+ 32-bit shifter logical left                           : 2
+ 32-bit shifter logical right                          : 2
+# Xors                                                 : 68
+ 1-bit xor2                                            : 65
+ 1-bit xor4                                            : 1
+ 32-bit xor2                                           : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Comparators                                          : 2
+ 32-bit comparator greater                             : 2
+# Multiplexers                                         : 4
+ 1-bit 2-to-1 multiplexer                              : 1
+ 32-bit 13-to-1 multiplexer                            : 1
+ 32-bit 2-to-1 multiplexer                             : 2
+# Logic shifters                                       : 4
+ 32-bit shifter logical left                           : 2
+ 32-bit shifter logical right                          : 2
+# Xors                                                 : 68
+ 1-bit xor2                                            : 65
+ 1-bit xor4                                            : 1
+ 32-bit xor2                                           : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <alu> ...
+
+Optimizing unit <adder32_Sklansky> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block alu, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : alu.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 693
+#      GND                         : 1
+#      LUT2                        : 2
+#      LUT3                        : 90
+#      LUT4                        : 85
+#      LUT5                        : 152
+#      LUT6                        : 326
+#      MUXCY                       : 30
+#      MUXF7                       : 6
+#      VCC                         : 1
+# IO Buffers                       : 103
+#      IBUF                        : 69
+#      OBUF                        : 34
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7k325tffg676-2l 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                  655  out of  203800     0%  
+    Number used as Logic:               655  out of  203800     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    655
+   Number with an unused Flip Flop:     655  out of    655   100%  
+   Number with an unused LUT:             0  out of    655     0%  
+   Number of fully used LUT-FF pairs:     0  out of    655     0%  
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                         103
+ Number of bonded IOBs:                 103  out of    400    25%  
+
+Specific Feature Utilization:
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 11.222ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 17017 / 34
+-------------------------------------------------------------------------
+Delay:               11.222ns (Levels of Logic = 22)
+  Source:            ALU_Ctr<3> (PAD)
+  Destination:       zero (PAD)
+
+  Data Path: ALU_Ctr<3> to zero
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            93   0.000   0.663  ALU_Ctr_3_IBUF (ALU_Ctr_3_IBUF)
+     LUT4:I0->O           42   0.043   0.735  ALU_Ctr[3]_GND_1_o_equal_1_o<3>1 (ALU_Ctr[3]_GND_1_o_equal_1_o)
+     LUT5:I0->O            3   0.043   0.534  adder32/in1_0/gi_j1 (adder32/g1_0)
+     LUT6:I2->O            3   0.043   0.534  adder32/in3_0/gi_j1 (adder32/g3_0)
+     LUT6:I2->O            3   0.043   0.534  adder32/in5_0/gi_j1 (adder32/g5_0)
+     LUT6:I2->O            4   0.043   0.512  adder32/in7_0/gi_j1 (adder32/g7_0)
+     LUT6:I3->O            1   0.043   0.350  adder32/in11_0/gi_j3_SW0 (N30)
+     LUT6:I5->O            3   0.043   0.534  adder32/in11_0/gi_j4 (adder32/g11_0)
+     LUT6:I2->O            3   0.043   0.534  adder32/in13_0/gi_j1 (adder32/g13_0)
+     LUT6:I2->O            4   0.043   0.512  adder32/in15_0/gi_j1 (adder32/g15_0)
+     LUT6:I3->O            1   0.043   0.350  adder32/in19_0/gi_j4_SW0 (N26)
+     LUT6:I5->O            3   0.043   0.534  adder32/in19_0/gi_j4 (adder32/g19_0)
+     LUT6:I2->O            3   0.043   0.534  adder32/in23_0/gi_j11 (adder32/in23_0/gi_j1)
+     LUT6:I2->O            4   0.043   0.512  adder32/in23_0/gi_j2 (adder32/g23_0)
+     LUT6:I3->O            1   0.043   0.350  adder32/in27_0/gi_j3_SW0 (N28)
+     LUT6:I5->O            4   0.043   0.539  adder32/in27_0/gi_j4 (adder32/g27_0)
+     LUT6:I2->O            2   0.043   0.410  adder32/in29_0/gi_j1 (adder32/g29_0)
+     LUT5:I3->O            2   0.043   0.355  adder32/res_31/Mxor_si_xo<0>1 (res_add_sub<31>)
+     LUT6:I5->O            1   0.043   0.495  ALU_Ctr<3>7212 (ALU_Ctr<3>7211)
+     LUT3:I0->O            2   0.043   0.500  ALU_Ctr<3>7213 (res_31_OBUF)
+     LUT5:I2->O            1   0.043   0.339  zero<31>7 (zero_OBUF)
+     OBUF:I->O                 0.000          zero_OBUF (zero)
+    ----------------------------------------
+    Total                     11.222ns (0.860ns logic, 10.362ns route)
+                                       (7.7% logic, 92.3% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 17.00 secs
+Total CPU time to Xst completion: 17.49 secs
+ 
+--> 
+
+Total memory usage is 450680 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :   27 (   0 filtered)
+

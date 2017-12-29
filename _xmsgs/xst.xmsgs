@@ -542,85 +542,85 @@
 <msg type="warning" file="Xst" num="2999" delta="new" >Signal &apos;<arg fmt="%s" index="1">LUT_1c</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">control</arg>&apos;, is tied to its initial value.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">411</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in2_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">411</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in2_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">555</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in4_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">555</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in4_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">564</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in5_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">564</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in5_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">573</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in6_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">573</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in6_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">699</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in8_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">699</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in8_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">708</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in9_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">708</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in9_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">717</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in10_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">717</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in10_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">726</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in11_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">726</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in11_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">735</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in12_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">735</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in12_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">744</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in13_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">744</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in13_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">753</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in14_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">753</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in14_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">843</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in16_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">843</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in16_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">852</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in17_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">852</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in17_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">861</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in18_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">861</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in18_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">870</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in19_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">870</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in19_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">879</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in20_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">879</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in20_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">888</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in21_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">888</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in21_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">897</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in22_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">897</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in22_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">906</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in23_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">906</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in23_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">915</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in24_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">915</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in24_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">924</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in25_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">924</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in25_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">933</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in26_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">933</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in26_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">942</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in27_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">942</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in27_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">951</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in28_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">951</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in28_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">960</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in29_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">960</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in29_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">969</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in30_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">969</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in30_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">978</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in31_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\adder32_Sklansky.v</arg>&quot; line <arg fmt="%s" index="2">978</arg>: Output port &lt;<arg fmt="%s" index="3">pi_j</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">in31_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\mul32_s.v</arg>&quot; line <arg fmt="%s" index="2">2147</arg>: Output port &lt;<arg fmt="%s" index="3">co</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fa1_63_1</arg>&gt; is unconnected or connected to loadless signal.

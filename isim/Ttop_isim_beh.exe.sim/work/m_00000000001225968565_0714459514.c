@@ -92,16 +92,6 @@ LAB6:    xsi_set_current_line(86, ng0);
     t3 = ((char*)((ng3)));
     t4 = (t0 + 4168);
     xsi_vlogvar_assign_value(t4, t3, 0, 0, 5);
-    xsi_set_current_line(87, ng0);
-    t2 = (t0 + 4896);
-    xsi_process_wait(t2, 500000LL);
-    *((char **)t1) = &&LAB7;
-    goto LAB1;
-
-LAB7:    xsi_set_current_line(88, ng0);
-    t3 = ((char*)((ng1)));
-    t4 = (t0 + 4168);
-    xsi_vlogvar_assign_value(t4, t3, 0, 0, 5);
     goto LAB1;
 
 }
