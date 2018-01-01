@@ -1,6 +1,13 @@
 #include "arch.h"
 #include "syscall.h"
 #include "keyboard.h"
+#include "input.h"
+
+
+void _kput_char(unsigned short c, unsigned long place)
+{
+    *((unsigned long *)(TEXT_ADDR) + place) = (0x3f<<24) | (c & 0x0ffff);
+}
 
 static unsigned long _scroll_screen(unsigned long line)
 {
@@ -38,30 +45,35 @@ static unsigned long _scroll_screen(unsigned long line)
     return 1;
 }
 
-unsigned long _put_char(unsigned short c)
+static unsigned long _put_char(unsigned short c)
 {
     unsigned long cursor;
     unsigned long temp;
-    if (c == 0x000a)//enter
+
+    cursor = *(unsigned long *)(CURSOR_ADDR);
+    if (c == ZCODE_ENTER)
     {
-        cursor = *(unsigned long *)(CURSOR_ADDR);
         temp = cursor & 0x7ff;
         while(temp >= 40) temp -= 40;
         cursor = cursor - temp + 40;
     }
-    else if (c == 0x0009)//tab
+    else if (c == ZCODE_TAB)
     {
-        cursor = *(unsigned long *)(CURSOR_ADDR);
-        while(cursor & 0x3) cursor++;
+        while(++cursor & 0x3);
+    }
+    else if (c == ZCODE_BACKSPACE)
+    {
+        *((unsigned long *)(TEXT_ADDR) + (cursor & 0x7ff)) = 0;
+        if (cursor & 0x7ff) cursor--;
     }
     else
     {
-        cursor = *(unsigned long *)(CURSOR_ADDR);
         temp = (0x3f<<24) | c;
         *((unsigned long *)(TEXT_ADDR) + (cursor & 0x7ff)) = temp;
         cursor = cursor + 1;
     }
     *(unsigned long *)(CURSOR_ADDR) = cursor;
+    
     if ((cursor & 0x7ff) >= 1160)
     {
         _scroll_screen(1);

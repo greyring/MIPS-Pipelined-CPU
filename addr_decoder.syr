@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
@@ -124,15 +124,15 @@ Elaborating module <addr_decoder>.
 Synthesizing Unit <addr_decoder>.
     Related source file is "F:\MyProgramme\0arch\PCPU\addr_decoder.v".
     Summary:
-	inferred   2 Multiplexer(s).
+	inferred  40 Multiplexer(s).
 Unit <addr_decoder> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Multiplexers                                         : 2
- 1-bit 2-to-1 multiplexer                              : 2
+# Multiplexers                                         : 40
+ 1-bit 2-to-1 multiplexer                              : 40
 
 =========================================================================
 
@@ -145,8 +145,8 @@ Macro Statistics
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Multiplexers                                         : 2
- 1-bit 2-to-1 multiplexer                              : 2
+# Multiplexers                                         : 40
+ 1-bit 2-to-1 multiplexer                              : 40
 
 =========================================================================
 
@@ -187,14 +187,14 @@ Top Level Output File Name         : addr_decoder.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 14
-#      LUT3                        : 4
-#      LUT4                        : 1
-#      LUT5                        : 2
-#      LUT6                        : 7
-# IO Buffers                       : 39
+# BELS                             : 32
+#      LUT3                        : 1
+#      LUT4                        : 4
+#      LUT5                        : 15
+#      LUT6                        : 12
+# IO Buffers                       : 47
 #      IBUF                        : 32
-#      OBUF                        : 7
+#      OBUF                        : 15
 
 Device utilization summary:
 ---------------------------
@@ -203,19 +203,19 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice LUTs:                   14  out of  203800     0%  
-    Number used as Logic:                14  out of  203800     0%  
+ Number of Slice LUTs:                   32  out of  203800     0%  
+    Number used as Logic:                32  out of  203800     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     14
-   Number with an unused Flip Flop:      14  out of     14   100%  
-   Number with an unused LUT:             0  out of     14     0%  
-   Number of fully used LUT-FF pairs:     0  out of     14     0%  
+ Number of LUT Flip Flop pairs used:     32
+   Number with an unused Flip Flop:      32  out of     32   100%  
+   Number with an unused LUT:             0  out of     32     0%  
+   Number of fully used LUT-FF pairs:     0  out of     32     0%  
    Number of unique control sets:         0
 
 IO Utilization: 
- Number of IOs:                          39
- Number of bonded IOBs:                  39  out of    400     9%  
+ Number of IOs:                          47
+ Number of bonded IOBs:                  47  out of    400    11%  
 
 Specific Feature Utilization:
 
@@ -250,7 +250,7 @@ Speed Grade: -2
    Minimum period: No path found
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: No path found
-   Maximum combinational path delay: 2.197ns
+   Maximum combinational path delay: 3.285ns
 
 Timing Details:
 ---------------
@@ -258,24 +258,26 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 116 / 7
+  Total number of paths / destination ports: 740 / 15
 -------------------------------------------------------------------------
-Delay:               2.197ns (Levels of Logic = 5)
-  Source:            addr<21> (PAD)
-  Destination:       en_textRAM (PAD)
+Delay:               3.285ns (Levels of Logic = 7)
+  Source:            addr<30> (PAD)
+  Destination:       en_DRAM (PAD)
 
-  Data Path: addr<21> to en_textRAM
+  Data Path: addr<30> to en_DRAM
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   0.000   0.613  addr_21_IBUF (addr_21_IBUF)
-     LUT6:I0->O            2   0.043   0.608  Mmux_en_cursor_reg112 (Mmux_en_cursor_reg112)
-     LUT5:I0->O            3   0.043   0.507  Mmux_en_cursor_reg113 (Mmux_en_cursor_reg11)
-     LUT5:I2->O            1   0.043   0.339  en_textRAM<13>1 (en_textRAM_OBUF)
-     OBUF:I->O                 0.000          en_textRAM_OBUF (en_textRAM)
+     IBUF:I->O             5   0.000   0.636  addr_30_IBUF (addr_30_IBUF)
+     LUT6:I0->O            1   0.043   0.522  addr[31]_GND_1_o_equal_8_o<31>11 (addr[31]_GND_1_o_equal_8_o<31>11)
+     LUT4:I0->O            4   0.043   0.367  addr[31]_GND_1_o_equal_8_o<31>13 (addr[31]_GND_1_o_equal_8_o<31>1)
+     LUT6:I5->O           13   0.043   0.590  addr[31]_GND_1_o_equal_8_o<31>31 (addr[31]_GND_1_o_equal_8_o<31>3)
+     LUT5:I1->O            3   0.043   0.615  addr[31]_GND_1_o_equal_8_o<31>2 (addr[31]_GND_1_o_equal_8_o)
+     LUT5:I0->O            1   0.043   0.339  Mmux_en_DRAM11 (en_DRAM_OBUF)
+     OBUF:I->O                 0.000          en_DRAM_OBUF (en_DRAM)
     ----------------------------------------
-    Total                      2.197ns (0.129ns logic, 2.068ns route)
-                                       (5.9% logic, 94.1% route)
+    Total                      3.285ns (0.215ns logic, 3.070ns route)
+                                       (6.5% logic, 93.5% route)
 
 =========================================================================
 
@@ -285,12 +287,12 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 10.72 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.71 secs
  
 --> 
 
-Total memory usage is 447544 kilobytes
+Total memory usage is 438136 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

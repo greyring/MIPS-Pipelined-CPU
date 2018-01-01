@@ -40,6 +40,9 @@ $L2:
 	jal	init_keybuf
 	sw	$3,16($2)
 
+	jal	init_input
+	nop
+
 	jal	init_timer
 	nop
 

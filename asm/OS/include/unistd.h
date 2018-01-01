@@ -1,6 +1,8 @@
 #ifndef _UNISTD_H_
 #define _UNISTD_H_
 
+#include "input.h"
+
 #define _NUM_put_seg       0
 #define _NUM_get_sw        1
 #define _NUM_get_btn       2
@@ -89,12 +91,25 @@ void gets(unsigned long n, unsigned short* str)
     while(i<n)
     {
         str[i] = getc();
-        if (str[i] == 0x000a)//enter
+        if (str[i] == ZCODE_BACKSPACE)
         {
-            str[i] = 0;
-            break;
+            if (i!=0)
+            {
+                i--;
+                put_char(str[i]);
+            }
         }
-        i++;
+        else 
+        {
+            put_char(ZCODE_ENTER);
+            i++;
+            if (str[i] == ZCODE_ENTER)//enter
+            {
+                str[i] = 0;
+                
+                break;
+            }
+        }
     }
 }
 

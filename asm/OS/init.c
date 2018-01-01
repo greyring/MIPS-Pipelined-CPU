@@ -1,6 +1,7 @@
 #include "arch.h"
 #include "keyboard.h"
 #include "timer.h"
+#include "input.h"
 
 void init_all()
 {
@@ -33,5 +34,6 @@ void init_all()
     *(unsigned long *)(p) = 0xAA5555AA;
 
     init_keybuf();
+    init_input();
     init_timer();
 }

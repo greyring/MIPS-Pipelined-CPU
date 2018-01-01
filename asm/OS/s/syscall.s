@@ -100,6 +100,107 @@ $L9:
 	.end	_scroll_screen
 	.size	_scroll_screen, .-_scroll_screen
 	.align	2
+	.set	nomips16
+	.set	nomicromips
+	.ent	_put_char
+	.type	_put_char, @function
+_put_char:
+	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
+	.mask	0x80000000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	li	$2,-1342177280			# 0xffffffffb0000000
+	lw	$2,4($2)
+	li	$3,10			# 0xa
+	beq	$4,$3,$L30
+	li	$3,9			# 0x9
+
+	beq	$4,$3,$L19
+	li	$3,8			# 0x8
+
+	beq	$4,$3,$L31
+	andi	$3,$2,0x7ff
+
+	sll	$5,$3,2
+	li	$3,-1342177280			# 0xffffffffb0000000
+	addu	$3,$3,$5
+	li	$5,1056964608			# 0x3f000000
+	or	$4,$4,$5
+	sw	$4,8192($3)
+	b	$L17
+	addiu	$2,$2,1
+
+$L30:
+	andi	$3,$2,0x7ff
+	sltu	$4,$3,40
+	bne	$4,$0,$L15
+	nop
+
+$L16:
+	addiu	$3,$3,-40
+	sltu	$4,$3,40
+	beq	$4,$0,$L16
+	nop
+
+$L15:
+	addiu	$2,$2,40
+	subu	$2,$2,$3
+$L17:
+	li	$3,-1342177280			# 0xffffffffb0000000
+	sw	$2,4($3)
+$L34:
+	andi	$2,$2,0x7ff
+	sltu	$2,$2,1160
+	beq	$2,$0,$L32
+	nop
+
+$L27:
+	jr	$31
+	li	$2,1			# 0x1
+
+$L19:
+	addiu	$2,$2,1
+	andi	$3,$2,0x3
+	bne	$3,$0,$L19
+	li	$3,-1342177280			# 0xffffffffb0000000
+
+	b	$L34
+	sw	$2,4($3)
+
+$L31:
+	andi	$4,$2,0x7ff
+	sll	$5,$4,2
+	li	$3,-1342177280			# 0xffffffffb0000000
+	addu	$3,$3,$5
+	beq	$4,$0,$L21
+	sw	$0,8192($3)
+
+	b	$L17
+	addiu	$2,$2,-1
+
+$L32:
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	jal	_scroll_screen
+	li	$4,1			# 0x1
+
+	li	$2,1			# 0x1
+	lw	$31,20($sp)
+	nop
+	jr	$31
+	addiu	$sp,$sp,24
+
+$L21:
+	li	$3,-1342177280			# 0xffffffffb0000000
+	b	$L27
+	sw	$2,4($3)
+
+	.set	macro
+	.set	reorder
+	.end	_put_char
+	.size	_put_char, .-_put_char
+	.align	2
 	.globl	put_seg_
 	.set	nomips16
 	.set	nomicromips
@@ -323,10 +424,10 @@ clear_screen_:
 	addiu	$2,$2,8192
 	li	$3,-1342177280			# 0xffffffffb0000000
 	addiu	$3,$3,12832
-$L23:
+$L45:
 	sw	$0,0($2)
 	addiu	$2,$2,4
-	bne	$2,$3,$L23
+	bne	$2,$3,$L45
 	li	$4,-2048			# 0xfffffffffffff800
 
 	li	$3,-1342177280			# 0xffffffffb0000000
@@ -356,7 +457,7 @@ put_charAt_:
 	lw	$2,88($4)
 	nop
 	sltu	$3,$2,1160
-	beq	$3,$0,$L27
+	beq	$3,$0,$L49
 	li	$6,-1342177280			# 0xffffffffb0000000
 
 	lw	$3,84($4)
@@ -398,7 +499,7 @@ put_charAt_:
 	jr	$31
 	li	$2,1			# 0x1
 
-$L27:
+$L49:
 	jr	$31
 	move	$2,$0
 
@@ -406,181 +507,6 @@ $L27:
 	.set	reorder
 	.end	put_charAt_
 	.size	put_charAt_, .-put_charAt_
-	.align	2
-	.globl	put_pixel_
-	.set	nomips16
-	.set	nomicromips
-	.ent	put_pixel_
-	.type	put_pixel_, @function
-put_pixel_:
-	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
-	.mask	0x00000000,0
-	.fmask	0x00000000,0
-	.set	noreorder
-	.set	nomacro
-	lw	$5,92($4)
-	lw	$3,88($4)
-	sltu	$2,$5,640
-	beq	$2,$0,$L30
-	nop
-
-	sltu	$2,$3,480
-	beq	$2,$0,$L30
-	nop
-
-	lw	$6,84($4)
-	sll	$2,$3,2
-	addu	$2,$2,$3
-	sll	$2,$2,7
-	addu	$2,$2,$5
-	sll	$2,$2,2
-	li	$4,-1342111744			# 0xffffffffb0010000
-	addu	$4,$4,$2
-	lbu	$2,2($6)
-	nop
-	srl	$2,$2,5
-	sll	$2,$2,6
-	lbu	$3,1($6)
-	nop
-	srl	$3,$3,5
-	sll	$3,$3,3
-	or	$2,$2,$3
-	lbu	$3,0($6)
-	nop
-	srl	$3,$3,5
-	or	$2,$2,$3
-	sh	$2,0($4)
-	jr	$31
-	li	$2,1			# 0x1
-
-$L30:
-	jr	$31
-	move	$2,$0
-
-	.set	macro
-	.set	reorder
-	.end	put_pixel_
-	.size	put_pixel_, .-put_pixel_
-	.align	2
-	.globl	get_char_
-	.set	nomips16
-	.set	nomicromips
-	.ent	get_char_
-	.type	get_char_, @function
-get_char_:
-	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
-	.mask	0x80000000,-4
-	.fmask	0x00000000,0
-	.set	noreorder
-	.set	nomacro
-	addiu	$sp,$sp,-24
-	sw	$31,20($sp)
-	jal	get_from_keybuf
-	nop
-
-	lw	$31,20($sp)
-	nop
-	jr	$31
-	addiu	$sp,$sp,24
-
-	.set	macro
-	.set	reorder
-	.end	get_char_
-	.size	get_char_, .-get_char_
-	.align	2
-	.globl	_put_char
-	.set	nomips16
-	.set	nomicromips
-	.ent	_put_char
-	.type	_put_char, @function
-_put_char:
-	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
-	.mask	0x80000000,-4
-	.fmask	0x00000000,0
-	.set	noreorder
-	.set	nomacro
-	li	$2,10			# 0xa
-	beq	$4,$2,$L47
-	li	$2,9			# 0x9
-
-	beq	$4,$2,$L48
-	li	$3,-1342177280			# 0xffffffffb0000000
-
-	lw	$2,4($3)
-	nop
-	andi	$5,$2,0x7ff
-	sll	$5,$5,2
-	addu	$3,$3,$5
-	li	$5,1056964608			# 0x3f000000
-	or	$4,$4,$5
-	sw	$4,8192($3)
-	addiu	$2,$2,1
-$L37:
-	li	$3,-1342177280			# 0xffffffffb0000000
-$L50:
-	sw	$2,4($3)
-$L51:
-	andi	$2,$2,0x7ff
-	sltu	$2,$2,1160
-	beq	$2,$0,$L49
-	li	$2,1			# 0x1
-
-	jr	$31
-	nop
-
-$L47:
-	li	$2,-1342177280			# 0xffffffffb0000000
-	lw	$2,4($2)
-	nop
-	andi	$3,$2,0x7ff
-	sltu	$4,$3,40
-	bne	$4,$0,$L35
-	nop
-
-$L36:
-	addiu	$3,$3,-40
-	sltu	$4,$3,40
-	beq	$4,$0,$L36
-	nop
-
-$L35:
-	addiu	$2,$2,40
-	b	$L37
-	subu	$2,$2,$3
-
-$L48:
-	li	$2,-1342177280			# 0xffffffffb0000000
-	lw	$2,4($2)
-	nop
-	andi	$3,$2,0x3
-	beq	$3,$0,$L50
-	li	$3,-1342177280			# 0xffffffffb0000000
-
-$L39:
-	addiu	$2,$2,1
-	andi	$3,$2,0x3
-	bne	$3,$0,$L39
-	li	$3,-1342177280			# 0xffffffffb0000000
-
-	b	$L51
-	sw	$2,4($3)
-
-$L49:
-	addiu	$sp,$sp,-24
-	sw	$31,20($sp)
-	jal	_scroll_screen
-	li	$4,1			# 0x1
-
-	li	$2,1			# 0x1
-	lw	$31,20($sp)
-	nop
-	jr	$31
-	addiu	$sp,$sp,24
-
-	.set	macro
-	.set	reorder
-	.end	_put_char
-	.size	_put_char, .-_put_char
 	.align	2
 	.globl	put_char_
 	.set	nomips16
@@ -627,19 +553,19 @@ put_string_:
 	nop
 	lhu	$4,0($16)
 	nop
-	beq	$4,$0,$L59
+	beq	$4,$0,$L57
 	li	$2,1			# 0x1
 
-$L56:
+$L54:
 	jal	_put_char
 	addiu	$16,$16,2
 
 	lhu	$4,0($16)
 	nop
-	bne	$4,$0,$L56
+	bne	$4,$0,$L54
 	li	$2,1			# 0x1
 
-$L59:
+$L57:
 	lw	$31,20($sp)
 	lw	$16,16($sp)
 	jr	$31
@@ -649,6 +575,111 @@ $L59:
 	.set	reorder
 	.end	put_string_
 	.size	put_string_, .-put_string_
+	.align	2
+	.globl	put_pixel_
+	.set	nomips16
+	.set	nomicromips
+	.ent	put_pixel_
+	.type	put_pixel_, @function
+put_pixel_:
+	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	lw	$5,92($4)
+	lw	$3,88($4)
+	sltu	$2,$5,640
+	beq	$2,$0,$L60
+	nop
+
+	sltu	$2,$3,480
+	beq	$2,$0,$L60
+	nop
+
+	lw	$6,84($4)
+	sll	$2,$3,2
+	addu	$2,$2,$3
+	sll	$2,$2,7
+	addu	$2,$2,$5
+	sll	$2,$2,2
+	li	$4,-1342111744			# 0xffffffffb0010000
+	addu	$4,$4,$2
+	lbu	$2,2($6)
+	nop
+	srl	$2,$2,5
+	sll	$2,$2,6
+	lbu	$3,1($6)
+	nop
+	srl	$3,$3,5
+	sll	$3,$3,3
+	or	$2,$2,$3
+	lbu	$3,0($6)
+	nop
+	srl	$3,$3,5
+	or	$2,$2,$3
+	sh	$2,0($4)
+	jr	$31
+	li	$2,1			# 0x1
+
+$L60:
+	jr	$31
+	move	$2,$0
+
+	.set	macro
+	.set	reorder
+	.end	put_pixel_
+	.size	put_pixel_, .-put_pixel_
+	.align	2
+	.globl	get_char_
+	.set	nomips16
+	.set	nomicromips
+	.ent	get_char_
+	.type	get_char_, @function
+get_char_:
+	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
+	.mask	0x80000000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	jal	get_from_keybuf
+	nop
+
+	lw	$31,20($sp)
+	nop
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	get_char_
+	.size	get_char_, .-get_char_
+	.align	2
+	.globl	_kput_char
+	.set	nomips16
+	.set	nomicromips
+	.ent	_kput_char
+	.type	_kput_char, @function
+_kput_char:
+	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	sll	$5,$5,2
+	li	$2,-1342177280			# 0xffffffffb0000000
+	addu	$5,$2,$5
+	li	$2,1056964608			# 0x3f000000
+	or	$4,$4,$2
+	jr	$31
+	sw	$4,8192($5)
+
+	.set	macro
+	.set	reorder
+	.end	_kput_char
+	.size	_kput_char, .-_kput_char
 	.globl	syscall_tbl
 	.section	.data,"aw",@progbits
 	.align	2

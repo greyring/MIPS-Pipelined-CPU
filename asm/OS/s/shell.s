@@ -16,7 +16,7 @@ get_sw:
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
  #APP
- # 62 "./include/unistd.h" 1
+ # 64 "./include/unistd.h" 1
 	li	$a0, 1
 	syscall
 	
@@ -36,7 +36,7 @@ get_btn:
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
  #APP
- # 63 "./include/unistd.h" 1
+ # 65 "./include/unistd.h" 1
 	li	$a0, 2
 	syscall
 	
@@ -56,7 +56,7 @@ get_cursor:
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
  #APP
- # 64 "./include/unistd.h" 1
+ # 66 "./include/unistd.h" 1
 	li	$a0, 6
 	syscall
 	
@@ -76,7 +76,7 @@ clear_screen:
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
  #APP
- # 65 "./include/unistd.h" 1
+ # 67 "./include/unistd.h" 1
 	li	$a0, 8
 	syscall
 	
@@ -96,7 +96,7 @@ get_char:
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
  #APP
- # 66 "./include/unistd.h" 1
+ # 68 "./include/unistd.h" 1
 	li	$a0, 13
 	syscall
 	
@@ -117,7 +117,7 @@ put_seg:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 68 "./include/unistd.h" 1
+ # 70 "./include/unistd.h" 1
 	li	$a0, 0
 	move	$a1, $2
 	syscall
@@ -139,7 +139,7 @@ put_led:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 69 "./include/unistd.h" 1
+ # 71 "./include/unistd.h" 1
 	li	$a0, 3
 	move	$a1, $2
 	syscall
@@ -161,7 +161,7 @@ set_vga:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 70 "./include/unistd.h" 1
+ # 72 "./include/unistd.h" 1
 	li	$a0, 4
 	move	$a1, $2
 	syscall
@@ -183,7 +183,7 @@ scroll_screen:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 71 "./include/unistd.h" 1
+ # 73 "./include/unistd.h" 1
 	li	$a0, 7
 	move	$a1, $2
 	syscall
@@ -205,7 +205,7 @@ put_char:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 72 "./include/unistd.h" 1
+ # 74 "./include/unistd.h" 1
 	li	$a0, 10
 	move	$a1, $2
 	syscall
@@ -227,7 +227,7 @@ put_string:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 73 "./include/unistd.h" 1
+ # 75 "./include/unistd.h" 1
 	li	$a0, 11
 	move	$a1, $2
 	syscall
@@ -249,7 +249,7 @@ set_cursor:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 75 "./include/unistd.h" 1
+ # 77 "./include/unistd.h" 1
 	li	$a0, 5
 	move	$a1, $2
 	move	$a2, $5
@@ -273,7 +273,7 @@ put_charAt:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 76 "./include/unistd.h" 1
+ # 78 "./include/unistd.h" 1
 	li	$a0, 9
 	move	$a1, $2
 	move	$a2, $5
@@ -297,7 +297,7 @@ put_pixel:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 77 "./include/unistd.h" 1
+ # 79 "./include/unistd.h" 1
 	li	$a0, 12
 	move	$a1, $2
 	move	$a2, $5
@@ -349,52 +349,77 @@ $L16:
 	.ent	gets
 	.type	gets, @function
 gets:
-	.frame	$sp,40,$31		# vars= 0, regs= 6/0, args= 16, gp= 0
-	.mask	0x801f0000,-4
+	.frame	$sp,48,$31		# vars= 0, regs= 7/0, args= 16, gp= 0
+	.mask	0x803f0000,-4
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$4,$0,$L29
+	beq	$4,$0,$L31
 	nop
 
-	addiu	$sp,$sp,-40
-	sw	$31,36($sp)
-	sw	$20,32($sp)
-	sw	$19,28($sp)
-	sw	$18,24($sp)
-	sw	$17,20($sp)
-	sw	$16,16($sp)
-	move	$18,$4
-	move	$16,$5
+	addiu	$sp,$sp,-48
+	sw	$31,44($sp)
+	sw	$21,40($sp)
+	sw	$20,36($sp)
+	sw	$19,32($sp)
+	sw	$18,28($sp)
+	sw	$17,24($sp)
+	sw	$16,20($sp)
+	move	$18,$5
+	move	$19,$4
 	move	$17,$0
-	li	$19,10			# 0xa
-$L22:
-	jal	getc
-	nop
+	b	$L23
+	li	$20,8			# 0x8
 
-	beq	$2,$19,$L28
-	sh	$2,0($16)
+$L21:
+	jal	put_char
+	li	$4,10			# 0xa
 
-	addiu	$17,$17,1
-	bne	$18,$17,$L22
 	addiu	$16,$16,2
+	addu	$16,$18,$16
+	lhu	$3,0($16)
+	li	$2,10			# 0xa
+	beq	$3,$2,$L29
+	addiu	$17,$17,1
 
-	b	$L19
+$L22:
+	sltu	$2,$17,$19
+$L30:
+	beq	$2,$0,$L19
 	nop
 
-$L28:
-	sh	$0,0($16)
-$L19:
-	lw	$31,36($sp)
-	lw	$20,32($sp)
-	lw	$19,28($sp)
-	lw	$18,24($sp)
-	lw	$17,20($sp)
-	lw	$16,16($sp)
-	jr	$31
-	addiu	$sp,$sp,40
+$L23:
+	sll	$16,$17,1
+	jal	getc
+	addu	$21,$18,$16
+
+	bne	$2,$20,$L21
+	sh	$2,0($21)
+
+	beq	$17,$0,$L22
+	nop
+
+	lhu	$4,-2($21)
+	jal	put_char
+	addiu	$17,$17,-1
+
+	b	$L30
+	sltu	$2,$17,$19
 
 $L29:
+	sh	$0,0($16)
+$L19:
+	lw	$31,44($sp)
+	lw	$21,40($sp)
+	lw	$20,36($sp)
+	lw	$19,32($sp)
+	lw	$18,28($sp)
+	lw	$17,24($sp)
+	lw	$16,20($sp)
+	jr	$31
+	addiu	$sp,$sp,48
+
+$L31:
 	jr	$31
 	nop
 
@@ -424,14 +449,14 @@ shell:
 	lui	$16,%hi(CLS)
 	addiu	$16,$16,%lo(CLS)
 	lui	$18,%hi(UNKNOWN)
-	b	$L31
+	b	$L33
 	addiu	$18,$18,%lo(UNKNOWN)
 
-$L32:
+$L34:
 	jal	put_string
 	move	$4,$18
 
-$L31:
+$L33:
 	jal	put_string
 	move	$4,$17
 
@@ -444,13 +469,13 @@ $L31:
 	jal	kstrcmp_short
 	li	$4,6			# 0x6
 
-	bne	$2,$0,$L32
+	bne	$2,$0,$L34
 	nop
 
 	jal	clear_screen
 	nop
 
-	b	$L31
+	b	$L33
 	nop
 
 	.set	macro

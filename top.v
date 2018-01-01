@@ -32,9 +32,9 @@ module top(
 	 input [15:0] switch,
     input RSTN,
     
-   //output led_clk,
-   //output led_do,
-   //output led_pen,
+   output led_clk,
+   output led_do,
+   output led_pen,
    output seg_clk,
    output seg_do,
    output seg_pen,
@@ -46,7 +46,10 @@ module top(
 	output vga_v_sync,
 	
 	input ps2_clk,
-	input ps2_dat
+	input ps2_dat,
+	
+	input uart_rx,
+	output uart_tx
     );
 `ifdef DEBUG
 reg [31:0]Div = 32'b0;
@@ -89,13 +92,14 @@ wire [31:0]addr_bus;
 wire [31:0]data_bus;
 wire [5:0]ctrl_bus;
 wire  en_TEXTS, en_DATAS, en_BIOS, en_vga_reg, en_cursor_reg, en_textRAM, 
-		en_graphRAM, en_DRAM, en_SEG, en_keyboard, en_others;//en_SRAM,
+		en_graphRAM, en_DRAM, en_SEG, en_keyboard, en_switch, en_led, en_dma, en_dmaRAM, en_others;//en_SRAM,
 addr_decoder Addr_decoder(
     .addr(addr_bus), 
     .en_TEXTS(en_TEXTS), .en_DATAS(en_DATAS), .en_BIOS(en_BIOS), .en_vga_reg(en_vga_reg),     
 	 .en_cursor_reg(en_cursor_reg), .en_textRAM(en_textRAM),     
 	 .en_graphRAM(en_graphRAM), .en_DRAM(en_DRAM), .en_SEG(en_SEG), 
-	 .en_keyboard(en_keyboard),
+	 .en_keyboard(en_keyboard), .en_switch(en_switch), .en_led(en_led),
+	 .en_dma(en_dma), .en_dmaRAM(en_dmaRAM),
     .en_others(en_others)
     );//.en_SRAM(en_SRAM),
 /*
@@ -180,6 +184,40 @@ bus_interface keyboard(
     .addr_(), .wdata(), .rdata({24'b0, keyboard_data}),
 	 .r_(keyboard_r), .w_(), .ready_(1'b1)
     );
+bus_interface SWITCH(
+    .enable(en_switch), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
+    .addr_(), .wdata(), .rdata({16'b0, SW_OK[15:0]}), 
+	 .r_(), .w_(), .ready_(1'b1)
+    );
+wire led_r;
+wire [3:0]led_w;
+wire [31:0]led_wdata, led_rdata;
+bus_interface led(
+    .enable(en_led), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
+    .addr_(), .wdata(led_wdata), .rdata(led_rdata), 
+	 .r_(led_r), .w_(led_w), .ready_(1'b1)
+    );
+wire dma_r;
+wire [3:0]dma_w;
+wire [31:0]dma_wdata, dma_rdata;
+bus_interface dma(
+    .enable(en_dma), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
+    .addr_(), .wdata(dma_wdata), .rdata(dma_rdata), 
+	 .r_(dma_r), .w_(dma_w), .ready_(1'b1)
+    );
+wire dmaRAM_r;
+wire [3:0]dmaRAM_w;
+wire [31:0]dmaRAM_wdata, dmaRAM_rdata;
+wire [31:0]dmaRAM_addr;
+bus_interface dmaRAM(
+    .enable(en_dmaRAM), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
+    .addr_(dmaRAM_addr), .wdata(dmaRAM_wdata), .rdata(dmaRAM_rdata), 
+	 .r_(dmaRAM_r), .w_(dmaRAM_w), .ready_(1'b1)
+    );
 	 
 wire [31:0]Disp_num;
 wire [7:0]point_out;
@@ -201,8 +239,6 @@ wire [7:0]LE_out;
 
 wire [31:0]PC;
 wire [31:0]inst;
-//wire [31:0]Addr_out;
-//wire [31:0]Data_out;
 wire [31:0]Data_in;
 wire [31:0]cause_data;
 wire [31:0]status_data;
@@ -215,7 +251,6 @@ wire [31:0]epc_data;
 		.data3(status_data[31:0]), 
 		.data4(addr_bus[31:0]), 
 		.data5(data_bus[31:0]), 
-		//.data6(Data_in[31:0]),
 		.data6(epc_data[31:0]),
 		.data7(PC[31:0]), 
 		.EN(SEG_w), 
@@ -271,21 +306,18 @@ keyboard_controller Keyboard_controller(
     .full(), 
     .key_out(keyboard_data)
     );
-/*
-wire [1:0]counter_set;
-GPIO gpio(
-    .clk(~Clk_CPU), 
+
+led_controller Led_controller(
+    .clk(clk_100mhz), 
     .rst(rst), 
-    .EN(GPIOf0000000_we), 
-    .Start(Div[20]), 
-    .P_Data(Peripheral_in), 
-    .counter_set(counter_set), 
-    .LED_out(LED_out), 
-    .ledclk(led_clk), 
-    .ledsout(led_do), 
-    .LEDEN(led_pen)
+    .we(led_w), 
+    .wdata(led_wdata), 
+    .rdata(led_rdata), 
+    .led_clk(led_clk), 
+    .led_do(led_do), 
+    .led_pen(led_pen)
     );
-*/
+	 
 wire [31:0]CPU_wdata;
 wire [31:0]CPU_mem_addr;
    PCPU_v PCPU(
@@ -347,6 +379,42 @@ Data_Section DATA(
   .addra(DATAS_baddr[31:2]), 
   .dina(DATAS_bwdata), 
   .douta(DATAS_brdata) 
+);
+
+/////////////////////////////////////////////////////
+//DMA
+wire dma_mem_rd;
+wire [3:0]dma_mem_we;
+wire [31:0]dma_mem_addr;
+wire [31:0]dma_mem_rdata, dma_mem_wdata;
+uart_controller UART_ctrl(
+    .clk(Clk_CPU), 
+    .uart_clk(), 
+    .rst(rst), 
+    .we(dma_w),
+    .rd(dma_r),
+    .wdata(dma_wdata),
+    .status(dma_rdata), 
+    .mem_rd(dma_mem_rd), 
+    .mem_we(dma_mem_we), 
+    .mem_addr(dma_mem_addr), 
+    .mem_rdata(dma_mem_rdata), 
+    .mem_wdata(dma_mem_wdata), 
+    .rx_in(uart_rx), 
+    .tx_out(uart_tx)
+    );
+	 
+DMA_RAM DMA_RAM_(
+  .clka(~Clk_CPU), // input clka
+  .wea(dmaRAM_w), // input [3 : 0] wea
+  .addra(dmaRAM_addr[8:2]), // input [6 : 0] addra
+  .dina(dmaRAM_wdata), // input [31 : 0] dina
+  .douta(dmaRAM_rdata), // output [31 : 0] douta
+  .clkb(~Clk_CPU), // input clkb
+  .web(dma_mem_we), // input [3 : 0] web
+  .addrb(dma_mem_addr[8:2]), // input [6 : 0] addrb
+  .dinb(dma_mem_wdata), // input [31 : 0] dinb
+  .doutb(dma_mem_rdata) // output [31 : 0] doutb
 );
 
 endmodule

@@ -1,23 +1,3 @@
-## VGA TEXT
-* Virtual Address : 0xB000 2000-0xB000 3fff
-* Physical Address: 0x1000 2000-0x1000 3fff
-* Read and Write
-
-31---30|29----24|23--22|21----16|15----0|
-:-----:|:------:|:----:|:------:|:-----:|
-0      |Font RGB|0     |Back RGB| ZCode |
-
-## VGA GRAPH
-* Virtual Address : 0xB001 0000-0xB001 ffff
-* Physical Address: 0x1001 0000-0x1001 ffff
-* Read and Write
-
-31---28|27----16|15--12|11----0|
-:-----:|:------:|:----:|:-----:|
-0      | RGB    |0     |    RGB|
-
-
-
 ## VGA REG
 * Virtual Address : 0xB000 0000
 * Physical Address: 0x1000 0000
@@ -53,6 +33,7 @@ Mode| Description
 * Virtual Address : 0xB000 0008
 * Physical Address: 0x1000 0008
 * Read Only
+
 31--------16|15--------0|
 :----------:|:---------:|
 0           | SW[15:0]  |
@@ -61,6 +42,7 @@ Mode| Description
 * Virtual Address : 0xB000 000C
 * Physical Address: 0x1000 000C
 * Write Only
+
 31--------16|15--------0|
 :----------:|:---------:|
 0           | LED[15:0] |
@@ -88,9 +70,9 @@ SEG7   |SEG6   |SEG5   |SEG4   |SEG3   |SEG2  |SEG1 |SEG0 |
 * Physical Address: 0x1000 0018
 * Read and Write
 
-31--------16|15--6|6    |5    |4  |3-----0|
+31--------16|15--7|6    |5    |4  |3-----0|
 :----------:|:---:|:---:|:---:|:-:|:-----:|
-LSA         |0    |Ready|Start|R/W|Blk Sel|
+LSA         |0    |Ready|Start|R/W|   0   |
 
 *LSA(Logical Sector Address) is the logical address of the sector on disk to be read from or write into
 
@@ -106,6 +88,29 @@ LSA         |0    |Ready|Start|R/W|Blk Sel|
 31-------25|24-------0|
 :---------:|:--------:|
 0          | BTN[24:0]|
+
+## VGA TEXT
+* Virtual Address : 0xB000 2000-0xB000 3fff
+* Physical Address: 0x1000 2000-0x1000 3fff
+* Read and Write
+
+31---30|29----24|23--22|21----16|15----0|
+:-----:|:------:|:----:|:------:|:-----:|
+0      |Font RGB|0     |Back RGB| ZCode |
+
+## VGA GRAPH
+* Virtual Address : 0xB001 0000-0xB001 ffff
+* Physical Address: 0x1001 0000-0x1001 ffff
+* Read and Write
+
+31---28|27----16|15--12|11----0|
+:-----:|:------:|:----:|:-----:|
+0      | RGB    |0     |    RGB|
+
+## DMA RAM
+* Virtual Address : 0xB002 0000-0xB002 01ff
+* Physical Address: 0x1002 0000-0x1002 01ff
+* Read and Write
 
 
 # FLOW of BIOS

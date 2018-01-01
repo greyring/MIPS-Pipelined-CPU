@@ -1,39 +1,29 @@
 #include "arch.h"
 #include "keyboard.h"
 #include "syscall.h"
-
-unsigned short scantoascii_uppercase[] = {
-    0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0x0009, 0x007E, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0x0051,
-    0x0021, 0xffff, 0xffff, 0xffff, 0x005a, 0x0053, 0x0041, 0x0057, 0x0040, 0xffff, 0xffff, 0x0043, 0x0058, 0x0044, 0x0045, 0x0024, 0x0023, 0xffff, 0xffff, 0x0020, 0x0056, 0x0046,
-    0x0054, 0x0052, 0x0025, 0xffff, 0xffff, 0x004e, 0x0042, 0x0048, 0x0047, 0x0059, 0x005E, 0xffff, 0xffff, 0xffff, 0x004d, 0x004a, 0x0055, 0x0026, 0x002A, 0xffff, 0xffff, 0x003c,
-    0x004b, 0x0049, 0x004f, 0x0029, 0x0028, 0xffff, 0xffff, 0x003E, 0x003f, 0x004c, 0x003A, 0x0050, 0x005F, 0xffff, 0xffff, 0xffff, 0x0022, 0xffff, 0x007B, 0x002B, 0xffff, 0xffff,
-    0xffff, 0xffff, 0x000a, 0x007D, 0xffff, 0x007C, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0x0008, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,
-    0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0x001B, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff};
-unsigned short scantoascii_lowercase[] = {
-    0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0x0009, 0x0060, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0x0071,
-    0x0031, 0xffff, 0xffff, 0xffff, 0x007a, 0x0073, 0x0061, 0x0077, 0x0032, 0xffff, 0xffff, 0x0063, 0x0078, 0x0064, 0x0065, 0x0034, 0x0033, 0xffff, 0xffff, 0x0020, 0x0076, 0x0066,
-    0x0074, 0x0072, 0x0035, 0xffff, 0xffff, 0x006e, 0x0062, 0x0068, 0x0067, 0x0079, 0x0036, 0xffff, 0xffff, 0xffff, 0x006d, 0x006a, 0x0075, 0x0037, 0x0038, 0xffff, 0xffff, 0x002c,
-    0x006b, 0x0069, 0x006f, 0x0030, 0x0039, 0xffff, 0xffff, 0x002e, 0x002f, 0x006c, 0x003b, 0x0070, 0x002d, 0xffff, 0xffff, 0xffff, 0x0027, 0xffff, 0x005b, 0x003d, 0xffff, 0xffff,
-    0xffff, 0xffff, 0x000a, 0x005d, 0xffff, 0x005c, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0x0008, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,
-    0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0x001B, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff};
+#include "input.h"
 
 //0 for up, 1 for down
-unsigned char __attribute__((section (".data"))) key_state[16] = {0};
-unsigned char __attribute__((section (".data"))) skey_state[16] = {0};//special key
+unsigned char __attribute__((section (".data"))) key_state[16];
+unsigned char __attribute__((section (".data"))) skey_state[16];//special key
+static unsigned short __attribute__((section (".data"))) keybuf[32];
+static unsigned long  __attribute__((section (".data"))) keybuf_head;
+static unsigned long  __attribute__((section (".data"))) keybuf_tail;
 
-static int __attribute__((section (".data"))) keyboard_state = KEY_WAIT;//KEY_WAIT;
-static int __attribute__((section (".data"))) capslock = CAP_UP;
-
-unsigned short __attribute__((section (".data"))) keybuf[32] = {0};
-unsigned long  __attribute__((section (".data"))) keybuf_head = 0;
-unsigned long  __attribute__((section (".data"))) keybuf_tail = 0;
+static unsigned long __attribute__((section (".data"))) keyboard_state;
+static unsigned long __attribute__((section (".data"))) capslock;
 
 void init_keybuf()
 {
+    unsigned long i;
+    for (i = 0; i<16; i++)
+    {
+        key_state[i] = skey_state[i] = 0;
+    }
     keybuf_head = 31;
     keybuf_tail = 0;
-    capslock = CAP_UP;
     keyboard_state = KEY_WAIT;
+    capslock = CAP_UP;
 }
 
 static __inline__ void send_to_keybuf(unsigned short key)
@@ -42,7 +32,6 @@ static __inline__ void send_to_keybuf(unsigned short key)
     if (((keybuf_head + 2)&0x1f) == keybuf_tail) return;
     keybuf_head = (keybuf_head + 1)&0x1f;
     keybuf[keybuf_head] = key;
-    _put_char(key);
 }
 
 unsigned short get_from_keybuf()
@@ -67,6 +56,12 @@ void handle_keyboard()
             else if (key == 0x00f0) keyboard_state = KEY_RELEASE;
             else
             {
+                if (get_key_state(key))
+                {
+                    keyboard_state = KEY_WAIT;
+                    return;
+                }
+
                 set_key_state(key);
                 if (key == CAPS_SC)
                 {
@@ -78,13 +73,7 @@ void handle_keyboard()
                     }
                 }
 
-                if (capslock | get_key_state(LSHIFT_SC) | get_key_state(RSHIFT_SC))
-                {
-                    send_to_keybuf(scantoascii_uppercase[key]);
-                }
-                else
-                    send_to_keybuf(scantoascii_lowercase[key]);
-                
+                send_to_keybuf(input_key(capslock, key));
                 keyboard_state = KEY_WAIT;
             }
             break;
@@ -107,6 +96,11 @@ void handle_keyboard()
             if (key == 0x00f0) keyboard_state = KEY_SPRELEASE;
             else
             {
+                if (get_skey_state(key))
+                {
+                    keyboard_state = KEY_WAIT;
+                    return;
+                }
                 set_skey_state(key);
                 keyboard_state = KEY_WAIT;
             }

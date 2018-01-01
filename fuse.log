@@ -1,4 +1,4 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/Ttop_beh.prj" "work.Ttop" "work.glbl" 
+Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe -prj F:/MyProgramme/0arch/PCPU/Ttop_beh.prj work.Ttop work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -72,103 +72,10 @@ Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/top.v" into library work
 Analyzing Verilog file "F:/MyProgramme/0arch/PCPU/Ttop.v" into library work
 Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:267 - "F:/MyProgramme/0arch/PCPU/Ttop.v" Line 50: Cannot find port int_ on this module
+ERROR:HDLCompiler:25 - "F:/MyProgramme/0arch/PCPU/Ttop.v" Line 53: Module <top> does not have a port named <clk_100mhz>.
+ERROR:HDLCompiler:25 - "F:/MyProgramme/0arch/PCPU/Ttop.v" Line 58: Module <top> does not have a port named <int_>.
 WARNING:HDLCompiler:1016 - "F:/MyProgramme/0arch/PCPU/Ttop.v" Line 50: Port ps2_clk is not connected to this instance
 WARNING:HDLCompiler:189 - "F:/MyProgramme/0arch/PCPU/top.v" Line 338: Size mismatch in connection of port <addrb>. Formal port size is 11-bit while actual signal size is 32-bit.
 WARNING:HDLCompiler:189 - "F:/MyProgramme/0arch/PCPU/top.v" Line 347: Size mismatch in connection of port <addra>. Formal port size is 10-bit while actual signal size is 30-bit.
-Completed static elaboration
-Compiling module btn_scan
-Compiling module anti_jitter
-Compiling module santi_jitter
-Compiling module anti_jitter(WIDTH=27,INIT=0)
-Compiling module input_switch_btn
-Compiling module addr_decoder
-Compiling module bus_interface
-Compiling module Display
-Compiling module Multi_8CH32
-Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
-Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module text_vga_ram
-Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
-Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module text_vga_rom
-Compiling module vga_text
-Compiling module vga_cursor
-Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
-Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module graph_vga_ram
-Compiling module vga_graph
-Compiling module vga_port
-Compiling module vga_controller
-Compiling module keyboard_controller
-Compiling module Wired
-Compiling module Random
-Compiling module Index
-Compiling module EntryLo
-Compiling module EntryHi
-Compiling module Count
-Compiling module Compare
-Compiling module Status
-Compiling module Cause
-Compiling module Epc
-Compiling module CP0
-Compiling module CAM_unit(DATA_SIZE=19)
-Compiling module CAM_16
-Compiling module CAM_unit(DATA_SIZE=8)
-Compiling module CAM_16(DATA_SIZE=8)
-Compiling module Decoder
-Compiling module TLB_16
-Compiling module MMU
-Compiling module jump_control
-Compiling module REG32
-Compiling module IF_ID_Reg
-Compiling module control
-Compiling module Regs
-Compiling module forward_reg
-Compiling module half_adder_sub
-Compiling module half_adder
-Compiling module inner_adder
-Compiling module res_adder
-Compiling module adder32_Sklansky
-Compiling module branch_judge
-Compiling module MUL_control
-Compiling module MUL_ID_EXE
-Compiling module ID_EXE_REG
-Compiling module alu
-Compiling module full_adder
-Compiling module mul32_s
-Compiling module MUL_EXE_EWB
-Compiling module EXE_MEM_REG
-Compiling module forward_mem
-Compiling module adder64
-Compiling module mul_adder
-Compiling module Reg_HiLo
-Compiling module Exception_handler
-Compiling module MEM_WB_REG
-Compiling module stall_control
-Compiling module PCPU_v
-Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
-Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module Inst_ROM
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module Text_Section
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="kinte...
-Compiling module Data_Section
-Compiling module top
-Compiling module Ttop
-Compiling module glbl
-Time Resolution for simulation is 1ps.
-Waiting for 18 sub-compilation(s) to finish...
-Compiled 90 Verilog Units
-Built simulation executable F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe
-Fuse Memory Usage: 217836 KB
-Fuse CPU Usage: 4975 ms
+ERROR:Simulator:778 - Static elaboration of top level Verilog design unit(s) in library work failed

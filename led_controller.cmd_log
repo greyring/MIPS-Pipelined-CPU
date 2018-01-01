@@ -1,0 +1,2 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/led_controller.tfi -lib work F:/MyProgramme/0arch/PCPU//led_controller.v -module led_controller -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "F:/MyProgramme/0arch/PCPU/led_controller.xst" -ofn "F:/MyProgramme/0arch/PCPU/led_controller.syr" 

@@ -1,0 +1,16 @@
+
+
+
+// Instantiate the module
+led_controller instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .we(we), 
+    .wdata(wdata), 
+    .rdata(rdata), 
+    .led_clk(led_clk), 
+    .led_do(led_do), 
+    .led_pen(led_pen)
+    );
+
+

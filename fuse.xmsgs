@@ -5,6 +5,15 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="267" delta="unknown" >"F:/MyProgramme/0arch/PCPU/Ttop.v" Line 50: Cannot find port <arg fmt="%s" index="1">int_</arg> on this module
+</msg>
+
+<msg type="error" file="HDLCompiler" num="25" delta="unknown" >"F:/MyProgramme/0arch/PCPU/Ttop.v" Line 53: Module &lt;<arg fmt="%s" index="1">top</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">clk_100mhz</arg>&gt;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="25" delta="unknown" >"F:/MyProgramme/0arch/PCPU/Ttop.v" Line 58: Module &lt;<arg fmt="%s" index="1">top</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">int_</arg>&gt;.
+</msg>
+
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/MyProgramme/0arch/PCPU/Ttop.v" Line 50: Port <arg fmt="%s" index="1">ps2_clk</arg> is not connected to this instance
 </msg>
 
@@ -12,6 +21,9 @@
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/MyProgramme/0arch/PCPU/top.v" Line 347: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addra</arg>&gt;. Formal port size is <arg fmt="%d" index="2">10</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
+</msg>
+
+<msg type="error" file="Simulator" num="778" delta="unknown" >Static elaboration of top level Verilog design unit(s) in library <arg fmt="%s" index="1">work</arg> failed
 </msg>
 
 </messages>

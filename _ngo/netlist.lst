@@ -1,9 +1,9 @@
-F:\MyProgramme\0arch\PCPU\top.ngc 1514441403
+F:\MyProgramme\0arch\PCPU\top.ngc 1514555956
 F:\MyProgramme\0arch\PCPU/Display.ngc 1488981900
 ipcore_dir/Inst_ROM.ngc 1514263548
-ipcore_dir/Text_Section.ngc 1514440176
-ipcore_dir/Data_Section.ngc 1514440293
+ipcore_dir/Text_Section.ngc 1514540718
+ipcore_dir/Data_Section.ngc 1514540922
 ipcore_dir/text_vga_ram.ngc 1511847693
-ipcore_dir/text_vga_rom.ngc 1509179357
+ipcore_dir/text_vga_rom.ngc 1514555633
 ipcore_dir/graph_vga_ram.ngc 1511852868
 OK
