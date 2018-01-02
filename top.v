@@ -24,6 +24,7 @@ module top(
 	input clk200N,
 	`ifdef DEBUG
 	input clk_100mhz,
+	input clk_uart,
 	input [4:0]int_,
 	`endif
 	
@@ -57,16 +58,14 @@ always @(posedge clk_100mhz)
 	Div <= Div+1;
 `else
 wire clk_100mhz;
+wire clk_uart;
 wire [31:0]Div;
-clk_gen_sword Clk_gen(
-    .clk_pad_p(clk200P), 
-    .clk_pad_n(clk200N), 
-    .clk_100m(clk_100mhz), 
-    .clk_50m(), 
-    .clk_25m(), 
-    .clk_10m(), 
+clk_gen Clk_gen(
+    .clk200P(clk200P), 
+    .clk200N(clk200N), 
+    .clk_100mhz(clk_100mhz), 
     .Div(Div), 
-    .locked()
+    .clk_uart(clk_uart)
     );
 `endif
 
@@ -389,7 +388,7 @@ wire [31:0]dma_mem_addr;
 wire [31:0]dma_mem_rdata, dma_mem_wdata;
 uart_controller UART_ctrl(
     .clk(Clk_CPU), 
-    .uart_clk(), 
+    .uart_clk(clk_uart), 
     .rst(rst), 
     .we(dma_w),
     .rd(dma_r),

@@ -78,7 +78,7 @@ init_input:
 	lui	$2,%hi(p_buf)
 	sw	$0,%lo(p_buf)($2)
 	li	$5,1160			# 0x488
-	jal	_kput_char
+	jal	kput_char
 	li	$4,143			# 0x8f
 
 	lw	$31,20($sp)
@@ -108,33 +108,33 @@ input_key:
 	sw	$18,28($sp)
 	sw	$17,24($sp)
 	li	$2,18			# 0x12
-	beq	$5,$2,$L28
+	beq	$5,$2,$L30
 	sw	$16,20($sp)
 
+$L11:
+	beq	$4,$0,$L14
 	lui	$2,%hi(key_state+2)
-$L36:
+
 	lbu	$2,%lo(key_state+2)($2)
 	nop
 	andi	$2,$2,0x4
-	bne	$2,$0,$L14
-	li	$2,1			# 0x1
-
+	bne	$2,$0,$L15
 	lui	$2,%hi(key_state+11)
+
 	lbu	$2,%lo(key_state+11)($2)
 	nop
-	srl	$2,$2,1
-	andi	$2,$2,0x1
-$L14:
-	beq	$2,$4,$L15
-	lui	$2,%hi(scantoascii_lowercase)
-
-	sll	$5,$5,1
+	andi	$2,$2,0x2
+	beq	$2,$0,$L16
 	lui	$2,%hi(scantoascii_uppercase)
-	addiu	$2,$2,%lo(scantoascii_uppercase)
+
+$L15:
+	sll	$5,$5,1
+	lui	$2,%hi(scantoascii_lowercase)
+	addiu	$2,$2,%lo(scantoascii_lowercase)
 	addu	$5,$5,$2
 	lhu	$16,0($5)
 	lui	$2,%hi(input_state)
-$L32:
+$L34:
 	lw	$2,%lo(input_state)($2)
 	nop
 	beq	$2,$0,$L13
@@ -142,21 +142,21 @@ $L32:
 
 	andi	$2,$2,0xffff
 	sltu	$2,$2,10
-	bne	$2,$0,$L17
+	bne	$2,$0,$L20
 	addiu	$2,$16,-97
 
 	andi	$2,$2,0xffff
 	sltu	$2,$2,6
-	bne	$2,$0,$L18
+	bne	$2,$0,$L21
 	addiu	$2,$16,-65
 
 	andi	$2,$2,0xffff
 	sltu	$2,$2,6
-	bne	$2,$0,$L35
+	bne	$2,$0,$L37
 	lui	$2,%hi(p_buf)
 
 	li	$2,10			# 0xa
-	beq	$16,$2,$L29
+	beq	$16,$2,$L31
 	li	$2,8			# 0x8
 
 	bne	$16,$2,$L13
@@ -167,15 +167,15 @@ $L32:
 	beq	$2,$0,$L13
 	li	$3,4			# 0x4
 
-	beq	$2,$3,$L30
+	beq	$2,$3,$L32
 	li	$5,1165			# 0x48d
 
 	lui	$16,%hi(p_buf)
-$L34:
+$L36:
 	lw	$5,%lo(p_buf)($16)
 	nop
 	addiu	$5,$5,1160
-	jal	_kput_char
+	jal	kput_char
 	move	$4,$0
 
 	lw	$2,%lo(p_buf)($16)
@@ -190,15 +190,14 @@ $L34:
 	b	$L13
 	li	$16,65535			# 0xffff
 
-$L28:
+$L30:
 	lui	$2,%hi(key_state+2)
 	lbu	$2,%lo(key_state+2)($2)
 	nop
 	andi	$2,$2,0x10
-	beq	$2,$0,$L36
-	lui	$2,%hi(key_state+2)
-
+	beq	$2,$0,$L11
 	lui	$2,%hi(input_state)
+
 	lw	$2,%lo(input_state)($2)
 	nop
 	bne	$2,$0,$L12
@@ -206,6 +205,15 @@ $L28:
 
 	li	$3,1			# 0x1
 	sw	$3,%lo(input_state)($2)
+	li	$5,1160			# 0x488
+	jal	kput_char
+	li	$4,144			# 0x90
+
+	b	$L13
+	li	$16,65535			# 0xffff
+
+$L12:
+	sw	$0,%lo(input_state)($2)
 	lui	$3,%hi(buffer)
 	addiu	$2,$3,%lo(buffer)
 	sh	$0,6($2)
@@ -215,44 +223,87 @@ $L28:
 	lui	$2,%hi(p_buf)
 	sw	$0,%lo(p_buf)($2)
 	li	$5,1160			# 0x488
-	jal	_kput_char
-	li	$4,144			# 0x90
-
-	b	$L13
-	li	$16,65535			# 0xffff
-
-$L12:
-	sw	$0,%lo(input_state)($2)
-	li	$5,1160			# 0x488
-	jal	_kput_char
+	jal	kput_char
 	li	$4,143			# 0x8f
 
+	li	$5,1161			# 0x489
+	jal	kput_char
+	move	$4,$0
+
+	li	$5,1162			# 0x48a
+	jal	kput_char
+	move	$4,$0
+
+	li	$5,1163			# 0x48b
+	jal	kput_char
+	move	$4,$0
+
+	li	$5,1164			# 0x48c
+	jal	kput_char
+	move	$4,$0
+
+	li	$5,1165			# 0x48d
+	jal	kput_char
+	move	$4,$0
+
 	b	$L13
 	li	$16,65535			# 0xffff
 
-$L15:
+$L16:
 	sll	$5,$5,1
+	addiu	$2,$2,%lo(scantoascii_uppercase)
+	addu	$5,$5,$2
+	lhu	$16,0($5)
+	b	$L34
+	lui	$2,%hi(input_state)
+
+$L14:
+	lbu	$2,%lo(key_state+2)($2)
+	nop
+	andi	$2,$2,0x4
+	bne	$2,$0,$L18
+	nop
+
+	lui	$2,%hi(key_state+11)
+	lbu	$2,%lo(key_state+11)($2)
+	nop
+	andi	$2,$2,0x2
+	beq	$2,$0,$L19
+	nop
+
+$L18:
+	sll	$5,$5,1
+	lui	$2,%hi(scantoascii_uppercase)
+	addiu	$2,$2,%lo(scantoascii_uppercase)
+	addu	$5,$5,$2
+	lhu	$16,0($5)
+	b	$L34
+	lui	$2,%hi(input_state)
+
+$L19:
+	sll	$5,$5,1
+	lui	$2,%hi(scantoascii_lowercase)
 	addiu	$2,$2,%lo(scantoascii_lowercase)
 	addu	$5,$5,$2
 	lhu	$16,0($5)
-	b	$L32
+	b	$L34
 	lui	$2,%hi(input_state)
 
-$L17:
+$L20:
 	andi	$2,$2,0xffff
 	sltu	$2,$2,6
-	beq	$2,$0,$L35
+	beq	$2,$0,$L37
 	lui	$2,%hi(p_buf)
 
-$L18:
+$L21:
 	addiu	$16,$16,-32
 	andi	$16,$16,0xffff
 	lui	$2,%hi(p_buf)
-$L35:
+$L37:
 	lw	$5,%lo(p_buf)($2)
 	nop
 	sltu	$2,$5,4
-	beq	$2,$0,$L24
+	beq	$2,$0,$L26
 	sll	$2,$5,1
 
 	lui	$3,%hi(buffer)
@@ -263,18 +314,18 @@ $L35:
 	addiu	$2,$5,1
 	sw	$2,%lo(p_buf)($17)
 	addiu	$5,$5,1161
-	jal	_kput_char
+	jal	kput_char
 	move	$4,$16
 
 	lw	$3,%lo(p_buf)($17)
 	li	$2,4			# 0x4
-	beq	$3,$2,$L31
+	beq	$3,$2,$L33
 	lui	$17,%hi(buffer)
 
 	b	$L13
 	li	$16,65535			# 0xffff
 
-$L31:
+$L33:
 	lhu	$4,%lo(buffer)($17)
 	jal	ascii2hex
 	addiu	$17,$17,%lo(buffer)
@@ -283,8 +334,8 @@ $L31:
 	jal	ascii2hex
 	move	$16,$2
 
-	sll	$16,$16,6
-	sll	$2,$2,4
+	sll	$16,$16,12
+	sll	$2,$2,8
 	or	$16,$16,$2
 	lhu	$4,4($17)
 	jal	ascii2hex
@@ -294,17 +345,17 @@ $L31:
 	jal	ascii2hex
 	move	$18,$2
 
-	sll	$18,$18,2
+	sll	$18,$18,4
 	or	$2,$16,$2
 	or	$2,$18,$2
 	li	$5,1165			# 0x48d
-	jal	_kput_char
+	jal	kput_char
 	andi	$4,$2,0xffff
 
 	b	$L13
 	li	$16,65535			# 0xffff
 
-$L29:
+$L31:
 	lui	$2,%hi(p_buf)
 	lw	$3,%lo(p_buf)($2)
 	li	$2,4			# 0x4
@@ -319,8 +370,8 @@ $L29:
 	jal	ascii2hex
 	move	$16,$2
 
-	sll	$16,$16,6
-	sll	$2,$2,4
+	sll	$16,$16,12
+	sll	$2,$2,8
 	or	$16,$16,$2
 	lhu	$4,4($17)
 	jal	ascii2hex
@@ -330,7 +381,7 @@ $L29:
 	jal	ascii2hex
 	move	$18,$2
 
-	sll	$18,$18,2
+	sll	$18,$18,4
 	or	$16,$16,$2
 	or	$16,$18,$16
 	andi	$16,$16,0xffff
@@ -341,40 +392,40 @@ $L29:
 	sh	$0,2($17)
 	sh	$0,%lo(buffer)($19)
 	li	$5,1161			# 0x489
-	jal	_kput_char
+	jal	kput_char
 	move	$4,$0
 
 	li	$5,1162			# 0x48a
-	jal	_kput_char
+	jal	kput_char
 	move	$4,$0
 
 	li	$5,1163			# 0x48b
-	jal	_kput_char
+	jal	kput_char
 	move	$4,$0
 
 	li	$5,1164			# 0x48c
-	jal	_kput_char
+	jal	kput_char
 	move	$4,$0
 
 	li	$5,1165			# 0x48d
-	jal	_kput_char
+	jal	kput_char
 	move	$4,$0
 
-	b	$L33
+	b	$L35
 	move	$2,$16
 
-$L30:
-	jal	_kput_char
+$L32:
+	jal	kput_char
 	move	$4,$0
 
-	b	$L34
+	b	$L36
 	lui	$16,%hi(p_buf)
 
-$L24:
+$L26:
 	li	$16,65535			# 0xffff
 $L13:
 	move	$2,$16
-$L33:
+$L35:
 	lw	$31,36($sp)
 	lw	$19,32($sp)
 	lw	$18,28($sp)

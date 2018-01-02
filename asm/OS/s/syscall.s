@@ -656,30 +656,6 @@ get_char_:
 	.set	reorder
 	.end	get_char_
 	.size	get_char_, .-get_char_
-	.align	2
-	.globl	_kput_char
-	.set	nomips16
-	.set	nomicromips
-	.ent	_kput_char
-	.type	_kput_char, @function
-_kput_char:
-	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
-	.mask	0x00000000,0
-	.fmask	0x00000000,0
-	.set	noreorder
-	.set	nomacro
-	sll	$5,$5,2
-	li	$2,-1342177280			# 0xffffffffb0000000
-	addu	$5,$2,$5
-	li	$2,1056964608			# 0x3f000000
-	or	$4,$4,$2
-	jr	$31
-	sw	$4,8192($5)
-
-	.set	macro
-	.set	reorder
-	.end	_kput_char
-	.size	_kput_char, .-_kput_char
 	.globl	syscall_tbl
 	.section	.data,"aw",@progbits
 	.align	2

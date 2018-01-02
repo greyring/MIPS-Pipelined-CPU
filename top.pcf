@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri Dec 29 22:08:31 2017
+// Written by: Map P.20131013 on Tue Jan 02 19:51:48 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -27,11 +27,15 @@ COMP "switch<12>" LOCATE = SITE "AF8" LEVEL 1;
 COMP "switch<13>" LOCATE = SITE "AE13" LEVEL 1;
 COMP "switch<14>" LOCATE = SITE "AF13" LEVEL 1;
 COMP "switch<15>" LOCATE = SITE "AF10" LEVEL 1;
+COMP "uart_tx" LOCATE = SITE "P24" LEVEL 1;
+COMP "uart_rx" LOCATE = SITE "L25" LEVEL 1;
+COMP "led_clk" LOCATE = SITE "N26" LEVEL 1;
 COMP "btn_y<0>" LOCATE = SITE "V18" LEVEL 1;
 COMP "btn_y<2>" LOCATE = SITE "V14" LEVEL 1;
 COMP "btn_y<1>" LOCATE = SITE "V19" LEVEL 1;
 COMP "btn_y<4>" LOCATE = SITE "V16" LEVEL 1;
 COMP "btn_y<3>" LOCATE = SITE "W14" LEVEL 1;
+COMP "led_do" LOCATE = SITE "M26" LEVEL 1;
 COMP "vga_red<3>" LOCATE = SITE "P21" LEVEL 1;
 COMP "vga_red<2>" LOCATE = SITE "R21" LEVEL 1;
 COMP "vga_red<1>" LOCATE = SITE "N22" LEVEL 1;
@@ -48,6 +52,7 @@ COMP "switch<3>" LOCATE = SITE "AA12" LEVEL 1;
 COMP "switch<4>" LOCATE = SITE "Y13" LEVEL 1;
 COMP "switch<1>" LOCATE = SITE "AB10" LEVEL 1;
 COMP "switch<2>" LOCATE = SITE "AA13" LEVEL 1;
+COMP "led_pen" LOCATE = SITE "N24" LEVEL 1;
 COMP "switch<0>" LOCATE = SITE "AA10" LEVEL 1;
 COMP "clk200N" LOCATE = SITE "AD18" LEVEL 1;
 COMP "clk200P" LOCATE = SITE "AC18" LEVEL 1;

@@ -1,4 +1,4 @@
-#include "syscall.h"
+#include "kutils.h"
 #include "input.h"
 #include "keyboard.h"
 
@@ -34,7 +34,7 @@ void init_input()
     input_state = INPUT_ENGLISH;
     buffer[0] = buffer[1] = buffer[2] = buffer[3] = 0;
     p_buf = 0;
-    _kput_char(ZCODE_YING, DISPLAY_BASE);
+    kput_char(ZCODE_YING, DISPLAY_BASE);
 }
 
 unsigned short input_key(unsigned long capslock, unsigned short key)
@@ -45,26 +45,45 @@ unsigned short input_key(unsigned long capslock, unsigned short key)
         if (input_state == INPUT_ENGLISH)
         {
             input_state = INPUT_CODE;
-            buffer[0] = buffer[1] = buffer[2] = buffer[3] = 0;
-            p_buf = 0;
-            _kput_char(ZCODE_QU, DISPLAY_BASE);
+            kput_char(ZCODE_QU, DISPLAY_BASE);
         }
         else
         {
             input_state = INPUT_ENGLISH;
-            _kput_char(ZCODE_YING, DISPLAY_BASE);
+            buffer[0] = buffer[1] = buffer[2] = buffer[3] = 0;
+            p_buf = 0;
+            kput_char(ZCODE_YING, DISPLAY_BASE);
+            kput_char(0, DISPLAY_BASE + 1);
+            kput_char(0, DISPLAY_BASE + 2);
+            kput_char(0, DISPLAY_BASE + 3);
+            kput_char(0, DISPLAY_BASE + 4);
+            kput_char(0, DISPLAY_BASE + 5);
         }
         return 0x0ffff;
     }
 
     //transform key
-    if (capslock ^ (get_key_state(LSHIFT_SC) || get_key_state(RSHIFT_SC)))
+    if (capslock)
     {
-        t_key = scantoascii_uppercase[key];
+        if (get_key_state(LSHIFT_SC) || get_key_state(RSHIFT_SC))
+        {
+            t_key = scantoascii_lowercase[key];
+        }
+        else
+        {
+            t_key = scantoascii_uppercase[key];
+        }
     }
     else
     {
-        t_key = scantoascii_lowercase[key];
+        if (get_key_state(LSHIFT_SC) || get_key_state(RSHIFT_SC))
+        {
+            t_key = scantoascii_uppercase[key];
+        }
+        else
+        {
+            t_key = scantoascii_lowercase[key];
+        }
     }
 
     //input mode
@@ -87,12 +106,12 @@ unsigned short input_key(unsigned long capslock, unsigned short key)
             {
                 buffer[p_buf] = t_key;
                 p_buf++;
-                _kput_char(t_key, DISPLAY_BASE + p_buf);
+                kput_char(t_key, DISPLAY_BASE + p_buf);
                 if (p_buf == 4)
                 {
-                    _kput_char((ascii2hex(buffer[0])<<6)
-                                |(ascii2hex(buffer[1])<<4)
-                                |(ascii2hex(buffer[2])<<2)
+                    kput_char((ascii2hex(buffer[0])<<12)
+                                |(ascii2hex(buffer[1])<<8)
+                                |(ascii2hex(buffer[2])<<4)
                                 |ascii2hex(buffer[3]), DISPLAY_BASE + 5);
                 }
             }
@@ -101,26 +120,26 @@ unsigned short input_key(unsigned long capslock, unsigned short key)
         else if (t_key == ZCODE_ENTER && p_buf == 4)
         {
             unsigned short res;
-            res = ((ascii2hex(buffer[0])<<6)
-                    |(ascii2hex(buffer[1])<<4)
-                    |(ascii2hex(buffer[2])<<2)
+            res = ((ascii2hex(buffer[0])<<12)
+                    |(ascii2hex(buffer[1])<<8)
+                    |(ascii2hex(buffer[2])<<4)
                     |ascii2hex(buffer[3]));
             p_buf = 0;
             buffer[0] = buffer[1] = buffer[2] = buffer[3] = 0;
-            _kput_char(0, DISPLAY_BASE + 1);
-            _kput_char(0, DISPLAY_BASE + 2);
-            _kput_char(0, DISPLAY_BASE + 3);
-            _kput_char(0, DISPLAY_BASE + 4);
-            _kput_char(0, DISPLAY_BASE + 5);
+            kput_char(0, DISPLAY_BASE + 1);
+            kput_char(0, DISPLAY_BASE + 2);
+            kput_char(0, DISPLAY_BASE + 3);
+            kput_char(0, DISPLAY_BASE + 4);
+            kput_char(0, DISPLAY_BASE + 5);
             return res;
         }
         else if (t_key == ZCODE_BACKSPACE && p_buf != 0)
         {
             if (p_buf == 4)
             {
-                _kput_char(0, DISPLAY_BASE + 5);
+                kput_char(0, DISPLAY_BASE + 5);
             }
-            _kput_char(0, DISPLAY_BASE + p_buf);
+            kput_char(0, DISPLAY_BASE + p_buf);
             p_buf--;
             buffer[p_buf] = 0;
             return 0x0ffff;

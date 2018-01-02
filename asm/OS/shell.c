@@ -1,4 +1,3 @@
-#include "unistd.h"
 #include "utils.h"
 
 unsigned short __attribute__((section(".data"))) TIP[] = {'$', '>', 0};
@@ -11,8 +10,8 @@ void shell()
     while(1)
     {
         put_string(TIP);
-        gets(128, input);
-        if (kstrcmp_short(6, input, CLS) == 0)
+        gets(input, 128);
+        if (strcmp_short(input, CLS, 6) == 0)
         {
             clear_screen();
         }

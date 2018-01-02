@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+clk_gen instance_name (
+    .clk200P(clk200P), 
+    .clk200N(clk200N), 
+    .clk_100mhz(clk_100mhz), 
+    .Div(Div), 
+    .clk_uart(clk_uart)
+    );
+
+

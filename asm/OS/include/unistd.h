@@ -1,8 +1,6 @@
 #ifndef _UNISTD_H_
 #define _UNISTD_H_
 
-#include "input.h"
-
 #define _NUM_put_seg       0
 #define _NUM_get_sw        1
 #define _NUM_get_btn       2
@@ -59,58 +57,6 @@ __asm__ volatile(\
     :"i"(_NUM_##name),"r"((unsigned long)a),"r"((unsigned long)b),"r"((unsigned long)c)\
     :"$a0");\
 return res;\
-}
-
-_syscall0(get_sw);
-_syscall0(get_btn);
-_syscall0(get_cursor);
-_syscall0(clear_screen);
-_syscall0(get_char);
-
-_syscall1(put_seg, unsigned long, data);
-_syscall1(put_led, unsigned long, data);
-_syscall1(set_vga, unsigned long, mode);//0 1 3
-_syscall1(scroll_screen, unsigned long, line);
-_syscall1(put_char, unsigned short, c);
-_syscall1(put_string, unsigned short *, str);
-
-_syscall3(set_cursor, unsigned long, mode, unsigned char *, rgb, unsigned long, loc);//mode 0 1 2 3
-_syscall3(put_charAt, unsigned short, c, unsigned long, loc, unsigned char *, fbrgb);
-_syscall3(put_pixel, unsigned long, x, unsigned long, y, unsigned char *, rgb);
-
-unsigned short getc()
-{
-    unsigned short c;
-    while((c = get_char())==0x0000ffff);
-    return c;
-}
-
-void gets(unsigned long n, unsigned short* str)
-{
-    unsigned long i = 0;
-    while(i<n)
-    {
-        str[i] = getc();
-        if (str[i] == ZCODE_BACKSPACE)
-        {
-            if (i!=0)
-            {
-                i--;
-                put_char(str[i]);
-            }
-        }
-        else 
-        {
-            put_char(ZCODE_ENTER);
-            i++;
-            if (str[i] == ZCODE_ENTER)//enter
-            {
-                str[i] = 0;
-                
-                break;
-            }
-        }
-    }
 }
 
 #endif

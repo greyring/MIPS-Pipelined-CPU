@@ -51,6 +51,7 @@
                 "C:/Program Files (x86)/Windows Kits/8.1/Include/shared",
                 "C:/Program Files (x86)/Windows Kits/8.1/Include/winrt",
                 "${workspaceRoot}",
+                "${workspaceRoot}/include",
                 "${workspaceRoot}/include"
             ],
             "defines": [

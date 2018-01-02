@@ -1,3 +1,7 @@
 {
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "utils.h": "c",
+        "unistd.h": "c"
+    }
 }

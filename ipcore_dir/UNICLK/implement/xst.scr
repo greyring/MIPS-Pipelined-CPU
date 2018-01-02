@@ -1,0 +1,9 @@
+run
+-ifmt MIXED
+-top UNICLK_exdes
+-p xc7k325t-ffg676-2l
+-ifn xst.prj
+-ofn UNICLK_exdes
+-keep_hierarchy soft 
+-equivalent_register_removal no 
+-max_fanout 65535

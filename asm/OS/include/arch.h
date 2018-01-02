@@ -4,6 +4,7 @@
 #define DATA_RAM_ADDR    0xa0000000//0xa0000000-0xafffffff
 #define TEXT_ADDR        0xb0002000//0xb0002000-0xb0003fff 8K
 #define GRAPH_ADDR       0xb0010000//0xb0010000-0xb001ffff 64K
+#define DMARAM_ADDR      0xb0020000//0xb0020000-0xb00201ff 512B
 #define VGA_REG_ADDR     0xb0000000
 #define CURSOR_ADDR      0xb0000004
 #define SW_ADDR          0xb0000008

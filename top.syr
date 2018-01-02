@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: top.prj
 
@@ -108,6 +108,8 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" into library work
+Parsing module <UNICLK>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\CAM_unit.v" into library work
 Parsing module <CAM_unit>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\res_adder.v" into library work
@@ -242,8 +244,9 @@ Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\input_switch_btn.v" into libra
 Parsing module <input_switch_btn>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\Display_IO.v" into library work
 Parsing module <Display>.
-Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\clk_gen_sword.v" into library work
-Parsing module <clk_gen_sword>.
+Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\clk_gen.v" into library work
+Parsing module <clk_gen>.
+WARNING:HDLCompiler:751 - "F:\MyProgramme\0arch\PCPU\clk_gen.v" Line 30: Redeclaration of ansi port Div is not allowed
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\bus_interface.v" into library work
 Parsing module <bus_interface>.
 Analyzing Verilog file "F:\MyProgramme\0arch\PCPU\addr_decoder.v" into library work
@@ -258,11 +261,29 @@ Parsing module <top>.
 
 Elaborating module <top>.
 
-Elaborating module <clk_gen_sword>.
+Elaborating module <clk_gen>.
 
-Elaborating module <IBUFGDS(DIFF_TERM="FALSE",IBUF_LOW_PWR="TRUE",IOSTANDARD="DEFAULT")>.
+Elaborating module <UNICLK>.
 
-Elaborating module <MMCME2_BASE(BANDWIDTH="OPTIMIZED",CLKFBOUT_MULT_F=3.0,CLKFBOUT_PHASE=0.0,CLKIN1_PERIOD=5.0,CLKOUT0_DIVIDE_F=6.0,CLKOUT1_DIVIDE=12,CLKOUT2_DIVIDE=24,CLKOUT3_DIVIDE=60,CLKOUT4_DIVIDE=60,CLKOUT5_DIVIDE=60,CLKOUT6_DIVIDE=60,CLKOUT0_DUTY_CYCLE=0.5,CLKOUT1_DUTY_CYCLE=0.5,CLKOUT2_DUTY_CYCLE=0.5,CLKOUT3_DUTY_CYCLE=0.5,CLKOUT4_DUTY_CYCLE=0.5,CLKOUT5_DUTY_CYCLE=0.5,CLKOUT6_DUTY_CYCLE=0.5,CLKOUT0_PHASE=0.0,CLKOUT1_PHASE=0.0,CLKOUT2_PHASE=0.0,CLKOUT3_PHASE=0.0,CLKOUT4_PHASE=0.0,CLKOUT5_PHASE=0.0,CLKOUT6_PHASE=0.0,CLKOUT4_CASCADE="FALSE",DIVCLK_DIVIDE=1,REF_JITTER1=0.0,STARTUP_WAIT="TRUE")>.
+Elaborating module <IBUFGDS>.
+
+Elaborating module <MMCME2_ADV(BANDWIDTH="OPTIMIZED",CLKOUT4_CASCADE="FALSE",COMPENSATION="ZHOLD",STARTUP_WAIT="FALSE",DIVCLK_DIVIDE=1,CLKFBOUT_MULT_F=3.5,CLKFBOUT_PHASE=0.0,CLKFBOUT_USE_FINE_PS="FALSE",CLKOUT0_DIVIDE_F=7.0,CLKOUT0_PHASE=0.0,CLKOUT0_DUTY_CYCLE=0.5,CLKOUT0_USE_FINE_PS="FALSE",CLKOUT1_DIVIDE=95,CLKOUT1_PHASE=0.0,CLKOUT1_DUTY_CYCLE=0.5,CLKOUT1_USE_FINE_PS="FALSE",CLKIN1_PERIOD=5.0,REF_JITTER1=0.01)>.
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 134: Assignment to clkfboutb_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 136: Assignment to clkout0b_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 138: Assignment to clkout1b_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 139: Assignment to clkout2_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 140: Assignment to clkout2b_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 141: Assignment to clkout3_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 142: Assignment to clkout3b_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 143: Assignment to clkout4_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 144: Assignment to clkout5_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 145: Assignment to clkout6_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 157: Assignment to do_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 158: Assignment to drdy_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 164: Assignment to psdone_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 166: Assignment to locked_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 167: Assignment to clkinstopped_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v" Line 168: Assignment to clkfbstopped_unused ignored, since the identifier is never used
 
 Elaborating module <BUFG>.
 
@@ -275,19 +296,19 @@ Elaborating module <santi_jitter>.
 Elaborating module <anti_jitter>.
 
 Elaborating module <anti_jitter(WIDTH=27,INIT=0)>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 83: Assignment to BTN_OK ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 82: Assignment to BTN_OK ignored, since the identifier is never used
 
 Elaborating module <addr_decoder>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 98: Assignment to en_BIOS ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 100: Assignment to en_DRAM ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 103: Assignment to en_others ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 97: Assignment to en_BIOS ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 99: Assignment to en_DRAM ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 102: Assignment to en_others ignored, since the identifier is never used
 
 Elaborating module <bus_interface>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 123: Assignment to TEXTS_br ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 132: Assignment to DATAS_br ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 177: Assignment to SEG_r ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 200: Assignment to led_r ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 219: Assignment to dmaRAM_r ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 122: Assignment to TEXTS_br ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 131: Assignment to DATAS_br ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 176: Assignment to SEG_r ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 199: Assignment to led_r ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 218: Assignment to dmaRAM_r ignored, since the identifier is never used
 
 Elaborating module <Display>.
 WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\Display_IO.v" Line 21: Empty module <Display> remains a black box.
@@ -522,20 +543,19 @@ WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\Inst_ROM.v" Lin
 
 Elaborating module <Text_Section>.
 WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\Text_Section.v" Line 39: Empty module <Text_Section> remains a black box.
-WARNING:HDLCompiler:189 - "F:\MyProgramme\0arch\PCPU\top.v" Line 370: Size mismatch in connection of port <addrb>. Formal port size is 11-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "F:\MyProgramme\0arch\PCPU\top.v" Line 369: Size mismatch in connection of port <addrb>. Formal port size is 11-bit while actual signal size is 32-bit.
 
 Elaborating module <Data_Section>.
 WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\Data_Section.v" Line 39: Empty module <Data_Section> remains a black box.
-WARNING:HDLCompiler:189 - "F:\MyProgramme\0arch\PCPU\top.v" Line 379: Size mismatch in connection of port <addra>. Formal port size is 10-bit while actual signal size is 30-bit.
+WARNING:HDLCompiler:189 - "F:\MyProgramme\0arch\PCPU\top.v" Line 378: Size mismatch in connection of port <addra>. Formal port size is 10-bit while actual signal size is 30-bit.
 
 Elaborating module <uart_controller>.
 
 Elaborating module <uart>.
-WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 398: Assignment to dma_mem_rd ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\MyProgramme\0arch\PCPU\top.v" Line 397: Assignment to dma_mem_rd ignored, since the identifier is never used
 
 Elaborating module <DMA_RAM>.
 WARNING:HDLCompiler:1499 - "F:\MyProgramme\0arch\PCPU\ipcore_dir\DMA_RAM.v" Line 39: Empty module <DMA_RAM> remains a black box.
-WARNING:HDLCompiler:552 - "F:\MyProgramme\0arch\PCPU\top.v" Line 390: Input port uart_clk is not connected on this instance
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -543,69 +563,64 @@ WARNING:HDLCompiler:552 - "F:\MyProgramme\0arch\PCPU\top.v" Line 390: Input port
 
 Synthesizing Unit <top>.
     Related source file is "F:\MyProgramme\0arch\PCPU\top.v".
-WARNING:Xst:2898 - Port 'uart_clk', unconnected in block instance 'UART_ctrl', is tied to GND.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 61: Output port <clk_50m> of the instance <Clk_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 61: Output port <clk_25m> of the instance <Clk_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 61: Output port <clk_10m> of the instance <Clk_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 61: Output port <locked> of the instance <Clk_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 76: Output port <btn_ok> of the instance <Input_switch_btn> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 76: Output port <cr> of the instance <Input_switch_btn> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 96: Output port <en_BIOS> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 96: Output port <en_DRAM> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 96: Output port <en_others> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 119: Output port <r_> of the instance <TEXTS> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 128: Output port <r_> of the instance <DATAS> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 137: Output port <addr_> of the instance <VGA_REG> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 146: Output port <addr_> of the instance <VGA_CURSOR> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 173: Output port <addr_> of the instance <SEG> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 173: Output port <r_> of the instance <SEG> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 181: Output port <addr_> of the instance <keyboard> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 181: Output port <wdata> of the instance <keyboard> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 181: Output port <w_> of the instance <keyboard> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 187: Output port <addr_> of the instance <SWITCH> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 187: Output port <wdata> of the instance <SWITCH> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 187: Output port <w_> of the instance <SWITCH> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 187: Output port <r_> of the instance <SWITCH> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 196: Output port <addr_> of the instance <led> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 196: Output port <r_> of the instance <led> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 205: Output port <addr_> of the instance <dma> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 215: Output port <r_> of the instance <dmaRAM> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 225: Output port <segclrn> of the instance <display> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 266: Output port <busy> of the instance <Vga_controller> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 298: Output port <full> of the instance <Keyboard_controller> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 390: Output port <mem_rd> of the instance <UART_ctrl> is unconnected or connected to loadless signal.
-    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 344
-    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 344
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 75: Output port <btn_ok> of the instance <Input_switch_btn> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 75: Output port <cr> of the instance <Input_switch_btn> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 95: Output port <en_BIOS> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 95: Output port <en_DRAM> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 95: Output port <en_others> of the instance <Addr_decoder> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 118: Output port <r_> of the instance <TEXTS> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 127: Output port <r_> of the instance <DATAS> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 136: Output port <addr_> of the instance <VGA_REG> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 145: Output port <addr_> of the instance <VGA_CURSOR> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 172: Output port <addr_> of the instance <SEG> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 172: Output port <r_> of the instance <SEG> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 180: Output port <addr_> of the instance <keyboard> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 180: Output port <wdata> of the instance <keyboard> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 180: Output port <w_> of the instance <keyboard> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 186: Output port <addr_> of the instance <SWITCH> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 186: Output port <wdata> of the instance <SWITCH> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 186: Output port <w_> of the instance <SWITCH> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 186: Output port <r_> of the instance <SWITCH> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 195: Output port <addr_> of the instance <led> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 195: Output port <r_> of the instance <led> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 204: Output port <addr_> of the instance <dma> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 214: Output port <r_> of the instance <dmaRAM> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 224: Output port <segclrn> of the instance <display> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 265: Output port <busy> of the instance <Vga_controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 297: Output port <full> of the instance <Keyboard_controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\top.v" line 389: Output port <mem_rd> of the instance <UART_ctrl> is unconnected or connected to loadless signal.
+    Found 1-bit tristate buffer for signal <data_bus<31>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<30>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<29>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<28>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<27>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<26>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<25>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<24>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<23>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<22>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<21>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<20>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<19>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<18>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<17>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<16>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<15>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<14>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<13>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<12>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<11>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<10>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<9>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<8>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<7>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<6>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<5>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<4>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<3>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<2>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<1>> created at line 343
+    Found 1-bit tristate buffer for signal <data_bus<0>> created at line 343
 INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal data_bus<31> may hinder XST clustering optimizations.
 INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal data_bus<9> may hinder XST clustering optimizations.
     Summary:
@@ -613,14 +628,22 @@ INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal data_bus<9> may h
 	inferred  32 Tristate(s).
 Unit <top> synthesized.
 
-Synthesizing Unit <clk_gen_sword>.
-    Related source file is "F:\MyProgramme\0arch\PCPU\clk_gen_sword.v".
+Synthesizing Unit <clk_gen>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\clk_gen.v".
+    Found 32-bit register for signal <Div2>.
     Found 32-bit register for signal <Div>.
-    Found 32-bit adder for signal <Div[31]_GND_2_o_add_1_OUT> created at line 19.
+    Found 32-bit adder for signal <Div[31]_GND_2_o_add_1_OUT> created at line 40.
+    Found 32-bit adder for signal <Div2[31]_GND_2_o_add_4_OUT> created at line 44.
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred  32 D-type flip-flop(s).
-Unit <clk_gen_sword> synthesized.
+	inferred   2 Adder/Subtractor(s).
+	inferred  64 D-type flip-flop(s).
+Unit <clk_gen> synthesized.
+
+Synthesizing Unit <UNICLK>.
+    Related source file is "F:\MyProgramme\0arch\PCPU\ipcore_dir\UNICLK.v".
+    Summary:
+	no macro.
+Unit <UNICLK> synthesized.
 
 Synthesizing Unit <input_switch_btn>.
     Related source file is "F:\MyProgramme\0arch\PCPU\input_switch_btn.v".
@@ -684,8 +707,8 @@ Synthesizing Unit <anti_jitter>.
         INIT = 1'b0
     Found 20-bit register for signal <cnt>.
     Found 1-bit register for signal <out>.
-    Found 20-bit subtractor for signal <cnt[19]_GND_9_o_sub_6_OUT> created at line 41.
-    Found 20-bit adder for signal <cnt[19]_GND_9_o_add_2_OUT> created at line 36.
+    Found 20-bit subtractor for signal <cnt[19]_GND_10_o_sub_6_OUT> created at line 41.
+    Found 20-bit adder for signal <cnt[19]_GND_10_o_add_2_OUT> created at line 36.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  21 D-type flip-flop(s).
@@ -697,8 +720,8 @@ Synthesizing Unit <anti_jitter_1>.
         INIT = 0
     Found 27-bit register for signal <cnt>.
     Found 1-bit register for signal <out>.
-    Found 27-bit subtractor for signal <cnt[26]_GND_10_o_sub_6_OUT> created at line 41.
-    Found 27-bit adder for signal <cnt[26]_GND_10_o_add_2_OUT> created at line 36.
+    Found 27-bit subtractor for signal <cnt[26]_GND_11_o_sub_6_OUT> created at line 41.
+    Found 27-bit adder for signal <cnt[26]_GND_11_o_add_2_OUT> created at line 36.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  28 D-type flip-flop(s).
@@ -841,7 +864,7 @@ Synthesizing Unit <vga_text>.
     Related source file is "F:\MyProgramme\0arch\PCPU\vga_text.v".
 WARNING:Xst:647 - Input <addr<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <addr<31:13>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 11-bit adder for signal <vga_row[8]_GND_50_o_add_2_OUT> created at line 36.
+    Found 11-bit adder for signal <vga_row[8]_GND_51_o_add_2_OUT> created at line 36.
     Found 5x6-bit multiplier for signal <n0026> created at line 36.
     Found 1-bit 16-to-1 multiplexer for signal <vga_column[3]_font_data[15]_Mux_5_o> created at line 57.
     Summary:
@@ -886,7 +909,7 @@ Synthesizing Unit <vga_cursor>.
     Found 1-bit register for signal <stat<31>>.
     Found 11-bit adder for signal <addr> created at line 55.
     Found 5x6-bit multiplier for signal <n0097> created at line 55.
-    Found 1-bit 4-to-1 multiplexer for signal <GND_54_o_PWR_21_o_MUX_279_o> created at line 61.
+    Found 1-bit 4-to-1 multiplexer for signal <GND_55_o_PWR_22_o_MUX_279_o> created at line 61.
     Found 11-bit comparator equal for signal <cursor_on> created at line 58
     Summary:
 	inferred   1 Multiplier(s).
@@ -913,16 +936,16 @@ Synthesizing Unit <vga_port>.
     Found 10-bit register for signal <column_c>.
     Found 10-bit register for signal <row_c>.
     Found 10-bit subtractor for signal <column> created at line 58.
-    Found 10-bit adder for signal <column_c[9]_GND_58_o_add_2_OUT> created at line 44.
-    Found 10-bit adder for signal <row_c[9]_GND_58_o_add_4_OUT> created at line 47.
+    Found 10-bit adder for signal <column_c[9]_GND_59_o_add_2_OUT> created at line 44.
+    Found 10-bit adder for signal <row_c[9]_GND_59_o_add_4_OUT> created at line 47.
     Found 9-bit subtractor for signal <row> created at line 30.
-    Found 10-bit comparator greater for signal <column_c[9]_PWR_24_o_LessThan_2_o> created at line 43
-    Found 10-bit comparator lessequal for signal <row_c[9]_PWR_24_o_LessThan_4_o> created at line 46
+    Found 10-bit comparator greater for signal <column_c[9]_PWR_25_o_LessThan_2_o> created at line 43
+    Found 10-bit comparator lessequal for signal <row_c[9]_PWR_25_o_LessThan_4_o> created at line 46
     Found 10-bit comparator greater for signal <hsync> created at line 55
     Found 10-bit comparator greater for signal <vsync> created at line 56
-    Found 10-bit comparator greater for signal <GND_58_o_column_c[9]_LessThan_17_o> created at line 59
+    Found 10-bit comparator greater for signal <GND_59_o_column_c[9]_LessThan_17_o> created at line 59
     Found 10-bit comparator lessequal for signal <n0015> created at line 59
-    Found 10-bit comparator greater for signal <GND_58_o_row_c[9]_LessThan_19_o> created at line 60
+    Found 10-bit comparator greater for signal <GND_59_o_row_c[9]_LessThan_19_o> created at line 60
     Found 10-bit comparator lessequal for signal <n0020> created at line 60
     Summary:
 	inferred   4 Adder/Subtractor(s).
@@ -939,9 +962,9 @@ Synthesizing Unit <keyboard_controller>.
     Found 10-bit register for signal <tmp_key>.
     Found 6-bit register for signal <t>.
     Found 2-bit register for signal <tmp>.
-    Found 4-bit adder for signal <counter[3]_GND_59_o_add_14_OUT> created at line 61.
-    Found 6-bit adder for signal <t[5]_GND_59_o_add_28_OUT> created at line 74.
-    Found 6-bit adder for signal <h[5]_GND_59_o_add_33_OUT> created at line 79.
+    Found 4-bit adder for signal <counter[3]_GND_60_o_add_14_OUT> created at line 61.
+    Found 6-bit adder for signal <t[5]_GND_60_o_add_28_OUT> created at line 74.
+    Found 6-bit adder for signal <h[5]_GND_60_o_add_33_OUT> created at line 79.
     Found 6-bit comparator equal for signal <full> created at line 53
     Found 6-bit comparator not equal for signal <n0044> created at line 78
     Summary:
@@ -988,7 +1011,7 @@ INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 99: Output port <DTLB_
 INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 310: Output port <overflow> of the instance <add_branch_addr> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "F:\MyProgramme\0arch\PCPU\PCPU_v.v" line 457: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
     Found 32-bit adder for signal <npc> created at line 163.
-    Found 32-bit adder for signal <exe_npc[31]_GND_62_o_add_15_OUT> created at line 467.
+    Found 32-bit adder for signal <exe_npc[31]_GND_63_o_add_15_OUT> created at line 467.
     Found 32-bit 4-to-1 multiplexer for signal <PC_jump> created at line 145.
     Found 5-bit 4-to-1 multiplexer for signal <id_rega_addr> created at line 238.
     Found 5-bit 4-to-1 multiplexer for signal <id_regb_addr> created at line 247.
@@ -1021,8 +1044,8 @@ Unit <Wired> synthesized.
 Synthesizing Unit <Random>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Random.v".
     Found 4-bit register for signal <RANDOM>.
-    Found 4-bit subtractor for signal <RANDOM[3]_GND_65_o_sub_3_OUT> created at line 33.
-    Found 32-bit comparator equal for signal <GND_65_o_Wired[31]_equal_2_o> created at line 32
+    Found 4-bit subtractor for signal <RANDOM[3]_GND_66_o_sub_3_OUT> created at line 33.
+    Found 32-bit comparator equal for signal <GND_66_o_Wired[31]_equal_2_o> created at line 32
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   4 D-type flip-flop(s).
@@ -1064,7 +1087,7 @@ Unit <EntryHi> synthesized.
 Synthesizing Unit <Count>.
     Related source file is "F:\MyProgramme\0arch\PCPU\Count.v".
     Found 32-bit register for signal <count>.
-    Found 32-bit adder for signal <count[31]_GND_69_o_add_1_OUT> created at line 33.
+    Found 32-bit adder for signal <count[31]_GND_70_o_add_1_OUT> created at line 33.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
@@ -1672,8 +1695,8 @@ WARNING:Xst:647 - Input <CAUSE_in<1:0>> is never used. This port will be preserv
 WARNING:Xst:647 - Input <CAUSE_in<7:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <CAUSE_in<22:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <CAUSE_in<30:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 32-bit subtractor for signal <PC[31]_GND_267_o_sub_5_OUT> created at line 62.
-    Found 32-bit adder for signal <PWR_75_o_GND_267_o_add_15_OUT> created at line 111.
+    Found 32-bit subtractor for signal <PC[31]_GND_268_o_sub_5_OUT> created at line 62.
+    Found 32-bit adder for signal <PWR_76_o_GND_268_o_add_15_OUT> created at line 111.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  13 Multiplexer(s).
@@ -1743,8 +1766,8 @@ WARNING:Xst:647 - Input <wdata<15:6>> is never used. This port will be preserved
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 9-bit adder for signal <byte_count[8]_GND_305_o_add_24_OUT> created at line 143.
-    Found 4x4-bit Read Only RAM for signal <byte_count[1]_PWR_82_o_wide_mux_33_OUT>
+    Found 9-bit adder for signal <byte_count[8]_GND_306_o_add_24_OUT> created at line 143.
+    Found 4x4-bit Read Only RAM for signal <byte_count[1]_PWR_83_o_wide_mux_33_OUT>
     Found 32-bit 4-to-1 multiplexer for signal <byte_count[1]_rx_data[7]_wide_mux_34_OUT> created at line 195.
     Found 8-bit 4-to-1 multiplexer for signal <byte_count[8]_buf_tdata[3][7]_wide_mux_39_OUT> created at line 225.
     Summary:
@@ -1757,6 +1780,8 @@ Unit <uart_controller> synthesized.
 
 Synthesizing Unit <uart>.
     Related source file is "F:\MyProgramme\0arch\PCPU\uart.v".
+    Found 1-bit register for signal <tx_out>.
+    Found 1-bit register for signal <tx_empty>.
     Found 8-bit register for signal <rx_data>.
     Found 8-bit register for signal <tx_reg>.
     Found 8-bit register for signal <rx_reg>.
@@ -1764,16 +1789,14 @@ Synthesizing Unit <uart>.
     Found 4-bit register for signal <tx_cnt>.
     Found 1-bit register for signal <rx_ready>.
     Found 1-bit register for signal <rx_busy>.
-    Found 1-bit register for signal <tx_out>.
-    Found 1-bit register for signal <tx_empty>.
-    Found 4-bit adder for signal <rx_cnt[3]_GND_306_o_add_1_OUT> created at line 66.
-    Found 4-bit adder for signal <tx_cnt[3]_GND_306_o_add_18_OUT> created at line 99.
-    Found 3-bit subtractor for signal <GND_306_o_GND_306_o_sub_23_OUT<2:0>> created at line 104.
-    Found 1-bit 8-to-1 multiplexer for signal <GND_306_o_tx_reg[7]_Mux_23_o> created at line 104.
-    Found 4-bit comparator greater for signal <rx_cnt[3]_PWR_83_o_LessThan_3_o> created at line 68
+    Found 4-bit adder for signal <rx_cnt[3]_GND_307_o_add_1_OUT> created at line 66.
+    Found 4-bit adder for signal <tx_cnt[3]_GND_307_o_add_18_OUT> created at line 99.
+    Found 3-bit subtractor for signal <GND_307_o_GND_307_o_sub_23_OUT<2:0>> created at line 104.
+    Found 1-bit 8-to-1 multiplexer for signal <GND_307_o_tx_reg[7]_Mux_23_o> created at line 104.
+    Found 4-bit comparator greater for signal <rx_cnt[3]_PWR_84_o_LessThan_3_o> created at line 68
     Found 4-bit comparator lessequal for signal <n0008> created at line 69
-    Found 4-bit comparator greater for signal <GND_306_o_tx_cnt[3]_LessThan_21_o> created at line 103
-    Found 4-bit comparator greater for signal <tx_cnt[3]_PWR_83_o_LessThan_22_o> created at line 103
+    Found 4-bit comparator greater for signal <GND_307_o_tx_cnt[3]_LessThan_21_o> created at line 103
+    Found 4-bit comparator greater for signal <tx_cnt[3]_PWR_84_o_LessThan_22_o> created at line 103
     Summary:
 	inferred   3 Adder/Subtractor(s).
 	inferred  36 D-type flip-flop(s).
@@ -1792,7 +1815,7 @@ Macro Statistics
 # Multipliers                                          : 3
  10x9-bit multiplier                                   : 1
  6x5-bit multiplier                                    : 2
-# Adders/Subtractors                                   : 64
+# Adders/Subtractors                                   : 65
  10-bit adder                                          : 2
  10-bit subtractor                                     : 1
  11-bit adder                                          : 2
@@ -1800,14 +1823,14 @@ Macro Statistics
  20-bit addsub                                         : 42
  27-bit addsub                                         : 1
  3-bit subtractor                                      : 1
- 32-bit adder                                          : 5
+ 32-bit adder                                          : 6
  32-bit subtractor                                     : 1
  4-bit adder                                           : 3
  4-bit subtractor                                      : 1
  6-bit adder                                           : 2
  9-bit adder                                           : 1
  9-bit subtractor                                      : 1
-# Registers                                            : 302
+# Registers                                            : 303
  1-bit register                                        : 178
  10-bit register                                       : 3
  134-bit register                                      : 1
@@ -1819,7 +1842,7 @@ Macro Statistics
  25-bit register                                       : 1
  27-bit register                                       : 1
  3-bit register                                        : 2
- 32-bit register                                       : 7
+ 32-bit register                                       : 8
  38-bit register                                       : 1
  39-bit register                                       : 1
  4-bit register                                        : 6
@@ -1993,71 +2016,26 @@ WARNING:Xst:1290 - Hierarchical block <in63_32> is unconnected in block <Adder>.
 WARNING:Xst:1290 - Hierarchical block <in63_0> is unconnected in block <Adder>.
    It will be removed from the design.
 INFO:Xst:2261 - The FF/Latch <cpu_blink_0> in Unit <multi_8ch32> is equivalent to the following 7 FFs/Latches, which will be removed : <cpu_blink_1> <cpu_blink_2> <cpu_blink_3> <cpu_blink_4> <cpu_blink_5> <cpu_blink_6> <cpu_blink_7> 
-WARNING:Xst:1710 - FF/Latch <rx_cnt_3> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_ready> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_out> (without init value) has a constant value of 1 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_0> (without init value) has a constant value of 0 in block <UART_ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_1> (without init value) has a constant value of 0 in block <UART_ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_2> (without init value) has a constant value of 0 in block <UART_ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_3> (without init value) has a constant value of 0 in block <UART_ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_4> (without init value) has a constant value of 0 in block <UART_ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_5> (without init value) has a constant value of 0 in block <UART_ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_6> (without init value) has a constant value of 0 in block <UART_ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_7> (without init value) has a constant value of 0 in block <UART_ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_8> (without init value) has a constant value of 0 in block <UART_ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_0> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_1> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_2> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_3> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_0> has a constant value of 0 in block <ID_EXE>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_1> has a constant value of 0 in block <ID_EXE>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_2> has a constant value of 0 in block <ID_EXE>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_3> has a constant value of 0 in block <ID_EXE>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp_70> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp_71> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp_72> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp_73> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp_74> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp_75> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp_76> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp_77> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_0> has a constant value of 0 in block <EXE_MEM_REG>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_1> has a constant value of 0 in block <EXE_MEM_REG>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <temp1_2> has a constant value of 0 in block <EXE_MEM_REG>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <temp1_3> has a constant value of 0 in block <EXE_MEM_REG>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_reg_0> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_reg_1> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_reg_2> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_reg_3> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_reg_4> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_reg_5> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_reg_6> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_reg_7> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_reg_0> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_reg_1> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_reg_2> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_reg_3> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_reg_4> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_reg_5> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_reg_6> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_reg_7> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_cnt_2> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_cnt_1> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_cnt_0> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rx_busy> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_cnt_3> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_cnt_2> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_cnt_1> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_cnt_0> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_empty> (without init value) has a constant value of 1 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_7> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_6> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_5> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_4> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_3> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_2> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_1> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_0> (without init value) has a constant value of 0 in block <UART_Port>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_2> has a constant value of 0 in block <EXE_MEM_REG>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_1> has a constant value of 0 in block <EXE_MEM_REG>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_0> has a constant value of 0 in block <EXE_MEM_REG>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_77> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_76> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_75> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_74> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_73> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_72> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_71> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp_70> has a constant value of 0 in block <_Mul_EXE_EWB>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_3> has a constant value of 0 in block <ID_EXE>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_2> has a constant value of 0 in block <ID_EXE>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_1> has a constant value of 0 in block <ID_EXE>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_0> has a constant value of 0 in block <ID_EXE>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_3> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_2> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_1> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <temp1_0> has a constant value of 0 in block <IF_ID>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <temp_3> of sequential type is unconnected in block <ID_EXE>.
 WARNING:Xst:2677 - Node <temp_3> of sequential type is unconnected in block <EXE_MEM_REG>.
 
@@ -2073,9 +2051,10 @@ Synthesizing (advanced) Unit <anti_jitter_1>.
 The following registers are absorbed into counter <cnt>: 1 register on signal <cnt>.
 Unit <anti_jitter_1> synthesized (advanced).
 
-Synthesizing (advanced) Unit <clk_gen_sword>.
+Synthesizing (advanced) Unit <clk_gen>.
 The following registers are absorbed into counter <Div>: 1 register on signal <Div>.
-Unit <clk_gen_sword> synthesized (advanced).
+The following registers are absorbed into counter <Div2>: 1 register on signal <Div2>.
+Unit <clk_gen> synthesized (advanced).
 
 Synthesizing (advanced) Unit <control>.
 INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_LUT_op> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
@@ -2141,7 +2120,7 @@ Unit <uart> synthesized (advanced).
 
 Synthesizing (advanced) Unit <uart_controller>.
 The following registers are absorbed into counter <byte_count>: 1 register on signal <byte_count>.
-INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_byte_count[1]_PWR_82_o_wide_mux_33_OUT> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_byte_count[1]_PWR_83_o_wide_mux_33_OUT> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -2155,7 +2134,7 @@ INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_byte_count[1]_PWR_82_o_wide_mux_33_O
 Unit <uart_controller> synthesized (advanced).
 
 Synthesizing (advanced) Unit <vga_controller>.
-	Multiplier <Vga_text/Mmult_n0026> in block <vga_controller> and adder/subtractor <Vga_text/Madd_vga_row[8]_GND_50_o_add_2_OUT> in block <vga_controller> are combined into a MAC<Vga_text/Maddsub_n0026>.
+	Multiplier <Vga_text/Mmult_n0026> in block <vga_controller> and adder/subtractor <Vga_text/Madd_vga_row[8]_GND_51_o_add_2_OUT> in block <vga_controller> are combined into a MAC<Vga_text/Maddsub_n0026>.
 	Multiplier <Vga_graph/Mmult_n0021> in block <vga_controller> and adder/subtractor <Vga_graph/Madd_temp_addr> in block <vga_controller> are combined into a MAC<Vga_graph/Maddsub_n0021>.
 	Multiplier <Vga_cursor/Mmult_n0097> in block <vga_controller> and adder/subtractor <Vga_cursor/Madd_addr> in block <vga_controller> are combined into a MAC<Vga_cursor/Maddsub_n0097>.
 Unit <vga_controller> synthesized (advanced).
@@ -2185,11 +2164,11 @@ Macro Statistics
  4-bit subtractor                                      : 1
  6-bit adder                                           : 1
  9-bit subtractor                                      : 1
-# Counters                                             : 52
+# Counters                                             : 53
  10-bit up counter                                     : 2
  20-bit updown counter                                 : 42
  27-bit updown counter                                 : 1
- 32-bit up counter                                     : 2
+ 32-bit up counter                                     : 3
  4-bit up counter                                      : 2
  6-bit up counter                                      : 2
  9-bit up counter                                      : 1
@@ -2401,38 +2380,6 @@ WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_58_3>, <fa1_60_3> of unit <ful
 WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_58_3>, <fa1_61_3> of unit <full_adder> are equivalent, second instance is removed
 WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_58_3>, <fa1_62_3> of unit <full_adder> are equivalent, second instance is removed
 WARNING:Xst:1989 - Unit <mul32_s>: instances <fa1_61_2>, <fa1_62_2> of unit <full_adder> are equivalent, second instance is removed
-WARNING:Xst:1710 - FF/Latch <tx_out> (without init value) has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_ready> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_cnt_3> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_cnt_2> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_cnt_1> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_cnt_0> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_busy> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_empty> (without init value) has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_reg_7> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_reg_6> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_reg_5> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_reg_4> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_reg_0> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_reg_1> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_reg_2> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_reg_3> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_reg_4> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_reg_5> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_reg_6> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_reg_7> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_reg_0> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_reg_1> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_reg_2> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_reg_3> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_2> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_3> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_4> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_5> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_6> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_7> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_1> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rx_data_0> (without init value) has a constant value of 0 in block <uart>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <cpu_blink_0> in Unit <Multi_8CH32> is equivalent to the following 7 FFs/Latches, which will be removed : <cpu_blink_1> <cpu_blink_2> <cpu_blink_3> <cpu_blink_4> <cpu_blink_5> <cpu_blink_6> <cpu_blink_7> 
 INFO:Xst:2261 - The FF/Latch <temp1_0> in Unit <IF_ID_Reg> is equivalent to the following 3 FFs/Latches, which will be removed : <temp1_1> <temp1_2> <temp1_3> 
 INFO:Xst:2261 - The FF/Latch <temp_6> in Unit <ID_EXE_REG> is equivalent to the following FF/Latch, which will be removed : <temp_78> 
@@ -2467,21 +2414,31 @@ Optimizing FSM <UART_ctrl/FSM_1> on signal <state[1:4]> with user encoding.
  0111  | 0111
  1000  | 1000
 -------------------
-WARNING:Xst:1293 - FF/Latch <state_FSM_FFd4> has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <state_FSM_FFd3> has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <state_FSM_FFd2> has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <state_FSM_FFd1> has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_0> (without init value) has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_2> (without init value) has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_3> (without init value) has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_4> (without init value) has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_5> (without init value) has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_8> (without init value) has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_6> (without init value) has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_7> (without init value) has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <byte_count_1> (without init value) has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Ready> has a constant value of 0 in block <uart_controller>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:1901 - Instance Clk_gen/MMCME2_BASE_inst in unit top of type MMCME2_BASE has been replaced by MMCME2_ADV
+WARNING:Xst:2677 - Node <Clk_gen/Div2_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_19> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_20> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_24> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_25> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_26> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_27> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_28> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_29> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_30> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Clk_gen/Div2_31> of sequential type is unconnected in block <top>.
 WARNING:Xst:2040 - Unit top: 32 multi-source signals are replaced by logic (pull-up yes): data_bus<0>, data_bus<10>, data_bus<11>, data_bus<12>, data_bus<13>, data_bus<14>, data_bus<15>, data_bus<16>, data_bus<17>, data_bus<18>, data_bus<19>, data_bus<1>, data_bus<20>, data_bus<21>, data_bus<22>, data_bus<23>, data_bus<24>, data_bus<25>, data_bus<26>, data_bus<27>, data_bus<28>, data_bus<29>, data_bus<2>, data_bus<30>, data_bus<31>, data_bus<3>, data_bus<4>, data_bus<5>, data_bus<6>, data_bus<7>, data_bus<8>, data_bus<9>.
 WARNING:Xst:2042 - Unit bus_interface: 33 internal tristates are replaced by logic (pull-up yes): data<0>, data<10>, data<11>, data<12>, data<13>, data<14>, data<15>, data<16>, data<17>, data<18>, data<19>, data<1>, data<20>, data<21>, data<22>, data<23>, data<24>, data<25>, data<26>, data<27>, data<28>, data<29>, data<2>, data<30>, data<31>, data<3>, data<4>, data<5>, data<6>, data<7>, data<8>, data<9>, ready.
 WARNING:Xst:2040 - Unit control: 32 multi-source signals are replaced by logic (pull-up yes): bus<10>, bus<11>, bus<12>, bus<13>, bus<17>, bus<18>, bus<19>, bus<20>, bus<23>, bus<24>, bus<25>, bus<26>, bus<29>, bus<30>, bus<31>, bus<3>, bus<4>, bus<6>, bus<7>, bus<8>, id_eret, id_exe_imm, id_exe_jal, id_exe_lui, id_exe_res_sign, id_exe_sign, id_j, id_jr, id_mem_CP0_we, id_syscall, id_unknown, id_wb_we.
@@ -2505,6 +2462,8 @@ Optimizing unit <btn_scan> ...
 Optimizing unit <keyboard_controller> ...
 
 Optimizing unit <uart_controller> ...
+
+Optimizing unit <uart> ...
 
 Optimizing unit <Multi_8CH32> ...
 
@@ -3158,6 +3117,22 @@ WARNING:Xst:2677 - Node <Input_switch_btn/Btn_scan/btn_result_0> of sequential t
 WARNING:Xst:2677 - Node <PCPU/ID_EXE/temp_3> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <PCPU/EXE_MEM_REG/temp_3> of sequential type is unconnected in block <top>.
 WARNING:Xst:1293 - FF/Latch <PCPU/EXE_MEM_REG/temp_18> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_15> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_14> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_13> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_12> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_11> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_10> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_9> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_8> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PCPU/MMU_/TLB/G_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_42> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_117> 
 INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_37> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_112> 
 INFO:Xst:2261 - The FF/Latch <PCPU/_MUL_ID_EXE/temp_43> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <PCPU/ID_EXE/temp_118> 
@@ -3230,11 +3205,11 @@ INFO:Xst:2260 - The FF/Latch <P7SEG/sh_clk> in Unit <display> is equivalent to t
 INFO:Xst:2260 - The FF/Latch <P7SEG/S_0> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/S_0_1> 
 INFO:Xst:2260 - The FF/Latch <P7SEG/sh_clk> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/sh_clk_1> 
 INFO:Xst:2260 - The FF/Latch <P7SEG/S_0> in Unit <display> is equivalent to the following FF/Latch : <P7SEG/S_0_1> 
-FlipFlop PCPU/CP0_/ENTRYHI/ASID_0 has been replicated 1 time(s)
-FlipFlop PCPU/CP0_/ENTRYHI/ASID_1 has been replicated 4 time(s)
-FlipFlop PCPU/CP0_/ENTRYHI/ASID_3 has been replicated 1 time(s)
+FlipFlop PCPU/CP0_/ENTRYHI/ASID_1 has been replicated 3 time(s)
+FlipFlop PCPU/CP0_/ENTRYHI/ASID_2 has been replicated 4 time(s)
+FlipFlop PCPU/CP0_/ENTRYHI/ASID_3 has been replicated 4 time(s)
 FlipFlop PCPU/CP0_/ENTRYHI/ASID_4 has been replicated 4 time(s)
-FlipFlop PCPU/CP0_/ENTRYHI/ASID_5 has been replicated 1 time(s)
+FlipFlop PCPU/CP0_/ENTRYHI/ASID_5 has been replicated 4 time(s)
 FlipFlop PCPU/CP0_/ENTRYHI/ASID_6 has been replicated 4 time(s)
 FlipFlop PCPU/ID_EXE/temp_145 has been replicated 1 time(s)
 FlipFlop PCPU/ID_EXE/temp_146 has been replicated 1 time(s)
@@ -3252,8 +3227,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 3643
- Flip-Flops                                            : 3643
+# Registers                                            : 3692
+ Flip-Flops                                            : 3692
 
 =========================================================================
 
@@ -3276,35 +3251,35 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 13264
+# BELS                             : 13355
 #      AND2                        : 8
 #      AND3                        : 88
 #      AND4                        : 72
 #      GND                         : 11
-#      INV                         : 98
-#      LUT1                        : 146
-#      LUT2                        : 506
-#      LUT3                        : 2848
-#      LUT4                        : 440
-#      LUT5                        : 2122
-#      LUT6                        : 4637
-#      MUXCY                       : 964
-#      MUXF7                       : 474
-#      MUXF8                       : 153
+#      INV                         : 100
+#      LUT1                        : 160
+#      LUT2                        : 532
+#      LUT3                        : 2832
+#      LUT4                        : 498
+#      LUT5                        : 2130
+#      LUT6                        : 4629
+#      MUXCY                       : 977
+#      MUXF7                       : 453
+#      MUXF8                       : 152
 #      OR2                         : 56
 #      OR3                         : 24
 #      OR4                         : 32
 #      VCC                         : 10
-#      XORCY                       : 575
-# FlipFlops/Latches                : 3787
-#      FD                          : 41
+#      XORCY                       : 591
+# FlipFlops/Latches                : 3836
+#      FD                          : 48
 #      FDC                         : 2
-#      FDCE                        : 24
+#      FDCE                        : 58
 #      FDE                         : 393
 #      FDE_1                       : 65
-#      FDPE                        : 17
-#      FDR                         : 724
-#      FDRE                        : 2467
+#      FDPE                        : 19
+#      FDR                         : 737
+#      FDRE                        : 2460
 #      FDS                         : 4
 #      FDSE                        : 50
 # RAMS                             : 163
@@ -3314,8 +3289,8 @@ Primitive and Black Box Usage:
 #      RAMB36E1                    : 157
 # Clock Buffers                    : 8
 #      BUFG                        : 8
-# IO Buffers                       : 46
-#      IBUF                        : 19
+# IO Buffers                       : 47
+#      IBUF                        : 20
 #      IBUFGDS                     : 1
 #      OBUF                        : 26
 # DSPs                             : 1
@@ -3330,22 +3305,22 @@ Selected Device : 7k325tffg676-2l
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            3787  out of  407600     0%  
- Number of Slice LUTs:                10805  out of  203800     5%  
-    Number used as Logic:             10797  out of  203800     5%  
+ Number of Slice Registers:            3836  out of  407600     0%  
+ Number of Slice LUTs:                10889  out of  203800     5%  
+    Number used as Logic:             10881  out of  203800     5%  
     Number used as Memory:                8  out of  64000     0%  
        Number used as RAM:                8
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:  11751
-   Number with an unused Flip Flop:    7964  out of  11751    67%  
-   Number with an unused LUT:           946  out of  11751     8%  
-   Number of fully used LUT-FF pairs:  2841  out of  11751    24%  
-   Number of unique control sets:       106
+ Number of LUT Flip Flop pairs used:  11793
+   Number with an unused Flip Flop:    7957  out of  11793    67%  
+   Number with an unused LUT:           904  out of  11793     7%  
+   Number of fully used LUT-FF pairs:  2932  out of  11793    24%  
+   Number of unique control sets:       118
 
 IO Utilization: 
  Number of IOs:                          53
- Number of bonded IOBs:                  47  out of    400    11%  
+ Number of bonded IOBs:                  48  out of    400    12%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:              159  out of    445    35%  
@@ -3374,8 +3349,10 @@ Clock Information:
 -------------------------------------+---------------------------------+-------+
 Clock Signal                         | Clock buffer(FF name)           | Load  |
 -------------------------------------+---------------------------------+-------+
-Clk_gen/clk_100m_unbuf               | BUFG                            | 740   |
-Clk_CPU(Mmux_Clk_CPU11:O)            | BUFG(*)(Keyboard_controller/t_5)| 2087  |
+Clk_gen/UNIclk/clkout1               | BUFG                            | 7     |
+Clk_gen/UNIclk/clkout0               | BUFG                            | 740   |
+Clk_CPU(Mmux_Clk_CPU11:O)            | BUFG(*)(Keyboard_controller/t_5)| 2080  |
+Clk_gen/Div2_6                       | BUFG                            | 49    |
 Clk_CPU_INV_67_o(Clk_CPU_INV_67_o1:O)| BUFG(*)(multi_8ch32/disp_data_0)| 1038  |
 Clk_gen/Div_1                        | BUFG                            | 20    |
 display/P7SEG/sh_clk                 | BUFG                            | 65    |
@@ -3389,10 +3366,10 @@ Asynchronous Control Signals Information:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Control Signal                                                                                                                                                                             | Buffer(FF name)                                                                                                                                                                 | Load  |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram0/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
-Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram1/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[72].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
-TEXT/N1(TEXT/XST_GND:G)                                                                                                                                                                    | NONE(TEXT/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram)                                 | 4     |
-Vga_controller/Vga_text/Text_vga_rom/N1(Vga_controller/Vga_text/Text_vga_rom/XST_GND:G)                                                                                                    | NONE(Vga_controller/Vga_text/Text_vga_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)      | 4     |
+Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram0/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
+Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram1/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[58].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
+TEXT/N1(TEXT/XST_GND:G)                                                                                                                                                                    | NONE(TEXT/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram)                                 | 4     |
+Vga_controller/Vga_text/Text_vga_rom/N1(Vga_controller/Vga_text/Text_vga_rom/XST_GND:G)                                                                                                    | NONE(Vga_controller/Vga_text/Text_vga_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)      | 4     |
 BIOS/N1(BIOS/XST_GND:G)                                                                                                                                                                    | NONE(BIOS/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                      | 2     |
 DATA/N1(DATA/XST_GND:G)                                                                                                                                                                    | NONE(DATA/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                      | 2     |
 DMA_RAM_/N1(DMA_RAM_/XST_GND:G)                                                                                                                                                            | NONE(DMA_RAM_/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram)                           | 2     |
@@ -3404,7 +3381,7 @@ Speed Grade: -2
 
    Minimum period: 12.865ns (Maximum Frequency: 77.729MHz)
    Minimum input arrival time before clock: 2.604ns
-   Maximum output required time after clock: 8.000ns
+   Maximum output required time after clock: 7.910ns
    Maximum combinational path delay: 0.000ns
 
 Timing Details:
@@ -3412,15 +3389,44 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'Clk_gen/clk_100m_unbuf'
+Timing constraint: Default period analysis for Clock 'Clk_gen/UNIclk/clkout1'
+  Clock period: 1.197ns (frequency: 835.666MHz)
+  Total number of paths / destination ports: 28 / 7
+-------------------------------------------------------------------------
+Delay:               1.197ns (Levels of Logic = 8)
+  Source:            Clk_gen/Div2_0 (FF)
+  Destination:       Clk_gen/Div2_6 (FF)
+  Source Clock:      Clk_gen/UNIclk/clkout1 rising
+  Destination Clock: Clk_gen/UNIclk/clkout1 rising
+
+  Data Path: Clk_gen/Div2_0 to Clk_gen/Div2_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.236   0.339  Clk_gen/Div2_0 (Clk_gen/Div2_0)
+     INV:I->O              1   0.054   0.000  Clk_gen/Mcount_Div2_lut<0>_INV_0 (Clk_gen/Mcount_Div2_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Clk_gen/Mcount_Div2_cy<0> (Clk_gen/Mcount_Div2_cy<0>)
+     MUXCY:CI->O           1   0.014   0.000  Clk_gen/Mcount_Div2_cy<1> (Clk_gen/Mcount_Div2_cy<1>)
+     MUXCY:CI->O           1   0.014   0.000  Clk_gen/Mcount_Div2_cy<2> (Clk_gen/Mcount_Div2_cy<2>)
+     MUXCY:CI->O           1   0.014   0.000  Clk_gen/Mcount_Div2_cy<3> (Clk_gen/Mcount_Div2_cy<3>)
+     MUXCY:CI->O           1   0.014   0.000  Clk_gen/Mcount_Div2_cy<4> (Clk_gen/Mcount_Div2_cy<4>)
+     MUXCY:CI->O           0   0.014   0.000  Clk_gen/Mcount_Div2_cy<5> (Clk_gen/Mcount_Div2_cy<5>)
+     XORCY:CI->O           1   0.262   0.000  Clk_gen/Mcount_Div2_xor<6> (Result<6>)
+     FD:D                     -0.000          Clk_gen/Div2_6
+    ----------------------------------------
+    Total                      1.197ns (0.857ns logic, 0.339ns route)
+                                       (71.7% logic, 28.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk_gen/UNIclk/clkout0'
   Clock period: 5.551ns (frequency: 180.159MHz)
-  Total number of paths / destination ports: 83744 / 2418
+  Total number of paths / destination ports: 83615 / 2418
 -------------------------------------------------------------------------
 Delay:               5.551ns (Levels of Logic = 9)
   Source:            Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_1 (FF)
   Destination:       Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram (RAM)
-  Source Clock:      Clk_gen/clk_100m_unbuf rising
-  Destination Clock: Clk_gen/clk_100m_unbuf rising
+  Source Clock:      Clk_gen/UNIclk/clkout0 rising
+  Destination Clock: Clk_gen/UNIclk/clkout0 rising
 
   Data Path: Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_1 to Vga_controller/Vga_text/Text_vga_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram
                                 Gate     Net
@@ -3432,9 +3438,9 @@ Delay:               5.551ns (Levels of Logic = 9)
      LUT6:I2->O            1   0.043   0.000  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_4 (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_4)
      MUXF7:I0->O           2   0.176   0.618  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_2_f7 (douta<0>)
      end scope: 'Vga_controller/Vga_graph/Graph_vga_ram0:douta<0>'
-     LUT6:I0->O            1   0.043   0.495  DATAS_bwdata<0>LogicTrst4_SW0 (N469)
+     LUT6:I0->O            1   0.043   0.495  DATAS_bwdata<0>LogicTrst4_SW0 (N477)
      LUT6:I3->O            1   0.043   0.495  DATAS_bwdata<0>LogicTrst4 (DATAS_bwdata<0>LogicTrst4)
-     LUT6:I3->O            1   0.043   0.495  DATAS_bwdata<0>LogicTrst7_SW0 (N220)
+     LUT6:I3->O            1   0.043   0.495  DATAS_bwdata<0>LogicTrst7_SW0 (N231)
      LUT6:I3->O           49   0.043   0.472  DATAS_bwdata<0>LogicTrst8 (DATAS_bwdata<0>)
      begin scope: 'Vga_controller/Vga_text/Text_vga_ram:dina<0>'
      RAMB18E1:DIADI0           0.543          U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram
@@ -3445,7 +3451,7 @@ Delay:               5.551ns (Levels of Logic = 9)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk_CPU'
   Clock period: 12.865ns (frequency: 77.729MHz)
-  Total number of paths / destination ports: 465193901252 / 4103
+  Total number of paths / destination ports: 456582061063 / 4081
 -------------------------------------------------------------------------
 Delay:               12.865ns (Levels of Logic = 30)
   Source:            PCPU/_Mul_EXE_EWB/temp_8 (FF)
@@ -3466,7 +3472,7 @@ Delay:               12.865ns (Levels of Logic = 30)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in11_0/gi_j2 (PCPU/_Mul_adder/Adder/g11_0)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in13_0/gi_j1 (PCPU/_Mul_adder/Adder/g13_0)
      LUT5:I4->O            5   0.043   0.373  PCPU/_Mul_adder/Adder/in15_0/gi_j1 (PCPU/_Mul_adder/Adder/g15_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in19_0/gi_j3_SW0 (N663)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in19_0/gi_j3_SW0 (N589)
      LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in19_0/gi_j3 (PCPU/_Mul_adder/Adder/g19_0)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in23_0/gi_j11 (PCPU/_Mul_adder/Adder/in23_0/gi_j1)
      LUT5:I4->O            5   0.043   0.373  PCPU/_Mul_adder/Adder/in23_0/gi_j2 (PCPU/_Mul_adder/Adder/g23_0)
@@ -3476,22 +3482,47 @@ Delay:               12.865ns (Levels of Logic = 30)
      LUT5:I4->O            6   0.043   0.378  PCPU/_Mul_adder/Adder/in31_0/gi_j1 (PCPU/_Mul_adder/Adder/g31_0)
      LUT6:I5->O            3   0.043   0.362  PCPU/_Mul_adder/Adder/in37_0/gi_j1 (PCPU/_Mul_adder/Adder/g37_0)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in39_0/gi_j2 (PCPU/_Mul_adder/Adder/g39_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in43_0/gi_j3_SW0 (N661)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in43_0/gi_j3_SW0 (N587)
      LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in43_0/gi_j3 (PCPU/_Mul_adder/Adder/g43_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in47_0/gi_j3_SW0 (N659)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in47_0/gi_j3_SW0 (N585)
      LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in47_0/gi_j3 (PCPU/_Mul_adder/Adder/g47_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in51_0/gi_j3_SW0 (N657)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in51_0/gi_j3_SW0 (N583)
      LUT6:I5->O            3   0.043   0.362  PCPU/_Mul_adder/Adder/in51_0/gi_j3 (PCPU/_Mul_adder/Adder/g51_0)
      LUT5:I4->O            3   0.043   0.362  PCPU/_Mul_adder/Adder/in55_0/gi_j11 (PCPU/_Mul_adder/Adder/in55_0/gi_j1)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in55_0/gi_j2 (PCPU/_Mul_adder/Adder/g55_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in59_0/gi_j4_SW0 (N655)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in59_0/gi_j4_SW0 (N581)
      LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in59_0/gi_j4 (PCPU/_Mul_adder/Adder/g59_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_REG_HiLo/Mmux__n004525_SW0 (N132)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_REG_HiLo/Mmux__n004525_SW0 (N143)
      LUT6:I5->O            1   0.043   0.000  PCPU/_REG_HiLo/Mmux__n004525 (PCPU/_REG_HiLo/_n0045<31>)
      FDRE:D                   -0.000          PCPU/_REG_HiLo/Hi_31
     ----------------------------------------
     Total                     12.865ns (1.526ns logic, 11.339ns route)
                                        (11.9% logic, 88.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk_gen/Div2_6'
+  Clock period: 2.658ns (frequency: 376.257MHz)
+  Total number of paths / destination ports: 553 / 103
+-------------------------------------------------------------------------
+Delay:               2.658ns (Levels of Logic = 4)
+  Source:            UART_ctrl/byte_count_0 (FF)
+  Destination:       UART_ctrl/state_FSM_FFd1 (FF)
+  Source Clock:      Clk_gen/Div2_6 rising
+  Destination Clock: Clk_gen/Div2_6 rising
+
+  Data Path: UART_ctrl/byte_count_0 to UART_ctrl/state_FSM_FFd1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            46   0.236   0.654  UART_ctrl/byte_count_0 (UART_ctrl/byte_count_0)
+     LUT4:I0->O            1   0.043   0.350  UART_ctrl/byte_count[8]_PWR_83_o_equal_41_o<8>_SW0 (N19)
+     LUT6:I5->O            4   0.043   0.630  UART_ctrl/byte_count[8]_PWR_83_o_equal_41_o<8> (UART_ctrl/byte_count[8]_PWR_83_o_equal_41_o)
+     LUT6:I0->O            3   0.043   0.615  UART_ctrl/Mmux_sed_all1 (UART_ctrl/sed_all)
+     LUT6:I1->O            1   0.043   0.000  UART_ctrl/state_FSM_FFd1-In11 (UART_ctrl/state_FSM_FFd1-In1)
+     FDR:D                    -0.000          UART_ctrl/state_FSM_FFd1
+    ----------------------------------------
+    Total                      2.658ns (0.408ns logic, 2.250ns route)
+                                       (15.4% logic, 84.6% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk_gen/Div_1'
@@ -3562,13 +3593,13 @@ Delay:               0.700ns (Levels of Logic = 1)
                                        (40.4% logic, 59.6% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_gen/clk_100m_unbuf'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_gen/UNIclk/clkout0'
   Total number of paths / destination ports: 4833 / 748
 -------------------------------------------------------------------------
 Offset:              2.604ns (Levels of Logic = 4)
   Source:            RSTN (PAD)
   Destination:       Input_switch_btn/Aj_rst/cnt_0 (FF)
-  Destination Clock: Clk_gen/clk_100m_unbuf rising
+  Destination Clock: Clk_gen/UNIclk/clkout0 rising
 
   Data Path: RSTN to Input_switch_btn/Aj_rst/cnt_0
                                 Gate     Net
@@ -3584,13 +3615,33 @@ Offset:              2.604ns (Levels of Logic = 4)
                                        (11.1% logic, 88.9% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_gen/clk_100m_unbuf'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_gen/Div2_6'
+  Total number of paths / destination ports: 23 / 23
+-------------------------------------------------------------------------
+Offset:              1.010ns (Levels of Logic = 2)
+  Source:            uart_rx (PAD)
+  Destination:       UART_ctrl/UART_Port/rx_ready (FF)
+  Destination Clock: Clk_gen/Div2_6 rising
+
+  Data Path: uart_rx to UART_ctrl/UART_Port/rx_ready
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            12   0.000   0.466  uart_rx_IBUF (uart_rx_IBUF)
+     LUT4:I2->O            1   0.043   0.339  UART_ctrl/UART_Port/_n0193_inv1 (UART_ctrl/UART_Port/_n0193_inv)
+     FDCE:CE                   0.161          UART_ctrl/UART_Port/rx_busy
+    ----------------------------------------
+    Total                      1.010ns (0.204ns logic, 0.806ns route)
+                                       (20.2% logic, 79.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_gen/UNIclk/clkout0'
   Total number of paths / destination ports: 2544 / 20
 -------------------------------------------------------------------------
 Offset:              6.184ns (Levels of Logic = 11)
   Source:            Vga_controller/Vga_cursor/stat_2 (FF)
   Destination:       vga_red<3> (PAD)
-  Source Clock:      Clk_gen/clk_100m_unbuf rising
+  Source Clock:      Clk_gen/UNIclk/clkout0 rising
 
   Data Path: Vga_controller/Vga_cursor/stat_2 to vga_red<3>
                                 Gate     Net
@@ -3605,7 +3656,7 @@ Offset:              6.184ns (Levels of Logic = 11)
      LUT4:I0->O            2   0.043   0.618  Vga_controller/Vga_port/Mmux_n002610413 (Vga_controller/Vga_port/Mmux_n00261041)
      LUT6:I0->O            3   0.043   0.507  Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o (Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o)
      LUT6:I3->O            6   0.043   0.641  Vga_controller/Vga_port/Mmux_n002610511 (Vga_controller/Vga_port/Mmux_n00261051)
-     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N14)
+     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N25)
      LUT6:I5->O            1   0.043   0.339  Vga_controller/Vga_port/Mmux_n00266 (vga_blue_3_OBUF)
      OBUF:I->O                 0.000          vga_blue_3_OBUF (vga_blue<3>)
     ----------------------------------------
@@ -3616,7 +3667,7 @@ Offset:              6.184ns (Levels of Logic = 11)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_gen/Div_1'
   Total number of paths / destination ports: 55142 / 14
 -------------------------------------------------------------------------
-Offset:              8.000ns (Levels of Logic = 14)
+Offset:              7.910ns (Levels of Logic = 14)
   Source:            Vga_controller/Vga_port/row_c_4 (FF)
   Destination:       vga_red<3> (PAD)
   Source Clock:      Clk_gen/Div_1 rising
@@ -3629,20 +3680,20 @@ Offset:              8.000ns (Levels of Logic = 14)
      LUT5:I0->O           15   0.043   0.483  Vga_controller/Vga_port/Msub_row_xor<8>111 (Vga_controller/Vga_port/Msub_row_xor<8>11)
      LUT3:I1->O            2   0.043   0.355  Vga_controller/Vga_port/Msub_row_xor<5>11 (Vga_controller/vga_row<5>)
      LUT6:I5->O            3   0.043   0.625  Vga_controller/Vga_cursor/Maddsub_n0097_Madd_lut<4>1 (Vga_controller/Vga_cursor/Maddsub_n0097_Madd_lut<4>)
-     LUT6:I0->O           10   0.043   0.545  Vga_controller/cursor_on1011 (Vga_controller/cursor_on101)
-     LUT4:I1->O            2   0.043   0.355  Vga_controller/cursor_on721 (Vga_controller/cursor_on72)
+     LUT6:I0->O           10   0.043   0.455  Vga_controller/cursor_on1011 (Vga_controller/cursor_on101)
+     LUT4:I2->O            2   0.043   0.355  Vga_controller/cursor_on721 (Vga_controller/cursor_on72)
      LUT5:I4->O            1   0.043   0.613  Vga_controller/SF1311 (Vga_controller/SF131)
      LUT6:I0->O            1   0.043   0.613  Vga_controller/cursor_on115 (Vga_controller/cursor_on114)
      LUT6:I0->O            2   0.043   0.527  Vga_controller/cursor_on118 (Vga_controller/cursor_on)
      LUT4:I0->O            2   0.043   0.618  Vga_controller/Vga_port/Mmux_n002610413 (Vga_controller/Vga_port/Mmux_n00261041)
      LUT6:I0->O            3   0.043   0.507  Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o (Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o)
      LUT6:I3->O            6   0.043   0.641  Vga_controller/Vga_port/Mmux_n002610511 (Vga_controller/Vga_port/Mmux_n00261051)
-     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N14)
+     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N25)
      LUT6:I5->O            1   0.043   0.339  Vga_controller/Vga_port/Mmux_n00266 (vga_blue_3_OBUF)
      OBUF:I->O                 0.000          vga_blue_3_OBUF (vga_blue<3>)
     ----------------------------------------
-    Total                      8.000ns (0.795ns logic, 7.205ns route)
-                                       (9.9% logic, 90.1% route)
+    Total                      7.910ns (0.795ns logic, 7.115ns route)
+                                       (10.1% logic, 89.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'display/P7SEG/sh_clk'
@@ -3665,19 +3716,38 @@ Offset:              0.584ns (Levels of Logic = 2)
                                        (41.1% logic, 58.9% route)
 
 =========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 3 / 2
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_gen/Div2_6'
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Delay:               0.000ns (Levels of Logic = 0)
-  Source:            Clk_gen/MMCME2_BASE_inst:CLKFBOUT (PAD)
-  Destination:       Clk_gen/MMCME2_BASE_inst:CLKFBIN (PAD)
+Offset:              0.575ns (Levels of Logic = 1)
+  Source:            UART_ctrl/UART_Port/tx_out (FF)
+  Destination:       uart_tx (PAD)
+  Source Clock:      Clk_gen/Div2_6 rising
 
-  Data Path: Clk_gen/MMCME2_BASE_inst:CLKFBOUT to Clk_gen/MMCME2_BASE_inst:CLKFBIN
+  Data Path: UART_ctrl/UART_Port/tx_out to uart_tx
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-    MMCME2_ADV:CLKFBOUT    0   0.000   0.000  Clk_gen/MMCME2_BASE_inst (Clk_gen/clk_fb)
-    MMCME2_ADV:CLKFBIN         0.000          Clk_gen/MMCME2_BASE_inst
+     FDPE:C->Q             1   0.236   0.339  UART_ctrl/UART_Port/tx_out (UART_ctrl/UART_Port/tx_out)
+     OBUF:I->O                 0.000          uart_tx_OBUF (uart_tx)
+    ----------------------------------------
+    Total                      0.575ns (0.236ns logic, 0.339ns route)
+                                       (41.0% logic, 59.0% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Delay:               0.000ns (Levels of Logic = 1)
+  Source:            clk200P (PAD)
+  Destination:       Clk_gen/UNIclk/mmcm_adv_inst:CLKIN1 (PAD)
+
+  Data Path: clk200P to Clk_gen/UNIclk/mmcm_adv_inst:CLKIN1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUFGDS:I->O          0   0.000   0.000  Clk_gen/UNIclk/clkin1_buf (Clk_gen/UNIclk/clkin1)
+    MMCME2_ADV:CLKIN1          0.000          Clk_gen/UNIclk/mmcm_adv_inst
     ----------------------------------------
     Total                      0.000ns (0.000ns logic, 0.000ns route)
 
@@ -3692,8 +3762,9 @@ Clock to Setup on destination clock Clk_CPU
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
 Clk_CPU               |   12.865|         |         |         |
-Clk_CPU_INV_67_o      |    5.026|         |         |         |
-Clk_gen/clk_100m_unbuf|    9.367|         |         |         |
+Clk_CPU_INV_67_o      |    5.106|         |         |         |
+Clk_gen/Div2_6        |    3.180|         |         |         |
+Clk_gen/UNIclk/clkout0|    9.245|         |         |         |
 ----------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock Clk_CPU_INV_67_o
@@ -3701,9 +3772,20 @@ Clock to Setup on destination clock Clk_CPU_INV_67_o
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_CPU               |    8.940|         |         |         |
+Clk_CPU               |    8.882|         |         |         |
 Clk_CPU_INV_67_o      |    0.696|         |         |         |
-Clk_gen/clk_100m_unbuf|    5.551|         |         |         |
+Clk_gen/Div2_6        |    2.408|         |         |         |
+Clk_gen/UNIclk/clkout0|    5.550|         |         |         |
+----------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock Clk_gen/Div2_6
+----------------------+---------+---------+---------+---------+
+                      | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+----------------------+---------+---------+---------+---------+
+Clk_CPU               |    2.059|         |         |         |
+Clk_gen/Div2_6        |    2.658|         |         |         |
+Clk_gen/UNIclk/clkout0|    2.421|         |         |         |
 ----------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock Clk_gen/Div_1
@@ -3712,18 +3794,26 @@ Clock to Setup on destination clock Clk_gen/Div_1
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
 Clk_gen/Div_1         |    2.659|         |         |         |
-Clk_gen/clk_100m_unbuf|    1.635|         |         |         |
+Clk_gen/UNIclk/clkout0|    1.637|         |         |         |
 ----------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock Clk_gen/clk_100m_unbuf
+Clock to Setup on destination clock Clk_gen/UNIclk/clkout0
 ----------------------+---------+---------+---------+---------+
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_CPU               |    9.641|         |         |         |
+Clk_CPU               |    9.550|         |         |         |
 Clk_gen/Div_1         |    6.178|         |         |         |
-Clk_gen/clk_100m_unbuf|    5.550|         |         |         |
+Clk_gen/UNIclk/clkout0|    5.550|         |         |         |
 display/P7SEG/sh_clk  |         |    2.068|         |         |
+----------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock Clk_gen/UNIclk/clkout1
+----------------------+---------+---------+---------+---------+
+                      | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+----------------------+---------+---------+---------+---------+
+Clk_gen/UNIclk/clkout1|    1.197|         |         |         |
 ----------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock display/P7SEG/sh_clk
@@ -3731,23 +3821,23 @@ Clock to Setup on destination clock display/P7SEG/sh_clk
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_CPU               |         |         |   12.176|         |
+Clk_CPU               |         |         |   12.117|         |
 Clk_CPU_INV_67_o      |         |         |    4.565|         |
-Clk_gen/clk_100m_unbuf|         |         |    8.786|         |
+Clk_gen/UNIclk/clkout0|         |         |    8.786|         |
 display/P7SEG/sh_clk  |         |         |    0.700|         |
 ----------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 139.00 secs
-Total CPU time to Xst completion: 139.66 secs
+Total REAL time to Xst completion: 183.00 secs
+Total CPU time to Xst completion: 182.75 secs
  
 --> 
 
-Total memory usage is 431608 kilobytes
+Total memory usage is 412664 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1062 (   0 filtered)
-Number of infos    :  242 (   0 filtered)
+Number of warnings : 1027 (   0 filtered)
+Number of infos    :  237 (   0 filtered)
 

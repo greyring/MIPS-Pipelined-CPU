@@ -3,12 +3,6 @@
 #include "keyboard.h"
 #include "input.h"
 
-
-void _kput_char(unsigned short c, unsigned long place)
-{
-    *((unsigned long *)(TEXT_ADDR) + place) = (0x3f<<24) | (c & 0x0ffff);
-}
-
 static unsigned long _scroll_screen(unsigned long line)
 {
     unsigned long p0;
