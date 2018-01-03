@@ -58,14 +58,16 @@ always @(posedge clk_100mhz)
 	Div <= Div+1;
 `else
 wire clk_100mhz;
-wire clk_uart;
 wire [31:0]Div;
-clk_gen Clk_gen(
-    .clk200P(clk200P), 
-    .clk200N(clk200N), 
-    .clk_100mhz(clk_100mhz), 
+clk_gen_sword clk_gen(
+    .clk_pad_p(clk200P), 
+    .clk_pad_n(clk200N), 
+    .clk_100m(clk_100mhz), 
+    .clk_50m(), 
+    .clk_25m(), 
+    .clk_10m(), 
     .Div(Div), 
-    .clk_uart(clk_uart)
+    .locked()
     );
 `endif
 
@@ -382,19 +384,17 @@ Data_Section DATA(
 
 /////////////////////////////////////////////////////
 //DMA
-wire dma_mem_rd;
 wire [3:0]dma_mem_we;
 wire [31:0]dma_mem_addr;
 wire [31:0]dma_mem_rdata, dma_mem_wdata;
 uart_controller UART_ctrl(
-    .clk(Clk_CPU), 
-    .uart_clk(clk_uart), 
+    .clk(clk_100mhz),
+	 .clk_CPU(Clk_CPU),
     .rst(rst), 
     .we(dma_w),
     .rd(dma_r),
     .wdata(dma_wdata),
-    .status(dma_rdata), 
-    .mem_rd(dma_mem_rd), 
+    .status(dma_rdata),  
     .mem_we(dma_mem_we), 
     .mem_addr(dma_mem_addr), 
     .mem_rdata(dma_mem_rdata), 
@@ -409,7 +409,7 @@ DMA_RAM DMA_RAM_(
   .addra(dmaRAM_addr[8:2]), // input [6 : 0] addra
   .dina(dmaRAM_wdata), // input [31 : 0] dina
   .douta(dmaRAM_rdata), // output [31 : 0] douta
-  .clkb(~Clk_CPU), // input clkb
+  .clkb(clk_100mhz), // input clkb
   .web(dma_mem_we), // input [3 : 0] web
   .addrb(dma_mem_addr[8:2]), // input [6 : 0] addrb
   .dinb(dma_mem_wdata), // input [31 : 0] dinb

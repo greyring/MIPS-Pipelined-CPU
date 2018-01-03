@@ -1,3 +1,17 @@
+## TEXT SEGMENT
+* Virtual Address : 0x8000 0000-0x8000 1fff 
+* Virtual Address : 0xA000 0000-0xA000 1fff 
+* Physical Address: 0x0000 0000-0x0000 1fff
+* Read and Write and Execute
+* Size: 8K
+
+## DATA SEGMENT
+* Virtual Address : 0x8000 2000-0x8000 2fff
+* Virtual Address : 0xA000 2000-0xA000 2fff
+* Physical Address: 0x0000 2000-0x0000 2fff
+* Read and Write and Execute
+* Size: 4K
+
 ## VGA REG
 * Virtual Address : 0xB000 0000
 * Physical Address: 0x1000 0000
@@ -112,6 +126,10 @@ LSA         |0    |Ready|Start|R/W|   0   |
 * Physical Address: 0x1002 0000-0x1002 01ff
 * Read and Write
 
+## MAIN MEM
+* Physical Address: 0x2000 0000-0xffff ffff
+* Read and Write and Execute
+
 
 # FLOW of BIOS
 
@@ -122,21 +140,10 @@ LSA         |0    |Ready|Start|R/W|   0   |
 4. Write the 32-entry-interrupt table starting at physical address 0x00000280，virtual address 0x80000280
 5. Load the OS from disk, put to physical address 0x00000380, virtual address 0x80000380, and jump to execute OS program
 
-# FUNCTION of BIOS
-Device Name |            Function                 | INT_NUM
-------------|-------------------------------------|----------
- 7-Segment  | Display 32bits' data on 8 segments | 0x00
-  Switches  | Read the states of 16 switches | 0x01
-  Buttons   | Read the states of 25 buttons |0x02
-  LEDs      | Using 8 bits to control the LEDs |0x03
- VGA-REG    | Select display mode |0x04
-VGA-CURSOR  | Select cursor mode, location, color |0x05
-VGA-CURSOR  | Get cursor settings |0x06
- VGA-TEXT   | Scroll the screen by one line |0x07
-VGA-TEXT    | Display the character with specified location, color |0x08
-VGA-TEXT    | Display the character at cursor |0x09
-VGA-TEXT    | Display strings (end with 0) at specified locatoin |0x0a
-VGA-GRAPH   | Display one pixel at with specified location, color |0x0b
+# SYSCALL TABLE
+Function| Syscall Num
+--------|--------------
+
 
 *Many modern operating systems (such as Linux and newer versions of Windows) bypass the built-in BIOS interrupt communication system altogether, preferring to use their own software to control the attached hardware directly.
 

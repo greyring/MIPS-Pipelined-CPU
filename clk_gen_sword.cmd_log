@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PCPU -o F:/MyProgramme/0arch/PCPU/clk_gen_sword.tfi -lib work F:/MyProgramme/0arch/PCPU//clk_gen_sword.v -module clk_gen_sword -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

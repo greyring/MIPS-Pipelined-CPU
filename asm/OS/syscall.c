@@ -2,6 +2,7 @@
 #include "syscall.h"
 #include "keyboard.h"
 #include "input.h"
+#include "filesys.h"
 
 static unsigned long _scroll_screen(unsigned long line)
 {
@@ -202,11 +203,23 @@ SYSCALL get_char_()
     return get_from_keybuf();
 }
 
+SYSCALL read_disk_(unsigned long *sp)
+{
+    read_((unsigned long *)sp[23], sp[22]);//a1<-a2
+    return 1;
+}
+
+SYSCALL write_disk_(unsigned long *sp)
+{
+    write_((unsigned long *)sp[23], sp[22]);//a1->a2
+    return 1;
+}
+
 unsigned long __attribute__((section (".data"))) (*syscall_tbl[32])(unsigned long *)={
     put_seg_, get_sw_, get_btn_, put_led_,
     set_vga_, set_cursor_, get_cursor_, scroll_screen_, 
     clear_screen_, put_charAt_, put_char_, put_string_, 
-    put_pixel_, get_char_, 0, 0,
+    put_pixel_, get_char_, read_disk_, write_disk_,
     0, 0, 0, 0,
     0, 0, 0, 0,
     0, 0, 0, 0,

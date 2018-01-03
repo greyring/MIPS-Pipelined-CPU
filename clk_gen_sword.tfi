@@ -1,0 +1,16 @@
+
+
+
+// Instantiate the module
+clk_gen_sword instance_name (
+    .clk_pad_p(clk_pad_p), 
+    .clk_pad_n(clk_pad_n), 
+    .clk_100m(clk_100m), 
+    .clk_50m(clk_50m), 
+    .clk_25m(clk_25m), 
+    .clk_10m(clk_10m), 
+    .Div(Div), 
+    .locked(locked)
+    );
+
+

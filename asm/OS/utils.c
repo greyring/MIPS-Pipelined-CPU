@@ -15,6 +15,9 @@ _syscall1(scroll_screen, unsigned long, line);
 _syscall1(put_char, unsigned short, c);
 _syscall1(put_string, unsigned short *, str);
 
+_syscall2(read_disk, unsigned long *, buf, unsigned short, sector);
+_syscall2(write_disk, unsigned long *, buf, unsigned short, sector);
+
 _syscall3(set_cursor, unsigned long, mode, unsigned char *, rgb, unsigned long, loc);//mode 0 1 2 3
 _syscall3(put_charAt, unsigned short, c, unsigned long, loc, unsigned char *, fbrgb);
 _syscall3(put_pixel, unsigned long, x, unsigned long, y, unsigned char *, rgb);
@@ -117,5 +120,28 @@ void char2short(unsigned short *dst, unsigned char *src, unsigned long n)
     for (i = 0; i<n; i++)
     {
         dst[i] = src[i];
+    }
+}
+
+void printHex(unsigned char hex)
+{
+    unsigned short temp;
+    temp = (unsigned short)(hex & 0xf0) >> 4;
+    if (temp < 10)
+    {
+        put_char(temp + '0');
+    }
+    else
+    {
+        put_char(temp - 10 + 'A');
+    }
+    temp = (unsigned short)(hex & 0x0f);
+    if (temp < 10)
+    {
+        put_char(temp + '0');
+    }
+    else
+    {
+        put_char(temp - 10 + 'A');
     }
 }

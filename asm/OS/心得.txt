@@ -32,3 +32,4 @@ mips-ld的-EL和-EB只是表明它读取的文件以及生成的文件是大端还是小端（有待考证）
 mips-gcc的-EL主要会影响大于一个word的数据的运算
 注意整数常量的符号拓展
 syscall的返回值会通过v0传递，所以不应该恢复v0
+syscall添加时要修改syscall表，要修改utils.h和utils.c

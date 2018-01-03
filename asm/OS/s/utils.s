@@ -238,6 +238,54 @@ put_string:
 	.end	put_string
 	.size	put_string, .-put_string
 	.align	2
+	.globl	read_disk
+	.set	nomips16
+	.set	nomicromips
+	.ent	read_disk
+	.type	read_disk, @function
+read_disk:
+	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+	move	$2,$4
+	move	$3,$5
+ #APP
+ # 18 "utils.c" 1
+	li	$a0, 14
+	move	$a1, $2
+	move	$a2, $3
+	syscall
+	
+ # 0 "" 2
+ #NO_APP
+	jr	$31
+	.end	read_disk
+	.size	read_disk, .-read_disk
+	.align	2
+	.globl	write_disk
+	.set	nomips16
+	.set	nomicromips
+	.ent	write_disk
+	.type	write_disk, @function
+write_disk:
+	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+	move	$2,$4
+	move	$3,$5
+ #APP
+ # 19 "utils.c" 1
+	li	$a0, 15
+	move	$a1, $2
+	move	$a2, $3
+	syscall
+	
+ # 0 "" 2
+ #NO_APP
+	jr	$31
+	.end	write_disk
+	.size	write_disk, .-write_disk
+	.align	2
 	.globl	set_cursor
 	.set	nomips16
 	.set	nomicromips
@@ -248,12 +296,14 @@ set_cursor:
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
 	move	$2,$4
+	move	$3,$5
+	move	$8,$6
  #APP
- # 18 "utils.c" 1
+ # 21 "utils.c" 1
 	li	$a0, 5
 	move	$a1, $2
-	move	$a2, $5
-	move	$a3, $6
+	move	$a2, $3
+	move	$a3, $8
 	syscall
 	
  # 0 "" 2
@@ -272,12 +322,14 @@ put_charAt:
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
 	move	$2,$4
+	move	$3,$5
+	move	$8,$6
  #APP
- # 19 "utils.c" 1
+ # 22 "utils.c" 1
 	li	$a0, 9
 	move	$a1, $2
-	move	$a2, $5
-	move	$a3, $6
+	move	$a2, $3
+	move	$a3, $8
 	syscall
 	
  # 0 "" 2
@@ -296,12 +348,14 @@ put_pixel:
 	.mask	0x00000000,0
 	.fmask	0x00000000,0
 	move	$2,$4
+	move	$3,$5
+	move	$8,$6
  #APP
- # 20 "utils.c" 1
+ # 23 "utils.c" 1
 	li	$a0, 12
 	move	$a1, $2
-	move	$a2, $5
-	move	$a3, $6
+	move	$a2, $3
+	move	$a3, $8
 	syscall
 	
  # 0 "" 2
@@ -325,12 +379,12 @@ getc:
 	sw	$31,20($sp)
 	sw	$16,16($sp)
 	li	$16,65535			# 0xffff
-$L16:
+$L18:
 	jal	get_char
 	nop
 
 	andi	$2,$2,0xffff
-	beq	$2,$16,$L16
+	beq	$2,$16,$L18
 	nop
 
 	lw	$31,20($sp)
@@ -354,7 +408,7 @@ gets:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$5,$0,$L32
+	beq	$5,$0,$L34
 	nop
 
 	addiu	$sp,$sp,-48
@@ -369,44 +423,44 @@ gets:
 	move	$19,$4
 	move	$17,$0
 	li	$20,8			# 0x8
-	b	$L24
+	b	$L26
 	li	$21,10			# 0xa
 
-$L21:
+$L23:
 	jal	put_char
 	move	$4,$2
 
 	lhu	$2,0($16)
 	nop
-	beq	$2,$21,$L30
+	beq	$2,$21,$L32
 	addiu	$17,$17,1
 
-$L22:
+$L24:
 	sltu	$2,$17,$18
-$L31:
-	beq	$2,$0,$L19
+$L33:
+	beq	$2,$0,$L21
 	nop
 
-$L24:
+$L26:
 	sll	$16,$17,1
 	jal	getc
 	addu	$16,$19,$16
 
-	bne	$2,$20,$L21
+	bne	$2,$20,$L23
 	sh	$2,0($16)
 
-	beq	$17,$0,$L31
+	beq	$17,$0,$L33
 	sltu	$2,$17,$18
 
 	jal	put_char
 	move	$4,$20
 
-	b	$L22
+	b	$L24
 	addiu	$17,$17,-1
 
-$L30:
+$L32:
 	sh	$0,0($16)
-$L19:
+$L21:
 	lw	$31,44($sp)
 	lw	$21,40($sp)
 	lw	$20,36($sp)
@@ -417,7 +471,7 @@ $L19:
 	jr	$31
 	addiu	$sp,$sp,48
 
-$L32:
+$L34:
 	jr	$31
 	nop
 
@@ -437,40 +491,40 @@ strcmp_short:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L37
+	beq	$6,$0,$L39
 	nop
 
 	lhu	$3,0($4)
 	lhu	$2,0($5)
 	nop
-	bne	$3,$2,$L38
+	bne	$3,$2,$L40
 	addiu	$4,$4,2
 
 	addiu	$5,$5,2
 	move	$3,$0
-$L35:
+$L37:
 	addiu	$3,$3,1
-	beq	$6,$3,$L40
+	beq	$6,$3,$L42
 	nop
 
 	lhu	$8,0($4)
 	lhu	$7,0($5)
 	addiu	$4,$4,2
-	beq	$8,$7,$L35
+	beq	$8,$7,$L37
 	addiu	$5,$5,2
 
 	jr	$31
 	li	$2,1			# 0x1
 
-$L40:
+$L42:
 	jr	$31
 	move	$2,$0
 
-$L37:
+$L39:
 	jr	$31
 	move	$2,$6
 
-$L38:
+$L40:
 	jr	$31
 	li	$2,1			# 0x1
 
@@ -490,39 +544,39 @@ strcmp_char:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L45
+	beq	$6,$0,$L47
 	nop
 
 	lbu	$3,0($4)
 	lbu	$2,0($5)
 	nop
-	bne	$3,$2,$L46
+	bne	$3,$2,$L48
 	addiu	$3,$4,1
 
 	addiu	$5,$5,1
 	addu	$6,$4,$6
-$L43:
-	beq	$3,$6,$L48
+$L45:
+	beq	$3,$6,$L50
 	nop
 
 	lbu	$8,0($3)
 	lbu	$7,0($5)
 	addiu	$3,$3,1
-	beq	$8,$7,$L43
+	beq	$8,$7,$L45
 	addiu	$5,$5,1
 
 	jr	$31
 	li	$2,1			# 0x1
 
-$L48:
+$L50:
 	jr	$31
 	move	$2,$0
 
-$L45:
+$L47:
 	jr	$31
 	move	$2,$6
 
-$L46:
+$L48:
 	jr	$31
 	li	$2,1			# 0x1
 
@@ -544,21 +598,21 @@ strlen_short:
 	.set	nomacro
 	lhu	$2,0($4)
 	nop
-	beq	$2,$0,$L52
+	beq	$2,$0,$L54
 	addiu	$4,$4,2
 
 	move	$2,$0
-$L51:
+$L53:
 	addiu	$4,$4,2
 	lhu	$3,-2($4)
 	nop
-	bne	$3,$0,$L51
+	bne	$3,$0,$L53
 	addiu	$2,$2,1
 
 	jr	$31
 	nop
 
-$L52:
+$L54:
 	jr	$31
 	move	$2,$0
 
@@ -580,21 +634,21 @@ strlen_char:
 	.set	nomacro
 	lbu	$2,0($4)
 	nop
-	beq	$2,$0,$L57
+	beq	$2,$0,$L59
 	addiu	$4,$4,1
 
 	move	$2,$0
-$L56:
+$L58:
 	addiu	$4,$4,1
 	lbu	$3,-1($4)
 	nop
-	bne	$3,$0,$L56
+	bne	$3,$0,$L58
 	addiu	$2,$2,1
 
 	jr	$31
 	nop
 
-$L57:
+$L59:
 	jr	$31
 	move	$2,$0
 
@@ -614,19 +668,19 @@ memncpy:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L63
+	beq	$6,$0,$L65
 	move	$2,$5
 
 	addu	$5,$5,$6
-$L61:
+$L63:
 	lbu	$3,0($2)
 	nop
 	sb	$3,0($4)
 	addiu	$2,$2,1
-	bne	$2,$5,$L61
+	bne	$2,$5,$L63
 	addiu	$4,$4,1
 
-$L63:
+$L65:
 	jr	$31
 	nop
 
@@ -646,20 +700,20 @@ short2char:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L68
+	beq	$6,$0,$L70
 	move	$2,$5
 
 	sll	$6,$6,1
 	addu	$5,$5,$6
-$L66:
+$L68:
 	lhu	$3,0($2)
 	nop
 	sb	$3,0($4)
 	addiu	$2,$2,2
-	bne	$2,$5,$L66
+	bne	$2,$5,$L68
 	addiu	$4,$4,1
 
-$L68:
+$L70:
 	jr	$31
 	nop
 
@@ -679,20 +733,20 @@ char2short:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L73
+	beq	$6,$0,$L75
 	move	$2,$4
 
 	sll	$6,$6,1
 	addu	$4,$4,$6
-$L71:
+$L73:
 	lbu	$3,0($5)
 	nop
 	sh	$3,0($2)
 	addiu	$2,$2,2
-	bne	$2,$4,$L71
+	bne	$2,$4,$L73
 	addiu	$5,$5,1
 
-$L73:
+$L75:
 	jr	$31
 	nop
 
@@ -700,4 +754,61 @@ $L73:
 	.set	reorder
 	.end	char2short
 	.size	char2short, .-char2short
+	.align	2
+	.globl	printHex
+	.set	nomips16
+	.set	nomicromips
+	.ent	printHex
+	.type	printHex, @function
+printHex:
+	.frame	$sp,24,$31		# vars= 0, regs= 2/0, args= 16, gp= 0
+	.mask	0x80010000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	sw	$16,16($sp)
+	move	$16,$4
+	srl	$4,$4,4
+	sltu	$2,$4,10
+	beq	$2,$0,$L77
+	nop
+
+	jal	put_char
+	addiu	$4,$4,48
+
+	andi	$16,$16,0xf
+$L83:
+	sltu	$2,$16,10
+	bne	$2,$0,$L82
+	nop
+
+	jal	put_char
+	addiu	$4,$16,55
+
+$L76:
+	lw	$31,20($sp)
+	lw	$16,16($sp)
+	jr	$31
+	addiu	$sp,$sp,24
+
+$L77:
+	jal	put_char
+	addiu	$4,$4,55
+
+	b	$L83
+	andi	$16,$16,0xf
+
+$L82:
+	jal	put_char
+	addiu	$4,$16,48
+
+	b	$L76
+	nop
+
+	.set	macro
+	.set	reorder
+	.end	printHex
+	.size	printHex, .-printHex
 	.ident	"GCC: (GNU) 7.2.0"

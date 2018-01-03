@@ -13,6 +13,9 @@ unsigned long scroll_screen(unsigned long line);
 unsigned long put_char(unsigned short c);
 unsigned long put_string(unsigned short* str);
 
+unsigned long read_disk(unsigned long *buf, unsigned short sector);
+unsigned long write_disk(unsigned long *buf, unsigned short sector);
+
 unsigned long set_cursor(unsigned long mode, unsigned char *rgb, unsigned long loc);
 unsigned long put_charAt(unsigned short c, unsigned long loc, unsigned char * fbrgb);
 unsigned long put_pixel(unsigned long x, unsigned long y, unsigned char * rgb);
@@ -26,5 +29,7 @@ unsigned long strlen_char(unsigned char *str);
 void memncpy(unsigned char *dst, unsigned char *src, unsigned long n);
 void short2char(unsigned char *dst, unsigned short *src, unsigned long n);
 void char2short(unsigned short *dst, unsigned char *src, unsigned long n);
+
+void printHex(unsigned char hex);
 
 #endif

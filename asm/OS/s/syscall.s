@@ -656,6 +656,64 @@ get_char_:
 	.set	reorder
 	.end	get_char_
 	.size	get_char_, .-get_char_
+	.align	2
+	.globl	read_disk_
+	.set	nomips16
+	.set	nomicromips
+	.ent	read_disk_
+	.type	read_disk_, @function
+read_disk_:
+	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
+	.mask	0x80000000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	lhu	$5,88($4)
+	lw	$4,92($4)
+	jal	read_
+	nop
+
+	li	$2,1			# 0x1
+	lw	$31,20($sp)
+	nop
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	read_disk_
+	.size	read_disk_, .-read_disk_
+	.align	2
+	.globl	write_disk_
+	.set	nomips16
+	.set	nomicromips
+	.ent	write_disk_
+	.type	write_disk_, @function
+write_disk_:
+	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
+	.mask	0x80000000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	lhu	$5,88($4)
+	lw	$4,92($4)
+	jal	write_
+	nop
+
+	li	$2,1			# 0x1
+	lw	$31,20($sp)
+	nop
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	write_disk_
+	.size	write_disk_, .-write_disk_
 	.globl	syscall_tbl
 	.section	.data,"aw",@progbits
 	.align	2
@@ -676,8 +734,8 @@ syscall_tbl:
 	.word	put_string_
 	.word	put_pixel_
 	.word	get_char_
-	.word	0
-	.word	0
+	.word	read_disk_
+	.word	write_disk_
 	.word	0
 	.word	0
 	.word	0

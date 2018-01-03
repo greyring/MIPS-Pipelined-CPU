@@ -1,117 +1,118 @@
-module uart (
-reset          ,
-txclk          ,
-ld_tx_data     , // load transmit data
-tx_data        , // data to transmit  7:0
-tx_enable      ,
-tx_out         , // transmit data (1bit)
-tx_empty       ,
-rxclk          ,
-uld_rx_data    ,  // unload receive data (0/1) whether to unload
-rx_data        ,  // received data 7:0
-rx_enable      ,
-rx_in          ,  // receive data input(1bit)
-rx_ready
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    14:19:34 08/05/2016 
+// Design Name: 
+// Module Name:    UART 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module UART_R(
+	input clk, input Rx,
+	output reg [7:0] dout, output reg ready=0, output reg busy=0
 );
-// Port declarations
-input        reset          ;
-input        txclk          ;
-input        ld_tx_data     ;
-input  [7:0] tx_data        ;
-input        tx_enable      ;
-output       tx_out         ;
-output       tx_empty       ;
-input        rxclk          ;
-input        uld_rx_data    ;
-output [7:0] rx_data        ;
-input        rx_enable      ;
-input        rx_in          ;
-output       rx_ready       ;
 
-// Internal Variables 
-reg [7:0]    tx_reg         ;
-reg          tx_empty       ;
-reg          tx_over_run    ;
-reg [3:0]    tx_cnt         ;
-reg          tx_out         ;
-reg [7:0]    rx_reg         ;
-reg [7:0]    rx_data        ;
-reg [3:0]    rx_cnt         ;  
-reg          rx_ready       ;
-reg          rx_busy        ;
+parameter HALF_PERIOD = 434;//baud rate 115200 under 100MHz clock
+parameter COUNTER_MSB = 9;
 
-// UART RX Logic
-always @ (posedge rxclk or posedge reset)
-if (reset) begin
-  rx_reg        <= 0; 
-  rx_data       <= 0;
-  rx_cnt        <= 0;
-  rx_ready      <= 0;
-  rx_busy       <= 0;
-end else begin
-  // Synchronize the asynch signal
-  // Uload the rx data
-  if (uld_rx_data) begin
-    rx_ready <= 0;
-  end
-  // Receive data only when rx is enabled
-  if (rx_enable) begin
-    // Check if just received start of frame
-    if (~rx_busy & ~rx_in) begin
-      rx_busy       <= 1;
-      rx_cnt        <= 0;
-    end
-    // Start of frame detected, Proceed with rest of data
-    if (rx_busy) begin
-		rx_cnt <= rx_cnt + 4'b1; 
-		// Start storing the rx data
-		if (rx_cnt < 8) begin  // 8 bits data 0--7
-		  rx_reg[rx_cnt] <= rx_in;
+	reg [COUNTER_MSB:0] counter = 0;
+	reg [8:0] shift = 9'h0;
+
+	always @ (posedge clk)
+	begin
+		if(busy)
+		begin
+			if(counter == HALF_PERIOD * 2 - 1)
+			begin
+				counter <= 0;
+				if(shift[0])
+				begin
+					dout <= shift[8:1];
+					ready <= 1'b1;
+					shift <= 8'h0;
+					busy <= 1'b0;
+				end
+				else
+					shift <= {Rx, shift[8:1]};
+			end
+			else
+				counter <= counter + 1'b1;
 		end
-		else begin
-			rx_busy <= 0;
-			// Check if End of frame received correctly
-			if (rx_in) begin
-			  rx_data <= rx_reg;
-			  rx_ready  <= 1;
+		else
+		begin
+			if(counter == HALF_PERIOD - 1)
+			begin
+				busy <= 1'b1;
+				shift <= 9'b100000000;
+				counter <= 0;
+				ready <= 1'b0;
+			end
+			else
+			begin
+				if(Rx)
+					counter <= 0;
+				else
+					counter <= counter + 1'b1;
 			end
 		end
-    end 
-  end
-  else begin
-    rx_busy <= 0;
-  end
-end
+	end
+endmodule
 
-// UART TX Logic
-always @ (posedge txclk or posedge reset)
-if (reset) begin
-  tx_reg        <= 0;
-  tx_empty      <= 1;
-  tx_out        <= 1;
-  tx_cnt        <= 0;
-end else begin
-   if (ld_tx_data) begin
-        tx_reg   <= tx_data;
-        tx_empty <= 0;
-   end
-   if (tx_enable && !tx_empty) begin
-     tx_cnt <= tx_cnt + 1'b1;
-     if (tx_cnt == 0) begin
-       tx_out <= 0;
-     end
-     if (tx_cnt > 0 && tx_cnt < 9) begin
-        tx_out <= tx_reg[tx_cnt -1];
-     end
-     if (tx_cnt == 9) begin
-       tx_out <= 1;
-       tx_cnt <= 0;
-       tx_empty <= 1;
-     end
-   end
-   if (!tx_enable) begin
-     tx_cnt <= 0;
-   end
-end
+module UART_T(
+	input clk, output Tx,
+	input [7:0] din, input ready, output reg ack = 0, output reg busy = 0
+);
+
+parameter PERIOD = 868;
+parameter COUNTER_MSB = 9;
+
+	reg [COUNTER_MSB:0] counter = 0;
+	reg [9:0] shift;
+	
+	assign Tx = busy? shift[0]: 1'b1;
+
+	always @ (posedge clk)
+	begin
+		if(busy)
+		begin
+			if(counter == PERIOD - 1)
+			begin
+				counter <= 0;
+				if(shift == 10'b0000000001)
+				begin
+					ack <= 1'b1;
+					busy <= 1'b0;
+				end
+				else
+				begin
+					shift <= {1'b0, shift[9:1]};
+					ack <= 1'b0;
+				end
+			end
+			else
+				counter <= counter + 1'b1;
+		end
+		else
+		begin
+			if(ready)
+			begin
+				shift <= {1'b1, din, 1'b0};
+				busy <= 1'b1;
+				ack <= 1'b0;
+				counter <= 0;
+			end
+		end
+	end
 
 endmodule
