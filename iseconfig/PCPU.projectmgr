@@ -7,6 +7,7 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/Automatic `includes</ClosedNode>
          <ClosedNode>/CAM_16 F:|MyProgramme|0arch|PCPU|CAM_16.v</ClosedNode>
          <ClosedNode>/CP0 F:|MyProgramme|0|PCPU|CP0.v</ClosedNode>
          <ClosedNode>/D_cache F:|MyProgramme|0arch|PCPU|D_cache.v</ClosedNode>
@@ -128,13 +129,13 @@
          <ClosedNode>/write_data_mask F:|MyProgramme|0arch|PCPU|write_data_mask.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>top (F:/MyProgramme/0arch/PCPU/top.v)</SelectedItem>
+         <SelectedItem>UART_ctrl - uart_controller (F:/MyProgramme/0arch/PCPU/uart_controller.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >29</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d8000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d80000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>top (F:/MyProgramme/0arch/PCPU/top.v)</CurrentItem>
+      <CurrentItem>UART_ctrl - uart_controller (F:/MyProgramme/0arch/PCPU/uart_controller.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -146,13 +147,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Manage Configuration Project (iMPACT)</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >8</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000112000000010000000100000000000000000000000064ffffffff000000810000000000000001000001120000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Manage Configuration Project (iMPACT)</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -215,13 +216,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000012d0000011b01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
@@ -320,6 +321,7 @@
          <ClosedNode>/Twrite_data_mask_32 F:|MyProgramme|0arch|PCPU|Twrite_data_mask_32.v</ClosedNode>
          <ClosedNode>/adder8 F:|MyProgramme|0|PCPU|adder8.v</ClosedNode>
          <ClosedNode>/bus F:|MyProgramme|0arch|PCPU|bus.v</ClosedNode>
+         <ClosedNode>/clk_gen F:|MyProgramme|0arch|PCPU|clk_gen.v</ClosedNode>
          <ClosedNode>/mul32 F:|MyProgramme|0|PCPU|mul32.v</ClosedNode>
          <ClosedNode>/output_led F:|MyProgramme|0|PCPU|output_led.v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0|PCPU|top.v</ClosedNode>
@@ -339,13 +341,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>

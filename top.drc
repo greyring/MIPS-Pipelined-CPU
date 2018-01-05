@@ -1,7 +1,7 @@
 Release 14.7 Drc P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed Jan 03 17:25:33 2018
+Fri Jan 05 13:28:55 2018
 
 drc -z top.ncd top.pcf
 
@@ -9,6 +9,6 @@ WARNING:PhysDesignRules:367 - The signal
    <Keyboard_controller/Mram_queue1_RAMD_D1_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
-   ProtoComp932.PULL is set but the tri state is not configured. 
+   ProtoComp1055.PULL is set but the tri state is not configured. 
 DRC detected 0 errors and 2 warnings.  Please see the previously displayed
 individual error or warning messages for more details.

@@ -50,12 +50,12 @@
 Text_Section your_instance_name (
   .clka(clka), // input clka
   .wea(wea), // input [3 : 0] wea
-  .addra(addra), // input [10 : 0] addra
+  .addra(addra), // input [11 : 0] addra
   .dina(dina), // input [31 : 0] dina
   .douta(douta), // output [31 : 0] douta
   .clkb(clkb), // input clkb
   .web(web), // input [3 : 0] web
-  .addrb(addrb), // input [10 : 0] addrb
+  .addrb(addrb), // input [11 : 0] addrb
   .dinb(dinb), // input [31 : 0] dinb
   .doutb(doutb) // output [31 : 0] doutb
 );

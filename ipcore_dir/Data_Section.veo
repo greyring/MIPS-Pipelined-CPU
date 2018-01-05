@@ -50,7 +50,7 @@
 Data_Section your_instance_name (
   .clka(clka), // input clka
   .wea(wea), // input [3 : 0] wea
-  .addra(addra), // input [9 : 0] addra
+  .addra(addra), // input [10 : 0] addra
   .dina(dina), // input [31 : 0] dina
   .douta(douta) // output [31 : 0] douta
 );

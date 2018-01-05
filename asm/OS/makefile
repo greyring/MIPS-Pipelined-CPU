@@ -1,7 +1,7 @@
 OBJS=init.o keyboard.o timer.o syscall.o exc.o filesys.o kutils.o utils.o shell.o input.o
-CC=mips-gcc -nostdlib -I$(INCLUDEPATH) -S -O1 -Wall -EL
+CC=mips-gcc -nostdlib -I$(INCLUDEPATH) -S -O1 -Wall -EL -Wno-builtin-declaration-mismatch
 AS=mips-as -mips32 -EL
-LD=mips-ld -Ttext 0x80000000 -e _start -Tdata 0x80002000 -EL
+LD=mips-ld -Ttext 0x80000000 -e _start -Tdata 0x80004000 -EL
 INCLUDEPATH=./include
 SDIR=./s
 OUTDIR=./out
@@ -32,6 +32,7 @@ all:
 		  $(OUTDIR)/syscall.o $(OUTDIR)/exc.o $(OUTDIR)/filesys.o $(OUTDIR)/kutils.o \
 		  $(OUTDIR)/utils.o $(OUTDIR)/shell.o $(OUTDIR)/input.o -o os.bin
 	./out2coe.exe
+	./write2vhd.exe
 	mips-objdump -d -j.text os.bin >1.txt
 	mips-objdump -d -j.data os.bin >2.txt
 	mips-objdump -h os.bin

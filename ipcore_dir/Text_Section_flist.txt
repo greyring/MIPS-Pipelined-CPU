@@ -1,7 +1,6 @@
 # Output products list for <Text_Section>
 Text_Section.asy
 Text_Section.gise
-Text_Section.mif
 Text_Section.ngc
 Text_Section.sym
 Text_Section.v

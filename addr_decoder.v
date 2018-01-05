@@ -37,8 +37,8 @@ module addr_decoder(
 	output reg en_others
     );
 //0x0000_0000-0x0fff_ffff SRAM 256M
-	//0x0000_0000-0x0000_1fff TEXT_SECTION 8k
-	//0x0000_2000-0x0000_2fff DATA_SECTION 4k
+	//0x0000_0000-0x0000_3fff TEXT_SECTION 16k
+	//0x0000_4000-0x0000_5fff DATA_SECTION 8k
 //0x1000_0000-0x1000_0fff regs 4K
 //0x1000_2000-0x1000_3fff text_ram 8K
 //0x1001_0000-0x1001_ffff graph_ram 64K
@@ -59,8 +59,8 @@ always @* begin
 	 en_DRAM, en_dmaRAM, en_others} = 0;
 	//if (addr[31:28] == 4'b0) en_SRAM = 1'b1;
 	if (addr[31:28] == 4'b0)begin
-		if (addr[15:12] == 4'b0000 || addr[15:12] == 4'b0001) en_TEXTS = 1'b1;
-		else if (addr[15:12] == 4'b0010) en_DATAS = 1'b1;
+		if (addr[15:14] == 2'b00) en_TEXTS = 1'b1;
+		else if (addr[15:12] == 4'b0100 || addr[15:12] == 4'b0101) en_DATAS = 1'b1;
 		else en_others = 1'b1;
 	end
 	else if (addr[31:12] == 20'h10000) en_regs = 1'b1;

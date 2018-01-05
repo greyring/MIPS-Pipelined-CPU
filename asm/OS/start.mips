@@ -2,8 +2,8 @@
 .extern shell
 .global _start
 
-.data
-sp_: .word 0x80003000
+#.data
+#sp_: .word 0x80005000
 
 .text
 .set noreorder
@@ -115,10 +115,12 @@ eret
 
 .org 0x400
 init_start:
-li $sp, 0x80003000
+li $sp, 0x80006000
 jal init_all
 nop
 addi $k0, $0, 1
-mtc0 $k0, $10#set ASID = 1 shell process
-j shell
+mtc0 $k0, $10#entry Hi set ASID = 1 shell process
+la $k0, shell
+mtc0 $k0, $14#set EPC
+eret
 nop

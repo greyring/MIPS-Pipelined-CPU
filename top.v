@@ -355,7 +355,7 @@ assign data_bus = (|ctrl_bus[4:1]) ? CPU_wdata : 32'hz;
 	wire [31:0]instBIOS;
 	Inst_ROM BIOS(
 	  .clka(~Clk_CPU), 
-	  .addra(PC[11:2]), // addra,要移动两位
+	  .addra(PC[31:2]), // addra,要移动两位
 	  .douta(instBIOS) 
 	);
 	
@@ -363,12 +363,12 @@ assign data_bus = (|ctrl_bus[4:1]) ? CPU_wdata : 32'hz;
 	Text_Section TEXT(
   .clka(~Clk_CPU), 
   .wea(4'b0), 
-  .addra(PC[12:2]), 
+  .addra(PC[31:2]), 
   .dina(32'b0), 
   .douta(instText), 
   .clkb(~Clk_CPU), 
   .web(TEXTS_bw), 
-  .addrb(TEXTS_baddr), 
+  .addrb(TEXTS_baddr[31:2]), 
   .dinb(TEXTS_bwdata), 
   .doutb(TEXTS_brdata) 
   );

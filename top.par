@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-XIAOTONG-PC::  Wed Jan 03 17:20:19 2018
+XIAOTONG-PC::  Fri Jan 05 13:22:57 2018
 
 par -w -intstyle ise -ol high -mt off top_map.ncd top.ncd top.pcf 
 
@@ -32,16 +32,16 @@ Device speed data version:  "PRODUCTION 1.10 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                 3,845 out of 407,600    1%
-    Number used as Flip Flops:               3,845
+  Number of Slice Registers:                 3,837 out of 407,600    1%
+    Number used as Flip Flops:               3,837
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      8,890 out of 203,800    4%
-    Number used as logic:                    8,774 out of 203,800    4%
-      Number using O6 output only:           6,338
+  Number of Slice LUTs:                      8,896 out of 203,800    4%
+    Number used as logic:                    8,805 out of 203,800    4%
+      Number using O6 output only:           6,362
       Number using O5 output only:             165
-      Number using O5 and O6:                2,271
+      Number using O5 and O6:                2,278
       Number used as ROM:                        0
     Number used as Memory:                       8 out of  64,000    1%
       Number used as Dual Port RAM:              8
@@ -50,17 +50,17 @@ Slice Logic Utilization:
         Number using O5 and O6:                  4
       Number used as Single Port RAM:            0
       Number used as Shift Register:             0
-    Number used exclusively as route-thrus:    108
-      Number with same-slice register load:     98
+    Number used exclusively as route-thrus:     83
+      Number with same-slice register load:     73
       Number with same-slice carry load:        10
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                 3,353 out of  50,950    6%
-  Number of LUT Flip Flop pairs used:        9,293
-    Number with an unused Flip Flop:         6,102 out of   9,293   65%
-    Number with an unused LUT:                 403 out of   9,293    4%
-    Number of fully used LUT-FF pairs:       2,788 out of   9,293   30%
+  Number of occupied Slices:                 3,258 out of  50,950    6%
+  Number of LUT Flip Flop pairs used:        9,239
+    Number with an unused Flip Flop:         6,032 out of   9,239   65%
+    Number with an unused LUT:                 343 out of   9,239    3%
+    Number of fully used LUT-FF pairs:       2,864 out of   9,239   30%
     Number of slice register sites lost
       to control set restrictions:               0 out of 407,600    0%
 
@@ -77,8 +77,8 @@ IO Utilization:
     Number of LOCed IOBs:                       53 out of      53  100%
 
 Specific Feature Utilization:
-  Number of RAMB36E1/FIFO36E1s:                157 out of     445   35%
-    Number using RAMB36E1 only:                157
+  Number of RAMB36E1/FIFO36E1s:                160 out of     445   35%
+    Number using RAMB36E1 only:                160
     Number using FIFO36E1 only:                  0
   Number of RAMB18E1/FIFO18E1s:                  3 out of     890    1%
     Number using RAMB18E1 only:                  3
@@ -119,8 +119,8 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 34 secs 
-Finished initial Timing Analysis.  REAL time: 34 secs 
+Starting initial Timing Analysis.  REAL time: 36 secs 
+Finished initial Timing Analysis.  REAL time: 36 secs 
 
 WARNING:Par:288 - The signal btn_y<0>_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal btn_y<2>_IBUF has no load.  PAR will not attempt to route this signal.
@@ -131,27 +131,27 @@ WARNING:Par:288 - The signal Keyboard_controller/Mram_queue1_RAMD_D1_O has no lo
 Starting Router
 
 
-Phase  1  : 81756 unrouted;      REAL time: 42 secs 
+Phase  1  : 82584 unrouted;      REAL time: 44 secs 
 
-Phase  2  : 57066 unrouted;      REAL time: 46 secs 
+Phase  2  : 57664 unrouted;      REAL time: 48 secs 
 
-Phase  3  : 22387 unrouted;      REAL time: 1 mins 33 secs 
+Phase  3  : 22790 unrouted;      REAL time: 1 mins 48 secs 
 
-Phase  4  : 22325 unrouted; (Par is working to improve performance)     REAL time: 1 mins 55 secs 
+Phase  4  : 22738 unrouted; (Par is working to improve performance)     REAL time: 2 mins 7 secs 
 
 Updating file: top.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 2 mins 40 secs 
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 mins 8 secs 
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 2 mins 40 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 mins 11 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 2 mins 40 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 mins 11 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 2 mins 40 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 mins 11 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 2 mins 51 secs 
-Total REAL time to Router completion: 2 mins 51 secs 
-Total CPU time to Router completion: 2 mins 56 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 mins 25 secs 
+Total REAL time to Router completion: 3 mins 25 secs 
+Total CPU time to Router completion: 3 mins 31 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -162,7 +162,7 @@ Partition Implementation Status
 
 Generating "PAR" statistics.
 INFO:Par:459 - The Clock Report is not displayed in the non timing-driven mode.
-Timing Score: 0 (Setup: 0, Hold: 0)
+Timing Score: 921 (Setup: 921, Hold: 0)
 
 Asterisk (*) preceding a constraint indicates it was not met.
    This may be due to a setup or hold violation.
@@ -171,24 +171,24 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net Clk | SETUP       |         N/A|    11.839ns|     N/A|           0
-  _CPU_BUFG                                 | HOLD        |     0.020ns|            |       0|           0
+  Autotimespec constraint for clock net Clk | SETUP       |         N/A|    12.026ns|     N/A|         921
+  _CPU_BUFG                                 | HOLD        |     0.032ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net seg | SETUP       |         N/A|     0.800ns|     N/A|           0
-  _clk_OBUF                                 | HOLD        |     0.132ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|    13.006ns|     N/A|           0
+  _100mhz                                   | HOLD        |     0.054ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net Clk | SETUP       |         N/A|     6.180ns|     N/A|           0
-  _CPU_INV_67_o_BUFG                        | HOLD        |     0.201ns|            |       0|           0
+  Autotimespec constraint for clock net Clk | SETUP       |         N/A|     6.118ns|     N/A|           0
+  _CPU_INV_68_o_BUFG                        | HOLD        |     0.201ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|    12.344ns|     N/A|           0
-  _100mhz                                   | HOLD        |     0.066ns|            |       0|           0
+  Autotimespec constraint for clock net seg | SETUP       |         N/A|     0.964ns|     N/A|           0
+  _clk_OBUF                                 | HOLD        |     0.031ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.258ns|     N/A|           0
-  _gen/Div_1_BUFG                           | HOLD        |     0.252ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.454ns|     N/A|           0
+  _gen/Div_1_BUFG                           | HOLD        |     0.152ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
-All constraints were met.
+1 constraint not met.
 INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
    constraint is not analyzed due to the following: No paths covered by this 
    constraint; Other constraints intersect with this constraint; or This 
@@ -202,10 +202,10 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 6 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 2 mins 58 secs 
-Total CPU time to PAR completion: 3 mins 2 secs 
+Total REAL time to PAR completion: 3 mins 33 secs 
+Total CPU time to PAR completion: 3 mins 38 secs 
 
-Peak Memory Usage:  1282 MB
+Peak Memory Usage:  1329 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

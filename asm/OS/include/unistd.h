@@ -15,8 +15,19 @@
 #define _NUM_put_string    11
 #define _NUM_put_pixel     12
 #define _NUM_get_char      13
-#define _NUM_read_disk     14
-#define _NUM_write_disk    15
+//#define _NUM_read_disk     14
+//#define _NUM_write_disk    15
+#define _NUM_pwd           14
+#define _NUM_cd            15
+#define _NUM_crt_file      16
+#define _NUM_del_file      17
+#define _NUM_fopen         18
+#define _NUM_fclose        19
+#define _NUM_fread         20
+#define _NUM_fwrite        21
+#define _NUM_fseek         22
+#define _NUM_dir           23
+#define _NUM_feof          24
 
 #define _syscall0(name) \
 unsigned long name()\
@@ -75,5 +86,8 @@ __asm__ volatile(\
     :"$a0", "$a1", "$a2", "$a3");\
 return res;\
 }
+
+#define registe_syscall(name) \
+syscall_tbl[_NUM_##name] = name##_;
 
 #endif

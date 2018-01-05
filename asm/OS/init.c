@@ -1,7 +1,9 @@
 #include "arch.h"
+#include "syscall.h"
 #include "keyboard.h"
 #include "timer.h"
 #include "input.h"
+#include "filesys.h"
 
 void init_all()
 {
@@ -33,7 +35,9 @@ void init_all()
     p = SEG_ADDR;
     *(unsigned long *)(p) = 0xAA5555AA;
 
+    init_syscall();
     init_keybuf();
     init_input();
     init_timer();
+    init_fs();
 }

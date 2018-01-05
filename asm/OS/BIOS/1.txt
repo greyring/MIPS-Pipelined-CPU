@@ -1,0 +1,111 @@
+
+bios.bin:     file format elf32-littlemips
+
+
+Disassembly of section .text:
+
+bfc00000 <_ftext>:
+bfc00000:	1000015f 	b	bfc00580 <BIOS_START>
+bfc00004:	00000000 	nop
+	...
+
+bfc00580 <BIOS_START>:
+bfc00580:	00001020 	add	v0,zero,zero
+bfc00584:	00001820 	add	v1,zero,zero
+bfc00588:	00002020 	add	a0,zero,zero
+bfc0058c:	00002820 	add	a1,zero,zero
+bfc00590:	00003020 	add	a2,zero,zero
+bfc00594:	00004020 	add	t0,zero,zero
+bfc00598:	00004820 	add	t1,zero,zero
+bfc0059c:	00005020 	add	t2,zero,zero
+bfc005a0:	00005820 	add	t3,zero,zero
+bfc005a4:	00006020 	add	t4,zero,zero
+bfc005a8:	00006820 	add	t5,zero,zero
+bfc005ac:	00007020 	add	t6,zero,zero
+bfc005b0:	00007820 	add	t7,zero,zero
+bfc005b4:	0000c020 	add	t8,zero,zero
+bfc005b8:	0000c820 	add	t9,zero,zero
+bfc005bc:	00008020 	add	s0,zero,zero
+bfc005c0:	00008820 	add	s1,zero,zero
+bfc005c4:	00009020 	add	s2,zero,zero
+bfc005c8:	00009820 	add	s3,zero,zero
+bfc005cc:	0000a020 	add	s4,zero,zero
+bfc005d0:	0000a820 	add	s5,zero,zero
+bfc005d4:	0000b020 	add	s6,zero,zero
+bfc005d8:	0000b820 	add	s7,zero,zero
+bfc005dc:	00000820 	add	at,zero,zero
+bfc005e0:	0000e020 	add	gp,zero,zero
+bfc005e4:	0000f020 	add	s8,zero,zero
+bfc005e8:	0000f820 	add	ra,zero,zero
+bfc005ec:	3c1d8000 	lui	sp,0x8000
+bfc005f0:	37bd6000 	ori	sp,sp,0x6000
+bfc005f4:	3c1ab000 	lui	k0,0xb000
+bfc005f8:	40801000 	mtc0	zero,c0_entrylo0
+bfc005fc:	40801800 	mtc0	zero,c0_entrylo1
+bfc00600:	409a5000 	mtc0	k0,c0_entryhi
+bfc00604:	201a0010 	addi	k0,zero,16
+
+bfc00608 <_start_loop>:
+bfc00608:	409a0000 	mtc0	k0,c0_index
+bfc0060c:	42000002 	tlbwi
+bfc00610:	235affff 	addi	k0,k0,-1
+bfc00614:	1f40fffc 	bgtz	k0,bfc00608 <_start_loop>
+bfc00618:	00000000 	nop
+bfc0061c:	0ff0018d 	jal	bfc00634 <load_OS>
+bfc00620:	00000000 	nop
+bfc00624:	3c1a8000 	lui	k0,0x8000
+bfc00628:	375a0400 	ori	k0,k0,0x400
+bfc0062c:	03400008 	jr	k0
+bfc00630:	00000000 	nop
+
+bfc00634 <load_OS>:
+bfc00634:	00002825 	move	a1,zero
+bfc00638:	3c090001 	lui	t1,0x1
+bfc0063c:	3c08b000 	lui	t0,0xb000
+bfc00640:	3c07cffe 	lui	a3,0xcffe
+bfc00644:	3c06b002 	lui	a2,0xb002
+bfc00648:	24c60200 	addiu	a2,a2,512
+bfc0064c:	3c0b0001 	lui	t3,0x1
+bfc00650:	240a4000 	li	t2,16384
+bfc00654:	35220020 	ori	v0,t1,0x20
+bfc00658:	ad020018 	sw	v0,24(t0)
+bfc0065c:	8d020018 	lw	v0,24(t0)
+bfc00660:	00000000 	nop
+bfc00664:	30420040 	andi	v0,v0,0x40
+bfc00668:	1040fffc 	beqz	v0,bfc0065c <load_OS+0x28>
+bfc0066c:	3c02b002 	lui	v0,0xb002
+bfc00670:	8c440000 	lw	a0,0(v0)
+bfc00674:	00451821 	addu	v1,v0,a1
+bfc00678:	00e31821 	addu	v1,a3,v1
+bfc0067c:	24420004 	addiu	v0,v0,4
+bfc00680:	1446fffb 	bne	v0,a2,bfc00670 <load_OS+0x3c>
+bfc00684:	ac640000 	sw	a0,0(v1)
+bfc00688:	24a50200 	addiu	a1,a1,512
+bfc0068c:	14aafff1 	bne	a1,t2,bfc00654 <load_OS+0x20>
+bfc00690:	012b4821 	addu	t1,t1,t3
+bfc00694:	00002825 	move	a1,zero
+bfc00698:	3c090021 	lui	t1,0x21
+bfc0069c:	3c08b000 	lui	t0,0xb000
+bfc006a0:	3c07cffe 	lui	a3,0xcffe
+bfc006a4:	3c06b002 	lui	a2,0xb002
+bfc006a8:	24c60200 	addiu	a2,a2,512
+bfc006ac:	3c0b0001 	lui	t3,0x1
+bfc006b0:	240a1000 	li	t2,4096
+bfc006b4:	35220020 	ori	v0,t1,0x20
+bfc006b8:	ad020018 	sw	v0,24(t0)
+bfc006bc:	8d020018 	lw	v0,24(t0)
+bfc006c0:	00000000 	nop
+bfc006c4:	30420040 	andi	v0,v0,0x40
+bfc006c8:	1040fffc 	beqz	v0,bfc006bc <load_OS+0x88>
+bfc006cc:	3c02b002 	lui	v0,0xb002
+bfc006d0:	8c440000 	lw	a0,0(v0)
+bfc006d4:	00a21821 	addu	v1,a1,v0
+bfc006d8:	00e31821 	addu	v1,a3,v1
+bfc006dc:	24420004 	addiu	v0,v0,4
+bfc006e0:	1446fffb 	bne	v0,a2,bfc006d0 <load_OS+0x9c>
+bfc006e4:	ac644000 	sw	a0,16384(v1)
+bfc006e8:	24a50200 	addiu	a1,a1,512
+bfc006ec:	14aafff1 	bne	a1,t2,bfc006b4 <load_OS+0x80>
+bfc006f0:	012b4821 	addu	t1,t1,t3
+bfc006f4:	03e00008 	jr	ra
+bfc006f8:	00000000 	nop

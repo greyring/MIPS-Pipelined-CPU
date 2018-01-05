@@ -41,6 +41,8 @@ reg [15:0]LSA = 0;//logical sector address on disk
 reg Start     = 0;
 reg R_W       = 0;
 reg Ready     = 0;
+reg sed_all = 0;
+reg rec_all = 0;
 always @(posedge clk_CPU) begin
 	if (rst)
 		LSA <= 0;
@@ -53,12 +55,12 @@ always @(posedge clk_CPU) begin
 	end
 end
 always @(posedge clk_CPU) begin
-	if (rst | sed_all | rec_all)
+	if (rst)
 		Start <= 0;
 	else if (we[0])
 		Start <= wdata[5];
 	else
-		Start <= Start;
+		Start <= 0;
 end
 always @(posedge clk_CPU) begin
 	if (rst)
@@ -97,8 +99,6 @@ parameter TX_SED = 8;
 reg [3:0]state = INIT;
 reg [3:0]nxtstate;
 reg [9:0]byte_count;
-reg sed_all = 0;
-reg rec_all = 0;
 wire [7:0]buf_tdata[3:0];
 
 always @(posedge clk) begin

@@ -1,80 +1,12 @@
 #include "arch.h"
+#include "unistd.h"
 #include "syscall.h"
 #include "keyboard.h"
 #include "input.h"
 #include "filesys.h"
+#include "kutils.h"
 
-static unsigned long _scroll_screen(unsigned long line)
-{
-    unsigned long p0;
-    unsigned long p1 = TEXT_ADDR;
-    unsigned long temp;
-    unsigned long cursor;
-
-    if (line <=0 || line>=30) return 0;
-
-    p0 = p1 + line * 160;
-    while(p0 < TEXT_ADDR + 4640)
-    {
-        temp = *(unsigned long *)p0;
-        *(unsigned long *)p1 = temp;
-        p0 += 4; p1 += 4;
-    }
-    while(p1 < TEXT_ADDR + 4640)
-    {
-        *(unsigned long *)p1 = 0;
-        p1 += 4;
-    }
-
-    cursor = *(unsigned long *)(CURSOR_ADDR);
-    if ((cursor & 0x7ff) > line*40)
-    {
-        cursor = cursor - line*40;
-    }
-    else
-    {
-        cursor = (cursor >> 11)<<11;
-    }
-    
-    *(unsigned long *)(CURSOR_ADDR) = cursor;
-    return 1;
-}
-
-static unsigned long _put_char(unsigned short c)
-{
-    unsigned long cursor;
-    unsigned long temp;
-
-    cursor = *(unsigned long *)(CURSOR_ADDR);
-    if (c == ZCODE_ENTER)
-    {
-        temp = cursor & 0x7ff;
-        while(temp >= 40) temp -= 40;
-        cursor = cursor - temp + 40;
-    }
-    else if (c == ZCODE_TAB)
-    {
-        while(++cursor & 0x3);
-    }
-    else if (c == ZCODE_BACKSPACE)
-    {
-        *((unsigned long *)(TEXT_ADDR) + (cursor & 0x7ff)) = 0;
-        if (cursor & 0x7ff) cursor--;
-    }
-    else
-    {
-        temp = (0x3f<<24) | c;
-        *((unsigned long *)(TEXT_ADDR) + (cursor & 0x7ff)) = temp;
-        cursor = cursor + 1;
-    }
-    *(unsigned long *)(CURSOR_ADDR) = cursor;
-    
-    if ((cursor & 0x7ff) >= 1160)
-    {
-        _scroll_screen(1);
-    }
-    return 1;
-}
+unsigned long __attribute__((section (".data"))) (*syscall_tbl[32])(unsigned long *);
 
 SYSCALL put_seg_(unsigned long *sp)
 {
@@ -203,25 +135,89 @@ SYSCALL get_char_()
     return get_from_keybuf();
 }
 
-SYSCALL read_disk_(unsigned long *sp)
+SYSCALL pwd_(unsigned long *sp)
 {
-    read_((unsigned long *)sp[23], sp[22]);//a1<-a2
+    return pwd__((unsigned char*)sp[23], sp[22]);
+}
+
+SYSCALL cd_(unsigned long *sp)
+{
+    return cd__((unsigned char*)sp[23]);
+}
+
+SYSCALL crt_file_(unsigned long *sp)
+{
+    return crt_file__((unsigned char*)sp[23]);
+}
+
+SYSCALL del_file_(unsigned long *sp)
+{
+    return del_file__((unsigned char*)sp[23]);
+}
+
+SYSCALL fopen_(unsigned long *sp)
+{
+    return fopen__((unsigned char*)sp[23]);
+}
+
+SYSCALL fclose_(unsigned long *sp)
+{
+    return fclose__(sp[23]);
+}
+
+SYSCALL fread_(unsigned long *sp)
+{
+    return fread__((unsigned char*)sp[23], sp[22], sp[21]);
+}
+
+SYSCALL fwrite_(unsigned long *sp)
+{
+    return fwrite__((unsigned char*)sp[23], sp[22], sp[21]);
+}
+
+SYSCALL fseek_(unsigned long *sp)
+{
+    return fseek__(sp[23], sp[22], sp[21]);
+}
+
+SYSCALL dir_()
+{
+    dir__();
     return 1;
 }
 
-SYSCALL write_disk_(unsigned long *sp)
+SYSCALL feof_(unsigned long *sp)
 {
-    write_((unsigned long *)sp[23], sp[22]);//a1->a2
-    return 1;
+    return feof__(sp[23]);
 }
 
-unsigned long __attribute__((section (".data"))) (*syscall_tbl[32])(unsigned long *)={
-    put_seg_, get_sw_, get_btn_, put_led_,
-    set_vga_, set_cursor_, get_cursor_, scroll_screen_, 
-    clear_screen_, put_charAt_, put_char_, put_string_, 
-    put_pixel_, get_char_, read_disk_, write_disk_,
-    0, 0, 0, 0,
-    0, 0, 0, 0,
-    0, 0, 0, 0,
-    0, 0, 0, 0
-};
+void init_syscall()
+{
+    registe_syscall(put_seg);
+    registe_syscall(get_sw);
+    registe_syscall(get_btn);
+    registe_syscall(put_led);
+    registe_syscall(set_vga);
+    registe_syscall(set_cursor);
+    registe_syscall(get_cursor);
+    registe_syscall(scroll_screen);
+    registe_syscall(clear_screen);
+    registe_syscall(put_charAt);
+    registe_syscall(put_char);
+    registe_syscall(put_string);
+    registe_syscall(put_pixel);
+    registe_syscall(get_char);
+    registe_syscall(pwd);
+    registe_syscall(cd);
+    registe_syscall(crt_file);
+    registe_syscall(del_file);
+    registe_syscall(fopen);
+    registe_syscall(fclose);
+    registe_syscall(fread);
+    registe_syscall(fwrite);
+    registe_syscall(fseek);
+    registe_syscall(dir);
+    registe_syscall(feof);
+    //registe_syscall(read_disk);
+    //registe_syscall(write_disk);
+}
