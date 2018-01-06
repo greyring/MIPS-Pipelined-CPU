@@ -73,7 +73,7 @@ typedef struct
 }DCB;
 
 #define FCB_NUM 4
-void init_fs();
+
 unsigned long pwd__(unsigned char *dst, unsigned long len);
 unsigned long cd__(unsigned char *path);
 unsigned long crt_file__(unsigned char *file_path);
@@ -85,5 +85,14 @@ unsigned long fwrite__(unsigned char *src, unsigned long size, unsigned long fd)
 unsigned long fseek__(unsigned long fd, unsigned long offset, unsigned long base);
 unsigned long feof__(unsigned long fd);
 void dir__();
+
+void init_fs();
+unsigned long open_file(unsigned char *file_path, FCB *fp);
+unsigned long seek_file(FCB *fp,	byte_4 offset, byte base);
+unsigned long read_file(byte *dst, byte_4 total, FCB *fp);
+unsigned long write_file(byte *src, byte_4 total, FCB *fp);
+void close_file(FCB *fp);
+unsigned long end_file(FCB *fp);
+
 
 #endif

@@ -31,7 +31,7 @@ void main(int argc , char *args[])
 
   fp = fopen("data.bin","rb");
   if (!fp) return;
-  fseek(fout, 512*33, SEEK_SET);/////////////////////////////////////////
+  fseek(fout, 512*41, SEEK_SET);/////////////////////////////////////////
   while(!feof(fp))
   {
     fread(buffer, 1, 1, fp);

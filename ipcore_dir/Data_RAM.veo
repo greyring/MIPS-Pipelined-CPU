@@ -22,7 +22,7 @@
 *     devices, or systems.  Use in such applications are expressly             *
 *     prohibited.                                                              *
 *                                                                              *
-*     (c) Copyright 1995-2017 Xilinx, Inc.                                     *
+*     (c) Copyright 1995-2018 Xilinx, Inc.                                     *
 *     All rights reserved.                                                     *
 *******************************************************************************/
 
@@ -50,9 +50,14 @@
 Data_RAM your_instance_name (
   .clka(clka), // input clka
   .wea(wea), // input [3 : 0] wea
-  .addra(addra), // input [9 : 0] addra
+  .addra(addra), // input [11 : 0] addra
   .dina(dina), // input [31 : 0] dina
-  .douta(douta) // output [31 : 0] douta
+  .douta(douta), // output [31 : 0] douta
+  .clkb(clkb), // input clkb
+  .web(web), // input [3 : 0] web
+  .addrb(addrb), // input [11 : 0] addrb
+  .dinb(dinb), // input [31 : 0] dinb
+  .doutb(doutb) // output [31 : 0] doutb
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

@@ -33,3 +33,11 @@ mips-gcc的-EL主要会影响大于一个word的数据的运算
 注意整数常量的符号拓展
 syscall的返回值会通过v0传递，所以不应该恢复v0
 syscall添加时要修改syscall表，要修改utils.h和utils.c
+
+当要改text或data大小时
+首先要改addr_decoder，要注意起始地址二进制表示前一段为1
+然后要重新生成IP核
+要改BIOS中的BIOS.s里的栈指针，要改BIOS.c中的load的偏移和基地址
+要改OS中start.mips里的栈指针
+要改write2vhd中的偏移
+编写程序使用goto时，正确的出口应该放在错误出口的前面

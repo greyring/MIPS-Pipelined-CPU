@@ -22,7 +22,7 @@
 *     devices, or systems.  Use in such applications are expressly             *
 *     prohibited.                                                              *
 *                                                                              *
-*     (c) Copyright 1995-2017 Xilinx, Inc.                                     *
+*     (c) Copyright 1995-2018 Xilinx, Inc.                                     *
 *     All rights reserved.                                                     *
 *******************************************************************************/
 // You must compile the wrapper file Data_RAM.v when simulating
@@ -41,20 +41,30 @@ module Data_RAM(
   wea,
   addra,
   dina,
-  douta
+  douta,
+  clkb,
+  web,
+  addrb,
+  dinb,
+  doutb
 );
 
 input clka;
 input [3 : 0] wea;
-input [9 : 0] addra;
+input [11 : 0] addra;
 input [31 : 0] dina;
 output [31 : 0] douta;
+input clkb;
+input [3 : 0] web;
+input [11 : 0] addrb;
+input [31 : 0] dinb;
+output [31 : 0] doutb;
 
 // synthesis translate_off
 
   BLK_MEM_GEN_V7_3 #(
-    .C_ADDRA_WIDTH(10),
-    .C_ADDRB_WIDTH(10),
+    .C_ADDRA_WIDTH(12),
+    .C_ADDRB_WIDTH(12),
     .C_ALGORITHM(1),
     .C_AXI_ID_WIDTH(4),
     .C_AXI_SLAVE_TYPE(0),
@@ -81,16 +91,16 @@ output [31 : 0] douta;
     .C_HAS_SOFTECC_INPUT_REGS_A(0),
     .C_HAS_SOFTECC_OUTPUT_REGS_B(0),
     .C_INIT_FILE("BlankString"),
-    .C_INIT_FILE_NAME("Data_RAM.mif"),
+    .C_INIT_FILE_NAME("no_coe_file_loaded"),
     .C_INITA_VAL("0"),
     .C_INITB_VAL("0"),
     .C_INTERFACE_TYPE(0),
-    .C_LOAD_INIT_FILE(1),
-    .C_MEM_TYPE(0),
+    .C_LOAD_INIT_FILE(0),
+    .C_MEM_TYPE(2),
     .C_MUX_PIPELINE_STAGES(0),
     .C_PRIM_TYPE(1),
-    .C_READ_DEPTH_A(1024),
-    .C_READ_DEPTH_B(1024),
+    .C_READ_DEPTH_A(4096),
+    .C_READ_DEPTH_B(4096),
     .C_READ_WIDTH_A(32),
     .C_READ_WIDTH_B(32),
     .C_RST_PRIORITY_A("CE"),
@@ -107,8 +117,8 @@ output [31 : 0] douta;
     .C_USE_SOFTECC(0),
     .C_WEA_WIDTH(4),
     .C_WEB_WIDTH(4),
-    .C_WRITE_DEPTH_A(1024),
-    .C_WRITE_DEPTH_B(1024),
+    .C_WRITE_DEPTH_A(4096),
+    .C_WRITE_DEPTH_B(4096),
     .C_WRITE_MODE_A("WRITE_FIRST"),
     .C_WRITE_MODE_B("WRITE_FIRST"),
     .C_WRITE_WIDTH_A(32),
@@ -121,17 +131,17 @@ output [31 : 0] douta;
     .ADDRA(addra),
     .DINA(dina),
     .DOUTA(douta),
+    .CLKB(clkb),
+    .WEB(web),
+    .ADDRB(addrb),
+    .DINB(dinb),
+    .DOUTB(doutb),
     .RSTA(),
     .ENA(),
     .REGCEA(),
-    .CLKB(),
     .RSTB(),
     .ENB(),
     .REGCEB(),
-    .WEB(),
-    .ADDRB(),
-    .DINB(),
-    .DOUTB(),
     .INJECTSBITERR(),
     .INJECTDBITERR(),
     .SBITERR(),

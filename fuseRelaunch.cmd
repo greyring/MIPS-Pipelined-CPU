@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/Ttop_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/Ttop_beh.prj" "work.Ttop" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/MyProgramme/0arch/PCPU/TMMU_isim_beh.exe" -prj "F:/MyProgramme/0arch/PCPU/TMMU_beh.prj" "work.TMMU" "work.glbl" 

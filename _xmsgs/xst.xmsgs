@@ -11,25 +11,25 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 99: Assignment to <arg fmt="%s" index="1">en_BIOS</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 101: Assignment to <arg fmt="%s" index="1">en_DRAM</arg> ignored, since the identifier is never used
-</msg>
-
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 104: Assignment to <arg fmt="%s" index="1">en_others</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 124: Assignment to <arg fmt="%s" index="1">TEXTS_br</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 124: Assignment to <arg fmt="%s" index="1">DRAM_br</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 133: Assignment to <arg fmt="%s" index="1">DATAS_br</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 133: Assignment to <arg fmt="%s" index="1">TEXTS_br</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 178: Assignment to <arg fmt="%s" index="1">SEG_r</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 142: Assignment to <arg fmt="%s" index="1">DATAS_br</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 201: Assignment to <arg fmt="%s" index="1">led_r</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 187: Assignment to <arg fmt="%s" index="1">SEG_r</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 220: Assignment to <arg fmt="%s" index="1">dmaRAM_r</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 210: Assignment to <arg fmt="%s" index="1">led_r</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 229: Assignment to <arg fmt="%s" index="1">dmaRAM_r</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1499" delta="old" >"F:\MyProgramme\0arch\PCPU\Display_IO.v" Line 21: Empty module &lt;<arg fmt="%s" index="1">Display</arg>&gt; remains a black box.
@@ -365,22 +365,31 @@
 <msg type="warning" file="HDLCompiler" num="1499" delta="old" >"F:\MyProgramme\0arch\PCPU\ipcore_dir\Inst_ROM.v" Line 39: Empty module &lt;<arg fmt="%s" index="1">Inst_ROM</arg>&gt; remains a black box.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 358: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addra</arg>&gt;. Formal port size is <arg fmt="%d" index="2">10</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 367: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addra</arg>&gt;. Formal port size is <arg fmt="%d" index="2">10</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1499" delta="old" >"F:\MyProgramme\0arch\PCPU\ipcore_dir\Data_RAM.v" Line 39: Empty module &lt;<arg fmt="%s" index="1">Data_RAM</arg>&gt; remains a black box.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 375: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addra</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 380: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addrb</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1499" delta="old" >"F:\MyProgramme\0arch\PCPU\ipcore_dir\Text_Section.v" Line 39: Empty module &lt;<arg fmt="%s" index="1">Text_Section</arg>&gt; remains a black box.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 366: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addra</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 389: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addra</arg>&gt;. Formal port size is <arg fmt="%d" index="2">13</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 371: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addrb</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 394: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addrb</arg>&gt;. Formal port size is <arg fmt="%d" index="2">13</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1499" delta="old" >"F:\MyProgramme\0arch\PCPU\ipcore_dir\Data_Section.v" Line 39: Empty module &lt;<arg fmt="%s" index="1">Data_Section</arg>&gt; remains a black box.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 380: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addra</arg>&gt;. Formal port size is <arg fmt="%d" index="2">11</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\MyProgramme\0arch\PCPU\top.v" Line 403: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addra</arg>&gt;. Formal port size is <arg fmt="%d" index="2">11</arg>-bit while actual signal size is <arg fmt="%d" index="1">30</arg>-bit.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1499" delta="old" >"F:\MyProgramme\0arch\PCPU\ipcore_dir\DMA_RAM.v" Line 39: Empty module &lt;<arg fmt="%s" index="1">DMA_RAM</arg>&gt; remains a black box.
@@ -407,70 +416,70 @@
 <msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">97</arg>: Output port &lt;<arg fmt="%s" index="3">en_BIOS</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Addr_decoder</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">97</arg>: Output port &lt;<arg fmt="%s" index="3">en_DRAM</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Addr_decoder</arg>&gt; is unconnected or connected to loadless signal.
-</msg>
-
 <msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">97</arg>: Output port &lt;<arg fmt="%s" index="3">en_others</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Addr_decoder</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">120</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">TEXTS</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">120</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DRAMS</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">129</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DATAS</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">129</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">TEXTS</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">138</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">VGA_REG</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">138</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DATAS</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">147</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">VGA_CURSOR</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">147</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">VGA_REG</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">174</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SEG</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">156</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">VGA_CURSOR</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">174</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SEG</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">183</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SEG</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">182</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">keyboard</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">183</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SEG</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">182</arg>: Output port &lt;<arg fmt="%s" index="3">wdata</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">keyboard</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">191</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">keyboard</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">182</arg>: Output port &lt;<arg fmt="%s" index="3">w_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">keyboard</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">191</arg>: Output port &lt;<arg fmt="%s" index="3">wdata</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">keyboard</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">188</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SWITCH</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">191</arg>: Output port &lt;<arg fmt="%s" index="3">w_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">keyboard</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">188</arg>: Output port &lt;<arg fmt="%s" index="3">wdata</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SWITCH</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">197</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SWITCH</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">188</arg>: Output port &lt;<arg fmt="%s" index="3">w_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SWITCH</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">197</arg>: Output port &lt;<arg fmt="%s" index="3">wdata</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SWITCH</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">188</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SWITCH</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">197</arg>: Output port &lt;<arg fmt="%s" index="3">w_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SWITCH</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">197</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">led</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">197</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SWITCH</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">197</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">led</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">206</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">led</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">206</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dma</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">206</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">led</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">216</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dmaRAM</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">215</arg>: Output port &lt;<arg fmt="%s" index="3">addr_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dma</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">226</arg>: Output port &lt;<arg fmt="%s" index="3">segclrn</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">display</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">225</arg>: Output port &lt;<arg fmt="%s" index="3">r_</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dmaRAM</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">267</arg>: Output port &lt;<arg fmt="%s" index="3">busy</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Vga_controller</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">235</arg>: Output port &lt;<arg fmt="%s" index="3">segclrn</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">display</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">299</arg>: Output port &lt;<arg fmt="%s" index="3">full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Keyboard_controller</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">276</arg>: Output port &lt;<arg fmt="%s" index="3">busy</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Vga_controller</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\MyProgramme\0arch\PCPU\top.v</arg>&quot; line <arg fmt="%s" index="2">308</arg>: Output port &lt;<arg fmt="%s" index="3">full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Keyboard_controller</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="info" file="Xst" num="2774" delta="old" >HDL ADVISOR - <arg fmt="%s" index="1">KEEP</arg> <arg fmt="%s" index="2">property</arg> attached to signal <arg fmt="%s" index="3">data_bus&lt;31&gt;</arg> may hinder XST clustering optimizations.
@@ -1218,7 +1227,7 @@ It will be removed from the design.
 <msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_queue</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
 </msg>
 
-<msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_byte_count[1]_PWR_82_o_wide_mux_42_OUT</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+<msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_byte_count[1]_PWR_83_o_wide_mux_42_OUT</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
 </msg>
 
 <msg type="warning" file="Xst" num="1989" delta="old" >Unit &lt;<arg fmt="%s" index="1">mul32_s</arg>&gt;: instances &lt;<arg fmt="%s" index="2">fa1_34_11</arg>&gt;, &lt;<arg fmt="%s" index="3">fa1_35_11</arg>&gt; of unit &lt;<arg fmt="%s" index="4">full_adder</arg>&gt; are equivalent, second instance is removed
@@ -1662,6 +1671,12 @@ It will be removed from the design.
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">temp1_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">IF_ID_Reg</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;temp1_1&gt; &lt;temp1_2&gt; &lt;temp1_3&gt; </arg>
 </msg>
 
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">temp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ID_EXE_REG</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;temp_76&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">temp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ID_EXE_REG</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;temp_77&gt; </arg>
+</msg>
+
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">temp_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ID_EXE_REG</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;temp_78&gt; </arg>
 </msg>
 
@@ -1669,12 +1684,6 @@ It will be removed from the design.
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">temp_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ID_EXE_REG</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;temp_80&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">temp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ID_EXE_REG</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;temp_76&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">temp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ID_EXE_REG</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;temp_77&gt; </arg>
 </msg>
 
 <msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">temp1_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">IF_ID_Reg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -3472,6 +3481,54 @@ It will be removed from the design.
 </msg>
 
 <msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/EXE_MEM_REG/temp_18</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">PCPU/MMU_/TLB/G_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">PCPU/_MUL_ID_EXE/temp_42</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;PCPU/ID_EXE/temp_117&gt; </arg>

@@ -114,6 +114,15 @@ bus_interface SRAM(
 	 .r_(SRAM_r), .w_(SRAM_w), .ready_(1'b1)
     );
 */
+wire [31:0]DRAM_baddr, DRAM_bwdata, DRAM_brdata;
+wire DRAM_br;
+wire [3:0]DRAM_bw;
+bus_interface DRAMS(
+    .enable(en_DRAM), 
+    .addr(addr_bus), .data(data_bus), .r(ctrl_bus[0]), .w(ctrl_bus[4:1]), .ready(ctrl_bus[5]), 
+    .addr_(DRAM_baddr), .wdata(DRAM_bwdata), .rdata(DRAM_brdata), 
+	 .r_(DRAM_br), .w_(DRAM_bw), .ready_(1'b1)
+    );
 wire [31:0]TEXTS_baddr, TEXTS_bwdata, TEXTS_brdata;
 wire TEXTS_br;
 wire [3:0]TEXTS_bw;
@@ -341,7 +350,7 @@ wire [31:0]CPU_mem_addr;
 		.epc_data(epc_data),
 		.mem_data_in(data_bus)
    );
-assign addr_bus = {3'b0, CPU_mem_addr[28:0]};
+assign addr_bus = CPU_mem_addr[31:0];
 assign data_bus = (|ctrl_bus[4:1]) ? CPU_wdata : 32'hz;
 	/*
 	Data_RAM Data_RAM_(
@@ -359,6 +368,20 @@ assign data_bus = (|ctrl_bus[4:1]) ? CPU_wdata : 32'hz;
 	  .douta(instBIOS) 
 	);
 	
+	wire [31:0]instDRAM;
+	Data_RAM DRAM(
+	  .clka(~Clk_CPU), // input clka
+	  .wea(4'b0), // input [3 : 0] wea
+	  .addra(PC[31:2]), // input [11 : 0] addra
+	  .dina(32'b0), // input [31 : 0] dina
+	  .douta(instDRAM), // output [31 : 0] douta
+	  .clkb(~Clk_CPU), // input clkb
+	  .web(DRAM_bw), // input [3 : 0] web
+	  .addrb(DRAM_baddr[31:2]), // input [11 : 0] addrb
+	  .dinb(DRAM_bwdata), // input [31 : 0] dinb
+	  .doutb(DRAM_brdata) // output [31 : 0] doutb
+	);
+	
 	wire [31:0]instText;
 	Text_Section TEXT(
   .clka(~Clk_CPU), 
@@ -372,7 +395,7 @@ assign data_bus = (|ctrl_bus[4:1]) ? CPU_wdata : 32'hz;
   .dinb(TEXTS_bwdata), 
   .doutb(TEXTS_brdata) 
   );
-  assign inst = (PC[31:28] == 4'h1)? instBIOS : instText;
+  assign inst = (PC[31:28]>=2)? instDRAM : ((PC[31:28] == 4'h1)? instBIOS : instText);
 
 Data_Section DATA(
   .clka(~Clk_CPU), 

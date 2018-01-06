@@ -1,43 +1,35 @@
+#include "exc.h"
 #include "timer.h"
 #include "keyboard.h"
 #include "syscall.h"
 
-void handle_interrupt(unsigned long status, unsigned long cause, unsigned long epc, unsigned long *sp);
-void handle_syscall(unsigned long status, unsigned long cause, unsigned long epc, unsigned long *sp);
+static void __attribute__((section (".data"))) (*exc_tbl[32])(context *);
 
-void __attribute__((section (".data"))) (*exc_tbl[32])(unsigned long, unsigned long, unsigned long, unsigned long *)={
-    handle_interrupt, 0, 0, 0, 0, 0, 0, 0, 
-    handle_syscall, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0
-};
-
-void handle_exception(unsigned long status, unsigned long cause, unsigned long epc, unsigned long *sp)
+void handle_exception(context *sp)
 {
-    exc_tbl[(cause>>2) & 0x1f](status, cause, epc, sp);
+    exc_tbl[((sp->cause)>>2) & 0x1f](sp);
 }
 
-void handle_interrupt(unsigned long status, unsigned long cause, unsigned long epc, unsigned long *sp)
+void handle_interrupt(context *sp)
 {
-    if (cause & (1<<15))//timer
+    if ((sp->cause) & (1<<15))//timer
     {
         handle_timer();
     }
-    else if (cause & (1<<14))//keyboard
+    else if ((sp->cause) & (1<<14))//keyboard
     {
         handle_keyboard();
     }
 }
 
-void handle_syscall(unsigned long status, unsigned long cause, unsigned long epc, unsigned long *sp)
+void handle_syscall(context *sp)
 {
-    asm volatile(
-        "addiu\t$s0, %0, 4\n\t"
-        "mtc0\t$s0, $14\n\t"
-        :
-        :"r"(epc)
-        :"$s0"
-    );
-    sp[26] = syscall_tbl[sp[24]](sp);//sp[24] is a0
-    //v0 = return value important!!!
+    sp->epc += 4;
+    sp->v0 = syscall_tbl[sp->a0](sp);
+}
+
+void init_exc()
+{
+    exc_tbl[0] = handle_interrupt;
+    exc_tbl[8] = handle_syscall;
 }

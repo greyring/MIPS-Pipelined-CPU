@@ -82,12 +82,12 @@
 --    C_AXI_TYPE                  :  1 
 --    C_AXI_SLAVE_TYPE            :  0 
 --    C_AXI_ID_WIDTH              :  4 
---    C_MEM_TYPE                  :  0 
+--    C_MEM_TYPE                  :  2 
 --    C_BYTE_SIZE                 :  8 
 --    C_ALGORITHM                 :  1 
 --    C_PRIM_TYPE                 :  1 
---    C_LOAD_INIT_FILE            :  1 
---    C_INIT_FILE_NAME            :  Data_RAM.mif 
+--    C_LOAD_INIT_FILE            :  0 
+--    C_INIT_FILE_NAME            :  no_coe_file_loaded 
 --    C_USE_DEFAULT_DATA          :  0 
 --    C_DEFAULT_DATA              :  0 
 --    C_RST_TYPE                  :  SYNC 
@@ -102,9 +102,9 @@
 --    C_WRITE_MODE_A              :  WRITE_FIRST 
 --    C_WRITE_WIDTH_A             :  32 
 --    C_READ_WIDTH_A              :  32 
---    C_WRITE_DEPTH_A             :  1024 
---    C_READ_DEPTH_A              :  1024 
---    C_ADDRA_WIDTH               :  10 
+--    C_WRITE_DEPTH_A             :  4096 
+--    C_READ_DEPTH_A              :  4096 
+--    C_ADDRA_WIDTH               :  12 
 --    C_HAS_RSTB                  :  0 
 --    C_RST_PRIORITY_B            :  CE 
 --    C_RSTRAM_B                  :  0 
@@ -116,9 +116,9 @@
 --    C_WRITE_MODE_B              :  WRITE_FIRST 
 --    C_WRITE_WIDTH_B             :  32 
 --    C_READ_WIDTH_B              :  32 
---    C_WRITE_DEPTH_B             :  1024 
---    C_READ_DEPTH_B              :  1024 
---    C_ADDRB_WIDTH               :  10 
+--    C_WRITE_DEPTH_B             :  4096 
+--    C_READ_DEPTH_B              :  4096 
+--    C_ADDRB_WIDTH               :  12 
 --    C_HAS_MEM_OUTPUT_REGS_A     :  0 
 --    C_HAS_MEM_OUTPUT_REGS_B     :  0 
 --    C_HAS_MUX_OUTPUT_REGS_A     :  0 
@@ -157,7 +157,7 @@ ENTITY Data_RAM_prod IS
     ENA        : IN STD_LOGIC;  --optional port
     REGCEA     : IN STD_LOGIC;  --optional port
     WEA        : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    ADDRA      : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    ADDRA      : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     DINA       : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     DOUTA      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
@@ -167,7 +167,7 @@ ENTITY Data_RAM_prod IS
     ENB        : IN STD_LOGIC;  --optional port
     REGCEB     : IN STD_LOGIC;  --optional port
     WEB        : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    ADDRB      : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    ADDRB      : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     DINB       : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     DOUTB      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
@@ -176,7 +176,7 @@ ENTITY Data_RAM_prod IS
     INJECTDBITERR  : IN STD_LOGIC; --optional port
     SBITERR        : OUT STD_LOGIC; --optional port
     DBITERR        : OUT STD_LOGIC; --optional port
-    RDADDRECC      : OUT STD_LOGIC_VECTOR(9 DOWNTO 0); --optional port
+    RDADDRECC      : OUT STD_LOGIC_VECTOR(11 DOWNTO 0); --optional port
  -- AXI BMG Input and Output Port Declarations
 
     -- AXI Global Signals
@@ -218,7 +218,7 @@ ENTITY Data_RAM_prod IS
     S_AXI_INJECTDBITERR            : IN  STD_LOGIC;
     S_AXI_SBITERR                  : OUT STD_LOGIC;
     S_AXI_DBITERR                  : OUT STD_LOGIC;
-    S_AXI_RDADDRECC                : OUT STD_LOGIC_VECTOR(9  DOWNTO 0);
+    S_AXI_RDADDRECC                : OUT STD_LOGIC_VECTOR(11  DOWNTO 0);
     S_ARESETN                      : IN  STD_LOGIC
 
 
@@ -234,14 +234,24 @@ ARCHITECTURE xilinx OF Data_RAM_prod IS
       --Port A
   
     WEA            : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    ADDRA          : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    ADDRA          : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
   
     DINA           : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   
     DOUTA          : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
-    CLKA       : IN STD_LOGIC
+  
+    CLKA       : IN STD_LOGIC;
 
+  
+      --Port B
+  
+    WEB            : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    ADDRB          : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+  
+    DINB           : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    DOUTB          : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    CLKB           : IN STD_LOGIC
 
 
 
@@ -261,7 +271,16 @@ BEGIN
   
       DOUTA      => DOUTA,
 
-      CLKA       => CLKA
+      CLKA       => CLKA,
+  
+      --Port B
+  
+      WEB        => WEB,
+      ADDRB      => ADDRB,
+  
+      DINB       => DINB,
+      DOUTB      => DOUTB,
+      CLKB       => CLKB
 
 
 

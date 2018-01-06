@@ -79,6 +79,7 @@ END ENTITY;
 ARCHITECTURE Data_RAM_tb_ARCH OF Data_RAM_tb IS
  SIGNAL  STATUS : STD_LOGIC_VECTOR(8 DOWNTO 0);
  SIGNAL  CLK :  STD_LOGIC := '1';
+ SIGNAL  CLKB :  STD_LOGIC := '1';
  SIGNAL  RESET : STD_LOGIC;
  
  BEGIN
@@ -88,6 +89,12 @@ ARCHITECTURE Data_RAM_tb_ARCH OF Data_RAM_tb IS
      CLK <= NOT CLK;
      WAIT FOR 100 NS;
      CLK <= NOT CLK; 
+     WAIT FOR 100 NS;
+  END PROCESS;
+ CLKB_GEN: PROCESS BEGIN
+     CLKB <= NOT CLKB;
+     WAIT FOR 100 NS;
+     CLKB <= NOT CLKB; 
      WAIT FOR 100 NS;
   END PROCESS;
   
@@ -127,6 +134,7 @@ END PROCESS;
   Data_RAM_synth_inst:ENTITY work.Data_RAM_synth
   PORT MAP(
            CLK_IN   => CLK,
+           CLKB_IN   => CLK,
      	   RESET_IN => RESET,
            STATUS   => STATUS
 	  );

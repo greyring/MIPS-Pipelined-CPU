@@ -45,7 +45,6 @@
 :: PART OF THIS FILE AT ALL TIMES.
 ::--------------------------------------------------------------------------------
 
-cp ..\..\..\Data_RAM.mif .
 
 
 echo "Compiling Core Verilog UNISIM/Behavioral model"

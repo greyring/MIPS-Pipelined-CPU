@@ -6,11 +6,11 @@
 #include "filesys.h"
 #include "kutils.h"
 
-unsigned long __attribute__((section (".data"))) (*syscall_tbl[32])(unsigned long *);
+unsigned long __attribute__((section (".data"))) (*syscall_tbl[32])(context *);
 
-SYSCALL put_seg_(unsigned long *sp)
+SYSCALL put_seg_(context *sp)
 {
-    *(unsigned long *)(SEG_ADDR) = sp[23];//a1
+    *(unsigned long *)(SEG_ADDR) = sp->a1;
     return 1;
 }
 
@@ -24,33 +24,33 @@ SYSCALL get_btn_()
     return *(unsigned long *)(BTN_ADDR);
 }
 
-SYSCALL put_led_(unsigned long *sp)
+SYSCALL put_led_(context *sp)
 {
-    *(unsigned long *)(LED_ADDR) = sp[23];//a1
+    *(unsigned long *)(LED_ADDR) = (sp->a1);//a1
     return 1;
 }
 
 //0 graph 1 text 3 mix
-SYSCALL set_vga_(unsigned long *sp)
+SYSCALL set_vga_(context *sp)
 {
     unsigned long old_VGA = *(unsigned long *)(VGA_REG_ADDR);
-    *(unsigned long *)(VGA_REG_ADDR) = (old_VGA & 0xfffffffc) | (sp[23] & 0x11);
+    *(unsigned long *)(VGA_REG_ADDR) = (old_VGA & 0xfffffffc) | ((sp->a1) & 0x11);
     return 1;
 }
 
-SYSCALL set_cursor_(unsigned long *sp)
+SYSCALL set_cursor_(context *sp)
 {
-    //sp[23];//a1 mode
-    //sp[22];//a2 *rgb
-    //sp[21];//a3 location
+    //(sp->a1);//a1 mode
+    //(sp->a2);//a2 *rgb
+    //(sp->a3);//a3 location
 
-    unsigned char *rgb = (unsigned char*)(sp[22]);
+    unsigned char *rgb = (unsigned char*)((sp->a2));
     unsigned long new_cursor;
-    new_cursor = (sp[23] & 0x11)<<24;
+    new_cursor = ((sp->a1) & 0x11)<<24;
     new_cursor = new_cursor | ((rgb[2]>>6)<<20) 
                             | ((rgb[1]>>6)<<18) 
                             | ((rgb[0]>>6)<<16);
-    new_cursor = new_cursor | (sp[21] & 0x7ff);
+    new_cursor = new_cursor | ((sp->a3) & 0x7ff);
     *(unsigned long *)(CURSOR_ADDR) = new_cursor;
     return 1;
 }
@@ -60,9 +60,9 @@ SYSCALL get_cursor_()
     return *(unsigned long *)(CURSOR_ADDR);
 }
 
-SYSCALL scroll_screen_(unsigned long *sp)
+SYSCALL scroll_screen_(context *sp)
 {
-    return _scroll_screen(sp[23]);//a1
+    return _scroll_screen((sp->a1));//a1
 }
 
 SYSCALL clear_screen_()
@@ -80,30 +80,30 @@ SYSCALL clear_screen_()
     return 1;
 }
 
-SYSCALL put_charAt_(unsigned long *sp)
+SYSCALL put_charAt_(context *sp)
 {
-    //sp[23]//a1 c
-    //sp[22]//a2 place
-    //sp[21]//a3 fontrgb backrgb
-    unsigned char *fontRGB = (unsigned char*)sp[21];
-    unsigned char *backRGB = (unsigned char*)sp[21]+3;
+    //(sp->a1)//a1 c
+    //(sp->a2)//a2 place
+    //(sp->a3)//a3 fontrgb backrgb
+    unsigned char *fontRGB = (unsigned char*)(sp->a3);
+    unsigned char *backRGB = (unsigned char*)(sp->a3)+3;
     unsigned long temp;
-    if (sp[22]<0 || sp[22]>=1160) return 0;
+    if ((sp->a2)<0 || (sp->a2)>=1160) return 0;
     temp = ((fontRGB[2]>>6)<<28) | ((fontRGB[1]>>6)<<26) | ((fontRGB[0]>>6)<<24)
         |  ((backRGB[2]>>6)<<20) | ((backRGB[1]>>6)<<18) | ((backRGB[0]>>6)<<16)
-        |  (sp[23] & 0xffff);
-    *((unsigned long *)(TEXT_ADDR)+sp[22]) = temp;
+        |  ((sp->a1) & 0xffff);
+    *((unsigned long *)(TEXT_ADDR)+(sp->a2)) = temp;
     return 1;
 }
 
-SYSCALL put_char_(unsigned long *sp)
+SYSCALL put_char_(context *sp)
 {
-    return _put_char((unsigned short)sp[23]);//a1
+    return _put_char((unsigned short)(sp->a1));//a1
 }
 
-SYSCALL put_string_(unsigned long *sp)
+SYSCALL put_string_(context *sp)
 {
-    unsigned short *str = (unsigned short *)sp[23];
+    unsigned short *str = (unsigned short *)(sp->a1);
     while(*str)
     {
         _put_char(*str);
@@ -112,15 +112,15 @@ SYSCALL put_string_(unsigned long *sp)
     return 1;
 }
 
-SYSCALL put_pixel_(unsigned long *sp)
+SYSCALL put_pixel_(context *sp)
 {
     unsigned long x, y;
     unsigned char * RGB;
     unsigned long offset;
     unsigned short color;
-    x = sp[23];//a1
-    y = sp[22];//a2
-    RGB = (unsigned char *)sp[21];//a3
+    x = (sp->a1);//a1
+    y = (sp->a2);//a2
+    RGB = (unsigned char *)(sp->a3);//a3
 
     if ((x < 0) | (x >= 640) | (y < 0) | (y >= 480)) return 0;
     offset = (y * 640 + x)<<1;
@@ -135,49 +135,49 @@ SYSCALL get_char_()
     return get_from_keybuf();
 }
 
-SYSCALL pwd_(unsigned long *sp)
+SYSCALL pwd_(context *sp)
 {
-    return pwd__((unsigned char*)sp[23], sp[22]);
+    return pwd__((unsigned char*)(sp->a1), (sp->a2));
 }
 
-SYSCALL cd_(unsigned long *sp)
+SYSCALL cd_(context *sp)
 {
-    return cd__((unsigned char*)sp[23]);
+    return cd__((unsigned char*)(sp->a1));
 }
 
-SYSCALL crt_file_(unsigned long *sp)
+SYSCALL crt_file_(context *sp)
 {
-    return crt_file__((unsigned char*)sp[23]);
+    return crt_file__((unsigned char*)(sp->a1));
 }
 
-SYSCALL del_file_(unsigned long *sp)
+SYSCALL del_file_(context *sp)
 {
-    return del_file__((unsigned char*)sp[23]);
+    return del_file__((unsigned char*)(sp->a1));
 }
 
-SYSCALL fopen_(unsigned long *sp)
+SYSCALL fopen_(context *sp)
 {
-    return fopen__((unsigned char*)sp[23]);
+    return fopen__((unsigned char*)(sp->a1));
 }
 
-SYSCALL fclose_(unsigned long *sp)
+SYSCALL fclose_(context *sp)
 {
-    return fclose__(sp[23]);
+    return fclose__(sp->a1);
 }
 
-SYSCALL fread_(unsigned long *sp)
+SYSCALL fread_(context *sp)
 {
-    return fread__((unsigned char*)sp[23], sp[22], sp[21]);
+    return fread__((unsigned char*)(sp->a1), (sp->a2), (sp->a3));
 }
 
-SYSCALL fwrite_(unsigned long *sp)
+SYSCALL fwrite_(context *sp)
 {
-    return fwrite__((unsigned char*)sp[23], sp[22], sp[21]);
+    return fwrite__((unsigned char*)(sp->a1), (sp->a2), (sp->a3));
 }
 
-SYSCALL fseek_(unsigned long *sp)
+SYSCALL fseek_(context *sp)
 {
-    return fseek__(sp[23], sp[22], sp[21]);
+    return fseek__((sp->a1), (sp->a2), (sp->a3));
 }
 
 SYSCALL dir_()
@@ -186,9 +186,9 @@ SYSCALL dir_()
     return 1;
 }
 
-SYSCALL feof_(unsigned long *sp)
+SYSCALL feof_(context *sp)
 {
-    return feof__(sp[23]);
+    return feof__((sp->a1));
 }
 
 void init_syscall()

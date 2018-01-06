@@ -1,9 +1,12 @@
 #include "arch.h"
+#include "exc.h"
 #include "syscall.h"
 #include "keyboard.h"
 #include "timer.h"
 #include "input.h"
 #include "filesys.h"
+#include "load.h"
+#include "kutils.h"
 
 void init_all()
 {
@@ -35,9 +38,20 @@ void init_all()
     p = SEG_ADDR;
     *(unsigned long *)(p) = 0xAA5555AA;
 
+    /*
+    unsigned long temp;
+	asm volatile(
+		"move\t%0, $ra\n\t"
+		:"=r"(temp)
+	);
+    
+	kprintHex_long(temp);
+    */
+    init_exc();
     init_syscall();
     init_keybuf();
     init_input();
     init_timer();
     init_fs();
+    init_task();
 }

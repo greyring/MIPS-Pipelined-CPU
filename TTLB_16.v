@@ -104,6 +104,18 @@ module TTLB_16;
 		ENTRY_LO1 = 0;
 
 		// Wait 100 ns for global reset to finish
+		#11
+		rst = 0;
+		op = 4'b0100;
+		INDEX = 32'b0;
+		ENTRY_HI = 32'b0000_0000_0000_0000_0000_0000_0000_0010;
+		ENTRY_LO0 = 32'b0000_0000_1000_0000_0000_0000_0000_0110;
+		ENTRY_LO1 = 32'b0000_0000_1000_0000_0000_0000_0100_0110;
+		#10
+		op = 0;
+		dwe = 1;
+		DVaddr = 32'b0;
+		/*
 		#11;
       rst = 0;
 		op = 4'b0100;
@@ -149,6 +161,7 @@ module TTLB_16;
 		op = 0;
 		drd =0;
 		dwe = 0;
+		*/
 		// Add stimulus here
 
 	end

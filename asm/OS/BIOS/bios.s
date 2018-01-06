@@ -40,7 +40,7 @@ add $gp, $0, $0
 add $fp, $0, $0
 add $ra, $0, $0
 
-la $sp, 0x80006000#########        notice
+la $sp, 0x80008000############################        notice
 
 #initialize tlb
 li   $k0, 0xb0000000

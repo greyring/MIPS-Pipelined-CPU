@@ -35,11 +35,15 @@ module Taddr_decoder;
 	wire en_textRAM;
 	wire en_graphRAM;
 	wire en_DRAM;
+	wire en_TEXTS;
+	wire en_DATAS;
 
 	// Instantiate the Unit Under Test (UUT)
 	addr_decoder uut (
 		.addr(addr), 
-		.en_SDRAM(en_SDRAM), 
+		//.en_SDRAM(en_SDRAM), 
+		.en_TEXTS(en_TEXTS),
+		.en_DATAS(en_DATAS),
 		.en_BIOS(en_BIOS), 
 		.en_vga_reg(en_vga_reg), 
 		.en_cursor_reg(en_cursor_reg), 

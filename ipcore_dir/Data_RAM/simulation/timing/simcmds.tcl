@@ -59,5 +59,10 @@ wave add /Data_RAM_tb/status
       wave add  /Data_RAM_tb/Data_RAM_synth_inst/BMG_PORT/DINA
       wave add  /Data_RAM_tb/Data_RAM_synth_inst/BMG_PORT/WEA
       wave add  /Data_RAM_tb/Data_RAM_synth_inst/BMG_PORT/DOUTA
+      wave add  /Data_RAM_tb/Data_RAM_synth_inst/BMG_PORT/CLKB
+      wave add  /Data_RAM_tb/Data_RAM_synth_inst/BMG_PORT/ADDRB
+      wave add  /Data_RAM_tb/Data_RAM_synth_inst/BMG_PORT/DINB
+      wave add  /Data_RAM_tb/Data_RAM_synth_inst/BMG_PORT/WEB
+      wave add  /Data_RAM_tb/Data_RAM_synth_inst/BMG_PORT/DOUTB
 run all
 quit

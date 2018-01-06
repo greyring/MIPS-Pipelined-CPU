@@ -1,9 +1,10 @@
 .extern init_all
-.extern shell
+.extern load__
 .global _start
 
-#.data
-#sp_: .word 0x80005000
+.data
+kernel_sp: .word 0x80008000####################
+shell_path: .asciiz "A:/SHELL.ELF"
 
 .text
 .set noreorder
@@ -14,19 +15,16 @@ _start:
 #swap from user stack to kernel stack
 #, push the user $sp into kernel stack
 exc_start:
-#la $k0, sp_
-#lw $k1, 0($k0)
-#move $k0, $sp
-#move $sp, $k1
+la $k0, kernel_sp
+lw $k1, 0($k0)
+move $k0, $sp
+move $sp, $k1
 addiu $sp, $sp, -124
-#sw $k1, 108($sp)
+sw $k0, 120($sp)
 b save_all
 nop
 save_all_return:
-mfc0 $a0, $12 #status
-mfc0 $a1, $13 #cause
-mfc0 $a2, $14 #epc
-move $a3, $sp  #sp
+move $a0, $sp  #sp
 addiu $sp, $sp, -16
 jal handle_exception
 nop
@@ -39,12 +37,12 @@ nop
 
 
 save_all:
-#mfc0 $k0, $12 #status
-#sw $k0, 116($sp)
-#mfc0 $k0, $13 #cause
-#sw $k0, 112($sp)
-#mfc0 $k0, $14 #epc
-#sw $k0, 108($sp)
+mfc0 $k0, $12 #status
+sw $k0, 116($sp)
+mfc0 $k0, $13 #cause
+sw $k0, 112($sp)
+mfc0 $k0, $14 #epc
+sw $k0, 108($sp)
 sw $v0, 104($sp)
 sw $v1, 100($sp)
 sw $a0, 96($sp)
@@ -76,12 +74,12 @@ b save_all_return
 nop
 
 restore_all:
-#lw $k0, 116($sp)
-#mtc0 $k0, $12 #status
-#lw $k0, 112($sp)
-#mtc0 $k0, $13 #cause
-#lw $k0, 108($sp)
-#mtc0 $k0, $14 #epc
+lw $k0, 116($sp)
+mtc0 $k0, $12 #status
+lw $k0, 112($sp)
+mtc0 $k0, $13 #cause
+lw $k0, 108($sp)
+mtc0 $k0, $14 #epc
 lw $v0, 104($sp)
 lw $v1, 100($sp)
 lw $a0, 96($sp)
@@ -110,17 +108,32 @@ lw $gp, 8($sp)
 lw $fp, 4($sp)
 lw $ra, 0($sp)
 addi $sp, $sp, 124
-#lw $sp, -4($sp)
+la $k0, kernel_sp
+sw $sp, 0($k0)
+lw $sp, -4($sp)
 eret
 
 .org 0x400
 init_start:
-li $sp, 0x80006000
+add $k0, $0, $0
+mtc0 $k0, $10#entry Hi set ASID = 0 shell process
+la $k0, kernel_sp
+lw $sp, 0($k0)
+addiu $sp, $sp, -16
 jal init_all
 nop
-addi $k0, $0, 1
-mtc0 $k0, $10#entry Hi set ASID = 1 shell process
-la $k0, shell
-mtc0 $k0, $14#set EPC
+addiu $sp, $sp, 16
+
+main_loop:
+la $a0, shell_path
+addiu $sp, $sp, -16
+jal load__
+nop
+addiu $sp, $sp, 16
+mtc0 $v0, $14#move to epc
+la $k0, kernel_sp
+sw $sp, 0($k0)
+li $sp, 0x00004000
 eret
+j main_loop
 nop

@@ -14,6 +14,7 @@
 #define DMA_ADDR         0xb0000018
 #define BTN_ADDR         0xb000001c
 #define BISO_ADDR        0xbfc00000//0xbfc00000-0xbfffffff 4M
+#define MAIN_MEM         0x20000000
 
 #define TIMER_CYCLE      50000000
 

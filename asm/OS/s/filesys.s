@@ -524,7 +524,7 @@ $L69:
 
 	sltu	$2,$2,$3
 	beq	$2,$0,$L70
-	move	$2,$0
+	li	$2,1			# 0x1
 
 $L65:
 	lw	$31,20($sp)
@@ -543,171 +543,6 @@ $L71:
 	.align	2
 	.set	nomips16
 	.set	nomicromips
-	.ent	read_file
-	.type	read_file, @function
-read_file:
-	.frame	$sp,40,$31		# vars= 0, regs= 5/0, args= 16, gp= 0
-	.mask	0x800f0000,-4
-	.fmask	0x00000000,0
-	.set	noreorder
-	.set	nomacro
-	addiu	$sp,$sp,-40
-	sw	$31,36($sp)
-	sw	$19,32($sp)
-	sw	$18,28($sp)
-	sw	$17,24($sp)
-	bne	$5,$0,$L84
-	sw	$16,20($sp)
-
-	move	$17,$0
-$L76:
-	move	$2,$17
-$L85:
-	lw	$31,36($sp)
-	lw	$19,32($sp)
-	lw	$18,28($sp)
-	lw	$17,24($sp)
-	lw	$16,20($sp)
-	jr	$31
-	addiu	$sp,$sp,40
-
-$L84:
-	move	$16,$6
-	move	$19,$5
-	move	$18,$4
-	jal	seek_sect
-	move	$4,$6
-
-	beq	$2,$0,$L76
-	move	$17,$2
-
-	lw	$2,32($16)
-	lw	$5,36($16)
-	nop
-	addiu	$5,$5,4
-	lw	$3,28($16)
-	nop
-	subu	$3,$2,$3
-	addu	$5,$5,$3
-	lw	$3,4($16)
-	nop
-	sltu	$3,$2,$3
-	beq	$3,$0,$L82
-	nop
-
-	b	$L78
-	move	$17,$0
-
-$L79:
-	lbu	$2,0($5)
-	nop
-	sb	$2,0($18)
-	lw	$2,32($16)
-	nop
-	addiu	$2,$2,1
-	sw	$2,32($16)
-	addiu	$17,$17,1
-	beq	$19,$17,$L76
-	addiu	$5,$5,1
-
-	lw	$3,4($16)
-	nop
-	sltu	$3,$2,$3
-	beq	$3,$0,$L76
-	addiu	$18,$18,1
-
-$L78:
-	lw	$3,28($16)
-	nop
-	addiu	$3,$3,512
-	sltu	$2,$2,$3
-	bne	$2,$0,$L79
-	nop
-
-	jal	get_next_sect
-	move	$4,$16
-
-	beq	$2,$0,$L85
-	move	$2,$17
-
-	lw	$5,36($16)
-	b	$L79
-	addiu	$5,$5,4
-
-$L82:
-	b	$L76
-	move	$17,$0
-
-	.set	macro
-	.set	reorder
-	.end	read_file
-	.size	read_file, .-read_file
-	.align	2
-	.set	nomips16
-	.set	nomicromips
-	.ent	dget_first_sect
-	.type	dget_first_sect, @function
-dget_first_sect:
-	.frame	$sp,24,$31		# vars= 0, regs= 2/0, args= 16, gp= 0
-	.mask	0x80010000,-4
-	.fmask	0x00000000,0
-	.set	noreorder
-	.set	nomacro
-	addiu	$sp,$sp,-24
-	sw	$31,20($sp)
-	sw	$16,16($sp)
-	lbu	$2,0($4)
-	li	$3,1			# 0x1
-	beq	$2,$3,$L93
-	move	$16,$4
-
-	bne	$2,$0,$L94
-	move	$2,$0
-
-	lw	$2,8($16)
-	nop
-	beq	$2,$0,$L89
-	addiu	$4,$4,4
-
-	sw	$0,36($16)
-$L89:
-	jal	seek_sect
-	nop
-
-	beq	$2,$0,$L94
-	move	$2,$0
-
-	lw	$2,40($16)
-$L86:
-$L94:
-	lw	$31,20($sp)
-	lw	$16,16($sp)
-	jr	$31
-	addiu	$sp,$sp,24
-
-$L93:
-	lui	$2,%hi(_volume)
-	addiu	$2,$2,%lo(_volume)
-	lw	$3,16($2)
-	nop
-	sh	$3,2($4)
-	lw	$4,16($2)
-	jal	read_disk
-	nop
-
-	b	$L86
-	nop
-
-	b	$L86
-	move	$2,$0
-
-	.set	macro
-	.set	reorder
-	.end	dget_first_sect
-	.size	dget_first_sect, .-dget_first_sect
-	.align	2
-	.set	nomips16
-	.set	nomicromips
 	.ent	dget_next_sect
 	.type	dget_next_sect, @function
 dget_next_sect:
@@ -721,38 +556,164 @@ dget_next_sect:
 	sw	$16,16($sp)
 	lbu	$2,0($4)
 	li	$3,1			# 0x1
-	beq	$2,$3,$L102
+	beq	$2,$3,$L83
 	move	$16,$4
 
-	bne	$2,$0,$L103
+	bne	$2,$0,$L84
 	move	$2,$0
 
 	jal	get_next_sect
 	addiu	$4,$4,4
 
-	beq	$2,$0,$L103
+	beq	$2,$0,$L84
 	move	$2,$0
 
 	lw	$2,40($16)
-$L95:
-$L103:
+$L76:
+$L84:
 	lw	$31,20($sp)
 	lw	$16,16($sp)
 	jr	$31
 	addiu	$sp,$sp,24
 
-$L102:
+$L83:
 	lhu	$4,2($4)
 	lui	$2,%hi(_volume+20)
 	lw	$2,%lo(_volume+20)($2)
 	nop
-	beq	$4,$2,$L98
+	beq	$4,$2,$L79
 	nop
 
 	addiu	$4,$4,1
 	andi	$4,$4,0xffff
 	jal	read_disk
 	sh	$4,2($16)
+
+	b	$L76
+	nop
+
+$L79:
+	b	$L76
+	move	$2,$0
+
+	b	$L76
+	move	$2,$0
+
+	.set	macro
+	.set	reorder
+	.end	dget_next_sect
+	.size	dget_next_sect, .-dget_next_sect
+	.align	2
+	.globl	seek_file
+	.set	nomips16
+	.set	nomicromips
+	.ent	seek_file
+	.type	seek_file, @function
+seek_file:
+	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	beq	$6,$0,$L87
+	li	$2,1			# 0x1
+
+	beq	$6,$2,$L93
+	li	$2,2			# 0x2
+
+	beq	$6,$2,$L94
+	move	$2,$0
+
+	jr	$31
+	nop
+
+$L93:
+	lw	$2,32($4)
+	nop
+	addu	$5,$5,$2
+$L87:
+	bltz	$5,$L91
+	nop
+
+	lw	$2,4($4)
+	nop
+	sltu	$2,$5,$2
+	beq	$2,$0,$L92
+	nop
+
+	sw	$5,32($4)
+	jr	$31
+	li	$2,1			# 0x1
+
+$L94:
+	lw	$2,4($4)
+	b	$L87
+	addu	$5,$5,$2
+
+$L91:
+	jr	$31
+	move	$2,$0
+
+$L92:
+	jr	$31
+	move	$2,$0
+
+	.set	macro
+	.set	reorder
+	.end	seek_file
+	.size	seek_file, .-seek_file
+	.align	2
+	.set	nomips16
+	.set	nomicromips
+	.ent	dget_first_sect
+	.type	dget_first_sect, @function
+dget_first_sect:
+	.frame	$sp,32,$31		# vars= 0, regs= 3/0, args= 16, gp= 0
+	.mask	0x80030000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-32
+	sw	$31,28($sp)
+	sw	$17,24($sp)
+	sw	$16,20($sp)
+	lbu	$2,0($4)
+	li	$3,1			# 0x1
+	beq	$2,$3,$L101
+	move	$16,$4
+
+	bne	$2,$0,$L98
+	addiu	$17,$4,4
+
+	move	$6,$0
+	move	$5,$0
+	jal	seek_file
+	move	$4,$17
+
+	jal	seek_sect
+	move	$4,$17
+
+	beq	$2,$0,$L102
+	move	$2,$0
+
+	lw	$2,40($16)
+$L95:
+$L102:
+	lw	$31,28($sp)
+	lw	$17,24($sp)
+	lw	$16,20($sp)
+	jr	$31
+	addiu	$sp,$sp,32
+
+$L101:
+	lui	$2,%hi(_volume)
+	addiu	$2,$2,%lo(_volume)
+	lw	$3,16($2)
+	nop
+	sh	$3,2($4)
+	lw	$4,16($2)
+	jal	read_disk
+	nop
 
 	b	$L95
 	nop
@@ -761,13 +722,10 @@ $L98:
 	b	$L95
 	move	$2,$0
 
-	b	$L95
-	move	$2,$0
-
 	.set	macro
 	.set	reorder
-	.end	dget_next_sect
-	.size	dget_next_sect, .-dget_next_sect
+	.end	dget_first_sect
+	.size	dget_first_sect, .-dget_first_sect
 	.align	2
 	.set	nomips16
 	.set	nomicromips
@@ -795,12 +753,12 @@ do_cd:
 	jal	kstrcmp_char
 	addiu	$4,$4,%lo(_ROOT_STR)
 
-	beq	$2,$0,$L140
+	beq	$2,$0,$L139
 	move	$2,$20
 
 	addiu	$3,$sp,16
 	addiu	$4,$20,304
-$L107:
+$L106:
 	lw	$8,0($2)
 	lw	$7,4($2)
 	lw	$6,8($2)
@@ -810,13 +768,13 @@ $L107:
 	sw	$6,8($3)
 	sw	$5,12($3)
 	addiu	$2,$2,16
-	bne	$2,$4,$L107
+	bne	$2,$4,$L106
 	addiu	$3,$3,16
 
-	b	$L144
+	b	$L143
 	li	$18,512			# 0x200
 
-$L140:
+$L139:
 	li	$2,1			# 0x1
 	sb	$2,16($sp)
 	lui	$2,%hi(_volume+16)
@@ -836,24 +794,24 @@ $L140:
 	addiu	$2,$2,3
 	sw	$2,372($sp)
 	li	$18,512			# 0x200
-$L144:
+$L143:
 	lui	$19,%hi(_volume)
-	b	$L108
+	b	$L107
 	addiu	$19,$19,%lo(_volume)
 
-$L142:
+$L141:
 	addiu	$16,$16,2
-	b	$L108
+	b	$L107
 	sw	$16,372($sp)
 
-$L143:
-	b	$L104
+$L142:
+	b	$L103
 	move	$17,$0
 
-$L113:
+$L112:
 	addiu	$16,$16,2
 	sw	$16,372($sp)
-$L115:
+$L114:
 	lbu	$3,316($sp)
 	nop
 	addiu	$2,$3,-1
@@ -862,29 +820,29 @@ $L115:
 	addu	$4,$sp,$2
 	lbu	$5,59($4)
 	li	$4,47			# 0x2f
-	beq	$5,$4,$L116
+	beq	$5,$4,$L115
 	nop
 
 	addiu	$2,$3,-2
 	andi	$2,$2,0x00ff
-	b	$L117
+	b	$L116
 	li	$5,47			# 0x2f
 
-$L131:
+$L130:
 	move	$2,$3
-$L117:
+$L116:
 	addiu	$3,$2,-1
 	addiu	$4,$sp,16
 	addu	$4,$4,$2
 	lbu	$4,43($4)
 	nop
-	bne	$4,$5,$L131
+	bne	$4,$5,$L130
 	andi	$3,$3,0x00ff
 
 	sb	$2,316($sp)
-$L116:
+$L115:
 	li	$3,3			# 0x3
-	bne	$2,$3,$L118
+	bne	$2,$3,$L117
 	li	$2,46			# 0x2e
 
 	li	$2,1			# 0x1
@@ -896,13 +854,13 @@ $L116:
 	nop
 	lbu	$2,0($2)
 	nop
-	bne	$2,$0,$L108
+	bne	$2,$0,$L107
 	nop
 
-$L119:
+$L118:
 	addiu	$2,$sp,16
 	addiu	$3,$sp,320
-$L128:
+$L127:
 	lw	$7,0($2)
 	lw	$6,4($2)
 	lw	$5,8($2)
@@ -912,32 +870,32 @@ $L128:
 	sw	$5,8($20)
 	sw	$4,12($20)
 	addiu	$2,$2,16
-	bne	$2,$3,$L128
+	bne	$2,$3,$L127
 	addiu	$20,$20,16
 
-	b	$L104
+	b	$L103
 	li	$17,1			# 0x1
 
-$L118:
+$L117:
 	sb	$2,320($sp)
 	sb	$2,321($sp)
 	addiu	$2,$sp,322
 	addiu	$4,$sp,331
 	li	$3,32			# 0x20
-$L120:
+$L119:
 	sb	$3,0($2)
 	addiu	$2,$2,1
-	bne	$2,$4,$L120
+	bne	$2,$4,$L119
 	nop
 
-	b	$L121
+	b	$L120
 	nop
 
-$L109:
+$L108:
 	jal	get_file_name
 	addiu	$4,$sp,320
 
-	beq	$2,$0,$L104
+	beq	$2,$0,$L103
 	move	$17,$2
 
 	lbu	$4,316($sp)
@@ -960,61 +918,61 @@ $L109:
 	addu	$4,$sp,$3
 	lbu	$5,59($4)
 	li	$4,47			# 0x2f
-	beq	$5,$4,$L122
+	beq	$5,$4,$L121
 	addu	$4,$sp,$3
 
 	li	$5,47			# 0x2f
 	sb	$5,60($4)
 	addiu	$3,$3,1
 	sb	$3,316($sp)
-$L122:
+$L121:
 	lbu	$4,0($2)
 	li	$3,47			# 0x2f
-	bne	$4,$3,$L121
+	bne	$4,$3,$L120
 	addiu	$2,$2,1
 
 	li	$4,47			# 0x2f
-$L123:
+$L122:
 	sw	$2,372($sp)
 	addiu	$2,$2,1
 	lbu	$3,-1($2)
 	nop
-	beq	$3,$4,$L123
+	beq	$3,$4,$L122
 	nop
 
-$L121:
+$L120:
 	jal	dget_first_sect
 	addiu	$4,$sp,16
 
-	beq	$2,$0,$L132
+	beq	$2,$0,$L131
 	move	$22,$2
 
-$L126:
+$L125:
 	addiu	$21,$22,4
 	move	$16,$0
 	li	$6,11			# 0xb
-$L145:
+$L144:
 	addiu	$5,$sp,320
 	jal	kstrcmp_char
 	addu	$4,$21,$16
 
-	beq	$2,$0,$L141
+	beq	$2,$0,$L140
 	move	$17,$2
 
 	addiu	$16,$16,32
-	bne	$16,$18,$L145
+	bne	$16,$18,$L144
 	li	$6,11			# 0xb
 
 	jal	dget_next_sect
 	addiu	$4,$sp,16
 
-	bne	$2,$0,$L126
+	bne	$2,$0,$L125
 	move	$22,$2
 
-	b	$L104
+	b	$L103
 	move	$17,$0
 
-$L141:
+$L140:
 	move	$7,$16
 	move	$6,$22
 	addiu	$5,$sp,320
@@ -1024,56 +982,56 @@ $L141:
 	lbu	$2,20($sp)
 	nop
 	andi	$2,$2,0x10
-	beq	$2,$0,$L146
+	beq	$2,$0,$L145
 	move	$2,$17
 
 	sb	$0,16($sp)
-$L108:
+$L107:
 	lw	$16,372($sp)
 	nop
 	lbu	$2,0($16)
 	nop
-	beq	$2,$0,$L119
+	beq	$2,$0,$L118
 	li	$3,46			# 0x2e
 
-	bne	$2,$3,$L109
+	bne	$2,$3,$L108
 	addiu	$5,$sp,372
 
 	lbu	$2,1($16)
 	nop
-	beq	$2,$0,$L129
+	beq	$2,$0,$L128
 	li	$3,47			# 0x2f
 
-	beq	$2,$3,$L142
+	beq	$2,$3,$L141
 	li	$3,46			# 0x2e
 
-	bne	$2,$3,$L130
+	bne	$2,$3,$L129
 	nop
 
 	lbu	$2,2($16)
 	nop
-	beq	$2,$0,$L113
+	beq	$2,$0,$L112
 	li	$3,47			# 0x2f
 
-	bne	$2,$3,$L143
+	bne	$2,$3,$L142
 	addiu	$16,$16,3
 
-	b	$L115
+	b	$L114
 	sw	$16,372($sp)
 
+$L128:
+	b	$L103
+	move	$17,$0
+
 $L129:
-	b	$L104
+	b	$L103
 	move	$17,$0
 
-$L130:
-	b	$L104
+$L131:
 	move	$17,$0
-
-$L132:
-	move	$17,$0
-$L104:
+$L103:
 	move	$2,$17
-$L146:
+$L145:
 	lw	$31,364($sp)
 	lw	$22,360($sp)
 	lw	$21,356($sp)
@@ -1090,6 +1048,7 @@ $L146:
 	.end	do_cd
 	.size	do_cd, .-do_cd
 	.align	2
+	.globl	open_file
 	.set	nomips16
 	.set	nomicromips
 	.ent	open_file
@@ -1114,33 +1073,33 @@ open_file:
 	addiu	$2,$2,-1
 	addu	$2,$16,$2
 	sltu	$3,$16,$2
-	beq	$3,$0,$L148
+	beq	$3,$0,$L147
 	sw	$2,320($sp)
 
 	lbu	$4,0($2)
 	li	$3,47			# 0x2f
-	beq	$4,$3,$L149
+	beq	$4,$3,$L148
 	addiu	$3,$2,-1
 
 	move	$5,$16
 	li	$6,47			# 0x2f
-$L150:
+$L149:
 	move	$2,$3
-	beq	$3,$5,$L148
+	beq	$3,$5,$L147
 	sw	$3,320($sp)
 
 	addiu	$3,$3,-1
 	lbu	$4,1($3)
 	nop
-	bne	$4,$6,$L150
+	bne	$4,$6,$L149
 	nop
 
-$L149:
+$L148:
 	lui	$3,%hi(_pwd_DCB)
 	addiu	$3,$3,%lo(_pwd_DCB)
 	addiu	$4,$sp,16
 	addiu	$5,$3,304
-$L157:
+$L156:
 	lw	$9,0($3)
 	lw	$8,4($3)
 	lw	$7,8($3)
@@ -1150,11 +1109,11 @@ $L157:
 	sw	$7,8($4)
 	sw	$6,12($4)
 	addiu	$3,$3,16
-	bne	$3,$5,$L157
+	bne	$3,$5,$L156
 	addiu	$4,$4,16
 
 	sb	$0,0($2)
-$L167:
+$L166:
 	lw	$2,320($sp)
 	nop
 	addiu	$2,$2,1
@@ -1164,48 +1123,48 @@ $L167:
 	addiu	$4,$sp,16
 
 	addiu	$5,$sp,320
-$L169:
+$L168:
 	jal	get_file_name
 	addiu	$4,$sp,324
 
 	jal	dget_first_sect
 	addiu	$4,$sp,16
 
-	beq	$2,$0,$L159
+	beq	$2,$0,$L158
 	move	$20,$2
 
 	li	$18,512			# 0x200
-$L156:
+$L155:
 	addiu	$17,$20,4
 	move	$16,$0
 	li	$6,11			# 0xb
-$L168:
+$L167:
 	addiu	$5,$sp,324
 	jal	kstrcmp_char
 	addu	$4,$17,$16
 
-	beq	$2,$0,$L166
+	beq	$2,$0,$L165
 	move	$7,$16
 
 	addiu	$16,$16,32
-	bne	$16,$18,$L168
+	bne	$16,$18,$L167
 	li	$6,11			# 0xb
 
 	jal	dget_next_sect
 	addiu	$4,$sp,16
 
-	bne	$2,$0,$L156
+	bne	$2,$0,$L155
 	move	$20,$2
 
-	b	$L147
+	b	$L146
 	move	$2,$0
 
-$L148:
+$L147:
 	lui	$3,%hi(_pwd_DCB)
 	addiu	$3,$3,%lo(_pwd_DCB)
 	addiu	$4,$sp,16
 	addiu	$5,$3,304
-$L151:
+$L150:
 	lw	$9,0($3)
 	lw	$8,4($3)
 	lw	$7,8($3)
@@ -1215,23 +1174,23 @@ $L151:
 	sw	$7,8($4)
 	sw	$6,12($4)
 	addiu	$3,$3,16
-	bne	$3,$5,$L151
+	bne	$3,$5,$L150
 	addiu	$4,$4,16
 
-	beq	$16,$2,$L169
+	beq	$16,$2,$L168
 	addiu	$5,$sp,320
 
-	b	$L167
+	b	$L166
 	sb	$0,0($2)
 
-$L166:
+$L165:
 	move	$6,$20
 	addiu	$5,$sp,324
 	jal	do_open
 	move	$4,$19
 
 	li	$2,1			# 0x1
-$L147:
+$L146:
 	lw	$31,356($sp)
 	lw	$20,352($sp)
 	lw	$19,348($sp)
@@ -1241,8 +1200,8 @@ $L147:
 	jr	$31
 	addiu	$sp,$sp,360
 
-$L159:
-	b	$L147
+$L158:
+	b	$L146
 	move	$2,$0
 
 	.set	macro
@@ -1250,6 +1209,110 @@ $L159:
 	.end	open_file
 	.size	open_file, .-open_file
 	.align	2
+	.globl	read_file
+	.set	nomips16
+	.set	nomicromips
+	.ent	read_file
+	.type	read_file, @function
+read_file:
+	.frame	$sp,40,$31		# vars= 0, regs= 5/0, args= 16, gp= 0
+	.mask	0x800f0000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-40
+	sw	$31,36($sp)
+	sw	$19,32($sp)
+	sw	$18,28($sp)
+	sw	$17,24($sp)
+	bne	$5,$0,$L177
+	sw	$16,20($sp)
+
+	move	$17,$0
+$L169:
+	move	$2,$17
+$L178:
+	lw	$31,36($sp)
+	lw	$19,32($sp)
+	lw	$18,28($sp)
+	lw	$17,24($sp)
+	lw	$16,20($sp)
+	jr	$31
+	addiu	$sp,$sp,40
+
+$L177:
+	move	$16,$6
+	move	$19,$5
+	move	$18,$4
+	jal	seek_sect
+	move	$4,$6
+
+	beq	$2,$0,$L169
+	move	$17,$2
+
+	lw	$2,32($16)
+	lw	$5,36($16)
+	nop
+	addiu	$5,$5,4
+	lw	$3,28($16)
+	nop
+	subu	$3,$2,$3
+	addu	$5,$5,$3
+	lw	$3,4($16)
+	nop
+	sltu	$3,$2,$3
+	beq	$3,$0,$L175
+	nop
+
+	b	$L171
+	move	$17,$0
+
+$L172:
+	lbu	$2,0($5)
+	nop
+	sb	$2,0($18)
+	lw	$2,32($16)
+	nop
+	addiu	$2,$2,1
+	sw	$2,32($16)
+	addiu	$17,$17,1
+	beq	$19,$17,$L169
+	addiu	$5,$5,1
+
+	lw	$3,4($16)
+	nop
+	sltu	$3,$2,$3
+	beq	$3,$0,$L169
+	addiu	$18,$18,1
+
+$L171:
+	lw	$3,28($16)
+	nop
+	addiu	$3,$3,512
+	sltu	$2,$2,$3
+	bne	$2,$0,$L172
+	nop
+
+	jal	get_next_sect
+	move	$4,$16
+
+	beq	$2,$0,$L178
+	move	$2,$17
+
+	lw	$5,36($16)
+	b	$L172
+	addiu	$5,$5,4
+
+$L175:
+	b	$L169
+	move	$17,$0
+
+	.set	macro
+	.set	reorder
+	.end	read_file
+	.size	read_file, .-read_file
+	.align	2
+	.globl	write_file
 	.set	nomips16
 	.set	nomicromips
 	.ent	write_file
@@ -1270,7 +1333,7 @@ write_file:
 	sw	$18,28($sp)
 	sw	$17,24($sp)
 	sw	$16,20($sp)
-	beq	$5,$0,$L171
+	beq	$5,$0,$L180
 	move	$16,$6
 
 	move	$18,$4
@@ -1278,21 +1341,21 @@ write_file:
 	jal	seek_sect
 	move	$4,$6
 
-	bne	$2,$0,$L172
+	bne	$2,$0,$L181
 	move	$17,$2
 
 	lhu	$3,2($16)
 	li	$2,65534			# 0xfffe
-	beq	$3,$2,$L193
+	beq	$3,$2,$L202
 	lui	$2,%hi(_volume+8)
 
-$L171:
+$L180:
 	jal	seek_sect
 	move	$4,$16
 
 	move	$17,$0
 	move	$2,$17
-$L196:
+$L205:
 	lw	$31,52($sp)
 	lw	$23,48($sp)
 	lw	$22,44($sp)
@@ -1305,47 +1368,47 @@ $L196:
 	jr	$31
 	addiu	$sp,$sp,56
 
-$L193:
+$L202:
 	lw	$4,%lo(_volume+8)($2)
 	jal	read_disk
 	li	$20,256			# 0x100
 
 	lui	$21,%hi(_volume)
 	addiu	$21,$21,%lo(_volume)
-$L173:
+$L182:
 	lhu	$3,4($2)
 	nop
-	beq	$3,$0,$L187
+	beq	$3,$0,$L196
 	addiu	$6,$2,4
 
 	addiu	$3,$2,6
 	li	$4,1			# 0x1
-$L176:
+$L185:
 	lhu	$5,0($3)
 	nop
-	beq	$5,$0,$L174
+	beq	$5,$0,$L183
 	move	$6,$3
 
 	addiu	$4,$4,1
-	bne	$4,$20,$L176
+	bne	$4,$20,$L185
 	addiu	$3,$3,2
 
 	lhu	$4,2($2)
 	lw	$2,12($21)
 	nop
 	sltu	$2,$4,$2
-	beq	$2,$0,$L171
+	beq	$2,$0,$L180
 	nop
 
 	jal	read_disk
 	addiu	$4,$4,1
 
-	b	$L173
+	b	$L182
 	nop
 
-$L187:
+$L196:
 	move	$4,$17
-$L174:
+$L183:
 	li	$3,1			# 0x1
 	sb	$3,0($2)
 	li	$3,-1			# 0xffffffffffffffff
@@ -1369,7 +1432,7 @@ $L174:
 	sw	$2,36($16)
 	sw	$17,24($16)
 	sw	$0,28($16)
-$L172:
+$L181:
 	lw	$2,36($16)
 	li	$3,1			# 0x1
 	sb	$3,0($2)
@@ -1384,73 +1447,73 @@ $L172:
 	move	$17,$0
 	lui	$21,%hi(_volume)
 	addiu	$21,$21,%lo(_volume)
-	b	$L185
+	b	$L194
 	li	$20,256			# 0x100
 
-$L195:
+$L204:
 	jal	get_next_sect
 	move	$4,$16
 
-	beq	$2,$0,$L194
+	beq	$2,$0,$L203
 	move	$22,$2
 
-$L178:
+$L187:
 	lw	$2,36($16)
 	li	$3,1			# 0x1
 	sb	$3,0($2)
 	lw	$2,36($16)
-	b	$L177
+	b	$L186
 	addiu	$2,$2,4
 
-$L194:
+$L203:
 	lw	$4,8($21)
 	jal	read_disk
 	nop
 
-	beq	$2,$0,$L179
+	beq	$2,$0,$L188
 	nop
 
-$L183:
+$L192:
 	lhu	$3,4($2)
 	nop
-	beq	$3,$0,$L188
+	beq	$3,$0,$L197
 	addiu	$6,$2,4
 
 	addiu	$3,$2,6
 	li	$5,1			# 0x1
-$L182:
+$L191:
 	lhu	$4,0($3)
 	nop
-	beq	$4,$0,$L180
+	beq	$4,$0,$L189
 	move	$6,$3
 
 	addiu	$5,$5,1
-	bne	$5,$20,$L182
+	bne	$5,$20,$L191
 	addiu	$3,$3,2
 
 	lhu	$4,2($2)
 	lw	$2,12($21)
 	nop
 	sltu	$2,$4,$2
-	beq	$2,$0,$L179
+	beq	$2,$0,$L188
 	nop
 
 	jal	read_disk
 	addiu	$4,$4,1
 
-	bne	$2,$0,$L183
+	bne	$2,$0,$L192
 	nop
 
-$L179:
+$L188:
 	jal	seek_sect
 	move	$4,$16
 
-	b	$L196
+	b	$L205
 	move	$2,$17
 
-$L188:
+$L197:
 	move	$5,$22
-$L180:
+$L189:
 	li	$22,1			# 0x1
 	sb	$22,0($2)
 	li	$3,-1			# 0xffffffffffffffff
@@ -1485,10 +1548,10 @@ $L180:
 	lw	$2,28($16)
 	nop
 	addiu	$2,$2,512
-	b	$L178
+	b	$L187
 	sw	$2,28($16)
 
-$L184:
+$L193:
 	lbu	$3,0($18)
 	nop
 	sb	$3,0($2)
@@ -1498,28 +1561,28 @@ $L184:
 	sw	$3,32($16)
 	addiu	$2,$2,1
 	addiu	$17,$17,1
-	beq	$19,$17,$L179
+	beq	$19,$17,$L188
 	addiu	$18,$18,1
 
-$L185:
+$L194:
 	lw	$3,28($16)
 	nop
 	addiu	$4,$3,512
 	lw	$3,32($16)
 	nop
 	sltu	$3,$3,$4
-	beq	$3,$0,$L195
+	beq	$3,$0,$L204
 	nop
 
-$L177:
+$L186:
 	lw	$4,32($16)
 	lw	$3,4($16)
 	nop
 	sltu	$3,$4,$3
-	bne	$3,$0,$L184
+	bne	$3,$0,$L193
 	addiu	$4,$4,1
 
-	b	$L184
+	b	$L193
 	sw	$4,4($16)
 
 	.set	macro
@@ -1527,6 +1590,7 @@ $L177:
 	.end	write_file
 	.size	write_file, .-write_file
 	.align	2
+	.globl	close_file
 	.set	nomips16
 	.set	nomicromips
 	.ent	close_file
@@ -1568,6 +1632,29 @@ close_file:
 	.set	reorder
 	.end	close_file
 	.size	close_file, .-close_file
+	.align	2
+	.globl	end_file
+	.set	nomips16
+	.set	nomicromips
+	.ent	end_file
+	.type	end_file, @function
+end_file:
+	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	lw	$2,32($4)
+	lw	$3,4($4)
+	nop
+	sltu	$2,$2,$3
+	jr	$31
+	xori	$2,$2,0x1
+
+	.set	macro
+	.set	reorder
+	.end	end_file
+	.size	end_file, .-end_file
 	.align	2
 	.globl	init_fs
 	.set	nomips16
@@ -1675,10 +1762,10 @@ pwd__:
 	lbu	$2,%lo(_pwd_DCB+300)($2)
 	nop
 	sltu	$5,$5,$2
-	bne	$5,$0,$L205
+	bne	$5,$0,$L215
 	nop
 
-	beq	$2,$0,$L203
+	beq	$2,$0,$L213
 	move	$6,$0
 
 	lui	$2,%hi(_pwd_DCB+44)
@@ -1688,7 +1775,7 @@ pwd__:
 	addiu	$7,$7,%lo(_pwd_DCB)
 	li	$8,-43			# 0xffffffffffffffd5
 	subu	$8,$8,$7
-$L204:
+$L214:
 	lbu	$3,0($2)
 	nop
 	sb	$3,0($5)
@@ -1697,16 +1784,16 @@ $L204:
 	lbu	$3,300($7)
 	nop
 	slt	$3,$6,$3
-	bne	$3,$0,$L204
+	bne	$3,$0,$L214
 	addiu	$5,$5,1
 
-$L203:
+$L213:
 	addu	$4,$4,$6
 	sb	$0,0($4)
 	jr	$31
 	li	$2,1			# 0x1
 
-$L205:
+$L215:
 	jr	$31
 	move	$2,$0
 
@@ -1765,33 +1852,33 @@ crt_file__:
 	addiu	$2,$2,-1
 	addu	$3,$16,$2
 	sltu	$2,$16,$3
-	beq	$2,$0,$L211
+	beq	$2,$0,$L221
 	sw	$3,360($sp)
 
 	lbu	$4,0($3)
 	li	$2,47			# 0x2f
-	beq	$4,$2,$L212
+	beq	$4,$2,$L222
 	addiu	$2,$3,-1
 
 	move	$5,$16
 	li	$6,47			# 0x2f
-$L213:
+$L223:
 	move	$3,$2
-	beq	$2,$5,$L211
+	beq	$2,$5,$L221
 	sw	$2,360($sp)
 
 	addiu	$2,$2,-1
 	lbu	$4,1($2)
 	nop
-	bne	$4,$6,$L213
+	bne	$4,$6,$L223
 	nop
 
-$L211:
+$L221:
 	lui	$2,%hi(_pwd_DCB)
 	addiu	$2,$2,%lo(_pwd_DCB)
 	addiu	$4,$sp,56
 	addiu	$5,$2,304
-$L214:
+$L224:
 	lw	$9,0($2)
 	lw	$8,4($2)
 	lw	$7,8($2)
@@ -1801,122 +1888,122 @@ $L214:
 	sw	$7,8($4)
 	sw	$6,12($4)
 	addiu	$2,$2,16
-	bne	$2,$5,$L214
+	bne	$2,$5,$L224
 	addiu	$4,$4,16
 
 	lbu	$4,0($3)
 	li	$2,47			# 0x2f
-	beq	$4,$2,$L233
+	beq	$4,$2,$L243
 	nop
 
 	addiu	$2,$sp,364
-$L250:
+$L260:
 	addiu	$3,$sp,396
-$L216:
+$L226:
 	sb	$0,0($2)
 	addiu	$2,$2,1
-	bne	$3,$2,$L216
+	bne	$3,$2,$L226
 	nop
 
 	addiu	$5,$sp,360
 	jal	get_file_name
 	addiu	$4,$sp,364
 
-	beq	$2,$0,$L210
+	beq	$2,$0,$L220
 	nop
 
 	lbu	$3,372($sp)
 	li	$2,32			# 0x20
-	beq	$3,$2,$L246
+	beq	$3,$2,$L256
 	nop
 
-$L218:
+$L228:
 	sw	$0,392($sp)
 	jal	dget_first_sect
 	addiu	$4,$sp,56
 
-	beq	$2,$0,$L220
+	beq	$2,$0,$L230
 	nop
 
-$L219:
+$L229:
 	addiu	$16,$2,4
 	addiu	$17,$2,516
 	li	$6,11			# 0xb
-$L251:
+$L261:
 	move	$5,$16
 	jal	kstrcmp_char
 	addiu	$4,$sp,364
 
-	beq	$2,$0,$L210
+	beq	$2,$0,$L220
 	addiu	$16,$16,32
 
-	bne	$17,$16,$L251
+	bne	$17,$16,$L261
 	li	$6,11			# 0xb
 
 	jal	dget_next_sect
 	addiu	$4,$sp,56
 
-	bne	$2,$0,$L219
+	bne	$2,$0,$L229
 	nop
 
-$L220:
+$L230:
 	jal	dget_first_sect
 	addiu	$4,$sp,56
 
-	beq	$2,$0,$L223
+	beq	$2,$0,$L233
 	move	$18,$2
 
 	li	$17,229			# 0xe5
-$L222:
+$L232:
 	lbu	$2,4($18)
 	nop
-	beq	$2,$0,$L234
+	beq	$2,$0,$L244
 	addiu	$4,$18,4
 
-	beq	$2,$17,$L247
+	beq	$2,$17,$L257
 	addiu	$2,$18,36
 
 	move	$5,$4
 	addiu	$6,$4,512
-$L226:
+$L236:
 	subu	$16,$2,$5
 	lbu	$3,0($2)
 	nop
-	beq	$3,$0,$L224
+	beq	$3,$0,$L234
 	move	$4,$2
 
-	beq	$3,$17,$L224
+	beq	$3,$17,$L234
 	addiu	$2,$2,32
 
-	bne	$2,$6,$L226
+	bne	$2,$6,$L236
 	nop
 
 	jal	dget_next_sect
 	addiu	$4,$sp,56
 
-	bne	$2,$0,$L222
+	bne	$2,$0,$L232
 	move	$18,$2
 
-	b	$L223
+	b	$L233
 	nop
 
-$L246:
+$L256:
 	lbu	$3,373($sp)
 	nop
-	bne	$3,$2,$L218
+	bne	$3,$2,$L228
 	nop
 
 	lbu	$3,374($sp)
 	nop
-	bne	$3,$2,$L218
+	bne	$3,$2,$L228
 	li	$2,16			# 0x10
 
-	b	$L218
+	b	$L228
 	sb	$2,375($sp)
 
-$L234:
+$L244:
 	move	$16,$0
-$L224:
+$L234:
 	li	$2,1			# 0x1
 	sb	$2,0($18)
 	li	$6,32			# 0x20
@@ -1932,10 +2019,10 @@ $L224:
 	jal	do_open
 	addiu	$4,$sp,16
 
-$L223:
+$L233:
 	lbu	$3,375($sp)
 	li	$2,16			# 0x10
-	bne	$3,$2,$L228
+	bne	$3,$2,$L238
 	li	$2,32			# 0x20
 
 	sb	$2,365($sp)
@@ -1958,59 +2045,59 @@ $L223:
 	addiu	$4,$sp,364
 
 	li	$3,32			# 0x20
-	bne	$2,$3,$L248
+	bne	$2,$3,$L258
 	li	$3,1			# 0x1
 
 	li	$2,46			# 0x2e
 	sb	$2,365($sp)
 	lbu	$2,56($sp)
 	nop
-	beq	$2,$3,$L249
+	beq	$2,$3,$L259
 	addiu	$6,$sp,16
 
-	bne	$2,$0,$L252
+	bne	$2,$0,$L262
 	nop
 
 	lhu	$2,62($sp)
 	nop
 	addiu	$2,$2,2
-	b	$L252
+	b	$L262
 	sh	$2,390($sp)
 
-$L247:
-	b	$L224
+$L257:
+	b	$L234
 	move	$16,$0
 
-$L248:
+$L258:
 	jal	close_file
 	addiu	$4,$sp,16
 
-	b	$L210
+	b	$L220
 	move	$2,$0
 
-$L249:
+$L259:
 	sh	$0,390($sp)
-$L252:
+$L262:
 	li	$5,32			# 0x20
 	jal	write_file
 	addiu	$4,$sp,364
 
 	li	$3,32			# 0x20
-	beq	$2,$3,$L228
+	beq	$2,$3,$L238
 	nop
 
 	jal	close_file
 	addiu	$4,$sp,16
 
-	b	$L210
+	b	$L220
 	move	$2,$0
 
-$L228:
+$L238:
 	jal	close_file
 	addiu	$4,$sp,16
 
 	li	$2,1			# 0x1
-$L210:
+$L220:
 	lw	$31,412($sp)
 	lw	$18,408($sp)
 	lw	$17,404($sp)
@@ -2018,12 +2105,12 @@ $L210:
 	jr	$31
 	addiu	$sp,$sp,416
 
-$L212:
+$L222:
 	lui	$2,%hi(_pwd_DCB)
 	addiu	$2,$2,%lo(_pwd_DCB)
 	addiu	$4,$sp,56
 	addiu	$5,$2,304
-$L232:
+$L242:
 	lw	$9,0($2)
 	lw	$8,4($2)
 	lw	$7,8($2)
@@ -2033,10 +2120,10 @@ $L232:
 	sw	$7,8($4)
 	sw	$6,12($4)
 	addiu	$2,$2,16
-	bne	$2,$5,$L232
+	bne	$2,$5,$L242
 	addiu	$4,$4,16
 
-$L233:
+$L243:
 	sb	$0,0($3)
 	lw	$2,360($sp)
 	nop
@@ -2046,7 +2133,7 @@ $L233:
 	jal	do_cd
 	addiu	$4,$sp,56
 
-	b	$L250
+	b	$L260
 	addiu	$2,$sp,364
 
 	.set	macro
@@ -2074,22 +2161,22 @@ del_file__:
 	jal	open_file
 	addiu	$5,$sp,16
 
-	beq	$2,$0,$L253
+	beq	$2,$0,$L263
 	nop
 
 	lbu	$2,16($sp)
 	nop
 	andi	$2,$2,0x10
-	beq	$2,$0,$L256
+	beq	$2,$0,$L266
 	li	$16,229			# 0xe5
 
 	li	$17,46			# 0x2e
-$L263:
+$L273:
 	lw	$2,48($sp)
 	lw	$3,20($sp)
 	nop
 	sltu	$2,$2,$3
-	beq	$2,$0,$L256
+	beq	$2,$0,$L266
 	addiu	$6,$sp,16
 
 	li	$5,32			# 0x20
@@ -2098,39 +2185,39 @@ $L263:
 
 	lbu	$2,56($sp)
 	nop
-	beq	$2,$16,$L263
+	beq	$2,$16,$L273
 	nop
 
-	beq	$2,$0,$L263
+	beq	$2,$0,$L273
 	nop
 
-	beq	$2,$17,$L263
+	beq	$2,$17,$L273
 	move	$2,$0
 
-	b	$L253
+	b	$L263
 	nop
 
-$L256:
+$L266:
 	lhu	$2,18($sp)
 	nop
 	addiu	$16,$2,2
 	addiu	$2,$2,3
 	andi	$2,$2,0xffff
 	sltu	$2,$2,2
-	bne	$2,$0,$L258
+	bne	$2,$0,$L268
 	andi	$16,$16,0xffff
 
 	lui	$17,%hi(_volume)
 	addiu	$17,$17,%lo(_volume)
 	li	$19,1			# 0x1
 	li	$18,65535			# 0xffff
-$L259:
+$L269:
 	srl	$4,$16,8
 	lw	$2,8($17)
 	jal	read_disk
 	addu	$4,$4,$2
 
-	beq	$2,$0,$L261
+	beq	$2,$0,$L271
 	addiu	$3,$2,4
 
 	sll	$16,$16,1
@@ -2138,15 +2225,15 @@ $L259:
 	addu	$3,$3,$16
 	lhu	$16,0($3)
 	sb	$19,0($2)
-	bne	$16,$18,$L259
+	bne	$16,$18,$L269
 	sh	$0,0($3)
 
-$L258:
+$L268:
 	lhu	$4,36($sp)
 	jal	read_disk
 	nop
 
-	beq	$2,$0,$L262
+	beq	$2,$0,$L272
 	li	$3,1			# 0x1
 
 	sb	$3,0($2)
@@ -2156,7 +2243,7 @@ $L258:
 	li	$3,-27			# 0xffffffffffffffe5
 	sb	$3,4($2)
 	li	$2,1			# 0x1
-$L253:
+$L263:
 	lw	$31,108($sp)
 	lw	$19,104($sp)
 	lw	$18,100($sp)
@@ -2165,12 +2252,12 @@ $L253:
 	jr	$31
 	addiu	$sp,$sp,112
 
-$L261:
-	b	$L253
+$L271:
+	b	$L263
 	move	$2,$0
 
-$L262:
-	b	$L253
+$L272:
+	b	$L263
 	move	$2,$0
 
 	.set	macro
@@ -2195,41 +2282,41 @@ fopen__:
 	lui	$2,%hi(_FCB_empty)
 	lbu	$2,%lo(_FCB_empty)($2)
 	nop
-	bne	$2,$0,$L271
+	bne	$2,$0,$L281
 	lui	$2,%hi(_FCB_empty+1)
 
 	lbu	$2,%lo(_FCB_empty+1)($2)
 	nop
-	bne	$2,$0,$L272
+	bne	$2,$0,$L282
 	lui	$2,%hi(_FCB_empty+2)
 
 	lbu	$2,%lo(_FCB_empty+2)($2)
 	nop
-	bne	$2,$0,$L273
+	bne	$2,$0,$L283
 	lui	$2,%hi(_FCB_empty+3)
 
 	lbu	$3,%lo(_FCB_empty+3)($2)
 	move	$2,$0
-	bne	$3,$0,$L268
+	bne	$3,$0,$L278
 	li	$16,3			# 0x3
 
-$L267:
+$L277:
 	lw	$31,20($sp)
 	lw	$16,16($sp)
 	jr	$31
 	addiu	$sp,$sp,24
 
-$L272:
-	b	$L268
+$L282:
+	b	$L278
 	li	$16,1			# 0x1
 
-$L273:
-	b	$L268
+$L283:
+	b	$L278
 	li	$16,2			# 0x2
 
-$L271:
+$L281:
 	move	$16,$0
-$L268:
+$L278:
 	sll	$2,$16,2
 	addu	$2,$2,$16
 	sll	$2,$2,3
@@ -2238,14 +2325,14 @@ $L268:
 	jal	open_file
 	addu	$5,$5,$2
 
-	beq	$2,$0,$L267
+	beq	$2,$0,$L277
 	nop
 
 	lui	$2,%hi(_FCB_empty)
 	addiu	$2,$2,%lo(_FCB_empty)
 	addu	$2,$16,$2
 	sb	$0,0($2)
-	b	$L267
+	b	$L277
 	addiu	$2,$16,1
 
 	.set	macro
@@ -2269,20 +2356,20 @@ fclose__:
 	sw	$16,16($sp)
 	addiu	$16,$4,-1
 	sltu	$2,$16,4
-	beq	$2,$0,$L278
+	beq	$2,$0,$L288
 	lui	$2,%hi(_FCB_empty)
 
 	addiu	$2,$2,%lo(_FCB_empty)
 	addu	$2,$16,$2
 	lbu	$2,0($2)
 	nop
-	beq	$2,$0,$L281
+	beq	$2,$0,$L291
 	lui	$4,%hi(_FCB_list)
 
-	b	$L276
+	b	$L286
 	move	$2,$0
 
-$L281:
+$L291:
 	sll	$2,$16,2
 	addu	$2,$2,$16
 	sll	$2,$2,3
@@ -2295,12 +2382,12 @@ $L281:
 	addu	$16,$16,$2
 	li	$2,1			# 0x1
 	sb	$2,0($16)
-	b	$L276
+	b	$L286
 	li	$2,1			# 0x1
 
-$L278:
+$L288:
 	move	$2,$0
-$L276:
+$L286:
 	lw	$31,20($sp)
 	lw	$16,16($sp)
 	jr	$31
@@ -2324,7 +2411,7 @@ fread__:
 	.set	nomacro
 	addiu	$6,$6,-1
 	sltu	$2,$6,4
-	beq	$2,$0,$L284
+	beq	$2,$0,$L294
 	nop
 
 	lui	$2,%hi(_FCB_empty)
@@ -2332,13 +2419,13 @@ fread__:
 	addu	$2,$6,$2
 	lbu	$2,0($2)
 	nop
-	beq	$2,$0,$L290
+	beq	$2,$0,$L300
 	move	$2,$0
 
 	jr	$31
 	nop
 
-$L290:
+$L300:
 	addiu	$sp,$sp,-24
 	sw	$31,20($sp)
 	sll	$2,$6,2
@@ -2354,7 +2441,7 @@ $L290:
 	jr	$31
 	addiu	$sp,$sp,24
 
-$L284:
+$L294:
 	jr	$31
 	move	$2,$0
 
@@ -2376,7 +2463,7 @@ fwrite__:
 	.set	nomacro
 	addiu	$6,$6,-1
 	sltu	$2,$6,4
-	beq	$2,$0,$L295
+	beq	$2,$0,$L305
 	nop
 
 	lui	$2,%hi(_FCB_empty)
@@ -2384,13 +2471,13 @@ fwrite__:
 	addu	$2,$6,$2
 	lbu	$2,0($2)
 	nop
-	beq	$2,$0,$L301
+	beq	$2,$0,$L311
 	move	$2,$0
 
 	jr	$31
 	nop
 
-$L301:
+$L311:
 	addiu	$sp,$sp,-24
 	sw	$31,20($sp)
 	sll	$2,$6,2
@@ -2406,7 +2493,7 @@ $L301:
 	jr	$31
 	addiu	$sp,$sp,24
 
-$L295:
+$L305:
 	jr	$31
 	move	$2,$0
 
@@ -2421,14 +2508,14 @@ $L295:
 	.ent	fseek__
 	.type	fseek__, @function
 fseek__:
-	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
-	.mask	0x00000000,0
+	.frame	$sp,24,$31		# vars= 0, regs= 1/0, args= 16, gp= 0
+	.mask	0x80000000,-4
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
 	addiu	$4,$4,-1
 	sltu	$2,$4,4
-	beq	$2,$0,$L309
+	beq	$2,$0,$L316
 	nop
 
 	lui	$2,%hi(_FCB_empty)
@@ -2436,61 +2523,30 @@ fseek__:
 	addu	$2,$4,$2
 	lbu	$2,0($2)
 	nop
-	bne	$2,$0,$L317
+	beq	$2,$0,$L322
 	move	$2,$0
 
+	jr	$31
+	nop
+
+$L322:
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
 	sll	$2,$4,2
 	addu	$4,$2,$4
-	sll	$2,$4,3
-	lui	$4,%hi(_FCB_list)
-	addiu	$4,$4,%lo(_FCB_list)
+	sll	$4,$4,3
 	andi	$6,$6,0x00ff
-	beq	$6,$0,$L307
-	addu	$4,$4,$2
+	lui	$2,%hi(_FCB_list)
+	addiu	$2,$2,%lo(_FCB_list)
+	jal	seek_file
+	addu	$4,$2,$4
 
-	li	$2,1			# 0x1
-	beq	$6,$2,$L315
-	li	$2,2			# 0x2
-
-	beq	$6,$2,$L316
-	move	$2,$0
-
-$L317:
+	lw	$31,20($sp)
+	nop
 	jr	$31
-	nop
-
-$L315:
-	lw	$2,32($4)
-	nop
-	addu	$5,$5,$2
-$L307:
-	bltz	$5,$L312
-	nop
-
-	lw	$2,4($4)
-	nop
-	sltu	$2,$5,$2
-	beq	$2,$0,$L313
-	nop
-
-	sw	$5,32($4)
-	jr	$31
-	li	$2,1			# 0x1
+	addiu	$sp,$sp,24
 
 $L316:
-	lw	$2,4($4)
-	b	$L307
-	addu	$5,$5,$2
-
-$L309:
-	jr	$31
-	move	$2,$0
-
-$L312:
-	jr	$31
-	move	$2,$0
-
-$L313:
 	jr	$31
 	move	$2,$0
 
@@ -2512,7 +2568,7 @@ feof__:
 	.set	nomacro
 	addiu	$4,$4,-1
 	sltu	$2,$4,4
-	beq	$2,$0,$L320
+	beq	$2,$0,$L327
 	nop
 
 	lui	$2,%hi(_FCB_empty)
@@ -2520,7 +2576,7 @@ feof__:
 	addu	$2,$4,$2
 	lbu	$2,0($2)
 	nop
-	bne	$2,$0,$L321
+	bne	$2,$0,$L328
 	nop
 
 	sll	$2,$4,2
@@ -2536,11 +2592,11 @@ feof__:
 	jr	$31
 	xori	$2,$2,0x1
 
-$L320:
+$L327:
 	jr	$31
 	li	$2,1			# 0x1
 
-$L321:
+$L328:
 	jr	$31
 	li	$2,1			# 0x1
 
@@ -2574,70 +2630,70 @@ dir__:
 	jal	dget_first_sect
 	addiu	$4,$4,%lo(_pwd_DCB)
 
-	beq	$2,$0,$L323
+	beq	$2,$0,$L330
 	li	$21,229			# 0xe5
 
 	li	$20,32			# 0x20
 	lui	$22,%hi(_pwd_DCB)
-	b	$L332
+	b	$L339
 	addiu	$22,$22,%lo(_pwd_DCB)
 
-$L343:
+$L350:
 	jal	_put_char
 	li	$4,9			# 0x9
 
-	b	$L344
+	b	$L351
 	addiu	$16,$16,32
 
-$L329:
+$L336:
 	jal	_put_char
 	li	$4,9			# 0x9
-
-$L324:
-	addiu	$16,$16,32
-$L344:
-	beq	$16,$19,$L342
-	nop
 
 $L331:
+	addiu	$16,$16,32
+$L351:
+	beq	$16,$19,$L349
+	nop
+
+$L338:
 	lbu	$4,0($16)
 	nop
-	beq	$4,$0,$L324
+	beq	$4,$0,$L331
 	move	$18,$16
 
-	beq	$4,$21,$L324
+	beq	$4,$21,$L331
 	nop
 
 	lbu	$2,11($16)
 	nop
 	andi	$2,$2,0xc
-	bne	$2,$0,$L324
+	bne	$2,$0,$L331
 	nop
 
-	beq	$4,$20,$L325
+	beq	$4,$20,$L332
 	nop
 
 	jal	_put_char
 	addiu	$23,$16,7
 
 	move	$17,$16
-$L327:
+$L334:
 	lbu	$4,1($17)
 	nop
-	beq	$4,$20,$L325
+	beq	$4,$20,$L332
 	nop
 
 	jal	_put_char
 	addiu	$17,$17,1
 
-	bne	$23,$17,$L327
+	bne	$23,$17,$L334
 	nop
 
-$L325:
+$L332:
 	lbu	$2,11($18)
 	nop
 	andi	$2,$2,0x10
-	bne	$2,$0,$L343
+	bne	$2,$0,$L350
 	nop
 
 	jal	_put_char
@@ -2645,7 +2701,7 @@ $L325:
 
 	lbu	$4,8($18)
 	nop
-	beq	$4,$20,$L329
+	beq	$4,$20,$L336
 	nop
 
 	jal	_put_char
@@ -2653,7 +2709,7 @@ $L325:
 
 	lbu	$4,9($18)
 	nop
-	beq	$4,$20,$L329
+	beq	$4,$20,$L336
 	nop
 
 	jal	_put_char
@@ -2661,28 +2717,28 @@ $L325:
 
 	lbu	$4,10($18)
 	nop
-	beq	$4,$20,$L329
+	beq	$4,$20,$L336
 	nop
 
 	jal	_put_char
 	nop
 
-	b	$L329
+	b	$L336
 	nop
 
-$L342:
+$L349:
 	jal	dget_next_sect
 	move	$4,$22
 
-	beq	$2,$0,$L323
+	beq	$2,$0,$L330
 	nop
 
-$L332:
+$L339:
 	addiu	$16,$2,4
-	b	$L331
+	b	$L338
 	addiu	$19,$2,516
 
-$L323:
+$L330:
 	jal	_put_char
 	li	$4,10			# 0xa
 

@@ -19,14 +19,14 @@ inline void read_(unsigned long *buf, unsigned short sector)
 void load_OS()
 {
     unsigned long text_base = 0x80000000;
-    unsigned long data_base = 0x80004000;//////////////////////////notice
+    unsigned long data_base = 0x80006000;//////////////////////////notice
     unsigned long i;
-    for (i = 0; i < 4*8; i++)//16K////////////////////////////////
+    for (i = 0; i < 5*8; i++)//20K////////////////////////////////
     {
         read_((unsigned long *)(text_base + i*512), i+1);/////////////
     }
     for (i = 0; i< 1*8; i++)//4K
     {
-        read_((unsigned long *)(data_base + i*512), i+33);////////////
+        read_((unsigned long *)(data_base + i*512), i+41);////////////
     }
 }

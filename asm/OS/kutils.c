@@ -104,6 +104,19 @@ void kprintHex(unsigned char hex)
     }
 }
 
+void kprintHex_long(unsigned long hex)
+{
+    unsigned char temp;
+    temp = (hex & 0xff000000)>>24;
+    kprintHex(temp);
+    temp = (hex & 0x00ff0000)>>16;
+    kprintHex(temp);
+    temp = (hex & 0x0000ff00)>>8;
+    kprintHex(temp);
+    temp = (hex & 0x000000ff);
+    kprintHex(temp);
+}
+
 void kprintDec(unsigned short dec)
 {
     unsigned short temp;
@@ -136,6 +149,15 @@ void kprintDec(unsigned short dec)
     }
     _put_char(temp +'0');
     _put_char(dec + '0');
+}
+
+void kputs(unsigned char *str)
+{
+    while(*str)
+    {
+        _put_char(*str);
+        str++;
+    }
 }
 
 unsigned long kstrcmp_short(unsigned short *str0, unsigned short *str1, unsigned long n)
@@ -202,5 +224,15 @@ void kchar2short(unsigned short *dst, unsigned char *src, unsigned long n)
     for (i = 0; i<n; i++)
     {
         dst[i] = src[i];
+    }
+}
+
+void kwaitSW2()
+{
+    volatile unsigned long temp;
+    while(1)
+    {
+        temp = *(unsigned long *)(SW_ADDR);
+        if (temp & 0x4) break;
     }
 }

@@ -308,6 +308,45 @@ $L45:
 	.end	kprintHex
 	.size	kprintHex, .-kprintHex
 	.align	2
+	.globl	kprintHex_long
+	.set	nomips16
+	.set	nomicromips
+	.ent	kprintHex_long
+	.type	kprintHex_long, @function
+kprintHex_long:
+	.frame	$sp,24,$31		# vars= 0, regs= 2/0, args= 16, gp= 0
+	.mask	0x80010000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	sw	$16,16($sp)
+	move	$16,$4
+	jal	kprintHex
+	srl	$4,$4,24
+
+	srl	$4,$16,16
+	jal	kprintHex
+	andi	$4,$4,0x00ff
+
+	srl	$4,$16,8
+	jal	kprintHex
+	andi	$4,$4,0x00ff
+
+	jal	kprintHex
+	andi	$4,$16,0x00ff
+
+	lw	$31,20($sp)
+	lw	$16,16($sp)
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	kprintHex_long
+	.size	kprintHex_long, .-kprintHex_long
+	.align	2
 	.globl	kprintDec
 	.set	nomips16
 	.set	nomicromips
@@ -323,33 +362,15 @@ kprintDec:
 	sw	$31,20($sp)
 	sw	$16,16($sp)
 	sltu	$2,$4,10000
-	bne	$2,$0,$L56
+	bne	$2,$0,$L58
 	move	$16,$4
-
-	move	$2,$0
-$L49:
-	addiu	$2,$2,1
-	addiu	$16,$16,-10000
-	andi	$16,$16,0xffff
-	sltu	$3,$16,10000
-	beq	$3,$0,$L49
-	andi	$2,$2,0xffff
-
-$L48:
-	addiu	$4,$2,48
-	jal	_put_char
-	andi	$4,$4,0xffff
-
-	sltu	$2,$16,1000
-	bne	$2,$0,$L57
-	nop
 
 	move	$2,$0
 $L51:
 	addiu	$2,$2,1
-	addiu	$16,$16,-1000
+	addiu	$16,$16,-10000
 	andi	$16,$16,0xffff
-	sltu	$3,$16,1000
+	sltu	$3,$16,10000
 	beq	$3,$0,$L51
 	andi	$2,$2,0xffff
 
@@ -358,16 +379,16 @@ $L50:
 	jal	_put_char
 	andi	$4,$4,0xffff
 
-	sltu	$2,$16,100
-	bne	$2,$0,$L58
+	sltu	$2,$16,1000
+	bne	$2,$0,$L59
 	nop
 
 	move	$2,$0
 $L53:
 	addiu	$2,$2,1
-	addiu	$16,$16,-100
+	addiu	$16,$16,-1000
 	andi	$16,$16,0xffff
-	sltu	$3,$16,100
+	sltu	$3,$16,1000
 	beq	$3,$0,$L53
 	andi	$2,$2,0xffff
 
@@ -376,20 +397,38 @@ $L52:
 	jal	_put_char
 	andi	$4,$4,0xffff
 
-	sltu	$2,$16,10
-	bne	$2,$0,$L59
+	sltu	$2,$16,100
+	bne	$2,$0,$L60
 	nop
 
 	move	$2,$0
 $L55:
 	addiu	$2,$2,1
-	addiu	$16,$16,-10
+	addiu	$16,$16,-100
 	andi	$16,$16,0xffff
-	sltu	$3,$16,10
+	sltu	$3,$16,100
 	beq	$3,$0,$L55
 	andi	$2,$2,0xffff
 
 $L54:
+	addiu	$4,$2,48
+	jal	_put_char
+	andi	$4,$4,0xffff
+
+	sltu	$2,$16,10
+	bne	$2,$0,$L61
+	nop
+
+	move	$2,$0
+$L57:
+	addiu	$2,$2,1
+	addiu	$16,$16,-10
+	andi	$16,$16,0xffff
+	sltu	$3,$16,10
+	beq	$3,$0,$L57
+	andi	$2,$2,0xffff
+
+$L56:
 	addiu	$4,$2,48
 	jal	_put_char
 	andi	$4,$4,0xffff
@@ -403,26 +442,66 @@ $L54:
 	jr	$31
 	addiu	$sp,$sp,24
 
-$L56:
-	b	$L48
-	move	$2,$0
-
-$L57:
+$L58:
 	b	$L50
 	move	$2,$0
 
-$L58:
+$L59:
 	b	$L52
 	move	$2,$0
 
-$L59:
+$L60:
 	b	$L54
+	move	$2,$0
+
+$L61:
+	b	$L56
 	move	$2,$0
 
 	.set	macro
 	.set	reorder
 	.end	kprintDec
 	.size	kprintDec, .-kprintDec
+	.align	2
+	.globl	kputs
+	.set	nomips16
+	.set	nomicromips
+	.ent	kputs
+	.type	kputs, @function
+kputs:
+	.frame	$sp,24,$31		# vars= 0, regs= 2/0, args= 16, gp= 0
+	.mask	0x80010000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	sw	$16,16($sp)
+	move	$16,$4
+	lbu	$4,0($4)
+	nop
+	beq	$4,$0,$L67
+	nop
+
+$L69:
+	jal	_put_char
+	addiu	$16,$16,1
+
+	lbu	$4,0($16)
+	nop
+	bne	$4,$0,$L69
+	nop
+
+$L67:
+	lw	$31,20($sp)
+	lw	$16,16($sp)
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	kputs
+	.size	kputs, .-kputs
 	.align	2
 	.globl	kstrcmp_short
 	.set	nomips16
@@ -435,40 +514,40 @@ kstrcmp_short:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L69
+	beq	$6,$0,$L76
 	nop
 
 	lhu	$3,0($4)
 	lhu	$2,0($5)
 	nop
-	bne	$3,$2,$L70
+	bne	$3,$2,$L77
 	addiu	$4,$4,2
 
 	addiu	$5,$5,2
 	move	$3,$0
-$L67:
+$L74:
 	addiu	$3,$3,1
-	beq	$6,$3,$L72
+	beq	$6,$3,$L79
 	nop
 
 	lhu	$8,0($4)
 	lhu	$7,0($5)
 	addiu	$4,$4,2
-	beq	$8,$7,$L67
+	beq	$8,$7,$L74
 	addiu	$5,$5,2
 
 	jr	$31
 	li	$2,1			# 0x1
 
-$L72:
+$L79:
 	jr	$31
 	move	$2,$0
 
-$L69:
+$L76:
 	jr	$31
 	move	$2,$6
 
-$L70:
+$L77:
 	jr	$31
 	li	$2,1			# 0x1
 
@@ -488,39 +567,39 @@ kstrcmp_char:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L77
+	beq	$6,$0,$L84
 	nop
 
 	lbu	$3,0($4)
 	lbu	$2,0($5)
 	nop
-	bne	$3,$2,$L78
+	bne	$3,$2,$L85
 	addiu	$3,$4,1
 
 	addiu	$5,$5,1
 	addu	$6,$4,$6
-$L75:
-	beq	$3,$6,$L80
+$L82:
+	beq	$3,$6,$L87
 	nop
 
 	lbu	$8,0($3)
 	lbu	$7,0($5)
 	addiu	$3,$3,1
-	beq	$8,$7,$L75
+	beq	$8,$7,$L82
 	addiu	$5,$5,1
 
 	jr	$31
 	li	$2,1			# 0x1
 
-$L80:
+$L87:
 	jr	$31
 	move	$2,$0
 
-$L77:
+$L84:
 	jr	$31
 	move	$2,$6
 
-$L78:
+$L85:
 	jr	$31
 	li	$2,1			# 0x1
 
@@ -542,21 +621,21 @@ kstrlen_short:
 	.set	nomacro
 	lhu	$2,0($4)
 	nop
-	beq	$2,$0,$L84
+	beq	$2,$0,$L91
 	addiu	$4,$4,2
 
 	move	$2,$0
-$L83:
+$L90:
 	addiu	$4,$4,2
 	lhu	$3,-2($4)
 	nop
-	bne	$3,$0,$L83
+	bne	$3,$0,$L90
 	addiu	$2,$2,1
 
 	jr	$31
 	nop
 
-$L84:
+$L91:
 	jr	$31
 	move	$2,$0
 
@@ -578,21 +657,21 @@ kstrlen_char:
 	.set	nomacro
 	lbu	$2,0($4)
 	nop
-	beq	$2,$0,$L89
+	beq	$2,$0,$L96
 	addiu	$4,$4,1
 
 	move	$2,$0
-$L88:
+$L95:
 	addiu	$4,$4,1
 	lbu	$3,-1($4)
 	nop
-	bne	$3,$0,$L88
+	bne	$3,$0,$L95
 	addiu	$2,$2,1
 
 	jr	$31
 	nop
 
-$L89:
+$L96:
 	jr	$31
 	move	$2,$0
 
@@ -612,19 +691,19 @@ kmemcpy:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L95
+	beq	$6,$0,$L102
 	move	$2,$5
 
 	addu	$5,$5,$6
-$L93:
+$L100:
 	lbu	$3,0($2)
 	nop
 	sb	$3,0($4)
 	addiu	$2,$2,1
-	bne	$2,$5,$L93
+	bne	$2,$5,$L100
 	addiu	$4,$4,1
 
-$L95:
+$L102:
 	jr	$31
 	nop
 
@@ -644,20 +723,20 @@ kshort2char:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L100
+	beq	$6,$0,$L107
 	move	$2,$5
 
 	sll	$6,$6,1
 	addu	$5,$5,$6
-$L98:
+$L105:
 	lhu	$3,0($2)
 	nop
 	sb	$3,0($4)
 	addiu	$2,$2,2
-	bne	$2,$5,$L98
+	bne	$2,$5,$L105
 	addiu	$4,$4,1
 
-$L100:
+$L107:
 	jr	$31
 	nop
 
@@ -677,20 +756,20 @@ kchar2short:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L105
+	beq	$6,$0,$L112
 	move	$2,$4
 
 	sll	$6,$6,1
 	addu	$4,$4,$6
-$L103:
+$L110:
 	lbu	$3,0($5)
 	nop
 	sh	$3,0($2)
 	addiu	$2,$2,2
-	bne	$2,$4,$L103
+	bne	$2,$4,$L110
 	addiu	$5,$5,1
 
-$L105:
+$L112:
 	jr	$31
 	nop
 
@@ -698,4 +777,35 @@ $L105:
 	.set	reorder
 	.end	kchar2short
 	.size	kchar2short, .-kchar2short
+	.align	2
+	.globl	kwaitSW2
+	.set	nomips16
+	.set	nomicromips
+	.ent	kwaitSW2
+	.type	kwaitSW2, @function
+kwaitSW2:
+	.frame	$sp,8,$31		# vars= 8, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-8
+	li	$3,-1342177280			# 0xffffffffb0000000
+$L114:
+	lw	$2,8($3)
+	nop
+	sw	$2,0($sp)
+	lw	$2,0($sp)
+	nop
+	andi	$2,$2,0x4
+	beq	$2,$0,$L114
+	nop
+
+	jr	$31
+	addiu	$sp,$sp,8
+
+	.set	macro
+	.set	reorder
+	.end	kwaitSW2
+	.size	kwaitSW2, .-kwaitSW2
 	.ident	"GCC: (GNU) 7.2.0"

@@ -37,8 +37,11 @@ $L2:
 	sw	$0,12($2)
 	li	$3,-1437270016			# 0xffffffffaa550000
 	addiu	$3,$3,21930
-	jal	init_syscall
+	jal	init_exc
 	sw	$3,16($2)
+
+	jal	init_syscall
+	nop
 
 	jal	init_keybuf
 	nop
@@ -50,6 +53,9 @@ $L2:
 	nop
 
 	jal	init_fs
+	nop
+
+	jal	init_task
 	nop
 
 	lw	$31,20($sp)

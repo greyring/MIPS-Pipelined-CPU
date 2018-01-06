@@ -140,35 +140,13 @@ static unsigned long get_next_sect(FCB *fp)
 	return 0;
 }
 
-static unsigned long seek_file(FCB *fp,	byte_4 offset, byte base)
-{
-	int p = -1;
-	if (base == SEEK_SET)
-	{
-		p = offset;
-	}
-	else if (base == SEEK_CUR)
-	{
-		p = offset + fp->p;
-	}
-	else if (base == SEEK_END)
-	{
-		p = offset + fp->file_len;
-	}
-
-	if (p >= 0 && p < fp->file_len)
-	{
-		fp->p = p;
-		return 1;
-	}
-	return 0;
-}
-
 static unsigned long seek_sect(FCB *fp)
 {
 	Volume_record *volp = &_volume;
 
-	if (fp->first_sect == 0xfffe) goto seek_sect_0;
+	if (fp->first_sect == 0xfffe) {
+		goto seek_sect_0;
+	}
 
 	if (fp->p >= fp->pos_sect && fp->p < fp->pos_sect + 512)
 	{
@@ -186,10 +164,10 @@ static unsigned long seek_sect(FCB *fp)
 	while(!(fp->p >= fp->pos_sect && fp->p < fp->pos_sect + 512))
 		if (!get_next_sect(fp)) goto seek_sect_0;
 
-	seek_sect_0:
-	return 0;
 	seek_sect_1:
 	return 1;
+	seek_sect_0:
+	return 0;
 }
 
 static void do_open(FCB *fp, unsigned char *filename, Sect_buffer *bufp, unsigned long offset)
@@ -345,7 +323,7 @@ static unsigned long do_cd(DCB *dcb, unsigned char *path)
 	return 0;
 }
 
-static unsigned long open_file(unsigned char *file_path, FCB *fp)
+unsigned long open_file(unsigned char *file_path, FCB *fp)
 {
 	DCB dcb;
 	int i;
@@ -353,7 +331,7 @@ static unsigned long open_file(unsigned char *file_path, FCB *fp)
 	unsigned char filename[11];
 	Sect_buffer* bufp;
 	unsigned char *temp;
-
+	
 	file = file_path + kstrlen_char(file_path) - 1;
 	while(file>file_path && file[0] != '/') file--;
 	dcb = _pwd_DCB;
@@ -379,13 +357,36 @@ static unsigned long open_file(unsigned char *file_path, FCB *fp)
 		}
 		bufp = dget_next_sect(&dcb);
 	}
-
 	return 0;
 	open_file_1:
 	return 1;
 }
 
-static unsigned long read_file(byte *dst, byte_4 total, FCB *fp)
+unsigned long seek_file(FCB *fp,	byte_4 offset, byte base)
+{
+	int p = -1;
+	if (base == SEEK_SET)
+	{
+		p = offset;
+	}
+	else if (base == SEEK_CUR)
+	{
+		p = offset + fp->p;
+	}
+	else if (base == SEEK_END)
+	{
+		p = offset + fp->file_len;
+	}
+
+	if (p >= 0 && p < fp->file_len)
+	{
+		fp->p = p;
+		return 1;
+	}
+	return 0;
+}
+
+unsigned long read_file(byte *dst, byte_4 total, FCB *fp)
 {
 	int i;
 	unsigned char *temp;
@@ -416,7 +417,7 @@ static unsigned long read_file(byte *dst, byte_4 total, FCB *fp)
 	return 0;
 }
 
-static unsigned long write_file(byte *src, byte_4 total, FCB *fp)
+unsigned long write_file(byte *src, byte_4 total, FCB *fp)
 {
 	unsigned long d;//num of blocks have been written
 	unsigned char *temp;
@@ -524,7 +525,7 @@ static unsigned long write_file(byte *src, byte_4 total, FCB *fp)
 	return 0;
 }
 
-static void close_file(FCB *fp)
+void close_file(FCB *fp)
 {
 	Sect_buffer   *bufp;
 	unsigned char *temp;
@@ -538,7 +539,7 @@ static void close_file(FCB *fp)
 	write_buffer();
 }
 
-static unsigned long end_file(FCB *fp)
+unsigned long end_file(FCB *fp)
 {
 	return (fp->p >= fp->file_len);
 }
@@ -555,12 +556,11 @@ void init_fs()
 	{
 		_FCB_empty[i] = 1;
 	}
-	
 	read_disk(0);
 	sect0 = *(byte_2 *)(_sect_buffer.section + 446 + 8);//只加载第一个分区
 	sect0 =	(*(byte_2 *)(_sect_buffer.section + 446 + 10)<<16) + sect0;
 	read_disk(sect0);
-	//while(1);
+	
 	temp = _sect_buffer.section;
 	volp->sect0 = sect0;
 	volp->sect_FAT1 = sect0 + *(byte_2 *)(temp + 14);

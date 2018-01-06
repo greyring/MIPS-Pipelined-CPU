@@ -4,6 +4,8 @@
         "utils.h": "c",
         "unistd.h": "c",
         "arch.h": "c",
-        "input.h": "c"
+        "input.h": "c",
+        "load.h": "c",
+        "filesys.h": "c"
     }
 }

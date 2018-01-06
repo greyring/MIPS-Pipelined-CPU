@@ -38,7 +38,7 @@ bfc005e0:	0000e020 	add	gp,zero,zero
 bfc005e4:	0000f020 	add	s8,zero,zero
 bfc005e8:	0000f820 	add	ra,zero,zero
 bfc005ec:	3c1d8000 	lui	sp,0x8000
-bfc005f0:	37bd6000 	ori	sp,sp,0x6000
+bfc005f0:	37bd8000 	ori	sp,sp,0x8000
 bfc005f4:	3c1ab000 	lui	k0,0xb000
 bfc005f8:	40801000 	mtc0	zero,c0_entrylo0
 bfc005fc:	40801800 	mtc0	zero,c0_entrylo1
@@ -66,7 +66,7 @@ bfc00640:	3c07cffe 	lui	a3,0xcffe
 bfc00644:	3c06b002 	lui	a2,0xb002
 bfc00648:	24c60200 	addiu	a2,a2,512
 bfc0064c:	3c0b0001 	lui	t3,0x1
-bfc00650:	240a4000 	li	t2,16384
+bfc00650:	240a5000 	li	t2,20480
 bfc00654:	35220020 	ori	v0,t1,0x20
 bfc00658:	ad020018 	sw	v0,24(t0)
 bfc0065c:	8d020018 	lw	v0,24(t0)
@@ -84,7 +84,7 @@ bfc00688:	24a50200 	addiu	a1,a1,512
 bfc0068c:	14aafff1 	bne	a1,t2,bfc00654 <load_OS+0x20>
 bfc00690:	012b4821 	addu	t1,t1,t3
 bfc00694:	00002825 	move	a1,zero
-bfc00698:	3c090021 	lui	t1,0x21
+bfc00698:	3c090029 	lui	t1,0x29
 bfc0069c:	3c08b000 	lui	t0,0xb000
 bfc006a0:	3c07cffe 	lui	a3,0xcffe
 bfc006a4:	3c06b002 	lui	a2,0xb002
@@ -103,7 +103,7 @@ bfc006d4:	00a21821 	addu	v1,a1,v0
 bfc006d8:	00e31821 	addu	v1,a3,v1
 bfc006dc:	24420004 	addiu	v0,v0,4
 bfc006e0:	1446fffb 	bne	v0,a2,bfc006d0 <load_OS+0x9c>
-bfc006e4:	ac644000 	sw	a0,16384(v1)
+bfc006e4:	ac646000 	sw	a0,24576(v1)
 bfc006e8:	24a50200 	addiu	a1,a1,512
 bfc006ec:	14aafff1 	bne	a1,t2,bfc006b4 <load_OS+0x80>
 bfc006f0:	012b4821 	addu	t1,t1,t3
