@@ -1,10 +1,10 @@
 .extern init_all
 .extern load__
+.extern shell_path
 .global _start
 
 .data
 kernel_sp: .word 0x80008000####################
-shell_path: .asciiz "A:/SHELL.ELF"
 
 .text
 .set noreorder
@@ -124,7 +124,6 @@ jal init_all
 nop
 addiu $sp, $sp, 16
 
-main_loop:
 la $a0, shell_path
 addiu $sp, $sp, -16
 jal load__
@@ -135,5 +134,3 @@ la $k0, kernel_sp
 sw $sp, 0($k0)
 li $sp, 0x00004000
 eret
-j main_loop
-nop

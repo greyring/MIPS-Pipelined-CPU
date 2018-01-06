@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: top.prj
 
@@ -3229,18 +3229,18 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 13633
+# BELS                             : 13659
 #      AND2                        : 8
 #      AND3                        : 88
 #      AND4                        : 72
 #      GND                         : 12
 #      INV                         : 104
 #      LUT1                        : 173
-#      LUT2                        : 542
-#      LUT3                        : 2833
-#      LUT4                        : 470
-#      LUT5                        : 2292
-#      LUT6                        : 4696
+#      LUT2                        : 541
+#      LUT3                        : 2834
+#      LUT4                        : 476
+#      LUT5                        : 2313
+#      LUT6                        : 4695
 #      MUXCY                       : 990
 #      MUXF7                       : 467
 #      MUXF8                       : 158
@@ -3284,16 +3284,16 @@ Selected Device : 7k325tffg676-2l
 
 Slice Logic Utilization: 
  Number of Slice Registers:            3838  out of  407600     0%  
- Number of Slice LUTs:                11118  out of  203800     5%  
-    Number used as Logic:             11110  out of  203800     5%  
+ Number of Slice LUTs:                11144  out of  203800     5%  
+    Number used as Logic:             11136  out of  203800     5%  
     Number used as Memory:                8  out of  64000     0%  
        Number used as RAM:                8
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:  12127
-   Number with an unused Flip Flop:    8289  out of  12127    68%  
-   Number with an unused LUT:          1009  out of  12127     8%  
-   Number of fully used LUT-FF pairs:  2829  out of  12127    23%  
+ Number of LUT Flip Flop pairs used:  12141
+   Number with an unused Flip Flop:    8303  out of  12141    68%  
+   Number with an unused LUT:           997  out of  12141     8%  
+   Number of fully used LUT-FF pairs:  2841  out of  12141    23%  
    Number of unique control sets:       119
 
 IO Utilization: 
@@ -3342,13 +3342,13 @@ Asynchronous Control Signals Information:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Control Signal                                                                                                                                                                             | Buffer(FF name)                                                                                                                                                                 | Load  |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram0/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[57].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
-Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram1/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
-TEXT/N1(TEXT/XST_GND:G)                                                                                                                                                                    | NONE(TEXT/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram)                               | 10    |
-DRAM/N1(DRAM/XST_GND:G)                                                                                                                                                                    | NONE(DRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram)                               | 8     |
-DATA/N1(DATA/XST_GND:G)                                                                                                                                                                    | NONE(DATA/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                    | 4     |
+Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram0/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[16].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
+Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux_1212(Vga_controller/Vga_graph/Graph_vga_ram1/XST_GND:G)| NONE(Vga_controller/Vga_graph/Graph_vga_ram1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 150   |
+TEXT/N1(TEXT/XST_GND:G)                                                                                                                                                                    | NONE(TEXT/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v6_noinit.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram)                               | 10    |
+DRAM/N1(DRAM/XST_GND:G)                                                                                                                                                                    | NONE(DRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v6_noinit.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram)                               | 8     |
+DATA/N1(DATA/XST_GND:G)                                                                                                                                                                    | NONE(DATA/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                    | 4     |
 DMA_RAM_/N1(DMA_RAM_/XST_GND:G)                                                                                                                                                            | NONE(DMA_RAM_/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram)                           | 4     |
-Vga_controller/Vga_text/Text_vga_rom/N1(Vga_controller/Vga_text/Text_vga_rom/XST_GND:G)                                                                                                    | NONE(Vga_controller/Vga_text/Text_vga_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)      | 4     |
+Vga_controller/Vga_text/Text_vga_rom/N1(Vga_controller/Vga_text/Text_vga_rom/XST_GND:G)                                                                                                    | NONE(Vga_controller/Vga_text/Text_vga_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)      | 4     |
 BIOS/N1(BIOS/XST_GND:G)                                                                                                                                                                    | NONE(BIOS/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)                                      | 2     |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 
@@ -3358,7 +3358,7 @@ Speed Grade: -2
 
    Minimum period: 12.865ns (Maximum Frequency: 77.729MHz)
    Minimum input arrival time before clock: 2.604ns
-   Maximum output required time after clock: 8.000ns
+   Maximum output required time after clock: 8.054ns
    Maximum combinational path delay: 0.000ns
 
 Timing Details:
@@ -3383,8 +3383,8 @@ Delay:               5.681ns (Levels of Logic = 6)
      RAMB18E1:CLKARDCLK->DOBDO13    1   1.800   0.405  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v6_noinit.ram/NO_BMM_INFO.SP.WIDE_PRIM18.ram (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.ram_douta<29>)
      LUT4:I2->O            3   0.043   0.507  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux221 (douta<29>)
      end scope: 'Vga_controller/Vga_text/Text_vga_ram:douta<29>'
-     LUT5:I2->O            1   0.043   0.613  DATAS_bwdata<29>LogicTrst5_SW1_SW1 (N737)
-     LUT6:I0->O            1   0.043   0.603  DATAS_bwdata<29>LogicTrst5_SW1 (N276)
+     LUT5:I2->O            1   0.043   0.613  DATAS_bwdata<29>LogicTrst5_SW1_SW1 (N723)
+     LUT6:I0->O            1   0.043   0.603  DATAS_bwdata<29>LogicTrst5_SW1 (N262)
      LUT6:I1->O            1   0.043   0.522  DATAS_bwdata<29>LogicTrst5 (DATAS_bwdata<29>LogicTrst4)
      LUT6:I2->O           53   0.043   0.473  DATAS_bwdata<29>LogicTrst7 (DATAS_bwdata<29>)
      begin scope: 'Vga_controller/Vga_text/Text_vga_ram:dina<29>'
@@ -3417,7 +3417,7 @@ Delay:               12.865ns (Levels of Logic = 30)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in11_0/gi_j2 (PCPU/_Mul_adder/Adder/g11_0)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in13_0/gi_j1 (PCPU/_Mul_adder/Adder/g13_0)
      LUT5:I4->O            5   0.043   0.373  PCPU/_Mul_adder/Adder/in15_0/gi_j1 (PCPU/_Mul_adder/Adder/g15_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in19_0/gi_j3_SW0 (N795)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in19_0/gi_j3_SW0 (N781)
      LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in19_0/gi_j3 (PCPU/_Mul_adder/Adder/g19_0)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in23_0/gi_j11 (PCPU/_Mul_adder/Adder/in23_0/gi_j1)
      LUT5:I4->O            5   0.043   0.373  PCPU/_Mul_adder/Adder/in23_0/gi_j2 (PCPU/_Mul_adder/Adder/g23_0)
@@ -3427,17 +3427,17 @@ Delay:               12.865ns (Levels of Logic = 30)
      LUT5:I4->O            6   0.043   0.378  PCPU/_Mul_adder/Adder/in31_0/gi_j1 (PCPU/_Mul_adder/Adder/g31_0)
      LUT6:I5->O            3   0.043   0.362  PCPU/_Mul_adder/Adder/in37_0/gi_j1 (PCPU/_Mul_adder/Adder/g37_0)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in39_0/gi_j2 (PCPU/_Mul_adder/Adder/g39_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in43_0/gi_j3_SW0 (N793)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in43_0/gi_j3_SW0 (N779)
      LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in43_0/gi_j3 (PCPU/_Mul_adder/Adder/g43_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in47_0/gi_j3_SW0 (N791)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in47_0/gi_j3_SW0 (N777)
      LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in47_0/gi_j3 (PCPU/_Mul_adder/Adder/g47_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in51_0/gi_j3_SW0 (N789)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in51_0/gi_j3_SW0 (N775)
      LUT6:I5->O            3   0.043   0.362  PCPU/_Mul_adder/Adder/in51_0/gi_j3 (PCPU/_Mul_adder/Adder/g51_0)
      LUT5:I4->O            3   0.043   0.362  PCPU/_Mul_adder/Adder/in55_0/gi_j11 (PCPU/_Mul_adder/Adder/in55_0/gi_j1)
      LUT5:I4->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in55_0/gi_j2 (PCPU/_Mul_adder/Adder/g55_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in59_0/gi_j4_SW0 (N787)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_Mul_adder/Adder/in59_0/gi_j4_SW0 (N773)
      LUT6:I5->O            4   0.043   0.367  PCPU/_Mul_adder/Adder/in59_0/gi_j4 (PCPU/_Mul_adder/Adder/g59_0)
-     LUT5:I4->O            1   0.043   0.350  PCPU/_REG_HiLo/Mmux__n004525_SW0 (N148)
+     LUT5:I4->O            1   0.043   0.350  PCPU/_REG_HiLo/Mmux__n004525_SW0 (N134)
      LUT6:I5->O            1   0.043   0.000  PCPU/_REG_HiLo/Mmux__n004525 (PCPU/_REG_HiLo/_n0045<31>)
      FDRE:D                   -0.000          PCPU/_REG_HiLo/Hi_31
     ----------------------------------------
@@ -3463,9 +3463,9 @@ Delay:               4.623ns (Levels of Logic = 7)
      LUT5:I0->O            1   0.043   0.603  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/Mmux_dout_mux271 (doutb<4>)
      end scope: 'TEXT:doutb<4>'
      LUT6:I1->O            2   0.043   0.355  DATAS_bwdata<4>LogicTrst3 (DATAS_bwdata<4>LogicTrst2)
-     LUT6:I5->O            1   0.043   0.495  DATAS_bwdata<4>LogicTrst4_SW1 (N525)
+     LUT6:I5->O            1   0.043   0.495  DATAS_bwdata<4>LogicTrst4_SW1 (N511)
      LUT6:I3->O            1   0.043   0.522  DATAS_bwdata<4>LogicTrst4 (DATAS_bwdata<4>LogicTrst3)
-     LUT6:I2->O            1   0.043   0.405  DATAS_bwdata<4>LogicTrst8_SW0 (N376)
+     LUT6:I2->O            1   0.043   0.405  DATAS_bwdata<4>LogicTrst8_SW0 (N362)
      LUT6:I4->O           52   0.043   0.473  DATAS_bwdata<4>LogicTrst8 (DATAS_bwdata<4>)
      begin scope: 'DMA_RAM_:dina<4>'
      RAMB36E1:DIADI4           0.543          U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram
@@ -3543,14 +3543,14 @@ Offset:              2.604ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_gen/clk_100m_unbuf'
-  Total number of paths / destination ports: 2546 / 21
+  Total number of paths / destination ports: 4652 / 21
 -------------------------------------------------------------------------
-Offset:              6.184ns (Levels of Logic = 11)
+Offset:              6.238ns (Levels of Logic = 11)
   Source:            Vga_controller/Vga_cursor/stat_2 (FF)
-  Destination:       vga_red<3> (PAD)
+  Destination:       vga_green<2> (PAD)
   Source Clock:      clk_gen/clk_100m_unbuf rising
 
-  Data Path: Vga_controller/Vga_cursor/stat_2 to vga_red<3>
+  Data Path: Vga_controller/Vga_cursor/stat_2 to vga_green<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
@@ -3559,27 +3559,27 @@ Offset:              6.184ns (Levels of Logic = 11)
      LUT6:I5->O            1   0.043   0.603  Vga_controller/cursor_on112 (Vga_controller/cursor_on111)
      LUT5:I0->O            1   0.043   0.350  Vga_controller/cursor_on113 (Vga_controller/cursor_on112)
      LUT6:I5->O            1   0.043   0.613  Vga_controller/cursor_on115 (Vga_controller/cursor_on114)
-     LUT6:I0->O            2   0.043   0.527  Vga_controller/cursor_on118 (Vga_controller/cursor_on)
-     LUT4:I0->O            2   0.043   0.618  Vga_controller/Vga_port/Mmux_n002610413 (Vga_controller/Vga_port/Mmux_n00261041)
-     LUT6:I0->O            3   0.043   0.507  Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o (Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o)
-     LUT6:I3->O            6   0.043   0.641  Vga_controller/Vga_port/Mmux_n002610511 (Vga_controller/Vga_port/Mmux_n00261051)
-     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N24)
-     LUT6:I5->O            1   0.043   0.339  Vga_controller/Vga_port/Mmux_n00266 (vga_blue_3_OBUF)
-     OBUF:I->O                 0.000          vga_blue_3_OBUF (vga_blue<3>)
+     LUT6:I0->O           15   0.043   0.600  Vga_controller/cursor_on118 (Vga_controller/cursor_on)
+     LUT4:I0->O            7   0.043   0.637  Vga_controller/Vga_cursor/Mmux_color_out123 (Vga_controller/Vga_cursor/Mmux_color_out12)
+     LUT6:I1->O            3   0.043   0.507  Vga_controller/Vga_port/Mmux_n002610421 (Vga_controller/Vga_port/Mmux_n00261042)
+     LUT6:I3->O            1   0.043   0.603  Vga_controller/Vga_port/Mmux_n0026102 (Vga_controller/Vga_port/Mmux_n0026101)
+     LUT5:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n0026103 (Vga_controller/Vga_port/Mmux_n0026102)
+     LUT5:I4->O            1   0.043   0.339  Vga_controller/Vga_port/Mmux_n0026105 (vga_green_2_OBUF)
+     OBUF:I->O                 0.000          vga_green_2_OBUF (vga_green<2>)
     ----------------------------------------
-    Total                      6.184ns (0.666ns logic, 5.518ns route)
-                                       (10.8% logic, 89.2% route)
+    Total                      6.238ns (0.666ns logic, 5.572ns route)
+                                       (10.7% logic, 89.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_gen/Div_1'
-  Total number of paths / destination ports: 55142 / 14
+  Total number of paths / destination ports: 184445 / 14
 -------------------------------------------------------------------------
-Offset:              8.000ns (Levels of Logic = 14)
+Offset:              8.054ns (Levels of Logic = 14)
   Source:            Vga_controller/Vga_port/row_c_4 (FF)
-  Destination:       vga_red<3> (PAD)
+  Destination:       vga_green<2> (PAD)
   Source Clock:      clk_gen/Div_1 rising
 
-  Data Path: Vga_controller/Vga_port/row_c_4 to vga_red<3>
+  Data Path: Vga_controller/Vga_port/row_c_4 to vga_green<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
@@ -3591,15 +3591,15 @@ Offset:              8.000ns (Levels of Logic = 14)
      LUT4:I1->O            2   0.043   0.355  Vga_controller/cursor_on721 (Vga_controller/cursor_on72)
      LUT5:I4->O            1   0.043   0.613  Vga_controller/SF3311 (Vga_controller/SF331)
      LUT6:I0->O            1   0.043   0.613  Vga_controller/cursor_on115 (Vga_controller/cursor_on114)
-     LUT6:I0->O            2   0.043   0.527  Vga_controller/cursor_on118 (Vga_controller/cursor_on)
-     LUT4:I0->O            2   0.043   0.618  Vga_controller/Vga_port/Mmux_n002610413 (Vga_controller/Vga_port/Mmux_n00261041)
-     LUT6:I0->O            3   0.043   0.507  Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o (Vga_controller/cursor_on_cursor_color_out[11]_AND_194_o)
-     LUT6:I3->O            6   0.043   0.641  Vga_controller/Vga_port/Mmux_n002610511 (Vga_controller/Vga_port/Mmux_n00261051)
-     LUT6:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n00266_SW0 (N24)
-     LUT6:I5->O            1   0.043   0.339  Vga_controller/Vga_port/Mmux_n00266 (vga_blue_3_OBUF)
-     OBUF:I->O                 0.000          vga_blue_3_OBUF (vga_blue<3>)
+     LUT6:I0->O           15   0.043   0.600  Vga_controller/cursor_on118 (Vga_controller/cursor_on)
+     LUT4:I0->O            7   0.043   0.637  Vga_controller/Vga_cursor/Mmux_color_out123 (Vga_controller/Vga_cursor/Mmux_color_out12)
+     LUT6:I1->O            3   0.043   0.507  Vga_controller/Vga_port/Mmux_n002610421 (Vga_controller/Vga_port/Mmux_n00261042)
+     LUT6:I3->O            1   0.043   0.603  Vga_controller/Vga_port/Mmux_n0026102 (Vga_controller/Vga_port/Mmux_n0026101)
+     LUT5:I0->O            1   0.043   0.350  Vga_controller/Vga_port/Mmux_n0026103 (Vga_controller/Vga_port/Mmux_n0026102)
+     LUT5:I4->O            1   0.043   0.339  Vga_controller/Vga_port/Mmux_n0026105 (vga_green_2_OBUF)
+     OBUF:I->O                 0.000          vga_green_2_OBUF (vga_green<2>)
     ----------------------------------------
-    Total                      8.000ns (0.795ns logic, 7.205ns route)
+    Total                      8.054ns (0.795ns logic, 7.259ns route)
                                        (9.9% logic, 90.1% route)
 
 =========================================================================
@@ -3690,21 +3690,21 @@ Clock to Setup on destination clock display/P7SEG/sh_clk
                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------+---------+---------+---------+---------+
-Clk_CPU               |         |         |   12.164|         |
+Clk_CPU               |         |         |   12.165|         |
 Clk_CPU_INV_68_o      |         |         |    7.858|         |
-clk_gen/clk_100m_unbuf|         |         |    8.916|         |
+clk_gen/clk_100m_unbuf|         |         |    8.917|         |
 display/P7SEG/sh_clk  |         |         |    0.700|         |
 ----------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 182.00 secs
-Total CPU time to Xst completion: 182.24 secs
+Total REAL time to Xst completion: 195.00 secs
+Total CPU time to Xst completion: 195.57 secs
  
 --> 
 
-Total memory usage is 413944 kilobytes
+Total memory usage is 417592 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  989 (   0 filtered)

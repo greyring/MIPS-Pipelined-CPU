@@ -61,6 +61,12 @@ unsigned long _put_char(unsigned short c)
                 && (cursor & 0x7ff)) cursor--;
         *((unsigned long *)(TEXT_ADDR) + (cursor & 0x7ff)) = 0;
     }
+    else if (c == ZCODE_DEL)
+    {
+    }
+    else if (c == ZCODE_ESC)
+    {
+    }
     else
     {
         temp = (0x3f<<24) | c;

@@ -18,6 +18,7 @@
 #define DARROW_SSC 0x72
 #define RARROW_SSC 0x74
 #define UARROW_SSC 0x75
+#define DEL_SSC    0x71
 
 /*keyboard state*/
 #define KEY_WAIT      0

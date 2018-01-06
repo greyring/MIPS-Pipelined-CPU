@@ -47,7 +47,7 @@ unload__:
 
 	li	$2,-1342177280			# 0xffffffffb0000000
  #APP
- # 85 "load.c" 1
+ # 91 "load.c" 1
 	mtc0	$2, $10
 	mtc0	$0, $2
 	mtc0	$0, $3
@@ -58,7 +58,7 @@ unload__:
  #NO_APP
 	li	$3,1			# 0x1
  #APP
- # 95 "load.c" 1
+ # 101 "load.c" 1
 	mtc0	$2, $10
 	mtc0	$0, $2
 	mtc0	$0, $3
@@ -86,301 +86,173 @@ $L3:
 	.ent	load__
 	.type	load__, @function
 load__:
-	.frame	$sp,664,$31		# vars= 592, regs= 10/0, args= 32, gp= 0
+	.frame	$sp,608,$31		# vars= 552, regs= 10/0, args= 16, gp= 0
 	.mask	0xc0ff0000,-4
 	.fmask	0x00000000,0
-	addiu	$sp,$sp,-664
-	sw	$31,660($sp)
-	sw	$fp,656($sp)
-	sw	$23,652($sp)
-	sw	$22,648($sp)
-	sw	$21,644($sp)
-	sw	$20,640($sp)
-	sw	$19,636($sp)
-	sw	$18,632($sp)
-	sw	$17,628($sp)
-	sw	$16,624($sp)
-	move	$16,$4
-	lui	$3,%hi(current)
-	addiu	$2,$3,%lo(current)
-	lw	$7,16($2)
-	lw	$6,20($2)
-	lw	$5,24($2)
-	lw	$4,28($2)
-	sw	$7,16($sp)
-	sw	$6,20($sp)
-	sw	$5,24($sp)
-	sw	$4,28($sp)
-	lw	$4,%lo(current)($3)
-	lw	$5,4($2)
-	lw	$6,8($2)
-	lw	$7,12($2)
-	jal	unload__
-	.set	noreorder
-	.set	nomacro
-	beq	$2,$0,$L13
-	addiu	$5,$sp,32
-	.set	macro
-	.set	reorder
-
+	addiu	$sp,$sp,-608
+	sw	$31,604($sp)
+	sw	$fp,600($sp)
+	sw	$23,596($sp)
+	sw	$22,592($sp)
+	sw	$21,588($sp)
+	sw	$20,584($sp)
+	sw	$19,580($sp)
+	sw	$18,576($sp)
+	sw	$17,572($sp)
+	sw	$16,568($sp)
 	.set	noreorder
 	.set	nomacro
 	jal	open_file
-	move	$4,$16
+	addiu	$5,$sp,16
 	.set	macro
 	.set	reorder
 
 	.set	noreorder
 	.set	nomacro
-	beq	$2,$0,$L4
-	li	$20,-1			# 0xffffffffffffffff
+	bne	$2,$0,$L9
+	li	$16,-1			# 0xffffffffffffffff
 	.set	macro
 	.set	reorder
 
-	addiu	$6,$sp,32
+$L4:
+	move	$2,$16
+	lw	$31,604($sp)
+	lw	$fp,600($sp)
+	lw	$23,596($sp)
+	lw	$22,592($sp)
+	lw	$21,588($sp)
+	lw	$20,584($sp)
+	lw	$19,580($sp)
+	lw	$18,576($sp)
+	lw	$17,572($sp)
+	lw	$16,568($sp)
+	.set	noreorder
+	.set	nomacro
+	jr	$31
+	addiu	$sp,$sp,608
+	.set	macro
+	.set	reorder
+
+$L9:
+	addiu	$6,$sp,16
 	li	$5,52			# 0x34
 	.set	noreorder
 	.set	nomacro
 	jal	read_file
-	addiu	$4,$sp,72
+	addiu	$4,$sp,56
 	.set	macro
 	.set	reorder
 
-	lw	$20,96($sp)
-	lw	$16,104($sp)
-	lhu	$19,120($sp)
-	addiu	$5,$16,-40
-	sll	$2,$19,2
-	addu	$2,$2,$19
-	sll	$2,$2,3
+	lw	$16,80($sp)
 	move	$6,$0
-	addu	$5,$5,$2
+	lw	$5,88($sp)
+	#nop
+	addiu	$5,$5,40
 	.set	noreorder
 	.set	nomacro
 	jal	seek_file
-	addiu	$4,$sp,32
+	addiu	$4,$sp,16
 	.set	macro
 	.set	reorder
 
-	addiu	$6,$sp,32
-	li	$5,40			# 0x28
+	addiu	$6,$sp,16
+	li	$5,80			# 0x50
 	.set	noreorder
 	.set	nomacro
 	jal	read_file
-	addiu	$4,$sp,72
+	addiu	$4,$sp,56
 	.set	macro
 	.set	reorder
 
-	lw	$22,88($sp)
+	lw	$20,68($sp)
+	lw	$23,72($sp)
+	lw	$fp,76($sp)
+	lw	$19,108($sp)
+	lw	$21,112($sp)
+	lw	$22,116($sp)
+	jal	unload__
 	.set	noreorder
 	.set	nomacro
-	beq	$19,$0,$L7
-	move	$18,$0
+	beq	$2,$0,$L7
+	li	$2,-8192			# 0xffffffffffffe000
 	.set	macro
 	.set	reorder
 
-	move	$17,$0
-	lui	$2,%hi(TEXT)
-	addiu	$2,$2,%lo(TEXT)
-	sw	$2,600($sp)
-	lui	$2,%hi(DATA)
-	addiu	$2,$2,%lo(DATA)
-	.set	noreorder
-	.set	nomacro
-	b	$L11
-	sw	$2,604($sp)
-	.set	macro
-	.set	reorder
-
-$L8:
-	lw	$5,604($sp)
-	.set	noreorder
-	.set	nomacro
-	jal	kstrcmp_char
-	addiu	$4,$sp,584
-	.set	macro
-	.set	reorder
-
-	.set	noreorder
-	.set	nomacro
-	bne	$2,$0,$L17
-	li	$2,3			# 0x3
-	.set	macro
-	.set	reorder
-
+	and	$18,$20,$2
 	ori	$18,$18,0x2
-	lw	$2,84($sp)
-	#nop
-	sw	$2,608($sp)
-	lw	$2,88($sp)
-	#nop
-	sw	$2,616($sp)
-	lw	$2,92($sp)
-	#nop
-	sw	$2,612($sp)
-$L9:
-	li	$2,3			# 0x3
-$L17:
-	beq	$18,$2,$L10
-	addiu	$17,$17,1
-	.set	noreorder
-	.set	nomacro
-	beq	$19,$17,$L7
-	addiu	$16,$16,40
-	.set	macro
-	.set	reorder
-
-$L11:
-	move	$6,$0
-	move	$5,$16
-	.set	noreorder
-	.set	nomacro
-	jal	seek_file
-	addiu	$4,$sp,32
-	.set	macro
-	.set	reorder
-
-	addiu	$6,$sp,32
-	li	$5,40			# 0x28
-	.set	noreorder
-	.set	nomacro
-	jal	read_file
-	addiu	$4,$sp,72
-	.set	macro
-	.set	reorder
-
-	move	$6,$0
-	lw	$5,72($sp)
-	#nop
-	addu	$5,$22,$5
-	.set	noreorder
-	.set	nomacro
-	jal	seek_file
-	addiu	$4,$sp,32
-	.set	macro
-	.set	reorder
-
-	addiu	$6,$sp,32
-	li	$5,6			# 0x6
-	.set	noreorder
-	.set	nomacro
-	jal	read_file
-	addiu	$4,$sp,584
-	.set	macro
-	.set	reorder
-
-	li	$6,6			# 0x6
-	lw	$5,600($sp)
-	.set	noreorder
-	.set	nomacro
-	jal	kstrcmp_char
-	addiu	$4,$sp,584
-	.set	macro
-	.set	reorder
-
-	.set	noreorder
-	.set	nomacro
-	bne	$2,$0,$L8
-	li	$6,6			# 0x6
-	.set	macro
-	.set	reorder
-
-	lw	$21,84($sp)
-	lw	$23,88($sp)
-	lw	$fp,92($sp)
-	.set	noreorder
-	.set	nomacro
-	b	$L9
-	ori	$18,$18,0x1
-	.set	macro
-	.set	reorder
-
-$L10:
-	.set	noreorder
-	.set	nomacro
-	beq	$19,$17,$L7
-	li	$17,-8192			# 0xffffffffffffe000
-	.set	macro
-	.set	reorder
-
-	and	$18,$21,$17
-	ori	$18,$18,0x2
-	li	$16,8388608			# 0x800000
-	addiu	$2,$16,6
-	addiu	$3,$16,70
-	move	$19,$0
+	li	$17,8388608			# 0x800000
+	addiu	$2,$17,6
+	addiu	$3,$17,70
+	move	$4,$0
  #APP
- # 138 "load.c" 1
+ # 142 "load.c" 1
 	mtc0	$18, $10
 	mtc0	$2, $2
 	mtc0	$3, $3
-	mtc0	$19, $0
+	mtc0	$4, $0
 	tlbwi
 	
  # 0 "" 2
  #NO_APP
 	move	$6,$0
 	move	$5,$23
+	addiu	$3,$sp,16
 	.set	noreorder
 	.set	nomacro
 	jal	seek_file
-	addiu	$4,$sp,32
+	move	$4,$3
 	.set	macro
 	.set	reorder
 
-	addiu	$6,$sp,32
+	addiu	$6,$sp,16
 	move	$5,$fp
 	.set	noreorder
 	.set	nomacro
 	jal	read_file
-	move	$4,$21
+	move	$4,$20
 	.set	macro
 	.set	reorder
 
-	addiu	$2,$16,2
-	addiu	$3,$16,66
+	addiu	$2,$17,2
+	addiu	$3,$17,66
+	move	$4,$0
  #APP
- # 153 "load.c" 1
+ # 157 "load.c" 1
 	mtc0	$18, $10
 	mtc0	$2, $2
 	mtc0	$3, $3
-	mtc0	$19, $0
+	mtc0	$4, $0
 	tlbwi
 	
  # 0 "" 2
  #NO_APP
-	lw	$19,608($sp)
-	#nop
-	and	$17,$19,$17
-	ori	$17,$17,0x2
-	addiu	$2,$16,134
-	addiu	$16,$16,198
+	li	$2,-8192			# 0xffffffffffffe000
+	and	$2,$19,$2
+	ori	$2,$2,0x2
+	addiu	$3,$17,134
+	addiu	$17,$17,198
 	li	$18,1			# 0x1
  #APP
- # 167 "load.c" 1
-	mtc0	$17, $10
-	mtc0	$2, $2
-	mtc0	$16, $3
+ # 171 "load.c" 1
+	mtc0	$2, $10
+	mtc0	$3, $2
+	mtc0	$17, $3
 	mtc0	$18, $0
 	tlbwi
 	
  # 0 "" 2
  #NO_APP
 	move	$6,$0
-	lw	$17,616($sp)
-	#nop
-	move	$5,$17
+	move	$5,$21
 	.set	noreorder
 	.set	nomacro
 	jal	seek_file
-	addiu	$4,$sp,32
+	addiu	$4,$sp,16
 	.set	macro
 	.set	reorder
 
-	addiu	$6,$sp,32
-	lw	$16,612($sp)
-	#nop
-	move	$5,$16
+	addiu	$6,$sp,16
+	move	$5,$22
 	.set	noreorder
 	.set	nomacro
 	jal	read_file
@@ -391,7 +263,7 @@ $L10:
 	.set	noreorder
 	.set	nomacro
 	jal	close_file
-	addiu	$4,$sp,32
+	addiu	$4,$sp,16
 	.set	macro
 	.set	reorder
 
@@ -400,52 +272,24 @@ $L10:
 	sb	$3,%lo(current)($2)
 	addiu	$2,$2,%lo(current)
 	sb	$18,1($2)
-	sw	$20,4($2)
-	sw	$21,8($2)
+	sw	$16,4($2)
+	sw	$20,8($2)
 	sw	$fp,12($2)
 	sw	$23,16($2)
 	sw	$19,20($2)
-	sw	$16,24($2)
+	sw	$22,24($2)
 	.set	noreorder
 	.set	nomacro
 	b	$L4
-	sw	$17,28($2)
+	sw	$21,28($2)
 	.set	macro
 	.set	reorder
 
 $L7:
 	.set	noreorder
 	.set	nomacro
-	jal	close_file
-	addiu	$4,$sp,32
-	.set	macro
-	.set	reorder
-
-	.set	noreorder
-	.set	nomacro
 	b	$L4
-	li	$20,-1			# 0xffffffffffffffff
-	.set	macro
-	.set	reorder
-
-$L13:
-	li	$20,-1			# 0xffffffffffffffff
-$L4:
-	move	$2,$20
-	lw	$31,660($sp)
-	lw	$fp,656($sp)
-	lw	$23,652($sp)
-	lw	$22,648($sp)
-	lw	$21,644($sp)
-	lw	$20,640($sp)
-	lw	$19,636($sp)
-	lw	$18,632($sp)
-	lw	$17,628($sp)
-	lw	$16,624($sp)
-	.set	noreorder
-	.set	nomacro
-	jr	$31
-	addiu	$sp,$sp,664
+	li	$16,-1			# 0xffffffffffffffff
 	.set	macro
 	.set	reorder
 

@@ -11,6 +11,7 @@ unsigned long get_cursor();
 unsigned long clear_screen();
 unsigned long get_char();
 unsigned long dir();
+unsigned long unload();
 
 
 unsigned long put_seg(unsigned long data);
@@ -25,6 +26,7 @@ unsigned long del_file(unsigned char *file_path);
 unsigned long fopen(unsigned char *file_path);
 unsigned long fclose(unsigned long fd);
 unsigned long feof(unsigned long fd);
+unsigned long load(unsigned char *file_path);
 
 unsigned long pwd(unsigned char *dst, unsigned long len);
 //unsigned long read_disk(unsigned long *buf, unsigned short sector);

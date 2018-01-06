@@ -102,6 +102,7 @@ void handle_keyboard()
                     return;
                 }
                 set_skey_state(key);
+                send_to_keybuf(input_skey(key));
                 keyboard_state = KEY_WAIT;
             }
             break;

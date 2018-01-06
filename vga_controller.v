@@ -106,8 +106,8 @@ vga_cursor Vga_cursor(
     .vga_column(vga_column), 
     .vga_row(vga_row), 
     .data_out(cursor_rdata), 
-    .color_out(cursor_color_out), 
-    .cursor_on(cursor_on)
+    .color_out(cursor_color_out),
+	 .cursor_on(cursor_on)
     );
 
 wire [11:0]graph_color_out;
@@ -127,7 +127,7 @@ vga_graph Vga_graph(
 reg [11:0]color_out = 0;
 always @* begin
 	if (status[1:0] == TEXT) begin//text
-		if (cursor_on)
+		if (|cursor_color_out)
 			color_out = cursor_color_out;
 		else
 			color_out = text_color_out;

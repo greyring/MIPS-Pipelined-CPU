@@ -122,6 +122,12 @@ _put_char:
 	li	$3,8			# 0x8
 
 	beq	$4,$3,$L33
+	li	$3,127			# 0x7f
+
+	beq	$4,$3,$L17
+	li	$3,27			# 0x1b
+
+	beq	$4,$3,$L17
 	andi	$3,$2,0x7ff
 
 	sll	$5,$3,2

@@ -1,28 +1,30 @@
 #include "utils.h"
 
-unsigned char __attribute__((section(".data"))) TIP[] = "$>";
+unsigned char __attribute__((section(".data"))) TIP[] = ">";
+unsigned char __attribute__((section(".data"))) LOADING[] = "LOADING...\n";
 unsigned char __attribute__((section(".data"))) UNKNOWN[] = "Unknown\n";
 unsigned char __attribute__((section(".data"))) CLS[] = "cls";
 unsigned char __attribute__((section(".data"))) CD[] = "cd";
 unsigned char __attribute__((section(".data"))) LS[] = "ls";
 unsigned char __attribute__((section(".data"))) TOUCH[] = "touch";
 unsigned char __attribute__((section(".data"))) CAT[] = "cat";
-unsigned char __attribute__((section(".data"))) WRITE[] = "write";
 unsigned char __attribute__((section(".data"))) CP[] = "cp";
 unsigned char __attribute__((section(".data"))) RM[] = "rm";
+unsigned char __attribute__((section(".data"))) LOAD[] = "load";
 
 int main()
 {
-    unsigned char * temp, *temp2;
+    unsigned char * temp;
     unsigned long len;
     unsigned long fd, fd2;
     unsigned char com[128];
     unsigned char buf[128];
-    buf[128] = 0;
+    buf[127] = 0;
+    clear_screen();
     while(1)
     {
-        pwd(buf, 127);
-        buf[128] = 0;
+        pwd(buf, 126);
+        buf[127] = 0;
         puts(buf);
         puts(TIP);
         gets(com, 128);
@@ -56,20 +58,6 @@ int main()
             fclose(fd);
             putc('\n');
         }
-        else if (strncmp(com, WRITE, 5) == 0)
-        {
-            temp = com + 6;
-            while(*temp != ' ' && *temp)temp++;
-            if (*temp == 0) continue;
-            *temp = 0;
-            fd = fopen(com + 6);
-            if (!fd) continue;
-            temp++;
-            temp2 = temp;
-            while(*temp) temp++;
-            fwrite(temp2, temp-temp2, fd);
-            fclose(fd);
-        }
         else if (strncmp(com, CP, 2) == 0)
         {
             temp = com + 3;
@@ -79,6 +67,8 @@ int main()
             fd = fopen(com + 3);
             if (!fd) continue;
             temp++;
+            del_file(temp);
+            crt_file(temp);
             fd2 = fopen(temp);
             if (!fd2) continue;
             while(!feof(fd))
@@ -93,10 +83,16 @@ int main()
         {
             del_file(com + 3);
         }
+        else if (strncmp(com, LOAD, 4) == 0)
+        {
+            puts(LOADING);
+            load(com + 5);
+        }
         else
         {
             puts(UNKNOWN);
         }
     }
+    unload();
     return 0;
 }

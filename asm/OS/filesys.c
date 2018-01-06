@@ -331,15 +331,18 @@ unsigned long open_file(unsigned char *file_path, FCB *fp)
 	unsigned char filename[11];
 	Sect_buffer* bufp;
 	unsigned char *temp;
+	unsigned char tc;
 	
 	file = file_path + kstrlen_char(file_path) - 1;
 	while(file>file_path && file[0] != '/') file--;
 	dcb = _pwd_DCB;
 	if (file != file_path)
 	{
-		file[0] = 0;
 		file++;
+		tc = file[0];
+		file[0] = 0;
 		do_cd(&dcb, file_path);
+		file[0] = tc;
 	}
 
 	get_file_name(filename, &file);

@@ -1,5 +1,5 @@
 OBJS=init.o keyboard.o timer.o syscall.o exc.o filesys.o kutils.o input.o load.o
-CC=mips-gcc -nostdlib -I$(INCLUDEPATH) -S -O1 -Wall -EL
+CC=mips-gcc -nostdlib -I$(INCLUDEPATH) -S -O1 -Wall -EL -Wno-builtin-declaration-mismatch
 AS=mips-as -mips32 -EL
 LD=mips-ld -Ttext 0x80000000 -e _start -Tdata 0x80006000 -EL
 INCLUDEPATH=./include

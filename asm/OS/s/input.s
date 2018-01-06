@@ -438,6 +438,33 @@ $L35:
 	.set	reorder
 	.end	input_key
 	.size	input_key, .-input_key
+	.align	2
+	.globl	input_skey
+	.set	nomips16
+	.set	nomicromips
+	.ent	input_skey
+	.type	input_skey, @function
+input_skey:
+	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	li	$2,113			# 0x71
+	beq	$4,$2,$L40
+	nop
+
+	jr	$31
+	li	$2,65535			# 0xffff
+
+$L40:
+	jr	$31
+	li	$2,127			# 0x7f
+
+	.set	macro
+	.set	reorder
+	.end	input_skey
+	.size	input_skey, .-input_skey
 	.section	.data,"aw",@progbits
 	.align	2
 	.type	p_buf, @object

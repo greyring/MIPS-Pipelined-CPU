@@ -5,8 +5,10 @@
 #include "input.h"
 #include "filesys.h"
 #include "kutils.h"
+#include "load.h"
 
 unsigned long __attribute__((section (".data"))) (*syscall_tbl[32])(context *);
+unsigned char __attribute__((section (".data"))) shell_path[] = "A:/SHELL.ELF";
 
 SYSCALL put_seg_(context *sp)
 {
@@ -46,7 +48,7 @@ SYSCALL set_cursor_(context *sp)
 
     unsigned char *rgb = (unsigned char*)((sp->a2));
     unsigned long new_cursor;
-    new_cursor = ((sp->a1) & 0x11)<<24;
+    new_cursor = ((sp->a1) & 0x3)<<24;
     new_cursor = new_cursor | ((rgb[2]>>6)<<20) 
                             | ((rgb[1]>>6)<<18) 
                             | ((rgb[0]>>6)<<16);
@@ -191,6 +193,26 @@ SYSCALL feof_(context *sp)
     return feof__((sp->a1));
 }
 
+SYSCALL unload_(context *sp)
+{
+    unsigned long entry;
+    unload__();
+    entry = load__((unsigned char *)(shell_path));
+    sp->epc = entry;
+    sp->usp = 0x00004000;
+    return 1;
+}
+
+SYSCALL load_(context *sp)
+{
+    unsigned long entry;
+    entry = load__((unsigned char *)(sp->a1));
+    if (entry == 0xFFFFFFFF) return 0;
+    sp->epc = entry;
+    sp->usp = 0x00004000;
+    return 1;
+}
+
 void init_syscall()
 {
     registe_syscall(put_seg);
@@ -218,6 +240,9 @@ void init_syscall()
     registe_syscall(fseek);
     registe_syscall(dir);
     registe_syscall(feof);
+    registe_syscall(unload);
+    registe_syscall(load);
+    //notice the number not greater than 32
     //registe_syscall(read_disk);
     //registe_syscall(write_disk);
 }

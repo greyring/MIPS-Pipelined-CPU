@@ -1,5 +1,6 @@
 #include "unistd.h"
 #include "utils.h"
+#include "input.h"
 
 _syscall0(get_sw);
 _syscall0(get_btn);
@@ -7,6 +8,7 @@ _syscall0(get_cursor);
 _syscall0(clear_screen);
 _syscall0(get_char);
 _syscall0(dir);
+_syscall0(unload);
 
 _syscall1(put_seg, unsigned long, data);
 _syscall1(put_led, unsigned long, data);
@@ -20,6 +22,7 @@ _syscall1(del_file, unsigned char*, file_path);
 _syscall1(fopen, unsigned char *, file_path);
 _syscall1(fclose, unsigned long, fd);
 _syscall1(feof, unsigned long, fd);
+_syscall1(load, unsigned char*, file_path);
 
 _syscall2(pwd, unsigned char*, dst, unsigned long, len);
 //_syscall2(read_disk, unsigned long *, buf, unsigned short, sector);
@@ -53,7 +56,7 @@ void gets(unsigned char *str, unsigned long n)
     {
         while((c = get_char()) == 0x0000ffff);
         str[i] = c;
-        if (c == 0x09)
+        if (c == ZCODE_BACKSPACE)
         {
             if (i!=0)
             {
@@ -64,7 +67,7 @@ void gets(unsigned char *str, unsigned long n)
         else 
         {
             put_char(str[i]);
-            if (str[i] == 0x0a)//enter
+            if (str[i] == ZCODE_ENTER)//enter
             {
                 str[i] = 0;
                 break;

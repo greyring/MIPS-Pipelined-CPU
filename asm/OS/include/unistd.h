@@ -28,6 +28,8 @@
 #define _NUM_fseek         22
 #define _NUM_dir           23
 #define _NUM_feof          24
+#define _NUM_unload        25
+#define _NUM_load          26
 
 #define _syscall0(name) \
 unsigned long name()\

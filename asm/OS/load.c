@@ -10,27 +10,37 @@ unsigned char __attribute__((section(".data"))) DATA[] = ".data";
 //the first two section must be text and data
 static unsigned long load_elf(FCB *file, ELF_FILE *elf, unsigned char *file_path)
 {
-    unsigned long i;
+    //unsigned long i;
     //unsigned long len;
-    unsigned char flag;
+    //unsigned char flag;
     unsigned char buf[512];
-    unsigned char name[10];
+    //unsigned char name[10];
     unsigned long sechead_addr;
-    unsigned short sechead_num;
-    unsigned long entry_addr;
-    unsigned long entry_offset;
+    //unsigned short sechead_num;
+    //unsigned long entry_addr;
+    //unsigned long entry_offset;
 
-    flag = 0;
+    //flag = 0;
     if (!open_file(file_path, file)) goto load_elf0;
     read_file(buf, 52, file);
     elf->entry = *(unsigned long *)(buf + 24);
     sechead_addr = *(unsigned long *)(buf + 32);
-    sechead_num  = *(unsigned short*)(buf + 48);
+    //sechead_num  = *(unsigned short*)(buf + 48);
     
-    seek_file(file, sechead_addr + 40 * sechead_num - 40, SEEK_SET);
-    read_file(buf, 40, file);
-    entry_addr = *(unsigned long *)(buf + 16);
+    //seek_file(file, sechead_addr + 40 * sechead_num - 40, SEEK_SET);
+    //read_file(buf, 40, file);
+    //entry_addr = *(unsigned long *)(buf + 16);
 
+    //the first two section must be .text and .data
+    seek_file(file, sechead_addr + 40, SEEK_SET);
+    read_file(buf, 80, file);
+    elf->text_vaddr = *(unsigned long *)(buf + 12);
+    elf->text_offset = *(unsigned long *)(buf + 16);
+    elf->text_len = *(unsigned long *)(buf + 20);
+    elf->data_vaddr = *(unsigned long *)(buf + 52);
+    elf->data_offset = *(unsigned long *)(buf + 56);
+    elf->data_len = *(unsigned long *)(buf + 60);
+    /*
     for (i = 0; i<sechead_num; i++)
     {
         seek_file(file, sechead_addr + 40 * i, SEEK_SET);
@@ -60,15 +70,12 @@ static unsigned long load_elf(FCB *file, ELF_FILE *elf, unsigned char *file_path
         close_file(file);
         goto load_elf0;
     }
-    
+    */
+
     return 1;
     load_elf0:
     return 0;
 }
-
-/*
-
-*/
 
 void init_task()
 {
@@ -79,7 +86,6 @@ unsigned long unload__()
 {
     unsigned long hi, index;
     if (current.state == DEAD) goto unload1;
-
     hi = 0xb0000000;
     index = 0;
     asm volatile(
@@ -101,7 +107,6 @@ unsigned long unload__()
         :
         :"r"(hi), "r"(index)
     );
-
     current.state = DEAD;
     unload1:
     return 1;
@@ -127,9 +132,8 @@ unsigned long load__(unsigned char *file_path)
     );
     kprintHex_long(temp);
     */
-    if (!unload__(current)) goto load0;
     if (!load_elf(&file, &elf, file_path)) goto load0;
-
+    if (!unload__()) goto load0;//file_path point to mapped memory, can't be found after unload
     hi = (elf.text_vaddr & 0xffffe000) | 2;//asid = 2 if user
     lo0 = ((unsigned long)(MAIN_MEM & 0xfffff000))>>6 | PAGE_DIRTY | PAGE_VALID;
     lo1 = ((unsigned long)((MAIN_MEM + PAGE_SIZE) & 0xfffff000))>>6 | PAGE_DIRTY |PAGE_VALID;
@@ -181,7 +185,6 @@ unsigned long load__(unsigned char *file_path)
     current.ASID = 2;
     current.state = RUNNING;
     current.elf = elf;
-
     return elf.entry;
     load0:
     return 0xffffffff;

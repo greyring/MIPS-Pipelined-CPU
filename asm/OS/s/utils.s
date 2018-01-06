@@ -126,6 +126,26 @@ dir:
 	.end	dir
 	.size	dir, .-dir
 	.align	2
+	.globl	unload
+	.set	nomips16
+	.set	nomicromips
+	.ent	unload
+	.type	unload, @function
+unload:
+	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+ #APP
+ # 11 "utils.c" 1
+	li	$a0, 25
+	syscall
+	
+ # 0 "" 2
+ #NO_APP
+	jr	$31
+	.end	unload
+	.size	unload, .-unload
+	.align	2
 	.globl	put_seg
 	.set	nomips16
 	.set	nomicromips
@@ -137,7 +157,7 @@ put_seg:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 12 "utils.c" 1
+ # 13 "utils.c" 1
 	li	$a0, 0
 	move	$a1, $2
 	syscall
@@ -159,7 +179,7 @@ put_led:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 13 "utils.c" 1
+ # 14 "utils.c" 1
 	li	$a0, 3
 	move	$a1, $2
 	syscall
@@ -181,7 +201,7 @@ set_vga:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 14 "utils.c" 1
+ # 15 "utils.c" 1
 	li	$a0, 4
 	move	$a1, $2
 	syscall
@@ -203,7 +223,7 @@ scroll_screen:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 15 "utils.c" 1
+ # 16 "utils.c" 1
 	li	$a0, 7
 	move	$a1, $2
 	syscall
@@ -225,7 +245,7 @@ put_char:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 16 "utils.c" 1
+ # 17 "utils.c" 1
 	li	$a0, 10
 	move	$a1, $2
 	syscall
@@ -247,7 +267,7 @@ put_string:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 17 "utils.c" 1
+ # 18 "utils.c" 1
 	li	$a0, 11
 	move	$a1, $2
 	syscall
@@ -269,7 +289,7 @@ cd:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 18 "utils.c" 1
+ # 19 "utils.c" 1
 	li	$a0, 15
 	move	$a1, $2
 	syscall
@@ -291,7 +311,7 @@ crt_file:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 19 "utils.c" 1
+ # 20 "utils.c" 1
 	li	$a0, 16
 	move	$a1, $2
 	syscall
@@ -313,7 +333,7 @@ del_file:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 20 "utils.c" 1
+ # 21 "utils.c" 1
 	li	$a0, 17
 	move	$a1, $2
 	syscall
@@ -335,7 +355,7 @@ fopen:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 21 "utils.c" 1
+ # 22 "utils.c" 1
 	li	$a0, 18
 	move	$a1, $2
 	syscall
@@ -357,7 +377,7 @@ fclose:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 22 "utils.c" 1
+ # 23 "utils.c" 1
 	li	$a0, 19
 	move	$a1, $2
 	syscall
@@ -379,7 +399,7 @@ feof:
 	.fmask	0x00000000,0
 	move	$2,$4
  #APP
- # 23 "utils.c" 1
+ # 24 "utils.c" 1
 	li	$a0, 24
 	move	$a1, $2
 	syscall
@@ -389,6 +409,28 @@ feof:
 	jr	$31
 	.end	feof
 	.size	feof, .-feof
+	.align	2
+	.globl	load
+	.set	nomips16
+	.set	nomicromips
+	.ent	load
+	.type	load, @function
+load:
+	.frame	$sp,0,$31		# vars= 0, regs= 0/0, args= 0, gp= 0
+	.mask	0x00000000,0
+	.fmask	0x00000000,0
+	move	$2,$4
+ #APP
+ # 25 "utils.c" 1
+	li	$a0, 26
+	move	$a1, $2
+	syscall
+	
+ # 0 "" 2
+ #NO_APP
+	jr	$31
+	.end	load
+	.size	load, .-load
 	.align	2
 	.globl	pwd
 	.set	nomips16
@@ -402,7 +444,7 @@ pwd:
 	move	$2,$4
 	move	$3,$5
  #APP
- # 25 "utils.c" 1
+ # 27 "utils.c" 1
 	li	$a0, 14
 	move	$a1, $2
 	move	$a2, $3
@@ -427,7 +469,7 @@ set_cursor:
 	move	$3,$5
 	move	$8,$6
  #APP
- # 29 "utils.c" 1
+ # 31 "utils.c" 1
 	li	$a0, 5
 	move	$a1, $2
 	move	$a2, $3
@@ -453,7 +495,7 @@ put_charAt:
 	move	$3,$5
 	move	$8,$6
  #APP
- # 30 "utils.c" 1
+ # 32 "utils.c" 1
 	li	$a0, 9
 	move	$a1, $2
 	move	$a2, $3
@@ -479,7 +521,7 @@ put_pixel:
 	move	$3,$5
 	move	$8,$6
  #APP
- # 31 "utils.c" 1
+ # 33 "utils.c" 1
 	li	$a0, 12
 	move	$a1, $2
 	move	$a2, $3
@@ -505,7 +547,7 @@ fread:
 	move	$3,$5
 	move	$8,$6
  #APP
- # 32 "utils.c" 1
+ # 34 "utils.c" 1
 	li	$a0, 20
 	move	$a1, $2
 	move	$a2, $3
@@ -531,7 +573,7 @@ fwrite:
 	move	$3,$5
 	move	$8,$6
  #APP
- # 33 "utils.c" 1
+ # 35 "utils.c" 1
 	li	$a0, 21
 	move	$a1, $2
 	move	$a2, $3
@@ -557,7 +599,7 @@ fseek:
 	move	$3,$5
 	move	$8,$6
  #APP
- # 34 "utils.c" 1
+ # 36 "utils.c" 1
 	li	$a0, 22
 	move	$a1, $2
 	move	$a2, $3
@@ -585,12 +627,12 @@ getc:
 	sw	$31,20($sp)
 	sw	$16,16($sp)
 	li	$16,65535			# 0xffff
-$L27:
+$L29:
 	jal	get_char
 	nop
 
 	andi	$3,$2,0xffff
-	beq	$3,$16,$L27
+	beq	$3,$16,$L29
 	andi	$2,$2,0x00ff
 
 	lw	$31,20($sp)
@@ -640,7 +682,7 @@ gets:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$5,$0,$L47
+	beq	$5,$0,$L49
 	nop
 
 	addiu	$sp,$sp,-48
@@ -657,48 +699,48 @@ gets:
 	move	$17,$0
 	li	$16,65535			# 0xffff
 	li	$21,8			# 0x8
-	b	$L34
+	b	$L36
 	li	$22,10			# 0xa
 
-$L35:
+$L37:
 	jal	put_char
 	nop
 
 	lbu	$2,0($18)
 	nop
-	beq	$2,$22,$L45
+	beq	$2,$22,$L47
 	addiu	$17,$17,1
 
-$L36:
+$L38:
 	sltu	$2,$17,$19
-$L46:
-	beq	$2,$0,$L32
+$L48:
+	beq	$2,$0,$L34
 	nop
 
-$L34:
+$L36:
 	jal	get_char
 	nop
 
 	andi	$3,$2,0xffff
-	beq	$3,$16,$L34
+	beq	$3,$16,$L36
 	andi	$4,$2,0x00ff
 
 	addu	$18,$20,$17
-	bne	$3,$21,$L35
+	bne	$3,$21,$L37
 	sb	$4,0($18)
 
-	beq	$17,$0,$L36
+	beq	$17,$0,$L38
 	nop
 
 	jal	put_char
 	addiu	$17,$17,-1
 
-	b	$L46
+	b	$L48
 	sltu	$2,$17,$19
 
-$L45:
+$L47:
 	sb	$0,0($18)
-$L32:
+$L34:
 	lw	$31,44($sp)
 	lw	$22,40($sp)
 	lw	$21,36($sp)
@@ -710,7 +752,7 @@ $L32:
 	jr	$31
 	addiu	$sp,$sp,48
 
-$L47:
+$L49:
 	jr	$31
 	nop
 
@@ -736,19 +778,19 @@ puts:
 	move	$16,$4
 	lbu	$4,0($4)
 	nop
-	beq	$4,$0,$L48
+	beq	$4,$0,$L50
 	nop
 
-$L50:
+$L52:
 	jal	put_char
 	addiu	$16,$16,1
 
 	lbu	$4,0($16)
 	nop
-	bne	$4,$0,$L50
+	bne	$4,$0,$L52
 	nop
 
-$L48:
+$L50:
 	lw	$31,20($sp)
 	lw	$16,16($sp)
 	jr	$31
@@ -770,39 +812,39 @@ strncmp:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L57
+	beq	$6,$0,$L59
 	nop
 
 	lbu	$3,0($4)
 	lbu	$2,0($5)
 	nop
-	bne	$3,$2,$L58
+	bne	$3,$2,$L60
 	addiu	$3,$4,1
 
 	addiu	$5,$5,1
 	addu	$6,$4,$6
-$L55:
-	beq	$3,$6,$L60
+$L57:
+	beq	$3,$6,$L62
 	nop
 
 	lbu	$8,0($3)
 	lbu	$7,0($5)
 	addiu	$3,$3,1
-	beq	$8,$7,$L55
+	beq	$8,$7,$L57
 	addiu	$5,$5,1
 
 	jr	$31
 	li	$2,1			# 0x1
 
-$L60:
+$L62:
 	jr	$31
 	move	$2,$0
 
-$L57:
+$L59:
 	jr	$31
 	move	$2,$6
 
-$L58:
+$L60:
 	jr	$31
 	li	$2,1			# 0x1
 
@@ -824,21 +866,21 @@ strlen:
 	.set	nomacro
 	lbu	$2,0($4)
 	nop
-	beq	$2,$0,$L64
+	beq	$2,$0,$L66
 	addiu	$4,$4,1
 
 	move	$2,$0
-$L63:
+$L65:
 	addiu	$4,$4,1
 	lbu	$3,-1($4)
 	nop
-	bne	$3,$0,$L63
+	bne	$3,$0,$L65
 	addiu	$2,$2,1
 
 	jr	$31
 	nop
 
-$L64:
+$L66:
 	jr	$31
 	move	$2,$0
 
@@ -858,19 +900,19 @@ memncpy:
 	.fmask	0x00000000,0
 	.set	noreorder
 	.set	nomacro
-	beq	$6,$0,$L70
+	beq	$6,$0,$L72
 	move	$2,$5
 
 	addu	$5,$5,$6
-$L68:
+$L70:
 	lbu	$3,0($2)
 	nop
 	sb	$3,0($4)
 	addiu	$2,$2,1
-	bne	$2,$5,$L68
+	bne	$2,$5,$L70
 	addiu	$4,$4,1
 
-$L70:
+$L72:
 	jr	$31
 	nop
 
@@ -896,39 +938,39 @@ printHex:
 	move	$16,$4
 	srl	$4,$4,4
 	sltu	$2,$4,10
-	beq	$2,$0,$L72
+	beq	$2,$0,$L74
 	nop
 
 	jal	put_char
 	addiu	$4,$4,48
 
 	andi	$16,$16,0xf
-$L78:
+$L80:
 	sltu	$2,$16,10
-	bne	$2,$0,$L77
+	bne	$2,$0,$L79
 	nop
 
 	jal	put_char
 	addiu	$4,$16,55
 
-$L71:
+$L73:
 	lw	$31,20($sp)
 	lw	$16,16($sp)
 	jr	$31
 	addiu	$sp,$sp,24
 
-$L72:
+$L74:
 	jal	put_char
 	addiu	$4,$4,55
 
-	b	$L78
+	b	$L80
 	andi	$16,$16,0xf
 
-$L77:
+$L79:
 	jal	put_char
 	addiu	$4,$16,48
 
-	b	$L71
+	b	$L73
 	nop
 
 	.set	macro

@@ -135,7 +135,7 @@ set_cursor_:
 	lw	$2,92($4)
 	nop
 	sll	$2,$2,24
-	li	$3,285212672			# 0x11000000
+	li	$3,50331648			# 0x3000000
 	and	$2,$2,$3
 	lw	$3,84($4)
 	nop
@@ -766,6 +766,83 @@ feof_:
 	.end	feof_
 	.size	feof_, .-feof_
 	.align	2
+	.globl	unload_
+	.set	nomips16
+	.set	nomicromips
+	.ent	unload_
+	.type	unload_, @function
+unload_:
+	.frame	$sp,24,$31		# vars= 0, regs= 2/0, args= 16, gp= 0
+	.mask	0x80010000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	sw	$16,16($sp)
+	jal	unload__
+	move	$16,$4
+
+	lui	$4,%hi(shell_path)
+	jal	load__
+	addiu	$4,$4,%lo(shell_path)
+
+	sw	$2,108($16)
+	li	$2,16384			# 0x4000
+	sw	$2,120($16)
+	li	$2,1			# 0x1
+	lw	$31,20($sp)
+	lw	$16,16($sp)
+	jr	$31
+	addiu	$sp,$sp,24
+
+	.set	macro
+	.set	reorder
+	.end	unload_
+	.size	unload_, .-unload_
+	.align	2
+	.globl	load_
+	.set	nomips16
+	.set	nomicromips
+	.ent	load_
+	.type	load_, @function
+load_:
+	.frame	$sp,24,$31		# vars= 0, regs= 2/0, args= 16, gp= 0
+	.mask	0x80010000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+	addiu	$sp,$sp,-24
+	sw	$31,20($sp)
+	sw	$16,16($sp)
+	move	$16,$4
+	lw	$4,92($4)
+	jal	load__
+	nop
+
+	li	$3,-1			# 0xffffffffffffffff
+	beq	$2,$3,$L55
+	nop
+
+	sw	$2,108($16)
+	li	$2,16384			# 0x4000
+	sw	$2,120($16)
+	li	$2,1			# 0x1
+$L53:
+	lw	$31,20($sp)
+	lw	$16,16($sp)
+	jr	$31
+	addiu	$sp,$sp,24
+
+$L55:
+	b	$L53
+	move	$2,$0
+
+	.set	macro
+	.set	reorder
+	.end	load_
+	.size	load_, .-load_
+	.align	2
 	.globl	init_syscall
 	.set	nomips16
 	.set	nomicromips
@@ -853,15 +930,27 @@ init_syscall:
 	sw	$3,92($2)
 	lui	$3,%hi(feof_)
 	addiu	$3,$3,%lo(feof_)
-	jr	$31
 	sw	$3,96($2)
+	lui	$3,%hi(unload_)
+	addiu	$3,$3,%lo(unload_)
+	sw	$3,100($2)
+	lui	$3,%hi(load_)
+	addiu	$3,$3,%lo(load_)
+	jr	$31
+	sw	$3,104($2)
 
 	.set	macro
 	.set	reorder
 	.end	init_syscall
 	.size	init_syscall, .-init_syscall
-	.globl	syscall_tbl
+	.globl	shell_path
 	.section	.data,"aw",@progbits
+	.align	2
+	.type	shell_path, @object
+	.size	shell_path, 13
+shell_path:
+	.ascii	"A:/SHELL.ELF\000"
+	.globl	syscall_tbl
 	.align	2
 	.type	syscall_tbl, @object
 	.size	syscall_tbl, 128

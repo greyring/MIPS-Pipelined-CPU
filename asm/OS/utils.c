@@ -8,6 +8,7 @@ _syscall0(get_cursor);
 _syscall0(clear_screen);
 _syscall0(get_char);
 _syscall0(dir);
+_syscall0(unload);
 
 _syscall1(put_seg, unsigned long, data);
 _syscall1(put_led, unsigned long, data);
@@ -21,6 +22,7 @@ _syscall1(del_file, unsigned char*, file_path);
 _syscall1(fopen, unsigned char *, file_path);
 _syscall1(fclose, unsigned long, fd);
 _syscall1(feof, unsigned long, fd);
+_syscall1(load, unsigned char*, file_path);
 
 _syscall2(pwd, unsigned char*, dst, unsigned long, len);
 //_syscall2(read_disk, unsigned long *, buf, unsigned short, sector);

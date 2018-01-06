@@ -59,7 +59,7 @@ always @* begin
 		if (stat[25:24] == 2'b11)//方块
 			font = 1'b1;
 		else if (stat[25:24] == 2'b10)//竖线
-			font = vga_column[3:0] == 4'hf;
+			font = vga_column[3:0] == 4'h0;
 		else if (stat[25:24] == 2'b01)//下横线
 			font = vga_row[3:0] == 4'hf;
 		else

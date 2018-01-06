@@ -1,0 +1,602 @@
+
+shell.elf:     file format elf32-littlemips
+
+
+Disassembly of section .text:
+
+00000000 <get_sw>:
+   0:	24040001 	li	a0,1
+   4:	0000000c 	syscall
+   8:	03e00008 	jr	ra
+   c:	00000000 	nop
+
+00000010 <get_btn>:
+  10:	24040002 	li	a0,2
+  14:	0000000c 	syscall
+  18:	03e00008 	jr	ra
+  1c:	00000000 	nop
+
+00000020 <get_cursor>:
+  20:	24040006 	li	a0,6
+  24:	0000000c 	syscall
+  28:	03e00008 	jr	ra
+  2c:	00000000 	nop
+
+00000030 <clear_screen>:
+  30:	24040008 	li	a0,8
+  34:	0000000c 	syscall
+  38:	03e00008 	jr	ra
+  3c:	00000000 	nop
+
+00000040 <get_char>:
+  40:	2404000d 	li	a0,13
+  44:	0000000c 	syscall
+  48:	03e00008 	jr	ra
+  4c:	00000000 	nop
+
+00000050 <dir>:
+  50:	24040017 	li	a0,23
+  54:	0000000c 	syscall
+  58:	03e00008 	jr	ra
+  5c:	00000000 	nop
+
+00000060 <unload>:
+  60:	24040019 	li	a0,25
+  64:	0000000c 	syscall
+  68:	03e00008 	jr	ra
+  6c:	00000000 	nop
+
+00000070 <put_seg>:
+  70:	00801025 	move	v0,a0
+  74:	24040000 	li	a0,0
+  78:	00402825 	move	a1,v0
+  7c:	0000000c 	syscall
+  80:	03e00008 	jr	ra
+  84:	00000000 	nop
+
+00000088 <put_led>:
+  88:	00801025 	move	v0,a0
+  8c:	24040003 	li	a0,3
+  90:	00402825 	move	a1,v0
+  94:	0000000c 	syscall
+  98:	03e00008 	jr	ra
+  9c:	00000000 	nop
+
+000000a0 <set_vga>:
+  a0:	00801025 	move	v0,a0
+  a4:	24040004 	li	a0,4
+  a8:	00402825 	move	a1,v0
+  ac:	0000000c 	syscall
+  b0:	03e00008 	jr	ra
+  b4:	00000000 	nop
+
+000000b8 <scroll_screen>:
+  b8:	00801025 	move	v0,a0
+  bc:	24040007 	li	a0,7
+  c0:	00402825 	move	a1,v0
+  c4:	0000000c 	syscall
+  c8:	03e00008 	jr	ra
+  cc:	00000000 	nop
+
+000000d0 <put_char>:
+  d0:	00801025 	move	v0,a0
+  d4:	2404000a 	li	a0,10
+  d8:	00402825 	move	a1,v0
+  dc:	0000000c 	syscall
+  e0:	03e00008 	jr	ra
+  e4:	00000000 	nop
+
+000000e8 <put_string>:
+  e8:	00801025 	move	v0,a0
+  ec:	2404000b 	li	a0,11
+  f0:	00402825 	move	a1,v0
+  f4:	0000000c 	syscall
+  f8:	03e00008 	jr	ra
+  fc:	00000000 	nop
+
+00000100 <cd>:
+ 100:	00801025 	move	v0,a0
+ 104:	2404000f 	li	a0,15
+ 108:	00402825 	move	a1,v0
+ 10c:	0000000c 	syscall
+ 110:	03e00008 	jr	ra
+ 114:	00000000 	nop
+
+00000118 <crt_file>:
+ 118:	00801025 	move	v0,a0
+ 11c:	24040010 	li	a0,16
+ 120:	00402825 	move	a1,v0
+ 124:	0000000c 	syscall
+ 128:	03e00008 	jr	ra
+ 12c:	00000000 	nop
+
+00000130 <del_file>:
+ 130:	00801025 	move	v0,a0
+ 134:	24040011 	li	a0,17
+ 138:	00402825 	move	a1,v0
+ 13c:	0000000c 	syscall
+ 140:	03e00008 	jr	ra
+ 144:	00000000 	nop
+
+00000148 <fopen>:
+ 148:	00801025 	move	v0,a0
+ 14c:	24040012 	li	a0,18
+ 150:	00402825 	move	a1,v0
+ 154:	0000000c 	syscall
+ 158:	03e00008 	jr	ra
+ 15c:	00000000 	nop
+
+00000160 <fclose>:
+ 160:	00801025 	move	v0,a0
+ 164:	24040013 	li	a0,19
+ 168:	00402825 	move	a1,v0
+ 16c:	0000000c 	syscall
+ 170:	03e00008 	jr	ra
+ 174:	00000000 	nop
+
+00000178 <feof>:
+ 178:	00801025 	move	v0,a0
+ 17c:	24040018 	li	a0,24
+ 180:	00402825 	move	a1,v0
+ 184:	0000000c 	syscall
+ 188:	03e00008 	jr	ra
+ 18c:	00000000 	nop
+
+00000190 <load>:
+ 190:	00801025 	move	v0,a0
+ 194:	2404001a 	li	a0,26
+ 198:	00402825 	move	a1,v0
+ 19c:	0000000c 	syscall
+ 1a0:	03e00008 	jr	ra
+ 1a4:	00000000 	nop
+
+000001a8 <pwd>:
+ 1a8:	00801025 	move	v0,a0
+ 1ac:	00a01825 	move	v1,a1
+ 1b0:	2404000e 	li	a0,14
+ 1b4:	00402825 	move	a1,v0
+ 1b8:	00603025 	move	a2,v1
+ 1bc:	0000000c 	syscall
+ 1c0:	03e00008 	jr	ra
+ 1c4:	00000000 	nop
+
+000001c8 <set_cursor>:
+ 1c8:	00801025 	move	v0,a0
+ 1cc:	00a01825 	move	v1,a1
+ 1d0:	00c04025 	move	t0,a2
+ 1d4:	24040005 	li	a0,5
+ 1d8:	00402825 	move	a1,v0
+ 1dc:	00603025 	move	a2,v1
+ 1e0:	01003825 	move	a3,t0
+ 1e4:	0000000c 	syscall
+ 1e8:	03e00008 	jr	ra
+ 1ec:	00000000 	nop
+
+000001f0 <put_charAt>:
+ 1f0:	00801025 	move	v0,a0
+ 1f4:	00a01825 	move	v1,a1
+ 1f8:	00c04025 	move	t0,a2
+ 1fc:	24040009 	li	a0,9
+ 200:	00402825 	move	a1,v0
+ 204:	00603025 	move	a2,v1
+ 208:	01003825 	move	a3,t0
+ 20c:	0000000c 	syscall
+ 210:	03e00008 	jr	ra
+ 214:	00000000 	nop
+
+00000218 <put_pixel>:
+ 218:	00801025 	move	v0,a0
+ 21c:	00a01825 	move	v1,a1
+ 220:	00c04025 	move	t0,a2
+ 224:	2404000c 	li	a0,12
+ 228:	00402825 	move	a1,v0
+ 22c:	00603025 	move	a2,v1
+ 230:	01003825 	move	a3,t0
+ 234:	0000000c 	syscall
+ 238:	03e00008 	jr	ra
+ 23c:	00000000 	nop
+
+00000240 <fread>:
+ 240:	00801025 	move	v0,a0
+ 244:	00a01825 	move	v1,a1
+ 248:	00c04025 	move	t0,a2
+ 24c:	24040014 	li	a0,20
+ 250:	00402825 	move	a1,v0
+ 254:	00603025 	move	a2,v1
+ 258:	01003825 	move	a3,t0
+ 25c:	0000000c 	syscall
+ 260:	03e00008 	jr	ra
+ 264:	00000000 	nop
+
+00000268 <fwrite>:
+ 268:	00801025 	move	v0,a0
+ 26c:	00a01825 	move	v1,a1
+ 270:	00c04025 	move	t0,a2
+ 274:	24040015 	li	a0,21
+ 278:	00402825 	move	a1,v0
+ 27c:	00603025 	move	a2,v1
+ 280:	01003825 	move	a3,t0
+ 284:	0000000c 	syscall
+ 288:	03e00008 	jr	ra
+ 28c:	00000000 	nop
+
+00000290 <fseek>:
+ 290:	00801025 	move	v0,a0
+ 294:	00a01825 	move	v1,a1
+ 298:	00c04025 	move	t0,a2
+ 29c:	24040016 	li	a0,22
+ 2a0:	00402825 	move	a1,v0
+ 2a4:	00603025 	move	a2,v1
+ 2a8:	01003825 	move	a3,t0
+ 2ac:	0000000c 	syscall
+ 2b0:	03e00008 	jr	ra
+ 2b4:	00000000 	nop
+
+000002b8 <getc>:
+ 2b8:	27bdffe8 	addiu	sp,sp,-24
+ 2bc:	afbf0014 	sw	ra,20(sp)
+ 2c0:	afb00010 	sw	s0,16(sp)
+ 2c4:	3410ffff 	li	s0,0xffff
+ 2c8:	0c000010 	jal	40 <get_char>
+ 2cc:	00000000 	nop
+ 2d0:	3043ffff 	andi	v1,v0,0xffff
+ 2d4:	1070fffc 	beq	v1,s0,2c8 <getc+0x10>
+ 2d8:	304200ff 	andi	v0,v0,0xff
+ 2dc:	8fbf0014 	lw	ra,20(sp)
+ 2e0:	8fb00010 	lw	s0,16(sp)
+ 2e4:	03e00008 	jr	ra
+ 2e8:	27bd0018 	addiu	sp,sp,24
+
+000002ec <putc>:
+ 2ec:	27bdffe8 	addiu	sp,sp,-24
+ 2f0:	afbf0014 	sw	ra,20(sp)
+ 2f4:	0c000034 	jal	d0 <put_char>
+ 2f8:	00000000 	nop
+ 2fc:	8fbf0014 	lw	ra,20(sp)
+ 300:	00000000 	nop
+ 304:	03e00008 	jr	ra
+ 308:	27bd0018 	addiu	sp,sp,24
+
+0000030c <gets>:
+ 30c:	10a00033 	beqz	a1,3dc <gets+0xd0>
+ 310:	00000000 	nop
+ 314:	27bdffd0 	addiu	sp,sp,-48
+ 318:	afbf002c 	sw	ra,44(sp)
+ 31c:	afb60028 	sw	s6,40(sp)
+ 320:	afb50024 	sw	s5,36(sp)
+ 324:	afb40020 	sw	s4,32(sp)
+ 328:	afb3001c 	sw	s3,28(sp)
+ 32c:	afb20018 	sw	s2,24(sp)
+ 330:	afb10014 	sw	s1,20(sp)
+ 334:	afb00010 	sw	s0,16(sp)
+ 338:	00a09825 	move	s3,a1
+ 33c:	0080a025 	move	s4,a0
+ 340:	00008825 	move	s1,zero
+ 344:	3410ffff 	li	s0,0xffff
+ 348:	24150008 	li	s5,8
+ 34c:	1000000a 	b	378 <gets+0x6c>
+ 350:	2416000a 	li	s6,10
+ 354:	0c000034 	jal	d0 <put_char>
+ 358:	00000000 	nop
+ 35c:	92420000 	lbu	v0,0(s2)
+ 360:	00000000 	nop
+ 364:	10560012 	beq	v0,s6,3b0 <gets+0xa4>
+ 368:	26310001 	addiu	s1,s1,1
+ 36c:	0233102b 	sltu	v0,s1,s3
+ 370:	10400010 	beqz	v0,3b4 <gets+0xa8>
+ 374:	00000000 	nop
+ 378:	0c000010 	jal	40 <get_char>
+ 37c:	00000000 	nop
+ 380:	3043ffff 	andi	v1,v0,0xffff
+ 384:	1070fffc 	beq	v1,s0,378 <gets+0x6c>
+ 388:	304400ff 	andi	a0,v0,0xff
+ 38c:	02919021 	addu	s2,s4,s1
+ 390:	1475fff0 	bne	v1,s5,354 <gets+0x48>
+ 394:	a2440000 	sb	a0,0(s2)
+ 398:	1220fff4 	beqz	s1,36c <gets+0x60>
+ 39c:	00000000 	nop
+ 3a0:	0c000034 	jal	d0 <put_char>
+ 3a4:	2631ffff 	addiu	s1,s1,-1
+ 3a8:	1000fff1 	b	370 <gets+0x64>
+ 3ac:	0233102b 	sltu	v0,s1,s3
+ 3b0:	a2400000 	sb	zero,0(s2)
+ 3b4:	8fbf002c 	lw	ra,44(sp)
+ 3b8:	8fb60028 	lw	s6,40(sp)
+ 3bc:	8fb50024 	lw	s5,36(sp)
+ 3c0:	8fb40020 	lw	s4,32(sp)
+ 3c4:	8fb3001c 	lw	s3,28(sp)
+ 3c8:	8fb20018 	lw	s2,24(sp)
+ 3cc:	8fb10014 	lw	s1,20(sp)
+ 3d0:	8fb00010 	lw	s0,16(sp)
+ 3d4:	03e00008 	jr	ra
+ 3d8:	27bd0030 	addiu	sp,sp,48
+ 3dc:	03e00008 	jr	ra
+ 3e0:	00000000 	nop
+
+000003e4 <puts>:
+ 3e4:	27bdffe8 	addiu	sp,sp,-24
+ 3e8:	afbf0014 	sw	ra,20(sp)
+ 3ec:	afb00010 	sw	s0,16(sp)
+ 3f0:	00808025 	move	s0,a0
+ 3f4:	90840000 	lbu	a0,0(a0)
+ 3f8:	00000000 	nop
+ 3fc:	10800007 	beqz	a0,41c <puts+0x38>
+ 400:	00000000 	nop
+ 404:	0c000034 	jal	d0 <put_char>
+ 408:	26100001 	addiu	s0,s0,1
+ 40c:	92040000 	lbu	a0,0(s0)
+ 410:	00000000 	nop
+ 414:	1480fffb 	bnez	a0,404 <puts+0x20>
+ 418:	00000000 	nop
+ 41c:	8fbf0014 	lw	ra,20(sp)
+ 420:	8fb00010 	lw	s0,16(sp)
+ 424:	03e00008 	jr	ra
+ 428:	27bd0018 	addiu	sp,sp,24
+
+0000042c <strncmp>:
+ 42c:	10c00013 	beqz	a2,47c <strncmp+0x50>
+ 430:	00000000 	nop
+ 434:	90830000 	lbu	v1,0(a0)
+ 438:	90a20000 	lbu	v0,0(a1)
+ 43c:	00000000 	nop
+ 440:	14620010 	bne	v1,v0,484 <strncmp+0x58>
+ 444:	24830001 	addiu	v1,a0,1
+ 448:	24a50001 	addiu	a1,a1,1
+ 44c:	00863021 	addu	a2,a0,a2
+ 450:	10660008 	beq	v1,a2,474 <strncmp+0x48>
+ 454:	00000000 	nop
+ 458:	90680000 	lbu	t0,0(v1)
+ 45c:	90a70000 	lbu	a3,0(a1)
+ 460:	24630001 	addiu	v1,v1,1
+ 464:	1107fffa 	beq	t0,a3,450 <strncmp+0x24>
+ 468:	24a50001 	addiu	a1,a1,1
+ 46c:	03e00008 	jr	ra
+ 470:	24020001 	li	v0,1
+ 474:	03e00008 	jr	ra
+ 478:	00001025 	move	v0,zero
+ 47c:	03e00008 	jr	ra
+ 480:	00c01025 	move	v0,a2
+ 484:	03e00008 	jr	ra
+ 488:	24020001 	li	v0,1
+
+0000048c <strlen>:
+ 48c:	90820000 	lbu	v0,0(a0)
+ 490:	00000000 	nop
+ 494:	10400009 	beqz	v0,4bc <strlen+0x30>
+ 498:	24840001 	addiu	a0,a0,1
+ 49c:	00001025 	move	v0,zero
+ 4a0:	24840001 	addiu	a0,a0,1
+ 4a4:	9083ffff 	lbu	v1,-1(a0)
+ 4a8:	00000000 	nop
+ 4ac:	1460fffc 	bnez	v1,4a0 <strlen+0x14>
+ 4b0:	24420001 	addiu	v0,v0,1
+ 4b4:	03e00008 	jr	ra
+ 4b8:	00000000 	nop
+ 4bc:	03e00008 	jr	ra
+ 4c0:	00001025 	move	v0,zero
+
+000004c4 <memncpy>:
+ 4c4:	10c00008 	beqz	a2,4e8 <memncpy+0x24>
+ 4c8:	00a01025 	move	v0,a1
+ 4cc:	00a62821 	addu	a1,a1,a2
+ 4d0:	90430000 	lbu	v1,0(v0)
+ 4d4:	00000000 	nop
+ 4d8:	a0830000 	sb	v1,0(a0)
+ 4dc:	24420001 	addiu	v0,v0,1
+ 4e0:	1445fffb 	bne	v0,a1,4d0 <memncpy+0xc>
+ 4e4:	24840001 	addiu	a0,a0,1
+ 4e8:	03e00008 	jr	ra
+ 4ec:	00000000 	nop
+
+000004f0 <printHex>:
+ 4f0:	27bdffe8 	addiu	sp,sp,-24
+ 4f4:	afbf0014 	sw	ra,20(sp)
+ 4f8:	afb00010 	sw	s0,16(sp)
+ 4fc:	00808025 	move	s0,a0
+ 500:	00042102 	srl	a0,a0,0x4
+ 504:	2c82000a 	sltiu	v0,a0,10
+ 508:	1040000d 	beqz	v0,540 <printHex+0x50>
+ 50c:	00000000 	nop
+ 510:	0c000034 	jal	d0 <put_char>
+ 514:	24840030 	addiu	a0,a0,48
+ 518:	3210000f 	andi	s0,s0,0xf
+ 51c:	2e02000a 	sltiu	v0,s0,10
+ 520:	1440000b 	bnez	v0,550 <printHex+0x60>
+ 524:	00000000 	nop
+ 528:	0c000034 	jal	d0 <put_char>
+ 52c:	26040037 	addiu	a0,s0,55
+ 530:	8fbf0014 	lw	ra,20(sp)
+ 534:	8fb00010 	lw	s0,16(sp)
+ 538:	03e00008 	jr	ra
+ 53c:	27bd0018 	addiu	sp,sp,24
+ 540:	0c000034 	jal	d0 <put_char>
+ 544:	24840037 	addiu	a0,a0,55
+ 548:	1000fff4 	b	51c <printHex+0x2c>
+ 54c:	3210000f 	andi	s0,s0,0xf
+ 550:	0c000034 	jal	d0 <put_char>
+ 554:	26040030 	addiu	a0,s0,48
+ 558:	1000fff5 	b	530 <printHex+0x40>
+ 55c:	00000000 	nop
+
+00000560 <main>:
+ 560:	27bdfec8 	addiu	sp,sp,-312
+ 564:	afbf0134 	sw	ra,308(sp)
+ 568:	afb70130 	sw	s7,304(sp)
+ 56c:	afb6012c 	sw	s6,300(sp)
+ 570:	afb50128 	sw	s5,296(sp)
+ 574:	afb40124 	sw	s4,292(sp)
+ 578:	afb30120 	sw	s3,288(sp)
+ 57c:	afb2011c 	sw	s2,284(sp)
+ 580:	afb10118 	sw	s1,280(sp)
+ 584:	afb00114 	sw	s0,276(sp)
+ 588:	0c00000c 	jal	30 <clear_screen>
+ 58c:	a3a0010f 	sb	zero,271(sp)
+ 590:	3c110000 	lui	s1,0x0
+ 594:	26312040 	addiu	s1,s1,8256
+ 598:	3c100000 	lui	s0,0x0
+ 59c:	26102024 	addiu	s0,s0,8228
+ 5a0:	3c130000 	lui	s3,0x0
+ 5a4:	26732020 	addiu	s3,s3,8224
+ 5a8:	3c140000 	lui	s4,0x0
+ 5ac:	3c150000 	lui	s5,0x0
+ 5b0:	26b52014 	addiu	s5,s5,8212
+ 5b4:	10000003 	b	5c4 <main+0x64>
+ 5b8:	3c160000 	lui	s6,0x0
+ 5bc:	0c00000c 	jal	30 <clear_screen>
+ 5c0:	00000000 	nop
+ 5c4:	2405007e 	li	a1,126
+ 5c8:	0c00006a 	jal	1a8 <pwd>
+ 5cc:	27a40090 	addiu	a0,sp,144
+ 5d0:	a3a0010f 	sb	zero,271(sp)
+ 5d4:	0c0000f9 	jal	3e4 <puts>
+ 5d8:	27a40090 	addiu	a0,sp,144
+ 5dc:	0c0000f9 	jal	3e4 <puts>
+ 5e0:	02202025 	move	a0,s1
+ 5e4:	24050080 	li	a1,128
+ 5e8:	0c0000c3 	jal	30c <gets>
+ 5ec:	27a40010 	addiu	a0,sp,16
+ 5f0:	24060003 	li	a2,3
+ 5f4:	02002825 	move	a1,s0
+ 5f8:	0c00010b 	jal	42c <strncmp>
+ 5fc:	27a40010 	addiu	a0,sp,16
+ 600:	1040ffee 	beqz	v0,5bc <main+0x5c>
+ 604:	24060002 	li	a2,2
+ 608:	02602825 	move	a1,s3
+ 60c:	0c00010b 	jal	42c <strncmp>
+ 610:	27a40010 	addiu	a0,sp,16
+ 614:	10400029 	beqz	v0,6bc <main+0x15c>
+ 618:	24060002 	li	a2,2
+ 61c:	2685201c 	addiu	a1,s4,8220
+ 620:	0c00010b 	jal	42c <strncmp>
+ 624:	27a40010 	addiu	a0,sp,16
+ 628:	10400028 	beqz	v0,6cc <main+0x16c>
+ 62c:	24060005 	li	a2,5
+ 630:	02a02825 	move	a1,s5
+ 634:	0c00010b 	jal	42c <strncmp>
+ 638:	27a40010 	addiu	a0,sp,16
+ 63c:	10400027 	beqz	v0,6dc <main+0x17c>
+ 640:	24060003 	li	a2,3
+ 644:	26c52010 	addiu	a1,s6,8208
+ 648:	0c00010b 	jal	42c <strncmp>
+ 64c:	27a40010 	addiu	a0,sp,16
+ 650:	10400026 	beqz	v0,6ec <main+0x18c>
+ 654:	24060002 	li	a2,2
+ 658:	3c050000 	lui	a1,0x0
+ 65c:	24a5200c 	addiu	a1,a1,8204
+ 660:	0c00010b 	jal	42c <strncmp>
+ 664:	27a40010 	addiu	a0,sp,16
+ 668:	10400038 	beqz	v0,74c <main+0x1ec>
+ 66c:	24060002 	li	a2,2
+ 670:	3c050000 	lui	a1,0x0
+ 674:	24a52008 	addiu	a1,a1,8200
+ 678:	0c00010b 	jal	42c <strncmp>
+ 67c:	27a40010 	addiu	a0,sp,16
+ 680:	10400053 	beqz	v0,7d0 <main+0x270>
+ 684:	24060004 	li	a2,4
+ 688:	3c050000 	lui	a1,0x0
+ 68c:	24a52000 	addiu	a1,a1,8192
+ 690:	0c00010b 	jal	42c <strncmp>
+ 694:	27a40010 	addiu	a0,sp,16
+ 698:	14400051 	bnez	v0,7e0 <main+0x280>
+ 69c:	00000000 	nop
+ 6a0:	3c040000 	lui	a0,0x0
+ 6a4:	0c0000f9 	jal	3e4 <puts>
+ 6a8:	24842034 	addiu	a0,a0,8244
+ 6ac:	0c000064 	jal	190 <load>
+ 6b0:	27a40015 	addiu	a0,sp,21
+ 6b4:	1000ffc4 	b	5c8 <main+0x68>
+ 6b8:	2405007e 	li	a1,126
+ 6bc:	0c000040 	jal	100 <cd>
+ 6c0:	27a40013 	addiu	a0,sp,19
+ 6c4:	1000ffc0 	b	5c8 <main+0x68>
+ 6c8:	2405007e 	li	a1,126
+ 6cc:	0c000014 	jal	50 <dir>
+ 6d0:	00000000 	nop
+ 6d4:	1000ffbc 	b	5c8 <main+0x68>
+ 6d8:	2405007e 	li	a1,126
+ 6dc:	0c000046 	jal	118 <crt_file>
+ 6e0:	27a40016 	addiu	a0,sp,22
+ 6e4:	1000ffb8 	b	5c8 <main+0x68>
+ 6e8:	2405007e 	li	a1,126
+ 6ec:	0c000052 	jal	148 <fopen>
+ 6f0:	27a40014 	addiu	a0,sp,20
+ 6f4:	1440000b 	bnez	v0,724 <main+0x1c4>
+ 6f8:	00409025 	move	s2,v0
+ 6fc:	1000ffb2 	b	5c8 <main+0x68>
+ 700:	2405007e 	li	a1,126
+ 704:	2405007f 	li	a1,127
+ 708:	0c000090 	jal	240 <fread>
+ 70c:	27a40090 	addiu	a0,sp,144
+ 710:	27a30010 	addiu	v1,sp,16
+ 714:	00621021 	addu	v0,v1,v0
+ 718:	a0400080 	sb	zero,128(v0)
+ 71c:	0c0000f9 	jal	3e4 <puts>
+ 720:	27a40090 	addiu	a0,sp,144
+ 724:	0c00005e 	jal	178 <feof>
+ 728:	02402025 	move	a0,s2
+ 72c:	1040fff5 	beqz	v0,704 <main+0x1a4>
+ 730:	02403025 	move	a2,s2
+ 734:	0c000058 	jal	160 <fclose>
+ 738:	02402025 	move	a0,s2
+ 73c:	0c0000bb 	jal	2ec <putc>
+ 740:	2404000a 	li	a0,10
+ 744:	1000ffa0 	b	5c8 <main+0x68>
+ 748:	2405007e 	li	a1,126
+ 74c:	93a20013 	lbu	v0,19(sp)
+ 750:	24030020 	li	v1,32
+ 754:	10430027 	beq	v0,v1,7f4 <main+0x294>
+ 758:	27b20013 	addiu	s2,sp,19
+ 75c:	1040ff9a 	beqz	v0,5c8 <main+0x68>
+ 760:	2405007e 	li	a1,126
+ 764:	26520001 	addiu	s2,s2,1
+ 768:	92420000 	lbu	v0,0(s2)
+ 76c:	00000000 	nop
+ 770:	10430020 	beq	v0,v1,7f4 <main+0x294>
+ 774:	00000000 	nop
+ 778:	1440fffb 	bnez	v0,768 <main+0x208>
+ 77c:	26520001 	addiu	s2,s2,1
+ 780:	2652ffff 	addiu	s2,s2,-1
+ 784:	1000ff90 	b	5c8 <main+0x68>
+ 788:	2405007e 	li	a1,126
+ 78c:	2405007f 	li	a1,127
+ 790:	0c000090 	jal	240 <fread>
+ 794:	27a40090 	addiu	a0,sp,144
+ 798:	02403025 	move	a2,s2
+ 79c:	00402825 	move	a1,v0
+ 7a0:	0c00009a 	jal	268 <fwrite>
+ 7a4:	27a40090 	addiu	a0,sp,144
+ 7a8:	0c00005e 	jal	178 <feof>
+ 7ac:	02e02025 	move	a0,s7
+ 7b0:	1040fff6 	beqz	v0,78c <main+0x22c>
+ 7b4:	02e03025 	move	a2,s7
+ 7b8:	0c000058 	jal	160 <fclose>
+ 7bc:	02e02025 	move	a0,s7
+ 7c0:	0c000058 	jal	160 <fclose>
+ 7c4:	02402025 	move	a0,s2
+ 7c8:	1000ff7f 	b	5c8 <main+0x68>
+ 7cc:	2405007e 	li	a1,126
+ 7d0:	0c00004c 	jal	130 <del_file>
+ 7d4:	27a40013 	addiu	a0,sp,19
+ 7d8:	1000ff7b 	b	5c8 <main+0x68>
+ 7dc:	2405007e 	li	a1,126
+ 7e0:	3c040000 	lui	a0,0x0
+ 7e4:	0c0000f9 	jal	3e4 <puts>
+ 7e8:	24842028 	addiu	a0,a0,8232
+ 7ec:	1000ff76 	b	5c8 <main+0x68>
+ 7f0:	2405007e 	li	a1,126
+ 7f4:	a2400000 	sb	zero,0(s2)
+ 7f8:	0c000052 	jal	148 <fopen>
+ 7fc:	27a40013 	addiu	a0,sp,19
+ 800:	1040ff70 	beqz	v0,5c4 <main+0x64>
+ 804:	0040b825 	move	s7,v0
+ 808:	26520001 	addiu	s2,s2,1
+ 80c:	0c00004c 	jal	130 <del_file>
+ 810:	02402025 	move	a0,s2
+ 814:	0c000046 	jal	118 <crt_file>
+ 818:	02402025 	move	a0,s2
+ 81c:	0c000052 	jal	148 <fopen>
+ 820:	02402025 	move	a0,s2
+ 824:	1440ffe0 	bnez	v0,7a8 <main+0x248>
+ 828:	00409025 	move	s2,v0
+ 82c:	1000ff66 	b	5c8 <main+0x68>
+ 830:	2405007e 	li	a1,126

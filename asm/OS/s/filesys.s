@@ -1112,16 +1112,18 @@ $L156:
 	bne	$3,$5,$L156
 	addiu	$4,$4,16
 
-	sb	$0,0($2)
+	addiu	$3,$2,1
 $L166:
-	lw	$2,320($sp)
-	nop
-	addiu	$2,$2,1
-	sw	$2,320($sp)
+	sw	$3,320($sp)
+	lbu	$17,1($2)
+	sb	$0,1($2)
 	move	$5,$16
 	jal	do_cd
 	addiu	$4,$sp,16
 
+	lw	$2,320($sp)
+	nop
+	sb	$17,0($2)
 	addiu	$5,$sp,320
 $L168:
 	jal	get_file_name
@@ -1181,7 +1183,7 @@ $L150:
 	addiu	$5,$sp,320
 
 	b	$L166
-	sb	$0,0($2)
+	addiu	$3,$2,1
 
 $L165:
 	move	$6,$20

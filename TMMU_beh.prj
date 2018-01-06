@@ -1,0 +1,7 @@
+verilog work "CAM_unit.v"
+verilog work "Decoder.v"
+verilog work "CAM_16.v"
+verilog work "TLB_16.v"
+verilog work "MMU.v"
+verilog work "TMMU.v"
+verilog work "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

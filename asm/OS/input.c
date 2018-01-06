@@ -148,3 +148,13 @@ unsigned short input_key(unsigned long capslock, unsigned short key)
             return t_key;
     }
 }
+
+unsigned short input_skey(unsigned short key)
+{
+    if (key == DEL_SSC)
+    {
+        return ZCODE_DEL;
+    }
+    else
+        return 0x0FFFF;
+}

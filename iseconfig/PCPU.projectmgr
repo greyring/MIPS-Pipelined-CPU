@@ -67,6 +67,7 @@
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Clk_gen - clk_gen</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Input_switch_btn - input_switch_btn</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Led_controller - led_controller</ClosedNode>
+         <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/ALU - alu</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/CP0_ - CP0</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/MMU_ - MMU</ClosedNode>
@@ -80,7 +81,6 @@
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/_Mul_adder - mul_adder</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/PCPU - PCPU_v/add_branch_addr - adder32_Sklansky</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/UART_ctrl - uart_controller</ClosedNode>
-         <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Vga_controller - vga_controller</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Vga_controller - vga_controller/Graph_vga - vga_graph</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Vga_controller - vga_controller/Text_vga - vga_text</ClosedNode>
          <ClosedNode>/top F:|MyProgramme|0arch|PCPU|top.v/Vga_controller - vga_controller/Vga_graph - vga_graph</ClosedNode>
@@ -129,13 +129,13 @@
          <ClosedNode>/write_data_mask F:|MyProgramme|0arch|PCPU|write_data_mask.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Exc_Handler - Exception_handler (F:/MyProgramme/0arch/PCPU/Exception_handler.v)</SelectedItem>
+         <SelectedItem>top (F:/MyProgramme/0arch/PCPU/top.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >48</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >33</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d8000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d80000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Exc_Handler - Exception_handler (F:/MyProgramme/0arch/PCPU/Exception_handler.v)</CurrentItem>
+      <CurrentItem>top (F:/MyProgramme/0arch/PCPU/top.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -149,9 +149,9 @@
       <SelectedItems>
          <SelectedItem></SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >8</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000112000000010000000100000000000000000000000064ffffffff000000810000000000000001000001120000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
